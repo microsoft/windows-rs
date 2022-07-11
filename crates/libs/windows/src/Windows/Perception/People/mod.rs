@@ -88,14 +88,9 @@ impl ::core::convert::From<&EyesPose> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EyesPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EyesPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EyesPose> for &::windows::core::IUnknown {
+    fn from(value: &EyesPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EyesPose> for ::windows::core::IInspectable {
@@ -108,14 +103,9 @@ impl ::core::convert::From<&EyesPose> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EyesPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EyesPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EyesPose> for &::windows::core::IInspectable {
+    fn from(value: &EyesPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EyesPose {}
@@ -213,11 +203,11 @@ impl HandMeshObserver {
         unsafe { (::windows::core::Interface::vtable(this).GetTriangleIndices)(::windows::core::Interface::as_raw(this), indices.len() as u32, ::core::mem::transmute_copy(&indices)).ok() }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
-    pub fn GetVertexStateForPose<'a, Param0: ::windows::core::IntoParam<'a, HandPose>>(&self, handpose: Param0) -> ::windows::core::Result<HandMeshVertexState> {
+    pub fn GetVertexStateForPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HandPose>>>(&self, handpose: Param0) -> ::windows::core::Result<HandMeshVertexState> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetVertexStateForPose)(::windows::core::Interface::as_raw(this), handpose.into_param().abi(), result__.as_mut_ptr()).from_abi::<HandMeshVertexState>(result__)
+            (::windows::core::Interface::vtable(this).GetVertexStateForPose)(::windows::core::Interface::as_raw(this), handpose.into().abi(), result__.as_mut_ptr()).from_abi::<HandMeshVertexState>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`*"]
@@ -285,14 +275,9 @@ impl ::core::convert::From<&HandMeshObserver> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HandMeshObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HandMeshObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HandMeshObserver> for &::windows::core::IUnknown {
+    fn from(value: &HandMeshObserver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HandMeshObserver> for ::windows::core::IInspectable {
@@ -305,14 +290,9 @@ impl ::core::convert::From<&HandMeshObserver> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HandMeshObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HandMeshObserver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HandMeshObserver> for &::windows::core::IInspectable {
+    fn from(value: &HandMeshObserver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HandMeshObserver {}
@@ -432,14 +412,9 @@ impl ::core::convert::From<&HandMeshVertexState> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HandMeshVertexState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HandMeshVertexState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HandMeshVertexState> for &::windows::core::IUnknown {
+    fn from(value: &HandMeshVertexState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HandMeshVertexState> for ::windows::core::IInspectable {
@@ -452,14 +427,9 @@ impl ::core::convert::From<&HandMeshVertexState> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HandMeshVertexState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HandMeshVertexState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HandMeshVertexState> for &::windows::core::IInspectable {
+    fn from(value: &HandMeshVertexState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HandMeshVertexState {}
@@ -470,29 +440,29 @@ pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoint<'a, Param0: ::windows::core::IntoParam<'a, super::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool> {
+    pub fn TryGetJoint<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>, Param1: ::std::convert::Into<HandJointKind>>(&self, coordinatesystem: Param0, joint: Param1, jointpose: &mut JointPose) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetJoint)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joint, jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetJoint)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joint.into(), jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoints<'a, Param0: ::windows::core::IntoParam<'a, super::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool> {
+    pub fn TryGetJoints<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetJoints)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetJoints)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joints.len() as u32, ::core::mem::transmute(joints.as_ptr()), jointposes.len() as u32, ::core::mem::transmute_copy(&jointposes), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> ::windows::core::Result<JointPose> {
+    pub fn GetRelativeJoint<'a, Param0: ::std::convert::Into<HandJointKind>, Param1: ::std::convert::Into<HandJointKind>>(&self, joint: Param0, referencejoint: Param1) -> ::windows::core::Result<JointPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<JointPose>::zeroed();
-            (::windows::core::Interface::vtable(this).GetRelativeJoint)(::windows::core::Interface::as_raw(this), joint, referencejoint, result__.as_mut_ptr()).from_abi::<JointPose>(result__)
+            (::windows::core::Interface::vtable(this).GetRelativeJoint)(::windows::core::Interface::as_raw(this), joint.into(), referencejoint.into(), result__.as_mut_ptr()).from_abi::<JointPose>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
@@ -542,14 +512,9 @@ impl ::core::convert::From<&HandPose> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HandPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HandPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HandPose> for &::windows::core::IUnknown {
+    fn from(value: &HandPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HandPose> for ::windows::core::IInspectable {
@@ -562,14 +527,9 @@ impl ::core::convert::From<&HandPose> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HandPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HandPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HandPose> for &::windows::core::IInspectable {
+    fn from(value: &HandPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HandPose {}
@@ -646,14 +606,9 @@ impl ::core::convert::From<&HeadPose> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HeadPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HeadPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HeadPose> for &::windows::core::IUnknown {
+    fn from(value: &HeadPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HeadPose> for ::windows::core::IInspectable {
@@ -666,14 +621,9 @@ impl ::core::convert::From<&HeadPose> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HeadPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HeadPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HeadPose> for &::windows::core::IInspectable {
+    fn from(value: &HeadPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HeadPose {}

@@ -2210,13 +2210,13 @@ pub const ADSystemInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn ADsBuildEnumerator<'a, Param0: ::windows::core::IntoParam<'a, IADsContainer>>(padscontainer: Param0) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT> {
+pub unsafe fn ADsBuildEnumerator<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IADsContainer>>>(padscontainer: Param0) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsBuildEnumerator(padscontainer: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    ADsBuildEnumerator(padscontainer.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IEnumVARIANT>(result__)
+    ADsBuildEnumerator(padscontainer.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IEnumVARIANT>(result__)
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2240,12 +2240,12 @@ pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[::windows::core::PWSTR], pvar:
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn ADsDecodeBinaryData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(szsrcdata: Param0, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn ADsDecodeBinaryData(szsrcdata: ::windows::core::PCWSTR, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsDecodeBinaryData(szsrcdata: ::windows::core::PCWSTR, ppbdestdata: *mut *mut u8, pdwdestlen: *mut u32) -> ::windows::core::HRESULT;
     }
-    ADsDecodeBinaryData(szsrcdata.into_param().abi(), ::core::mem::transmute(ppbdestdata), ::core::mem::transmute(pdwdestlen)).ok()
+    ADsDecodeBinaryData(::core::mem::transmute(szsrcdata), ::core::mem::transmute(ppbdestdata), ::core::mem::transmute(pdwdestlen)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -2259,22 +2259,22 @@ pub unsafe fn ADsEncodeBinaryData(pbsrcdata: *mut u8, dwsrclen: u32, ppszdestdat
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn ADsEnumerateNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IEnumVARIANT>>(penumvariant: Param0, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn ADsEnumerateNext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IEnumVARIANT>>>(penumvariant: Param0, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsEnumerateNext(penumvariant: *mut ::core::ffi::c_void, celements: u32, pvar: *mut super::super::System::Com::VARIANT, pcelementsfetched: *mut u32) -> ::windows::core::HRESULT;
     }
-    ADsEnumerateNext(penumvariant.into_param().abi(), ::core::mem::transmute(celements), ::core::mem::transmute(pvar), ::core::mem::transmute(pcelementsfetched)).ok()
+    ADsEnumerateNext(penumvariant.into().abi(), ::core::mem::transmute(celements), ::core::mem::transmute(pvar), ::core::mem::transmute(pcelementsfetched)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(feature = "Win32_System_Ole")]
 #[inline]
-pub unsafe fn ADsFreeEnumerator<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IEnumVARIANT>>(penumvariant: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn ADsFreeEnumerator<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IEnumVARIANT>>>(penumvariant: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsFreeEnumerator(penumvariant: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ADsFreeEnumerator(penumvariant.into_param().abi()).ok()
+    ADsFreeEnumerator(penumvariant.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -2287,101 +2287,101 @@ pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: &mut [u16], lpnameb
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn ADsGetObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszpathname: Param0, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn ADsGetObject(lpszpathname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsGetObject(lpszpathname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ADsGetObject(lpszpathname.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobject)).ok()
+    ADsGetObject(::core::mem::transmute(lpszpathname), ::core::mem::transmute(riid), ::core::mem::transmute(ppobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn ADsOpenObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpszpathname: Param0, lpszusername: Param1, lpszpassword: Param2, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn ADsOpenObject<'a, Param3: ::std::convert::Into<ADS_AUTHENTICATION_ENUM>>(lpszpathname: ::windows::core::PCWSTR, lpszusername: ::windows::core::PCWSTR, lpszpassword: ::windows::core::PCWSTR, dwreserved: Param3, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsOpenObject(lpszpathname: ::windows::core::PCWSTR, lpszusername: ::windows::core::PCWSTR, lpszpassword: ::windows::core::PCWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    ADsOpenObject(lpszpathname.into_param().abi(), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(riid), ::core::mem::transmute(ppobject)).ok()
+    ADsOpenObject(::core::mem::transmute(lpszpathname), ::core::mem::transmute(lpszusername), ::core::mem::transmute(lpszpassword), dwreserved.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobject)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ADsPropCheckIfWritable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwzattr: Param0, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL {
+pub unsafe fn ADsPropCheckIfWritable(pwzattr: ::windows::core::PCWSTR, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropCheckIfWritable(pwzattr: ::windows::core::PCWSTR, pwritableattrs: *const ADS_ATTR_INFO) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ADsPropCheckIfWritable(pwzattr.into_param().abi(), ::core::mem::transmute(pwritableattrs)))
+    ::core::mem::transmute(ADsPropCheckIfWritable(::core::mem::transmute(pwzattr), ::core::mem::transmute(pwritableattrs)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn ADsPropCreateNotifyObj<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pappthddataobj: Param0, pwzadsobjname: Param1, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
+pub unsafe fn ADsPropCreateNotifyObj<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>>(pappthddataobj: Param0, pwzadsobjname: ::windows::core::PCWSTR, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropCreateNotifyObj(pappthddataobj: *mut ::core::ffi::c_void, pwzadsobjname: ::windows::core::PCWSTR, phnotifyobj: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    ADsPropCreateNotifyObj(pappthddataobj.into_param().abi(), pwzadsobjname.into_param().abi(), ::core::mem::transmute(phnotifyobj)).ok()
+    ADsPropCreateNotifyObj(pappthddataobj.into().abi(), ::core::mem::transmute(pwzadsobjname), ::core::mem::transmute(phnotifyobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ADsPropGetInitInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL {
+pub unsafe fn ADsPropGetInitInfo<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hnotifyobj: Param0, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropGetInitInfo(hnotifyobj: super::super::Foundation::HWND, pinitparams: *mut ADSPROPINITPARAMS) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ADsPropGetInitInfo(hnotifyobj.into_param().abi(), ::core::mem::transmute(pinitparams)))
+    ::core::mem::transmute(ADsPropGetInitInfo(hnotifyobj.into(), ::core::mem::transmute(pinitparams)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ADsPropSendErrorMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL {
+pub unsafe fn ADsPropSendErrorMessage<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hnotifyobj: Param0, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropSendErrorMessage(hnotifyobj: super::super::Foundation::HWND, perror: *mut ADSPROPERROR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ADsPropSendErrorMessage(hnotifyobj.into_param().abi(), ::core::mem::transmute(perror)))
+    ::core::mem::transmute(ADsPropSendErrorMessage(hnotifyobj.into(), ::core::mem::transmute(perror)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ADsPropSetHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ADsPropSetHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropSetHwnd(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ADsPropSetHwnd(hnotifyobj.into_param().abi(), hpage.into_param().abi()))
+    ::core::mem::transmute(ADsPropSetHwnd(hnotifyobj.into(), hpage.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ADsPropSetHwndWithTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1, ptztitle: *const i8) -> super::super::Foundation::BOOL {
+pub unsafe fn ADsPropSetHwndWithTitle<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1, ptztitle: *const i8) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropSetHwndWithTitle(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND, ptztitle: *const i8) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ADsPropSetHwndWithTitle(hnotifyobj.into_param().abi(), hpage.into_param().abi(), ::core::mem::transmute(ptztitle)))
+    ::core::mem::transmute(ADsPropSetHwndWithTitle(hnotifyobj.into(), hpage.into(), ::core::mem::transmute(ptztitle)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ADsPropShowErrorDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ADsPropShowErrorDialog<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(hnotifyobj: Param0, hpage: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsPropShowErrorDialog(hnotifyobj: super::super::Foundation::HWND, hpage: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ADsPropShowErrorDialog(hnotifyobj.into_param().abi(), hpage.into_param().abi()))
+    ::core::mem::transmute(ADsPropShowErrorDialog(hnotifyobj.into(), hpage.into()))
 }
 pub const ADsSecurityUtility: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn ADsSetLastError<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwerr: u32, pszerror: Param1, pszprovider: Param2) {
+pub unsafe fn ADsSetLastError(dwerr: u32, pszerror: ::windows::core::PCWSTR, pszprovider: ::windows::core::PCWSTR) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ADsSetLastError(dwerr: u32, pszerror: ::windows::core::PCWSTR, pszprovider: ::windows::core::PCWSTR);
     }
-    ADsSetLastError(::core::mem::transmute(dwerr), pszerror.into_param().abi(), pszprovider.into_param().abi())
+    ADsSetLastError(::core::mem::transmute(dwerr), ::core::mem::transmute(pszerror), ::core::mem::transmute(pszprovider))
 }
 pub const AccessControlEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
 pub const AccessControlList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
@@ -2416,23 +2416,23 @@ pub unsafe fn AllocADsMem(cb: u32) -> *mut ::core::ffi::c_void {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn AllocADsStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pstr: Param0) -> ::windows::core::PWSTR {
+pub unsafe fn AllocADsStr(pstr: ::windows::core::PCWSTR) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AllocADsStr(pstr: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
-    ::core::mem::transmute(AllocADsStr(pstr.into_param().abi()))
+    ::core::mem::transmute(AllocADsStr(::core::mem::transmute(pstr)))
 }
 pub const BackLink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn BinarySDToSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::PSECURITY_DESCRIPTOR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psecuritydescriptor: Param0, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: Param2, username: Param3, password: Param4, dwflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn BinarySDToSecurityDescriptor<'a, Param0: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>>(psecuritydescriptor: Param0, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BinarySDToSecurityDescriptor(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, pvarsec: *mut super::super::System::Com::VARIANT, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    BinarySDToSecurityDescriptor(psecuritydescriptor.into_param().abi(), ::core::mem::transmute(pvarsec), pszservername.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    BinarySDToSecurityDescriptor(psecuritydescriptor.into(), ::core::mem::transmute(pvarsec), ::core::mem::transmute(pszservername), ::core::mem::transmute(username), ::core::mem::transmute(password), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const CFSTR_DSDISPLAYSPECOPTIONS: &str = "DsDisplaySpecOptions";
@@ -7051,192 +7051,192 @@ pub const DS_WS_FLAG: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsAddSidHistoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, flags: u32, srcdomain: Param2, srcprincipal: Param3, srcdomaincontroller: Param4, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: Param6, dstprincipal: Param7) -> u32 {
+pub unsafe fn DsAddSidHistoryA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, flags: u32, srcdomain: ::windows::core::PCSTR, srcprincipal: ::windows::core::PCSTR, srcdomaincontroller: ::windows::core::PCSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows::core::PCSTR, dstprincipal: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsAddSidHistoryA(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: ::windows::core::PCSTR, srcprincipal: ::windows::core::PCSTR, srcdomaincontroller: ::windows::core::PCSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows::core::PCSTR, dstprincipal: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddSidHistoryA(hds.into_param().abi(), ::core::mem::transmute(flags), srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds), dstdomain.into_param().abi(), dstprincipal.into_param().abi()))
+    ::core::mem::transmute(DsAddSidHistoryA(hds.into(), ::core::mem::transmute(flags), ::core::mem::transmute(srcdomain), ::core::mem::transmute(srcprincipal), ::core::mem::transmute(srcdomaincontroller), ::core::mem::transmute(srcdomaincreds), ::core::mem::transmute(dstdomain), ::core::mem::transmute(dstprincipal)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsAddSidHistoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param7: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, flags: u32, srcdomain: Param2, srcprincipal: Param3, srcdomaincontroller: Param4, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: Param6, dstprincipal: Param7) -> u32 {
+pub unsafe fn DsAddSidHistoryW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, flags: u32, srcdomain: ::windows::core::PCWSTR, srcprincipal: ::windows::core::PCWSTR, srcdomaincontroller: ::windows::core::PCWSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows::core::PCWSTR, dstprincipal: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsAddSidHistoryW(hds: super::super::Foundation::HANDLE, flags: u32, srcdomain: ::windows::core::PCWSTR, srcprincipal: ::windows::core::PCWSTR, srcdomaincontroller: ::windows::core::PCWSTR, srcdomaincreds: *const ::core::ffi::c_void, dstdomain: ::windows::core::PCWSTR, dstprincipal: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddSidHistoryW(hds.into_param().abi(), ::core::mem::transmute(flags), srcdomain.into_param().abi(), srcprincipal.into_param().abi(), srcdomaincontroller.into_param().abi(), ::core::mem::transmute(srcdomaincreds), dstdomain.into_param().abi(), dstprincipal.into_param().abi()))
+    ::core::mem::transmute(DsAddSidHistoryW(hds.into(), ::core::mem::transmute(flags), ::core::mem::transmute(srcdomain), ::core::mem::transmute(srcprincipal), ::core::mem::transmute(srcdomaincontroller), ::core::mem::transmute(srcdomaincreds), ::core::mem::transmute(dstdomain), ::core::mem::transmute(dstprincipal)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(computername: Param0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsAddressToSiteNamesA(computername: ::windows::core::PCSTR, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsAddressToSiteNamesA(computername: ::windows::core::PCSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddressToSiteNamesA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames)))
+    ::core::mem::transmute(DsAddressToSiteNamesA(::core::mem::transmute(computername), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesExA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(computername: Param0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PSTR, subnetnames: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsAddressToSiteNamesExA(computername: ::windows::core::PCSTR, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PSTR, subnetnames: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsAddressToSiteNamesExA(computername: ::windows::core::PCSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut ::windows::core::PSTR, subnetnames: *mut *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddressToSiteNamesExA(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames), ::core::mem::transmute(subnetnames)))
+    ::core::mem::transmute(DsAddressToSiteNamesExA(::core::mem::transmute(computername), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames), ::core::mem::transmute(subnetnames)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(computername: Param0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PWSTR, subnetnames: *mut *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsAddressToSiteNamesExW(computername: ::windows::core::PCWSTR, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PWSTR, subnetnames: *mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsAddressToSiteNamesExW(computername: ::windows::core::PCWSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut ::windows::core::PWSTR, subnetnames: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddressToSiteNamesExW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames), ::core::mem::transmute(subnetnames)))
+    ::core::mem::transmute(DsAddressToSiteNamesExW(::core::mem::transmute(computername), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames), ::core::mem::transmute(subnetnames)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DsAddressToSiteNamesW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(computername: Param0, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsAddressToSiteNamesW(computername: ::windows::core::PCWSTR, socketaddresses: &[super::WinSock::SOCKET_ADDRESS], sitenames: *mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsAddressToSiteNamesW(computername: ::windows::core::PCWSTR, entrycount: u32, socketaddresses: *const super::WinSock::SOCKET_ADDRESS, sitenames: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsAddressToSiteNamesW(computername.into_param().abi(), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames)))
+    ::core::mem::transmute(DsAddressToSiteNamesW(::core::mem::transmute(computername), socketaddresses.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(socketaddresses)), ::core::mem::transmute(sitenames)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindA(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindByInstanceA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servername: Param0, annotation: Param1, instanceguid: *const ::windows::core::GUID, dnsdomainname: Param3, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindByInstanceA(servername: ::windows::core::PCSTR, annotation: ::windows::core::PCSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindByInstanceA(servername: ::windows::core::PCSTR, annotation: ::windows::core::PCSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindByInstanceA(servername.into_param().abi(), annotation.into_param().abi(), ::core::mem::transmute(instanceguid), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), serviceprincipalname.into_param().abi(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindByInstanceA(::core::mem::transmute(servername), ::core::mem::transmute(annotation), ::core::mem::transmute(instanceguid), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(serviceprincipalname), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindByInstanceW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, annotation: Param1, instanceguid: *const ::windows::core::GUID, dnsdomainname: Param3, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param5, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindByInstanceW(servername: ::windows::core::PCWSTR, annotation: ::windows::core::PCWSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindByInstanceW(servername: ::windows::core::PCWSTR, annotation: ::windows::core::PCWSTR, instanceguid: *const ::windows::core::GUID, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindByInstanceW(servername.into_param().abi(), annotation.into_param().abi(), ::core::mem::transmute(instanceguid), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), serviceprincipalname.into_param().abi(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindByInstanceW(::core::mem::transmute(servername), ::core::mem::transmute(annotation), ::core::mem::transmute(instanceguid), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(serviceprincipalname), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindToISTGA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(sitename: Param0, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindToISTGA(sitename: ::windows::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindToISTGA(sitename: ::windows::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindToISTGA(sitename.into_param().abi(), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindToISTGA(::core::mem::transmute(sitename), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindToISTGW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(sitename: Param0, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindToISTGW(sitename: ::windows::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindToISTGW(sitename: ::windows::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindToISTGW(sitename.into_param().abi(), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindToISTGW(::core::mem::transmute(sitename), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindW(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindWithCredA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindWithCredA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindWithCredA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithCredA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithCredA(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindWithCredW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindWithCredW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindWithCredW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithCredW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithCredW(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindWithSpnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindWithSpnA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindWithSpnA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithSpnA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), serviceprincipalname.into_param().abi(), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithSpnA(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(serviceprincipalname), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindWithSpnExA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindWithSpnExA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindWithSpnExA(domaincontrollername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithSpnExA(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), serviceprincipalname.into_param().abi(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithSpnExA(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(serviceprincipalname), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindWithSpnExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindWithSpnExW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindWithSpnExW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, bindflags: u32, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithSpnExW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), serviceprincipalname.into_param().abi(), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithSpnExW(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(serviceprincipalname), ::core::mem::transmute(bindflags), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindWithSpnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domaincontrollername: Param0, dnsdomainname: Param1, authidentity: *const ::core::ffi::c_void, serviceprincipalname: Param3, phds: *mut super::super::Foundation::HANDLE) -> u32 {
+pub unsafe fn DsBindWithSpnW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindWithSpnW(domaincontrollername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, authidentity: *const ::core::ffi::c_void, serviceprincipalname: ::windows::core::PCWSTR, phds: *mut super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(DsBindWithSpnW(domaincontrollername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(authidentity), serviceprincipalname.into_param().abi(), ::core::mem::transmute(phds)))
+    ::core::mem::transmute(DsBindWithSpnW(::core::mem::transmute(domaincontrollername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(authidentity), ::core::mem::transmute(serviceprincipalname), ::core::mem::transmute(phds)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsBindingSetTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ctimeoutsecs: u32) -> u32 {
+pub unsafe fn DsBindingSetTimeout<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, ctimeoutsecs: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsBindingSetTimeout(hds: super::super::Foundation::HANDLE, ctimeoutsecs: u32) -> u32;
     }
-    ::core::mem::transmute(DsBindingSetTimeout(hds.into_param().abi(), ::core::mem::transmute(ctimeoutsecs)))
+    ::core::mem::transmute(DsBindingSetTimeout(hds.into(), ::core::mem::transmute(ctimeoutsecs)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
@@ -7260,41 +7260,41 @@ pub unsafe fn DsBrowseForContainerW(pinfo: *mut DSBROWSEINFOW) -> i32 {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsClientMakeSpnForTargetServerA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(serviceclass: Param0, servicename: Param1, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsClientMakeSpnForTargetServerA(serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsClientMakeSpnForTargetServerA(serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsClientMakeSpnForTargetServerA(serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
+    ::core::mem::transmute(DsClientMakeSpnForTargetServerA(::core::mem::transmute(serviceclass), ::core::mem::transmute(servicename), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsClientMakeSpnForTargetServerW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(serviceclass: Param0, servicename: Param1, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsClientMakeSpnForTargetServerW(serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsClientMakeSpnForTargetServerW(serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsClientMakeSpnForTargetServerW(serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
+    ::core::mem::transmute(DsClientMakeSpnForTargetServerW(::core::mem::transmute(serviceclass), ::core::mem::transmute(servicename), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsCrackNamesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[::windows::core::PSTR], ppresult: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsCrackNamesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_NAME_FLAGS>, Param2: ::std::convert::Into<DS_NAME_FORMAT>, Param3: ::std::convert::Into<DS_NAME_FORMAT>>(hds: Param0, flags: Param1, formatoffered: Param2, formatdesired: Param3, rpnames: &[::windows::core::PSTR], ppresult: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsCrackNamesA(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const ::windows::core::PSTR, ppresult: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsCrackNamesA(hds.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(formatoffered), ::core::mem::transmute(formatdesired), rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
+    ::core::mem::transmute(DsCrackNamesA(hds.into(), flags.into(), formatoffered.into(), formatdesired.into(), rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsCrackNamesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[::windows::core::PWSTR], ppresult: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsCrackNamesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_NAME_FLAGS>, Param2: ::std::convert::Into<DS_NAME_FORMAT>, Param3: ::std::convert::Into<DS_NAME_FORMAT>>(hds: Param0, flags: Param1, formatoffered: Param2, formatdesired: Param3, rpnames: &[::windows::core::PWSTR], ppresult: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsCrackNamesW(hds: super::super::Foundation::HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: u32, rpnames: *const ::windows::core::PWSTR, ppresult: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsCrackNamesW(hds.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(formatoffered), ::core::mem::transmute(formatdesired), rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
+    ::core::mem::transmute(DsCrackNamesW(hds.into(), flags.into(), formatoffered.into(), formatdesired.into(), rpnames.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpnames)), ::core::mem::transmute(ppresult)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7316,39 +7316,39 @@ pub unsafe fn DsCrackSpn2W(pszspn: &[u16], pcserviceclass: *mut u32, serviceclas
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsCrackSpn3W<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszspn: Param0, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsCrackSpn3W(pszspn: ::windows::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsCrackSpn3W(pszspn: ::windows::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pportnumber: *mut u16, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsCrackSpn3W(pszspn.into_param().abi(), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pportnumber), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
+    ::core::mem::transmute(DsCrackSpn3W(::core::mem::transmute(pszspn), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pportnumber), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsCrackSpn4W<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszspn: Param0, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pcportname: *mut u32, portname: ::windows::core::PWSTR, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsCrackSpn4W(pszspn: ::windows::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pcportname: *mut u32, portname: ::windows::core::PWSTR, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsCrackSpn4W(pszspn: ::windows::core::PCWSTR, cspn: u32, pchostname: *mut u32, hostname: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pcportname: *mut u32, portname: ::windows::core::PWSTR, pcdomainname: *mut u32, domainname: ::windows::core::PWSTR, pcrealmname: *mut u32, realmname: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsCrackSpn4W(pszspn.into_param().abi(), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pcportname), ::core::mem::transmute(portname), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
+    ::core::mem::transmute(DsCrackSpn4W(::core::mem::transmute(pszspn), ::core::mem::transmute(cspn), ::core::mem::transmute(pchostname), ::core::mem::transmute(hostname), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pcportname), ::core::mem::transmute(portname), ::core::mem::transmute(pcdomainname), ::core::mem::transmute(domainname), ::core::mem::transmute(pcrealmname), ::core::mem::transmute(realmname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsCrackSpnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszspn: Param0, pcserviceclass: *mut u32, serviceclass: ::windows::core::PSTR, pcservicename: *mut u32, servicename: ::windows::core::PSTR, pcinstancename: *mut u32, instancename: ::windows::core::PSTR, pinstanceport: *mut u16) -> u32 {
+pub unsafe fn DsCrackSpnA(pszspn: ::windows::core::PCSTR, pcserviceclass: *mut u32, serviceclass: ::windows::core::PSTR, pcservicename: *mut u32, servicename: ::windows::core::PSTR, pcinstancename: *mut u32, instancename: ::windows::core::PSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsCrackSpnA(pszspn: ::windows::core::PCSTR, pcserviceclass: *mut u32, serviceclass: ::windows::core::PSTR, pcservicename: *mut u32, servicename: ::windows::core::PSTR, pcinstancename: *mut u32, instancename: ::windows::core::PSTR, pinstanceport: *mut u16) -> u32;
     }
-    ::core::mem::transmute(DsCrackSpnA(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
+    ::core::mem::transmute(DsCrackSpnA(::core::mem::transmute(pszspn), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsCrackSpnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszspn: Param0, pcserviceclass: *mut u32, serviceclass: ::windows::core::PWSTR, pcservicename: *mut u32, servicename: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pinstanceport: *mut u16) -> u32 {
+pub unsafe fn DsCrackSpnW(pszspn: ::windows::core::PCWSTR, pcserviceclass: *mut u32, serviceclass: ::windows::core::PWSTR, pcservicename: *mut u32, servicename: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pinstanceport: *mut u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsCrackSpnW(pszspn: ::windows::core::PCWSTR, pcserviceclass: *mut u32, serviceclass: ::windows::core::PWSTR, pcservicename: *mut u32, servicename: ::windows::core::PWSTR, pcinstancename: *mut u32, instancename: ::windows::core::PWSTR, pinstanceport: *mut u16) -> u32;
     }
-    ::core::mem::transmute(DsCrackSpnW(pszspn.into_param().abi(), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
+    ::core::mem::transmute(DsCrackSpnW(::core::mem::transmute(pszspn), ::core::mem::transmute(pcserviceclass), ::core::mem::transmute(serviceclass), ::core::mem::transmute(pcservicename), ::core::mem::transmute(servicename), ::core::mem::transmute(pcinstancename), ::core::mem::transmute(instancename), ::core::mem::transmute(pinstanceport)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7372,41 +7372,41 @@ pub unsafe fn DsCrackUnquotedMangledRdnW(pszrdn: &[u16], pguid: *mut ::windows::
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsDeregisterDnsHostRecordsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servername: Param0, dnsdomainname: Param1, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: Param4) -> u32 {
+pub unsafe fn DsDeregisterDnsHostRecordsA(servername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsDeregisterDnsHostRecordsA(servername: ::windows::core::PCSTR, dnsdomainname: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsDeregisterDnsHostRecordsA(servername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(domainguid), ::core::mem::transmute(dsaguid), dnshostname.into_param().abi()))
+    ::core::mem::transmute(DsDeregisterDnsHostRecordsA(::core::mem::transmute(servername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(domainguid), ::core::mem::transmute(dsaguid), ::core::mem::transmute(dnshostname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsDeregisterDnsHostRecordsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, dnsdomainname: Param1, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: Param4) -> u32 {
+pub unsafe fn DsDeregisterDnsHostRecordsW(servername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsDeregisterDnsHostRecordsW(servername: ::windows::core::PCWSTR, dnsdomainname: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, dsaguid: *const ::windows::core::GUID, dnshostname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsDeregisterDnsHostRecordsW(servername.into_param().abi(), dnsdomainname.into_param().abi(), ::core::mem::transmute(domainguid), ::core::mem::transmute(dsaguid), dnshostname.into_param().abi()))
+    ::core::mem::transmute(DsDeregisterDnsHostRecordsW(::core::mem::transmute(servername), ::core::mem::transmute(dnsdomainname), ::core::mem::transmute(domainguid), ::core::mem::transmute(dsaguid), ::core::mem::transmute(dnshostname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsEnumerateDomainTrustsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servername: Param0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32 {
+pub unsafe fn DsEnumerateDomainTrustsA(servername: ::windows::core::PCSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsEnumerateDomainTrustsA(servername: ::windows::core::PCSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSA, domaincount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(DsEnumerateDomainTrustsA(servername.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
+    ::core::mem::transmute(DsEnumerateDomainTrustsA(::core::mem::transmute(servername), ::core::mem::transmute(flags), ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsEnumerateDomainTrustsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32 {
+pub unsafe fn DsEnumerateDomainTrustsW(servername: ::windows::core::PCWSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsEnumerateDomainTrustsW(servername: ::windows::core::PCWSTR, flags: u32, domains: *mut *mut DS_DOMAIN_TRUSTSW, domaincount: *mut u32) -> u32;
     }
-    ::core::mem::transmute(DsEnumerateDomainTrustsW(servername.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
+    ::core::mem::transmute(DsEnumerateDomainTrustsW(::core::mem::transmute(servername), ::core::mem::transmute(flags), ::core::mem::transmute(domains), ::core::mem::transmute(domaincount)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7491,135 +7491,135 @@ pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [::windows::core::PWSTR]) {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcCloseW<'a, Param0: ::windows::core::IntoParam<'a, GetDcContextHandle>>(getdccontexthandle: Param0) {
+pub unsafe fn DsGetDcCloseW<'a, Param0: ::std::convert::Into<GetDcContextHandle>>(getdccontexthandle: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcCloseW(getdccontexthandle: GetDcContextHandle);
     }
-    DsGetDcCloseW(getdccontexthandle.into_param().abi())
+    DsGetDcCloseW(getdccontexthandle.into())
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(computername: Param0, domainname: Param1, domainguid: *const ::windows::core::GUID, sitename: Param3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32 {
+pub unsafe fn DsGetDcNameA(computername: ::windows::core::PCSTR, domainname: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, sitename: ::windows::core::PCSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcNameA(computername: ::windows::core::PCSTR, domainname: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, sitename: ::windows::core::PCSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOA) -> u32;
     }
-    ::core::mem::transmute(DsGetDcNameA(computername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(domainguid), sitename.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(domaincontrollerinfo)))
+    ::core::mem::transmute(DsGetDcNameA(::core::mem::transmute(computername), ::core::mem::transmute(domainname), ::core::mem::transmute(domainguid), ::core::mem::transmute(sitename), ::core::mem::transmute(flags), ::core::mem::transmute(domaincontrollerinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(computername: Param0, domainname: Param1, domainguid: *const ::windows::core::GUID, sitename: Param3, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32 {
+pub unsafe fn DsGetDcNameW(computername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, sitename: ::windows::core::PCWSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcNameW(computername: ::windows::core::PCWSTR, domainname: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, sitename: ::windows::core::PCWSTR, flags: u32, domaincontrollerinfo: *mut *mut DOMAIN_CONTROLLER_INFOW) -> u32;
     }
-    ::core::mem::transmute(DsGetDcNameW(computername.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(domainguid), sitename.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(domaincontrollerinfo)))
+    ::core::mem::transmute(DsGetDcNameW(::core::mem::transmute(computername), ::core::mem::transmute(domainname), ::core::mem::transmute(domainguid), ::core::mem::transmute(sitename), ::core::mem::transmute(flags), ::core::mem::transmute(domaincontrollerinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DsGetDcNextA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsGetDcNextA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcNextA(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetDcNextA(getdccontexthandle.into_param().abi(), ::core::mem::transmute(sockaddresscount), ::core::mem::transmute(sockaddresses), ::core::mem::transmute(dnshostname)))
+    ::core::mem::transmute(DsGetDcNextA(getdccontexthandle.into(), ::core::mem::transmute(sockaddresscount), ::core::mem::transmute(sockaddresses), ::core::mem::transmute(dnshostname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn DsGetDcNextW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsGetDcNextW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(getdccontexthandle: Param0, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcNextW(getdccontexthandle: super::super::Foundation::HANDLE, sockaddresscount: *mut u32, sockaddresses: *mut *mut super::WinSock::SOCKET_ADDRESS, dnshostname: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetDcNextW(getdccontexthandle.into_param().abi(), ::core::mem::transmute(sockaddresscount), ::core::mem::transmute(sockaddresses), ::core::mem::transmute(dnshostname)))
+    ::core::mem::transmute(DsGetDcNextW(getdccontexthandle.into(), ::core::mem::transmute(sockaddresscount), ::core::mem::transmute(sockaddresses), ::core::mem::transmute(dnshostname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcOpenA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(dnsname: Param0, optionflags: u32, sitename: Param2, domainguid: *const ::windows::core::GUID, dnsforestname: Param4, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
+pub unsafe fn DsGetDcOpenA(dnsname: ::windows::core::PCSTR, optionflags: u32, sitename: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, dnsforestname: ::windows::core::PCSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcOpenA(dnsname: ::windows::core::PCSTR, optionflags: u32, sitename: ::windows::core::PCSTR, domainguid: *const ::windows::core::GUID, dnsforestname: ::windows::core::PCSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32;
     }
-    ::core::mem::transmute(DsGetDcOpenA(dnsname.into_param().abi(), ::core::mem::transmute(optionflags), sitename.into_param().abi(), ::core::mem::transmute(domainguid), dnsforestname.into_param().abi(), ::core::mem::transmute(dcflags), ::core::mem::transmute(retgetdccontext)))
+    ::core::mem::transmute(DsGetDcOpenA(::core::mem::transmute(dnsname), ::core::mem::transmute(optionflags), ::core::mem::transmute(sitename), ::core::mem::transmute(domainguid), ::core::mem::transmute(dnsforestname), ::core::mem::transmute(dcflags), ::core::mem::transmute(retgetdccontext)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcOpenW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dnsname: Param0, optionflags: u32, sitename: Param2, domainguid: *const ::windows::core::GUID, dnsforestname: Param4, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
+pub unsafe fn DsGetDcOpenW(dnsname: ::windows::core::PCWSTR, optionflags: u32, sitename: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, dnsforestname: ::windows::core::PCWSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcOpenW(dnsname: ::windows::core::PCWSTR, optionflags: u32, sitename: ::windows::core::PCWSTR, domainguid: *const ::windows::core::GUID, dnsforestname: ::windows::core::PCWSTR, dcflags: u32, retgetdccontext: *mut GetDcContextHandle) -> u32;
     }
-    ::core::mem::transmute(DsGetDcOpenW(dnsname.into_param().abi(), ::core::mem::transmute(optionflags), sitename.into_param().abi(), ::core::mem::transmute(domainguid), dnsforestname.into_param().abi(), ::core::mem::transmute(dcflags), ::core::mem::transmute(retgetdccontext)))
+    ::core::mem::transmute(DsGetDcOpenW(::core::mem::transmute(dnsname), ::core::mem::transmute(optionflags), ::core::mem::transmute(sitename), ::core::mem::transmute(domainguid), ::core::mem::transmute(dnsforestname), ::core::mem::transmute(dcflags), ::core::mem::transmute(retgetdccontext)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcSiteCoverageA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servername: Param0, entrycount: *mut u32, sitenames: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsGetDcSiteCoverageA(servername: ::windows::core::PCSTR, entrycount: *mut u32, sitenames: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcSiteCoverageA(servername: ::windows::core::PCSTR, entrycount: *mut u32, sitenames: *mut *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetDcSiteCoverageA(servername.into_param().abi(), ::core::mem::transmute(entrycount), ::core::mem::transmute(sitenames)))
+    ::core::mem::transmute(DsGetDcSiteCoverageA(::core::mem::transmute(servername), ::core::mem::transmute(entrycount), ::core::mem::transmute(sitenames)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetDcSiteCoverageW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, entrycount: *mut u32, sitenames: *mut *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsGetDcSiteCoverageW(servername: ::windows::core::PCWSTR, entrycount: *mut u32, sitenames: *mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDcSiteCoverageW(servername: ::windows::core::PCWSTR, entrycount: *mut u32, sitenames: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetDcSiteCoverageW(servername.into_param().abi(), ::core::mem::transmute(entrycount), ::core::mem::transmute(sitenames)))
+    ::core::mem::transmute(DsGetDcSiteCoverageW(::core::mem::transmute(servername), ::core::mem::transmute(entrycount), ::core::mem::transmute(sitenames)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsGetDomainControllerInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, domainname: Param1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn DsGetDomainControllerInfoA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, domainname: ::windows::core::PCSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDomainControllerInfoA(hds: super::super::Foundation::HANDLE, domainname: ::windows::core::PCSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsGetDomainControllerInfoA(hds.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsGetDomainControllerInfoA(hds.into(), ::core::mem::transmute(domainname), ::core::mem::transmute(infolevel), ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsGetDomainControllerInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, domainname: Param1, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn DsGetDomainControllerInfoW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, domainname: ::windows::core::PCWSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetDomainControllerInfoW(hds: super::super::Foundation::HANDLE, domainname: ::windows::core::PCWSTR, infolevel: u32, pcout: *mut u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsGetDomainControllerInfoW(hds.into_param().abi(), domainname.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsGetDomainControllerInfoW(hds.into(), ::core::mem::transmute(domainname), ::core::mem::transmute(infolevel), ::core::mem::transmute(pcout), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
-pub unsafe fn DsGetForestTrustInformationW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servername: Param0, trusteddomainname: Param1, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
+pub unsafe fn DsGetForestTrustInformationW(servername: ::windows::core::PCWSTR, trusteddomainname: ::windows::core::PCWSTR, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetForestTrustInformationW(servername: ::windows::core::PCWSTR, trusteddomainname: ::windows::core::PCWSTR, flags: u32, foresttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(DsGetForestTrustInformationW(servername.into_param().abi(), trusteddomainname.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(foresttrustinfo)))
+    ::core::mem::transmute(DsGetForestTrustInformationW(::core::mem::transmute(servername), ::core::mem::transmute(trusteddomainname), ::core::mem::transmute(flags), ::core::mem::transmute(foresttrustinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetFriendlyClassName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszobjectclass: Param0, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn DsGetFriendlyClassName(pszobjectclass: ::windows::core::PCWSTR, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetFriendlyClassName(pszobjectclass: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, cchbuffer: u32) -> ::windows::core::HRESULT;
     }
-    DsGetFriendlyClassName(pszobjectclass.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
+    DsGetFriendlyClassName(::core::mem::transmute(pszobjectclass), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn DsGetIcon<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(dwflags: u32, pszobjectclass: Param1, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON {
+pub unsafe fn DsGetIcon(dwflags: u32, pszobjectclass: ::windows::core::PCWSTR, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetIcon(dwflags: u32, pszobjectclass: ::windows::core::PCWSTR, cximage: i32, cyimage: i32) -> super::super::UI::WindowsAndMessaging::HICON;
     }
-    ::core::mem::transmute(DsGetIcon(::core::mem::transmute(dwflags), pszobjectclass.into_param().abi(), ::core::mem::transmute(cximage), ::core::mem::transmute(cyimage)))
+    ::core::mem::transmute(DsGetIcon(::core::mem::transmute(dwflags), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(cximage), ::core::mem::transmute(cyimage)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7632,305 +7632,305 @@ pub unsafe fn DsGetRdnW(ppdn: *mut ::windows::core::PWSTR, pcdn: *mut u32, ppkey
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetSiteNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(computername: Param0, sitename: *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsGetSiteNameA(computername: ::windows::core::PCSTR, sitename: *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetSiteNameA(computername: ::windows::core::PCSTR, sitename: *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetSiteNameA(computername.into_param().abi(), ::core::mem::transmute(sitename)))
+    ::core::mem::transmute(DsGetSiteNameA(::core::mem::transmute(computername), ::core::mem::transmute(sitename)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetSiteNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(computername: Param0, sitename: *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsGetSiteNameW(computername: ::windows::core::PCWSTR, sitename: *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetSiteNameW(computername: ::windows::core::PCWSTR, sitename: *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetSiteNameW(computername.into_param().abi(), ::core::mem::transmute(sitename)))
+    ::core::mem::transmute(DsGetSiteNameW(::core::mem::transmute(computername), ::core::mem::transmute(sitename)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetSpnA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsGetSpnA<'a, Param0: ::std::convert::Into<DS_SPN_NAME_TYPE>>(servicetype: Param0, serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetSpnA(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
+    ::core::mem::transmute(DsGetSpnA(servicetype.into(), ::core::mem::transmute(serviceclass), ::core::mem::transmute(servicename), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsGetSpnW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(servicetype: DS_SPN_NAME_TYPE, serviceclass: Param1, servicename: Param2, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsGetSpnW<'a, Param0: ::std::convert::Into<DS_SPN_NAME_TYPE>>(servicetype: Param0, serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instanceport: u16, cinstancenames: u16, pinstancenames: *const ::windows::core::PWSTR, pinstanceports: *const u16, pcspn: *mut u32, prpszspn: *mut *mut ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsGetSpnW(::core::mem::transmute(servicetype), serviceclass.into_param().abi(), servicename.into_param().abi(), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
+    ::core::mem::transmute(DsGetSpnW(servicetype.into(), ::core::mem::transmute(serviceclass), ::core::mem::transmute(servicename), ::core::mem::transmute(instanceport), ::core::mem::transmute(cinstancenames), ::core::mem::transmute(pinstancenames), ::core::mem::transmute(pinstanceports), ::core::mem::transmute(pcspn), ::core::mem::transmute(prpszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsInheritSecurityIdentityA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, flags: u32, srcprincipal: Param2, dstprincipal: Param3) -> u32 {
+pub unsafe fn DsInheritSecurityIdentityA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, flags: u32, srcprincipal: ::windows::core::PCSTR, dstprincipal: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsInheritSecurityIdentityA(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: ::windows::core::PCSTR, dstprincipal: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsInheritSecurityIdentityA(hds.into_param().abi(), ::core::mem::transmute(flags), srcprincipal.into_param().abi(), dstprincipal.into_param().abi()))
+    ::core::mem::transmute(DsInheritSecurityIdentityA(hds.into(), ::core::mem::transmute(flags), ::core::mem::transmute(srcprincipal), ::core::mem::transmute(dstprincipal)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsInheritSecurityIdentityW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, flags: u32, srcprincipal: Param2, dstprincipal: Param3) -> u32 {
+pub unsafe fn DsInheritSecurityIdentityW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, flags: u32, srcprincipal: ::windows::core::PCWSTR, dstprincipal: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsInheritSecurityIdentityW(hds: super::super::Foundation::HANDLE, flags: u32, srcprincipal: ::windows::core::PCWSTR, dstprincipal: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsInheritSecurityIdentityW(hds.into_param().abi(), ::core::mem::transmute(flags), srcprincipal.into_param().abi(), dstprincipal.into_param().abi()))
+    ::core::mem::transmute(DsInheritSecurityIdentityW(hds.into(), ::core::mem::transmute(flags), ::core::mem::transmute(srcprincipal), ::core::mem::transmute(dstprincipal)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsIsMangledDnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszdn: Param0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
+pub unsafe fn DsIsMangledDnA<'a, Param1: ::std::convert::Into<DS_MANGLE_FOR>>(pszdn: ::windows::core::PCSTR, edsmanglefor: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsIsMangledDnA(pszdn: ::windows::core::PCSTR, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledDnA(pszdn.into_param().abi(), ::core::mem::transmute(edsmanglefor)))
+    ::core::mem::transmute(DsIsMangledDnA(::core::mem::transmute(pszdn), edsmanglefor.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsIsMangledDnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszdn: Param0, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
+pub unsafe fn DsIsMangledDnW<'a, Param1: ::std::convert::Into<DS_MANGLE_FOR>>(pszdn: ::windows::core::PCWSTR, edsmanglefor: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsIsMangledDnW(pszdn: ::windows::core::PCWSTR, edsmanglefor: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledDnW(pszdn.into_param().abi(), ::core::mem::transmute(edsmanglefor)))
+    ::core::mem::transmute(DsIsMangledDnW(::core::mem::transmute(pszdn), edsmanglefor.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsIsMangledRdnValueA(pszrdn: &[u8], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
+pub unsafe fn DsIsMangledRdnValueA<'a, Param2: ::std::convert::Into<DS_MANGLE_FOR>>(pszrdn: &[u8], edsmanglefordesired: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsIsMangledRdnValueA(pszrdn: ::windows::core::PCSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledRdnValueA(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, ::core::mem::transmute(edsmanglefordesired)))
+    ::core::mem::transmute(DsIsMangledRdnValueA(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, edsmanglefordesired.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsIsMangledRdnValueW(pszrdn: &[u16], edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL {
+pub unsafe fn DsIsMangledRdnValueW<'a, Param2: ::std::convert::Into<DS_MANGLE_FOR>>(pszrdn: &[u16], edsmanglefordesired: Param2) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsIsMangledRdnValueW(pszrdn: ::windows::core::PCWSTR, crdn: u32, edsmanglefordesired: DS_MANGLE_FOR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DsIsMangledRdnValueW(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, ::core::mem::transmute(edsmanglefordesired)))
+    ::core::mem::transmute(DsIsMangledRdnValueW(::core::mem::transmute(::windows::core::as_ptr_or_null(pszrdn)), pszrdn.len() as _, edsmanglefordesired.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListDomainsInSiteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, site: Param1, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsListDomainsInSiteA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, site: ::windows::core::PCSTR, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListDomainsInSiteA(hds: super::super::Foundation::HANDLE, site: ::windows::core::PCSTR, ppdomains: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsListDomainsInSiteA(hds.into_param().abi(), site.into_param().abi(), ::core::mem::transmute(ppdomains)))
+    ::core::mem::transmute(DsListDomainsInSiteA(hds.into(), ::core::mem::transmute(site), ::core::mem::transmute(ppdomains)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListDomainsInSiteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, site: Param1, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsListDomainsInSiteW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, site: ::windows::core::PCWSTR, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListDomainsInSiteW(hds: super::super::Foundation::HANDLE, site: ::windows::core::PCWSTR, ppdomains: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsListDomainsInSiteW(hds.into_param().abi(), site.into_param().abi(), ::core::mem::transmute(ppdomains)))
+    ::core::mem::transmute(DsListDomainsInSiteW(hds.into(), ::core::mem::transmute(site), ::core::mem::transmute(ppdomains)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListInfoForServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, server: Param1, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsListInfoForServerA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, server: ::windows::core::PCSTR, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListInfoForServerA(hds: super::super::Foundation::HANDLE, server: ::windows::core::PCSTR, ppinfo: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsListInfoForServerA(hds.into_param().abi(), server.into_param().abi(), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsListInfoForServerA(hds.into(), ::core::mem::transmute(server), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListInfoForServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, server: Param1, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsListInfoForServerW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, server: ::windows::core::PCWSTR, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListInfoForServerW(hds: super::super::Foundation::HANDLE, server: ::windows::core::PCWSTR, ppinfo: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsListInfoForServerW(hds.into_param().abi(), server.into_param().abi(), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsListInfoForServerW(hds.into(), ::core::mem::transmute(server), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListRolesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsListRolesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListRolesA(hds: super::super::Foundation::HANDLE, pproles: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsListRolesA(hds.into_param().abi(), ::core::mem::transmute(pproles)))
+    ::core::mem::transmute(DsListRolesA(hds.into(), ::core::mem::transmute(pproles)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListRolesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsListRolesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, pproles: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListRolesW(hds: super::super::Foundation::HANDLE, pproles: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsListRolesW(hds.into_param().abi(), ::core::mem::transmute(pproles)))
+    ::core::mem::transmute(DsListRolesW(hds.into(), ::core::mem::transmute(pproles)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListServersForDomainInSiteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, domain: Param1, site: Param2, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsListServersForDomainInSiteA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, domain: ::windows::core::PCSTR, site: ::windows::core::PCSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListServersForDomainInSiteA(hds: super::super::Foundation::HANDLE, domain: ::windows::core::PCSTR, site: ::windows::core::PCSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsListServersForDomainInSiteA(hds.into_param().abi(), domain.into_param().abi(), site.into_param().abi(), ::core::mem::transmute(ppservers)))
+    ::core::mem::transmute(DsListServersForDomainInSiteA(hds.into(), ::core::mem::transmute(domain), ::core::mem::transmute(site), ::core::mem::transmute(ppservers)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListServersForDomainInSiteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, domain: Param1, site: Param2, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsListServersForDomainInSiteW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, domain: ::windows::core::PCWSTR, site: ::windows::core::PCWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListServersForDomainInSiteW(hds: super::super::Foundation::HANDLE, domain: ::windows::core::PCWSTR, site: ::windows::core::PCWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsListServersForDomainInSiteW(hds.into_param().abi(), domain.into_param().abi(), site.into_param().abi(), ::core::mem::transmute(ppservers)))
+    ::core::mem::transmute(DsListServersForDomainInSiteW(hds.into(), ::core::mem::transmute(domain), ::core::mem::transmute(site), ::core::mem::transmute(ppservers)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListServersInSiteA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, site: Param1, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsListServersInSiteA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, site: ::windows::core::PCSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListServersInSiteA(hds: super::super::Foundation::HANDLE, site: ::windows::core::PCSTR, ppservers: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsListServersInSiteA(hds.into_param().abi(), site.into_param().abi(), ::core::mem::transmute(ppservers)))
+    ::core::mem::transmute(DsListServersInSiteA(hds.into(), ::core::mem::transmute(site), ::core::mem::transmute(ppservers)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListServersInSiteW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, site: Param1, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsListServersInSiteW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, site: ::windows::core::PCWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListServersInSiteW(hds: super::super::Foundation::HANDLE, site: ::windows::core::PCWSTR, ppservers: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsListServersInSiteW(hds.into_param().abi(), site.into_param().abi(), ::core::mem::transmute(ppservers)))
+    ::core::mem::transmute(DsListServersInSiteW(hds.into(), ::core::mem::transmute(site), ::core::mem::transmute(ppservers)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListSitesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTA) -> u32 {
+pub unsafe fn DsListSitesA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListSitesA(hds: super::super::Foundation::HANDLE, ppsites: *mut *mut DS_NAME_RESULTA) -> u32;
     }
-    ::core::mem::transmute(DsListSitesA(hds.into_param().abi(), ::core::mem::transmute(ppsites)))
+    ::core::mem::transmute(DsListSitesA(hds.into(), ::core::mem::transmute(ppsites)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsListSitesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTW) -> u32 {
+pub unsafe fn DsListSitesW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, ppsites: *mut *mut DS_NAME_RESULTW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsListSitesW(hds: super::super::Foundation::HANDLE, ppsites: *mut *mut DS_NAME_RESULTW) -> u32;
     }
-    ::core::mem::transmute(DsListSitesW(hds.into_param().abi(), ::core::mem::transmute(ppsites)))
+    ::core::mem::transmute(DsListSitesW(hds.into(), ::core::mem::transmute(ppsites)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsMakePasswordCredentialsA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(user: Param0, domain: Param1, password: Param2, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn DsMakePasswordCredentialsA(user: ::windows::core::PCSTR, domain: ::windows::core::PCSTR, password: ::windows::core::PCSTR, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMakePasswordCredentialsA(user: ::windows::core::PCSTR, domain: ::windows::core::PCSTR, password: ::windows::core::PCSTR, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsMakePasswordCredentialsA(user.into_param().abi(), domain.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(pauthidentity)))
+    ::core::mem::transmute(DsMakePasswordCredentialsA(::core::mem::transmute(user), ::core::mem::transmute(domain), ::core::mem::transmute(password), ::core::mem::transmute(pauthidentity)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsMakePasswordCredentialsW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(user: Param0, domain: Param1, password: Param2, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn DsMakePasswordCredentialsW(user: ::windows::core::PCWSTR, domain: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMakePasswordCredentialsW(user: ::windows::core::PCWSTR, domain: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, pauthidentity: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsMakePasswordCredentialsW(user.into_param().abi(), domain.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(pauthidentity)))
+    ::core::mem::transmute(DsMakePasswordCredentialsW(::core::mem::transmute(user), ::core::mem::transmute(domain), ::core::mem::transmute(password), ::core::mem::transmute(pauthidentity)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsMakeSpnA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(serviceclass: Param0, servicename: Param1, instancename: Param2, instanceport: u16, referrer: Param4, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32 {
+pub unsafe fn DsMakeSpnA(serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instancename: ::windows::core::PCSTR, instanceport: u16, referrer: ::windows::core::PCSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMakeSpnA(serviceclass: ::windows::core::PCSTR, servicename: ::windows::core::PCSTR, instancename: ::windows::core::PCSTR, instanceport: u16, referrer: ::windows::core::PCSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsMakeSpnA(serviceclass.into_param().abi(), servicename.into_param().abi(), instancename.into_param().abi(), ::core::mem::transmute(instanceport), referrer.into_param().abi(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
+    ::core::mem::transmute(DsMakeSpnA(::core::mem::transmute(serviceclass), ::core::mem::transmute(servicename), ::core::mem::transmute(instancename), ::core::mem::transmute(instanceport), ::core::mem::transmute(referrer), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsMakeSpnW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(serviceclass: Param0, servicename: Param1, instancename: Param2, instanceport: u16, referrer: Param4, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32 {
+pub unsafe fn DsMakeSpnW(serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instancename: ::windows::core::PCWSTR, instanceport: u16, referrer: ::windows::core::PCWSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMakeSpnW(serviceclass: ::windows::core::PCWSTR, servicename: ::windows::core::PCWSTR, instancename: ::windows::core::PCWSTR, instanceport: u16, referrer: ::windows::core::PCWSTR, pcspnlength: *mut u32, pszspn: ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsMakeSpnW(serviceclass.into_param().abi(), servicename.into_param().abi(), instancename.into_param().abi(), ::core::mem::transmute(instanceport), referrer.into_param().abi(), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
+    ::core::mem::transmute(DsMakeSpnW(::core::mem::transmute(serviceclass), ::core::mem::transmute(servicename), ::core::mem::transmute(instancename), ::core::mem::transmute(instanceport), ::core::mem::transmute(referrer), ::core::mem::transmute(pcspnlength), ::core::mem::transmute(pszspn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsMapSchemaGuidsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, rguids: &[::windows::core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
+pub unsafe fn DsMapSchemaGuidsA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, rguids: &[::windows::core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMapSchemaGuidsA(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const ::windows::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32;
     }
-    ::core::mem::transmute(DsMapSchemaGuidsA(hds.into_param().abi(), rguids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rguids)), ::core::mem::transmute(ppguidmap)))
+    ::core::mem::transmute(DsMapSchemaGuidsA(hds.into(), rguids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rguids)), ::core::mem::transmute(ppguidmap)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsMapSchemaGuidsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, rguids: &[::windows::core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
+pub unsafe fn DsMapSchemaGuidsW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, rguids: &[::windows::core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMapSchemaGuidsW(hds: super::super::Foundation::HANDLE, cguids: u32, rguids: *const ::windows::core::GUID, ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32;
     }
-    ::core::mem::transmute(DsMapSchemaGuidsW(hds.into_param().abi(), rguids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rguids)), ::core::mem::transmute(ppguidmap)))
+    ::core::mem::transmute(DsMapSchemaGuidsW(hds.into(), rguids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rguids)), ::core::mem::transmute(ppguidmap)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authentication_Identity\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authentication_Identity"))]
 #[inline]
-pub unsafe fn DsMergeForestTrustInformationW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(domainname: Param0, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
+pub unsafe fn DsMergeForestTrustInformationW(domainname: ::windows::core::PCWSTR, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsMergeForestTrustInformationW(domainname: ::windows::core::PCWSTR, newforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, oldforesttrustinfo: *const super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION, mergedforesttrustinfo: *mut *mut super::super::Security::Authentication::Identity::LSA_FOREST_TRUST_INFORMATION) -> u32;
     }
-    ::core::mem::transmute(DsMergeForestTrustInformationW(domainname.into_param().abi(), ::core::mem::transmute(newforesttrustinfo), ::core::mem::transmute(oldforesttrustinfo), ::core::mem::transmute(mergedforesttrustinfo)))
+    ::core::mem::transmute(DsMergeForestTrustInformationW(::core::mem::transmute(domainname), ::core::mem::transmute(newforesttrustinfo), ::core::mem::transmute(oldforesttrustinfo), ::core::mem::transmute(mergedforesttrustinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsQuerySitesByCostA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, pszfromsite: Param1, rgsztosites: &[::windows::core::PSTR], dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
+pub unsafe fn DsQuerySitesByCostA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, pszfromsite: ::windows::core::PCSTR, rgsztosites: &[::windows::core::PSTR], dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsQuerySitesByCostA(hds: super::super::Foundation::HANDLE, pszfromsite: ::windows::core::PCSTR, rgsztosites: *const ::windows::core::PSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
     }
-    ::core::mem::transmute(DsQuerySitesByCostA(hds.into_param().abi(), pszfromsite.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztosites)), rgsztosites.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(prgsiteinfo)))
+    ::core::mem::transmute(DsQuerySitesByCostA(hds.into(), ::core::mem::transmute(pszfromsite), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgsztosites)), rgsztosites.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(prgsiteinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsQuerySitesByCostW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, pwszfromsite: Param1, rgwsztosites: &[::windows::core::PWSTR], dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
+pub unsafe fn DsQuerySitesByCostW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, pwszfromsite: ::windows::core::PCWSTR, rgwsztosites: &[::windows::core::PWSTR], dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsQuerySitesByCostW(hds: super::super::Foundation::HANDLE, pwszfromsite: ::windows::core::PCWSTR, rgwsztosites: *const ::windows::core::PWSTR, ctosites: u32, dwflags: u32, prgsiteinfo: *mut *mut DS_SITE_COST_INFO) -> u32;
     }
-    ::core::mem::transmute(DsQuerySitesByCostW(hds.into_param().abi(), pwszfromsite.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwsztosites)), rgwsztosites.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(prgsiteinfo)))
+    ::core::mem::transmute(DsQuerySitesByCostW(hds.into(), ::core::mem::transmute(pwszfromsite), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgwsztosites)), rgwsztosites.len() as _, ::core::mem::transmute(dwflags), ::core::mem::transmute(prgsiteinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -7962,221 +7962,221 @@ pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelengt
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsRemoveDsDomainA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, domaindn: Param1) -> u32 {
+pub unsafe fn DsRemoveDsDomainA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, domaindn: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsRemoveDsDomainA(hds: super::super::Foundation::HANDLE, domaindn: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsRemoveDsDomainA(hds.into_param().abi(), domaindn.into_param().abi()))
+    ::core::mem::transmute(DsRemoveDsDomainA(hds.into(), ::core::mem::transmute(domaindn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsRemoveDsDomainW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, domaindn: Param1) -> u32 {
+pub unsafe fn DsRemoveDsDomainW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, domaindn: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsRemoveDsDomainW(hds: super::super::Foundation::HANDLE, domaindn: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsRemoveDsDomainW(hds.into_param().abi(), domaindn.into_param().abi()))
+    ::core::mem::transmute(DsRemoveDsDomainW(hds.into(), ::core::mem::transmute(domaindn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsRemoveDsServerA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hds: Param0, serverdn: Param1, domaindn: Param2, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
+pub unsafe fn DsRemoveDsServerA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(hds: Param0, serverdn: ::windows::core::PCSTR, domaindn: ::windows::core::PCSTR, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsRemoveDsServerA(hds: super::super::Foundation::HANDLE, serverdn: ::windows::core::PCSTR, domaindn: ::windows::core::PCSTR, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(DsRemoveDsServerA(hds.into_param().abi(), serverdn.into_param().abi(), domaindn.into_param().abi(), ::core::mem::transmute(flastdcindomain), fcommit.into_param().abi()))
+    ::core::mem::transmute(DsRemoveDsServerA(hds.into(), ::core::mem::transmute(serverdn), ::core::mem::transmute(domaindn), ::core::mem::transmute(flastdcindomain), fcommit.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsRemoveDsServerW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hds: Param0, serverdn: Param1, domaindn: Param2, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
+pub unsafe fn DsRemoveDsServerW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(hds: Param0, serverdn: ::windows::core::PCWSTR, domaindn: ::windows::core::PCWSTR, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsRemoveDsServerW(hds: super::super::Foundation::HANDLE, serverdn: ::windows::core::PCWSTR, domaindn: ::windows::core::PCWSTR, flastdcindomain: *mut super::super::Foundation::BOOL, fcommit: super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(DsRemoveDsServerW(hds.into_param().abi(), serverdn.into_param().abi(), domaindn.into_param().abi(), ::core::mem::transmute(flastdcindomain), fcommit.into_param().abi()))
+    ::core::mem::transmute(DsRemoveDsServerW(hds.into(), ::core::mem::transmute(serverdn), ::core::mem::transmute(domaindn), ::core::mem::transmute(flastdcindomain), fcommit.into()))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaAddA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, namecontext: Param1, sourcedsadn: Param2, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, options: u32) -> u32 {
+pub unsafe fn DsReplicaAddA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCSTR, sourcedsadn: ::windows::core::PCSTR, transportdn: ::windows::core::PCSTR, sourcedsaaddress: ::windows::core::PCSTR, pschedule: *const SCHEDULE, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaAddA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, sourcedsadn: ::windows::core::PCSTR, transportdn: ::windows::core::PCSTR, sourcedsaaddress: ::windows::core::PCSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaAddA(hds.into_param().abi(), namecontext.into_param().abi(), sourcedsadn.into_param().abi(), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaAddA(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(sourcedsadn), ::core::mem::transmute(transportdn), ::core::mem::transmute(sourcedsaaddress), ::core::mem::transmute(pschedule), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaAddW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, namecontext: Param1, sourcedsadn: Param2, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, options: u32) -> u32 {
+pub unsafe fn DsReplicaAddW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCWSTR, sourcedsadn: ::windows::core::PCWSTR, transportdn: ::windows::core::PCWSTR, sourcedsaaddress: ::windows::core::PCWSTR, pschedule: *const SCHEDULE, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaAddW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, sourcedsadn: ::windows::core::PCWSTR, transportdn: ::windows::core::PCWSTR, sourcedsaaddress: ::windows::core::PCWSTR, pschedule: *const SCHEDULE, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaAddW(hds.into_param().abi(), namecontext.into_param().abi(), sourcedsadn.into_param().abi(), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaAddW(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(sourcedsadn), ::core::mem::transmute(transportdn), ::core::mem::transmute(sourcedsaaddress), ::core::mem::transmute(pschedule), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaConsistencyCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hds: Param0, taskid: DS_KCC_TASKID, dwflags: u32) -> u32 {
+pub unsafe fn DsReplicaConsistencyCheck<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_KCC_TASKID>>(hds: Param0, taskid: Param1, dwflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaConsistencyCheck(hds: super::super::Foundation::HANDLE, taskid: DS_KCC_TASKID, dwflags: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaConsistencyCheck(hds.into_param().abi(), ::core::mem::transmute(taskid), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(DsReplicaConsistencyCheck(hds.into(), taskid.into(), ::core::mem::transmute(dwflags)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaDelA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, namecontext: Param1, dsasrc: Param2, options: u32) -> u32 {
+pub unsafe fn DsReplicaDelA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCSTR, dsasrc: ::windows::core::PCSTR, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaDelA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, dsasrc: ::windows::core::PCSTR, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaDelA(hds.into_param().abi(), namecontext.into_param().abi(), dsasrc.into_param().abi(), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaDelA(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(dsasrc), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaDelW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, namecontext: Param1, dsasrc: Param2, options: u32) -> u32 {
+pub unsafe fn DsReplicaDelW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCWSTR, dsasrc: ::windows::core::PCWSTR, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaDelW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, dsasrc: ::windows::core::PCWSTR, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaDelW(hds.into_param().abi(), namecontext.into_param().abi(), dsasrc.into_param().abi(), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaDelW(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(dsasrc), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void) {
+pub unsafe fn DsReplicaFreeInfo<'a, Param0: ::std::convert::Into<DS_REPL_INFO_TYPE>>(infotype: Param0, pinfo: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: *const ::core::ffi::c_void);
     }
-    DsReplicaFreeInfo(::core::mem::transmute(infotype), ::core::mem::transmute(pinfo))
+    DsReplicaFreeInfo(infotype.into(), ::core::mem::transmute(pinfo))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, infotype: DS_REPL_INFO_TYPE, pszobject: Param2, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: Param4, pszvalue: Param5, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn DsReplicaGetInfo2W<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_REPL_INFO_TYPE>>(hds: Param0, infotype: Param1, pszobject: ::windows::core::PCWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: ::windows::core::PCWSTR, pszvalue: ::windows::core::PCWSTR, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaGetInfo2W(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: ::windows::core::PCWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, pszattributename: ::windows::core::PCWSTR, pszvalue: ::windows::core::PCWSTR, dwflags: u32, dwenumerationcontext: u32, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsReplicaGetInfo2W(hds.into_param().abi(), ::core::mem::transmute(infotype), pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid), pszattributename.into_param().abi(), pszvalue.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwenumerationcontext), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsReplicaGetInfo2W(hds.into(), infotype.into(), ::core::mem::transmute(pszobject), ::core::mem::transmute(puuidforsourcedsaobjguid), ::core::mem::transmute(pszattributename), ::core::mem::transmute(pszvalue), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwenumerationcontext), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, infotype: DS_REPL_INFO_TYPE, pszobject: Param2, puuidforsourcedsaobjguid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn DsReplicaGetInfoW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_REPL_INFO_TYPE>>(hds: Param0, infotype: Param1, pszobject: ::windows::core::PCWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaGetInfoW(hds: super::super::Foundation::HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: ::windows::core::PCWSTR, puuidforsourcedsaobjguid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(DsReplicaGetInfoW(hds.into_param().abi(), ::core::mem::transmute(infotype), pszobject.into_param().abi(), ::core::mem::transmute(puuidforsourcedsaobjguid), ::core::mem::transmute(ppinfo)))
+    ::core::mem::transmute(DsReplicaGetInfoW(hds.into(), infotype.into(), ::core::mem::transmute(pszobject), ::core::mem::transmute(puuidforsourcedsaobjguid), ::core::mem::transmute(ppinfo)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaModifyA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, namecontext: Param1, puuidsourcedsa: *const ::windows::core::GUID, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
+pub unsafe fn DsReplicaModifyA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: ::windows::core::PCSTR, sourcedsaaddress: ::windows::core::PCSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaModifyA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: ::windows::core::PCSTR, sourcedsaaddress: ::windows::core::PCSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaModifyA(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaModifyA(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(puuidsourcedsa), ::core::mem::transmute(transportdn), ::core::mem::transmute(sourcedsaaddress), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaModifyW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, namecontext: Param1, puuidsourcedsa: *const ::windows::core::GUID, transportdn: Param3, sourcedsaaddress: Param4, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
+pub unsafe fn DsReplicaModifyW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCWSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: ::windows::core::PCWSTR, sourcedsaaddress: ::windows::core::PCWSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaModifyW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, puuidsourcedsa: *const ::windows::core::GUID, transportdn: ::windows::core::PCWSTR, sourcedsaaddress: ::windows::core::PCWSTR, pschedule: *const SCHEDULE, replicaflags: u32, modifyfields: u32, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaModifyW(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuidsourcedsa), transportdn.into_param().abi(), sourcedsaaddress.into_param().abi(), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaModifyW(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(puuidsourcedsa), ::core::mem::transmute(transportdn), ::core::mem::transmute(sourcedsaaddress), ::core::mem::transmute(pschedule), ::core::mem::transmute(replicaflags), ::core::mem::transmute(modifyfields), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaSyncA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32 {
+pub unsafe fn DsReplicaSyncA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaSyncA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncA(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaSyncA(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaSyncAllA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, psznamecontext: Param1, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32 {
+pub unsafe fn DsReplicaSyncAllA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, psznamecontext: ::windows::core::PCSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaSyncAllA(hds: super::super::Foundation::HANDLE, psznamecontext: ::windows::core::PCSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOA) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncAllA(hds.into_param().abi(), psznamecontext.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
+    ::core::mem::transmute(DsReplicaSyncAllA(hds.into(), ::core::mem::transmute(psznamecontext), ::core::mem::transmute(ulflags), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaSyncAllW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, psznamecontext: Param1, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32 {
+pub unsafe fn DsReplicaSyncAllW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, psznamecontext: ::windows::core::PCWSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaSyncAllW(hds: super::super::Foundation::HANDLE, psznamecontext: ::windows::core::PCWSTR, ulflags: u32, pfncallback: isize, pcallbackdata: *const ::core::ffi::c_void, perrors: *mut *mut *mut DS_REPSYNCALL_ERRINFOW) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncAllW(hds.into_param().abi(), psznamecontext.into_param().abi(), ::core::mem::transmute(ulflags), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
+    ::core::mem::transmute(DsReplicaSyncAllW(hds.into(), ::core::mem::transmute(psznamecontext), ::core::mem::transmute(ulflags), ::core::mem::transmute(pfncallback), ::core::mem::transmute(pcallbackdata), ::core::mem::transmute(perrors)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaSyncW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32 {
+pub unsafe fn DsReplicaSyncW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCWSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaSyncW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, puuiddsasrc: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaSyncW(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaSyncW(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaUpdateRefsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, namecontext: Param1, dsadest: Param2, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32 {
+pub unsafe fn DsReplicaUpdateRefsA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCSTR, dsadest: ::windows::core::PCSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaUpdateRefsA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, dsadest: ::windows::core::PCSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaUpdateRefsA(hds.into_param().abi(), namecontext.into_param().abi(), dsadest.into_param().abi(), ::core::mem::transmute(puuiddsadest), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaUpdateRefsA(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(dsadest), ::core::mem::transmute(puuiddsadest), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaUpdateRefsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, namecontext: Param1, dsadest: Param2, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32 {
+pub unsafe fn DsReplicaUpdateRefsW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCWSTR, dsadest: ::windows::core::PCWSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaUpdateRefsW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, dsadest: ::windows::core::PCWSTR, puuiddsadest: *const ::windows::core::GUID, options: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaUpdateRefsW(hds.into_param().abi(), namecontext.into_param().abi(), dsadest.into_param().abi(), ::core::mem::transmute(puuiddsadest), ::core::mem::transmute(options)))
+    ::core::mem::transmute(DsReplicaUpdateRefsW(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(dsadest), ::core::mem::transmute(puuiddsadest), ::core::mem::transmute(options)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaVerifyObjectsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32 {
+pub unsafe fn DsReplicaVerifyObjectsA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaVerifyObjectsA(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaVerifyObjectsA(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(uloptions)))
+    ::core::mem::transmute(DsReplicaVerifyObjectsA(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(uloptions)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsReplicaVerifyObjectsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, namecontext: Param1, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32 {
+pub unsafe fn DsReplicaVerifyObjectsW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hds: Param0, namecontext: ::windows::core::PCWSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsReplicaVerifyObjectsW(hds: super::super::Foundation::HANDLE, namecontext: ::windows::core::PCWSTR, puuiddsasrc: *const ::windows::core::GUID, uloptions: u32) -> u32;
     }
-    ::core::mem::transmute(DsReplicaVerifyObjectsW(hds.into_param().abi(), namecontext.into_param().abi(), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(uloptions)))
+    ::core::mem::transmute(DsReplicaVerifyObjectsW(hds.into(), ::core::mem::transmute(namecontext), ::core::mem::transmute(puuiddsasrc), ::core::mem::transmute(uloptions)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
@@ -8189,30 +8189,30 @@ pub unsafe fn DsRoleFreeMemory(buffer: *mut ::core::ffi::c_void) {
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsRoleGetPrimaryDomainInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpserver: Param0, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32 {
+pub unsafe fn DsRoleGetPrimaryDomainInformation<'a, Param1: ::std::convert::Into<DSROLE_PRIMARY_DOMAIN_INFO_LEVEL>>(lpserver: ::windows::core::PCWSTR, infolevel: Param1, buffer: *mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsRoleGetPrimaryDomainInformation(lpserver: ::windows::core::PCWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: *mut *mut u8) -> u32;
     }
-    ::core::mem::transmute(DsRoleGetPrimaryDomainInformation(lpserver.into_param().abi(), ::core::mem::transmute(infolevel), ::core::mem::transmute(buffer)))
+    ::core::mem::transmute(DsRoleGetPrimaryDomainInformation(::core::mem::transmute(lpserver), infolevel.into(), ::core::mem::transmute(buffer)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsServerRegisterSpnA<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(operation: DS_SPN_WRITE_OP, serviceclass: Param1, userobjectdn: Param2) -> u32 {
+pub unsafe fn DsServerRegisterSpnA<'a, Param0: ::std::convert::Into<DS_SPN_WRITE_OP>>(operation: Param0, serviceclass: ::windows::core::PCSTR, userobjectdn: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsServerRegisterSpnA(operation: DS_SPN_WRITE_OP, serviceclass: ::windows::core::PCSTR, userobjectdn: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsServerRegisterSpnA(::core::mem::transmute(operation), serviceclass.into_param().abi(), userobjectdn.into_param().abi()))
+    ::core::mem::transmute(DsServerRegisterSpnA(operation.into(), ::core::mem::transmute(serviceclass), ::core::mem::transmute(userobjectdn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsServerRegisterSpnW<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(operation: DS_SPN_WRITE_OP, serviceclass: Param1, userobjectdn: Param2) -> u32 {
+pub unsafe fn DsServerRegisterSpnW<'a, Param0: ::std::convert::Into<DS_SPN_WRITE_OP>>(operation: Param0, serviceclass: ::windows::core::PCWSTR, userobjectdn: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsServerRegisterSpnW(operation: DS_SPN_WRITE_OP, serviceclass: ::windows::core::PCWSTR, userobjectdn: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsServerRegisterSpnW(::core::mem::transmute(operation), serviceclass.into_param().abi(), userobjectdn.into_param().abi()))
+    ::core::mem::transmute(DsServerRegisterSpnW(operation.into(), ::core::mem::transmute(serviceclass), ::core::mem::transmute(userobjectdn)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8254,41 +8254,41 @@ pub unsafe fn DsUnquoteRdnValueW(psquotedrdnvalue: &[u16], pcunquotedrdnvaluelen
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsValidateSubnetNameA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(subnetname: Param0) -> u32 {
+pub unsafe fn DsValidateSubnetNameA(subnetname: ::windows::core::PCSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsValidateSubnetNameA(subnetname: ::windows::core::PCSTR) -> u32;
     }
-    ::core::mem::transmute(DsValidateSubnetNameA(subnetname.into_param().abi()))
+    ::core::mem::transmute(DsValidateSubnetNameA(::core::mem::transmute(subnetname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
-pub unsafe fn DsValidateSubnetNameW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(subnetname: Param0) -> u32 {
+pub unsafe fn DsValidateSubnetNameW(subnetname: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsValidateSubnetNameW(subnetname: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(DsValidateSubnetNameW(subnetname.into_param().abi()))
+    ::core::mem::transmute(DsValidateSubnetNameW(::core::mem::transmute(subnetname)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsWriteAccountSpnA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(hds: Param0, operation: DS_SPN_WRITE_OP, pszaccount: Param2, rpszspn: &[::windows::core::PSTR]) -> u32 {
+pub unsafe fn DsWriteAccountSpnA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_SPN_WRITE_OP>>(hds: Param0, operation: Param1, pszaccount: ::windows::core::PCSTR, rpszspn: &[::windows::core::PSTR]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsWriteAccountSpnA(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: ::windows::core::PCSTR, cspn: u32, rpszspn: *const ::windows::core::PSTR) -> u32;
     }
-    ::core::mem::transmute(DsWriteAccountSpnA(hds.into_param().abi(), ::core::mem::transmute(operation), pszaccount.into_param().abi(), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
+    ::core::mem::transmute(DsWriteAccountSpnA(hds.into(), operation.into(), ::core::mem::transmute(pszaccount), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DsWriteAccountSpnW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hds: Param0, operation: DS_SPN_WRITE_OP, pszaccount: Param2, rpszspn: &[::windows::core::PWSTR]) -> u32 {
+pub unsafe fn DsWriteAccountSpnW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<DS_SPN_WRITE_OP>>(hds: Param0, operation: Param1, pszaccount: ::windows::core::PCWSTR, rpszspn: &[::windows::core::PWSTR]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DsWriteAccountSpnW(hds: super::super::Foundation::HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: ::windows::core::PCWSTR, cspn: u32, rpszspn: *const ::windows::core::PWSTR) -> u32;
     }
-    ::core::mem::transmute(DsWriteAccountSpnW(hds.into_param().abi(), ::core::mem::transmute(operation), pszaccount.into_param().abi(), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
+    ::core::mem::transmute(DsWriteAccountSpnW(hds.into(), operation.into(), ::core::mem::transmute(pszaccount), rpszspn.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rpszspn))))
 }
 pub const Email: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -8323,12 +8323,12 @@ pub unsafe fn FreeADsMem(pmem: *mut ::core::ffi::c_void) -> super::super::Founda
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeADsStr<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pstr: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn FreeADsStr(pstr: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn FreeADsStr(pstr: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(FreeADsStr(pstr.into_param().abi()))
+    ::core::mem::transmute(FreeADsStr(::core::mem::transmute(pstr)))
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const GUID_COMPUTRS_CONTAINER_A: &str = "aa312825768811d1aded00c04fd8d5cd";
@@ -8410,6 +8410,11 @@ impl ::core::fmt::Debug for GetDcContextHandle {
         f.debug_tuple("GetDcContextHandle").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<GetDcContextHandle>> for GetDcContextHandle {
+    fn from(optional: ::core::option::Option<GetDcContextHandle>) -> GetDcContextHandle {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for GetDcContextHandle {
     type Abi = Self;
 }
@@ -8466,35 +8471,41 @@ impl IADs {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADs> for ::windows::core::IUnknown {
     fn from(value: IADs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8505,20 +8516,14 @@ impl ::core::convert::From<&IADs> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADs> for super::super::System::Com::IDispatch {
     fn from(value: IADs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADs> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8526,18 +8531,6 @@ impl ::core::convert::From<IADs> for super::super::System::Com::IDispatch {
 impl ::core::convert::From<&IADs> for super::super::System::Com::IDispatch {
     fn from(value: &IADs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8684,9 +8677,9 @@ impl IADsADSystemInfo {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDCSiteName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, szserver: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetDCSiteName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, szserver: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDCSiteName)(::windows::core::Interface::as_raw(self), szserver.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDCSiteName)(::windows::core::Interface::as_raw(self), szserver.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RefreshSchemaCache(&self) -> ::windows::core::Result<()> {
@@ -8706,21 +8699,15 @@ impl ::core::convert::From<IADsADSystemInfo> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsADSystemInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsADSystemInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsADSystemInfo> for ::windows::core::IUnknown {
     fn from(value: &IADsADSystemInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsADSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsADSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8730,21 +8717,15 @@ impl ::core::convert::From<IADsADSystemInfo> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsADSystemInfo> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsADSystemInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsADSystemInfo> for super::super::System::Com::IDispatch {
     fn from(value: &IADsADSystemInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsADSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsADSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8874,8 +8855,8 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjecttype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectType)(::windows::core::Interface::as_raw(self), bstrobjecttype.into_param().abi()).ok()
+    pub unsafe fn SetObjectType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrobjecttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObjectType)(::windows::core::Interface::as_raw(self), bstrobjecttype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8885,8 +8866,8 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInheritedObjectType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinheritedobjecttype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInheritedObjectType)(::windows::core::Interface::as_raw(self), bstrinheritedobjecttype.into_param().abi()).ok()
+    pub unsafe fn SetInheritedObjectType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinheritedobjecttype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInheritedObjectType)(::windows::core::Interface::as_raw(self), bstrinheritedobjecttype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8896,13 +8877,19 @@ impl IADsAccessControlEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTrustee<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrustee)(::windows::core::Interface::as_raw(self), bstrtrustee.into_param().abi()).ok()
+    pub unsafe fn SetTrustee<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtrustee: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTrustee)(::windows::core::Interface::as_raw(self), bstrtrustee.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsAccessControlEntry> for ::windows::core::IUnknown {
     fn from(value: IADsAccessControlEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsAccessControlEntry> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsAccessControlEntry) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8913,20 +8900,14 @@ impl ::core::convert::From<&IADsAccessControlEntry> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsAccessControlEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsAccessControlEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsAccessControlEntry> for super::super::System::Com::IDispatch {
     fn from(value: IADsAccessControlEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsAccessControlEntry> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsAccessControlEntry) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8934,18 +8915,6 @@ impl ::core::convert::From<IADsAccessControlEntry> for super::super::System::Com
 impl ::core::convert::From<&IADsAccessControlEntry> for super::super::System::Com::IDispatch {
     fn from(value: &IADsAccessControlEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsAccessControlEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsAccessControlEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9037,13 +9006,13 @@ impl IADsAccessControlList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddAce<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, paccesscontrolentry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAce)(::windows::core::Interface::as_raw(self), paccesscontrolentry.into_param().abi()).ok()
+    pub unsafe fn AddAce<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, paccesscontrolentry: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddAce)(::windows::core::Interface::as_raw(self), paccesscontrolentry.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RemoveAce<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, paccesscontrolentry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAce)(::windows::core::Interface::as_raw(self), paccesscontrolentry.into_param().abi()).ok()
+    pub unsafe fn RemoveAce<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, paccesscontrolentry: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveAce)(::windows::core::Interface::as_raw(self), paccesscontrolentry.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9064,21 +9033,15 @@ impl ::core::convert::From<IADsAccessControlList> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsAccessControlList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsAccessControlList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsAccessControlList> for ::windows::core::IUnknown {
     fn from(value: &IADsAccessControlList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsAccessControlList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsAccessControlList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9088,21 +9051,15 @@ impl ::core::convert::From<IADsAccessControlList> for super::super::System::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsAccessControlList> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsAccessControlList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsAccessControlList> for super::super::System::Com::IDispatch {
     fn from(value: &IADsAccessControlList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsAccessControlList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsAccessControlList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9167,8 +9124,8 @@ impl IADsAcl {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProtectedAttrName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotectedattrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProtectedAttrName)(::windows::core::Interface::as_raw(self), bstrprotectedattrname.into_param().abi()).ok()
+    pub unsafe fn SetProtectedAttrName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotectedattrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProtectedAttrName)(::windows::core::Interface::as_raw(self), bstrprotectedattrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9178,8 +9135,8 @@ impl IADsAcl {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSubjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsubjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubjectName)(::windows::core::Interface::as_raw(self), bstrsubjectname.into_param().abi()).ok()
+    pub unsafe fn SetSubjectName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsubjectname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSubjectName)(::windows::core::Interface::as_raw(self), bstrsubjectname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Privileges(&self) -> ::windows::core::Result<i32> {
@@ -9204,21 +9161,15 @@ impl ::core::convert::From<IADsAcl> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsAcl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsAcl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsAcl> for ::windows::core::IUnknown {
     fn from(value: &IADsAcl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsAcl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsAcl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9228,21 +9179,15 @@ impl ::core::convert::From<IADsAcl> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsAcl> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsAcl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsAcl> for super::super::System::Com::IDispatch {
     fn from(value: &IADsAcl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsAcl {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsAcl {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9303,8 +9248,8 @@ pub struct IADsAcl_Vtbl {
 pub struct IADsAggregatee(::windows::core::IUnknown);
 impl IADsAggregatee {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn ConnectAsAggregatee<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pouterunknown: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectAsAggregatee)(::windows::core::Interface::as_raw(self), pouterunknown.into_param().abi()).ok()
+    pub unsafe fn ConnectAsAggregatee<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pouterunknown: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectAsAggregatee)(::windows::core::Interface::as_raw(self), pouterunknown.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DisconnectAsAggregatee(&self) -> ::windows::core::Result<()> {
@@ -9324,19 +9269,14 @@ impl ::core::convert::From<IADsAggregatee> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IADsAggregatee> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsAggregatee) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IADsAggregatee> for ::windows::core::IUnknown {
     fn from(value: &IADsAggregatee) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsAggregatee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsAggregatee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IADsAggregatee {
@@ -9373,8 +9313,8 @@ pub struct IADsAggregatee_Vtbl {
 pub struct IADsAggregator(::windows::core::IUnknown);
 impl IADsAggregator {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn ConnectAsAggregator<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, paggregatee: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectAsAggregator)(::windows::core::Interface::as_raw(self), paggregatee.into_param().abi()).ok()
+    pub unsafe fn ConnectAsAggregator<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, paggregatee: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectAsAggregator)(::windows::core::Interface::as_raw(self), paggregatee.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DisconnectAsAggregator(&self) -> ::windows::core::Result<()> {
@@ -9386,19 +9326,14 @@ impl ::core::convert::From<IADsAggregator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IADsAggregator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsAggregator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IADsAggregator> for ::windows::core::IUnknown {
     fn from(value: &IADsAggregator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsAggregator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsAggregator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IADsAggregator {
@@ -9451,13 +9386,19 @@ impl IADsBackLink {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into_param().abi()).ok()
+    pub unsafe fn SetObjectName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsBackLink> for ::windows::core::IUnknown {
     fn from(value: IADsBackLink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsBackLink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsBackLink) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9468,20 +9409,14 @@ impl ::core::convert::From<&IADsBackLink> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsBackLink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsBackLink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsBackLink> for super::super::System::Com::IDispatch {
     fn from(value: IADsBackLink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsBackLink> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsBackLink) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9489,18 +9424,6 @@ impl ::core::convert::From<IADsBackLink> for super::super::System::Com::IDispatc
 impl ::core::convert::From<&IADsBackLink> for super::super::System::Com::IDispatch {
     fn from(value: &IADsBackLink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsBackLink {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsBackLink {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9558,13 +9481,19 @@ impl IADsCaseIgnoreList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCaseIgnoreList<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vcaseignorelist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaseIgnoreList)(::windows::core::Interface::as_raw(self), vcaseignorelist.into_param().abi()).ok()
+    pub unsafe fn SetCaseIgnoreList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vcaseignorelist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCaseIgnoreList)(::windows::core::Interface::as_raw(self), vcaseignorelist.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsCaseIgnoreList> for ::windows::core::IUnknown {
     fn from(value: IADsCaseIgnoreList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsCaseIgnoreList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsCaseIgnoreList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9575,20 +9504,14 @@ impl ::core::convert::From<&IADsCaseIgnoreList> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsCaseIgnoreList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsCaseIgnoreList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsCaseIgnoreList> for super::super::System::Com::IDispatch {
     fn from(value: IADsCaseIgnoreList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsCaseIgnoreList> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsCaseIgnoreList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9596,18 +9519,6 @@ impl ::core::convert::From<IADsCaseIgnoreList> for super::super::System::Com::ID
 impl ::core::convert::From<&IADsCaseIgnoreList> for super::super::System::Com::IDispatch {
     fn from(value: &IADsCaseIgnoreList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsCaseIgnoreList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsCaseIgnoreList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9701,30 +9612,30 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9740,8 +9651,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCLSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCLSID)(::windows::core::Interface::as_raw(self), bstrclsid.into_param().abi()).ok()
+    pub unsafe fn SetCLSID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrclsid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCLSID)(::windows::core::Interface::as_raw(self), bstrclsid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9751,8 +9662,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOID)(::windows::core::Interface::as_raw(self), bstroid.into_param().abi()).ok()
+    pub unsafe fn SetOID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstroid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOID)(::windows::core::Interface::as_raw(self), bstroid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Abstract(&self) -> ::windows::core::Result<i16> {
@@ -9780,8 +9691,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetMandatoryProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vmandatoryproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMandatoryProperties)(::windows::core::Interface::as_raw(self), vmandatoryproperties.into_param().abi()).ok()
+    pub unsafe fn SetMandatoryProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vmandatoryproperties: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMandatoryProperties)(::windows::core::Interface::as_raw(self), vmandatoryproperties.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9791,8 +9702,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOptionalProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, voptionalproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOptionalProperties)(::windows::core::Interface::as_raw(self), voptionalproperties.into_param().abi()).ok()
+    pub unsafe fn SetOptionalProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, voptionalproperties: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOptionalProperties)(::windows::core::Interface::as_raw(self), voptionalproperties.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9802,8 +9713,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetNamingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vnamingproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamingProperties)(::windows::core::Interface::as_raw(self), vnamingproperties.into_param().abi()).ok()
+    pub unsafe fn SetNamingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vnamingproperties: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNamingProperties)(::windows::core::Interface::as_raw(self), vnamingproperties.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9813,8 +9724,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDerivedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vderivedfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDerivedFrom)(::windows::core::Interface::as_raw(self), vderivedfrom.into_param().abi()).ok()
+    pub unsafe fn SetDerivedFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vderivedfrom: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDerivedFrom)(::windows::core::Interface::as_raw(self), vderivedfrom.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9824,8 +9735,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetAuxDerivedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vauxderivedfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuxDerivedFrom)(::windows::core::Interface::as_raw(self), vauxderivedfrom.into_param().abi()).ok()
+    pub unsafe fn SetAuxDerivedFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vauxderivedfrom: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuxDerivedFrom)(::windows::core::Interface::as_raw(self), vauxderivedfrom.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9835,8 +9746,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPossibleSuperiors<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpossiblesuperiors: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPossibleSuperiors)(::windows::core::Interface::as_raw(self), vpossiblesuperiors.into_param().abi()).ok()
+    pub unsafe fn SetPossibleSuperiors<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vpossiblesuperiors: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPossibleSuperiors)(::windows::core::Interface::as_raw(self), vpossiblesuperiors.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9846,8 +9757,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetContainment<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vcontainment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContainment)(::windows::core::Interface::as_raw(self), vcontainment.into_param().abi()).ok()
+    pub unsafe fn SetContainment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vcontainment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetContainment)(::windows::core::Interface::as_raw(self), vcontainment.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Container(&self) -> ::windows::core::Result<i16> {
@@ -9866,8 +9777,8 @@ impl IADsClass {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHelpFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhelpfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHelpFileName)(::windows::core::Interface::as_raw(self), bstrhelpfilename.into_param().abi()).ok()
+    pub unsafe fn SetHelpFileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrhelpfilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHelpFileName)(::windows::core::Interface::as_raw(self), bstrhelpfilename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn HelpFileContext(&self) -> ::windows::core::Result<i32> {
@@ -9892,26 +9803,26 @@ impl ::core::convert::From<IADsClass> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsClass> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsClass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsClass> for ::windows::core::IUnknown {
     fn from(value: &IADsClass) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsClass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsClass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsClass> for super::super::System::Com::IDispatch {
     fn from(value: IADsClass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsClass> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsClass) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9922,20 +9833,14 @@ impl ::core::convert::From<&IADsClass> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsClass {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsClass {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsClass> for IADs {
     fn from(value: IADsClass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsClass> for &'a IADs {
+    fn from(value: &'a IADsClass) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9943,18 +9848,6 @@ impl ::core::convert::From<IADsClass> for IADs {
 impl ::core::convert::From<&IADsClass> for IADs {
     fn from(value: &IADsClass) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsClass {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsClass {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10097,24 +9990,30 @@ impl IADsCollection {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vitem: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vitem.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vitem: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemtoberemoved: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), bstritemtoberemoved.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemtoberemoved: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), bstritemtoberemoved.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsCollection> for ::windows::core::IUnknown {
     fn from(value: IADsCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10125,20 +10024,14 @@ impl ::core::convert::From<&IADsCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsCollection> for super::super::System::Com::IDispatch {
     fn from(value: IADsCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10146,18 +10039,6 @@ impl ::core::convert::From<IADsCollection> for super::super::System::Com::IDispa
 impl ::core::convert::From<&IADsCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IADsCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10256,30 +10137,30 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10301,8 +10182,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10312,8 +10193,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocation)(::windows::core::Interface::as_raw(self), bstrlocation.into_param().abi()).ok()
+    pub unsafe fn SetLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlocation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocation)(::windows::core::Interface::as_raw(self), bstrlocation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10323,8 +10204,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPrimaryUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprimaryuser: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrimaryUser)(::windows::core::Interface::as_raw(self), bstrprimaryuser.into_param().abi()).ok()
+    pub unsafe fn SetPrimaryUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprimaryuser: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrimaryUser)(::windows::core::Interface::as_raw(self), bstrprimaryuser.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10334,8 +10215,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwner)(::windows::core::Interface::as_raw(self), bstrowner.into_param().abi()).ok()
+    pub unsafe fn SetOwner<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrowner: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOwner)(::windows::core::Interface::as_raw(self), bstrowner.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10345,8 +10226,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDivision<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdivision: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDivision)(::windows::core::Interface::as_raw(self), bstrdivision.into_param().abi()).ok()
+    pub unsafe fn SetDivision<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdivision: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDivision)(::windows::core::Interface::as_raw(self), bstrdivision.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10356,8 +10237,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDepartment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into_param().abi()).ok()
+    pub unsafe fn SetDepartment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10367,8 +10248,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetRole<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrole: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRole)(::windows::core::Interface::as_raw(self), bstrrole.into_param().abi()).ok()
+    pub unsafe fn SetRole<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrrole: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRole)(::windows::core::Interface::as_raw(self), bstrrole.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10378,8 +10259,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOperatingSystem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroperatingsystem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperatingSystem)(::windows::core::Interface::as_raw(self), bstroperatingsystem.into_param().abi()).ok()
+    pub unsafe fn SetOperatingSystem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstroperatingsystem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOperatingSystem)(::windows::core::Interface::as_raw(self), bstroperatingsystem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10389,8 +10270,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOperatingSystemVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroperatingsystemversion: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperatingSystemVersion)(::windows::core::Interface::as_raw(self), bstroperatingsystemversion.into_param().abi()).ok()
+    pub unsafe fn SetOperatingSystemVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstroperatingsystemversion: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOperatingSystemVersion)(::windows::core::Interface::as_raw(self), bstroperatingsystemversion.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10400,8 +10281,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmodel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModel)(::windows::core::Interface::as_raw(self), bstrmodel.into_param().abi()).ok()
+    pub unsafe fn SetModel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmodel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetModel)(::windows::core::Interface::as_raw(self), bstrmodel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10411,8 +10292,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProcessor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprocessor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessor)(::windows::core::Interface::as_raw(self), bstrprocessor.into_param().abi()).ok()
+    pub unsafe fn SetProcessor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprocessor: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProcessor)(::windows::core::Interface::as_raw(self), bstrprocessor.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10422,8 +10303,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProcessorCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprocessorcount: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessorCount)(::windows::core::Interface::as_raw(self), bstrprocessorcount.into_param().abi()).ok()
+    pub unsafe fn SetProcessorCount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprocessorcount: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProcessorCount)(::windows::core::Interface::as_raw(self), bstrprocessorcount.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10433,8 +10314,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMemorySize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmemorysize: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMemorySize)(::windows::core::Interface::as_raw(self), bstrmemorysize.into_param().abi()).ok()
+    pub unsafe fn SetMemorySize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmemorysize: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMemorySize)(::windows::core::Interface::as_raw(self), bstrmemorysize.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10444,8 +10325,8 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStorageCapacity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstoragecapacity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStorageCapacity)(::windows::core::Interface::as_raw(self), bstrstoragecapacity.into_param().abi()).ok()
+    pub unsafe fn SetStorageCapacity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrstoragecapacity: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStorageCapacity)(::windows::core::Interface::as_raw(self), bstrstoragecapacity.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10455,13 +10336,19 @@ impl IADsComputer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetNetAddresses<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vnetaddresses: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetAddresses)(::windows::core::Interface::as_raw(self), vnetaddresses.into_param().abi()).ok()
+    pub unsafe fn SetNetAddresses<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vnetaddresses: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetAddresses)(::windows::core::Interface::as_raw(self), vnetaddresses.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsComputer> for ::windows::core::IUnknown {
     fn from(value: IADsComputer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsComputer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsComputer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10472,20 +10359,14 @@ impl ::core::convert::From<&IADsComputer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsComputer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsComputer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsComputer> for super::super::System::Com::IDispatch {
     fn from(value: IADsComputer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsComputer> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsComputer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10496,20 +10377,14 @@ impl ::core::convert::From<&IADsComputer> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsComputer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsComputer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsComputer> for IADs {
     fn from(value: IADsComputer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsComputer> for &'a IADs {
+    fn from(value: &'a IADsComputer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10517,18 +10392,6 @@ impl ::core::convert::From<IADsComputer> for IADs {
 impl ::core::convert::From<&IADsComputer> for IADs {
     fn from(value: &IADsComputer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsComputer {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsComputer {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10742,30 +10605,30 @@ impl IADsComputerOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10785,26 +10648,26 @@ impl ::core::convert::From<IADsComputerOperations> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsComputerOperations> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsComputerOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsComputerOperations> for ::windows::core::IUnknown {
     fn from(value: &IADsComputerOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsComputerOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsComputerOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsComputerOperations> for super::super::System::Com::IDispatch {
     fn from(value: IADsComputerOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsComputerOperations> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsComputerOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10815,20 +10678,14 @@ impl ::core::convert::From<&IADsComputerOperations> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsComputerOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsComputerOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsComputerOperations> for IADs {
     fn from(value: IADsComputerOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsComputerOperations> for &'a IADs {
+    fn from(value: &'a IADsComputerOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10836,18 +10693,6 @@ impl ::core::convert::From<IADsComputerOperations> for IADs {
 impl ::core::convert::From<&IADsComputerOperations> for IADs {
     fn from(value: &IADsComputerOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsComputerOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsComputerOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10910,8 +10755,8 @@ impl IADsContainer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, var: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), var.into_param().abi()).ok()
+    pub unsafe fn SetFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, var: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), var.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10921,42 +10766,48 @@ impl IADsContainer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetHints<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vhints: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHints)(::windows::core::Interface::as_raw(self), vhints.into_param().abi()).ok()
+    pub unsafe fn SetHints<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vhints: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHints)(::windows::core::Interface::as_raw(self), vhints.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, classname: Param0, relativename: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, classname: Param0, relativename: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), classname.into_param().abi(), relativename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), classname.into().abi(), relativename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, classname: Param0, relativename: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, classname: Param0, relativename: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), classname.into_param().abi(), relativename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), classname.into().abi(), relativename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclassname: Param0, bstrrelativename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), bstrclassname.into_param().abi(), bstrrelativename.into_param().abi()).ok()
+    pub unsafe fn Delete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrclassname: Param0, bstrrelativename: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), bstrclassname.into().abi(), bstrrelativename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CopyHere<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sourcename: Param0, newname: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn CopyHere<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sourcename: Param0, newname: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CopyHere)(::windows::core::Interface::as_raw(self), sourcename.into_param().abi(), newname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CopyHere)(::windows::core::Interface::as_raw(self), sourcename.into().abi(), newname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn MoveHere<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sourcename: Param0, newname: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn MoveHere<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sourcename: Param0, newname: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).MoveHere)(::windows::core::Interface::as_raw(self), sourcename.into_param().abi(), newname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).MoveHere)(::windows::core::Interface::as_raw(self), sourcename.into().abi(), newname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsContainer> for ::windows::core::IUnknown {
     fn from(value: IADsContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsContainer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsContainer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10967,20 +10818,14 @@ impl ::core::convert::From<&IADsContainer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsContainer> for super::super::System::Com::IDispatch {
     fn from(value: IADsContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsContainer> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsContainer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10988,18 +10833,6 @@ impl ::core::convert::From<IADsContainer> for super::super::System::Com::IDispat
 impl ::core::convert::From<&IADsContainer> for super::super::System::Com::IDispatch {
     fn from(value: &IADsContainer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11085,8 +10918,8 @@ impl IADsDNWithBinary {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vbinaryvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBinaryValue)(::windows::core::Interface::as_raw(self), vbinaryvalue.into_param().abi()).ok()
+    pub unsafe fn SetBinaryValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vbinaryvalue: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBinaryValue)(::windows::core::Interface::as_raw(self), vbinaryvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11096,13 +10929,19 @@ impl IADsDNWithBinary {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDNString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into_param().abi()).ok()
+    pub unsafe fn SetDNString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsDNWithBinary> for ::windows::core::IUnknown {
     fn from(value: IADsDNWithBinary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDNWithBinary> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsDNWithBinary) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11113,20 +10952,14 @@ impl ::core::convert::From<&IADsDNWithBinary> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsDNWithBinary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsDNWithBinary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsDNWithBinary> for super::super::System::Com::IDispatch {
     fn from(value: IADsDNWithBinary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDNWithBinary> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsDNWithBinary) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11134,18 +10967,6 @@ impl ::core::convert::From<IADsDNWithBinary> for super::super::System::Com::IDis
 impl ::core::convert::From<&IADsDNWithBinary> for super::super::System::Com::IDispatch {
     fn from(value: &IADsDNWithBinary) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsDNWithBinary {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsDNWithBinary {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11209,8 +11030,8 @@ impl IADsDNWithString {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstringvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStringValue)(::windows::core::Interface::as_raw(self), bstrstringvalue.into_param().abi()).ok()
+    pub unsafe fn SetStringValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrstringvalue: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStringValue)(::windows::core::Interface::as_raw(self), bstrstringvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11220,13 +11041,19 @@ impl IADsDNWithString {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDNString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into_param().abi()).ok()
+    pub unsafe fn SetDNString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsDNWithString> for ::windows::core::IUnknown {
     fn from(value: IADsDNWithString) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDNWithString> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsDNWithString) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11237,20 +11064,14 @@ impl ::core::convert::From<&IADsDNWithString> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsDNWithString {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsDNWithString {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsDNWithString> for super::super::System::Com::IDispatch {
     fn from(value: IADsDNWithString) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDNWithString> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsDNWithString) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11258,18 +11079,6 @@ impl ::core::convert::From<IADsDNWithString> for super::super::System::Com::IDis
 impl ::core::convert::From<&IADsDNWithString> for super::super::System::Com::IDispatch {
     fn from(value: &IADsDNWithString) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsDNWithString {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsDNWithString {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11337,21 +11146,15 @@ impl ::core::convert::From<IADsDeleteOps> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDeleteOps> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsDeleteOps) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsDeleteOps> for ::windows::core::IUnknown {
     fn from(value: &IADsDeleteOps) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsDeleteOps {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsDeleteOps {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11361,21 +11164,15 @@ impl ::core::convert::From<IADsDeleteOps> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDeleteOps> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsDeleteOps) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsDeleteOps> for super::super::System::Com::IDispatch {
     fn from(value: &IADsDeleteOps) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsDeleteOps {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsDeleteOps {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11462,30 +11259,30 @@ impl IADsDomain {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IsWorkgroup(&self) -> ::windows::core::Result<i16> {
@@ -11572,26 +11369,26 @@ impl ::core::convert::From<IADsDomain> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDomain> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsDomain> for ::windows::core::IUnknown {
     fn from(value: &IADsDomain) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsDomain> for super::super::System::Com::IDispatch {
     fn from(value: IADsDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDomain> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsDomain) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11602,20 +11399,14 @@ impl ::core::convert::From<&IADsDomain> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsDomain> for IADs {
     fn from(value: IADsDomain) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsDomain> for &'a IADs {
+    fn from(value: &'a IADsDomain) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11623,18 +11414,6 @@ impl ::core::convert::From<IADsDomain> for IADs {
 impl ::core::convert::From<&IADsDomain> for IADs {
     fn from(value: &IADsDomain) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsDomain {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11708,13 +11487,19 @@ impl IADsEmail {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), bstraddress.into_param().abi()).ok()
+    pub unsafe fn SetAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstraddress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), bstraddress.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsEmail> for ::windows::core::IUnknown {
     fn from(value: IADsEmail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsEmail> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsEmail) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11725,20 +11510,14 @@ impl ::core::convert::From<&IADsEmail> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsEmail> for super::super::System::Com::IDispatch {
     fn from(value: IADsEmail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsEmail> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsEmail) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11746,18 +11525,6 @@ impl ::core::convert::From<IADsEmail> for super::super::System::Com::IDispatch {
 impl ::core::convert::From<&IADsEmail> for super::super::System::Com::IDispatch {
     fn from(value: &IADsEmail) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11807,8 +11574,8 @@ pub struct IADsExtension(::windows::core::IUnknown);
 impl IADsExtension {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Operate<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, dwcode: u32, vardata1: Param1, vardata2: Param2, vardata3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Operate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcode), vardata1.into_param().abi(), vardata2.into_param().abi(), vardata3.into_param().abi()).ok()
+    pub unsafe fn Operate<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, dwcode: u32, vardata1: Param1, vardata2: Param2, vardata3: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Operate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcode), vardata1.into().abi(), vardata2.into().abi(), vardata3.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PrivateGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32> {
@@ -11826,19 +11593,14 @@ impl ::core::convert::From<IADsExtension> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IADsExtension> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsExtension) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IADsExtension> for ::windows::core::IUnknown {
     fn from(value: &IADsExtension) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IADsExtension {
@@ -11889,8 +11651,8 @@ impl IADsFaxNumber {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
+    pub unsafe fn SetTelephoneNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11900,13 +11662,19 @@ impl IADsFaxNumber {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), vparameters.into_param().abi()).ok()
+    pub unsafe fn SetParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vparameters: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), vparameters.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFaxNumber> for ::windows::core::IUnknown {
     fn from(value: IADsFaxNumber) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFaxNumber> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsFaxNumber) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11917,20 +11685,14 @@ impl ::core::convert::From<&IADsFaxNumber> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsFaxNumber {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsFaxNumber {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFaxNumber> for super::super::System::Com::IDispatch {
     fn from(value: IADsFaxNumber) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFaxNumber> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsFaxNumber) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11938,18 +11700,6 @@ impl ::core::convert::From<IADsFaxNumber> for super::super::System::Com::IDispat
 impl ::core::convert::From<&IADsFaxNumber> for super::super::System::Com::IDispatch {
     fn from(value: &IADsFaxNumber) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsFaxNumber {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsFaxNumber {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12051,30 +11801,30 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12084,8 +11834,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHostComputer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into_param().abi()).ok()
+    pub unsafe fn SetHostComputer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12095,8 +11845,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisplayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), bstrdisplayname.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdisplayname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), bstrdisplayname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12106,8 +11856,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrversion: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), bstrversion.into_param().abi()).ok()
+    pub unsafe fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrversion: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), bstrversion.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ServiceType(&self) -> ::windows::core::Result<i32> {
@@ -12135,8 +11885,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12146,8 +11896,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartupParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstartupparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartupParameters)(::windows::core::Interface::as_raw(self), bstrstartupparameters.into_param().abi()).ok()
+    pub unsafe fn SetStartupParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrstartupparameters: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetStartupParameters)(::windows::core::Interface::as_raw(self), bstrstartupparameters.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ErrorControl(&self) -> ::windows::core::Result<i32> {
@@ -12166,8 +11916,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLoadOrderGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloadordergroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLoadOrderGroup)(::windows::core::Interface::as_raw(self), bstrloadordergroup.into_param().abi()).ok()
+    pub unsafe fn SetLoadOrderGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrloadordergroup: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetLoadOrderGroup)(::windows::core::Interface::as_raw(self), bstrloadordergroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12177,8 +11927,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceAccountName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceAccountName)(::windows::core::Interface::as_raw(self), bstrserviceaccountname.into_param().abi()).ok()
+    pub unsafe fn SetServiceAccountName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrserviceaccountname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetServiceAccountName)(::windows::core::Interface::as_raw(self), bstrserviceaccountname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12188,8 +11938,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceAccountPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceAccountPath)(::windows::core::Interface::as_raw(self), bstrserviceaccountpath.into_param().abi()).ok()
+    pub unsafe fn SetServiceAccountPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrserviceaccountpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetServiceAccountPath)(::windows::core::Interface::as_raw(self), bstrserviceaccountpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12199,8 +11949,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vdependencies: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDependencies)(::windows::core::Interface::as_raw(self), vdependencies.into_param().abi()).ok()
+    pub unsafe fn SetDependencies<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vdependencies: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDependencies)(::windows::core::Interface::as_raw(self), vdependencies.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12210,8 +11960,8 @@ impl IADsFileService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxUserCount(&self) -> ::windows::core::Result<i32> {
@@ -12230,26 +11980,26 @@ impl ::core::convert::From<IADsFileService> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileService> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsFileService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsFileService> for ::windows::core::IUnknown {
     fn from(value: &IADsFileService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileService> for super::super::System::Com::IDispatch {
     fn from(value: IADsFileService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileService> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsFileService) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12260,20 +12010,14 @@ impl ::core::convert::From<&IADsFileService> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileService> for IADs {
     fn from(value: IADsFileService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileService> for &'a IADs {
+    fn from(value: &'a IADsFileService) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12284,20 +12028,14 @@ impl ::core::convert::From<&IADsFileService> for IADs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileService> for IADsService {
     fn from(value: IADsFileService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileService> for &'a IADsService {
+    fn from(value: &'a IADsFileService) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12305,18 +12043,6 @@ impl ::core::convert::From<IADsFileService> for IADsService {
 impl ::core::convert::From<&IADsFileService> for IADsService {
     fn from(value: &IADsFileService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADsService> for IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, IADsService> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADsService> for &'a IADsFileService {
-    fn into_param(self) -> ::windows::core::Param<'a, IADsService> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12412,30 +12138,30 @@ impl IADsFileServiceOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -12460,8 +12186,8 @@ impl IADsFileServiceOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnewpassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPassword)(::windows::core::Interface::as_raw(self), bstrnewpassword.into_param().abi()).ok()
+    pub unsafe fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnewpassword: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPassword)(::windows::core::Interface::as_raw(self), bstrnewpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12483,26 +12209,26 @@ impl ::core::convert::From<IADsFileServiceOperations> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileServiceOperations> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsFileServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsFileServiceOperations> for ::windows::core::IUnknown {
     fn from(value: &IADsFileServiceOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileServiceOperations> for super::super::System::Com::IDispatch {
     fn from(value: IADsFileServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileServiceOperations> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsFileServiceOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12513,20 +12239,14 @@ impl ::core::convert::From<&IADsFileServiceOperations> for super::super::System:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileServiceOperations> for IADs {
     fn from(value: IADsFileServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileServiceOperations> for &'a IADs {
+    fn from(value: &'a IADsFileServiceOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12537,20 +12257,14 @@ impl ::core::convert::From<&IADsFileServiceOperations> for IADs {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileServiceOperations> for IADsServiceOperations {
     fn from(value: IADsFileServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileServiceOperations> for &'a IADsServiceOperations {
+    fn from(value: &'a IADsFileServiceOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12558,18 +12272,6 @@ impl ::core::convert::From<IADsFileServiceOperations> for IADsServiceOperations 
 impl ::core::convert::From<&IADsFileServiceOperations> for IADsServiceOperations {
     fn from(value: &IADsFileServiceOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADsServiceOperations> for IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADsServiceOperations> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADsServiceOperations> for &'a IADsFileServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADsServiceOperations> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12663,30 +12365,30 @@ impl IADsFileShare {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn CurrentUserCount(&self) -> ::windows::core::Result<i32> {
@@ -12701,8 +12403,8 @@ impl IADsFileShare {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12712,8 +12414,8 @@ impl IADsFileShare {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHostComputer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into_param().abi()).ok()
+    pub unsafe fn SetHostComputer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12723,8 +12425,8 @@ impl IADsFileShare {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxUserCount(&self) -> ::windows::core::Result<i32> {
@@ -12743,26 +12445,26 @@ impl ::core::convert::From<IADsFileShare> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileShare> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsFileShare) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsFileShare> for ::windows::core::IUnknown {
     fn from(value: &IADsFileShare) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsFileShare {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsFileShare {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileShare> for super::super::System::Com::IDispatch {
     fn from(value: IADsFileShare) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileShare> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsFileShare) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12773,20 +12475,14 @@ impl ::core::convert::From<&IADsFileShare> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsFileShare {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsFileShare {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsFileShare> for IADs {
     fn from(value: IADsFileShare) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsFileShare> for &'a IADs {
+    fn from(value: &'a IADsFileShare) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12794,18 +12490,6 @@ impl ::core::convert::From<IADsFileShare> for IADs {
 impl ::core::convert::From<&IADsFileShare> for IADs {
     fn from(value: &IADsFileShare) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsFileShare {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsFileShare {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12918,30 +12602,30 @@ impl IADsGroup {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12951,8 +12635,8 @@ impl IADsGroup {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12962,24 +12646,30 @@ impl IADsGroup {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsMember<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmember: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsMember<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmember: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsMember)(::windows::core::Interface::as_raw(self), bstrmember.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsMember)(::windows::core::Interface::as_raw(self), bstrmember.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnewitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrnewitem.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnewitem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrnewitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemtoberemoved: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), bstritemtoberemoved.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemtoberemoved: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), bstritemtoberemoved.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsGroup> for ::windows::core::IUnknown {
     fn from(value: IADsGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsGroup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12990,20 +12680,14 @@ impl ::core::convert::From<&IADsGroup> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsGroup> for super::super::System::Com::IDispatch {
     fn from(value: IADsGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsGroup> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13014,20 +12698,14 @@ impl ::core::convert::From<&IADsGroup> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsGroup> for IADs {
     fn from(value: IADsGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsGroup> for &'a IADs {
+    fn from(value: &'a IADsGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13035,18 +12713,6 @@ impl ::core::convert::From<IADsGroup> for IADs {
 impl ::core::convert::From<&IADsGroup> for IADs {
     fn from(value: &IADsGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13118,8 +12784,8 @@ impl IADsHold {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into_param().abi()).ok()
+    pub unsafe fn SetObjectName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Amount(&self) -> ::windows::core::Result<i32> {
@@ -13138,21 +12804,15 @@ impl ::core::convert::From<IADsHold> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsHold> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsHold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsHold> for ::windows::core::IUnknown {
     fn from(value: &IADsHold) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsHold {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsHold {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13162,21 +12822,15 @@ impl ::core::convert::From<IADsHold> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsHold> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsHold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsHold> for super::super::System::Com::IDispatch {
     fn from(value: &IADsHold) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsHold {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsHold {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13252,21 +12906,15 @@ impl ::core::convert::From<IADsLargeInteger> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsLargeInteger> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsLargeInteger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsLargeInteger> for ::windows::core::IUnknown {
     fn from(value: &IADsLargeInteger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsLargeInteger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsLargeInteger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13276,21 +12924,15 @@ impl ::core::convert::From<IADsLargeInteger> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsLargeInteger> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsLargeInteger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsLargeInteger> for super::super::System::Com::IDispatch {
     fn from(value: &IADsLargeInteger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsLargeInteger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsLargeInteger {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13380,30 +13022,30 @@ impl IADsLocality {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13413,8 +13055,8 @@ impl IADsLocality {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13424,8 +13066,8 @@ impl IADsLocality {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalityName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into_param().abi()).ok()
+    pub unsafe fn SetLocalityName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13435,8 +13077,8 @@ impl IADsLocality {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
+    pub unsafe fn SetPostalAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13446,13 +13088,19 @@ impl IADsLocality {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
+    pub unsafe fn SetSeeAlso<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsLocality> for ::windows::core::IUnknown {
     fn from(value: IADsLocality) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsLocality> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsLocality) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13463,20 +13111,14 @@ impl ::core::convert::From<&IADsLocality> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsLocality {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsLocality {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsLocality> for super::super::System::Com::IDispatch {
     fn from(value: IADsLocality) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsLocality> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsLocality) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13487,20 +13129,14 @@ impl ::core::convert::From<&IADsLocality> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsLocality {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsLocality {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsLocality> for IADs {
     fn from(value: IADsLocality) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsLocality> for &'a IADs {
+    fn from(value: &'a IADsLocality) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13508,18 +13144,6 @@ impl ::core::convert::From<IADsLocality> for IADs {
 impl ::core::convert::From<&IADsLocality> for IADs {
     fn from(value: &IADsLocality) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsLocality {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsLocality {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13609,13 +13233,19 @@ impl IADsMembers {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), pvfilter.into_param().abi()).ok()
+    pub unsafe fn SetFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvfilter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), pvfilter.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsMembers> for ::windows::core::IUnknown {
     fn from(value: IADsMembers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsMembers> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsMembers) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13626,20 +13256,14 @@ impl ::core::convert::From<&IADsMembers> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsMembers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsMembers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsMembers> for super::super::System::Com::IDispatch {
     fn from(value: IADsMembers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsMembers> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsMembers) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13647,18 +13271,6 @@ impl ::core::convert::From<IADsMembers> for super::super::System::Com::IDispatch
 impl ::core::convert::From<&IADsMembers> for super::super::System::Com::IDispatch {
     fn from(value: &IADsMembers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsMembers {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsMembers {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13714,18 +13326,18 @@ impl IADsNameTranslate {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Init<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnsettype: i32, bstradspath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi()).ok()
+    pub unsafe fn Init<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lnsettype: i32, bstradspath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnsettype: i32, bstradspath: Param1, bstruserid: Param2, bstrdomain: Param3, bstrpassword: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi(), bstruserid.into_param().abi(), bstrdomain.into_param().abi(), bstrpassword.into_param().abi()).ok()
+    pub unsafe fn InitEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lnsettype: i32, bstradspath: Param1, bstruserid: Param2, bstrdomain: Param3, bstrpassword: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into().abi(), bstruserid.into().abi(), bstrdomain.into().abi(), bstrpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Set<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnsettype: i32, bstradspath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi()).ok()
+    pub unsafe fn Set<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lnsettype: i32, bstradspath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13735,8 +13347,8 @@ impl IADsNameTranslate {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lnformattype: i32, pvar: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), pvar.into_param().abi()).ok()
+    pub unsafe fn SetEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lnformattype: i32, pvar: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), pvar.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -13752,21 +13364,15 @@ impl ::core::convert::From<IADsNameTranslate> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNameTranslate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsNameTranslate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsNameTranslate> for ::windows::core::IUnknown {
     fn from(value: &IADsNameTranslate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsNameTranslate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsNameTranslate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13776,21 +13382,15 @@ impl ::core::convert::From<IADsNameTranslate> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNameTranslate> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsNameTranslate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsNameTranslate> for super::super::System::Com::IDispatch {
     fn from(value: &IADsNameTranslate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsNameTranslate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsNameTranslate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13901,30 +13501,30 @@ impl IADsNamespaces {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13934,13 +13534,19 @@ impl IADsNamespaces {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDefaultContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdefaultcontainer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultContainer)(::windows::core::Interface::as_raw(self), bstrdefaultcontainer.into_param().abi()).ok()
+    pub unsafe fn SetDefaultContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdefaultcontainer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultContainer)(::windows::core::Interface::as_raw(self), bstrdefaultcontainer.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsNamespaces> for ::windows::core::IUnknown {
     fn from(value: IADsNamespaces) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNamespaces> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsNamespaces) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13951,20 +13557,14 @@ impl ::core::convert::From<&IADsNamespaces> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsNamespaces {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsNamespaces {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsNamespaces> for super::super::System::Com::IDispatch {
     fn from(value: IADsNamespaces) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNamespaces> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsNamespaces) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13975,20 +13575,14 @@ impl ::core::convert::From<&IADsNamespaces> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsNamespaces {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsNamespaces {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsNamespaces> for IADs {
     fn from(value: IADsNamespaces) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNamespaces> for &'a IADs {
+    fn from(value: &'a IADsNamespaces) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13996,18 +13590,6 @@ impl ::core::convert::From<IADsNamespaces> for IADs {
 impl ::core::convert::From<&IADsNamespaces> for IADs {
     fn from(value: &IADsNamespaces) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsNamespaces {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsNamespaces {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14072,13 +13654,19 @@ impl IADsNetAddress {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), vaddress.into_param().abi()).ok()
+    pub unsafe fn SetAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vaddress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), vaddress.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsNetAddress> for ::windows::core::IUnknown {
     fn from(value: IADsNetAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNetAddress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsNetAddress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14089,20 +13677,14 @@ impl ::core::convert::From<&IADsNetAddress> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsNetAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsNetAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsNetAddress> for super::super::System::Com::IDispatch {
     fn from(value: IADsNetAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsNetAddress> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsNetAddress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14110,18 +13692,6 @@ impl ::core::convert::From<IADsNetAddress> for super::super::System::Com::IDispa
 impl ::core::convert::From<&IADsNetAddress> for super::super::System::Com::IDispatch {
     fn from(value: &IADsNetAddress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsNetAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsNetAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14217,30 +13787,30 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14250,8 +13820,8 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14261,8 +13831,8 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalityName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into_param().abi()).ok()
+    pub unsafe fn SetLocalityName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14272,8 +13842,8 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
+    pub unsafe fn SetPostalAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14283,8 +13853,8 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
+    pub unsafe fn SetTelephoneNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14294,8 +13864,8 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
+    pub unsafe fn SetFaxNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14305,13 +13875,19 @@ impl IADsO {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
+    pub unsafe fn SetSeeAlso<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsO> for ::windows::core::IUnknown {
     fn from(value: IADsO) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsO> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsO) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14322,20 +13898,14 @@ impl ::core::convert::From<&IADsO> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsO {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsO {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsO> for super::super::System::Com::IDispatch {
     fn from(value: IADsO) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsO> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsO) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14346,20 +13916,14 @@ impl ::core::convert::From<&IADsO> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsO {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsO {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsO> for IADs {
     fn from(value: IADsO) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsO> for &'a IADs {
+    fn from(value: &'a IADsO) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14367,18 +13931,6 @@ impl ::core::convert::From<IADsO> for IADs {
 impl ::core::convert::From<&IADsO> for IADs {
     fn from(value: &IADsO) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsO {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsO {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14512,30 +14064,30 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14545,8 +14097,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14556,8 +14108,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocalityName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into_param().abi()).ok()
+    pub unsafe fn SetLocalityName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14567,8 +14119,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
+    pub unsafe fn SetPostalAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14578,8 +14130,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
+    pub unsafe fn SetTelephoneNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14589,8 +14141,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
+    pub unsafe fn SetFaxNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -14600,8 +14152,8 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
+    pub unsafe fn SetSeeAlso<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14611,13 +14163,19 @@ impl IADsOU {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBusinessCategory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbusinesscategory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBusinessCategory)(::windows::core::Interface::as_raw(self), bstrbusinesscategory.into_param().abi()).ok()
+    pub unsafe fn SetBusinessCategory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrbusinesscategory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBusinessCategory)(::windows::core::Interface::as_raw(self), bstrbusinesscategory.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOU> for ::windows::core::IUnknown {
     fn from(value: IADsOU) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOU> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsOU) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14628,20 +14186,14 @@ impl ::core::convert::From<&IADsOU> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsOU {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsOU {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOU> for super::super::System::Com::IDispatch {
     fn from(value: IADsOU) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOU> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsOU) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14652,20 +14204,14 @@ impl ::core::convert::From<&IADsOU> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsOU {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsOU {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOU> for IADs {
     fn from(value: IADsOU) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOU> for &'a IADs {
+    fn from(value: &'a IADsOU) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14673,18 +14219,6 @@ impl ::core::convert::From<IADsOU> for IADs {
 impl ::core::convert::From<&IADsOU> for IADs {
     fn from(value: &IADsOU) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsOU {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsOU {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14788,13 +14322,19 @@ impl IADsObjectOptions {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lnoption: i32, vvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoption), vvalue.into_param().abi()).ok()
+    pub unsafe fn SetOption<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lnoption: i32, vvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoption), vvalue.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsObjectOptions> for ::windows::core::IUnknown {
     fn from(value: IADsObjectOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsObjectOptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsObjectOptions) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14805,20 +14345,14 @@ impl ::core::convert::From<&IADsObjectOptions> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsObjectOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsObjectOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsObjectOptions> for super::super::System::Com::IDispatch {
     fn from(value: IADsObjectOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsObjectOptions> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsObjectOptions) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14826,18 +14360,6 @@ impl ::core::convert::From<IADsObjectOptions> for super::super::System::Com::IDi
 impl ::core::convert::From<&IADsObjectOptions> for super::super::System::Com::IDispatch {
     fn from(value: &IADsObjectOptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsObjectOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsObjectOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14893,13 +14415,19 @@ impl IADsOctetList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOctetList<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, voctetlist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOctetList)(::windows::core::Interface::as_raw(self), voctetlist.into_param().abi()).ok()
+    pub unsafe fn SetOctetList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, voctetlist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOctetList)(::windows::core::Interface::as_raw(self), voctetlist.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOctetList> for ::windows::core::IUnknown {
     fn from(value: IADsOctetList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOctetList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsOctetList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14910,20 +14438,14 @@ impl ::core::convert::From<&IADsOctetList> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsOctetList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsOctetList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOctetList> for super::super::System::Com::IDispatch {
     fn from(value: IADsOctetList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOctetList> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsOctetList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14931,18 +14453,6 @@ impl ::core::convert::From<IADsOctetList> for super::super::System::Com::IDispat
 impl ::core::convert::From<&IADsOctetList> for super::super::System::Com::IDispatch {
     fn from(value: &IADsOctetList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsOctetList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsOctetList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14992,14 +14502,20 @@ pub struct IADsOpenDSObject(::windows::core::IUnknown);
 impl IADsOpenDSObject {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn OpenDSObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lpszdnname: Param0, lpszusername: Param1, lpszpassword: Param2, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn OpenDSObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lpszdnname: Param0, lpszusername: Param1, lpszpassword: Param2, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenDSObject)(::windows::core::Interface::as_raw(self), lpszdnname.into_param().abi(), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(lnreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).OpenDSObject)(::windows::core::Interface::as_raw(self), lpszdnname.into().abi(), lpszusername.into().abi(), lpszpassword.into().abi(), ::core::mem::transmute(lnreserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOpenDSObject> for ::windows::core::IUnknown {
     fn from(value: IADsOpenDSObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOpenDSObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsOpenDSObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15010,20 +14526,14 @@ impl ::core::convert::From<&IADsOpenDSObject> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsOpenDSObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsOpenDSObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsOpenDSObject> for super::super::System::Com::IDispatch {
     fn from(value: IADsOpenDSObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsOpenDSObject> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsOpenDSObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15031,18 +14541,6 @@ impl ::core::convert::From<IADsOpenDSObject> for super::super::System::Com::IDis
 impl ::core::convert::From<&IADsOpenDSObject> for super::super::System::Com::IDispatch {
     fn from(value: &IADsOpenDSObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsOpenDSObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsOpenDSObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15103,8 +14601,8 @@ impl IADsPath {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVolumeName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrvolumename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVolumeName)(::windows::core::Interface::as_raw(self), bstrvolumename.into_param().abi()).ok()
+    pub unsafe fn SetVolumeName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrvolumename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVolumeName)(::windows::core::Interface::as_raw(self), bstrvolumename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15114,13 +14612,19 @@ impl IADsPath {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPath> for ::windows::core::IUnknown {
     fn from(value: IADsPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPath> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPath) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15131,20 +14635,14 @@ impl ::core::convert::From<&IADsPath> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPath {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPath> for super::super::System::Com::IDispatch {
     fn from(value: IADsPath) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPath> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPath) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15152,18 +14650,6 @@ impl ::core::convert::From<IADsPath> for super::super::System::Com::IDispatch {
 impl ::core::convert::From<&IADsPath> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPath) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPath {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPath {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15223,8 +14709,8 @@ pub struct IADsPathname(::windows::core::IUnknown);
 impl IADsPathname {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Set<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradspath: Param0, lnsettype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), bstradspath.into_param().abi(), ::core::mem::transmute(lnsettype)).ok()
+    pub unsafe fn Set<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstradspath: Param0, lnsettype: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), bstradspath.into().abi(), ::core::mem::transmute(lnsettype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDisplayType(&self, lndisplaytype: i32) -> ::windows::core::Result<()> {
@@ -15249,8 +14735,8 @@ impl IADsPathname {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddLeafElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrleafelement: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddLeafElement)(::windows::core::Interface::as_raw(self), bstrleafelement.into_param().abi()).ok()
+    pub unsafe fn AddLeafElement<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrleafelement: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddLeafElement)(::windows::core::Interface::as_raw(self), bstrleafelement.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RemoveLeafElement(&self) -> ::windows::core::Result<()> {
@@ -15264,9 +14750,9 @@ impl IADsPathname {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEscapedElement<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnreserved: i32, bstrinstr: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetEscapedElement<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lnreserved: i32, bstrinstr: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEscapedElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreserved), bstrinstr.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetEscapedElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreserved), bstrinstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn EscapedMode(&self) -> ::windows::core::Result<i32> {
@@ -15285,21 +14771,15 @@ impl ::core::convert::From<IADsPathname> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPathname> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPathname) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPathname> for ::windows::core::IUnknown {
     fn from(value: &IADsPathname) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPathname {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPathname {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15309,21 +14789,15 @@ impl ::core::convert::From<IADsPathname> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPathname> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPathname) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPathname> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPathname) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPathname {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPathname {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15400,13 +14874,19 @@ impl IADsPostalAddress {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), vpostaladdress.into_param().abi()).ok()
+    pub unsafe fn SetPostalAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vpostaladdress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), vpostaladdress.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPostalAddress> for ::windows::core::IUnknown {
     fn from(value: IADsPostalAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPostalAddress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPostalAddress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15417,20 +14897,14 @@ impl ::core::convert::From<&IADsPostalAddress> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPostalAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPostalAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPostalAddress> for super::super::System::Com::IDispatch {
     fn from(value: IADsPostalAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPostalAddress> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPostalAddress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15438,18 +14912,6 @@ impl ::core::convert::From<IADsPostalAddress> for super::super::System::Com::IDi
 impl ::core::convert::From<&IADsPostalAddress> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPostalAddress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPostalAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPostalAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15543,30 +15005,30 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15609,8 +15071,8 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
@@ -15647,8 +15109,8 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnotify: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotify)(::windows::core::Interface::as_raw(self), bstrnotify.into_param().abi()).ok()
+    pub unsafe fn SetNotify<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnotify: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotify)(::windows::core::Interface::as_raw(self), bstrnotify.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15658,13 +15120,19 @@ impl IADsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotifyPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnotifypath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotifyPath)(::windows::core::Interface::as_raw(self), bstrnotifypath.into_param().abi()).ok()
+    pub unsafe fn SetNotifyPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnotifypath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotifyPath)(::windows::core::Interface::as_raw(self), bstrnotifypath.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintJob> for ::windows::core::IUnknown {
     fn from(value: IADsPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPrintJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15675,20 +15143,14 @@ impl ::core::convert::From<&IADsPrintJob> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintJob> for super::super::System::Com::IDispatch {
     fn from(value: IADsPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintJob> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPrintJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15699,20 +15161,14 @@ impl ::core::convert::From<&IADsPrintJob> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintJob> for IADs {
     fn from(value: IADsPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintJob> for &'a IADs {
+    fn from(value: &'a IADsPrintJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15720,18 +15176,6 @@ impl ::core::convert::From<IADsPrintJob> for IADs {
 impl ::core::convert::From<&IADsPrintJob> for IADs {
     fn from(value: &IADsPrintJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15862,30 +15306,30 @@ impl IADsPrintJobOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -15927,26 +15371,26 @@ impl ::core::convert::From<IADsPrintJobOperations> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintJobOperations> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPrintJobOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPrintJobOperations> for ::windows::core::IUnknown {
     fn from(value: &IADsPrintJobOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintJobOperations> for super::super::System::Com::IDispatch {
     fn from(value: IADsPrintJobOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintJobOperations> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPrintJobOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15957,20 +15401,14 @@ impl ::core::convert::From<&IADsPrintJobOperations> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintJobOperations> for IADs {
     fn from(value: IADsPrintJobOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintJobOperations> for &'a IADs {
+    fn from(value: &'a IADsPrintJobOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15978,18 +15416,6 @@ impl ::core::convert::From<IADsPrintJobOperations> for IADs {
 impl ::core::convert::From<&IADsPrintJobOperations> for IADs {
     fn from(value: &IADsPrintJobOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsPrintJobOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16082,30 +15508,30 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16115,8 +15541,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPrinterPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprinterpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrinterPath)(::windows::core::Interface::as_raw(self), bstrprinterpath.into_param().abi()).ok()
+    pub unsafe fn SetPrinterPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprinterpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrinterPath)(::windows::core::Interface::as_raw(self), bstrprinterpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16126,8 +15552,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmodel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModel)(::windows::core::Interface::as_raw(self), bstrmodel.into_param().abi()).ok()
+    pub unsafe fn SetModel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmodel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetModel)(::windows::core::Interface::as_raw(self), bstrmodel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16137,8 +15563,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDatatype<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdatatype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDatatype)(::windows::core::Interface::as_raw(self), bstrdatatype.into_param().abi()).ok()
+    pub unsafe fn SetDatatype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdatatype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDatatype)(::windows::core::Interface::as_raw(self), bstrdatatype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16148,8 +15574,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPrintProcessor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprintprocessor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrintProcessor)(::windows::core::Interface::as_raw(self), bstrprintprocessor.into_param().abi()).ok()
+    pub unsafe fn SetPrintProcessor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprintprocessor: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrintProcessor)(::windows::core::Interface::as_raw(self), bstrprintprocessor.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16159,8 +15585,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16170,8 +15596,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocation)(::windows::core::Interface::as_raw(self), bstrlocation.into_param().abi()).ok()
+    pub unsafe fn SetLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlocation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLocation)(::windows::core::Interface::as_raw(self), bstrlocation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
@@ -16217,8 +15643,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetBannerPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbannerpage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBannerPage)(::windows::core::Interface::as_raw(self), bstrbannerpage.into_param().abi()).ok()
+    pub unsafe fn SetBannerPage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrbannerpage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBannerPage)(::windows::core::Interface::as_raw(self), bstrbannerpage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16228,8 +15654,8 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPrintDevices<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vprintdevices: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrintDevices)(::windows::core::Interface::as_raw(self), vprintdevices.into_param().abi()).ok()
+    pub unsafe fn SetPrintDevices<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vprintdevices: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrintDevices)(::windows::core::Interface::as_raw(self), vprintdevices.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16239,13 +15665,19 @@ impl IADsPrintQueue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetNetAddresses<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vnetaddresses: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetAddresses)(::windows::core::Interface::as_raw(self), vnetaddresses.into_param().abi()).ok()
+    pub unsafe fn SetNetAddresses<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vnetaddresses: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetAddresses)(::windows::core::Interface::as_raw(self), vnetaddresses.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintQueue> for ::windows::core::IUnknown {
     fn from(value: IADsPrintQueue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintQueue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPrintQueue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16256,20 +15688,14 @@ impl ::core::convert::From<&IADsPrintQueue> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPrintQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPrintQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintQueue> for super::super::System::Com::IDispatch {
     fn from(value: IADsPrintQueue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintQueue> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPrintQueue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16280,20 +15706,14 @@ impl ::core::convert::From<&IADsPrintQueue> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPrintQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPrintQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintQueue> for IADs {
     fn from(value: IADsPrintQueue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintQueue> for &'a IADs {
+    fn from(value: &'a IADsPrintQueue) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16301,18 +15721,6 @@ impl ::core::convert::From<IADsPrintQueue> for IADs {
 impl ::core::convert::From<&IADsPrintQueue> for IADs {
     fn from(value: &IADsPrintQueue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsPrintQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsPrintQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16478,30 +15886,30 @@ impl IADsPrintQueueOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -16534,26 +15942,26 @@ impl ::core::convert::From<IADsPrintQueueOperations> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintQueueOperations> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPrintQueueOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPrintQueueOperations> for ::windows::core::IUnknown {
     fn from(value: &IADsPrintQueueOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintQueueOperations> for super::super::System::Com::IDispatch {
     fn from(value: IADsPrintQueueOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintQueueOperations> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPrintQueueOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16564,20 +15972,14 @@ impl ::core::convert::From<&IADsPrintQueueOperations> for super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPrintQueueOperations> for IADs {
     fn from(value: IADsPrintQueueOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPrintQueueOperations> for &'a IADs {
+    fn from(value: &'a IADsPrintQueueOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16585,18 +15987,6 @@ impl ::core::convert::From<IADsPrintQueueOperations> for IADs {
 impl ::core::convert::From<&IADsPrintQueueOperations> for IADs {
     fn from(value: &IADsPrintQueueOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsPrintQueueOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16690,30 +16080,30 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16723,8 +16113,8 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOID)(::windows::core::Interface::as_raw(self), bstroid.into_param().abi()).ok()
+    pub unsafe fn SetOID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstroid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOID)(::windows::core::Interface::as_raw(self), bstroid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -16734,8 +16124,8 @@ impl IADsProperty {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSyntax<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsyntax: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSyntax)(::windows::core::Interface::as_raw(self), bstrsyntax.into_param().abi()).ok()
+    pub unsafe fn SetSyntax<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsyntax: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSyntax)(::windows::core::Interface::as_raw(self), bstrsyntax.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxRange(&self) -> ::windows::core::Result<i32> {
@@ -16778,26 +16168,26 @@ impl ::core::convert::From<IADsProperty> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsProperty> for ::windows::core::IUnknown {
     fn from(value: &IADsProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsProperty> for super::super::System::Com::IDispatch {
     fn from(value: IADsProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsProperty> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16808,20 +16198,14 @@ impl ::core::convert::From<&IADsProperty> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsProperty> for IADs {
     fn from(value: IADsProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsProperty> for &'a IADs {
+    fn from(value: &'a IADsProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16829,18 +16213,6 @@ impl ::core::convert::From<IADsProperty> for IADs {
 impl ::core::convert::From<&IADsProperty> for IADs {
     fn from(value: &IADsProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16918,8 +16290,8 @@ impl IADsPropertyEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADsType(&self) -> ::windows::core::Result<i32> {
@@ -16947,13 +16319,19 @@ impl IADsPropertyEntry {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vvalues: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), vvalues.into_param().abi()).ok()
+    pub unsafe fn SetValues<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vvalues: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), vvalues.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPropertyEntry> for ::windows::core::IUnknown {
     fn from(value: IADsPropertyEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyEntry> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPropertyEntry) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16964,20 +16342,14 @@ impl ::core::convert::From<&IADsPropertyEntry> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPropertyEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPropertyEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPropertyEntry> for super::super::System::Com::IDispatch {
     fn from(value: IADsPropertyEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyEntry> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPropertyEntry) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -16985,18 +16357,6 @@ impl ::core::convert::From<IADsPropertyEntry> for super::super::System::Com::IDi
 impl ::core::convert::From<&IADsPropertyEntry> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPropertyEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPropertyEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPropertyEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17077,25 +16437,25 @@ impl IADsPropertyList {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varindex: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, varindex: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), varindex.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), varindex.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyItem)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(lnadstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyItem)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(lnadstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutPropertyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vardata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutPropertyItem)(::windows::core::Interface::as_raw(self), vardata.into_param().abi()).ok()
+    pub unsafe fn PutPropertyItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vardata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutPropertyItem)(::windows::core::Interface::as_raw(self), vardata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ResetPropertyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varentry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetPropertyItem)(::windows::core::Interface::as_raw(self), varentry.into_param().abi()).ok()
+    pub unsafe fn ResetPropertyItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, varentry: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResetPropertyItem)(::windows::core::Interface::as_raw(self), varentry.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PurgePropertyList(&self) -> ::windows::core::Result<()> {
@@ -17109,21 +16469,15 @@ impl ::core::convert::From<IADsPropertyList> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPropertyList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPropertyList> for ::windows::core::IUnknown {
     fn from(value: &IADsPropertyList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPropertyList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPropertyList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17133,21 +16487,15 @@ impl ::core::convert::From<IADsPropertyList> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyList> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPropertyList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPropertyList> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPropertyList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPropertyList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPropertyList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17232,8 +16580,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDNString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into_param().abi()).ok()
+    pub unsafe fn SetDNString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17243,8 +16591,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCaseExactString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaseexactstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaseExactString)(::windows::core::Interface::as_raw(self), bstrcaseexactstring.into_param().abi()).ok()
+    pub unsafe fn SetCaseExactString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcaseexactstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCaseExactString)(::windows::core::Interface::as_raw(self), bstrcaseexactstring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17254,8 +16602,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCaseIgnoreString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaseignorestring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaseIgnoreString)(::windows::core::Interface::as_raw(self), bstrcaseignorestring.into_param().abi()).ok()
+    pub unsafe fn SetCaseIgnoreString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcaseignorestring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCaseIgnoreString)(::windows::core::Interface::as_raw(self), bstrcaseignorestring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17265,8 +16613,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPrintableString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprintablestring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrintableString)(::windows::core::Interface::as_raw(self), bstrprintablestring.into_param().abi()).ok()
+    pub unsafe fn SetPrintableString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprintablestring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrintableString)(::windows::core::Interface::as_raw(self), bstrprintablestring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17276,8 +16624,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNumericString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnumericstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNumericString)(::windows::core::Interface::as_raw(self), bstrnumericstring.into_param().abi()).ok()
+    pub unsafe fn SetNumericString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnumericstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNumericString)(::windows::core::Interface::as_raw(self), bstrnumericstring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Boolean(&self) -> ::windows::core::Result<i32> {
@@ -17305,8 +16653,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOctetString<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, voctetstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOctetString)(::windows::core::Interface::as_raw(self), voctetstring.into_param().abi()).ok()
+    pub unsafe fn SetOctetString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, voctetstring: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOctetString)(::windows::core::Interface::as_raw(self), voctetstring.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17316,8 +16664,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, psecuritydescriptor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), psecuritydescriptor.into_param().abi()).ok()
+    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, psecuritydescriptor: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), psecuritydescriptor.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17327,8 +16675,8 @@ impl IADsPropertyValue {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetLargeInteger<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, plargeinteger: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLargeInteger)(::windows::core::Interface::as_raw(self), plargeinteger.into_param().abi()).ok()
+    pub unsafe fn SetLargeInteger<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, plargeinteger: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLargeInteger)(::windows::core::Interface::as_raw(self), plargeinteger.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn UTCTime(&self) -> ::windows::core::Result<f64> {
@@ -17347,21 +16695,15 @@ impl ::core::convert::From<IADsPropertyValue> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyValue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPropertyValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPropertyValue> for ::windows::core::IUnknown {
     fn from(value: &IADsPropertyValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPropertyValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPropertyValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17371,21 +16713,15 @@ impl ::core::convert::From<IADsPropertyValue> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyValue> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPropertyValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsPropertyValue> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPropertyValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPropertyValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPropertyValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17505,13 +16841,19 @@ impl IADsPropertyValue2 {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutObjectProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lnadstype: i32, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutObjectProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype), vprop.into_param().abi()).ok()
+    pub unsafe fn PutObjectProperty<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lnadstype: i32, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PutObjectProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype), vprop.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPropertyValue2> for ::windows::core::IUnknown {
     fn from(value: IADsPropertyValue2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyValue2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsPropertyValue2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -17522,20 +16864,14 @@ impl ::core::convert::From<&IADsPropertyValue2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsPropertyValue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsPropertyValue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsPropertyValue2> for super::super::System::Com::IDispatch {
     fn from(value: IADsPropertyValue2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsPropertyValue2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsPropertyValue2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -17543,18 +16879,6 @@ impl ::core::convert::From<IADsPropertyValue2> for super::super::System::Com::ID
 impl ::core::convert::From<&IADsPropertyValue2> for super::super::System::Com::IDispatch {
     fn from(value: &IADsPropertyValue2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsPropertyValue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsPropertyValue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17610,8 +16934,8 @@ impl IADsReplicaPointer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerName)(::windows::core::Interface::as_raw(self), bstrservername.into_param().abi()).ok()
+    pub unsafe fn SetServerName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrservername: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerName)(::windows::core::Interface::as_raw(self), bstrservername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReplicaType(&self) -> ::windows::core::Result<i32> {
@@ -17648,13 +16972,19 @@ impl IADsReplicaPointer {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetReplicaAddressHints<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vreplicaaddresshints: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplicaAddressHints)(::windows::core::Interface::as_raw(self), vreplicaaddresshints.into_param().abi()).ok()
+    pub unsafe fn SetReplicaAddressHints<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vreplicaaddresshints: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReplicaAddressHints)(::windows::core::Interface::as_raw(self), vreplicaaddresshints.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsReplicaPointer> for ::windows::core::IUnknown {
     fn from(value: IADsReplicaPointer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsReplicaPointer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsReplicaPointer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -17665,20 +16995,14 @@ impl ::core::convert::From<&IADsReplicaPointer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsReplicaPointer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsReplicaPointer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsReplicaPointer> for super::super::System::Com::IDispatch {
     fn from(value: IADsReplicaPointer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsReplicaPointer> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsReplicaPointer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -17686,18 +17010,6 @@ impl ::core::convert::From<IADsReplicaPointer> for super::super::System::Com::ID
 impl ::core::convert::From<&IADsReplicaPointer> for super::super::System::Com::IDispatch {
     fn from(value: &IADsReplicaPointer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsReplicaPointer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsReplicaPointer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17805,30 +17117,30 @@ impl IADsResource {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -17861,26 +17173,26 @@ impl ::core::convert::From<IADsResource> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsResource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsResource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsResource> for ::windows::core::IUnknown {
     fn from(value: &IADsResource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsResource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsResource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsResource> for super::super::System::Com::IDispatch {
     fn from(value: IADsResource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsResource> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsResource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -17891,20 +17203,14 @@ impl ::core::convert::From<&IADsResource> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsResource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsResource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsResource> for IADs {
     fn from(value: IADsResource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsResource> for &'a IADs {
+    fn from(value: &'a IADsResource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -17912,18 +17218,6 @@ impl ::core::convert::From<IADsResource> for IADs {
 impl ::core::convert::From<&IADsResource> for IADs {
     fn from(value: &IADsResource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsResource {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsResource {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18002,8 +17296,8 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwner)(::windows::core::Interface::as_raw(self), bstrowner.into_param().abi()).ok()
+    pub unsafe fn SetOwner<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrowner: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOwner)(::windows::core::Interface::as_raw(self), bstrowner.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn OwnerDefaulted(&self) -> ::windows::core::Result<i16> {
@@ -18022,8 +17316,8 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroup)(::windows::core::Interface::as_raw(self), bstrgroup.into_param().abi()).ok()
+    pub unsafe fn SetGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgroup: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGroup)(::windows::core::Interface::as_raw(self), bstrgroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GroupDefaulted(&self) -> ::windows::core::Result<i16> {
@@ -18042,8 +17336,8 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDiscretionaryAcl<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdiscretionaryacl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscretionaryAcl)(::windows::core::Interface::as_raw(self), pdiscretionaryacl.into_param().abi()).ok()
+    pub unsafe fn SetDiscretionaryAcl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdiscretionaryacl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDiscretionaryAcl)(::windows::core::Interface::as_raw(self), pdiscretionaryacl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DaclDefaulted(&self) -> ::windows::core::Result<i16> {
@@ -18062,8 +17356,8 @@ impl IADsSecurityDescriptor {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSystemAcl<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, psystemacl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSystemAcl)(::windows::core::Interface::as_raw(self), psystemacl.into_param().abi()).ok()
+    pub unsafe fn SetSystemAcl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, psystemacl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSystemAcl)(::windows::core::Interface::as_raw(self), psystemacl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SaclDefaulted(&self) -> ::windows::core::Result<i16> {
@@ -18088,21 +17382,15 @@ impl ::core::convert::From<IADsSecurityDescriptor> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSecurityDescriptor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsSecurityDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsSecurityDescriptor> for ::windows::core::IUnknown {
     fn from(value: &IADsSecurityDescriptor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsSecurityDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsSecurityDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18112,21 +17400,15 @@ impl ::core::convert::From<IADsSecurityDescriptor> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSecurityDescriptor> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsSecurityDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsSecurityDescriptor> for super::super::System::Com::IDispatch {
     fn from(value: &IADsSecurityDescriptor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsSecurityDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsSecurityDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18216,20 +17498,20 @@ pub struct IADsSecurityUtility(::windows::core::IUnknown);
 impl IADsSecurityUtility {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varpath: Param0, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, varpath: Param0, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into_param().abi(), ::core::mem::transmute(lpathformat), ::core::mem::transmute(lformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into().abi(), ::core::mem::transmute(lpathformat), ::core::mem::transmute(lformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varpath: Param0, lpathformat: i32, vardata: Param2, ldataformat: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into_param().abi(), ::core::mem::transmute(lpathformat), vardata.into_param().abi(), ::core::mem::transmute(ldataformat)).ok()
+    pub unsafe fn SetSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, varpath: Param0, lpathformat: i32, vardata: Param2, ldataformat: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into().abi(), ::core::mem::transmute(lpathformat), vardata.into().abi(), ::core::mem::transmute(ldataformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ConvertSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varsd: Param0, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn ConvertSecurityDescriptor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, varsd: Param0, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertSecurityDescriptor)(::windows::core::Interface::as_raw(self), varsd.into_param().abi(), ::core::mem::transmute(ldataformat), ::core::mem::transmute(loutformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).ConvertSecurityDescriptor)(::windows::core::Interface::as_raw(self), varsd.into().abi(), ::core::mem::transmute(ldataformat), ::core::mem::transmute(loutformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SecurityMask(&self) -> ::windows::core::Result<i32> {
@@ -18248,21 +17530,15 @@ impl ::core::convert::From<IADsSecurityUtility> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSecurityUtility> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsSecurityUtility) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsSecurityUtility> for ::windows::core::IUnknown {
     fn from(value: &IADsSecurityUtility) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsSecurityUtility {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsSecurityUtility {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18272,21 +17548,15 @@ impl ::core::convert::From<IADsSecurityUtility> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSecurityUtility> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsSecurityUtility) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsSecurityUtility> for super::super::System::Com::IDispatch {
     fn from(value: &IADsSecurityUtility) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsSecurityUtility {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsSecurityUtility {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18386,30 +17656,30 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18419,8 +17689,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHostComputer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into_param().abi()).ok()
+    pub unsafe fn SetHostComputer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18430,8 +17700,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisplayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), bstrdisplayname.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdisplayname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), bstrdisplayname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18441,8 +17711,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrversion: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), bstrversion.into_param().abi()).ok()
+    pub unsafe fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrversion: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), bstrversion.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ServiceType(&self) -> ::windows::core::Result<i32> {
@@ -18470,8 +17740,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
+    pub unsafe fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18481,8 +17751,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStartupParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstartupparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartupParameters)(::windows::core::Interface::as_raw(self), bstrstartupparameters.into_param().abi()).ok()
+    pub unsafe fn SetStartupParameters<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrstartupparameters: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStartupParameters)(::windows::core::Interface::as_raw(self), bstrstartupparameters.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ErrorControl(&self) -> ::windows::core::Result<i32> {
@@ -18501,8 +17771,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLoadOrderGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloadordergroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoadOrderGroup)(::windows::core::Interface::as_raw(self), bstrloadordergroup.into_param().abi()).ok()
+    pub unsafe fn SetLoadOrderGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrloadordergroup: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLoadOrderGroup)(::windows::core::Interface::as_raw(self), bstrloadordergroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18512,8 +17782,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceAccountName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceAccountName)(::windows::core::Interface::as_raw(self), bstrserviceaccountname.into_param().abi()).ok()
+    pub unsafe fn SetServiceAccountName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrserviceaccountname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceAccountName)(::windows::core::Interface::as_raw(self), bstrserviceaccountname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -18523,8 +17793,8 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceAccountPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceAccountPath)(::windows::core::Interface::as_raw(self), bstrserviceaccountpath.into_param().abi()).ok()
+    pub unsafe fn SetServiceAccountPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrserviceaccountpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceAccountPath)(::windows::core::Interface::as_raw(self), bstrserviceaccountpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -18534,13 +17804,19 @@ impl IADsService {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vdependencies: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDependencies)(::windows::core::Interface::as_raw(self), vdependencies.into_param().abi()).ok()
+    pub unsafe fn SetDependencies<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vdependencies: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDependencies)(::windows::core::Interface::as_raw(self), vdependencies.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsService> for ::windows::core::IUnknown {
     fn from(value: IADsService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsService> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsService) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -18551,20 +17827,14 @@ impl ::core::convert::From<&IADsService> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsService> for super::super::System::Com::IDispatch {
     fn from(value: IADsService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsService> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsService) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -18575,20 +17845,14 @@ impl ::core::convert::From<&IADsService> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsService> for IADs {
     fn from(value: IADsService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsService> for &'a IADs {
+    fn from(value: &'a IADsService) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -18596,18 +17860,6 @@ impl ::core::convert::From<IADsService> for IADs {
 impl ::core::convert::From<&IADsService> for IADs {
     fn from(value: &IADsService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsService {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsService {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18771,30 +18023,30 @@ impl IADsServiceOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
@@ -18819,13 +18071,19 @@ impl IADsServiceOperations {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnewpassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), bstrnewpassword.into_param().abi()).ok()
+    pub unsafe fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnewpassword: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), bstrnewpassword.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsServiceOperations> for ::windows::core::IUnknown {
     fn from(value: IADsServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsServiceOperations> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsServiceOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -18836,20 +18094,14 @@ impl ::core::convert::From<&IADsServiceOperations> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsServiceOperations> for super::super::System::Com::IDispatch {
     fn from(value: IADsServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsServiceOperations> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsServiceOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -18860,20 +18112,14 @@ impl ::core::convert::From<&IADsServiceOperations> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsServiceOperations> for IADs {
     fn from(value: IADsServiceOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsServiceOperations> for &'a IADs {
+    fn from(value: &'a IADsServiceOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -18881,18 +18127,6 @@ impl ::core::convert::From<IADsServiceOperations> for IADs {
 impl ::core::convert::From<&IADsServiceOperations> for IADs {
     fn from(value: &IADsServiceOperations) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsServiceOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18987,30 +18221,30 @@ impl IADsSession {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19054,26 +18288,26 @@ impl ::core::convert::From<IADsSession> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsSession> for ::windows::core::IUnknown {
     fn from(value: &IADsSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsSession> for super::super::System::Com::IDispatch {
     fn from(value: IADsSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSession> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsSession) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -19084,20 +18318,14 @@ impl ::core::convert::From<&IADsSession> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsSession> for IADs {
     fn from(value: IADsSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSession> for &'a IADs {
+    fn from(value: &'a IADsSession) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -19105,18 +18333,6 @@ impl ::core::convert::From<IADsSession> for IADs {
 impl ::core::convert::From<&IADsSession> for IADs {
     fn from(value: &IADsSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsSession {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19220,30 +18436,30 @@ impl IADsSyntax {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn OleAutoDataType(&self) -> ::windows::core::Result<i32> {
@@ -19262,26 +18478,26 @@ impl ::core::convert::From<IADsSyntax> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSyntax> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsSyntax) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsSyntax> for ::windows::core::IUnknown {
     fn from(value: &IADsSyntax) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsSyntax {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsSyntax {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsSyntax> for super::super::System::Com::IDispatch {
     fn from(value: IADsSyntax) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSyntax> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsSyntax) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -19292,20 +18508,14 @@ impl ::core::convert::From<&IADsSyntax> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsSyntax {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsSyntax {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsSyntax> for IADs {
     fn from(value: IADsSyntax) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsSyntax> for &'a IADs {
+    fn from(value: &'a IADsSyntax) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -19313,18 +18523,6 @@ impl ::core::convert::From<IADsSyntax> for IADs {
 impl ::core::convert::From<&IADsSyntax> for IADs {
     fn from(value: &IADsSyntax) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsSyntax {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsSyntax {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19392,21 +18590,15 @@ impl ::core::convert::From<IADsTimestamp> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsTimestamp> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsTimestamp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsTimestamp> for ::windows::core::IUnknown {
     fn from(value: &IADsTimestamp) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19416,21 +18608,15 @@ impl ::core::convert::From<IADsTimestamp> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsTimestamp> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsTimestamp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsTimestamp> for super::super::System::Com::IDispatch {
     fn from(value: &IADsTimestamp) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19482,8 +18668,8 @@ impl IADsTypedName {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into_param().abi()).ok()
+    pub unsafe fn SetObjectName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Level(&self) -> ::windows::core::Result<i32> {
@@ -19511,21 +18697,15 @@ impl ::core::convert::From<IADsTypedName> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsTypedName> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsTypedName) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsTypedName> for ::windows::core::IUnknown {
     fn from(value: &IADsTypedName) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsTypedName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsTypedName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19535,21 +18715,15 @@ impl ::core::convert::From<IADsTypedName> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsTypedName> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsTypedName) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsTypedName> for super::super::System::Com::IDispatch {
     fn from(value: &IADsTypedName) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsTypedName {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsTypedName {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19647,30 +18821,30 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Get<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn Put<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+    pub unsafe fn PutEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into().abi(), vprop.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn GetInfoEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19711,8 +18885,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19722,8 +18896,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDivision<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdivision: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDivision)(::windows::core::Interface::as_raw(self), bstrdivision.into_param().abi()).ok()
+    pub unsafe fn SetDivision<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdivision: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDivision)(::windows::core::Interface::as_raw(self), bstrdivision.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19733,8 +18907,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDepartment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into_param().abi()).ok()
+    pub unsafe fn SetDepartment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19744,8 +18918,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEmployeeID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstremployeeid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEmployeeID)(::windows::core::Interface::as_raw(self), bstremployeeid.into_param().abi()).ok()
+    pub unsafe fn SetEmployeeID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstremployeeid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEmployeeID)(::windows::core::Interface::as_raw(self), bstremployeeid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19755,8 +18929,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfullname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullName)(::windows::core::Interface::as_raw(self), bstrfullname.into_param().abi()).ok()
+    pub unsafe fn SetFullName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrfullname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFullName)(::windows::core::Interface::as_raw(self), bstrfullname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19766,8 +18940,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFirstName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfirstname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFirstName)(::windows::core::Interface::as_raw(self), bstrfirstname.into_param().abi()).ok()
+    pub unsafe fn SetFirstName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrfirstname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFirstName)(::windows::core::Interface::as_raw(self), bstrfirstname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19777,8 +18951,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLastName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlastname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLastName)(::windows::core::Interface::as_raw(self), bstrlastname.into_param().abi()).ok()
+    pub unsafe fn SetLastName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlastname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLastName)(::windows::core::Interface::as_raw(self), bstrlastname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19788,8 +18962,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOtherName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrothername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOtherName)(::windows::core::Interface::as_raw(self), bstrothername.into_param().abi()).ok()
+    pub unsafe fn SetOtherName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrothername: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOtherName)(::windows::core::Interface::as_raw(self), bstrothername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19799,8 +18973,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNamePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnameprefix: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamePrefix)(::windows::core::Interface::as_raw(self), bstrnameprefix.into_param().abi()).ok()
+    pub unsafe fn SetNamePrefix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnameprefix: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNamePrefix)(::windows::core::Interface::as_raw(self), bstrnameprefix.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19810,8 +18984,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNameSuffix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnamesuffix: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNameSuffix)(::windows::core::Interface::as_raw(self), bstrnamesuffix.into_param().abi()).ok()
+    pub unsafe fn SetNameSuffix<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrnamesuffix: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNameSuffix)(::windows::core::Interface::as_raw(self), bstrnamesuffix.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19821,8 +18995,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), bstrtitle.into_param().abi()).ok()
+    pub unsafe fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtitle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), bstrtitle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -19832,8 +19006,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManager)(::windows::core::Interface::as_raw(self), bstrmanager.into_param().abi()).ok()
+    pub unsafe fn SetManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmanager: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetManager)(::windows::core::Interface::as_raw(self), bstrmanager.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19843,8 +19017,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetTelephoneHome<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonehome: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneHome)(::windows::core::Interface::as_raw(self), vtelephonehome.into_param().abi()).ok()
+    pub unsafe fn SetTelephoneHome<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vtelephonehome: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephoneHome)(::windows::core::Interface::as_raw(self), vtelephonehome.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19854,8 +19028,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetTelephoneMobile<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonemobile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneMobile)(::windows::core::Interface::as_raw(self), vtelephonemobile.into_param().abi()).ok()
+    pub unsafe fn SetTelephoneMobile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vtelephonemobile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephoneMobile)(::windows::core::Interface::as_raw(self), vtelephonemobile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19865,8 +19039,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), vtelephonenumber.into_param().abi()).ok()
+    pub unsafe fn SetTelephoneNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vtelephonenumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), vtelephonenumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19876,8 +19050,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetTelephonePager<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonepager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephonePager)(::windows::core::Interface::as_raw(self), vtelephonepager.into_param().abi()).ok()
+    pub unsafe fn SetTelephonePager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vtelephonepager: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTelephonePager)(::windows::core::Interface::as_raw(self), vtelephonepager.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19887,8 +19061,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), vfaxnumber.into_param().abi()).ok()
+    pub unsafe fn SetFaxNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vfaxnumber: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), vfaxnumber.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19898,8 +19072,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOfficeLocations<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vofficelocations: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOfficeLocations)(::windows::core::Interface::as_raw(self), vofficelocations.into_param().abi()).ok()
+    pub unsafe fn SetOfficeLocations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vofficelocations: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOfficeLocations)(::windows::core::Interface::as_raw(self), vofficelocations.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19909,8 +19083,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPostalAddresses<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpostaladdresses: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddresses)(::windows::core::Interface::as_raw(self), vpostaladdresses.into_param().abi()).ok()
+    pub unsafe fn SetPostalAddresses<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vpostaladdresses: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPostalAddresses)(::windows::core::Interface::as_raw(self), vpostaladdresses.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19920,8 +19094,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPostalCodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpostalcodes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalCodes)(::windows::core::Interface::as_raw(self), vpostalcodes.into_param().abi()).ok()
+    pub unsafe fn SetPostalCodes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vpostalcodes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPostalCodes)(::windows::core::Interface::as_raw(self), vpostalcodes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19931,8 +19105,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
+    pub unsafe fn SetSeeAlso<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AccountDisabled(&self) -> ::windows::core::Result<i16> {
@@ -19987,8 +19161,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetLoginHours<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vloginhours: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoginHours)(::windows::core::Interface::as_raw(self), vloginhours.into_param().abi()).ok()
+    pub unsafe fn SetLoginHours<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vloginhours: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLoginHours)(::windows::core::Interface::as_raw(self), vloginhours.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -19998,8 +19172,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetLoginWorkstations<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vloginworkstations: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoginWorkstations)(::windows::core::Interface::as_raw(self), vloginworkstations.into_param().abi()).ok()
+    pub unsafe fn SetLoginWorkstations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vloginworkstations: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLoginWorkstations)(::windows::core::Interface::as_raw(self), vloginworkstations.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxLogins(&self) -> ::windows::core::Result<i32> {
@@ -20063,8 +19237,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEmailAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstremailaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEmailAddress)(::windows::core::Interface::as_raw(self), bstremailaddress.into_param().abi()).ok()
+    pub unsafe fn SetEmailAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstremailaddress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEmailAddress)(::windows::core::Interface::as_raw(self), bstremailaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20074,8 +19248,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHomeDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhomedirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHomeDirectory)(::windows::core::Interface::as_raw(self), bstrhomedirectory.into_param().abi()).ok()
+    pub unsafe fn SetHomeDirectory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrhomedirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHomeDirectory)(::windows::core::Interface::as_raw(self), bstrhomedirectory.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20085,8 +19259,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetLanguages<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vlanguages: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguages)(::windows::core::Interface::as_raw(self), vlanguages.into_param().abi()).ok()
+    pub unsafe fn SetLanguages<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vlanguages: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLanguages)(::windows::core::Interface::as_raw(self), vlanguages.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20096,8 +19270,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprofile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProfile)(::windows::core::Interface::as_raw(self), bstrprofile.into_param().abi()).ok()
+    pub unsafe fn SetProfile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprofile: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProfile)(::windows::core::Interface::as_raw(self), bstrprofile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20107,8 +19281,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLoginScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloginscript: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoginScript)(::windows::core::Interface::as_raw(self), bstrloginscript.into_param().abi()).ok()
+    pub unsafe fn SetLoginScript<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrloginscript: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLoginScript)(::windows::core::Interface::as_raw(self), bstrloginscript.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -20118,8 +19292,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPicture<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpicture: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPicture)(::windows::core::Interface::as_raw(self), vpicture.into_param().abi()).ok()
+    pub unsafe fn SetPicture<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, vpicture: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPicture)(::windows::core::Interface::as_raw(self), vpicture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20129,8 +19303,8 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHomePage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhomepage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHomePage)(::windows::core::Interface::as_raw(self), bstrhomepage.into_param().abi()).ok()
+    pub unsafe fn SetHomePage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrhomepage: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHomePage)(::windows::core::Interface::as_raw(self), bstrhomepage.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -20140,18 +19314,24 @@ impl IADsUser {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newpassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), newpassword.into_param().abi()).ok()
+    pub unsafe fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newpassword: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), newpassword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangePassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroldpassword: Param0, bstrnewpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangePassword)(::windows::core::Interface::as_raw(self), bstroldpassword.into_param().abi(), bstrnewpassword.into_param().abi()).ok()
+    pub unsafe fn ChangePassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstroldpassword: Param0, bstrnewpassword: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ChangePassword)(::windows::core::Interface::as_raw(self), bstroldpassword.into().abi(), bstrnewpassword.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsUser> for ::windows::core::IUnknown {
     fn from(value: IADsUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsUser> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsUser) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -20162,20 +19342,14 @@ impl ::core::convert::From<&IADsUser> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsUser> for super::super::System::Com::IDispatch {
     fn from(value: IADsUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsUser> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsUser) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -20186,20 +19360,14 @@ impl ::core::convert::From<&IADsUser> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsUser {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsUser {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IADsUser> for IADs {
     fn from(value: IADsUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsUser> for &'a IADs {
+    fn from(value: &'a IADsUser) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -20207,18 +19375,6 @@ impl ::core::convert::From<IADsUser> for IADs {
 impl ::core::convert::From<&IADsUser> for IADs {
     fn from(value: &IADsUser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for IADsUser {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IADs> for &'a IADsUser {
-    fn into_param(self) -> ::windows::core::Param<'a, IADs> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20573,21 +19729,15 @@ impl ::core::convert::From<IADsWinNTSystemInfo> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsWinNTSystemInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADsWinNTSystemInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsWinNTSystemInfo> for ::windows::core::IUnknown {
     fn from(value: &IADsWinNTSystemInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADsWinNTSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADsWinNTSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20597,21 +19747,15 @@ impl ::core::convert::From<IADsWinNTSystemInfo> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IADsWinNTSystemInfo> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IADsWinNTSystemInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IADsWinNTSystemInfo> for super::super::System::Com::IDispatch {
     fn from(value: &IADsWinNTSystemInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IADsWinNTSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IADsWinNTSystemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20667,8 +19811,8 @@ pub struct ICommonQuery(::windows::core::IUnknown);
 impl ICommonQuery {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn OpenQueryWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenQueryWindow)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(pquerywnd), ::core::mem::transmute(ppdataobject)).ok()
+    pub unsafe fn OpenQueryWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenQueryWindow)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(pquerywnd), ::core::mem::transmute(ppdataobject)).ok()
     }
 }
 impl ::core::convert::From<ICommonQuery> for ::windows::core::IUnknown {
@@ -20676,19 +19820,14 @@ impl ::core::convert::From<ICommonQuery> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICommonQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonQuery> for ::windows::core::IUnknown {
     fn from(value: &ICommonQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICommonQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICommonQuery {
@@ -20742,13 +19881,13 @@ impl IDirectoryObject {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateDSObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszrdnname: Param0, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn CreateDSObject(&self, pszrdnname: ::windows::core::PCWSTR, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDSObject)(::windows::core::Interface::as_raw(self), pszrdnname.into_param().abi(), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateDSObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszrdnname), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn DeleteDSObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszrdnname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteDSObject)(::windows::core::Interface::as_raw(self), pszrdnname.into_param().abi()).ok()
+    pub unsafe fn DeleteDSObject(&self, pszrdnname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteDSObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszrdnname)).ok()
     }
 }
 impl ::core::convert::From<IDirectoryObject> for ::windows::core::IUnknown {
@@ -20756,19 +19895,14 @@ impl ::core::convert::From<IDirectoryObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectoryObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectoryObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectoryObject> for ::windows::core::IUnknown {
     fn from(value: &IDirectoryObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectoryObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectoryObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectoryObject {
@@ -20821,17 +19955,17 @@ impl IDirectorySchemaMgmt {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateAttributeDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAttributeDefinition)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi(), ::core::mem::transmute(pattributedefinition)).ok()
+    pub unsafe fn CreateAttributeDefinition(&self, pszattributename: ::windows::core::PCWSTR, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateAttributeDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszattributename), ::core::mem::transmute(pattributedefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteAttributeDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteAttributeDefinition)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi(), ::core::mem::transmute(pattributedefinition)).ok()
+    pub unsafe fn WriteAttributeDefinition(&self, pszattributename: ::windows::core::PCWSTR, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteAttributeDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszattributename), ::core::mem::transmute(pattributedefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn DeleteAttributeDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteAttributeDefinition)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi()).ok()
+    pub unsafe fn DeleteAttributeDefinition(&self, pszattributename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteAttributeDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszattributename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20840,17 +19974,17 @@ impl IDirectorySchemaMgmt {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteClassDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszclassname: Param0, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteClassDefinition)(::windows::core::Interface::as_raw(self), pszclassname.into_param().abi(), ::core::mem::transmute(pclassdefinition)).ok()
+    pub unsafe fn WriteClassDefinition(&self, pszclassname: ::windows::core::PCWSTR, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteClassDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszclassname), ::core::mem::transmute(pclassdefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateClassDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszclassname: Param0, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateClassDefinition)(::windows::core::Interface::as_raw(self), pszclassname.into_param().abi(), ::core::mem::transmute(pclassdefinition)).ok()
+    pub unsafe fn CreateClassDefinition(&self, pszclassname: ::windows::core::PCWSTR, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateClassDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszclassname), ::core::mem::transmute(pclassdefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn DeleteClassDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszclassname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteClassDefinition)(::windows::core::Interface::as_raw(self), pszclassname.into_param().abi()).ok()
+    pub unsafe fn DeleteClassDefinition(&self, pszclassname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteClassDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszclassname)).ok()
     }
 }
 impl ::core::convert::From<IDirectorySchemaMgmt> for ::windows::core::IUnknown {
@@ -20858,19 +19992,14 @@ impl ::core::convert::From<IDirectorySchemaMgmt> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectorySchemaMgmt> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectorySchemaMgmt) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectorySchemaMgmt> for ::windows::core::IUnknown {
     fn from(value: &IDirectorySchemaMgmt) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectorySchemaMgmt {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectorySchemaMgmt {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectorySchemaMgmt {
@@ -20934,9 +20063,9 @@ impl IDirectorySearch {
         (::windows::core::Interface::vtable(self).SetSearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchprefs), ::core::mem::transmute(dwnumprefs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn ExecuteSearch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsearchfilter: Param0, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize> {
+    pub unsafe fn ExecuteSearch(&self, pszsearchfilter: ::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize> {
         let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
-        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pszsearchfilter.into_param().abi(), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsearchfilter), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AbandonSearch(&self, phsearchresult: isize) -> ::windows::core::Result<()> {
@@ -20960,9 +20089,9 @@ impl IDirectorySearch {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetColumn<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hsearchresult: isize, szcolumnname: Param1) -> ::windows::core::Result<ads_search_column> {
+    pub unsafe fn GetColumn(&self, hsearchresult: isize, szcolumnname: ::windows::core::PCWSTR) -> ::windows::core::Result<ads_search_column> {
         let mut result__ = ::core::mem::MaybeUninit::<ads_search_column>::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult), szcolumnname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
+        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult), ::core::mem::transmute(szcolumnname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -20979,19 +20108,14 @@ impl ::core::convert::From<IDirectorySearch> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirectorySearch> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirectorySearch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirectorySearch> for ::windows::core::IUnknown {
     fn from(value: &IDirectorySearch) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectorySearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirectorySearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirectorySearch {
@@ -21044,14 +20168,14 @@ pub struct IDsAdminCreateObj(::windows::core::IUnknown);
 impl IDsAdminCreateObj {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IADsContainer>, Param1: ::windows::core::IntoParam<'a, IADs>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, padscontainerobj: Param0, padscopysource: Param1, lpszclassname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IADsContainer>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IADs>>>(&self, padscontainerobj: Param0, padscopysource: Param1, lpszclassname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), padscontainerobj.into().abi(), padscopysource.into().abi(), ::core::mem::transmute(lpszclassname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateModal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<IADs> {
+    pub unsafe fn CreateModal<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<IADs> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateModal)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IADs>(result__)
+        (::windows::core::Interface::vtable(self).CreateModal)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IADs>(result__)
     }
 }
 impl ::core::convert::From<IDsAdminCreateObj> for ::windows::core::IUnknown {
@@ -21059,19 +20183,14 @@ impl ::core::convert::From<IDsAdminCreateObj> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsAdminCreateObj> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsAdminCreateObj) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsAdminCreateObj> for ::windows::core::IUnknown {
     fn from(value: &IDsAdminCreateObj) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsAdminCreateObj {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsAdminCreateObj {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsAdminCreateObj {
@@ -21113,8 +20232,8 @@ pub struct IDsAdminNewObj(::windows::core::IUnknown);
 impl IDsAdminNewObj {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetButtons<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ncurrindex: u32, bvalid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetButtons)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncurrindex), bvalid.into_param().abi()).ok()
+    pub unsafe fn SetButtons<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, ncurrindex: u32, bvalid: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetButtons)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncurrindex), bvalid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetPageCounts(&self, pntotal: *mut i32, pnstartindex: *mut i32) -> ::windows::core::Result<()> {
@@ -21126,19 +20245,14 @@ impl ::core::convert::From<IDsAdminNewObj> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsAdminNewObj> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsAdminNewObj) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsAdminNewObj> for ::windows::core::IUnknown {
     fn from(value: &IDsAdminNewObj) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsAdminNewObj {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsAdminNewObj {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsAdminNewObj {
@@ -21177,28 +20291,28 @@ pub struct IDsAdminNewObjExt(::windows::core::IUnknown);
 impl IDsAdminNewObjExt {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IADsContainer>, Param1: ::windows::core::IntoParam<'a, IADs>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IDsAdminNewObj>>(&self, padscontainerobj: Param0, padscopysource: Param1, lpszclassname: Param2, pdsadminnewobj: Param3, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi(), pdsadminnewobj.into_param().abi(), ::core::mem::transmute(pdispinfo)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IADsContainer>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IADs>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IDsAdminNewObj>>>(&self, padscontainerobj: Param0, padscopysource: Param1, lpszclassname: ::windows::core::PCWSTR, pdsadminnewobj: Param3, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), padscontainerobj.into().abi(), padscopysource.into().abi(), ::core::mem::transmute(lpszclassname), pdsadminnewobj.into().abi(), ::core::mem::transmute(pdispinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpfnaddpage), lparam.into_param().abi()).ok()
+    pub unsafe fn AddPages<'a, Param1: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpfnaddpage), lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetObject<'a, Param0: ::windows::core::IntoParam<'a, IADs>>(&self, padsobj: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObject)(::windows::core::Interface::as_raw(self), padsobj.into_param().abi()).ok()
+    pub unsafe fn SetObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IADs>>>(&self, padsobj: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObject)(::windows::core::Interface::as_raw(self), padsobj.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0, ucontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(ucontext)).ok()
+    pub unsafe fn WriteData<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0, ucontext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(ucontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0, hr: ::windows::core::HRESULT, ucontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(hr), ::core::mem::transmute(ucontext)).ok()
+    pub unsafe fn OnError<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0, hr: ::windows::core::HRESULT, ucontext: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(hr), ::core::mem::transmute(ucontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21211,19 +20325,14 @@ impl ::core::convert::From<IDsAdminNewObjExt> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsAdminNewObjExt> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsAdminNewObjExt) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsAdminNewObjExt> for ::windows::core::IUnknown {
     fn from(value: &IDsAdminNewObjExt) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsAdminNewObjExt {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsAdminNewObjExt {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsAdminNewObjExt {
@@ -21280,8 +20389,8 @@ pub struct IDsAdminNewObjExt_Vtbl {
 pub struct IDsAdminNewObjPrimarySite(::windows::core::IUnknown);
 impl IDsAdminNewObjPrimarySite {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn CreateNew<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateNew)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
+    pub unsafe fn CreateNew(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateNew)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
@@ -21293,19 +20402,14 @@ impl ::core::convert::From<IDsAdminNewObjPrimarySite> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsAdminNewObjPrimarySite> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsAdminNewObjPrimarySite) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsAdminNewObjPrimarySite> for ::windows::core::IUnknown {
     fn from(value: &IDsAdminNewObjPrimarySite) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsAdminNewObjPrimarySite {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsAdminNewObjPrimarySite {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsAdminNewObjPrimarySite {
@@ -21341,13 +20445,13 @@ pub struct IDsAdminNotifyHandler(::windows::core::IUnknown);
 impl IDsAdminNotifyHandler {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, pextrainfo: Param0, pueventflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pextrainfo.into_param().abi(), ::core::mem::transmute(pueventflags)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>>(&self, pextrainfo: Param0, pueventflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pextrainfo.into().abi(), ::core::mem::transmute(pueventflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Begin<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, uevent: u32, parg1: Param1, parg2: Param2, puflags: *mut u32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uevent), parg1.into_param().abi(), parg2.into_param().abi(), ::core::mem::transmute(puflags), ::core::mem::transmute(pbstr)).ok()
+    pub unsafe fn Begin<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>>(&self, uevent: u32, parg1: Param1, parg2: Param2, puflags: *mut u32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uevent), parg1.into().abi(), parg2.into().abi(), ::core::mem::transmute(puflags), ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Notify(&self, nitem: u32, uflags: u32) -> ::windows::core::Result<()> {
@@ -21363,19 +20467,14 @@ impl ::core::convert::From<IDsAdminNotifyHandler> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsAdminNotifyHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsAdminNotifyHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsAdminNotifyHandler> for ::windows::core::IUnknown {
     fn from(value: &IDsAdminNotifyHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsAdminNotifyHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsAdminNotifyHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsAdminNotifyHandler {
@@ -21419,8 +20518,8 @@ pub struct IDsBrowseDomainTree(::windows::core::IUnknown);
 impl IDsBrowseDomainTree {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BrowseTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, ppsztargetpath: *mut ::windows::core::PWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BrowseTo)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(ppsztargetpath), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn BrowseTo<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0, ppsztargetpath: *mut ::windows::core::PWSTR, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BrowseTo)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(ppsztargetpath), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -21437,8 +20536,8 @@ impl IDsBrowseDomainTree {
         (::windows::core::Interface::vtable(self).FlushCachedDomains)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn SetComputer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszcomputername: Param0, pszusername: Param1, pszpassword: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetComputer)(::windows::core::Interface::as_raw(self), pszcomputername.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
+    pub unsafe fn SetComputer(&self, pszcomputername: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszcomputername), ::core::mem::transmute(pszusername), ::core::mem::transmute(pszpassword)).ok()
     }
 }
 impl ::core::convert::From<IDsBrowseDomainTree> for ::windows::core::IUnknown {
@@ -21446,19 +20545,14 @@ impl ::core::convert::From<IDsBrowseDomainTree> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsBrowseDomainTree> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsBrowseDomainTree) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsBrowseDomainTree> for ::windows::core::IUnknown {
     fn from(value: &IDsBrowseDomainTree) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsBrowseDomainTree {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsBrowseDomainTree {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsBrowseDomainTree {
@@ -21505,51 +20599,51 @@ pub struct IDsBrowseDomainTree_Vtbl {
 pub struct IDsDisplaySpecifier(::windows::core::IUnknown);
 impl IDsDisplaySpecifier {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn SetServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszserver: Param0, pszusername: Param1, pszpassword: Param2, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), pszserver.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetServer(&self, pszserver: ::windows::core::PCWSTR, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszserver), ::core::mem::transmute(pszusername), ::core::mem::transmute(pszpassword), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLanguageID(&self, langid: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLanguageID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn GetDisplaySpecifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySpecifier)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    pub unsafe fn GetDisplaySpecifier(&self, pszobjectclass: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplaySpecifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn GetIconLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, dwflags: u32, pszbuffer: &mut [u16], presid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIconLocation)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _, ::core::mem::transmute(presid)).ok()
+    pub unsafe fn GetIconLocation(&self, pszobjectclass: ::windows::core::PCWSTR, dwflags: u32, pszbuffer: &mut [u16], presid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetIconLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _, ::core::mem::transmute(presid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn GetIcon<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon)))
+    pub unsafe fn GetIcon(&self, pszobjectclass: ::windows::core::PCWSTR, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(dwflags), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn GetFriendlyClassName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyClassName)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
+    pub unsafe fn GetFriendlyClassName(&self, pszobjectclass: ::windows::core::PCWSTR, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFriendlyClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn GetFriendlyAttributeName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, pszattributename: Param1, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyAttributeName)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), pszattributename.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
+    pub unsafe fn GetFriendlyAttributeName(&self, pszobjectclass: ::windows::core::PCWSTR, pszattributename: ::windows::core::PCWSTR, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFriendlyAttributeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(pszattributename), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsClassContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, pszadspath: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsClassContainer)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), pszadspath.into_param().abi(), ::core::mem::transmute(dwflags)))
+    pub unsafe fn IsClassContainer(&self, pszobjectclass: ::windows::core::PCWSTR, pszadspath: ::windows::core::PCWSTR, dwflags: u32) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsClassContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(pszadspath), ::core::mem::transmute(dwflags)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn GetClassCreationInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClassCreationInfo)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(ppdscci)).ok()
+    pub unsafe fn GetClassCreationInfo(&self, pszobjectclass: ::windows::core::PCWSTR, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetClassCreationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(ppdscci)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumClassAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pszobjectclass: Param0, pcbenum: LPDSENUMATTRIBUTES, lparam: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumClassAttributes)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(pcbenum), lparam.into_param().abi()).ok()
+    pub unsafe fn EnumClassAttributes<'a, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, pszobjectclass: ::windows::core::PCWSTR, pcbenum: LPDSENUMATTRIBUTES, lparam: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumClassAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszobjectclass), ::core::mem::transmute(pcbenum), lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn GetAttributeADsType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0) -> ADSTYPEENUM {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAttributeADsType)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi()))
+    pub unsafe fn GetAttributeADsType(&self, pszattributename: ::windows::core::PCWSTR) -> ADSTYPEENUM {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAttributeADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszattributename)))
     }
 }
 impl ::core::convert::From<IDsDisplaySpecifier> for ::windows::core::IUnknown {
@@ -21557,19 +20651,14 @@ impl ::core::convert::From<IDsDisplaySpecifier> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsDisplaySpecifier> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsDisplaySpecifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsDisplaySpecifier> for ::windows::core::IUnknown {
     fn from(value: &IDsDisplaySpecifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsDisplaySpecifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsDisplaySpecifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsDisplaySpecifier {
@@ -21627,9 +20716,9 @@ impl IDsObjectPicker {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InvokeDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
+    pub unsafe fn InvokeDialog<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).InvokeDialog)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).InvokeDialog)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
 }
 impl ::core::convert::From<IDsObjectPicker> for ::windows::core::IUnknown {
@@ -21637,19 +20726,14 @@ impl ::core::convert::From<IDsObjectPicker> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDsObjectPicker> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsObjectPicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDsObjectPicker> for ::windows::core::IUnknown {
     fn from(value: &IDsObjectPicker) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsObjectPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsObjectPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsObjectPicker {
@@ -21692,17 +20776,22 @@ impl IDsObjectPickerCredentials {
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InvokeDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
+    pub unsafe fn InvokeDialog<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InvokeDialog)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.InvokeDialog)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szusername: Param0, szpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), szusername.into_param().abi(), szpassword.into_param().abi()).ok()
+    pub unsafe fn SetCredentials(&self, szusername: ::windows::core::PCWSTR, szpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(szusername), ::core::mem::transmute(szpassword)).ok()
     }
 }
 impl ::core::convert::From<IDsObjectPickerCredentials> for ::windows::core::IUnknown {
     fn from(value: IDsObjectPickerCredentials) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDsObjectPickerCredentials> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDsObjectPickerCredentials) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -21711,34 +20800,19 @@ impl ::core::convert::From<&IDsObjectPickerCredentials> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDsObjectPickerCredentials {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDsObjectPickerCredentials {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDsObjectPickerCredentials> for IDsObjectPicker {
     fn from(value: IDsObjectPickerCredentials) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IDsObjectPickerCredentials> for &'a IDsObjectPicker {
+    fn from(value: &'a IDsObjectPickerCredentials) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IDsObjectPickerCredentials> for IDsObjectPicker {
     fn from(value: &IDsObjectPickerCredentials) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDsObjectPicker> for IDsObjectPickerCredentials {
-    fn into_param(self) -> ::windows::core::Param<'a, IDsObjectPicker> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDsObjectPicker> for &'a IDsObjectPickerCredentials {
-    fn into_param(self) -> ::windows::core::Param<'a, IDsObjectPicker> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDsObjectPickerCredentials {
@@ -21780,28 +20854,28 @@ impl IPersistQuery {
         (::windows::core::Interface::vtable(self).base__.GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn WriteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteString)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), pvalue.into_param().abi()).ok()
+    pub unsafe fn WriteString(&self, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pvalue: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psection), ::core::mem::transmute(pvaluename), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn ReadString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pbuffer: ::windows::core::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadString)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cchbuffer)).ok()
+    pub unsafe fn ReadString(&self, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pbuffer: ::windows::core::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psection), ::core::mem::transmute(pvaluename), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cchbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn WriteInt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteInt)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(value)).ok()
+    pub unsafe fn WriteInt(&self, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, value: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteInt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psection), ::core::mem::transmute(pvaluename), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn ReadInt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadInt)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
+    pub unsafe fn ReadInt(&self, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pvalue: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadInt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psection), ::core::mem::transmute(pvaluename), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn WriteStruct<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStruct)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
+    pub unsafe fn WriteStruct(&self, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteStruct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psection), ::core::mem::transmute(pvaluename), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-    pub unsafe fn ReadStruct<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadStruct)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
+    pub unsafe fn ReadStruct(&self, psection: ::windows::core::PCWSTR, pvaluename: ::windows::core::PCWSTR, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReadStruct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psection), ::core::mem::transmute(pvaluename), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -21815,21 +20889,15 @@ impl ::core::convert::From<IPersistQuery> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPersistQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPersistQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPersistQuery> for ::windows::core::IUnknown {
     fn from(value: &IPersistQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPersistQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPersistQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -21839,21 +20907,15 @@ impl ::core::convert::From<IPersistQuery> for super::super::System::Com::IPersis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPersistQuery> for &'a super::super::System::Com::IPersist {
+    fn from(value: &'a IPersistQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPersistQuery> for super::super::System::Com::IPersist {
     fn from(value: &IPersistQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for IPersistQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for &'a IPersistQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -21929,19 +20991,14 @@ impl ::core::convert::From<IPrivateDispatch> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrivateDispatch> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrivateDispatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrivateDispatch> for ::windows::core::IUnknown {
     fn from(value: &IPrivateDispatch) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrivateDispatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrivateDispatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrivateDispatch {
@@ -21986,8 +21043,8 @@ pub struct IPrivateUnknown(::windows::core::IUnknown);
 impl IPrivateUnknown {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ADSIInitializeObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lpszusername: Param0, lpszpassword: Param1, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIInitializeObject)(::windows::core::Interface::as_raw(self), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+    pub unsafe fn ADSIInitializeObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lpszusername: Param0, lpszpassword: Param1, lnreserved: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ADSIInitializeObject)(::windows::core::Interface::as_raw(self), lpszusername.into().abi(), lpszpassword.into().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIReleaseObject(&self) -> ::windows::core::Result<()> {
@@ -21999,19 +21056,14 @@ impl ::core::convert::From<IPrivateUnknown> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrivateUnknown> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrivateUnknown) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrivateUnknown> for ::windows::core::IUnknown {
     fn from(value: &IPrivateUnknown) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrivateUnknown {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrivateUnknown {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrivateUnknown {
@@ -22050,18 +21102,18 @@ pub struct IQueryForm(::windows::core::IUnknown);
 impl IQueryForm {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(&self, hkform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkform.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::System::Registry::HKEY>>(&self, hkform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkform.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn AddForms<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddformsproc: LPCQADDFORMSPROC, lparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddForms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paddformsproc), lparam.into_param().abi()).ok()
+    pub unsafe fn AddForms<'a, Param1: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, paddformsproc: LPCQADDFORMSPROC, lparam: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddForms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paddformsproc), lparam.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddpagesproc: LPCQADDPAGESPROC, lparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paddpagesproc), lparam.into_param().abi()).ok()
+    pub unsafe fn AddPages<'a, Param1: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, paddpagesproc: LPCQADDPAGESPROC, lparam: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paddpagesproc), lparam.into()).ok()
     }
 }
 impl ::core::convert::From<IQueryForm> for ::windows::core::IUnknown {
@@ -22069,19 +21121,14 @@ impl ::core::convert::From<IQueryForm> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IQueryForm> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IQueryForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IQueryForm> for ::windows::core::IUnknown {
     fn from(value: &IQueryForm) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IQueryForm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IQueryForm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IQueryForm {
@@ -22369,12 +21416,12 @@ pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReallocADsStr<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(ppstr: *mut ::windows::core::PWSTR, pstr: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ReallocADsStr(ppstr: *mut ::windows::core::PWSTR, pstr: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ReallocADsStr(ppstr: *mut ::windows::core::PWSTR, pstr: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ReallocADsStr(::core::mem::transmute(ppstr), pstr.into_param().abi()))
+    ::core::mem::transmute(ReallocADsStr(::core::mem::transmute(ppstr), ::core::mem::transmute(pstr)))
 }
 pub const ReplicaPointer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
 #[repr(C)]
@@ -22459,12 +21506,12 @@ pub const SecurityDescriptor: ::windows::core::GUID = ::windows::core::GUID::fro
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(vvarsecdes: Param0, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: Param3, username: Param4, password: Param5, dwflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn SecurityDescriptorToBinarySD<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(vvarsecdes: Param0, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SecurityDescriptorToBinarySD(vvarsecdes: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    SecurityDescriptorToBinarySD(vvarsecdes.into_param().abi(), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(pdwsdlength), pszservername.into_param().abi(), username.into_param().abi(), password.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    SecurityDescriptorToBinarySD(vvarsecdes.into().abi(), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(pdwsdlength), ::core::mem::transmute(pszservername), ::core::mem::transmute(username), ::core::mem::transmute(password), ::core::mem::transmute(dwflags)).ok()
 }
 pub const Timestamp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
 pub const TypedName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);

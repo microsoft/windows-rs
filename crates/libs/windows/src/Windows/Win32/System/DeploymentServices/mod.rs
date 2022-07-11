@@ -104,21 +104,15 @@ impl ::core::convert::From<IWdsTransportCacheable> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportCacheable> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportCacheable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportCacheable> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportCacheable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportCacheable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportCacheable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -128,21 +122,15 @@ impl ::core::convert::From<IWdsTransportCacheable> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportCacheable> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportCacheable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportCacheable> for super::Com::IDispatch {
     fn from(value: &IWdsTransportCacheable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportCacheable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportCacheable {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -247,13 +235,19 @@ impl IWdsTransportClient {
         (::windows::core::Interface::vtable(self).UserIdentity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn Disconnect(&self, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disconnectiontype)).ok()
+    pub unsafe fn Disconnect<'a, Param0: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>>(&self, disconnectiontype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), disconnectiontype.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportClient> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -264,20 +258,14 @@ impl ::core::convert::From<&IWdsTransportClient> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportClient> for super::Com::IDispatch {
     fn from(value: IWdsTransportClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportClient> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -285,18 +273,6 @@ impl ::core::convert::From<IWdsTransportClient> for super::Com::IDispatch {
 impl ::core::convert::From<&IWdsTransportClient> for super::Com::IDispatch {
     fn from(value: &IWdsTransportClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportClient {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportClient {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -387,21 +363,15 @@ impl ::core::convert::From<IWdsTransportCollection> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportCollection> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -411,21 +381,15 @@ impl ::core::convert::From<IWdsTransportCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportCollection> for super::Com::IDispatch {
     fn from(value: &IWdsTransportCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -509,13 +473,19 @@ impl IWdsTransportConfigurationManager {
         (::windows::core::Interface::vtable(self).RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
+    pub unsafe fn NotifyWdsTransportServices<'a, Param0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>>(&self, servicenotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportConfigurationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportConfigurationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -526,20 +496,14 @@ impl ::core::convert::From<&IWdsTransportConfigurationManager> for ::windows::co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportConfigurationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportConfigurationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager> for super::Com::IDispatch {
     fn from(value: IWdsTransportConfigurationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportConfigurationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -547,18 +511,6 @@ impl ::core::convert::From<IWdsTransportConfigurationManager> for super::Com::ID
 impl ::core::convert::From<&IWdsTransportConfigurationManager> for super::Com::IDispatch {
     fn from(value: &IWdsTransportConfigurationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportConfigurationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportConfigurationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -651,8 +603,8 @@ impl IWdsTransportConfigurationManager2 {
         (::windows::core::Interface::vtable(self).base__.RestartWdsTransportServices)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn NotifyWdsTransportServices(&self, servicenotification: WDSTRANSPORT_SERVICE_NOTIFICATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(servicenotification)).ok()
+    pub unsafe fn NotifyWdsTransportServices<'a, Param0: ::std::convert::Into<WDSTRANSPORT_SERVICE_NOTIFICATION>>(&self, servicenotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.NotifyWdsTransportServices)(::windows::core::Interface::as_raw(self), servicenotification.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -668,26 +620,26 @@ impl ::core::convert::From<IWdsTransportConfigurationManager2> for ::windows::co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportConfigurationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportConfigurationManager2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportConfigurationManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager2> for super::Com::IDispatch {
     fn from(value: IWdsTransportConfigurationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportConfigurationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -698,20 +650,14 @@ impl ::core::convert::From<&IWdsTransportConfigurationManager2> for super::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
     fn from(value: IWdsTransportConfigurationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportConfigurationManager2> for &'a IWdsTransportConfigurationManager {
+    fn from(value: &'a IWdsTransportConfigurationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -719,18 +665,6 @@ impl ::core::convert::From<IWdsTransportConfigurationManager2> for IWdsTransport
 impl ::core::convert::From<&IWdsTransportConfigurationManager2> for IWdsTransportConfigurationManager {
     fn from(value: &IWdsTransportConfigurationManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportConfigurationManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportConfigurationManager> for &'a IWdsTransportConfigurationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportConfigurationManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -809,21 +743,15 @@ impl ::core::convert::From<IWdsTransportContent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportContent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportContent> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -833,21 +761,15 @@ impl ::core::convert::From<IWdsTransportContent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportContent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportContent> for super::Com::IDispatch {
     fn from(value: &IWdsTransportContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportContent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportContent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -933,21 +855,15 @@ impl ::core::convert::From<IWdsTransportContentProvider> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportContentProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportContentProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportContentProvider> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportContentProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportContentProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportContentProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -957,21 +873,15 @@ impl ::core::convert::From<IWdsTransportContentProvider> for super::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportContentProvider> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportContentProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportContentProvider> for super::Com::IDispatch {
     fn from(value: &IWdsTransportContentProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportContentProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportContentProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1070,26 +980,26 @@ impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for ::windows::core::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportDiagnosticsPolicy> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportDiagnosticsPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for super::Com::IDispatch {
     fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportDiagnosticsPolicy> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportDiagnosticsPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1100,20 +1010,14 @@ impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for super::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportDiagnosticsPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportDiagnosticsPolicy> for &'a IWdsTransportCacheable {
+    fn from(value: &'a IWdsTransportDiagnosticsPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1121,18 +1025,6 @@ impl ::core::convert::From<IWdsTransportDiagnosticsPolicy> for IWdsTransportCach
 impl ::core::convert::From<&IWdsTransportDiagnosticsPolicy> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportDiagnosticsPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportDiagnosticsPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1178,14 +1070,20 @@ pub struct IWdsTransportManager(::windows::core::IUnknown);
 impl IWdsTransportManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetWdsTransportServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszservername: Param0) -> ::windows::core::Result<IWdsTransportServer> {
+    pub unsafe fn GetWdsTransportServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszservername: Param0) -> ::windows::core::Result<IWdsTransportServer> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::windows::core::Interface::as_raw(self), bszservername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportServer>(result__)
+        (::windows::core::Interface::vtable(self).GetWdsTransportServer)(::windows::core::Interface::as_raw(self), bszservername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportServer>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1196,20 +1094,14 @@ impl ::core::convert::From<&IWdsTransportManager> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportManager> for super::Com::IDispatch {
     fn from(value: IWdsTransportManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1217,18 +1109,6 @@ impl ::core::convert::From<IWdsTransportManager> for super::Com::IDispatch {
 impl ::core::convert::From<&IWdsTransportManager> for super::Com::IDispatch {
     fn from(value: &IWdsTransportManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1295,8 +1175,8 @@ impl IWdsTransportMulticastSessionPolicy {
         (::windows::core::Interface::vtable(self).SlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetSlowClientHandling(&self, slowclienthandling: WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(slowclienthandling)).ok()
+    pub unsafe fn SetSlowClientHandling<'a, Param0: ::std::convert::Into<WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE>>(&self, slowclienthandling: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSlowClientHandling)(::windows::core::Interface::as_raw(self), slowclienthandling.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn AutoDisconnectThreshold(&self) -> ::windows::core::Result<u32> {
@@ -1333,26 +1213,26 @@ impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportMulticastSessionPolicy> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportMulticastSessionPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for super::Com::IDispatch {
     fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportMulticastSessionPolicy> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportMulticastSessionPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1363,20 +1243,14 @@ impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for super::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportMulticastSessionPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportMulticastSessionPolicy> for &'a IWdsTransportCacheable {
+    fn from(value: &'a IWdsTransportMulticastSessionPolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1384,18 +1258,6 @@ impl ::core::convert::From<IWdsTransportMulticastSessionPolicy> for IWdsTranspor
 impl ::core::convert::From<&IWdsTransportMulticastSessionPolicy> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportMulticastSessionPolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportMulticastSessionPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1461,8 +1323,8 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1472,8 +1334,8 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1483,8 +1345,8 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1494,8 +1356,8 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
+    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1505,8 +1367,8 @@ impl IWdsTransportNamespace {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
+    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
@@ -1560,21 +1422,15 @@ impl ::core::convert::From<IWdsTransportNamespace> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespace> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportNamespace) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespace> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespace) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespace {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespace {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1584,21 +1440,15 @@ impl ::core::convert::From<IWdsTransportNamespace> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespace> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportNamespace) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespace> for super::Com::IDispatch {
     fn from(value: &IWdsTransportNamespace) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportNamespace {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespace {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1713,8 +1563,8 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1724,8 +1574,8 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1735,8 +1585,8 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1746,8 +1596,8 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
+    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1757,8 +1607,8 @@ impl IWdsTransportNamespaceAutoCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
+    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
@@ -1812,26 +1662,26 @@ impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for ::windows::core::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceAutoCast> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportNamespaceAutoCast) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for super::Com::IDispatch {
     fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceAutoCast> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportNamespaceAutoCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1842,20 +1692,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for super::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceAutoCast) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceAutoCast> for &'a IWdsTransportNamespace {
+    fn from(value: &'a IWdsTransportNamespaceAutoCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1863,18 +1707,6 @@ impl ::core::convert::From<IWdsTransportNamespaceAutoCast> for IWdsTransportName
 impl ::core::convert::From<&IWdsTransportNamespaceAutoCast> for IWdsTransportNamespace {
     fn from(value: &IWdsTransportNamespaceAutoCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceAutoCast {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1916,26 +1748,32 @@ pub struct IWdsTransportNamespaceManager(::windows::core::IUnknown);
 impl IWdsTransportNamespaceManager {
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateNamespace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, namespacetype: WDSTRANSPORT_NAMESPACE_TYPE, bsznamespacename: Param1, bszcontentprovider: Param2, bszconfiguration: Param3) -> ::windows::core::Result<IWdsTransportNamespace> {
+    pub unsafe fn CreateNamespace<'a, Param0: ::std::convert::Into<WDSTRANSPORT_NAMESPACE_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, namespacetype: Param0, bsznamespacename: Param1, bszcontentprovider: Param2, bszconfiguration: Param3) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespacetype), bsznamespacename.into_param().abi(), bszcontentprovider.into_param().abi(), bszconfiguration.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).CreateNamespace)(::windows::core::Interface::as_raw(self), namespacetype.into(), bsznamespacename.into().abi(), bszcontentprovider.into().abi(), bszconfiguration.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RetrieveNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsznamespacename: Param0) -> ::windows::core::Result<IWdsTransportNamespace> {
+    pub unsafe fn RetrieveNamespace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bsznamespacename: Param0) -> ::windows::core::Result<IWdsTransportNamespace> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveNamespace)(::windows::core::Interface::as_raw(self), bsznamespacename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespace)(::windows::core::Interface::as_raw(self), bsznamespacename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespace>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RetrieveNamespaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0, bsznamespacename: Param1, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection> {
+    pub unsafe fn RetrieveNamespaces<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0, bsznamespacename: Param1, bincludetombstones: i16) -> ::windows::core::Result<IWdsTransportCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi(), bsznamespacename.into_param().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportCollection>(result__)
+        (::windows::core::Interface::vtable(self).RetrieveNamespaces)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi(), bsznamespacename.into().abi(), ::core::mem::transmute(bincludetombstones), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportNamespaceManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportNamespaceManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1946,20 +1784,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceManager> for ::windows::core::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceManager> for super::Com::IDispatch {
     fn from(value: IWdsTransportNamespaceManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportNamespaceManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1967,18 +1799,6 @@ impl ::core::convert::From<IWdsTransportNamespaceManager> for super::Com::IDispa
 impl ::core::convert::From<&IWdsTransportNamespaceManager> for super::Com::IDispatch {
     fn from(value: &IWdsTransportNamespaceManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportNamespaceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2048,8 +1868,8 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2059,8 +1879,8 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2070,8 +1890,8 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2081,8 +1901,8 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
+    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2092,8 +1912,8 @@ impl IWdsTransportNamespaceScheduledCast {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
+    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
@@ -2151,26 +1971,26 @@ impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCast> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCast) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for super::Com::IDispatch {
     fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCast> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2181,20 +2001,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for super::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCast) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCast> for &'a IWdsTransportNamespace {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCast) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2202,18 +2016,6 @@ impl ::core::convert::From<IWdsTransportNamespaceScheduledCast> for IWdsTranspor
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespace {
     fn from(value: &IWdsTransportNamespaceScheduledCast) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceScheduledCast {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2272,8 +2074,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2283,8 +2085,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2294,8 +2096,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2305,8 +2107,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
+    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2316,8 +2118,8 @@ impl IWdsTransportNamespaceScheduledCastAutoStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
+    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
@@ -2393,26 +2195,26 @@ impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for ::w
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for super::Com::IDispatch {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2423,20 +2225,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for su
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a IWdsTransportNamespace {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2447,20 +2243,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for IW
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastAutoStart> for &'a IWdsTransportNamespaceScheduledCast {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2468,18 +2258,6 @@ impl ::core::convert::From<IWdsTransportNamespaceScheduledCastAutoStart> for IWd
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastAutoStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: &IWdsTransportNamespaceScheduledCastAutoStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &'a IWdsTransportNamespaceScheduledCastAutoStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2541,8 +2319,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetName)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2552,8 +2330,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszfriendlyname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetFriendlyName)(::windows::core::Interface::as_raw(self), bszfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2563,8 +2341,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), bszdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2574,8 +2352,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into_param().abi()).ok()
+    pub unsafe fn SetContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszcontentprovider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetContentProvider)(::windows::core::Interface::as_raw(self), bszcontentprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2585,8 +2363,8 @@ impl IWdsTransportNamespaceScheduledCastManualStart {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConfiguration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into_param().abi()).ok()
+    pub unsafe fn SetConfiguration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszconfiguration: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetConfiguration)(::windows::core::Interface::as_raw(self), bszconfiguration.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn Registered(&self) -> ::windows::core::Result<i16> {
@@ -2644,26 +2422,26 @@ impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for :
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for super::Com::IDispatch {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2674,20 +2452,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespace {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a IWdsTransportNamespace {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2698,20 +2470,14 @@ impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespace> for &'a IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespace> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: IWdsTransportNamespaceScheduledCastManualStart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportNamespaceScheduledCastManualStart> for &'a IWdsTransportNamespaceScheduledCast {
+    fn from(value: &'a IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2719,18 +2485,6 @@ impl ::core::convert::From<IWdsTransportNamespaceScheduledCastManualStart> for I
 impl ::core::convert::From<&IWdsTransportNamespaceScheduledCastManualStart> for IWdsTransportNamespaceScheduledCast {
     fn from(value: &IWdsTransportNamespaceScheduledCastManualStart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportNamespaceScheduledCast> for &'a IWdsTransportNamespaceScheduledCastManualStart {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportNamespaceScheduledCast> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2795,13 +2549,19 @@ impl IWdsTransportServer {
         (::windows::core::Interface::vtable(self).NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
+    pub unsafe fn DisconnectClient<'a, Param1: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>>(&self, ulclientid: u32, disconnectiontype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), disconnectiontype.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportServer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportServer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2812,20 +2572,14 @@ impl ::core::convert::From<&IWdsTransportServer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer> for super::Com::IDispatch {
     fn from(value: IWdsTransportServer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServer> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportServer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2833,18 +2587,6 @@ impl ::core::convert::From<IWdsTransportServer> for super::Com::IDispatch {
 impl ::core::convert::From<&IWdsTransportServer> for super::Com::IDispatch {
     fn from(value: &IWdsTransportServer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportServer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2926,8 +2668,8 @@ impl IWdsTransportServer2 {
         (::windows::core::Interface::vtable(self).base__.NamespaceManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWdsTransportNamespaceManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn DisconnectClient(&self, ulclientid: u32, disconnectiontype: WDSTRANSPORT_DISCONNECT_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), ::core::mem::transmute(disconnectiontype)).ok()
+    pub unsafe fn DisconnectClient<'a, Param1: ::std::convert::Into<WDSTRANSPORT_DISCONNECT_TYPE>>(&self, ulclientid: u32, disconnectiontype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DisconnectClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulclientid), disconnectiontype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2943,26 +2685,26 @@ impl ::core::convert::From<IWdsTransportServer2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServer2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportServer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServer2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportServer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer2> for super::Com::IDispatch {
     fn from(value: IWdsTransportServer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServer2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportServer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2973,20 +2715,14 @@ impl ::core::convert::From<&IWdsTransportServer2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServer2> for IWdsTransportServer {
     fn from(value: IWdsTransportServer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServer2> for &'a IWdsTransportServer {
+    fn from(value: &'a IWdsTransportServer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2994,18 +2730,6 @@ impl ::core::convert::From<IWdsTransportServer2> for IWdsTransportServer {
 impl ::core::convert::From<&IWdsTransportServer2> for IWdsTransportServer {
     fn from(value: &IWdsTransportServer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServer> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServer> for &'a IWdsTransportServer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServer> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3067,35 +2791,35 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
+    pub unsafe fn get_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
+    pub unsafe fn put_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>>(&self, addresstype: Param0, sourcetype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), sourcetype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_StartIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
+    pub unsafe fn put_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EndIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
+    pub unsafe fn put_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszendipaddress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
@@ -3121,13 +2845,19 @@ impl IWdsTransportServicePolicy {
         (::windows::core::Interface::vtable(self).NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
+    pub unsafe fn SetNetworkProfile<'a, Param0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>>(&self, profiletype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportServicePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportServicePolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3138,20 +2868,14 @@ impl ::core::convert::From<&IWdsTransportServicePolicy> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy> for super::Com::IDispatch {
     fn from(value: IWdsTransportServicePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportServicePolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3162,20 +2886,14 @@ impl ::core::convert::From<&IWdsTransportServicePolicy> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy> for IWdsTransportCacheable {
     fn from(value: IWdsTransportServicePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy> for &'a IWdsTransportCacheable {
+    fn from(value: &'a IWdsTransportServicePolicy) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3183,18 +2901,6 @@ impl ::core::convert::From<IWdsTransportServicePolicy> for IWdsTransportCacheabl
 impl ::core::convert::From<&IWdsTransportServicePolicy> for IWdsTransportCacheable {
     fn from(value: &IWdsTransportServicePolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportServicePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3276,35 +2982,35 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn get_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
+    pub unsafe fn get_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE> {
         let mut result__ = ::core::mem::MaybeUninit::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn put_IpAddressSource(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, sourcetype: WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(sourcetype)).ok()
+    pub unsafe fn put_IpAddressSource<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE>>(&self, addresstype: Param0, sourcetype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_IpAddressSource)(::windows::core::Interface::as_raw(self), addresstype.into(), sourcetype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_StartIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_StartIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszstartipaddress.into_param().abi()).ok()
+    pub unsafe fn put_StartIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszstartipaddress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_StartIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszstartipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_EndIpAddress(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn get_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>>(&self, addresstype: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.get_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_EndIpAddress<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, addresstype: WDSTRANSPORT_IP_ADDRESS_TYPE, bszendipaddress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(addresstype), bszendipaddress.into_param().abi()).ok()
+    pub unsafe fn put_EndIpAddress<'a, Param0: ::std::convert::Into<WDSTRANSPORT_IP_ADDRESS_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, addresstype: Param0, bszendipaddress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.put_EndIpAddress)(::windows::core::Interface::as_raw(self), addresstype.into(), bszendipaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn StartPort(&self) -> ::windows::core::Result<u32> {
@@ -3330,8 +3036,8 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).base__.NetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_NETWORK_PROFILE_TYPE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetNetworkProfile(&self, profiletype: WDSTRANSPORT_NETWORK_PROFILE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(profiletype)).ok()
+    pub unsafe fn SetNetworkProfile<'a, Param0: ::std::convert::Into<WDSTRANSPORT_NETWORK_PROFILE_TYPE>>(&self, profiletype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNetworkProfile)(::windows::core::Interface::as_raw(self), profiletype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn UdpPortPolicy(&self) -> ::windows::core::Result<WDSTRANSPORT_UDP_PORT_POLICY> {
@@ -3339,8 +3045,8 @@ impl IWdsTransportServicePolicy2 {
         (::windows::core::Interface::vtable(self).UdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDSTRANSPORT_UDP_PORT_POLICY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
-    pub unsafe fn SetUdpPortPolicy(&self, udpportpolicy: WDSTRANSPORT_UDP_PORT_POLICY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(udpportpolicy)).ok()
+    pub unsafe fn SetUdpPortPolicy<'a, Param0: ::std::convert::Into<WDSTRANSPORT_UDP_PORT_POLICY>>(&self, udpportpolicy: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUdpPortPolicy)(::windows::core::Interface::as_raw(self), udpportpolicy.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TftpMaximumBlockSize(&self) -> ::windows::core::Result<u32> {
@@ -3368,26 +3074,26 @@ impl ::core::convert::From<IWdsTransportServicePolicy2> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportServicePolicy2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportServicePolicy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy2> for super::Com::IDispatch {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3398,20 +3104,14 @@ impl ::core::convert::From<&IWdsTransportServicePolicy2> for super::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportCacheable {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a IWdsTransportCacheable {
+    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3422,20 +3122,14 @@ impl ::core::convert::From<&IWdsTransportServicePolicy2> for IWdsTransportCachea
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportCacheable> for &'a IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportCacheable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
     fn from(value: IWdsTransportServicePolicy2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportServicePolicy2> for &'a IWdsTransportServicePolicy {
+    fn from(value: &'a IWdsTransportServicePolicy2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3443,18 +3137,6 @@ impl ::core::convert::From<IWdsTransportServicePolicy2> for IWdsTransportService
 impl ::core::convert::From<&IWdsTransportServicePolicy2> for IWdsTransportServicePolicy {
     fn from(value: &IWdsTransportServicePolicy2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServicePolicy> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportServicePolicy> for &'a IWdsTransportServicePolicy2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportServicePolicy> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3551,21 +3233,15 @@ impl ::core::convert::From<IWdsTransportSession> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSession> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3575,21 +3251,15 @@ impl ::core::convert::From<IWdsTransportSession> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSession> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSession> for super::Com::IDispatch {
     fn from(value: &IWdsTransportSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3666,18 +3336,24 @@ impl IWdsTransportSetupManager {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
+    pub unsafe fn RegisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi(), bszdescription.into().abi(), bszfilepath.into().abi(), bszinitializationroutine.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeregisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn DeregisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager> for ::windows::core::IUnknown {
     fn from(value: IWdsTransportSetupManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportSetupManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3688,20 +3364,14 @@ impl ::core::convert::From<&IWdsTransportSetupManager> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportSetupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportSetupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager> for super::Com::IDispatch {
     fn from(value: IWdsTransportSetupManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportSetupManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3709,18 +3379,6 @@ impl ::core::convert::From<IWdsTransportSetupManager> for super::Com::IDispatch 
 impl ::core::convert::From<&IWdsTransportSetupManager> for super::Com::IDispatch {
     fn from(value: &IWdsTransportSetupManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportSetupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportSetupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3788,13 +3446,13 @@ impl IWdsTransportSetupManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi(), bszdescription.into_param().abi(), bszfilepath.into_param().abi(), bszinitializationroutine.into_param().abi()).ok()
+    pub unsafe fn RegisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0, bszdescription: Param1, bszfilepath: Param2, bszinitializationroutine: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RegisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi(), bszdescription.into().abi(), bszfilepath.into().abi(), bszinitializationroutine.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeregisterContentProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into_param().abi()).ok()
+    pub unsafe fn DeregisterContentProvider<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bszname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeregisterContentProvider)(::windows::core::Interface::as_raw(self), bszname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
     pub unsafe fn TftpCapabilities(&self) -> ::windows::core::Result<u32> {
@@ -3815,26 +3473,26 @@ impl ::core::convert::From<IWdsTransportSetupManager2> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportSetupManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportSetupManager2> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportSetupManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager2> for super::Com::IDispatch {
     fn from(value: IWdsTransportSetupManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportSetupManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3845,20 +3503,14 @@ impl ::core::convert::From<&IWdsTransportSetupManager2> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWdsTransportSetupManager2> for IWdsTransportSetupManager {
     fn from(value: IWdsTransportSetupManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportSetupManager2> for &'a IWdsTransportSetupManager {
+    fn from(value: &'a IWdsTransportSetupManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3866,18 +3518,6 @@ impl ::core::convert::From<IWdsTransportSetupManager2> for IWdsTransportSetupMan
 impl ::core::convert::From<&IWdsTransportSetupManager2> for IWdsTransportSetupManager {
     fn from(value: &IWdsTransportSetupManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportSetupManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWdsTransportSetupManager> for &'a IWdsTransportSetupManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWdsTransportSetupManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3967,21 +3607,15 @@ impl ::core::convert::From<IWdsTransportTftpClient> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportTftpClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportTftpClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportTftpClient> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportTftpClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportTftpClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportTftpClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3991,21 +3625,15 @@ impl ::core::convert::From<IWdsTransportTftpClient> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportTftpClient> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportTftpClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportTftpClient> for super::Com::IDispatch {
     fn from(value: &IWdsTransportTftpClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportTftpClient {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportTftpClient {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4072,21 +3700,15 @@ impl ::core::convert::From<IWdsTransportTftpManager> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportTftpManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWdsTransportTftpManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportTftpManager> for ::windows::core::IUnknown {
     fn from(value: &IWdsTransportTftpManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWdsTransportTftpManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWdsTransportTftpManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4096,21 +3718,15 @@ impl ::core::convert::From<IWdsTransportTftpManager> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWdsTransportTftpManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWdsTransportTftpManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWdsTransportTftpManager> for super::Com::IDispatch {
     fn from(value: &IWdsTransportTftpManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWdsTransportTftpManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWdsTransportTftpManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4626,12 +4242,12 @@ pub const PXE_TRACE_WARNING: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, action: u32) -> u32 {
+pub unsafe fn PxeAsyncRecvDone<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hclientrequest: Param0, action: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeAsyncRecvDone(hclientrequest: super::super::Foundation::HANDLE, action: u32) -> u32;
     }
-    ::core::mem::transmute(PxeAsyncRecvDone(hclientrequest.into_param().abi(), ::core::mem::transmute(action)))
+    ::core::mem::transmute(PxeAsyncRecvDone(hclientrequest.into(), ::core::mem::transmute(action)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4681,12 +4297,12 @@ pub unsafe fn PxeDhcpInitialize(precvpacket: *const ::core::ffi::c_void, urecvpa
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeDhcpIsValid<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn PxeDhcpIsValid<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpIsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpIsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent)))
+    ::core::mem::transmute(PxeDhcpIsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4745,12 +4361,12 @@ pub unsafe fn PxeDhcpv6Initialize(prequest: *const ::core::ffi::c_void, cbreques
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn PxeDhcpv6IsValid<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: Param2, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeDhcpv6IsValid(ppacket: *const ::core::ffi::c_void, upacketlen: u32, brequestpacket: super::super::Foundation::BOOL, pbpxeoptionpresent: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(PxeDhcpv6IsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into_param().abi(), ::core::mem::transmute(pbpxeoptionpresent)))
+    ::core::mem::transmute(PxeDhcpv6IsValid(::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), brequestpacket.into(), ::core::mem::transmute(pbpxeoptionpresent)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -4782,32 +4398,32 @@ pub unsafe fn PxeGetServerInfoEx(uinfotype: u32, pbuffer: *mut ::core::ffi::c_vo
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxePacketAllocate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, usize: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn PxePacketAllocate<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, usize: u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxePacketAllocate(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, usize: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(PxePacketAllocate(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ::core::mem::transmute(usize)))
+    ::core::mem::transmute(PxePacketAllocate(hprovider.into(), hclientrequest.into(), ::core::mem::transmute(usize)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxePacketFree<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, ppacket: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxePacketFree<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, hclientrequest: Param1, ppacket: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxePacketFree(hprovider: super::super::Foundation::HANDLE, hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxePacketFree(hprovider.into_param().abi(), hclientrequest.into_param().abi(), ::core::mem::transmute(ppacket)))
+    ::core::mem::transmute(PxePacketFree(hprovider.into(), hclientrequest.into(), ::core::mem::transmute(ppacket)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderEnumClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
+pub unsafe fn PxeProviderEnumClose<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(henum: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderEnumClose(henum: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(PxeProviderEnumClose(henum.into_param().abi()))
+    ::core::mem::transmute(PxeProviderEnumClose(henum.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4822,12 +4438,12 @@ pub unsafe fn PxeProviderEnumFirst(phenum: *mut super::super::Foundation::HANDLE
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderEnumNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, ppprovider: *mut *mut PXE_PROVIDER) -> u32 {
+pub unsafe fn PxeProviderEnumNext<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(henum: Param0, ppprovider: *mut *mut PXE_PROVIDER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderEnumNext(henum: super::super::Foundation::HANDLE, ppprovider: *mut *mut PXE_PROVIDER) -> u32;
     }
-    ::core::mem::transmute(PxeProviderEnumNext(henum.into_param().abi(), ::core::mem::transmute(ppprovider)))
+    ::core::mem::transmute(PxeProviderEnumNext(henum.into(), ::core::mem::transmute(ppprovider)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4841,81 +4457,81 @@ pub unsafe fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeProviderQueryIndex<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprovidername: Param0, puindex: *mut u32) -> u32 {
+pub unsafe fn PxeProviderQueryIndex(pszprovidername: ::windows::core::PCWSTR, puindex: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderQueryIndex(pszprovidername: ::windows::core::PCWSTR, puindex: *mut u32) -> u32;
     }
-    ::core::mem::transmute(PxeProviderQueryIndex(pszprovidername.into_param().abi(), ::core::mem::transmute(puindex)))
+    ::core::mem::transmute(PxeProviderQueryIndex(::core::mem::transmute(pszprovidername), ::core::mem::transmute(puindex)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
 #[inline]
-pub unsafe fn PxeProviderRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(pszprovidername: Param0, pszmodulepath: Param1, index: u32, biscritical: Param3, phproviderkey: *mut super::Registry::HKEY) -> u32 {
+pub unsafe fn PxeProviderRegister<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: Param3, phproviderkey: *mut super::Registry::HKEY) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderRegister(pszprovidername: ::windows::core::PCWSTR, pszmodulepath: ::windows::core::PCWSTR, index: u32, biscritical: super::super::Foundation::BOOL, phproviderkey: *mut super::Registry::HKEY) -> u32;
     }
-    ::core::mem::transmute(PxeProviderRegister(pszprovidername.into_param().abi(), pszmodulepath.into_param().abi(), ::core::mem::transmute(index), biscritical.into_param().abi(), ::core::mem::transmute(phproviderkey)))
+    ::core::mem::transmute(PxeProviderRegister(::core::mem::transmute(pszprovidername), ::core::mem::transmute(pszmodulepath), ::core::mem::transmute(index), biscritical.into(), ::core::mem::transmute(phproviderkey)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32 {
+pub unsafe fn PxeProviderSetAttribute<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderSetAttribute(hprovider: super::super::Foundation::HANDLE, attribute: u32, pparameterbuffer: *const ::core::ffi::c_void, uparamlen: u32) -> u32;
     }
-    ::core::mem::transmute(PxeProviderSetAttribute(hprovider.into_param().abi(), ::core::mem::transmute(attribute), ::core::mem::transmute(pparameterbuffer), ::core::mem::transmute(uparamlen)))
+    ::core::mem::transmute(PxeProviderSetAttribute(hprovider.into(), ::core::mem::transmute(attribute), ::core::mem::transmute(pparameterbuffer), ::core::mem::transmute(uparamlen)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn PxeProviderUnRegister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszprovidername: Param0) -> u32 {
+pub unsafe fn PxeProviderUnRegister(pszprovidername: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeProviderUnRegister(pszprovidername: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(PxeProviderUnRegister(pszprovidername.into_param().abi()))
+    ::core::mem::transmute(PxeProviderUnRegister(::core::mem::transmute(pszprovidername)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn PxeRegisterCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbacktype: u32, pcallbackfunction: *const ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(PxeRegisterCallback(hprovider.into_param().abi(), ::core::mem::transmute(callbacktype), ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext)))
+    ::core::mem::transmute(PxeRegisterCallback(hprovider.into(), ::core::mem::transmute(callbacktype), ::core::mem::transmute(pcallbackfunction), ::core::mem::transmute(pcontext)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeSendReply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hclientrequest: Param0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
+pub unsafe fn PxeSendReply<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hclientrequest: Param0, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeSendReply(hclientrequest: super::super::Foundation::HANDLE, ppacket: *const ::core::ffi::c_void, upacketlen: u32, paddress: *const PXE_ADDRESS) -> u32;
     }
-    ::core::mem::transmute(PxeSendReply(hclientrequest.into_param().abi(), ::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(paddress)))
+    ::core::mem::transmute(PxeSendReply(hclientrequest.into(), ::core::mem::transmute(ppacket), ::core::mem::transmute(upacketlen), ::core::mem::transmute(paddress)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2) -> u32 {
+pub unsafe fn PxeTrace<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32;
     }
-    ::core::mem::transmute(PxeTrace(hprovider.into_param().abi(), ::core::mem::transmute(severity), pszformat.into_param().abi()))
+    ::core::mem::transmute(PxeTrace(hprovider.into(), ::core::mem::transmute(severity), ::core::mem::transmute(pszformat)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PxeTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pszformat: Param2, params: *const i8) -> u32 {
+pub unsafe fn PxeTraceV<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, severity: u32, pszformat: ::windows::core::PCWSTR, params: *const i8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PxeTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR, params: *const i8) -> u32;
     }
-    ::core::mem::transmute(PxeTraceV(hprovider.into_param().abi(), ::core::mem::transmute(severity), pszformat.into_param().abi(), ::core::mem::transmute(params)))
+    ::core::mem::transmute(PxeTraceV(hprovider.into(), ::core::mem::transmute(severity), ::core::mem::transmute(pszformat), ::core::mem::transmute(params)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[repr(transparent)]
@@ -5956,32 +5572,32 @@ impl ::core::default::Default for WDS_TRANSPORTPROVIDER_SETTINGS {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpAddOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn WdsBpAddOption<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpAddOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(WdsBpAddOption(hhandle.into_param().abi(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue)))
+    ::core::mem::transmute(WdsBpAddOption(hhandle.into(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpCloseHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0) -> u32 {
+pub unsafe fn WdsBpCloseHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpCloseHandle(hhandle: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsBpCloseHandle(hhandle.into_param().abi()))
+    ::core::mem::transmute(WdsBpCloseHandle(hhandle.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
+pub unsafe fn WdsBpGetOptionBuffer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpGetOptionBuffer(hhandle: super::super::Foundation::HANDLE, ubufferlen: u32, pbuffer: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WdsBpGetOptionBuffer(hhandle.into_param().abi(), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pubytes)))
+    ::core::mem::transmute(WdsBpGetOptionBuffer(hhandle.into(), ::core::mem::transmute(ubufferlen), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pubytes)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6016,74 +5632,74 @@ pub unsafe fn WdsBpParseInitializev6(ppacket: *const ::core::ffi::c_void, upacke
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsBpQueryOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
+pub unsafe fn WdsBpQueryOption<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hhandle: Param0, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsBpQueryOption(hhandle: super::super::Foundation::HANDLE, uoption: u32, uvaluelen: u32, pvalue: *mut ::core::ffi::c_void, pubytes: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WdsBpQueryOption(hhandle.into_param().abi(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue), ::core::mem::transmute(pubytes)))
+    ::core::mem::transmute(WdsBpQueryOption(hhandle.into(), ::core::mem::transmute(uoption), ::core::mem::transmute(uvaluelen), ::core::mem::transmute(pvalue), ::core::mem::transmute(pubytes)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliAuthorizeSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliAuthorizeSession(hsession: super::super::Foundation::HANDLE, pcred: *const WDS_CLI_CRED) -> ::windows::core::HRESULT;
     }
-    WdsCliAuthorizeSession(hsession.into_param().abi(), ::core::mem::transmute(pcred)).ok()
+    WdsCliAuthorizeSession(hsession.into(), ::core::mem::transmute(pcred)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliCancelTransfer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliCancelTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    WdsCliCancelTransfer(htransfer.into_param().abi()).ok()
+    WdsCliCancelTransfer(htransfer.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliClose<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliClose(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    WdsCliClose(handle.into_param().abi()).ok()
+    WdsCliClose(handle.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliCreateSession<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszserver: Param0, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliCreateSession(pwszserver: ::windows::core::PCWSTR, pcred: *const WDS_CLI_CRED) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliCreateSession(pwszserver: ::windows::core::PCWSTR, pcred: *const WDS_CLI_CRED, phsession: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliCreateSession(pwszserver.into_param().abi(), ::core::mem::transmute(pcred), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliCreateSession(::core::mem::transmute(pwszserver), ::core::mem::transmute(pcred), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliFindFirstImage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliFindFirstImage(hsession: super::super::Foundation::HANDLE, phfindhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliFindFirstImage(hsession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliFindFirstImage(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliFindNextImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliFindNextImage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliFindNextImage(handle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    WdsCliFindNextImage(handle.into_param().abi()).ok()
+    WdsCliFindNextImage(handle.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 pub const WdsCliFlagEnumFilterFirmware: i32 = 2i32;
@@ -6100,270 +5716,270 @@ pub unsafe fn WdsCliFreeStringArray(ppwszarray: &mut [::windows::core::PWSTR]) -
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
-pub unsafe fn WdsCliGetDriverQueryXml<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszwindirpath: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetDriverQueryXml(pwszwindirpath: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetDriverQueryXml(pwszwindirpath: ::windows::core::PCWSTR, ppwszdriverquery: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetDriverQueryXml(pwszwindirpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetDriverQueryXml(::core::mem::transmute(pwszwindirpath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<u32> {
+pub unsafe fn WdsCliGetEnumerationFlags<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(handle: Param0) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetEnumerationFlags(handle: super::super::Foundation::HANDLE, pdwflags: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    WdsCliGetEnumerationFlags(handle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    WdsCliGetEnumerationFlags(handle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<CPU_ARCHITECTURE> {
+pub unsafe fn WdsCliGetImageArchitecture<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<CPU_ARCHITECTURE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageArchitecture(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut CPU_ARCHITECTURE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<CPU_ARCHITECTURE>::zeroed();
-    WdsCliGetImageArchitecture(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CPU_ARCHITECTURE>(result__)
+    WdsCliGetImageArchitecture(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<CPU_ARCHITECTURE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageDescription<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageDescription(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageDescription(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageDescription(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliGetImageFiles<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageFiles(hifh: super::super::Foundation::HANDLE, pppwszfiles: *mut *mut ::windows::core::PWSTR, pdwcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    WdsCliGetImageFiles(hifh.into_param().abi(), ::core::mem::transmute(pppwszfiles), ::core::mem::transmute(pdwcount)).ok()
+    WdsCliGetImageFiles(hifh.into(), ::core::mem::transmute(pppwszfiles), ::core::mem::transmute(pdwcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageGroup<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageGroup(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageGroup(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageGroup(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageHalName<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageHalName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageHalName(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageHalName(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(findhandle: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliGetImageHandleFromFindHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(findhandle: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageHandleFromFindHandle(findhandle: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliGetImageHandleFromFindHandle(findhandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliGetImageHandleFromFindHandle(findhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliGetImageHandleFromTransferHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageHandleFromTransferHandle(htransfer: super::super::Foundation::HANDLE, phimagehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliGetImageHandleFromTransferHandle(htransfer.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliGetImageHandleFromTransferHandle(htransfer.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u32> {
+pub unsafe fn WdsCliGetImageIndex<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageIndex(hifh: super::super::Foundation::HANDLE, pdwvalue: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    WdsCliGetImageIndex(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    WdsCliGetImageIndex(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageLanguage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageLanguage(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageLanguage(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageLanguage(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliGetImageLanguages<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageLanguages(hifh: super::super::Foundation::HANDLE, pppszvalues: *mut *mut *mut i8, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
     }
-    WdsCliGetImageLanguages(hifh.into_param().abi(), ::core::mem::transmute(pppszvalues), ::core::mem::transmute(pdwnumvalues)).ok()
+    WdsCliGetImageLanguages(hifh.into(), ::core::mem::transmute(pppszvalues), ::core::mem::transmute(pdwnumvalues)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<*mut super::super::Foundation::SYSTEMTIME> {
+pub unsafe fn WdsCliGetImageLastModifiedTime<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<*mut super::super::Foundation::SYSTEMTIME> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageLastModifiedTime(hifh: super::super::Foundation::HANDLE, ppsystimevalue: *mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Foundation::SYSTEMTIME>::zeroed();
-    WdsCliGetImageLastModifiedTime(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Foundation::SYSTEMTIME>(result__)
+    WdsCliGetImageLastModifiedTime(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Foundation::SYSTEMTIME>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageName<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageName(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageName(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageName(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageNamespace<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageNamespace(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageNamespace(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageNamespace(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliGetImageParameter<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<WDS_CLI_IMAGE_PARAM_TYPE>>(hifh: Param0, paramtype: Param1, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageParameter(hifh: super::super::Foundation::HANDLE, paramtype: WDS_CLI_IMAGE_PARAM_TYPE, presponse: *mut ::core::ffi::c_void, uresponselen: u32) -> ::windows::core::HRESULT;
     }
-    WdsCliGetImageParameter(hifh.into_param().abi(), ::core::mem::transmute(paramtype), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
+    WdsCliGetImageParameter(hifh.into(), paramtype.into(), ::core::mem::transmute(presponse), ::core::mem::transmute(uresponselen)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImagePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImagePath<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImagePath(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImagePath(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImagePath(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
+pub unsafe fn WdsCliGetImageSize<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    WdsCliGetImageSize(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    WdsCliGetImageSize(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<WDS_CLI_IMAGE_TYPE> {
+pub unsafe fn WdsCliGetImageType<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<WDS_CLI_IMAGE_TYPE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageType(hifh: super::super::Foundation::HANDLE, pimagetype: *mut WDS_CLI_IMAGE_TYPE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<WDS_CLI_IMAGE_TYPE>::zeroed();
-    WdsCliGetImageType(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDS_CLI_IMAGE_TYPE>(result__)
+    WdsCliGetImageType(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WDS_CLI_IMAGE_TYPE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
+pub unsafe fn WdsCliGetImageVersion<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetImageVersion(hifh: super::super::Foundation::HANDLE, ppwszvalue: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
-    WdsCliGetImageVersion(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+    WdsCliGetImageVersion(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
+pub unsafe fn WdsCliGetTransferSize<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hifh: Param0) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliGetTransferSize(hifh: super::super::Foundation::HANDLE, pullvalue: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    WdsCliGetTransferSize(hifh.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    WdsCliGetTransferSize(hifh.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliInitializeLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hsession: Param0, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: Param2, pwszclientaddress: Param3) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliInitializeLog<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<CPU_ARCHITECTURE>>(hsession: Param0, ulclientarchitecture: Param1, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliInitializeLog(hsession: super::super::Foundation::HANDLE, ulclientarchitecture: CPU_ARCHITECTURE, pwszclientid: ::windows::core::PCWSTR, pwszclientaddress: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    WdsCliInitializeLog(hsession.into_param().abi(), ::core::mem::transmute(ulclientarchitecture), pwszclientid.into_param().abi(), pwszclientaddress.into_param().abi()).ok()
+    WdsCliInitializeLog(hsession.into(), ulclientarchitecture.into(), ::core::mem::transmute(pwszclientid), ::core::mem::transmute(pwszclientaddress)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsession: Param0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliLog<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
     }
-    WdsCliLog(hsession.into_param().abi(), ::core::mem::transmute(ulloglevel), ::core::mem::transmute(ulmessagecode)).ok()
+    WdsCliLog(hsession.into(), ::core::mem::transmute(ulloglevel), ::core::mem::transmute(ulmessagecode)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(himage: Param0, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliObtainDriverPackages<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(himage: Param0, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliObtainDriverPackages(himage: super::super::Foundation::HANDLE, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    WdsCliObtainDriverPackages(himage.into_param().abi(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
+    WdsCliObtainDriverPackages(himage.into(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hsession: Param0, pwszmachineinfo: Param1, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliObtainDriverPackagesEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsession: Param0, pwszmachineinfo: ::windows::core::PCWSTR, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliObtainDriverPackagesEx(hsession: super::super::Foundation::HANDLE, pwszmachineinfo: ::windows::core::PCWSTR, ppwszservername: *mut ::windows::core::PWSTR, pppwszdriverpackages: *mut *mut ::windows::core::PWSTR, pulcount: *mut u32) -> ::windows::core::HRESULT;
     }
-    WdsCliObtainDriverPackagesEx(hsession.into_param().abi(), pwszmachineinfo.into_param().abi(), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
+    WdsCliObtainDriverPackagesEx(hsession.into(), ::core::mem::transmute(pwszmachineinfo), ::core::mem::transmute(ppwszservername), ::core::mem::transmute(pppwszdriverpackages), ::core::mem::transmute(pulcount)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -6386,34 +6002,34 @@ pub unsafe fn WdsCliSetTransferBufferSize(ulsizeinbytes: u32) {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pwszserver: Param0, pwsznamespace: Param1, pwszremotefilepath: Param2, pwszlocalfilepath: Param3, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliTransferFile(pwszserver: ::windows::core::PCWSTR, pwsznamespace: ::windows::core::PCWSTR, pwszremotefilepath: ::windows::core::PCWSTR, pwszlocalfilepath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliTransferFile(pwszserver.into_param().abi(), pwsznamespace.into_param().abi(), pwszremotefilepath.into_param().abi(), pwszlocalfilepath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliTransferFile(::core::mem::transmute(pwszserver), ::core::mem::transmute(pwsznamespace), ::core::mem::transmute(pwszremotefilepath), ::core::mem::transmute(pwszlocalfilepath), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliTransferImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(himage: Param0, pwszlocalpath: Param1, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn WdsCliTransferImage<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(himage: Param0, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: PFN_WdsCliCallback, pvuserdata: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliTransferImage(himage: super::super::Foundation::HANDLE, pwszlocalpath: ::windows::core::PCWSTR, dwflags: u32, dwreserved: u32, pfnwdsclicallback: *mut ::core::ffi::c_void, pvuserdata: *const ::core::ffi::c_void, phtransfer: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
-    WdsCliTransferImage(himage.into_param().abi(), pwszlocalpath.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+    WdsCliTransferImage(himage.into(), ::core::mem::transmute(pwszlocalpath), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pfnwdsclicallback), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WdsCliWaitForTransfer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(htransfer: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsCliWaitForTransfer(htransfer: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    WdsCliWaitForTransfer(htransfer.into_param().abi()).ok()
+    WdsCliWaitForTransfer(htransfer.into()).ok()
 }
 pub const WdsTransportCacheable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70590b16_f146_46bd_bd9d_4aaa90084bf5);
 pub const WdsTransportClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66d2c5e9_0ff6_49ec_9733_dafb1e01df1c);
@@ -6429,42 +6045,42 @@ pub unsafe fn WdsTransportClientAddRefBuffer(pvbuffer: *const ::core::ffi::c_voi
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
+pub unsafe fn WdsTransportClientCancelSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCancelSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientCancelSession(hsessionkey.into_param().abi()))
+    ::core::mem::transmute(WdsTransportClientCancelSession(hsessionkey.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, dwerrorcode: u32) -> u32 {
+pub unsafe fn WdsTransportClientCancelSessionEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, dwerrorcode: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCancelSessionEx(hsessionkey: super::super::Foundation::HANDLE, dwerrorcode: u32) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientCancelSessionEx(hsessionkey.into_param().abi(), ::core::mem::transmute(dwerrorcode)))
+    ::core::mem::transmute(WdsTransportClientCancelSessionEx(hsessionkey.into(), ::core::mem::transmute(dwerrorcode)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
+pub unsafe fn WdsTransportClientCloseSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCloseSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientCloseSession(hsessionkey.into_param().abi()))
+    ::core::mem::transmute(WdsTransportClientCloseSession(hsessionkey.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, ulsize: u32, pulloffset: *const u64) -> u32 {
+pub unsafe fn WdsTransportClientCompleteReceive<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, ulsize: u32, pulloffset: *const u64) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientCompleteReceive(hsessionkey: super::super::Foundation::HANDLE, ulsize: u32, pulloffset: *const u64) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientCompleteReceive(hsessionkey.into_param().abi(), ::core::mem::transmute(ulsize), ::core::mem::transmute(pulloffset)))
+    ::core::mem::transmute(WdsTransportClientCompleteReceive(hsessionkey.into(), ::core::mem::transmute(ulsize), ::core::mem::transmute(pulloffset)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -6488,22 +6104,22 @@ pub unsafe fn WdsTransportClientInitializeSession(psessionrequest: *const WDS_TR
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32 {
+pub unsafe fn WdsTransportClientQueryStatus<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, pustatus: *mut u32, puerrorcode: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientQueryStatus(hsessionkey: super::super::Foundation::HANDLE, pustatus: *mut u32, puerrorcode: *mut u32) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientQueryStatus(hsessionkey.into_param().abi(), ::core::mem::transmute(pustatus), ::core::mem::transmute(puerrorcode)))
+    ::core::mem::transmute(WdsTransportClientQueryStatus(hsessionkey.into(), ::core::mem::transmute(pustatus), ::core::mem::transmute(puerrorcode)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn WdsTransportClientRegisterCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<TRANSPORTCLIENT_CALLBACK_ID>>(hsessionkey: Param0, callbackid: Param1, pfncallback: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientRegisterCallback(hsessionkey: super::super::Foundation::HANDLE, callbackid: TRANSPORTCLIENT_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into_param().abi(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)))
+    ::core::mem::transmute(WdsTransportClientRegisterCallback(hsessionkey.into(), callbackid.into(), ::core::mem::transmute(pfncallback)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`*"]
 #[inline]
@@ -6526,22 +6142,22 @@ pub unsafe fn WdsTransportClientShutdown() -> u32 {
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
+pub unsafe fn WdsTransportClientStartSession<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientStartSession(hsessionkey: super::super::Foundation::HANDLE) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientStartSession(hsessionkey.into_param().abi()))
+    ::core::mem::transmute(WdsTransportClientStartSession(hsessionkey.into()))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hsessionkey: Param0, utimeout: u32) -> u32 {
+pub unsafe fn WdsTransportClientWaitForCompletion<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hsessionkey: Param0, utimeout: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportClientWaitForCompletion(hsessionkey: super::super::Foundation::HANDLE, utimeout: u32) -> u32;
     }
-    ::core::mem::transmute(WdsTransportClientWaitForCompletion(hsessionkey.into_param().abi(), ::core::mem::transmute(utimeout)))
+    ::core::mem::transmute(WdsTransportClientWaitForCompletion(hsessionkey.into(), ::core::mem::transmute(utimeout)))
 }
 pub const WdsTransportCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7f18b09_391e_436e_b10b_c3ef46f2c34f);
 pub const WdsTransportConfigurationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8743f674_904c_47ca_8512_35fe98f6b0ac);
@@ -6560,62 +6176,62 @@ pub const WdsTransportServer: ::windows::core::GUID = ::windows::core::GUID::fro
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbuffersize: u32) -> *mut ::core::ffi::c_void {
+pub unsafe fn WdsTransportServerAllocateBuffer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, ulbuffersize: u32) -> *mut ::core::ffi::c_void {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerAllocateBuffer(hprovider: super::super::Foundation::HANDLE, ulbuffersize: u32) -> *mut ::core::ffi::c_void;
     }
-    ::core::mem::transmute(WdsTransportServerAllocateBuffer(hprovider.into_param().abi(), ::core::mem::transmute(ulbuffersize)))
+    ::core::mem::transmute(WdsTransportServerAllocateBuffer(hprovider.into(), ::core::mem::transmute(ulbuffersize)))
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerCompleteRead<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerCompleteRead(hprovider: super::super::Foundation::HANDLE, ulbytesread: u32, pvuserdata: *const ::core::ffi::c_void, hreadresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerCompleteRead(hprovider.into_param().abi(), ::core::mem::transmute(ulbytesread), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(hreadresult)).ok()
+    WdsTransportServerCompleteRead(hprovider.into(), ::core::mem::transmute(ulbytesread), ::core::mem::transmute(pvuserdata), ::core::mem::transmute(hreadresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerFreeBuffer<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerFreeBuffer(hprovider: super::super::Foundation::HANDLE, pvbuffer: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerFreeBuffer(hprovider.into_param().abi(), ::core::mem::transmute(pvbuffer)).ok()
+    WdsTransportServerFreeBuffer(hprovider.into(), ::core::mem::transmute(pvbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprovider: Param0, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerRegisterCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<TRANSPORTPROVIDER_CALLBACK_ID>>(hprovider: Param0, callbackid: Param1, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerRegisterCallback(hprovider: super::super::Foundation::HANDLE, callbackid: TRANSPORTPROVIDER_CALLBACK_ID, pfncallback: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerRegisterCallback(hprovider.into_param().abi(), ::core::mem::transmute(callbackid), ::core::mem::transmute(pfncallback)).ok()
+    WdsTransportServerRegisterCallback(hprovider.into(), callbackid.into(), ::core::mem::transmute(pfncallback)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerTrace<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerTrace<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerTrace(hprovider.into_param().abi(), ::core::mem::transmute(severity), pwszformat.into_param().abi()).ok()
+    WdsTransportServerTrace(hprovider.into(), ::core::mem::transmute(severity), ::core::mem::transmute(pwszformat)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_DeploymentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hprovider: Param0, severity: u32, pwszformat: Param2, params: *const i8) -> ::windows::core::Result<()> {
+pub unsafe fn WdsTransportServerTraceV<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hprovider: Param0, severity: u32, pwszformat: ::windows::core::PCWSTR, params: *const i8) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WdsTransportServerTraceV(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR, params: *const i8) -> ::windows::core::HRESULT;
     }
-    WdsTransportServerTraceV(hprovider.into_param().abi(), ::core::mem::transmute(severity), pwszformat.into_param().abi(), ::core::mem::transmute(params)).ok()
+    WdsTransportServerTraceV(hprovider.into(), ::core::mem::transmute(severity), ::core::mem::transmute(pwszformat), ::core::mem::transmute(params)).ok()
 }
 pub const WdsTransportServicePolicy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aceadc_2f0b_4f43_9f4d_811865d8cead);
 pub const WdsTransportSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x749ac4e0_67bc_4743_bfe5_cacb1f26f57f);

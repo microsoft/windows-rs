@@ -32,8 +32,8 @@ pub struct WindowManagementPreview(::windows::core::IUnknown);
 impl WindowManagementPreview {
     #[doc = "*Required features: `\"UI_WindowManagement_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPreferredMinSize<'a, Param0: ::windows::core::IntoParam<'a, super::AppWindow>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(window: Param0, preferredframeminsize: Param1) -> ::windows::core::Result<()> {
-        Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredMinSize)(::windows::core::Interface::as_raw(this), window.into_param().abi(), preferredframeminsize.into_param().abi()).ok() })
+    pub fn SetPreferredMinSize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::AppWindow>>>(window: Param0, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::Result<()> {
+        Self::IWindowManagementPreviewStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPreferredMinSize)(::windows::core::Interface::as_raw(this), window.into().abi(), preferredframeminsize).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowManagementPreviewStatics<R, F: FnOnce(&IWindowManagementPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -81,14 +81,9 @@ impl ::core::convert::From<&WindowManagementPreview> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WindowManagementPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WindowManagementPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowManagementPreview> for &::windows::core::IUnknown {
+    fn from(value: &WindowManagementPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WindowManagementPreview> for ::windows::core::IInspectable {
@@ -101,14 +96,9 @@ impl ::core::convert::From<&WindowManagementPreview> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WindowManagementPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WindowManagementPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WindowManagementPreview> for &::windows::core::IInspectable {
+    fn from(value: &WindowManagementPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WindowManagementPreview {}

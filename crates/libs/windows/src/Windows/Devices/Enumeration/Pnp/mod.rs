@@ -152,48 +152,48 @@ impl PnpObject {
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
-    pub fn Update<'a, Param0: ::windows::core::IntoParam<'a, PnpObjectUpdate>>(&self, updateinfo: Param0) -> ::windows::core::Result<()> {
+    pub fn Update<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PnpObjectUpdate>>>(&self, updateinfo: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), updateinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), updateinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateFromIdAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(r#type: PnpObjectType, id: Param1, requestedproperties: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>> {
+    pub fn CreateFromIdAsync<'a, Param0: ::std::convert::Into<PnpObjectType>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(r#type: Param0, id: Param1, requestedproperties: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObject>> {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIdAsync)(::windows::core::Interface::as_raw(this), r#type, id.into_param().abi(), requestedproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObject>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIdAsync)(::windows::core::Interface::as_raw(this), r#type.into(), id.into().abi(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObject>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(r#type: PnpObjectType, requestedproperties: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>> {
+    pub fn FindAllAsync<'a, Param0: ::std::convert::Into<PnpObjectType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(r#type: Param0, requestedproperties: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>> {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsync)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllAsyncAqsFilter<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(r#type: PnpObjectType, requestedproperties: Param1, aqsfilter: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>> {
+    pub fn FindAllAsyncAqsFilter<'a, Param0: ::std::convert::Into<PnpObjectType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(r#type: Param0, requestedproperties: Param1, aqsfilter: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>> {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), aqsfilter.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAsyncAqsFilter)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcher<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(r#type: PnpObjectType, requestedproperties: Param1) -> ::windows::core::Result<PnpObjectWatcher> {
+    pub fn CreateWatcher<'a, Param0: ::std::convert::Into<PnpObjectType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(r#type: Param0, requestedproperties: Param1) -> ::windows::core::Result<PnpObjectWatcher> {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcher)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherAqsFilter<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(r#type: PnpObjectType, requestedproperties: Param1, aqsfilter: Param2) -> ::windows::core::Result<PnpObjectWatcher> {
+    pub fn CreateWatcherAqsFilter<'a, Param0: ::std::convert::Into<PnpObjectType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(r#type: Param0, requestedproperties: Param1, aqsfilter: Param2) -> ::windows::core::Result<PnpObjectWatcher> {
         Self::IPnpObjectStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherAqsFilter)(::windows::core::Interface::as_raw(this), r#type, requestedproperties.into_param().abi(), aqsfilter.into_param().abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherAqsFilter)(::windows::core::Interface::as_raw(this), r#type.into(), requestedproperties.try_into().map_err(|e| e.into())?.abi(), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<PnpObjectWatcher>(result__)
         })
     }
     #[doc(hidden)]
@@ -242,14 +242,9 @@ impl ::core::convert::From<&PnpObject> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PnpObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PnpObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObject> for &::windows::core::IUnknown {
+    fn from(value: &PnpObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PnpObject> for ::windows::core::IInspectable {
@@ -262,14 +257,9 @@ impl ::core::convert::From<&PnpObject> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PnpObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PnpObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObject> for &::windows::core::IInspectable {
+    fn from(value: &PnpObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PnpObject {}
@@ -309,11 +299,11 @@ impl PnpObjectCollection {
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, PnpObject>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PnpObject>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation_Collections\"`*"]
@@ -392,15 +382,9 @@ impl ::core::convert::From<&PnpObjectCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObjectCollection> for &::windows::core::IUnknown {
+    fn from(value: &PnpObjectCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -416,15 +400,9 @@ impl ::core::convert::From<&PnpObjectCollection> for ::windows::core::IInspectab
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObjectCollection> for &::windows::core::IInspectable {
+    fn from(value: &PnpObjectCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -442,15 +420,11 @@ impl ::core::convert::TryFrom<&PnpObjectCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<PnpObject>> for PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<PnpObject>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<PnpObject>> for &PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<PnpObject>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<PnpObject>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PnpObjectCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<PnpObject>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PnpObjectCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -468,15 +442,11 @@ impl ::core::convert::TryFrom<&PnpObjectCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<PnpObject>> for PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<PnpObject>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<PnpObject>> for &PnpObjectCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<PnpObject>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IVectorView<PnpObject>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PnpObjectCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IVectorView<PnpObject>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PnpObjectCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -594,14 +564,9 @@ impl ::core::convert::From<&PnpObjectUpdate> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PnpObjectUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PnpObjectUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObjectUpdate> for &::windows::core::IUnknown {
+    fn from(value: &PnpObjectUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PnpObjectUpdate> for ::windows::core::IInspectable {
@@ -614,14 +579,9 @@ impl ::core::convert::From<&PnpObjectUpdate> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PnpObjectUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PnpObjectUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObjectUpdate> for &::windows::core::IInspectable {
+    fn from(value: &PnpObjectUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PnpObjectUpdate {}
@@ -632,78 +592,78 @@ pub struct PnpObjectWatcher(::windows::core::IUnknown);
 impl PnpObjectWatcher {
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAdded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStopped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Enumeration_Pnp\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<super::DeviceWatcherStatus> {
@@ -764,14 +724,9 @@ impl ::core::convert::From<&PnpObjectWatcher> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PnpObjectWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PnpObjectWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObjectWatcher> for &::windows::core::IUnknown {
+    fn from(value: &PnpObjectWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PnpObjectWatcher> for ::windows::core::IInspectable {
@@ -784,14 +739,9 @@ impl ::core::convert::From<&PnpObjectWatcher> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PnpObjectWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PnpObjectWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PnpObjectWatcher> for &::windows::core::IInspectable {
+    fn from(value: &PnpObjectWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PnpObjectWatcher {}

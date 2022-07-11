@@ -29,19 +29,14 @@ impl ::core::convert::From<IEnumVdsObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumVdsObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumVdsObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumVdsObject> for ::windows::core::IUnknown {
     fn from(value: &IEnumVdsObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumVdsObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumVdsObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumVdsObject {
@@ -78,12 +73,12 @@ pub struct IEnumVdsObject_Vtbl {
 pub struct IVdsAdmin(::windows::core::IUnknown);
 impl IVdsAdmin {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn RegisterProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param6: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, providerid: Param0, providerclsid: Param1, pwszname: Param2, r#type: VDS_PROVIDER_TYPE, pwszmachinename: Param4, pwszversion: Param5, guidversionid: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterProvider)(::windows::core::Interface::as_raw(self), providerid.into_param().abi(), providerclsid.into_param().abi(), pwszname.into_param().abi(), ::core::mem::transmute(r#type), pwszmachinename.into_param().abi(), pwszversion.into_param().abi(), guidversionid.into_param().abi()).ok()
+    pub unsafe fn RegisterProvider<'a, Param3: ::std::convert::Into<VDS_PROVIDER_TYPE>>(&self, providerid: ::windows::core::GUID, providerclsid: ::windows::core::GUID, pwszname: ::windows::core::PCWSTR, r#type: Param3, pwszmachinename: ::windows::core::PCWSTR, pwszversion: ::windows::core::PCWSTR, guidversionid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid), ::core::mem::transmute(providerclsid), ::core::mem::transmute(pwszname), r#type.into(), ::core::mem::transmute(pwszmachinename), ::core::mem::transmute(pwszversion), ::core::mem::transmute(guidversionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn UnregisterProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, providerid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterProvider)(::windows::core::Interface::as_raw(self), providerid.into_param().abi()).ok()
+    pub unsafe fn UnregisterProvider(&self, providerid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(providerid)).ok()
     }
 }
 impl ::core::convert::From<IVdsAdmin> for ::windows::core::IUnknown {
@@ -91,19 +86,14 @@ impl ::core::convert::From<IVdsAdmin> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsAdmin> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsAdmin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsAdmin> for ::windows::core::IUnknown {
     fn from(value: &IVdsAdmin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsAdmin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsAdmin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsAdmin {
@@ -147,19 +137,14 @@ impl ::core::convert::From<IVdsAdviseSink> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsAdviseSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsAdviseSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsAdviseSink> for ::windows::core::IUnknown {
     fn from(value: &IVdsAdviseSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsAdviseSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsAdviseSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsAdviseSink {
@@ -210,19 +195,14 @@ impl ::core::convert::From<IVdsAsync> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsAsync> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsAsync) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsAsync> for ::windows::core::IUnknown {
     fn from(value: &IVdsAsync) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsAsync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsAsync {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsAsync {
@@ -290,8 +270,8 @@ impl IVdsController {
         (::windows::core::Interface::vtable(self).QueryAssociatedLuns)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetStatus<'a, Param0: ::std::convert::Into<VDS_CONTROLLER_STATUS>>(&self, status: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsController> for ::windows::core::IUnknown {
@@ -299,19 +279,14 @@ impl ::core::convert::From<IVdsController> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsController> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsController> for ::windows::core::IUnknown {
     fn from(value: &IVdsController) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsController {
@@ -362,19 +337,14 @@ impl ::core::convert::From<IVdsControllerControllerPort> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsControllerControllerPort> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsControllerControllerPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsControllerControllerPort> for ::windows::core::IUnknown {
     fn from(value: &IVdsControllerControllerPort) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsControllerControllerPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsControllerControllerPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsControllerControllerPort {
@@ -427,8 +397,8 @@ impl IVdsControllerPort {
         (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetStatus(&self, status: VDS_PORT_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetStatus<'a, Param0: ::std::convert::Into<VDS_PORT_STATUS>>(&self, status: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsControllerPort> for ::windows::core::IUnknown {
@@ -436,19 +406,14 @@ impl ::core::convert::From<IVdsControllerPort> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsControllerPort> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsControllerPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsControllerPort> for ::windows::core::IUnknown {
     fn from(value: &IVdsControllerPort) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsControllerPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsControllerPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsControllerPort {
@@ -509,8 +474,8 @@ impl IVdsDrive {
         (::windows::core::Interface::vtable(self).ClearFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetStatus<'a, Param0: ::std::convert::Into<VDS_DRIVE_STATUS>>(&self, status: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsDrive> for ::windows::core::IUnknown {
@@ -518,19 +483,14 @@ impl ::core::convert::From<IVdsDrive> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsDrive> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsDrive) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsDrive> for ::windows::core::IUnknown {
     fn from(value: &IVdsDrive) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsDrive {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsDrive {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsDrive {
@@ -582,19 +542,14 @@ impl ::core::convert::From<IVdsDrive2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsDrive2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsDrive2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsDrive2> for ::windows::core::IUnknown {
     fn from(value: &IVdsDrive2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsDrive2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsDrive2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsDrive2 {
@@ -646,19 +601,14 @@ impl ::core::convert::From<IVdsHwProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsHwProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsHwProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsHwProvider> for ::windows::core::IUnknown {
     fn from(value: &IVdsHwProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsHwProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsHwProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsHwProvider {
@@ -695,9 +645,9 @@ pub struct IVdsHwProviderPrivate(::windows::core::IUnknown);
 impl IVdsHwProviderPrivate {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryIfCreatedLun<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicepath: Param0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID> {
+    pub unsafe fn QueryIfCreatedLun(&self, pwszdevicepath: ::windows::core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryIfCreatedLun)(::windows::core::Interface::as_raw(self), pwszdevicepath.into_param().abi(), ::core::mem::transmute(pvdsluninformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).QueryIfCreatedLun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszdevicepath), ::core::mem::transmute(pvdsluninformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IVdsHwProviderPrivate> for ::windows::core::IUnknown {
@@ -705,19 +655,14 @@ impl ::core::convert::From<IVdsHwProviderPrivate> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsHwProviderPrivate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsHwProviderPrivate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsHwProviderPrivate> for ::windows::core::IUnknown {
     fn from(value: &IVdsHwProviderPrivate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsHwProviderPrivate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsHwProviderPrivate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsHwProviderPrivate {
@@ -754,8 +699,8 @@ pub struct IVdsHwProviderPrivate_Vtbl {
 pub struct IVdsHwProviderPrivateMpio(::windows::core::IUnknown);
 impl IVdsHwProviderPrivateMpio {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetAllPathStatusesFromHbaPort<'a, Param0: ::windows::core::IntoParam<'a, VDS_HBAPORT_PROP>>(&self, hbaportprop: Param0, status: VDS_PATH_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllPathStatusesFromHbaPort)(::windows::core::Interface::as_raw(self), hbaportprop.into_param().abi(), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetAllPathStatusesFromHbaPort<'a, Param1: ::std::convert::Into<VDS_PATH_STATUS>>(&self, hbaportprop: VDS_HBAPORT_PROP, status: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAllPathStatusesFromHbaPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hbaportprop), status.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsHwProviderPrivateMpio> for ::windows::core::IUnknown {
@@ -763,19 +708,14 @@ impl ::core::convert::From<IVdsHwProviderPrivateMpio> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsHwProviderPrivateMpio> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsHwProviderPrivateMpio) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsHwProviderPrivateMpio> for ::windows::core::IUnknown {
     fn from(value: &IVdsHwProviderPrivateMpio) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsHwProviderPrivateMpio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsHwProviderPrivateMpio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsHwProviderPrivateMpio {
@@ -816,15 +756,15 @@ impl IVdsHwProviderStoragePools {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLunInStoragePool<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: Param2, pwszunmaskinglist: Param3, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateLunInStoragePool<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, ullsizeinbytes: u64, storagepoolid: ::windows::core::GUID, pwszunmaskinglist: ::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLunInStoragePool)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(ullsizeinbytes), storagepoolid.into_param().abi(), pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateLunInStoragePool)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(storagepoolid), ::core::mem::transmute(pwszunmaskinglist), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryMaxLunCreateSizeInStoragePool<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, r#type: VDS_LUN_TYPE, storagepoolid: Param1, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSizeInStoragePool<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, storagepoolid: ::windows::core::GUID, phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), storagepoolid.into_param().abi(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(storagepoolid), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IVdsHwProviderStoragePools> for ::windows::core::IUnknown {
@@ -832,19 +772,14 @@ impl ::core::convert::From<IVdsHwProviderStoragePools> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsHwProviderStoragePools> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsHwProviderStoragePools) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsHwProviderStoragePools> for ::windows::core::IUnknown {
     fn from(value: &IVdsHwProviderStoragePools) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsHwProviderStoragePools {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsHwProviderStoragePools {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsHwProviderStoragePools {
@@ -899,19 +834,14 @@ impl ::core::convert::From<IVdsHwProviderType> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsHwProviderType> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsHwProviderType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsHwProviderType> for ::windows::core::IUnknown {
     fn from(value: &IVdsHwProviderType) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsHwProviderType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsHwProviderType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsHwProviderType {
@@ -955,19 +885,14 @@ impl ::core::convert::From<IVdsHwProviderType2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsHwProviderType2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsHwProviderType2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsHwProviderType2> for ::windows::core::IUnknown {
     fn from(value: &IVdsHwProviderType2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsHwProviderType2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsHwProviderType2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsHwProviderType2 {
@@ -1016,8 +941,8 @@ impl IVdsIscsiPortal {
         (::windows::core::Interface::vtable(self).QueryAssociatedPortalGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetStatus<'a, Param0: ::std::convert::Into<VDS_ISCSI_PORTAL_STATUS>>(&self, status: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> ::windows::core::Result<()> {
@@ -1038,19 +963,14 @@ impl ::core::convert::From<IVdsIscsiPortal> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsIscsiPortal> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsIscsiPortal) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsIscsiPortal> for ::windows::core::IUnknown {
     fn from(value: &IVdsIscsiPortal) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsIscsiPortal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsIscsiPortal {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsIscsiPortal {
@@ -1105,14 +1025,14 @@ impl IVdsIscsiPortalGroup {
         (::windows::core::Interface::vtable(self).QueryAssociatedPortals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn AddPortal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, portalid: Param0) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn AddPortal(&self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddPortal)(::windows::core::Interface::as_raw(self), portalid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).AddPortal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portalid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn RemovePortal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, portalid: Param0) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn RemovePortal(&self, portalid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RemovePortal)(::windows::core::Interface::as_raw(self), portalid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).RemovePortal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(portalid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<IVdsAsync> {
@@ -1125,19 +1045,14 @@ impl ::core::convert::From<IVdsIscsiPortalGroup> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsIscsiPortalGroup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsIscsiPortalGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsIscsiPortalGroup> for ::windows::core::IUnknown {
     fn from(value: &IVdsIscsiPortalGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsIscsiPortalGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsIscsiPortalGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsIscsiPortalGroup {
@@ -1207,16 +1122,16 @@ impl IVdsIscsiTarget {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName(&self, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetSharedSecret<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptargetsharedsecret), pwszinitiatorname.into_param().abi()).ok()
+    pub unsafe fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptargetsharedsecret), ::core::mem::transmute(pwszinitiatorname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn RememberInitiatorSharedSecret<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszinitiatorname: Param0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Interface::as_raw(self), pwszinitiatorname.into_param().abi(), ::core::mem::transmute(pinitiatorsharedsecret)).ok()
+    pub unsafe fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: ::windows::core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RememberInitiatorSharedSecret)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszinitiatorname), ::core::mem::transmute(pinitiatorsharedsecret)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut ::windows::core::PWSTR, plnumberofinitiators: *mut i32) -> ::windows::core::Result<()> {
@@ -1228,19 +1143,14 @@ impl ::core::convert::From<IVdsIscsiTarget> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsIscsiTarget> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsIscsiTarget) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsIscsiTarget> for ::windows::core::IUnknown {
     fn from(value: &IVdsIscsiTarget) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsIscsiTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsIscsiTarget {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsIscsiTarget {
@@ -1322,14 +1232,14 @@ impl IVdsLun {
         (::windows::core::Interface::vtable(self).QueryPlexes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn AddPlex<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, lunid: Param0) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn AddPlex(&self, lunid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddPlex)(::windows::core::Interface::as_raw(self), lunid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).AddPlex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lunid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn RemovePlex<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, plexid: Param0) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn RemovePlex(&self, plexid: ::windows::core::GUID) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RemovePlex)(::windows::core::Interface::as_raw(self), plexid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).RemovePlex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plexid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Recover(&self) -> ::windows::core::Result<IVdsAsync> {
@@ -1337,8 +1247,8 @@ impl IVdsLun {
         (::windows::core::Interface::vtable(self).Recover)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetMask<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszunmaskinglist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMask)(::windows::core::Interface::as_raw(self), pwszunmaskinglist.into_param().abi()).ok()
+    pub unsafe fn SetMask(&self, pwszunmaskinglist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszunmaskinglist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -1360,8 +1270,8 @@ impl IVdsLun {
         (::windows::core::Interface::vtable(self).ApplyHints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phints)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetStatus(&self, status: VDS_LUN_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetStatus<'a, Param0: ::std::convert::Into<VDS_LUN_STATUS>>(&self, status: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: &[::windows::core::GUID]) -> ::windows::core::Result<u64> {
@@ -1374,19 +1284,14 @@ impl ::core::convert::From<IVdsLun> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLun> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLun) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLun> for ::windows::core::IUnknown {
     fn from(value: &IVdsLun) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLun {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLun {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLun {
@@ -1461,19 +1366,14 @@ impl ::core::convert::From<IVdsLun2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLun2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLun2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLun2> for ::windows::core::IUnknown {
     fn from(value: &IVdsLun2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLun2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLun2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLun2 {
@@ -1528,19 +1428,14 @@ impl ::core::convert::From<IVdsLunControllerPorts> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLunControllerPorts> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLunControllerPorts) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLunControllerPorts> for ::windows::core::IUnknown {
     fn from(value: &IVdsLunControllerPorts) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLunControllerPorts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLunControllerPorts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLunControllerPorts {
@@ -1589,19 +1484,14 @@ impl ::core::convert::From<IVdsLunIscsi> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLunIscsi> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLunIscsi) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLunIscsi> for ::windows::core::IUnknown {
     fn from(value: &IVdsLunIscsi) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLunIscsi {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLunIscsi {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLunIscsi {
@@ -1646,8 +1536,8 @@ impl IVdsLunMpio {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoadBalancePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppaths)), ppaths.len() as _).ok()
+    pub unsafe fn SetLoadBalancePolicy<'a, Param0: ::std::convert::Into<VDS_LOADBALANCE_POLICY_ENUM>>(&self, policy: Param0, ppaths: &[VDS_PATH_POLICY]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLoadBalancePolicy)(::windows::core::Interface::as_raw(self), policy.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppaths)), ppaths.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn GetSupportedLbPolicies(&self) -> ::windows::core::Result<u32> {
@@ -1660,19 +1550,14 @@ impl ::core::convert::From<IVdsLunMpio> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLunMpio> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLunMpio) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLunMpio> for ::windows::core::IUnknown {
     fn from(value: &IVdsLunMpio) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLunMpio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLunMpio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLunMpio {
@@ -1715,8 +1600,8 @@ pub struct IVdsLunMpio_Vtbl {
 pub struct IVdsLunNaming(::windows::core::IUnknown);
 impl IVdsLunNaming {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName(&self, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname)).ok()
     }
 }
 impl ::core::convert::From<IVdsLunNaming> for ::windows::core::IUnknown {
@@ -1724,19 +1609,14 @@ impl ::core::convert::From<IVdsLunNaming> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLunNaming> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLunNaming) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLunNaming> for ::windows::core::IUnknown {
     fn from(value: &IVdsLunNaming) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLunNaming {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLunNaming {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLunNaming {
@@ -1780,19 +1660,14 @@ impl ::core::convert::From<IVdsLunNumber> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLunNumber> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLunNumber) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLunNumber> for ::windows::core::IUnknown {
     fn from(value: &IVdsLunNumber) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLunNumber {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLunNumber {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLunNumber {
@@ -1857,19 +1732,14 @@ impl ::core::convert::From<IVdsLunPlex> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsLunPlex> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsLunPlex) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsLunPlex> for ::windows::core::IUnknown {
     fn from(value: &IVdsLunPlex) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsLunPlex {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsLunPlex {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsLunPlex {
@@ -1916,16 +1786,16 @@ pub struct IVdsLunPlex_Vtbl {
 pub struct IVdsMaintenance(::windows::core::IUnknown);
 impl IVdsMaintenance {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartMaintenance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operation)).ok()
+    pub unsafe fn StartMaintenance<'a, Param0: ::std::convert::Into<VDS_MAINTENANCE_OPERATION>>(&self, operation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartMaintenance)(::windows::core::Interface::as_raw(self), operation.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StopMaintenance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operation)).ok()
+    pub unsafe fn StopMaintenance<'a, Param0: ::std::convert::Into<VDS_MAINTENANCE_OPERATION>>(&self, operation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StopMaintenance)(::windows::core::Interface::as_raw(self), operation.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PulseMaintenance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operation), ::core::mem::transmute(ulcount)).ok()
+    pub unsafe fn PulseMaintenance<'a, Param0: ::std::convert::Into<VDS_MAINTENANCE_OPERATION>>(&self, operation: Param0, ulcount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PulseMaintenance)(::windows::core::Interface::as_raw(self), operation.into(), ::core::mem::transmute(ulcount)).ok()
     }
 }
 impl ::core::convert::From<IVdsMaintenance> for ::windows::core::IUnknown {
@@ -1933,19 +1803,14 @@ impl ::core::convert::From<IVdsMaintenance> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsMaintenance> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsMaintenance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsMaintenance> for ::windows::core::IUnknown {
     fn from(value: &IVdsMaintenance) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsMaintenance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsMaintenance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsMaintenance {
@@ -1991,19 +1856,14 @@ impl ::core::convert::From<IVdsProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsProvider> for ::windows::core::IUnknown {
     fn from(value: &IVdsProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsProvider {
@@ -2037,18 +1897,18 @@ pub struct IVdsProvider_Vtbl {
 pub struct IVdsProviderPrivate(::windows::core::IUnknown);
 impl IVdsProviderPrivate {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, objectid: Param0, r#type: VDS_OBJECT_TYPE) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn GetObject<'a, Param1: ::std::convert::Into<VDS_OBJECT_TYPE>>(&self, objectid: ::windows::core::GUID, r#type: Param1) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), objectid.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(objectid), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn OnLoad<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pwszmachinename: Param0, pcallbackobject: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), pwszmachinename.into_param().abi(), pcallbackobject.into_param().abi()).ok()
+    pub unsafe fn OnLoad<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pwszmachinename: ::windows::core::PCWSTR, pcallbackobject: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszmachinename), pcallbackobject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnUnload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bforceunload: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnUnload)(::windows::core::Interface::as_raw(self), bforceunload.into_param().abi()).ok()
+    pub unsafe fn OnUnload<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bforceunload: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnUnload)(::windows::core::Interface::as_raw(self), bforceunload.into()).ok()
     }
 }
 impl ::core::convert::From<IVdsProviderPrivate> for ::windows::core::IUnknown {
@@ -2056,19 +1916,14 @@ impl ::core::convert::From<IVdsProviderPrivate> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsProviderPrivate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsProviderPrivate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsProviderPrivate> for ::windows::core::IUnknown {
     fn from(value: &IVdsProviderPrivate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsProviderPrivate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsProviderPrivate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsProviderPrivate {
@@ -2117,19 +1972,14 @@ impl ::core::convert::From<IVdsProviderSupport> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsProviderSupport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsProviderSupport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsProviderSupport> for ::windows::core::IUnknown {
     fn from(value: &IVdsProviderSupport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsProviderSupport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsProviderSupport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsProviderSupport {
@@ -2199,19 +2049,14 @@ impl ::core::convert::From<IVdsStoragePool> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsStoragePool> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsStoragePool) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsStoragePool> for ::windows::core::IUnknown {
     fn from(value: &IVdsStoragePool) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsStoragePool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsStoragePool {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsStoragePool {
@@ -2295,23 +2140,23 @@ impl IVdsSubSystem {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLun<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: Param4, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateLun<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: ::windows::core::PCWSTR, phints: *const VDS_HINTS) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateLun)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(pwszunmaskinglist), ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn ReplaceDrive<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, drivetobereplaced: Param0, replacementdrive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReplaceDrive)(::windows::core::Interface::as_raw(self), drivetobereplaced.into_param().abi(), replacementdrive.into_param().abi()).ok()
+    pub unsafe fn ReplaceDrive(&self, drivetobereplaced: ::windows::core::GUID, replacementdrive: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReplaceDrive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(drivetobereplaced), ::core::mem::transmute(replacementdrive)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(status)).ok()
+    pub unsafe fn SetStatus<'a, Param0: ::std::convert::Into<VDS_SUB_SYSTEM_STATUS>>(&self, status: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStatus)(::windows::core::Interface::as_raw(self), status.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows::core::GUID], phints: *const VDS_HINTS) -> ::windows::core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSize<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, pdriveidarray: &[::windows::core::GUID], phints: *const VDS_HINTS) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).QueryMaxLunCreateSize)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(phints), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IVdsSubSystem> for ::windows::core::IUnknown {
@@ -2319,19 +2164,14 @@ impl ::core::convert::From<IVdsSubSystem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsSubSystem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsSubSystem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsSubSystem> for ::windows::core::IUnknown {
     fn from(value: &IVdsSubSystem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsSubSystem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsSubSystem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsSubSystem {
@@ -2393,15 +2233,15 @@ impl IVdsSubSystem2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateLun2<'a, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: Param4, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateLun2<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, ullsizeinbytes: u64, pdriveidarray: &[::windows::core::GUID], pwszunmaskinglist: ::windows::core::PCWSTR, phints2: *const VDS_HINTS2) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLun2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, pwszunmaskinglist.into_param().abi(), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateLun2)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(ullsizeinbytes), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(pwszunmaskinglist), ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[::windows::core::GUID], phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSize2<'a, Param0: ::std::convert::Into<VDS_LUN_TYPE>>(&self, r#type: Param0, pdriveidarray: &[::windows::core::GUID], phints2: *const VDS_HINTS2) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).QueryMaxLunCreateSize2)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdriveidarray)), pdriveidarray.len() as _, ::core::mem::transmute(phints2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IVdsSubSystem2> for ::windows::core::IUnknown {
@@ -2409,19 +2249,14 @@ impl ::core::convert::From<IVdsSubSystem2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsSubSystem2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsSubSystem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsSubSystem2> for ::windows::core::IUnknown {
     fn from(value: &IVdsSubSystem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsSubSystem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsSubSystem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsSubSystem2 {
@@ -2474,19 +2309,14 @@ impl ::core::convert::From<IVdsSubSystemInterconnect> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsSubSystemInterconnect> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsSubSystemInterconnect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsSubSystemInterconnect> for ::windows::core::IUnknown {
     fn from(value: &IVdsSubSystemInterconnect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsSubSystemInterconnect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsSubSystemInterconnect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsSubSystemInterconnect {
@@ -2530,9 +2360,9 @@ impl IVdsSubSystemIscsi {
         (::windows::core::Interface::vtable(self).QueryPortals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumVdsObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn CreateTarget<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsziscsiname: Param0, pwszfriendlyname: Param1) -> ::windows::core::Result<IVdsAsync> {
+    pub unsafe fn CreateTarget(&self, pwsziscsiname: ::windows::core::PCWSTR, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<IVdsAsync> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTarget)(::windows::core::Interface::as_raw(self), pwsziscsiname.into_param().abi(), pwszfriendlyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
+        (::windows::core::Interface::vtable(self).CreateTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwsziscsiname), ::core::mem::transmute(pwszfriendlyname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IVdsAsync>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
     pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> ::windows::core::Result<()> {
@@ -2544,19 +2374,14 @@ impl ::core::convert::From<IVdsSubSystemIscsi> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsSubSystemIscsi> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsSubSystemIscsi) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsSubSystemIscsi> for ::windows::core::IUnknown {
     fn from(value: &IVdsSubSystemIscsi) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsSubSystemIscsi {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsSubSystemIscsi {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsSubSystemIscsi {
@@ -2593,8 +2418,8 @@ pub struct IVdsSubSystemIscsi_Vtbl {
 pub struct IVdsSubSystemNaming(::windows::core::IUnknown);
 impl IVdsSubSystemNaming {
     #[doc = "*Required features: `\"Win32_Storage_VirtualDiskService\"`*"]
-    pub unsafe fn SetFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszfriendlyname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into_param().abi()).ok()
+    pub unsafe fn SetFriendlyName(&self, pwszfriendlyname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname)).ok()
     }
 }
 impl ::core::convert::From<IVdsSubSystemNaming> for ::windows::core::IUnknown {
@@ -2602,19 +2427,14 @@ impl ::core::convert::From<IVdsSubSystemNaming> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVdsSubSystemNaming> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVdsSubSystemNaming) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVdsSubSystemNaming> for ::windows::core::IUnknown {
     fn from(value: &IVdsSubSystemNaming) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVdsSubSystemNaming {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVdsSubSystemNaming {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVdsSubSystemNaming {

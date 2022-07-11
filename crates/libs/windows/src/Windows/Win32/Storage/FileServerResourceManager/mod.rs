@@ -132,21 +132,15 @@ impl ::core::convert::From<DIFsrmClassificationEvents> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a DIFsrmClassificationEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a DIFsrmClassificationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&DIFsrmClassificationEvents> for ::windows::core::IUnknown {
     fn from(value: &DIFsrmClassificationEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DIFsrmClassificationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DIFsrmClassificationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -156,21 +150,15 @@ impl ::core::convert::From<DIFsrmClassificationEvents> for super::super::System:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a DIFsrmClassificationEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a DIFsrmClassificationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&DIFsrmClassificationEvents> for super::super::System::Com::IDispatch {
     fn from(value: &DIFsrmClassificationEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for DIFsrmClassificationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a DIFsrmClassificationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1767,14 +1755,20 @@ pub struct IFsrmAccessDeniedRemediationClient(::windows::core::IUnknown);
 impl IFsrmAccessDeniedRemediationClient {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, parentwnd: usize, accesspath: Param1, errortype: AdrClientErrorType, flags: i32, windowtitle: Param4, windowmessage: Param5) -> ::windows::core::Result<i32> {
+    pub unsafe fn Show<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<AdrClientErrorType>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, parentwnd: usize, accesspath: Param1, errortype: Param2, flags: i32, windowtitle: Param4, windowmessage: Param5) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parentwnd), accesspath.into_param().abi(), ::core::mem::transmute(errortype), ::core::mem::transmute(flags), windowtitle.into_param().abi(), windowmessage.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parentwnd), accesspath.into().abi(), errortype.into(), ::core::mem::transmute(flags), windowtitle.into().abi(), windowmessage.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAccessDeniedRemediationClient> for ::windows::core::IUnknown {
     fn from(value: IFsrmAccessDeniedRemediationClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAccessDeniedRemediationClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmAccessDeniedRemediationClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1785,20 +1779,14 @@ impl ::core::convert::From<&IFsrmAccessDeniedRemediationClient> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmAccessDeniedRemediationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmAccessDeniedRemediationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAccessDeniedRemediationClient> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmAccessDeniedRemediationClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAccessDeniedRemediationClient> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmAccessDeniedRemediationClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1806,18 +1794,6 @@ impl ::core::convert::From<IFsrmAccessDeniedRemediationClient> for super::super:
 impl ::core::convert::From<&IFsrmAccessDeniedRemediationClient> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmAccessDeniedRemediationClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmAccessDeniedRemediationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmAccessDeniedRemediationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1892,21 +1868,15 @@ impl ::core::convert::From<IFsrmAction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmAction> for ::windows::core::IUnknown {
     fn from(value: &IFsrmAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1916,21 +1886,15 @@ impl ::core::convert::From<IFsrmAction> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAction> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmAction> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmAction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmAction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2006,8 +1970,8 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExecutablePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, executablepath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutablePath)(::windows::core::Interface::as_raw(self), executablepath.into_param().abi()).ok()
+    pub unsafe fn SetExecutablePath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, executablepath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExecutablePath)(::windows::core::Interface::as_raw(self), executablepath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2017,8 +1981,8 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, arguments: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), arguments.into_param().abi()).ok()
+    pub unsafe fn SetArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, arguments: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), arguments.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Account(&self) -> ::windows::core::Result<FsrmAccountType> {
@@ -2026,8 +1990,8 @@ impl IFsrmActionCommand {
         (::windows::core::Interface::vtable(self).Account)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmAccountType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(account)).ok()
+    pub unsafe fn SetAccount<'a, Param0: ::std::convert::Into<FsrmAccountType>>(&self, account: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), account.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2037,8 +2001,8 @@ impl IFsrmActionCommand {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWorkingDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into_param().abi()).ok()
+    pub unsafe fn SetWorkingDirectory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, workingdirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWorkingDirectory)(::windows::core::Interface::as_raw(self), workingdirectory.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn MonitorCommand(&self) -> ::windows::core::Result<i16> {
@@ -2075,26 +2039,26 @@ impl ::core::convert::From<IFsrmActionCommand> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionCommand> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmActionCommand) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmActionCommand> for ::windows::core::IUnknown {
     fn from(value: &IFsrmActionCommand) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmActionCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmActionCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionCommand> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmActionCommand) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionCommand> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmActionCommand) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2105,20 +2069,14 @@ impl ::core::convert::From<&IFsrmActionCommand> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmActionCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmActionCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionCommand> for IFsrmAction {
     fn from(value: IFsrmActionCommand) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionCommand> for &'a IFsrmAction {
+    fn from(value: &'a IFsrmActionCommand) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2126,18 +2084,6 @@ impl ::core::convert::From<IFsrmActionCommand> for IFsrmAction {
 impl ::core::convert::From<&IFsrmActionCommand> for IFsrmAction {
     fn from(value: &IFsrmActionCommand) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for IFsrmActionCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for &'a IFsrmActionCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2240,8 +2186,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into_param().abi()).ok()
+    pub unsafe fn SetMailFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailfrom: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2251,8 +2197,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailReplyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailreplyto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailReplyTo)(::windows::core::Interface::as_raw(self), mailreplyto.into_param().abi()).ok()
+    pub unsafe fn SetMailReplyTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailreplyto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailReplyTo)(::windows::core::Interface::as_raw(self), mailreplyto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2262,8 +2208,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2273,8 +2219,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailCc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailCc)(::windows::core::Interface::as_raw(self), mailcc.into_param().abi()).ok()
+    pub unsafe fn SetMailCc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailcc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailCc)(::windows::core::Interface::as_raw(self), mailcc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2284,8 +2230,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailBcc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailbcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailBcc)(::windows::core::Interface::as_raw(self), mailbcc.into_param().abi()).ok()
+    pub unsafe fn SetMailBcc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailbcc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailBcc)(::windows::core::Interface::as_raw(self), mailbcc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2295,8 +2241,8 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailSubject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailsubject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailSubject)(::windows::core::Interface::as_raw(self), mailsubject.into_param().abi()).ok()
+    pub unsafe fn SetMailSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailsubject: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailSubject)(::windows::core::Interface::as_raw(self), mailsubject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2306,13 +2252,19 @@ impl IFsrmActionEmail {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMessageText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagetext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessageText)(::windows::core::Interface::as_raw(self), messagetext.into_param().abi()).ok()
+    pub unsafe fn SetMessageText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, messagetext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMessageText)(::windows::core::Interface::as_raw(self), messagetext.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEmail> for ::windows::core::IUnknown {
     fn from(value: IFsrmActionEmail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmActionEmail) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2323,20 +2275,14 @@ impl ::core::convert::From<&IFsrmActionEmail> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmActionEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmActionEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEmail> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmActionEmail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmActionEmail) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2347,20 +2293,14 @@ impl ::core::convert::From<&IFsrmActionEmail> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmActionEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmActionEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEmail> for IFsrmAction {
     fn from(value: IFsrmActionEmail) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail> for &'a IFsrmAction {
+    fn from(value: &'a IFsrmActionEmail) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2368,18 +2308,6 @@ impl ::core::convert::From<IFsrmActionEmail> for IFsrmAction {
 impl ::core::convert::From<&IFsrmActionEmail> for IFsrmAction {
     fn from(value: &IFsrmActionEmail) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for IFsrmActionEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for &'a IFsrmActionEmail {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2506,8 +2434,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into_param().abi()).ok()
+    pub unsafe fn SetMailFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailfrom: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2517,8 +2445,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailReplyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailreplyto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMailReplyTo)(::windows::core::Interface::as_raw(self), mailreplyto.into_param().abi()).ok()
+    pub unsafe fn SetMailReplyTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailreplyto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMailReplyTo)(::windows::core::Interface::as_raw(self), mailreplyto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2528,8 +2456,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2539,8 +2467,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailCc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMailCc)(::windows::core::Interface::as_raw(self), mailcc.into_param().abi()).ok()
+    pub unsafe fn SetMailCc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailcc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMailCc)(::windows::core::Interface::as_raw(self), mailcc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2550,8 +2478,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailBcc<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailbcc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMailBcc)(::windows::core::Interface::as_raw(self), mailbcc.into_param().abi()).ok()
+    pub unsafe fn SetMailBcc<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailbcc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMailBcc)(::windows::core::Interface::as_raw(self), mailbcc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2561,8 +2489,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailSubject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailsubject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMailSubject)(::windows::core::Interface::as_raw(self), mailsubject.into_param().abi()).ok()
+    pub unsafe fn SetMailSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailsubject: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMailSubject)(::windows::core::Interface::as_raw(self), mailsubject.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2572,8 +2500,8 @@ impl IFsrmActionEmail2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMessageText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagetext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMessageText)(::windows::core::Interface::as_raw(self), messagetext.into_param().abi()).ok()
+    pub unsafe fn SetMessageText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, messagetext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMessageText)(::windows::core::Interface::as_raw(self), messagetext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AttachmentFileListSize(&self) -> ::windows::core::Result<i32> {
@@ -2592,26 +2520,26 @@ impl ::core::convert::From<IFsrmActionEmail2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmActionEmail2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmActionEmail2> for ::windows::core::IUnknown {
     fn from(value: &IFsrmActionEmail2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEmail2> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmActionEmail2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmActionEmail2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2622,20 +2550,14 @@ impl ::core::convert::From<&IFsrmActionEmail2> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEmail2> for IFsrmAction {
     fn from(value: IFsrmActionEmail2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail2> for &'a IFsrmAction {
+    fn from(value: &'a IFsrmActionEmail2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2646,20 +2568,14 @@ impl ::core::convert::From<&IFsrmActionEmail2> for IFsrmAction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for &'a IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEmail2> for IFsrmActionEmail {
     fn from(value: IFsrmActionEmail2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEmail2> for &'a IFsrmActionEmail {
+    fn from(value: &'a IFsrmActionEmail2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2667,18 +2583,6 @@ impl ::core::convert::From<IFsrmActionEmail2> for IFsrmActionEmail {
 impl ::core::convert::From<&IFsrmActionEmail2> for IFsrmActionEmail {
     fn from(value: &IFsrmActionEmail2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmActionEmail> for IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmActionEmail> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmActionEmail> for &'a IFsrmActionEmail2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmActionEmail> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2749,8 +2653,8 @@ impl IFsrmActionEventLog {
         (::windows::core::Interface::vtable(self).EventType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmEventType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtype)).ok()
+    pub unsafe fn SetEventType<'a, Param0: ::std::convert::Into<FsrmEventType>>(&self, eventtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventType)(::windows::core::Interface::as_raw(self), eventtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2760,13 +2664,19 @@ impl IFsrmActionEventLog {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMessageText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, messagetext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMessageText)(::windows::core::Interface::as_raw(self), messagetext.into_param().abi()).ok()
+    pub unsafe fn SetMessageText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, messagetext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMessageText)(::windows::core::Interface::as_raw(self), messagetext.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEventLog> for ::windows::core::IUnknown {
     fn from(value: IFsrmActionEventLog) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEventLog> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmActionEventLog) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2777,20 +2687,14 @@ impl ::core::convert::From<&IFsrmActionEventLog> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmActionEventLog {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmActionEventLog {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEventLog> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmActionEventLog) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEventLog> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmActionEventLog) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2801,20 +2705,14 @@ impl ::core::convert::From<&IFsrmActionEventLog> for super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmActionEventLog {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmActionEventLog {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionEventLog> for IFsrmAction {
     fn from(value: IFsrmActionEventLog) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionEventLog> for &'a IFsrmAction {
+    fn from(value: &'a IFsrmActionEventLog) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2822,18 +2720,6 @@ impl ::core::convert::From<IFsrmActionEventLog> for IFsrmAction {
 impl ::core::convert::From<&IFsrmActionEventLog> for IFsrmAction {
     fn from(value: &IFsrmActionEventLog) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for IFsrmActionEventLog {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for &'a IFsrmActionEventLog {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2925,13 +2811,19 @@ impl IFsrmActionReport {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionReport> for ::windows::core::IUnknown {
     fn from(value: IFsrmActionReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionReport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmActionReport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2942,20 +2834,14 @@ impl ::core::convert::From<&IFsrmActionReport> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmActionReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmActionReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionReport> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmActionReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionReport> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmActionReport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2966,20 +2852,14 @@ impl ::core::convert::From<&IFsrmActionReport> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmActionReport {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmActionReport {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmActionReport> for IFsrmAction {
     fn from(value: IFsrmActionReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmActionReport> for &'a IFsrmAction {
+    fn from(value: &'a IFsrmActionReport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2987,18 +2867,6 @@ impl ::core::convert::From<IFsrmActionReport> for IFsrmAction {
 impl ::core::convert::From<&IFsrmActionReport> for IFsrmAction {
     fn from(value: &IFsrmActionReport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for IFsrmActionReport {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmAction> for &'a IFsrmActionReport {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmAction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3067,8 +2935,8 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -3086,8 +2954,8 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::core::Result<i32> {
@@ -3118,9 +2986,9 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, threshold: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3159,8 +3027,8 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ApplyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+    pub unsafe fn ApplyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3175,14 +3043,20 @@ impl IFsrmAutoApplyQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived<'a, Param0: ::std::convert::Into<FsrmCommitOptions>, Param1: ::std::convert::Into<FsrmTemplateApplyOptions>>(&self, commitoptions: Param0, applyoptions: Param1) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions.into(), applyoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAutoApplyQuota> for ::windows::core::IUnknown {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAutoApplyQuota> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmAutoApplyQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3193,20 +3067,14 @@ impl ::core::convert::From<&IFsrmAutoApplyQuota> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAutoApplyQuota> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAutoApplyQuota> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmAutoApplyQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3217,20 +3085,14 @@ impl ::core::convert::From<&IFsrmAutoApplyQuota> for super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAutoApplyQuota> for IFsrmObject {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAutoApplyQuota> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmAutoApplyQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3241,20 +3103,14 @@ impl ::core::convert::From<&IFsrmAutoApplyQuota> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAutoApplyQuota> for IFsrmQuotaBase {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAutoApplyQuota> for &'a IFsrmQuotaBase {
+    fn from(value: &'a IFsrmAutoApplyQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3265,20 +3121,14 @@ impl ::core::convert::From<&IFsrmAutoApplyQuota> for IFsrmQuotaBase {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for &'a IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmAutoApplyQuota> for IFsrmQuotaObject {
     fn from(value: IFsrmAutoApplyQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmAutoApplyQuota> for &'a IFsrmQuotaObject {
+    fn from(value: &'a IFsrmAutoApplyQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3286,18 +3136,6 @@ impl ::core::convert::From<IFsrmAutoApplyQuota> for IFsrmQuotaObject {
 impl ::core::convert::From<&IFsrmAutoApplyQuota> for IFsrmQuotaObject {
     fn from(value: &IFsrmAutoApplyQuota) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaObject> for IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaObject> for &'a IFsrmAutoApplyQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3377,8 +3215,8 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClassificationReportMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClassificationReportMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetClassificationReportMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClassificationReportMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ClassificationReportEnabled(&self) -> ::windows::core::Result<i16> {
@@ -3408,9 +3246,9 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumPropertyDefinitions<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3420,50 +3258,50 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetPropertyDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::core::Result<IFsrmPropertyDefinition> {
+    pub unsafe fn GetPropertyDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertyname: Param0) -> ::windows::core::Result<IFsrmPropertyDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyDefinition)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyDefinition)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumRules<'a, Param0: ::std::convert::Into<FsrmRuleType>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, ruletype: Param0, options: Param1) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumRules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumRules)(::windows::core::Interface::as_raw(self), ruletype.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
+    pub unsafe fn CreateRule<'a, Param0: ::std::convert::Into<FsrmRuleType>>(&self, ruletype: Param0) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).CreateRule)(::windows::core::Interface::as_raw(self), ruletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, rulename: Param0, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
+    pub unsafe fn GetRule<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmRuleType>>(&self, rulename: Param0, ruletype: Param1) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRule)(::windows::core::Interface::as_raw(self), rulename.into_param().abi(), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ruletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumModuleDefinitions<'a, Param0: ::std::convert::Into<FsrmPipelineModuleType>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, moduletype: Param0, options: Param1) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), moduletype.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
+    pub unsafe fn CreateModuleDefinition<'a, Param0: ::std::convert::Into<FsrmPipelineModuleType>>(&self, moduletype: Param0) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateModuleDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).CreateModuleDefinition)(::windows::core::Interface::as_raw(self), moduletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetModuleDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modulename: Param0, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
+    pub unsafe fn GetModuleDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmPipelineModuleType>>(&self, modulename: Param0, moduletype: Param1) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into_param().abi(), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), moduletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunClassification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: FsrmReportGenerationContext, reserved: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RunClassification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), reserved.into_param().abi()).ok()
+    pub unsafe fn RunClassification<'a, Param0: ::std::convert::Into<FsrmReportGenerationContext>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, context: Param0, reserved: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RunClassification)(::windows::core::Interface::as_raw(self), context.into(), reserved.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
@@ -3476,30 +3314,36 @@ impl IFsrmClassificationManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumFileProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumFileProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmGetFilePropertyOptions>>(&self, filepath: Param0, options: Param1) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmProperty> {
+    pub unsafe fn GetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<FsrmGetFilePropertyOptions>>(&self, filepath: Param0, propertyname: Param1, options: Param2) -> ::windows::core::Result<IFsrmProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
+        (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, propertyvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
+    pub unsafe fn SetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, propertyname: Param1, propertyvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), propertyvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, property: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearFileProperty)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), property.into_param().abi()).ok()
+    pub unsafe fn ClearFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, property: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ClearFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), property.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationManager> for ::windows::core::IUnknown {
     fn from(value: IFsrmClassificationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmClassificationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3510,20 +3354,14 @@ impl ::core::convert::From<&IFsrmClassificationManager> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmClassificationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmClassificationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationManager> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmClassificationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmClassificationManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3531,18 +3369,6 @@ impl ::core::convert::From<IFsrmClassificationManager> for super::super::System:
 impl ::core::convert::From<&IFsrmClassificationManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmClassificationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmClassificationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmClassificationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3697,8 +3523,8 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClassificationReportMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClassificationReportMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetClassificationReportMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetClassificationReportMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ClassificationReportEnabled(&self) -> ::windows::core::Result<i16> {
@@ -3728,9 +3554,9 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumPropertyDefinitions<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3740,50 +3566,50 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetPropertyDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0) -> ::windows::core::Result<IFsrmPropertyDefinition> {
+    pub unsafe fn GetPropertyDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertyname: Param0) -> ::windows::core::Result<IFsrmPropertyDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetPropertyDefinition)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyDefinition)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumRules<'a, Param0: ::std::convert::Into<FsrmRuleType>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, ruletype: Param0, options: Param1) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumRules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumRules)(::windows::core::Interface::as_raw(self), ruletype.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
+    pub unsafe fn CreateRule<'a, Param0: ::std::convert::Into<FsrmRuleType>>(&self, ruletype: Param0) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateRule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateRule)(::windows::core::Interface::as_raw(self), ruletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRule<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, rulename: Param0, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
+    pub unsafe fn GetRule<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmRuleType>>(&self, rulename: Param0, ruletype: Param1) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetRule)(::windows::core::Interface::as_raw(self), rulename.into_param().abi(), ::core::mem::transmute(ruletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ruletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumModuleDefinitions<'a, Param0: ::std::convert::Into<FsrmPipelineModuleType>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, moduletype: Param0, options: Param1) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), moduletype.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
+    pub unsafe fn CreateModuleDefinition<'a, Param0: ::std::convert::Into<FsrmPipelineModuleType>>(&self, moduletype: Param0) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows::core::Interface::as_raw(self), moduletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetModuleDefinition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modulename: Param0, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
+    pub unsafe fn GetModuleDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmPipelineModuleType>>(&self, modulename: Param0, moduletype: Param1) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into_param().abi(), ::core::mem::transmute(moduletype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), moduletype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunClassification<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: FsrmReportGenerationContext, reserved: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RunClassification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), reserved.into_param().abi()).ok()
+    pub unsafe fn RunClassification<'a, Param0: ::std::convert::Into<FsrmReportGenerationContext>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, context: Param0, reserved: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RunClassification)(::windows::core::Interface::as_raw(self), context.into(), reserved.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
@@ -3796,35 +3622,41 @@ impl IFsrmClassificationManager2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumFileProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumFileProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmGetFilePropertyOptions>>(&self, filepath: Param0, options: Param1) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmProperty> {
+    pub unsafe fn GetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<FsrmGetFilePropertyOptions>>(&self, filepath: Param0, propertyname: Param1, options: Param2) -> ::windows::core::Result<IFsrmProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, propertyname: Param1, propertyvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), propertyname.into_param().abi(), propertyvalue.into_param().abi()).ok()
+    pub unsafe fn SetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, propertyname: Param1, propertyvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), propertyvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, property: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ClearFileProperty)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), property.into_param().abi()).ok()
+    pub unsafe fn ClearFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, property: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ClearFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), property.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClassifyFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filepaths), ::core::mem::transmute(propertynames), ::core::mem::transmute(propertyvalues), ::core::mem::transmute(options)).ok()
+    pub unsafe fn ClassifyFiles<'a, Param3: ::std::convert::Into<FsrmGetFilePropertyOptions>>(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ClassifyFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filepaths), ::core::mem::transmute(propertynames), ::core::mem::transmute(propertyvalues), options.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationManager2> for ::windows::core::IUnknown {
     fn from(value: IFsrmClassificationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmClassificationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3835,20 +3667,14 @@ impl ::core::convert::From<&IFsrmClassificationManager2> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmClassificationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmClassificationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationManager2> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmClassificationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationManager2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmClassificationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3859,20 +3685,14 @@ impl ::core::convert::From<&IFsrmClassificationManager2> for super::super::Syste
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmClassificationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmClassificationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationManager2> for IFsrmClassificationManager {
     fn from(value: IFsrmClassificationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationManager2> for &'a IFsrmClassificationManager {
+    fn from(value: &'a IFsrmClassificationManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3880,18 +3700,6 @@ impl ::core::convert::From<IFsrmClassificationManager2> for IFsrmClassificationM
 impl ::core::convert::From<&IFsrmClassificationManager2> for IFsrmClassificationManager {
     fn from(value: &IFsrmClassificationManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmClassificationManager> for IFsrmClassificationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmClassificationManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmClassificationManager> for &'a IFsrmClassificationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmClassificationManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3948,8 +3756,8 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -3967,8 +3775,8 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn RuleType(&self) -> ::windows::core::Result<FsrmRuleType> {
@@ -3983,8 +3791,8 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModuleDefinitionName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduledefinitionname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetModuleDefinitionName)(::windows::core::Interface::as_raw(self), moduledefinitionname.into_param().abi()).ok()
+    pub unsafe fn SetModuleDefinitionName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, moduledefinitionname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetModuleDefinitionName)(::windows::core::Interface::as_raw(self), moduledefinitionname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4029,8 +3837,8 @@ impl IFsrmClassificationRule {
         (::windows::core::Interface::vtable(self).ExecutionOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmExecutionOption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExecutionOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(executionoption)).ok()
+    pub unsafe fn SetExecutionOption<'a, Param0: ::std::convert::Into<FsrmExecutionOption>>(&self, executionoption: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExecutionOption)(::windows::core::Interface::as_raw(self), executionoption.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4040,8 +3848,8 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPropertyAffected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, property: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyAffected)(::windows::core::Interface::as_raw(self), property.into_param().abi()).ok()
+    pub unsafe fn SetPropertyAffected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, property: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPropertyAffected)(::windows::core::Interface::as_raw(self), property.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4051,13 +3859,19 @@ impl IFsrmClassificationRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationRule> for ::windows::core::IUnknown {
     fn from(value: IFsrmClassificationRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationRule> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmClassificationRule) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4068,20 +3882,14 @@ impl ::core::convert::From<&IFsrmClassificationRule> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationRule> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmClassificationRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationRule> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmClassificationRule) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4092,20 +3900,14 @@ impl ::core::convert::From<&IFsrmClassificationRule> for super::super::System::C
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationRule> for IFsrmObject {
     fn from(value: IFsrmClassificationRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationRule> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmClassificationRule) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4116,20 +3918,14 @@ impl ::core::convert::From<&IFsrmClassificationRule> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassificationRule> for IFsrmRule {
     fn from(value: IFsrmClassificationRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassificationRule> for &'a IFsrmRule {
+    fn from(value: &'a IFsrmClassificationRule) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4137,18 +3933,6 @@ impl ::core::convert::From<IFsrmClassificationRule> for IFsrmRule {
 impl ::core::convert::From<&IFsrmClassificationRule> for IFsrmRule {
     fn from(value: &IFsrmClassificationRule) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmRule> for IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmRule> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmRule> for &'a IFsrmClassificationRule {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmRule> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4219,8 +4003,8 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -4238,8 +4022,8 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModuleClsid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduleclsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into_param().abi()).ok()
+    pub unsafe fn SetModuleClsid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, moduleclsid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4249,8 +4033,8 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4260,8 +4044,8 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCompany<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, company: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCompany)(::windows::core::Interface::as_raw(self), company.into_param().abi()).ok()
+    pub unsafe fn SetCompany<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, company: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCompany)(::windows::core::Interface::as_raw(self), company.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4271,8 +4055,8 @@ impl IFsrmClassifierModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), version.into_param().abi()).ok()
+    pub unsafe fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, version: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), version.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModuleType(&self) -> ::windows::core::Result<FsrmPipelineModuleType> {
@@ -4303,8 +4087,8 @@ impl IFsrmClassifierModuleDefinition {
         (::windows::core::Interface::vtable(self).base__.Account)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmAccountType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retrievalaccount)).ok()
+    pub unsafe fn SetAccount<'a, Param0: ::std::convert::Into<FsrmAccountType>>(&self, retrievalaccount: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4367,26 +4151,26 @@ impl ::core::convert::From<IFsrmClassifierModuleDefinition> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmClassifierModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmClassifierModuleDefinition> for ::windows::core::IUnknown {
     fn from(value: &IFsrmClassifierModuleDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassifierModuleDefinition> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmClassifierModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleDefinition> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmClassifierModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4397,20 +4181,14 @@ impl ::core::convert::From<&IFsrmClassifierModuleDefinition> for super::super::S
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassifierModuleDefinition> for IFsrmObject {
     fn from(value: IFsrmClassifierModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleDefinition> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmClassifierModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4421,20 +4199,14 @@ impl ::core::convert::From<&IFsrmClassifierModuleDefinition> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassifierModuleDefinition> for IFsrmPipelineModuleDefinition {
     fn from(value: IFsrmClassifierModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleDefinition> for &'a IFsrmPipelineModuleDefinition {
+    fn from(value: &'a IFsrmClassifierModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4442,18 +4214,6 @@ impl ::core::convert::From<IFsrmClassifierModuleDefinition> for IFsrmPipelineMod
 impl ::core::convert::From<&IFsrmClassifierModuleDefinition> for IFsrmPipelineModuleDefinition {
     fn from(value: &IFsrmClassifierModuleDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition> for IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleDefinition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition> for &'a IFsrmClassifierModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleDefinition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4513,9 +4273,9 @@ pub struct IFsrmClassifierModuleImplementation(::windows::core::IUnknown);
 impl IFsrmClassifierModuleImplementation {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnLoad<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition>>(&self, moduledefinition: Param0) -> ::windows::core::Result<IFsrmPipelineModuleConnector> {
+    pub unsafe fn OnLoad<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>>(&self, moduledefinition: Param0) -> ::windows::core::Result<IFsrmPipelineModuleConnector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OnLoad)(::windows::core::Interface::as_raw(self), moduledefinition.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleConnector>(result__)
+        (::windows::core::Interface::vtable(self).base__.OnLoad)(::windows::core::Interface::as_raw(self), moduledefinition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleConnector>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OnUnload(&self) -> ::windows::core::Result<()> {
@@ -4529,23 +4289,23 @@ impl IFsrmClassifierModuleImplementation {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UseRulesAndDefinitions<'a, Param0: ::windows::core::IntoParam<'a, IFsrmCollection>, Param1: ::windows::core::IntoParam<'a, IFsrmCollection>>(&self, rules: Param0, propertydefinitions: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UseRulesAndDefinitions)(::windows::core::Interface::as_raw(self), rules.into_param().abi(), propertydefinitions.into_param().abi()).ok()
+    pub unsafe fn UseRulesAndDefinitions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmCollection>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFsrmCollection>>>(&self, rules: Param0, propertydefinitions: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UseRulesAndDefinitions)(::windows::core::Interface::as_raw(self), rules.into().abi(), propertydefinitions.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnBeginFile<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPropertyBag>>(&self, propertybag: Param0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnBeginFile)(::windows::core::Interface::as_raw(self), propertybag.into_param().abi(), ::core::mem::transmute(arrayruleids)).ok()
+    pub unsafe fn OnBeginFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>>(&self, propertybag: Param0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnBeginFile)(::windows::core::Interface::as_raw(self), propertybag.into().abi(), ::core::mem::transmute(arrayruleids)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesPropertyValueApply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, property: Param0, value: Param1, applyvalue: *mut i16, idrule: Param3, idpropdef: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DoesPropertyValueApply)(::windows::core::Interface::as_raw(self), property.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(applyvalue), idrule.into_param().abi(), idpropdef.into_param().abi()).ok()
+    pub unsafe fn DoesPropertyValueApply<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, property: Param0, value: Param1, applyvalue: *mut i16, idrule: ::windows::core::GUID, idpropdef: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DoesPropertyValueApply)(::windows::core::Interface::as_raw(self), property.into().abi(), value.into().abi(), ::core::mem::transmute(applyvalue), ::core::mem::transmute(idrule), ::core::mem::transmute(idpropdef)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyValueToApply<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, property: Param0, value: *mut super::super::Foundation::BSTR, idrule: Param2, idpropdef: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyValueToApply)(::windows::core::Interface::as_raw(self), property.into_param().abi(), ::core::mem::transmute(value), idrule.into_param().abi(), idpropdef.into_param().abi()).ok()
+    pub unsafe fn GetPropertyValueToApply<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, property: Param0, value: *mut super::super::Foundation::BSTR, idrule: ::windows::core::GUID, idpropdef: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPropertyValueToApply)(::windows::core::Interface::as_raw(self), property.into().abi(), ::core::mem::transmute(value), ::core::mem::transmute(idrule), ::core::mem::transmute(idpropdef)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OnEndFile(&self) -> ::windows::core::Result<()> {
@@ -4559,26 +4319,26 @@ impl ::core::convert::From<IFsrmClassifierModuleImplementation> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleImplementation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmClassifierModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmClassifierModuleImplementation> for ::windows::core::IUnknown {
     fn from(value: &IFsrmClassifierModuleImplementation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmClassifierModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmClassifierModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassifierModuleImplementation> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmClassifierModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleImplementation> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmClassifierModuleImplementation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4589,20 +4349,14 @@ impl ::core::convert::From<&IFsrmClassifierModuleImplementation> for super::supe
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmClassifierModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmClassifierModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmClassifierModuleImplementation> for IFsrmPipelineModuleImplementation {
     fn from(value: IFsrmClassifierModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmClassifierModuleImplementation> for &'a IFsrmPipelineModuleImplementation {
+    fn from(value: &'a IFsrmClassifierModuleImplementation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4610,18 +4364,6 @@ impl ::core::convert::From<IFsrmClassifierModuleImplementation> for IFsrmPipelin
 impl ::core::convert::From<&IFsrmClassifierModuleImplementation> for IFsrmPipelineModuleImplementation {
     fn from(value: &IFsrmClassifierModuleImplementation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleImplementation> for IFsrmClassifierModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleImplementation> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleImplementation> for &'a IFsrmClassifierModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleImplementation> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4714,14 +4456,20 @@ impl IFsrmCollection {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, id: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetById)(::windows::core::Interface::as_raw(self), id.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmCollection> for ::windows::core::IUnknown {
     fn from(value: IFsrmCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4732,20 +4480,14 @@ impl ::core::convert::From<&IFsrmCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmCollection> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4753,18 +4495,6 @@ impl ::core::convert::From<IFsrmCollection> for super::super::System::Com::IDisp
 impl ::core::convert::From<&IFsrmCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4849,22 +4579,22 @@ impl IFsrmCommittableCollection {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, id: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetById)(::windows::core::Interface::as_raw(self), id.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, item: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Add)(::windows::core::Interface::as_raw(self), item.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, item: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Add)(::windows::core::Interface::as_raw(self), item.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn RemoveById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveById)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn RemoveById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RemoveById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4874,14 +4604,20 @@ impl IFsrmCommittableCollection {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn Commit<'a, Param0: ::std::convert::Into<FsrmCommitOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmCommittableCollection> for ::windows::core::IUnknown {
     fn from(value: IFsrmCommittableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmCommittableCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmCommittableCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4892,20 +4628,14 @@ impl ::core::convert::From<&IFsrmCommittableCollection> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmCommittableCollection> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmCommittableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmCommittableCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmCommittableCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4916,20 +4646,14 @@ impl ::core::convert::From<&IFsrmCommittableCollection> for super::super::System
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmCommittableCollection> for IFsrmCollection {
     fn from(value: IFsrmCommittableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmCommittableCollection> for &'a IFsrmCollection {
+    fn from(value: &'a IFsrmCommittableCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4940,20 +4664,14 @@ impl ::core::convert::From<&IFsrmCommittableCollection> for IFsrmCollection {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmCollection> for IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmCollection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmCollection> for &'a IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmCollection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmCommittableCollection> for IFsrmMutableCollection {
     fn from(value: IFsrmCommittableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmCommittableCollection> for &'a IFsrmMutableCollection {
+    fn from(value: &'a IFsrmCommittableCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4961,18 +4679,6 @@ impl ::core::convert::From<IFsrmCommittableCollection> for IFsrmMutableCollectio
 impl ::core::convert::From<&IFsrmCommittableCollection> for IFsrmMutableCollection {
     fn from(value: &IFsrmCommittableCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmMutableCollection> for IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmMutableCollection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmMutableCollection> for &'a IFsrmCommittableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmMutableCollection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5036,21 +4742,15 @@ impl ::core::convert::From<IFsrmDerivedObjectsResult> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmDerivedObjectsResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmDerivedObjectsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmDerivedObjectsResult> for ::windows::core::IUnknown {
     fn from(value: &IFsrmDerivedObjectsResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmDerivedObjectsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmDerivedObjectsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5060,21 +4760,15 @@ impl ::core::convert::From<IFsrmDerivedObjectsResult> for super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmDerivedObjectsResult> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmDerivedObjectsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmDerivedObjectsResult> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmDerivedObjectsResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmDerivedObjectsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmDerivedObjectsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5124,41 +4818,47 @@ pub struct IFsrmExportImport(::windows::core::IUnknown);
 impl IFsrmExportImport {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ExportFileGroups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExportFileGroups)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi()).ok()
+    pub unsafe fn ExportFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExportFileGroups)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ImportFileGroups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, filegroupnamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportFileGroups)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).ImportFileGroups)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ExportFileScreenTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExportFileScreenTemplates)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi()).ok()
+    pub unsafe fn ExportFileScreenTemplates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExportFileScreenTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ImportFileScreenTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportFileScreenTemplates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportFileScreenTemplates)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).ImportFileScreenTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ExportQuotaTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExportQuotaTemplates)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi()).ok()
+    pub unsafe fn ExportQuotaTemplates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExportQuotaTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ImportQuotaTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportQuotaTemplates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filepath: Param0, templatenamessafearray: *const super::super::System::Com::VARIANT, remotehost: Param2) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportQuotaTemplates)(::windows::core::Interface::as_raw(self), filepath.into_param().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).ImportQuotaTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmExportImport> for ::windows::core::IUnknown {
     fn from(value: IFsrmExportImport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmExportImport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmExportImport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5169,20 +4869,14 @@ impl ::core::convert::From<&IFsrmExportImport> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmExportImport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmExportImport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmExportImport> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmExportImport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmExportImport> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmExportImport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5190,18 +4884,6 @@ impl ::core::convert::From<IFsrmExportImport> for super::super::System::Com::IDi
 impl ::core::convert::From<&IFsrmExportImport> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmExportImport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmExportImport {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmExportImport {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5282,21 +4964,15 @@ impl ::core::convert::From<IFsrmFileCondition> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileCondition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileCondition> for ::windows::core::IUnknown {
     fn from(value: &IFsrmFileCondition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5306,21 +4982,15 @@ impl ::core::convert::From<IFsrmFileCondition> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileCondition> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileCondition> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmFileCondition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5379,8 +5049,8 @@ impl IFsrmFileConditionProperty {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPropertyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyName)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
+    pub unsafe fn SetPropertyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPropertyName)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn PropertyId(&self) -> ::windows::core::Result<FsrmFileSystemPropertyId> {
@@ -5388,8 +5058,8 @@ impl IFsrmFileConditionProperty {
         (::windows::core::Interface::vtable(self).PropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmFileSystemPropertyId>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPropertyId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetPropertyId<'a, Param0: ::std::convert::Into<FsrmFileSystemPropertyId>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPropertyId)(::windows::core::Interface::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Operator(&self) -> ::windows::core::Result<FsrmPropertyConditionType> {
@@ -5397,8 +5067,8 @@ impl IFsrmFileConditionProperty {
         (::windows::core::Interface::vtable(self).Operator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmPropertyConditionType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetOperator(&self, newval: FsrmPropertyConditionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetOperator<'a, Param0: ::std::convert::Into<FsrmPropertyConditionType>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOperator)(::windows::core::Interface::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ValueType(&self) -> ::windows::core::Result<FsrmPropertyValueType> {
@@ -5406,8 +5076,8 @@ impl IFsrmFileConditionProperty {
         (::windows::core::Interface::vtable(self).ValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmPropertyValueType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetValueType<'a, Param0: ::std::convert::Into<FsrmPropertyValueType>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValueType)(::windows::core::Interface::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5417,13 +5087,19 @@ impl IFsrmFileConditionProperty {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, newval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileConditionProperty> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileConditionProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileConditionProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileConditionProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5434,20 +5110,14 @@ impl ::core::convert::From<&IFsrmFileConditionProperty> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileConditionProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileConditionProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileConditionProperty> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileConditionProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileConditionProperty> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileConditionProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5458,20 +5128,14 @@ impl ::core::convert::From<&IFsrmFileConditionProperty> for super::super::System
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileConditionProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileConditionProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileConditionProperty> for IFsrmFileCondition {
     fn from(value: IFsrmFileConditionProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileConditionProperty> for &'a IFsrmFileCondition {
+    fn from(value: &'a IFsrmFileConditionProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5479,18 +5143,6 @@ impl ::core::convert::From<IFsrmFileConditionProperty> for IFsrmFileCondition {
 impl ::core::convert::From<&IFsrmFileConditionProperty> for IFsrmFileCondition {
     fn from(value: &IFsrmFileConditionProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileCondition> for IFsrmFileConditionProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileCondition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileCondition> for &'a IFsrmFileConditionProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileCondition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5565,8 +5217,8 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -5584,8 +5236,8 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5595,8 +5247,8 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMembers<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, members: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMembers)(::windows::core::Interface::as_raw(self), members.into_param().abi()).ok()
+    pub unsafe fn SetMembers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, members: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMembers)(::windows::core::Interface::as_raw(self), members.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5606,13 +5258,19 @@ impl IFsrmFileGroup {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNonMembers<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, nonmembers: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNonMembers)(::windows::core::Interface::as_raw(self), nonmembers.into_param().abi()).ok()
+    pub unsafe fn SetNonMembers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, nonmembers: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNonMembers)(::windows::core::Interface::as_raw(self), nonmembers.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroup> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5623,20 +5281,14 @@ impl ::core::convert::From<&IFsrmFileGroup> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroup> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroup> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5647,20 +5299,14 @@ impl ::core::convert::From<&IFsrmFileGroup> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroup> for IFsrmObject {
     fn from(value: IFsrmFileGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroup> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5668,18 +5314,6 @@ impl ::core::convert::From<IFsrmFileGroup> for IFsrmObject {
 impl ::core::convert::From<&IFsrmFileGroup> for IFsrmObject {
     fn from(value: &IFsrmFileGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5756,8 +5390,8 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -5775,8 +5409,8 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5786,8 +5420,8 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetMembers<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, members: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMembers)(::windows::core::Interface::as_raw(self), members.into_param().abi()).ok()
+    pub unsafe fn SetMembers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, members: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetMembers)(::windows::core::Interface::as_raw(self), members.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5797,8 +5431,8 @@ impl IFsrmFileGroupImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetNonMembers<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, nonmembers: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNonMembers)(::windows::core::Interface::as_raw(self), nonmembers.into_param().abi()).ok()
+    pub unsafe fn SetNonMembers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, nonmembers: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNonMembers)(::windows::core::Interface::as_raw(self), nonmembers.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16> {
@@ -5817,26 +5451,26 @@ impl ::core::convert::From<IFsrmFileGroupImported> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroupImported> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileGroupImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileGroupImported> for ::windows::core::IUnknown {
     fn from(value: &IFsrmFileGroupImported) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroupImported> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileGroupImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroupImported> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileGroupImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5847,20 +5481,14 @@ impl ::core::convert::From<&IFsrmFileGroupImported> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroupImported> for IFsrmObject {
     fn from(value: IFsrmFileGroupImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroupImported> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileGroupImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5871,20 +5499,14 @@ impl ::core::convert::From<&IFsrmFileGroupImported> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroupImported> for IFsrmFileGroup {
     fn from(value: IFsrmFileGroupImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroupImported> for &'a IFsrmFileGroup {
+    fn from(value: &'a IFsrmFileGroupImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5892,18 +5514,6 @@ impl ::core::convert::From<IFsrmFileGroupImported> for IFsrmFileGroup {
 impl ::core::convert::From<&IFsrmFileGroupImported> for IFsrmFileGroup {
     fn from(value: &IFsrmFileGroupImported) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileGroup> for IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileGroup> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileGroup> for &'a IFsrmFileGroupImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileGroup> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5953,15 +5563,15 @@ impl IFsrmFileGroupManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmFileGroup> {
+    pub unsafe fn GetFileGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmFileGroup> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileGroup)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileGroup>(result__)
+        (::windows::core::Interface::vtable(self).GetFileGroup)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumFileGroups<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileGroups)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5971,14 +5581,20 @@ impl IFsrmFileGroupManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ImportFileGroups<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serializedfilegroups: Param0, filegroupnamesarray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serializedfilegroups: Param0, filegroupnamesarray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportFileGroups)(::windows::core::Interface::as_raw(self), serializedfilegroups.into_param().abi(), ::core::mem::transmute(filegroupnamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).ImportFileGroups)(::windows::core::Interface::as_raw(self), serializedfilegroups.into().abi(), ::core::mem::transmute(filegroupnamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroupManager> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileGroupManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroupManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileGroupManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5989,20 +5605,14 @@ impl ::core::convert::From<&IFsrmFileGroupManager> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileGroupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileGroupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileGroupManager> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileGroupManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileGroupManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileGroupManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6010,18 +5620,6 @@ impl ::core::convert::From<IFsrmFileGroupManager> for super::super::System::Com:
 impl ::core::convert::From<&IFsrmFileGroupManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmFileGroupManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileGroupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileGroupManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6094,8 +5692,8 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -6113,8 +5711,8 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6142,8 +5740,8 @@ impl IFsrmFileManagementJob {
         (::windows::core::Interface::vtable(self).OperationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmFileManagementType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(operationtype)).ok()
+    pub unsafe fn SetOperationType<'a, Param0: ::std::convert::Into<FsrmFileManagementType>>(&self, operationtype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOperationType)(::windows::core::Interface::as_raw(self), operationtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6153,8 +5751,8 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExpirationDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, expirationdirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExpirationDirectory)(::windows::core::Interface::as_raw(self), expirationdirectory.into_param().abi()).ok()
+    pub unsafe fn SetExpirationDirectory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, expirationdirectory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExpirationDirectory)(::windows::core::Interface::as_raw(self), expirationdirectory.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6205,8 +5803,8 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DaysSinceFileCreated(&self) -> ::windows::core::Result<i32> {
@@ -6258,8 +5856,8 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), taskname.into_param().abi()).ok()
+    pub unsafe fn SetTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, taskname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), taskname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6302,12 +5900,12 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFileNamePattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filenamepattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileNamePattern)(::windows::core::Interface::as_raw(self), filenamepattern.into_param().abi()).ok()
+    pub unsafe fn SetFileNamePattern<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filenamepattern: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFileNamePattern)(::windows::core::Interface::as_raw(self), filenamepattern.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+    pub unsafe fn Run<'a, Param0: ::std::convert::Into<FsrmReportGenerationContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), context.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
@@ -6332,9 +5930,9 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateNotificationAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, days: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateNotificationAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateNotificationAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6344,9 +5942,9 @@ impl IFsrmFileManagementJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePropertyCondition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmPropertyCondition> {
+    pub unsafe fn CreatePropertyCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmPropertyCondition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePropertyCondition)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyCondition>(result__)
+        (::windows::core::Interface::vtable(self).CreatePropertyCondition)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyCondition>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6362,26 +5960,26 @@ impl ::core::convert::From<IFsrmFileManagementJob> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileManagementJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileManagementJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileManagementJob> for ::windows::core::IUnknown {
     fn from(value: &IFsrmFileManagementJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileManagementJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileManagementJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileManagementJob> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileManagementJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileManagementJob> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileManagementJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6392,20 +5990,14 @@ impl ::core::convert::From<&IFsrmFileManagementJob> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileManagementJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileManagementJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileManagementJob> for IFsrmObject {
     fn from(value: IFsrmFileManagementJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileManagementJob> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileManagementJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6413,18 +6005,6 @@ impl ::core::convert::From<IFsrmFileManagementJob> for IFsrmObject {
 impl ::core::convert::From<&IFsrmFileManagementJob> for IFsrmObject {
     fn from(value: &IFsrmFileManagementJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileManagementJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileManagementJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6602,9 +6182,9 @@ impl IFsrmFileManagementJobManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumFileManagementJobs<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileManagementJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileManagementJobs)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6614,14 +6194,20 @@ impl IFsrmFileManagementJobManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileManagementJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmFileManagementJob> {
+    pub unsafe fn GetFileManagementJob<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmFileManagementJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileManagementJob)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileManagementJob>(result__)
+        (::windows::core::Interface::vtable(self).GetFileManagementJob)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileManagementJob>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileManagementJobManager> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileManagementJobManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileManagementJobManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileManagementJobManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6632,20 +6218,14 @@ impl ::core::convert::From<&IFsrmFileManagementJobManager> for ::windows::core::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileManagementJobManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileManagementJobManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileManagementJobManager> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileManagementJobManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileManagementJobManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileManagementJobManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6653,18 +6233,6 @@ impl ::core::convert::From<IFsrmFileManagementJobManager> for super::super::Syst
 impl ::core::convert::From<&IFsrmFileManagementJobManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmFileManagementJobManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileManagementJobManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileManagementJobManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6737,8 +6305,8 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -6756,8 +6324,8 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::core::Result<i32> {
@@ -6770,9 +6338,9 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateAction<'a, Param0: ::std::convert::Into<FsrmActionType>>(&self, actiontype: Param0) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6811,13 +6379,19 @@ impl IFsrmFileScreen {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ApplyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filescreentemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into_param().abi()).ok()
+    pub unsafe fn ApplyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filescreentemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ApplyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreen> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileScreen) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreen> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreen) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6828,20 +6402,14 @@ impl ::core::convert::From<&IFsrmFileScreen> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreen> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileScreen) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreen> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreen) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6852,20 +6420,14 @@ impl ::core::convert::From<&IFsrmFileScreen> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreen> for IFsrmObject {
     fn from(value: IFsrmFileScreen) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreen> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileScreen) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6876,20 +6438,14 @@ impl ::core::convert::From<&IFsrmFileScreen> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreen> for IFsrmFileScreenBase {
     fn from(value: IFsrmFileScreen) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreen> for &'a IFsrmFileScreenBase {
+    fn from(value: &'a IFsrmFileScreen) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6897,18 +6453,6 @@ impl ::core::convert::From<IFsrmFileScreen> for IFsrmFileScreenBase {
 impl ::core::convert::From<&IFsrmFileScreen> for IFsrmFileScreenBase {
     fn from(value: &IFsrmFileScreen) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenBase> for IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenBase> for &'a IFsrmFileScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6982,8 +6526,8 @@ impl IFsrmFileScreenBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -7001,8 +6545,8 @@ impl IFsrmFileScreenBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::core::Result<i32> {
@@ -7015,9 +6559,9 @@ impl IFsrmFileScreenBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateAction<'a, Param0: ::std::convert::Into<FsrmActionType>>(&self, actiontype: Param0) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateAction)(::windows::core::Interface::as_raw(self), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7033,26 +6577,26 @@ impl ::core::convert::From<IFsrmFileScreenBase> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenBase> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreenBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileScreenBase> for ::windows::core::IUnknown {
     fn from(value: &IFsrmFileScreenBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreenBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreenBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenBase> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileScreenBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenBase> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreenBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7063,20 +6607,14 @@ impl ::core::convert::From<&IFsrmFileScreenBase> for super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreenBase {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreenBase {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenBase> for IFsrmObject {
     fn from(value: IFsrmFileScreenBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenBase> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileScreenBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7084,18 +6622,6 @@ impl ::core::convert::From<IFsrmFileScreenBase> for IFsrmObject {
 impl ::core::convert::From<&IFsrmFileScreenBase> for IFsrmObject {
     fn from(value: &IFsrmFileScreenBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileScreenBase {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileScreenBase {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7166,8 +6692,8 @@ impl IFsrmFileScreenException {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -7191,13 +6717,19 @@ impl IFsrmFileScreenException {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetAllowedFileGroups<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, allowlist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowedFileGroups)(::windows::core::Interface::as_raw(self), allowlist.into_param().abi()).ok()
+    pub unsafe fn SetAllowedFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, allowlist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAllowedFileGroups)(::windows::core::Interface::as_raw(self), allowlist.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenException> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileScreenException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenException> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreenException) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7208,20 +6740,14 @@ impl ::core::convert::From<&IFsrmFileScreenException> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreenException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreenException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenException> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileScreenException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenException> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreenException) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7232,20 +6758,14 @@ impl ::core::convert::From<&IFsrmFileScreenException> for super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreenException {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreenException {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenException> for IFsrmObject {
     fn from(value: IFsrmFileScreenException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenException> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileScreenException) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7253,18 +6773,6 @@ impl ::core::convert::From<IFsrmFileScreenException> for IFsrmObject {
 impl ::core::convert::From<&IFsrmFileScreenException> for IFsrmObject {
     fn from(value: &IFsrmFileScreenException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileScreenException {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileScreenException {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7330,39 +6838,39 @@ impl IFsrmFileScreenManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateFileScreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreen> {
+    pub unsafe fn CreateFileScreen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreen> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFileScreen)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreen>(result__)
+        (::windows::core::Interface::vtable(self).CreateFileScreen)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreen>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileScreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreen> {
+    pub unsafe fn GetFileScreen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreen> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileScreen)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreen>(result__)
+        (::windows::core::Interface::vtable(self).GetFileScreen)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreen>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumFileScreens<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumFileScreens<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileScreens)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileScreens)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateFileScreenException<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreenException> {
+    pub unsafe fn CreateFileScreenException<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreenException> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFileScreenException)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenException>(result__)
+        (::windows::core::Interface::vtable(self).CreateFileScreenException)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenException>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileScreenException<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreenException> {
+    pub unsafe fn GetFileScreenException<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmFileScreenException> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileScreenException)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenException>(result__)
+        (::windows::core::Interface::vtable(self).GetFileScreenException)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenException>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumFileScreenExceptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumFileScreenExceptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumFileScreenExceptions)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumFileScreenExceptions)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7378,21 +6886,15 @@ impl ::core::convert::From<IFsrmFileScreenManager> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreenManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileScreenManager> for ::windows::core::IUnknown {
     fn from(value: &IFsrmFileScreenManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7402,21 +6904,15 @@ impl ::core::convert::From<IFsrmFileScreenManager> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreenManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileScreenManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmFileScreenManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7505,8 +7001,8 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -7524,8 +7020,8 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::core::Result<i32> {
@@ -7538,9 +7034,9 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateAction<'a, Param0: ::std::convert::Into<FsrmActionType>>(&self, actiontype: Param0) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7556,24 +7052,30 @@ impl IFsrmFileScreenTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filescreentemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into_param().abi()).ok()
+    pub unsafe fn CopyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filescreentemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived<'a, Param0: ::std::convert::Into<FsrmCommitOptions>, Param1: ::std::convert::Into<FsrmTemplateApplyOptions>>(&self, commitoptions: Param0, applyoptions: Param1) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions.into(), applyoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplate> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileScreenTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreenTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7584,20 +7086,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplate> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplate> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileScreenTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplate> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreenTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7608,20 +7104,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplate> for super::super::System::C
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplate> for IFsrmObject {
     fn from(value: IFsrmFileScreenTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplate> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileScreenTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7632,20 +7122,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplate> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplate> for IFsrmFileScreenBase {
     fn from(value: IFsrmFileScreenTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplate> for &'a IFsrmFileScreenBase {
+    fn from(value: &'a IFsrmFileScreenTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7653,18 +7137,6 @@ impl ::core::convert::From<IFsrmFileScreenTemplate> for IFsrmFileScreenBase {
 impl ::core::convert::From<&IFsrmFileScreenTemplate> for IFsrmFileScreenBase {
     fn from(value: &IFsrmFileScreenTemplate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenBase> for IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenBase> for &'a IFsrmFileScreenTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7733,8 +7205,8 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -7752,8 +7224,8 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::windows::core::IntoParam<'a, IFsrmMutableCollection>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into_param().abi()).ok()
+    pub unsafe fn SetBlockedFileGroups<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmMutableCollection>>>(&self, blocklist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetBlockedFileGroups)(::windows::core::Interface::as_raw(self), blocklist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn FileScreenFlags(&self) -> ::windows::core::Result<i32> {
@@ -7766,9 +7238,9 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateAction<'a, Param0: ::std::convert::Into<FsrmActionType>>(&self, actiontype: Param0) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7784,19 +7256,19 @@ impl IFsrmFileScreenTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filescreentemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into_param().abi()).ok()
+    pub unsafe fn CopyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, filescreentemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived<'a, Param0: ::std::convert::Into<FsrmCommitOptions>, Param1: ::std::convert::Into<FsrmTemplateApplyOptions>>(&self, commitoptions: Param0, applyoptions: Param1) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions.into(), applyoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16> {
@@ -7815,26 +7287,26 @@ impl ::core::convert::From<IFsrmFileScreenTemplateImported> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateImported> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreenTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmFileScreenTemplateImported> for ::windows::core::IUnknown {
     fn from(value: &IFsrmFileScreenTemplateImported) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplateImported> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileScreenTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateImported> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreenTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7845,20 +7317,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplateImported> for super::super::S
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplateImported> for IFsrmObject {
     fn from(value: IFsrmFileScreenTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateImported> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmFileScreenTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7869,20 +7335,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplateImported> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplateImported> for IFsrmFileScreenBase {
     fn from(value: IFsrmFileScreenTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateImported> for &'a IFsrmFileScreenBase {
+    fn from(value: &'a IFsrmFileScreenTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7893,20 +7353,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplateImported> for IFsrmFileScreen
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenBase> for IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenBase> for &'a IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplateImported> for IFsrmFileScreenTemplate {
     fn from(value: IFsrmFileScreenTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateImported> for &'a IFsrmFileScreenTemplate {
+    fn from(value: &'a IFsrmFileScreenTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7914,18 +7368,6 @@ impl ::core::convert::From<IFsrmFileScreenTemplateImported> for IFsrmFileScreenT
 impl ::core::convert::From<&IFsrmFileScreenTemplateImported> for IFsrmFileScreenTemplate {
     fn from(value: &IFsrmFileScreenTemplateImported) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenTemplate> for IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenTemplate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmFileScreenTemplate> for &'a IFsrmFileScreenTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmFileScreenTemplate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7975,15 +7417,15 @@ impl IFsrmFileScreenTemplateManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmFileScreenTemplate> {
+    pub unsafe fn GetTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmFileScreenTemplate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenTemplate>(result__)
+        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenTemplate>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumTemplates<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7993,14 +7435,20 @@ impl IFsrmFileScreenTemplateManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ImportTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serializedfilescreentemplates: Param0, filescreentemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportTemplates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serializedfilescreentemplates: Param0, filescreentemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportTemplates)(::windows::core::Interface::as_raw(self), serializedfilescreentemplates.into_param().abi(), ::core::mem::transmute(filescreentemplatenamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).ImportTemplates)(::windows::core::Interface::as_raw(self), serializedfilescreentemplates.into().abi(), ::core::mem::transmute(filescreentemplatenamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplateManager> for ::windows::core::IUnknown {
     fn from(value: IFsrmFileScreenTemplateManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmFileScreenTemplateManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8011,20 +7459,14 @@ impl ::core::convert::From<&IFsrmFileScreenTemplateManager> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmFileScreenTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmFileScreenTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmFileScreenTemplateManager> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmFileScreenTemplateManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmFileScreenTemplateManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmFileScreenTemplateManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8032,18 +7474,6 @@ impl ::core::convert::From<IFsrmFileScreenTemplateManager> for super::super::Sys
 impl ::core::convert::From<&IFsrmFileScreenTemplateManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmFileScreenTemplateManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmFileScreenTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmFileScreenTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8135,22 +7565,22 @@ impl IFsrmMutableCollection {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, id: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetById)(::windows::core::Interface::as_raw(self), id.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, item: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, item: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), item.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Remove(&self, index: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn RemoveById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, id: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveById)(::windows::core::Interface::as_raw(self), id.into_param().abi()).ok()
+    pub unsafe fn RemoveById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8166,26 +7596,26 @@ impl ::core::convert::From<IFsrmMutableCollection> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmMutableCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmMutableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmMutableCollection> for ::windows::core::IUnknown {
     fn from(value: &IFsrmMutableCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmMutableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmMutableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmMutableCollection> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmMutableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmMutableCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmMutableCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8196,20 +7626,14 @@ impl ::core::convert::From<&IFsrmMutableCollection> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmMutableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmMutableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmMutableCollection> for IFsrmCollection {
     fn from(value: IFsrmMutableCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmMutableCollection> for &'a IFsrmCollection {
+    fn from(value: &'a IFsrmMutableCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8217,18 +7641,6 @@ impl ::core::convert::From<IFsrmMutableCollection> for IFsrmCollection {
 impl ::core::convert::From<&IFsrmMutableCollection> for IFsrmCollection {
     fn from(value: &IFsrmMutableCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmCollection> for IFsrmMutableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmCollection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmCollection> for &'a IFsrmMutableCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmCollection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8291,8 +7703,8 @@ impl IFsrmObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -8310,21 +7722,15 @@ impl ::core::convert::From<IFsrmObject> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmObject> for ::windows::core::IUnknown {
     fn from(value: &IFsrmObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8334,21 +7740,15 @@ impl ::core::convert::From<IFsrmObject> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmObject> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmObject> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8401,14 +7801,20 @@ pub struct IFsrmPathMapper(::windows::core::IUnknown);
 impl IFsrmPathMapper {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetSharePathsForLocalPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, localpath: Param0) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetSharePathsForLocalPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, localpath: Param0) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::System::Com::SAFEARRAY>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharePathsForLocalPath)(::windows::core::Interface::as_raw(self), localpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).GetSharePathsForLocalPath)(::windows::core::Interface::as_raw(self), localpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPathMapper> for ::windows::core::IUnknown {
     fn from(value: IFsrmPathMapper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPathMapper> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPathMapper) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8419,20 +7825,14 @@ impl ::core::convert::From<&IFsrmPathMapper> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPathMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPathMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPathMapper> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPathMapper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPathMapper> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPathMapper) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8440,18 +7840,6 @@ impl ::core::convert::From<IFsrmPathMapper> for super::super::System::Com::IDisp
 impl ::core::convert::From<&IFsrmPathMapper> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmPathMapper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPathMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPathMapper {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8520,13 +7908,19 @@ impl IFsrmPipelineModuleConnector {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Bind<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition>, Param1: ::windows::core::IntoParam<'a, IFsrmPipelineModuleImplementation>>(&self, moduledefinition: Param0, moduleimplementation: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Bind)(::windows::core::Interface::as_raw(self), moduledefinition.into_param().abi(), moduleimplementation.into_param().abi()).ok()
+    pub unsafe fn Bind<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleImplementation>>>(&self, moduledefinition: Param0, moduleimplementation: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Bind)(::windows::core::Interface::as_raw(self), moduledefinition.into().abi(), moduleimplementation.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPipelineModuleConnector> for ::windows::core::IUnknown {
     fn from(value: IFsrmPipelineModuleConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPipelineModuleConnector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8537,20 +7931,14 @@ impl ::core::convert::From<&IFsrmPipelineModuleConnector> for ::windows::core::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPipelineModuleConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPipelineModuleConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPipelineModuleConnector> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPipelineModuleConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleConnector> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPipelineModuleConnector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8558,18 +7946,6 @@ impl ::core::convert::From<IFsrmPipelineModuleConnector> for super::super::Syste
 impl ::core::convert::From<&IFsrmPipelineModuleConnector> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmPipelineModuleConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPipelineModuleConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPipelineModuleConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8639,8 +8015,8 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -8658,8 +8034,8 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModuleClsid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduleclsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into_param().abi()).ok()
+    pub unsafe fn SetModuleClsid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, moduleclsid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8669,8 +8045,8 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8680,8 +8056,8 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCompany<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, company: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompany)(::windows::core::Interface::as_raw(self), company.into_param().abi()).ok()
+    pub unsafe fn SetCompany<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, company: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCompany)(::windows::core::Interface::as_raw(self), company.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8691,8 +8067,8 @@ impl IFsrmPipelineModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), version.into_param().abi()).ok()
+    pub unsafe fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, version: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), version.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModuleType(&self) -> ::windows::core::Result<FsrmPipelineModuleType> {
@@ -8723,8 +8099,8 @@ impl IFsrmPipelineModuleDefinition {
         (::windows::core::Interface::vtable(self).Account)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmAccountType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retrievalaccount)).ok()
+    pub unsafe fn SetAccount<'a, Param0: ::std::convert::Into<FsrmAccountType>>(&self, retrievalaccount: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8756,26 +8132,26 @@ impl ::core::convert::From<IFsrmPipelineModuleDefinition> for ::windows::core::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPipelineModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPipelineModuleDefinition> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPipelineModuleDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPipelineModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPipelineModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPipelineModuleDefinition> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPipelineModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleDefinition> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPipelineModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8786,20 +8162,14 @@ impl ::core::convert::From<&IFsrmPipelineModuleDefinition> for super::super::Sys
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPipelineModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPipelineModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPipelineModuleDefinition> for IFsrmObject {
     fn from(value: IFsrmPipelineModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleDefinition> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmPipelineModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8807,18 +8177,6 @@ impl ::core::convert::From<IFsrmPipelineModuleDefinition> for IFsrmObject {
 impl ::core::convert::From<&IFsrmPipelineModuleDefinition> for IFsrmObject {
     fn from(value: &IFsrmPipelineModuleDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmPipelineModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmPipelineModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8915,9 +8273,9 @@ pub struct IFsrmPipelineModuleImplementation(::windows::core::IUnknown);
 impl IFsrmPipelineModuleImplementation {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnLoad<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition>>(&self, moduledefinition: Param0) -> ::windows::core::Result<IFsrmPipelineModuleConnector> {
+    pub unsafe fn OnLoad<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>>(&self, moduledefinition: Param0) -> ::windows::core::Result<IFsrmPipelineModuleConnector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), moduledefinition.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleConnector>(result__)
+        (::windows::core::Interface::vtable(self).OnLoad)(::windows::core::Interface::as_raw(self), moduledefinition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleConnector>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OnUnload(&self) -> ::windows::core::Result<()> {
@@ -8931,21 +8289,15 @@ impl ::core::convert::From<IFsrmPipelineModuleImplementation> for ::windows::cor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleImplementation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPipelineModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPipelineModuleImplementation> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPipelineModuleImplementation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPipelineModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPipelineModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8955,21 +8307,15 @@ impl ::core::convert::From<IFsrmPipelineModuleImplementation> for super::super::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPipelineModuleImplementation> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPipelineModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPipelineModuleImplementation> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmPipelineModuleImplementation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPipelineModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPipelineModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9045,21 +8391,15 @@ impl ::core::convert::From<IFsrmProperty> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmProperty> for ::windows::core::IUnknown {
     fn from(value: &IFsrmProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9069,21 +8409,15 @@ impl ::core::convert::From<IFsrmProperty> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmProperty> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmProperty> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9237,30 +8571,36 @@ impl IFsrmPropertyBag {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmProperty> {
+    pub unsafe fn GetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
+        (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileProperty)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
+    pub unsafe fn SetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, message: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), message.into_param().abi()).ok()
+    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, message: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), message.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFileStreamInterface<'a, Param0: ::std::convert::Into<FsrmFileStreamingMode>, Param1: ::std::convert::Into<FsrmFileStreamingInterfaceType>>(&self, accessmode: Param0, interfacetype: Param1) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileStreamInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(interfacetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFileStreamInterface)(::windows::core::Interface::as_raw(self), accessmode.into(), interfacetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyBag> for ::windows::core::IUnknown {
     fn from(value: IFsrmPropertyBag) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyBag> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPropertyBag) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9271,20 +8611,14 @@ impl ::core::convert::From<&IFsrmPropertyBag> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPropertyBag {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPropertyBag {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyBag> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPropertyBag) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyBag> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPropertyBag) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9292,18 +8626,6 @@ impl ::core::convert::From<IFsrmPropertyBag> for super::super::System::Com::IDis
 impl ::core::convert::From<&IFsrmPropertyBag> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmPropertyBag) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPropertyBag {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPropertyBag {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9519,31 +8841,31 @@ impl IFsrmPropertyBag2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmProperty> {
+    pub unsafe fn GetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFileProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileProperty)(::windows::core::Interface::as_raw(self), name.into_param().abi(), value.into_param().abi()).ok()
+    pub unsafe fn SetFileProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, message: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddMessage)(::windows::core::Interface::as_raw(self), message.into_param().abi()).ok()
+    pub unsafe fn AddMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, message: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddMessage)(::windows::core::Interface::as_raw(self), message.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFileStreamInterface<'a, Param0: ::std::convert::Into<FsrmFileStreamingMode>, Param1: ::std::convert::Into<FsrmFileStreamingInterfaceType>>(&self, accessmode: Param0, interfacetype: Param1) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(interfacetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows::core::Interface::as_raw(self), accessmode.into(), interfacetype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFieldValue<'a, Param0: ::std::convert::Into<FsrmPropertyBagField>>(&self, field: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFieldValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(field), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFieldValue)(::windows::core::Interface::as_raw(self), field.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9559,26 +8881,26 @@ impl ::core::convert::From<IFsrmPropertyBag2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyBag2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPropertyBag2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyBag2> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPropertyBag2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPropertyBag2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPropertyBag2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyBag2> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPropertyBag2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyBag2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPropertyBag2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9589,20 +8911,14 @@ impl ::core::convert::From<&IFsrmPropertyBag2> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPropertyBag2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPropertyBag2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyBag2> for IFsrmPropertyBag {
     fn from(value: IFsrmPropertyBag2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyBag2> for &'a IFsrmPropertyBag {
+    fn from(value: &'a IFsrmPropertyBag2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9610,18 +8926,6 @@ impl ::core::convert::From<IFsrmPropertyBag2> for IFsrmPropertyBag {
 impl ::core::convert::From<&IFsrmPropertyBag2> for IFsrmPropertyBag {
     fn from(value: &IFsrmPropertyBag2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPropertyBag> for IFsrmPropertyBag2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPropertyBag> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPropertyBag> for &'a IFsrmPropertyBag2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPropertyBag> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9677,8 +8981,8 @@ impl IFsrmPropertyCondition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<FsrmPropertyConditionType> {
@@ -9686,8 +8990,8 @@ impl IFsrmPropertyCondition {
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmPropertyConditionType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+    pub unsafe fn SetType<'a, Param0: ::std::convert::Into<FsrmPropertyConditionType>>(&self, r#type: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9697,8 +9001,8 @@ impl IFsrmPropertyCondition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -9712,21 +9016,15 @@ impl ::core::convert::From<IFsrmPropertyCondition> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyCondition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPropertyCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyCondition> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPropertyCondition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPropertyCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPropertyCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9736,21 +9034,15 @@ impl ::core::convert::From<IFsrmPropertyCondition> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyCondition> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPropertyCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyCondition> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmPropertyCondition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPropertyCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPropertyCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9822,8 +9114,8 @@ impl IFsrmPropertyDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -9841,8 +9133,8 @@ impl IFsrmPropertyDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<FsrmPropertyDefinitionType> {
@@ -9850,8 +9142,8 @@ impl IFsrmPropertyDefinition {
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmPropertyDefinitionType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+    pub unsafe fn SetType<'a, Param0: ::std::convert::Into<FsrmPropertyDefinitionType>>(&self, r#type: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9894,26 +9186,26 @@ impl ::core::convert::From<IFsrmPropertyDefinition> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPropertyDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyDefinition> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPropertyDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyDefinition> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPropertyDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPropertyDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9924,20 +9216,14 @@ impl ::core::convert::From<&IFsrmPropertyDefinition> for super::super::System::C
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyDefinition> for IFsrmObject {
     fn from(value: IFsrmPropertyDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmPropertyDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9945,18 +9231,6 @@ impl ::core::convert::From<IFsrmPropertyDefinition> for IFsrmObject {
 impl ::core::convert::From<&IFsrmPropertyDefinition> for IFsrmObject {
     fn from(value: &IFsrmPropertyDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10043,8 +9317,8 @@ impl IFsrmPropertyDefinition2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -10062,8 +9336,8 @@ impl IFsrmPropertyDefinition2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<FsrmPropertyDefinitionType> {
@@ -10071,8 +9345,8 @@ impl IFsrmPropertyDefinition2 {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmPropertyDefinitionType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
+    pub unsafe fn SetType<'a, Param0: ::std::convert::Into<FsrmPropertyDefinitionType>>(&self, r#type: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetType)(::windows::core::Interface::as_raw(self), r#type.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10120,8 +9394,8 @@ impl IFsrmPropertyDefinition2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn AppliesTo(&self) -> ::windows::core::Result<i32> {
@@ -10142,26 +9416,26 @@ impl ::core::convert::From<IFsrmPropertyDefinition2> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPropertyDefinition2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyDefinition2> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPropertyDefinition2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyDefinition2> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmPropertyDefinition2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPropertyDefinition2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10172,20 +9446,14 @@ impl ::core::convert::From<&IFsrmPropertyDefinition2> for super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyDefinition2> for IFsrmObject {
     fn from(value: IFsrmPropertyDefinition2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition2> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmPropertyDefinition2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10196,20 +9464,14 @@ impl ::core::convert::From<&IFsrmPropertyDefinition2> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmPropertyDefinition2> for IFsrmPropertyDefinition {
     fn from(value: IFsrmPropertyDefinition2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinition2> for &'a IFsrmPropertyDefinition {
+    fn from(value: &'a IFsrmPropertyDefinition2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10217,18 +9479,6 @@ impl ::core::convert::From<IFsrmPropertyDefinition2> for IFsrmPropertyDefinition
 impl ::core::convert::From<&IFsrmPropertyDefinition2> for IFsrmPropertyDefinition {
     fn from(value: &IFsrmPropertyDefinition2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPropertyDefinition> for IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPropertyDefinition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPropertyDefinition> for &'a IFsrmPropertyDefinition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPropertyDefinition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10314,21 +9564,15 @@ impl ::core::convert::From<IFsrmPropertyDefinitionValue> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinitionValue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmPropertyDefinitionValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyDefinitionValue> for ::windows::core::IUnknown {
     fn from(value: &IFsrmPropertyDefinitionValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmPropertyDefinitionValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmPropertyDefinitionValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10338,21 +9582,15 @@ impl ::core::convert::From<IFsrmPropertyDefinitionValue> for super::super::Syste
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmPropertyDefinitionValue> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmPropertyDefinitionValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmPropertyDefinitionValue> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmPropertyDefinitionValue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmPropertyDefinitionValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmPropertyDefinitionValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10421,8 +9659,8 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -10440,8 +9678,8 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::core::Result<i32> {
@@ -10472,9 +9710,9 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, threshold: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10513,8 +9751,8 @@ impl IFsrmQuota {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ApplyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+    pub unsafe fn ApplyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10549,26 +9787,26 @@ impl ::core::convert::From<IFsrmQuota> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuota> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmQuota> for ::windows::core::IUnknown {
     fn from(value: &IFsrmQuota) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuota> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuota> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10579,20 +9817,14 @@ impl ::core::convert::From<&IFsrmQuota> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuota> for IFsrmObject {
     fn from(value: IFsrmQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuota> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10603,20 +9835,14 @@ impl ::core::convert::From<&IFsrmQuota> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuota> for IFsrmQuotaBase {
     fn from(value: IFsrmQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuota> for &'a IFsrmQuotaBase {
+    fn from(value: &'a IFsrmQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10627,20 +9853,14 @@ impl ::core::convert::From<&IFsrmQuota> for IFsrmQuotaBase {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for &'a IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuota> for IFsrmQuotaObject {
     fn from(value: IFsrmQuota) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuota> for &'a IFsrmQuotaObject {
+    fn from(value: &'a IFsrmQuota) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10648,18 +9868,6 @@ impl ::core::convert::From<IFsrmQuota> for IFsrmQuotaObject {
 impl ::core::convert::From<&IFsrmQuota> for IFsrmQuotaObject {
     fn from(value: &IFsrmQuota) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaObject> for IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaObject> for &'a IFsrmQuota {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10723,8 +9931,8 @@ impl IFsrmQuotaBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -10742,8 +9950,8 @@ impl IFsrmQuotaBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::core::Result<i32> {
@@ -10774,9 +9982,9 @@ impl IFsrmQuotaBase {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, threshold: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10792,26 +10000,26 @@ impl ::core::convert::From<IFsrmQuotaBase> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaBase> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmQuotaBase> for ::windows::core::IUnknown {
     fn from(value: &IFsrmQuotaBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaBase> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuotaBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaBase> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10822,20 +10030,14 @@ impl ::core::convert::From<&IFsrmQuotaBase> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaBase {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaBase {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaBase> for IFsrmObject {
     fn from(value: IFsrmQuotaBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaBase> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmQuotaBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10843,18 +10045,6 @@ impl ::core::convert::From<IFsrmQuotaBase> for IFsrmObject {
 impl ::core::convert::From<&IFsrmQuotaBase> for IFsrmObject {
     fn from(value: &IFsrmQuotaBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmQuotaBase {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmQuotaBase {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10933,56 +10123,56 @@ impl IFsrmQuotaManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
+    pub unsafe fn CreateQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
+        (::windows::core::Interface::vtable(self).CreateQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateAutoApplyQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0, path: Param1) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
+    pub unsafe fn CreateAutoApplyQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0, path: Param1) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAutoApplyQuota)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
+        (::windows::core::Interface::vtable(self).CreateAutoApplyQuota)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi(), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
+    pub unsafe fn GetQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
+        (::windows::core::Interface::vtable(self).GetQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetAutoApplyQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
+    pub unsafe fn GetAutoApplyQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAutoApplyQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
+        (::windows::core::Interface::vtable(self).GetAutoApplyQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRestrictiveQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
+    pub unsafe fn GetRestrictiveQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictiveQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
+        (::windows::core::Interface::vtable(self).GetRestrictiveQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumQuotas<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumQuotas<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumQuotas)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumAutoApplyQuotas<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumAutoApplyQuotas<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumEffectiveQuotas<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumEffectiveQuotas<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Scan<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Scan)(::windows::core::Interface::as_raw(self), strpath.into_param().abi()).ok()
+    pub unsafe fn Scan<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Scan)(::windows::core::Interface::as_raw(self), strpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10998,21 +10188,15 @@ impl ::core::convert::From<IFsrmQuotaManager> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmQuotaManager> for ::windows::core::IUnknown {
     fn from(value: &IFsrmQuotaManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11022,21 +10206,15 @@ impl ::core::convert::From<IFsrmQuotaManager> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmQuotaManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmQuotaManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11138,56 +10316,56 @@ impl IFsrmQuotaManagerEx {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
+    pub unsafe fn CreateQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateAutoApplyQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0, path: Param1) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
+    pub unsafe fn CreateAutoApplyQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0, path: Param1) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateAutoApplyQuota)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi(), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateAutoApplyQuota)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi(), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
+    pub unsafe fn GetQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetAutoApplyQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
+    pub unsafe fn GetAutoApplyQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmAutoApplyQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetAutoApplyQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAutoApplyQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetRestrictiveQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
+    pub unsafe fn GetRestrictiveQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IFsrmQuota> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetRestrictiveQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetRestrictiveQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumQuotas<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumQuotas<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumQuotas)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumAutoApplyQuotas<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumAutoApplyQuotas<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn EnumEffectiveQuotas<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumEffectiveQuotas<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Scan<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Scan)(::windows::core::Interface::as_raw(self), strpath.into_param().abi()).ok()
+    pub unsafe fn Scan<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Scan)(::windows::core::Interface::as_raw(self), strpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11197,14 +10375,20 @@ impl IFsrmQuotaManagerEx {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAffectedByQuota<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, options: FsrmEnumOptions) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsAffectedByQuota<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FsrmEnumOptions>>(&self, path: Param0, options: Param1) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsAffectedByQuota)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsAffectedByQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaManagerEx> for ::windows::core::IUnknown {
     fn from(value: IFsrmQuotaManagerEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaManagerEx> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaManagerEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11215,20 +10399,14 @@ impl ::core::convert::From<&IFsrmQuotaManagerEx> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaManagerEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaManagerEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaManagerEx> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuotaManagerEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaManagerEx> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaManagerEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11239,20 +10417,14 @@ impl ::core::convert::From<&IFsrmQuotaManagerEx> for super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaManagerEx {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaManagerEx {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaManagerEx> for IFsrmQuotaManager {
     fn from(value: IFsrmQuotaManagerEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaManagerEx> for &'a IFsrmQuotaManager {
+    fn from(value: &'a IFsrmQuotaManagerEx) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11260,18 +10432,6 @@ impl ::core::convert::From<IFsrmQuotaManagerEx> for IFsrmQuotaManager {
 impl ::core::convert::From<&IFsrmQuotaManagerEx> for IFsrmQuotaManager {
     fn from(value: &IFsrmQuotaManagerEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaManager> for IFsrmQuotaManagerEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaManager> for &'a IFsrmQuotaManagerEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11328,8 +10488,8 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -11347,8 +10507,8 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::core::Result<i32> {
@@ -11379,9 +10539,9 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, threshold: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11420,13 +10580,19 @@ impl IFsrmQuotaObject {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ApplyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+    pub unsafe fn ApplyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaObject> for ::windows::core::IUnknown {
     fn from(value: IFsrmQuotaObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11437,20 +10603,14 @@ impl ::core::convert::From<&IFsrmQuotaObject> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaObject> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuotaObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaObject> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11461,20 +10621,14 @@ impl ::core::convert::From<&IFsrmQuotaObject> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaObject> for IFsrmObject {
     fn from(value: IFsrmQuotaObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaObject> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmQuotaObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11485,20 +10639,14 @@ impl ::core::convert::From<&IFsrmQuotaObject> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaObject> for IFsrmQuotaBase {
     fn from(value: IFsrmQuotaObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaObject> for &'a IFsrmQuotaBase {
+    fn from(value: &'a IFsrmQuotaObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11506,18 +10654,6 @@ impl ::core::convert::From<IFsrmQuotaObject> for IFsrmQuotaBase {
 impl ::core::convert::From<&IFsrmQuotaObject> for IFsrmQuotaBase {
     fn from(value: &IFsrmQuotaObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for &'a IFsrmQuotaObject {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11591,8 +10727,8 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -11610,8 +10746,8 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::core::Result<i32> {
@@ -11642,9 +10778,9 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, threshold: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11660,24 +10796,30 @@ impl IFsrmQuotaTemplate {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+    pub unsafe fn CopyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived<'a, Param0: ::std::convert::Into<FsrmCommitOptions>, Param1: ::std::convert::Into<FsrmTemplateApplyOptions>>(&self, commitoptions: Param0, applyoptions: Param1) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions.into(), applyoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplate> for ::windows::core::IUnknown {
     fn from(value: IFsrmQuotaTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11688,20 +10830,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplate> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplate> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuotaTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplate> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11712,20 +10848,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplate> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplate> for IFsrmObject {
     fn from(value: IFsrmQuotaTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplate> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmQuotaTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11736,20 +10866,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplate> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplate> for IFsrmQuotaBase {
     fn from(value: IFsrmQuotaTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplate> for &'a IFsrmQuotaBase {
+    fn from(value: &'a IFsrmQuotaTemplate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11757,18 +10881,6 @@ impl ::core::convert::From<IFsrmQuotaTemplate> for IFsrmQuotaBase {
 impl ::core::convert::From<&IFsrmQuotaTemplate> for IFsrmQuotaBase {
     fn from(value: &IFsrmQuotaTemplate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for &'a IFsrmQuotaTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11837,8 +10949,8 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -11856,8 +10968,8 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetQuotaLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into_param().abi()).ok()
+    pub unsafe fn SetQuotaLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, quotalimit: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetQuotaLimit)(::windows::core::Interface::as_raw(self), quotalimit.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn QuotaFlags(&self) -> ::windows::core::Result<i32> {
@@ -11888,9 +11000,9 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction<'a, Param1: ::std::convert::Into<FsrmActionType>>(&self, threshold: i32, actiontype: Param1) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(threshold), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11906,19 +11018,19 @@ impl IFsrmQuotaTemplateImported {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into_param().abi()).ok()
+    pub unsafe fn CopyTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, quotatemplatename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived<'a, Param0: ::std::convert::Into<FsrmCommitOptions>, Param1: ::std::convert::Into<FsrmTemplateApplyOptions>>(&self, commitoptions: Param0, applyoptions: Param1) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(commitoptions), ::core::mem::transmute(applyoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.CommitAndUpdateDerived)(::windows::core::Interface::as_raw(self), commitoptions.into(), applyoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmDerivedObjectsResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OverwriteOnCommit(&self) -> ::windows::core::Result<i16> {
@@ -11937,26 +11049,26 @@ impl ::core::convert::From<IFsrmQuotaTemplateImported> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateImported> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmQuotaTemplateImported> for ::windows::core::IUnknown {
     fn from(value: &IFsrmQuotaTemplateImported) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplateImported> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuotaTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateImported> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11967,20 +11079,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplateImported> for super::super::System
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplateImported> for IFsrmObject {
     fn from(value: IFsrmQuotaTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateImported> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmQuotaTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11991,20 +11097,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplateImported> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplateImported> for IFsrmQuotaBase {
     fn from(value: IFsrmQuotaTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateImported> for &'a IFsrmQuotaBase {
+    fn from(value: &'a IFsrmQuotaTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12015,20 +11115,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplateImported> for IFsrmQuotaBase {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaBase> for &'a IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplateImported> for IFsrmQuotaTemplate {
     fn from(value: IFsrmQuotaTemplateImported) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateImported> for &'a IFsrmQuotaTemplate {
+    fn from(value: &'a IFsrmQuotaTemplateImported) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12036,18 +11130,6 @@ impl ::core::convert::From<IFsrmQuotaTemplateImported> for IFsrmQuotaTemplate {
 impl ::core::convert::From<&IFsrmQuotaTemplateImported> for IFsrmQuotaTemplate {
     fn from(value: &IFsrmQuotaTemplateImported) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaTemplate> for IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaTemplate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmQuotaTemplate> for &'a IFsrmQuotaTemplateImported {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmQuotaTemplate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12097,15 +11179,15 @@ impl IFsrmQuotaTemplateManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IFsrmQuotaTemplate> {
+    pub unsafe fn GetTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IFsrmQuotaTemplate> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuotaTemplate>(result__)
+        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuotaTemplate>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumTemplates<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -12115,14 +11197,20 @@ impl IFsrmQuotaTemplateManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ImportTemplates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serializedquotatemplates: Param0, quotatemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportTemplates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serializedquotatemplates: Param0, quotatemplatenamesarray: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ImportTemplates)(::windows::core::Interface::as_raw(self), serializedquotatemplates.into_param().abi(), ::core::mem::transmute(quotatemplatenamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
+        (::windows::core::Interface::vtable(self).ImportTemplates)(::windows::core::Interface::as_raw(self), serializedquotatemplates.into().abi(), ::core::mem::transmute(quotatemplatenamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplateManager> for ::windows::core::IUnknown {
     fn from(value: IFsrmQuotaTemplateManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmQuotaTemplateManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12133,20 +11221,14 @@ impl ::core::convert::From<&IFsrmQuotaTemplateManager> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmQuotaTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmQuotaTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmQuotaTemplateManager> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmQuotaTemplateManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmQuotaTemplateManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmQuotaTemplateManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12154,18 +11236,6 @@ impl ::core::convert::From<IFsrmQuotaTemplateManager> for super::super::System::
 impl ::core::convert::From<&IFsrmQuotaTemplateManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmQuotaTemplateManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmQuotaTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmQuotaTemplateManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12238,8 +11308,8 @@ impl IFsrmReport {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12249,8 +11319,8 @@ impl IFsrmReport {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12260,14 +11330,14 @@ impl IFsrmReport {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetFilter<'a, Param0: ::std::convert::Into<FsrmReportFilter>>(&self, filter: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), filter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetFilter<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, filter: FsrmReportFilter, filtervalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filter), filtervalue.into_param().abi()).ok()
+    pub unsafe fn SetFilter<'a, Param0: ::std::convert::Into<FsrmReportFilter>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, filter: Param0, filtervalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), filter.into(), filtervalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -12281,21 +11351,15 @@ impl ::core::convert::From<IFsrmReport> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReport> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmReport> for ::windows::core::IUnknown {
     fn from(value: &IFsrmReport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12305,21 +11369,15 @@ impl ::core::convert::From<IFsrmReport> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReport> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmReport> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmReport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmReport {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmReport {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12402,8 +11460,8 @@ impl IFsrmReportJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -12421,8 +11479,8 @@ impl IFsrmReportJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), taskname.into_param().abi()).ok()
+    pub unsafe fn SetTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, taskname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), taskname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12454,8 +11512,8 @@ impl IFsrmReportJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn SetMailTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn RunningStatus(&self) -> ::windows::core::Result<FsrmReportRunningStatus> {
@@ -12487,13 +11545,13 @@ impl IFsrmReportJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> ::windows::core::Result<IFsrmReport> {
+    pub unsafe fn CreateReport<'a, Param0: ::std::convert::Into<FsrmReportType>>(&self, reporttype: Param0) -> ::windows::core::Result<IFsrmReport> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateReport)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReport>(result__)
+        (::windows::core::Interface::vtable(self).CreateReport)(::windows::core::Interface::as_raw(self), reporttype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReport>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context)).ok()
+    pub unsafe fn Run<'a, Param0: ::std::convert::Into<FsrmReportGenerationContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), context.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> ::windows::core::Result<i16> {
@@ -12512,26 +11570,26 @@ impl ::core::convert::From<IFsrmReportJob> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmReportJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmReportJob> for ::windows::core::IUnknown {
     fn from(value: &IFsrmReportJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmReportJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmReportJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmReportJob> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmReportJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportJob> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmReportJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12542,20 +11600,14 @@ impl ::core::convert::From<&IFsrmReportJob> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmReportJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmReportJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmReportJob> for IFsrmObject {
     fn from(value: IFsrmReportJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportJob> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmReportJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12563,18 +11615,6 @@ impl ::core::convert::From<IFsrmReportJob> for IFsrmObject {
 impl ::core::convert::From<&IFsrmReportJob> for IFsrmObject {
     fn from(value: &IFsrmReportJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmReportJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmReportJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12669,9 +11709,9 @@ pub struct IFsrmReportManager(::windows::core::IUnknown);
 impl IFsrmReportManager {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
+    pub unsafe fn EnumReportJobs<'a, Param0: ::std::convert::Into<FsrmEnumOptions>>(&self, options: Param0) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumReportJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumReportJobs)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12681,52 +11721,58 @@ impl IFsrmReportManager {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetReportJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::core::Result<IFsrmReportJob> {
+    pub unsafe fn GetReportJob<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, taskname: Param0) -> ::windows::core::Result<IFsrmReportJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetReportJob)(::windows::core::Interface::as_raw(self), taskname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReportJob>(result__)
+        (::windows::core::Interface::vtable(self).GetReportJob)(::windows::core::Interface::as_raw(self), taskname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReportJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetOutputDirectory<'a, Param0: ::std::convert::Into<FsrmReportGenerationContext>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetOutputDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetOutputDirectory)(::windows::core::Interface::as_raw(self), context.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOutputDirectory<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, context: FsrmReportGenerationContext, path: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutputDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(context), path.into_param().abi()).ok()
+    pub unsafe fn SetOutputDirectory<'a, Param0: ::std::convert::Into<FsrmReportGenerationContext>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, context: Param0, path: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOutputDirectory)(::windows::core::Interface::as_raw(self), context.into(), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsFilterValidForReportType<'a, Param0: ::std::convert::Into<FsrmReportType>, Param1: ::std::convert::Into<FsrmReportFilter>>(&self, reporttype: Param0, filter: Param1) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsFilterValidForReportType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(filter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsFilterValidForReportType)(::windows::core::Interface::as_raw(self), reporttype.into(), filter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetDefaultFilter<'a, Param0: ::std::convert::Into<FsrmReportType>, Param1: ::std::convert::Into<FsrmReportFilter>>(&self, reporttype: Param0, filter: Param1) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(filter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultFilter)(::windows::core::Interface::as_raw(self), reporttype.into(), filter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDefaultFilter<'a, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(filter), filtervalue.into_param().abi()).ok()
+    pub unsafe fn SetDefaultFilter<'a, Param0: ::std::convert::Into<FsrmReportType>, Param1: ::std::convert::Into<FsrmReportFilter>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, reporttype: Param0, filter: Param1, filtervalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultFilter)(::windows::core::Interface::as_raw(self), reporttype.into(), filter.into(), filtervalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetReportSizeLimit<'a, Param0: ::std::convert::Into<FsrmReportLimit>>(&self, limit: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetReportSizeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(limit), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetReportSizeLimit)(::windows::core::Interface::as_raw(self), limit.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetReportSizeLimit<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, limit: FsrmReportLimit, limitvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportSizeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(limit), limitvalue.into_param().abi()).ok()
+    pub unsafe fn SetReportSizeLimit<'a, Param0: ::std::convert::Into<FsrmReportLimit>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, limit: Param0, limitvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReportSizeLimit)(::windows::core::Interface::as_raw(self), limit.into(), limitvalue.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmReportManager> for ::windows::core::IUnknown {
     fn from(value: IFsrmReportManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmReportManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12737,20 +11783,14 @@ impl ::core::convert::From<&IFsrmReportManager> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmReportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmReportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmReportManager> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmReportManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmReportManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12758,18 +11798,6 @@ impl ::core::convert::From<IFsrmReportManager> for super::super::System::Com::ID
 impl ::core::convert::From<&IFsrmReportManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmReportManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmReportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmReportManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12853,23 +11881,29 @@ impl IFsrmReportScheduler {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateScheduleTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into_param().abi(), ::core::mem::transmute(namespacessafearray), serializedtask.into_param().abi()).ok()
+    pub unsafe fn CreateScheduleTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, taskname: Param0, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into().abi(), ::core::mem::transmute(namespacessafearray), serializedtask.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ModifyScheduleTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into_param().abi(), ::core::mem::transmute(namespacessafearray), serializedtask.into_param().abi()).ok()
+    pub unsafe fn ModifyScheduleTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, taskname: Param0, namespacessafearray: *const super::super::System::Com::VARIANT, serializedtask: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ModifyScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into().abi(), ::core::mem::transmute(namespacessafearray), serializedtask.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteScheduleTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, taskname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into_param().abi()).ok()
+    pub unsafe fn DeleteScheduleTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, taskname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmReportScheduler> for ::windows::core::IUnknown {
     fn from(value: IFsrmReportScheduler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportScheduler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmReportScheduler) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12880,20 +11914,14 @@ impl ::core::convert::From<&IFsrmReportScheduler> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmReportScheduler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmReportScheduler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmReportScheduler> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmReportScheduler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmReportScheduler> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmReportScheduler) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12901,18 +11929,6 @@ impl ::core::convert::From<IFsrmReportScheduler> for super::super::System::Com::
 impl ::core::convert::From<&IFsrmReportScheduler> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmReportScheduler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmReportScheduler {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmReportScheduler {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12981,8 +11997,8 @@ impl IFsrmRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -13000,8 +12016,8 @@ impl IFsrmRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn RuleType(&self) -> ::windows::core::Result<FsrmRuleType> {
@@ -13016,8 +12032,8 @@ impl IFsrmRule {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModuleDefinitionName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduledefinitionname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModuleDefinitionName)(::windows::core::Interface::as_raw(self), moduledefinitionname.into_param().abi()).ok()
+    pub unsafe fn SetModuleDefinitionName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, moduledefinitionname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetModuleDefinitionName)(::windows::core::Interface::as_raw(self), moduledefinitionname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -13064,26 +12080,26 @@ impl ::core::convert::From<IFsrmRule> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmRule> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmRule> for ::windows::core::IUnknown {
     fn from(value: &IFsrmRule) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmRule> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmRule> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmRule) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13094,20 +12110,14 @@ impl ::core::convert::From<&IFsrmRule> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmRule {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmRule {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmRule> for IFsrmObject {
     fn from(value: IFsrmRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmRule> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmRule) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13115,18 +12125,6 @@ impl ::core::convert::From<IFsrmRule> for IFsrmObject {
 impl ::core::convert::From<&IFsrmRule> for IFsrmObject {
     fn from(value: &IFsrmRule) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmRule {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmRule {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13213,8 +12211,8 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSmtpServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, smtpserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSmtpServer)(::windows::core::Interface::as_raw(self), smtpserver.into_param().abi()).ok()
+    pub unsafe fn SetSmtpServer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, smtpserver: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSmtpServer)(::windows::core::Interface::as_raw(self), smtpserver.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13224,8 +12222,8 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMailFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into_param().abi()).ok()
+    pub unsafe fn SetMailFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailfrom: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13235,8 +12233,8 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAdminEmail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, adminemail: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAdminEmail)(::windows::core::Interface::as_raw(self), adminemail.into_param().abi()).ok()
+    pub unsafe fn SetAdminEmail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, adminemail: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAdminEmail)(::windows::core::Interface::as_raw(self), adminemail.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn DisableCommandLine(&self) -> ::windows::core::Result<i16> {
@@ -13258,22 +12256,28 @@ impl IFsrmSetting {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EmailTest<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EmailTest)(::windows::core::Interface::as_raw(self), mailto.into_param().abi()).ok()
+    pub unsafe fn EmailTest<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, mailto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EmailTest)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(delaytimeminutes)).ok()
+    pub unsafe fn SetActionRunLimitInterval<'a, Param0: ::std::convert::Into<FsrmActionType>>(&self, actiontype: Param0, delaytimeminutes: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), actiontype.into(), ::core::mem::transmute(delaytimeminutes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> ::windows::core::Result<i32> {
+    pub unsafe fn GetActionRunLimitInterval<'a, Param0: ::std::convert::Into<FsrmActionType>>(&self, actiontype: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(actiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetActionRunLimitInterval)(::windows::core::Interface::as_raw(self), actiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmSetting> for ::windows::core::IUnknown {
     fn from(value: IFsrmSetting) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmSetting> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmSetting) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13284,20 +12288,14 @@ impl ::core::convert::From<&IFsrmSetting> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmSetting> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmSetting) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmSetting> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmSetting) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13305,18 +12303,6 @@ impl ::core::convert::From<IFsrmSetting> for super::super::System::Com::IDispatc
 impl ::core::convert::From<&IFsrmSetting> for super::super::System::Com::IDispatch {
     fn from(value: &IFsrmSetting) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13403,8 +12389,8 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, description: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -13422,8 +12408,8 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetModuleClsid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, moduleclsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into_param().abi()).ok()
+    pub unsafe fn SetModuleClsid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, moduleclsid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13433,8 +12419,8 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13444,8 +12430,8 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCompany<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, company: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCompany)(::windows::core::Interface::as_raw(self), company.into_param().abi()).ok()
+    pub unsafe fn SetCompany<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, company: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCompany)(::windows::core::Interface::as_raw(self), company.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13455,8 +12441,8 @@ impl IFsrmStorageModuleDefinition {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, version: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), version.into_param().abi()).ok()
+    pub unsafe fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, version: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), version.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn ModuleType(&self) -> ::windows::core::Result<FsrmPipelineModuleType> {
@@ -13487,8 +12473,8 @@ impl IFsrmStorageModuleDefinition {
         (::windows::core::Interface::vtable(self).base__.Account)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmAccountType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(retrievalaccount)).ok()
+    pub unsafe fn SetAccount<'a, Param0: ::std::convert::Into<FsrmAccountType>>(&self, retrievalaccount: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -13518,8 +12504,8 @@ impl IFsrmStorageModuleDefinition {
         (::windows::core::Interface::vtable(self).Capabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmStorageModuleCaps>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(capabilities)).ok()
+    pub unsafe fn SetCapabilities<'a, Param0: ::std::convert::Into<FsrmStorageModuleCaps>>(&self, capabilities: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCapabilities)(::windows::core::Interface::as_raw(self), capabilities.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn StorageType(&self) -> ::windows::core::Result<FsrmStorageModuleType> {
@@ -13527,8 +12513,8 @@ impl IFsrmStorageModuleDefinition {
         (::windows::core::Interface::vtable(self).StorageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmStorageModuleType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
-    pub unsafe fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStorageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storagetype)).ok()
+    pub unsafe fn SetStorageType<'a, Param0: ::std::convert::Into<FsrmStorageModuleType>>(&self, storagetype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStorageType)(::windows::core::Interface::as_raw(self), storagetype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn UpdatesFileContent(&self) -> ::windows::core::Result<i16> {
@@ -13547,26 +12533,26 @@ impl ::core::convert::From<IFsrmStorageModuleDefinition> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmStorageModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFsrmStorageModuleDefinition> for ::windows::core::IUnknown {
     fn from(value: &IFsrmStorageModuleDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmStorageModuleDefinition> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmStorageModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleDefinition> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmStorageModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13577,20 +12563,14 @@ impl ::core::convert::From<&IFsrmStorageModuleDefinition> for super::super::Syst
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmStorageModuleDefinition> for IFsrmObject {
     fn from(value: IFsrmStorageModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleDefinition> for &'a IFsrmObject {
+    fn from(value: &'a IFsrmStorageModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13601,20 +12581,14 @@ impl ::core::convert::From<&IFsrmStorageModuleDefinition> for IFsrmObject {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmObject> for &'a IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmObject> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmStorageModuleDefinition> for IFsrmPipelineModuleDefinition {
     fn from(value: IFsrmStorageModuleDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleDefinition> for &'a IFsrmPipelineModuleDefinition {
+    fn from(value: &'a IFsrmStorageModuleDefinition) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13622,18 +12596,6 @@ impl ::core::convert::From<IFsrmStorageModuleDefinition> for IFsrmPipelineModule
 impl ::core::convert::From<&IFsrmStorageModuleDefinition> for IFsrmPipelineModuleDefinition {
     fn from(value: &IFsrmStorageModuleDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition> for IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleDefinition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition> for &'a IFsrmStorageModuleDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleDefinition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13681,9 +12643,9 @@ pub struct IFsrmStorageModuleImplementation(::windows::core::IUnknown);
 impl IFsrmStorageModuleImplementation {
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnLoad<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPipelineModuleDefinition>>(&self, moduledefinition: Param0) -> ::windows::core::Result<IFsrmPipelineModuleConnector> {
+    pub unsafe fn OnLoad<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPipelineModuleDefinition>>>(&self, moduledefinition: Param0) -> ::windows::core::Result<IFsrmPipelineModuleConnector> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OnLoad)(::windows::core::Interface::as_raw(self), moduledefinition.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleConnector>(result__)
+        (::windows::core::Interface::vtable(self).base__.OnLoad)(::windows::core::Interface::as_raw(self), moduledefinition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleConnector>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
     pub unsafe fn OnUnload(&self) -> ::windows::core::Result<()> {
@@ -13691,23 +12653,29 @@ impl IFsrmStorageModuleImplementation {
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UseDefinitions<'a, Param0: ::windows::core::IntoParam<'a, IFsrmCollection>>(&self, propertydefinitions: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UseDefinitions)(::windows::core::Interface::as_raw(self), propertydefinitions.into_param().abi()).ok()
+    pub unsafe fn UseDefinitions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmCollection>>>(&self, propertydefinitions: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UseDefinitions)(::windows::core::Interface::as_raw(self), propertydefinitions.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadProperties<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPropertyBag>>(&self, propertybag: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadProperties)(::windows::core::Interface::as_raw(self), propertybag.into_param().abi()).ok()
+    pub unsafe fn LoadProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>>(&self, propertybag: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadProperties)(::windows::core::Interface::as_raw(self), propertybag.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveProperties<'a, Param0: ::windows::core::IntoParam<'a, IFsrmPropertyBag>>(&self, propertybag: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveProperties)(::windows::core::Interface::as_raw(self), propertybag.into_param().abi()).ok()
+    pub unsafe fn SaveProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IFsrmPropertyBag>>>(&self, propertybag: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SaveProperties)(::windows::core::Interface::as_raw(self), propertybag.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmStorageModuleImplementation> for ::windows::core::IUnknown {
     fn from(value: IFsrmStorageModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleImplementation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFsrmStorageModuleImplementation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13718,20 +12686,14 @@ impl ::core::convert::From<&IFsrmStorageModuleImplementation> for ::windows::cor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFsrmStorageModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFsrmStorageModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmStorageModuleImplementation> for super::super::System::Com::IDispatch {
     fn from(value: IFsrmStorageModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleImplementation> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFsrmStorageModuleImplementation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13742,20 +12704,14 @@ impl ::core::convert::From<&IFsrmStorageModuleImplementation> for super::super::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFsrmStorageModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFsrmStorageModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFsrmStorageModuleImplementation> for IFsrmPipelineModuleImplementation {
     fn from(value: IFsrmStorageModuleImplementation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFsrmStorageModuleImplementation> for &'a IFsrmPipelineModuleImplementation {
+    fn from(value: &'a IFsrmStorageModuleImplementation) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13763,18 +12719,6 @@ impl ::core::convert::From<IFsrmStorageModuleImplementation> for IFsrmPipelineMo
 impl ::core::convert::From<&IFsrmStorageModuleImplementation> for IFsrmPipelineModuleImplementation {
     fn from(value: &IFsrmStorageModuleImplementation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleImplementation> for IFsrmStorageModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleImplementation> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFsrmPipelineModuleImplementation> for &'a IFsrmStorageModuleImplementation {
-    fn into_param(self) -> ::windows::core::Param<'a, IFsrmPipelineModuleImplementation> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -56,18 +56,18 @@ pub struct INamedPolicyStatics_Vtbl {
 pub struct NamedPolicy;
 impl NamedPolicy {
     #[doc = "*Required features: `\"Management_Policies\"`*"]
-    pub fn GetPolicyFromPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(area: Param0, name: Param1) -> ::windows::core::Result<NamedPolicyData> {
+    pub fn GetPolicyFromPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(area: Param0, name: Param1) -> ::windows::core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPolicyFromPath)(::windows::core::Interface::as_raw(this), area.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
+            (::windows::core::Interface::vtable(this).GetPolicyFromPath)(::windows::core::Interface::as_raw(this), area.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
         })
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetPolicyFromPathForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, area: Param1, name: Param2) -> ::windows::core::Result<NamedPolicyData> {
+    pub fn GetPolicyFromPathForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, area: Param1, name: Param2) -> ::windows::core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPolicyFromPathForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), area.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
+            (::windows::core::Interface::vtable(this).GetPolicyFromPathForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), area.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<NamedPolicyData>(result__)
         })
     }
     #[doc(hidden)]
@@ -175,18 +175,18 @@ impl NamedPolicyData {
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>>>(&self, changedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<NamedPolicyData, ::windows::core::IInspectable>>>>(&self, changedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), changedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
 }
 impl ::core::clone::Clone for NamedPolicyData {
@@ -229,14 +229,9 @@ impl ::core::convert::From<&NamedPolicyData> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NamedPolicyData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NamedPolicyData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NamedPolicyData> for &::windows::core::IUnknown {
+    fn from(value: &NamedPolicyData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NamedPolicyData> for ::windows::core::IInspectable {
@@ -249,14 +244,9 @@ impl ::core::convert::From<&NamedPolicyData> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NamedPolicyData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NamedPolicyData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NamedPolicyData> for &::windows::core::IInspectable {
+    fn from(value: &NamedPolicyData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for NamedPolicyData {}

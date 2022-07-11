@@ -206,14 +206,9 @@ impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -226,14 +221,9 @@ impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -248,14 +238,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -270,14 +257,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -292,14 +276,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -314,14 +295,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> for &AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderAddAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
@@ -421,14 +399,9 @@ impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventA
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -441,14 +414,9 @@ impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventA
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -463,14 +431,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -485,14 +450,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -507,14 +469,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -529,14 +488,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderRemoveAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
@@ -636,14 +592,9 @@ impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEvent
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -656,14 +607,9 @@ impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEvent
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -678,14 +624,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -700,14 +643,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -722,14 +662,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -744,14 +681,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderReplaceAppointmentActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
@@ -867,14 +801,9 @@ impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedE
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -887,14 +816,9 @@ impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedE
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
@@ -909,14 +833,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -931,14 +852,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -953,14 +871,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -975,14 +890,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
@@ -1091,14 +1003,9 @@ impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
@@ -1111,14 +1018,9 @@ impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
@@ -1133,14 +1035,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -1155,14 +1054,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -1177,14 +1073,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -1199,14 +1092,11 @@ impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderShowTimeFrameActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
@@ -1265,14 +1155,9 @@ impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
@@ -1285,14 +1170,9 @@ impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
@@ -1307,14 +1187,11 @@ impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for IBackgroundActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundActivatedEventArgs> for BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundActivatedEventArgs> for &BackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundActivatedEventArgs> {
-        ::core::convert::TryInto::<IBackgroundActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<'a, IBackgroundActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
@@ -1405,14 +1282,9 @@ impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
@@ -1425,14 +1297,9 @@ impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
@@ -1447,14 +1314,11 @@ impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -1469,14 +1333,11 @@ impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {
@@ -1491,14 +1352,11 @@ impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IBar
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBarcodeScannerPreviewActivatedEventArgs> for BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IBarcodeScannerPreviewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBarcodeScannerPreviewActivatedEventArgs> for &BarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IBarcodeScannerPreviewActivatedEventArgs> {
-        ::core::convert::TryInto::<IBarcodeScannerPreviewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IBarcodeScannerPreviewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
@@ -1590,14 +1448,9 @@ impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
@@ -1610,14 +1463,9 @@ impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
@@ -1632,14 +1480,11 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -1654,14 +1499,11 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
@@ -1676,14 +1518,11 @@ impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ICachedF
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICachedFileUpdaterActivatedEventArgs> for CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICachedFileUpdaterActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICachedFileUpdaterActivatedEventArgs> for &CachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICachedFileUpdaterActivatedEventArgs> {
-        ::core::convert::TryInto::<ICachedFileUpdaterActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, ICachedFileUpdaterActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CachedFileUpdaterActivatedEventArgs {}
@@ -1773,14 +1612,9 @@ impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -1793,14 +1627,9 @@ impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
@@ -1815,14 +1644,11 @@ impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
@@ -1837,14 +1663,11 @@ impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ICameraSett
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICameraSettingsActivatedEventArgs> for CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICameraSettingsActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICameraSettingsActivatedEventArgs> for &CameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICameraSettingsActivatedEventArgs> {
-        ::core::convert::TryInto::<ICameraSettingsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, ICameraSettingsActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CameraSettingsActivatedEventArgs {}
@@ -1935,14 +1758,9 @@ impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
@@ -1955,14 +1773,9 @@ impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgs {
@@ -1977,14 +1790,11 @@ impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -1999,14 +1809,11 @@ impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for ICommandLineActivatedEventArgs {
@@ -2021,14 +1828,11 @@ impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ICommandLineAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommandLineActivatedEventArgs> for CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommandLineActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommandLineActivatedEventArgs> for &CommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommandLineActivatedEventArgs> {
-        ::core::convert::TryInto::<ICommandLineActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, ICommandLineActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CommandLineActivatedEventArgs {}
@@ -2116,14 +1920,9 @@ impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IUnknown {
+    fn from(value: &CommandLineActivationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IInspectable {
@@ -2136,14 +1935,9 @@ impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CommandLineActivationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IInspectable {
+    fn from(value: &CommandLineActivationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
@@ -2250,14 +2044,9 @@ impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -2270,14 +2059,9 @@ impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IActivatedEventArgs {
@@ -2292,14 +2076,11 @@ impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IContactActivatedEventArgs {
@@ -2314,14 +2095,11 @@ impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IContactCallActivatedEventArgs {
@@ -2336,14 +2114,11 @@ impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactCallAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactCallActivatedEventArgs> for ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactCallActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactCallActivatedEventArgs> for &ContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactCallActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactCallActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactCallActivatedEventArgs {}
@@ -2443,14 +2218,9 @@ impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
@@ -2463,14 +2233,9 @@ impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IActivatedEventArgs {
@@ -2485,14 +2250,11 @@ impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IContactActivatedEventArgs {
@@ -2507,14 +2269,11 @@ impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IContactMapActivatedEventArgs {
@@ -2529,14 +2288,11 @@ impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactMapActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactMapActivatedEventArgs> for ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactMapActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactMapActivatedEventArgs> for &ContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactMapActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactMapActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactMapActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactMapActivatedEventArgs {}
@@ -2643,14 +2399,9 @@ impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
@@ -2663,14 +2414,9 @@ impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IActivatedEventArgs {
@@ -2685,14 +2431,11 @@ impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IContactActivatedEventArgs {
@@ -2707,14 +2450,11 @@ impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IContactMessageActivatedEventArgs {
@@ -2729,14 +2469,11 @@ impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactMes
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactMessageActivatedEventArgs> for ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactMessageActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactMessageActivatedEventArgs> for &ContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactMessageActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactMessageActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactMessageActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactMessageActivatedEventArgs {}
@@ -2837,14 +2574,9 @@ impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
@@ -2857,14 +2589,9 @@ impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgs {
@@ -2879,14 +2606,11 @@ impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -2901,14 +2625,11 @@ impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IContactPanelActivatedEventArgs {
@@ -2923,14 +2644,11 @@ impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IContactPanel
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactPanelActivatedEventArgs> for ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactPanelActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactPanelActivatedEventArgs> for &ContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactPanelActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactPanelActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IContactPanelActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactPanelActivatedEventArgs {}
@@ -3013,14 +2731,9 @@ impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
@@ -3033,14 +2746,9 @@ impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IActivatedEventArgs {
@@ -3055,14 +2763,11 @@ impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IContactPickerActivatedEventArgs {
@@ -3077,14 +2782,11 @@ impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IContactPick
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactPickerActivatedEventArgs> for ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactPickerActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactPickerActivatedEventArgs> for &ContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactPickerActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactPickerActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IContactPickerActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactPickerActivatedEventArgs {}
@@ -3191,14 +2893,9 @@ impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
@@ -3211,14 +2908,9 @@ impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IActivatedEventArgs {
@@ -3233,14 +2925,11 @@ impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IContactActivatedEventArgs {
@@ -3255,14 +2944,11 @@ impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IContactPostActivatedEventArgs {
@@ -3277,14 +2963,11 @@ impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactPostAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactPostActivatedEventArgs> for ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactPostActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactPostActivatedEventArgs> for &ContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactPostActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactPostActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactPostActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactPostActivatedEventArgs {}
@@ -3391,14 +3074,9 @@ impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -3411,14 +3089,9 @@ impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
@@ -3433,14 +3106,11 @@ impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IContactActivatedEventArgs {
@@ -3455,14 +3125,11 @@ impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
@@ -3477,14 +3144,11 @@ impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactV
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactVideoCallActivatedEventArgs> for ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactVideoCallActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactVideoCallActivatedEventArgs> for &ContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactVideoCallActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactVideoCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactVideoCallActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContactVideoCallActivatedEventArgs {}
@@ -3600,14 +3264,9 @@ impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IInspectable {
@@ -3620,14 +3279,9 @@ impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgs {
@@ -3642,14 +3296,11 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -3664,14 +3315,11 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -3686,14 +3334,11 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IApplicationViewAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IDeviceActivatedEventArgs {
@@ -3708,14 +3353,11 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IDeviceActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDeviceActivatedEventArgs> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDeviceActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDeviceActivatedEventArgs> for &DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDeviceActivatedEventArgs> {
-        ::core::convert::TryInto::<IDeviceActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IDeviceActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IViewSwitcherProvider {
@@ -3730,14 +3372,11 @@ impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IViewSwitcherProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &DeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DeviceActivatedEventArgs {}
@@ -3829,14 +3468,9 @@ impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
@@ -3849,14 +3483,9 @@ impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgs {
@@ -3871,14 +3500,11 @@ impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -3893,14 +3519,11 @@ impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IDevicePairingActivatedEventArgs {
@@ -3915,14 +3538,11 @@ impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IDevicePairi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDevicePairingActivatedEventArgs> for DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDevicePairingActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDevicePairingActivatedEventArgs> for &DevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDevicePairingActivatedEventArgs> {
-        ::core::convert::TryInto::<IDevicePairingActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IDevicePairingActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DevicePairingActivatedEventArgs {}
@@ -4046,14 +3666,9 @@ impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
@@ -4066,14 +3681,9 @@ impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgs {
@@ -4088,14 +3698,11 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -4110,14 +3717,11 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -4132,14 +3736,11 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IApplicationV
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IDialReceiverActivatedEventArgs {
@@ -4154,14 +3755,11 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IDialReceiver
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDialReceiverActivatedEventArgs> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDialReceiverActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDialReceiverActivatedEventArgs> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDialReceiverActivatedEventArgs> {
-        ::core::convert::TryInto::<IDialReceiverActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IDialReceiverActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for ILaunchActivatedEventArgs {
@@ -4176,14 +3774,11 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ILaunchActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IViewSwitcherProvider {
@@ -4198,14 +3793,11 @@ impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IViewSwitcher
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &DialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DialReceiverActivatedEventArgs {}
@@ -4339,14 +3931,9 @@ impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IInspectable {
@@ -4359,14 +3946,9 @@ impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgs {
@@ -4381,14 +3963,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -4403,14 +3982,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgsWi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -4425,14 +4001,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IApplicationViewActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgs {
@@ -4447,14 +4020,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgs> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgs> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgs> {
-        ::core::convert::TryInto::<IFileActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {
@@ -4469,14 +4039,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> {
-        ::core::convert::TryInto::<IFileActivatedEventArgsWithCallerPackageFamilyName>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
@@ -4491,14 +4058,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgsWithNeighboringFiles> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgsWithNeighboringFiles> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgsWithNeighboringFiles> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgsWithNeighboringFiles> {
-        ::core::convert::TryInto::<IFileActivatedEventArgsWithNeighboringFiles>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithNeighboringFiles> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileActivatedEventArgs> for IViewSwitcherProvider {
@@ -4513,14 +4077,11 @@ impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IViewSwitcherProvider
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &FileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileActivatedEventArgs {}
@@ -4620,14 +4181,9 @@ impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
@@ -4640,14 +4196,9 @@ impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
@@ -4662,14 +4213,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -4684,14 +4232,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
@@ -4706,14 +4251,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerActivatedEventArgs> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerActivatedEventArgs> for &FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerActivatedEventArgs> {
-        ::core::convert::TryInto::<IFileOpenPickerActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs2 {
@@ -4728,14 +4270,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerActivatedEventArgs2> for FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerActivatedEventArgs2> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerActivatedEventArgs2> for &FileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerActivatedEventArgs2> {
-        ::core::convert::TryInto::<IFileOpenPickerActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
@@ -4848,15 +4387,9 @@ impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4872,15 +4405,9 @@ impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4898,15 +4425,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4924,15 +4447,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4950,15 +4469,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IContinu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4976,15 +4491,11 @@ impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IFileOpe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerContinuationEventArgs> for FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerContinuationEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerContinuationEventArgs> for &FileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerContinuationEventArgs> {
-        ::core::convert::TryInto::<IFileOpenPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5094,14 +4605,9 @@ impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
@@ -5114,14 +4620,9 @@ impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
@@ -5136,14 +4637,11 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -5158,14 +4656,11 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
@@ -5180,14 +4675,11 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerActivatedEventArgs> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerActivatedEventArgs> for &FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerActivatedEventArgs> {
-        ::core::convert::TryInto::<IFileSavePickerActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs2 {
@@ -5202,14 +4694,11 @@ impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerActivatedEventArgs2> for FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerActivatedEventArgs2> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerActivatedEventArgs2> for &FileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerActivatedEventArgs2> {
-        ::core::convert::TryInto::<IFileSavePickerActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
@@ -5322,15 +4811,9 @@ impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5346,15 +4829,9 @@ impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5372,15 +4849,11 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5398,15 +4871,11 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5424,15 +4893,11 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IContinu
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5450,15 +4915,11 @@ impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IFileSav
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerContinuationEventArgs> for FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerContinuationEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerContinuationEventArgs> for &FileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerContinuationEventArgs> {
-        ::core::convert::TryInto::<IFileSavePickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileSavePickerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5573,15 +5034,9 @@ impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::co
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5597,15 +5052,9 @@ impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::co
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5623,15 +5072,11 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivated
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5649,15 +5094,11 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivated
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5675,15 +5116,11 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IContinuat
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5701,15 +5138,11 @@ impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IFolderPic
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IFolderPickerContinuationEventArgs> for FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFolderPickerContinuationEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IFolderPickerContinuationEventArgs> for &FolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IFolderPickerContinuationEventArgs> {
-        ::core::convert::TryInto::<IFolderPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFolderPickerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5750,19 +5183,14 @@ impl ::core::convert::From<IActivatedEventArgs> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IActivatedEventArgs> for ::windows::core::IInspectable {
@@ -5770,19 +5198,14 @@ impl ::core::convert::From<IActivatedEventArgs> for ::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IActivatedEventArgs {
@@ -5863,19 +5286,14 @@ impl ::core::convert::From<IActivatedEventArgsWithUser> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActivatedEventArgsWithUser> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IActivatedEventArgsWithUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActivatedEventArgsWithUser> for ::windows::core::IUnknown {
     fn from(value: &IActivatedEventArgsWithUser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActivatedEventArgsWithUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActivatedEventArgsWithUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IActivatedEventArgsWithUser> for ::windows::core::IInspectable {
@@ -5883,19 +5301,14 @@ impl ::core::convert::From<IActivatedEventArgsWithUser> for ::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActivatedEventArgsWithUser> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IActivatedEventArgsWithUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActivatedEventArgsWithUser> for ::windows::core::IInspectable {
     fn from(value: &IActivatedEventArgsWithUser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IActivatedEventArgsWithUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IActivatedEventArgsWithUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IActivatedEventArgsWithUser> for IActivatedEventArgs {
@@ -5910,14 +5323,11 @@ impl ::core::convert::TryFrom<&IActivatedEventArgsWithUser> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IActivatedEventArgsWithUser {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IActivatedEventArgsWithUser {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IActivatedEventArgsWithUser> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IActivatedEventArgsWithUser) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IActivatedEventArgsWithUser {
@@ -5998,19 +5408,14 @@ impl ::core::convert::From<IApplicationViewActivatedEventArgs> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IApplicationViewActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IApplicationViewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IApplicationViewActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IApplicationViewActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IApplicationViewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IApplicationViewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IApplicationViewActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6018,19 +5423,14 @@ impl ::core::convert::From<IApplicationViewActivatedEventArgs> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IApplicationViewActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IApplicationViewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IApplicationViewActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IApplicationViewActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IApplicationViewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IApplicationViewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IApplicationViewActivatedEventArgs> for IActivatedEventArgs {
@@ -6045,14 +5445,11 @@ impl ::core::convert::TryFrom<&IApplicationViewActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IApplicationViewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IApplicationViewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IApplicationViewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IApplicationViewActivatedEventArgs {
@@ -6130,19 +5527,14 @@ impl ::core::convert::From<IAppointmentsProviderActivatedEventArgs> for ::window
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAppointmentsProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IAppointmentsProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppointmentsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppointmentsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppointmentsProviderActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6150,19 +5542,14 @@ impl ::core::convert::From<IAppointmentsProviderActivatedEventArgs> for ::window
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAppointmentsProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IAppointmentsProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAppointmentsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAppointmentsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -6177,14 +5564,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderActivatedEventArgs> for IAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IAppointmentsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IAppointmentsProviderActivatedEventArgs {
@@ -6271,19 +5655,14 @@ impl ::core::convert::From<IAppointmentsProviderAddAppointmentActivatedEventArgs
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderAddAppointmentActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6291,19 +5670,14 @@ impl ::core::convert::From<IAppointmentsProviderAddAppointmentActivatedEventArgs
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderAddAppointmentActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -6318,14 +5692,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -6340,14 +5711,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -6437,19 +5805,14 @@ impl ::core::convert::From<IAppointmentsProviderRemoveAppointmentActivatedEventA
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6457,19 +5820,14 @@ impl ::core::convert::From<IAppointmentsProviderRemoveAppointmentActivatedEventA
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -6484,14 +5842,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -6506,14 +5861,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -6603,19 +5955,14 @@ impl ::core::convert::From<IAppointmentsProviderReplaceAppointmentActivatedEvent
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6623,19 +5970,14 @@ impl ::core::convert::From<IAppointmentsProviderReplaceAppointmentActivatedEvent
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
@@ -6650,14 +5992,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -6672,14 +6011,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -6785,19 +6121,14 @@ impl ::core::convert::From<IAppointmentsProviderShowAppointmentDetailsActivatedE
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6805,19 +6136,14 @@ impl ::core::convert::From<IAppointmentsProviderShowAppointmentDetailsActivatedE
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
@@ -6832,14 +6158,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -6854,14 +6177,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -6962,19 +6282,14 @@ impl ::core::convert::From<IAppointmentsProviderShowTimeFrameActivatedEventArgs>
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
@@ -6982,19 +6297,14 @@ impl ::core::convert::From<IAppointmentsProviderShowTimeFrameActivatedEventArgs>
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAppointmentsProviderShowTimeFrameActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
@@ -7009,14 +6319,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IAppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
@@ -7031,14 +6338,11 @@ impl ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAppointmentsProviderActivatedEventArgs> for &IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IAppointmentsProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IAppointmentsProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IAppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IAppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -7100,19 +6404,14 @@ impl ::core::convert::From<IBackgroundActivatedEventArgs> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7120,19 +6419,14 @@ impl ::core::convert::From<IBackgroundActivatedEventArgs> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IBackgroundActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBackgroundActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundActivatedEventArgs {
@@ -7213,19 +6507,14 @@ impl ::core::convert::From<IBarcodeScannerPreviewActivatedEventArgs> for ::windo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBarcodeScannerPreviewActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IBarcodeScannerPreviewActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7233,19 +6522,14 @@ impl ::core::convert::From<IBarcodeScannerPreviewActivatedEventArgs> for ::windo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBarcodeScannerPreviewActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IBarcodeScannerPreviewActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
@@ -7260,14 +6544,11 @@ impl ::core::convert::TryFrom<&IBarcodeScannerPreviewActivatedEventArgs> for IAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IBarcodeScannerPreviewActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBarcodeScannerPreviewActivatedEventArgs {
@@ -7346,19 +6627,14 @@ impl ::core::convert::From<ICachedFileUpdaterActivatedEventArgs> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICachedFileUpdaterActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ICachedFileUpdaterActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7366,19 +6642,14 @@ impl ::core::convert::From<ICachedFileUpdaterActivatedEventArgs> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICachedFileUpdaterActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ICachedFileUpdaterActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ICachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
@@ -7393,14 +6664,11 @@ impl ::core::convert::TryFrom<&ICachedFileUpdaterActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ICachedFileUpdaterActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ICachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ICachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ICachedFileUpdaterActivatedEventArgs {
@@ -7489,19 +6757,14 @@ impl ::core::convert::From<ICameraSettingsActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICameraSettingsActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ICameraSettingsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7509,19 +6772,14 @@ impl ::core::convert::From<ICameraSettingsActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICameraSettingsActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ICameraSettingsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ICameraSettingsActivatedEventArgs> for IActivatedEventArgs {
@@ -7536,14 +6794,11 @@ impl ::core::convert::TryFrom<&ICameraSettingsActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ICameraSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ICameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ICameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ICameraSettingsActivatedEventArgs {
@@ -7622,19 +6877,14 @@ impl ::core::convert::From<ICommandLineActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommandLineActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommandLineActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ICommandLineActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICommandLineActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7642,19 +6892,14 @@ impl ::core::convert::From<ICommandLineActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommandLineActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommandLineActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ICommandLineActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ICommandLineActivatedEventArgs> for IActivatedEventArgs {
@@ -7669,14 +6914,11 @@ impl ::core::convert::TryFrom<&ICommandLineActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ICommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ICommandLineActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ICommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ICommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ICommandLineActivatedEventArgs {
@@ -7774,19 +7016,14 @@ impl ::core::convert::From<IContactActivatedEventArgs> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7794,19 +7031,14 @@ impl ::core::convert::From<IContactActivatedEventArgs> for ::windows::core::IIns
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactActivatedEventArgs> for IActivatedEventArgs {
@@ -7821,14 +7053,11 @@ impl ::core::convert::TryFrom<&IContactActivatedEventArgs> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactActivatedEventArgs {
@@ -7931,19 +7160,14 @@ impl ::core::convert::From<IContactCallActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactCallActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -7951,19 +7175,14 @@ impl ::core::convert::From<IContactCallActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactCallActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactCallActivatedEventArgs> for IActivatedEventArgs {
@@ -7978,14 +7197,11 @@ impl ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IContactCallActivatedEventArgs> for IContactActivatedEventArgs {
@@ -8000,14 +7216,11 @@ impl ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for IContactActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &IContactCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactCallActivatedEventArgs {
@@ -8108,19 +7321,14 @@ impl ::core::convert::From<IContactMapActivatedEventArgs> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactMapActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactMapActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactMapActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactMapActivatedEventArgs> for ::windows::core::IInspectable {
@@ -8128,19 +7336,14 @@ impl ::core::convert::From<IContactMapActivatedEventArgs> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactMapActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactMapActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactMapActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactMapActivatedEventArgs> for IActivatedEventArgs {
@@ -8155,14 +7358,11 @@ impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IContactMapActivatedEventArgs> for IContactActivatedEventArgs {
@@ -8177,14 +7377,11 @@ impl ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for IContactActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &IContactMapActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactMapActivatedEventArgs {
@@ -8294,19 +7491,14 @@ impl ::core::convert::From<IContactMessageActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactMessageActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactMessageActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
@@ -8314,19 +7506,14 @@ impl ::core::convert::From<IContactMessageActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactMessageActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactMessageActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactMessageActivatedEventArgs> for IActivatedEventArgs {
@@ -8341,14 +7528,11 @@ impl ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IContactMessageActivatedEventArgs> for IContactActivatedEventArgs {
@@ -8363,14 +7547,11 @@ impl ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for IContactAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &IContactMessageActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactMessageActivatedEventArgs {
@@ -8439,19 +7620,14 @@ impl ::core::convert::From<IContactPanelActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactPanelActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactPanelActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
@@ -8459,19 +7635,14 @@ impl ::core::convert::From<IContactPanelActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactPanelActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactPanelActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactPanelActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IContactPanelActivatedEventArgs {
@@ -8557,19 +7728,14 @@ impl ::core::convert::From<IContactPickerActivatedEventArgs> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactPickerActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactPickerActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
@@ -8577,19 +7743,14 @@ impl ::core::convert::From<IContactPickerActivatedEventArgs> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactPickerActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactPickerActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactPickerActivatedEventArgs> for IActivatedEventArgs {
@@ -8604,14 +7765,11 @@ impl ::core::convert::TryFrom<&IContactPickerActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactPickerActivatedEventArgs {
@@ -8717,19 +7875,14 @@ impl ::core::convert::From<IContactPostActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactPostActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactPostActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactPostActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactPostActivatedEventArgs> for ::windows::core::IInspectable {
@@ -8737,19 +7890,14 @@ impl ::core::convert::From<IContactPostActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactPostActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactPostActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactPostActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactPostActivatedEventArgs> for IActivatedEventArgs {
@@ -8764,14 +7912,11 @@ impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IContactPostActivatedEventArgs> for IContactActivatedEventArgs {
@@ -8786,14 +7931,11 @@ impl ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for IContactActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &IContactPostActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactPostActivatedEventArgs {
@@ -8901,19 +8043,14 @@ impl ::core::convert::From<IContactVideoCallActivatedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactVideoCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactVideoCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -8921,19 +8058,14 @@ impl ::core::convert::From<IContactVideoCallActivatedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactVideoCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactVideoCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
@@ -8948,14 +8080,11 @@ impl ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IContactVideoCallActivatedEventArgs> for IContactActivatedEventArgs {
@@ -8970,14 +8099,11 @@ impl ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for IContact
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContactActivatedEventArgs> for &IContactVideoCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContactActivatedEventArgs> {
-        ::core::convert::TryInto::<IContactActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactVideoCallActivatedEventArgs {
@@ -9060,19 +8186,14 @@ impl ::core::convert::From<IContactsProviderActivatedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactsProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContactsProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactsProviderActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContactsProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContactsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContactsProviderActivatedEventArgs> for ::windows::core::IInspectable {
@@ -9080,19 +8201,14 @@ impl ::core::convert::From<IContactsProviderActivatedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContactsProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContactsProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContactsProviderActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContactsProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContactsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContactsProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -9107,14 +8223,11 @@ impl ::core::convert::TryFrom<&IContactsProviderActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContactsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContactsProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContactsProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContactsProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContactsProviderActivatedEventArgs {
@@ -9193,19 +8306,14 @@ impl ::core::convert::From<IContinuationActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContinuationActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContinuationActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContinuationActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IContinuationActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContinuationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContinuationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContinuationActivatedEventArgs> for ::windows::core::IInspectable {
@@ -9213,19 +8321,14 @@ impl ::core::convert::From<IContinuationActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContinuationActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContinuationActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContinuationActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IContinuationActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContinuationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContinuationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IContinuationActivatedEventArgs> for IActivatedEventArgs {
@@ -9240,14 +8343,11 @@ impl ::core::convert::TryFrom<&IContinuationActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IContinuationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IContinuationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IContinuationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IContinuationActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IContinuationActivatedEventArgs {
@@ -9336,19 +8436,14 @@ impl ::core::convert::From<IDeviceActivatedEventArgs> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDeviceActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDeviceActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IDeviceActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDeviceActivatedEventArgs> for ::windows::core::IInspectable {
@@ -9356,19 +8451,14 @@ impl ::core::convert::From<IDeviceActivatedEventArgs> for ::windows::core::IInsp
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDeviceActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDeviceActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IDeviceActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IDeviceActivatedEventArgs> for IActivatedEventArgs {
@@ -9383,14 +8473,11 @@ impl ::core::convert::TryFrom<&IDeviceActivatedEventArgs> for IActivatedEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IDeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IDeviceActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IDeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IDeviceActivatedEventArgs {
@@ -9470,19 +8557,14 @@ impl ::core::convert::From<IDevicePairingActivatedEventArgs> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDevicePairingActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IDevicePairingActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
@@ -9490,19 +8572,14 @@ impl ::core::convert::From<IDevicePairingActivatedEventArgs> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDevicePairingActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IDevicePairingActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IDevicePairingActivatedEventArgs> for IActivatedEventArgs {
@@ -9517,14 +8594,11 @@ impl ::core::convert::TryFrom<&IDevicePairingActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IDevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IDevicePairingActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IDevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IDevicePairingActivatedEventArgs {
@@ -9621,19 +8695,14 @@ impl ::core::convert::From<IDialReceiverActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDialReceiverActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IDialReceiverActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
@@ -9641,19 +8710,14 @@ impl ::core::convert::From<IDialReceiverActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDialReceiverActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IDialReceiverActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IDialReceiverActivatedEventArgs> for IActivatedEventArgs {
@@ -9668,14 +8732,11 @@ impl ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IDialReceiverActivatedEventArgs> for ILaunchActivatedEventArgs {
@@ -9690,14 +8751,11 @@ impl ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ILaunchActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for &IDialReceiverActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IDialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IDialReceiverActivatedEventArgs {
@@ -9784,19 +8842,14 @@ impl ::core::convert::From<IFileActivatedEventArgs> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IFileActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileActivatedEventArgs> for ::windows::core::IInspectable {
@@ -9804,19 +8857,14 @@ impl ::core::convert::From<IFileActivatedEventArgs> for ::windows::core::IInspec
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IFileActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IFileActivatedEventArgs> for IActivatedEventArgs {
@@ -9831,14 +8879,11 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgs> for IActivatedEventArgs 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IFileActivatedEventArgs {
@@ -9920,19 +8965,14 @@ impl ::core::convert::From<IFileActivatedEventArgsWithCallerPackageFamilyName> f
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithCallerPackageFamilyName> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IUnknown {
     fn from(value: &IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IInspectable {
@@ -9940,19 +8980,14 @@ impl ::core::convert::From<IFileActivatedEventArgsWithCallerPackageFamilyName> f
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithCallerPackageFamilyName> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::IInspectable {
     fn from(value: &IFileActivatedEventArgsWithCallerPackageFamilyName) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithCallerPackageFamilyName> for IActivatedEventArgs {
@@ -9967,14 +9002,11 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithCallerPackageFamilyNam
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileActivatedEventArgsWithCallerPackageFamilyName {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgsWithCallerPackageFamilyName> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileActivatedEventArgsWithCallerPackageFamilyName) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IFileActivatedEventArgsWithCallerPackageFamilyName {
@@ -10070,19 +9102,14 @@ impl ::core::convert::From<IFileActivatedEventArgsWithNeighboringFiles> for ::wi
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithNeighboringFiles> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileActivatedEventArgsWithNeighboringFiles) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IUnknown {
     fn from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IInspectable {
@@ -10090,19 +9117,14 @@ impl ::core::convert::From<IFileActivatedEventArgsWithNeighboringFiles> for ::wi
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileActivatedEventArgsWithNeighboringFiles> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileActivatedEventArgsWithNeighboringFiles) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::IInspectable {
     fn from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithNeighboringFiles> for IActivatedEventArgs {
@@ -10117,14 +9139,11 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IFileActivatedEventArgsWithNeighboringFiles> for IFileActivatedEventArgs {
@@ -10139,14 +9158,11 @@ impl ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IFileActivatedEventArgs> for &IFileActivatedEventArgsWithNeighboringFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, IFileActivatedEventArgs> {
-        ::core::convert::TryInto::<IFileActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileActivatedEventArgsWithNeighboringFiles> for ::windows::core::InParam<'a, IFileActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileActivatedEventArgsWithNeighboringFiles) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IFileActivatedEventArgsWithNeighboringFiles {
@@ -10228,19 +9244,14 @@ impl ::core::convert::From<IFileOpenPickerActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IFileOpenPickerActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
@@ -10248,19 +9259,14 @@ impl ::core::convert::From<IFileOpenPickerActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IFileOpenPickerActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IFileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
@@ -10275,14 +9281,11 @@ impl ::core::convert::TryFrom<&IFileOpenPickerActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileOpenPickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IFileOpenPickerActivatedEventArgs {
@@ -10339,19 +9342,14 @@ impl ::core::convert::From<IFileOpenPickerActivatedEventArgs2> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileOpenPickerActivatedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs2> for ::windows::core::IUnknown {
     fn from(value: &IFileOpenPickerActivatedEventArgs2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileOpenPickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileOpenPickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileOpenPickerActivatedEventArgs2> for ::windows::core::IInspectable {
@@ -10359,19 +9357,14 @@ impl ::core::convert::From<IFileOpenPickerActivatedEventArgs2> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileOpenPickerActivatedEventArgs2> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileOpenPickerActivatedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileOpenPickerActivatedEventArgs2> for ::windows::core::IInspectable {
     fn from(value: &IFileOpenPickerActivatedEventArgs2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileOpenPickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileOpenPickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFileOpenPickerActivatedEventArgs2 {
@@ -10463,21 +9456,15 @@ impl ::core::convert::From<IFileOpenPickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IFileOpenPickerContinuationEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IFileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IFileOpenPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10487,21 +9474,15 @@ impl ::core::convert::From<IFileOpenPickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IFileOpenPickerContinuationEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IFileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IFileOpenPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10519,15 +9500,11 @@ impl ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for IActiva
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10545,15 +9522,11 @@ impl ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for IContin
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IFileOpenPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10642,19 +9615,14 @@ impl ::core::convert::From<IFileSavePickerActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IFileSavePickerActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
@@ -10662,19 +9630,14 @@ impl ::core::convert::From<IFileSavePickerActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IFileSavePickerActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IFileSavePickerActivatedEventArgs> for IActivatedEventArgs {
@@ -10689,14 +9652,11 @@ impl ::core::convert::TryFrom<&IFileSavePickerActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileSavePickerActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IFileSavePickerActivatedEventArgs {
@@ -10761,19 +9721,14 @@ impl ::core::convert::From<IFileSavePickerActivatedEventArgs2> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileSavePickerActivatedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileSavePickerActivatedEventArgs2> for ::windows::core::IUnknown {
     fn from(value: &IFileSavePickerActivatedEventArgs2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileSavePickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileSavePickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IFileSavePickerActivatedEventArgs2> for ::windows::core::IInspectable {
@@ -10781,19 +9736,14 @@ impl ::core::convert::From<IFileSavePickerActivatedEventArgs2> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFileSavePickerActivatedEventArgs2> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileSavePickerActivatedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFileSavePickerActivatedEventArgs2> for ::windows::core::IInspectable {
     fn from(value: &IFileSavePickerActivatedEventArgs2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileSavePickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileSavePickerActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFileSavePickerActivatedEventArgs2 {
@@ -10886,21 +9836,15 @@ impl ::core::convert::From<IFileSavePickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IFileSavePickerContinuationEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IFileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IFileSavePickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10910,21 +9854,15 @@ impl ::core::convert::From<IFileSavePickerContinuationEventArgs> for ::windows::
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IFileSavePickerContinuationEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IFileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IFileSavePickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10942,15 +9880,11 @@ impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for IActiva
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -10968,15 +9902,11 @@ impl ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for IContin
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IFileSavePickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -11078,21 +10008,15 @@ impl ::core::convert::From<IFolderPickerContinuationEventArgs> for ::windows::co
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IFolderPickerContinuationEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IFolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IFolderPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -11102,21 +10026,15 @@ impl ::core::convert::From<IFolderPickerContinuationEventArgs> for ::windows::co
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IFolderPickerContinuationEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IFolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IFolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IFolderPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -11134,15 +10052,11 @@ impl ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for IActivate
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -11160,15 +10074,11 @@ impl ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for IContinua
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IFolderPickerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IFolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IFolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -11264,19 +10174,14 @@ impl ::core::convert::From<ILaunchActivatedEventArgs> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILaunchActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ILaunchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILaunchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -11284,19 +10189,14 @@ impl ::core::convert::From<ILaunchActivatedEventArgs> for ::windows::core::IInsp
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILaunchActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ILaunchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -11311,14 +10211,11 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs> for IActivatedEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ILaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ILaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ILaunchActivatedEventArgs {
@@ -11413,19 +10310,14 @@ impl ::core::convert::From<ILaunchActivatedEventArgs2> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILaunchActivatedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILaunchActivatedEventArgs2> for ::windows::core::IUnknown {
     fn from(value: &ILaunchActivatedEventArgs2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILaunchActivatedEventArgs2> for ::windows::core::IInspectable {
@@ -11433,19 +10325,14 @@ impl ::core::convert::From<ILaunchActivatedEventArgs2> for ::windows::core::IIns
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILaunchActivatedEventArgs2> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILaunchActivatedEventArgs2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILaunchActivatedEventArgs2> for ::windows::core::IInspectable {
     fn from(value: &ILaunchActivatedEventArgs2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs2> for IActivatedEventArgs {
@@ -11460,14 +10347,11 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILaunchActivatedEventArgs2) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ILaunchActivatedEventArgs2> for ILaunchActivatedEventArgs {
@@ -11482,14 +10366,11 @@ impl ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ILaunchActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for &ILaunchActivatedEventArgs2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILaunchActivatedEventArgs2> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILaunchActivatedEventArgs2) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ILaunchActivatedEventArgs2 {
@@ -11567,19 +10448,14 @@ impl ::core::convert::From<ILockScreenActivatedEventArgs> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILockScreenActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILockScreenActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILockScreenActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ILockScreenActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILockScreenActivatedEventArgs> for ::windows::core::IInspectable {
@@ -11587,19 +10463,14 @@ impl ::core::convert::From<ILockScreenActivatedEventArgs> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILockScreenActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILockScreenActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILockScreenActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ILockScreenActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ILockScreenActivatedEventArgs> for IActivatedEventArgs {
@@ -11614,14 +10485,11 @@ impl ::core::convert::TryFrom<&ILockScreenActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ILockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ILockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ILockScreenActivatedEventArgs {
@@ -11716,19 +10584,14 @@ impl ::core::convert::From<ILockScreenCallActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILockScreenCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILockScreenCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILockScreenCallActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ILockScreenCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -11736,19 +10599,14 @@ impl ::core::convert::From<ILockScreenCallActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILockScreenCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILockScreenCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ILockScreenCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ILockScreenCallActivatedEventArgs> for IActivatedEventArgs {
@@ -11763,14 +10621,11 @@ impl ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ILockScreenCallActivatedEventArgs> for ILaunchActivatedEventArgs {
@@ -11785,14 +10640,11 @@ impl ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ILaunchAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for &ILockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ILockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ILockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ILockScreenCallActivatedEventArgs {
@@ -11873,19 +10725,14 @@ impl ::core::convert::From<IPhoneCallActivatedEventArgs> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPhoneCallActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPhoneCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPhoneCallActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IPhoneCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -11893,19 +10740,14 @@ impl ::core::convert::From<IPhoneCallActivatedEventArgs> for ::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPhoneCallActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPhoneCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IPhoneCallActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPhoneCallActivatedEventArgs> for IActivatedEventArgs {
@@ -11920,14 +10762,11 @@ impl ::core::convert::TryFrom<&IPhoneCallActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IPhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IPhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPhoneCallActivatedEventArgs {
@@ -12005,19 +10844,14 @@ impl ::core::convert::From<IPickerReturnedActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPickerReturnedActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPickerReturnedActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPickerReturnedActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IPickerReturnedActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12025,19 +10859,14 @@ impl ::core::convert::From<IPickerReturnedActivatedEventArgs> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPickerReturnedActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPickerReturnedActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IPickerReturnedActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPickerReturnedActivatedEventArgs> for IActivatedEventArgs {
@@ -12052,14 +10881,11 @@ impl ::core::convert::TryFrom<&IPickerReturnedActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IPickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IPickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPickerReturnedActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPickerReturnedActivatedEventArgs {
@@ -12137,19 +10963,14 @@ impl ::core::convert::From<IPrelaunchActivatedEventArgs> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrelaunchActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrelaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrelaunchActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IPrelaunchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrelaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrelaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrelaunchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12157,19 +10978,14 @@ impl ::core::convert::From<IPrelaunchActivatedEventArgs> for ::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrelaunchActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrelaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrelaunchActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IPrelaunchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrelaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrelaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPrelaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -12184,14 +11000,11 @@ impl ::core::convert::TryFrom<&IPrelaunchActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IPrelaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IPrelaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPrelaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPrelaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPrelaunchActivatedEventArgs {
@@ -12270,19 +11083,14 @@ impl ::core::convert::From<IPrint3DWorkflowActivatedEventArgs> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrint3DWorkflowActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrint3DWorkflowActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IPrint3DWorkflowActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrint3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrint3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12290,19 +11098,14 @@ impl ::core::convert::From<IPrint3DWorkflowActivatedEventArgs> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrint3DWorkflowActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrint3DWorkflowActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IPrint3DWorkflowActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrint3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrint3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPrint3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
@@ -12317,14 +11120,11 @@ impl ::core::convert::TryFrom<&IPrint3DWorkflowActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IPrint3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IPrint3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPrint3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPrint3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPrint3DWorkflowActivatedEventArgs {
@@ -12406,19 +11206,14 @@ impl ::core::convert::From<IPrintTaskSettingsActivatedEventArgs> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskSettingsActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintTaskSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IPrintTaskSettingsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12426,19 +11221,14 @@ impl ::core::convert::From<IPrintTaskSettingsActivatedEventArgs> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskSettingsActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrintTaskSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IPrintTaskSettingsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
@@ -12453,14 +11243,11 @@ impl ::core::convert::TryFrom<&IPrintTaskSettingsActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IPrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IPrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPrintTaskSettingsActivatedEventArgs {
@@ -12542,19 +11329,14 @@ impl ::core::convert::From<IProtocolActivatedEventArgs> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IProtocolActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProtocolActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IProtocolActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IProtocolActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12562,19 +11344,14 @@ impl ::core::convert::From<IProtocolActivatedEventArgs> for ::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IProtocolActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProtocolActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IProtocolActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IProtocolActivatedEventArgs> for IActivatedEventArgs {
@@ -12589,14 +11366,11 @@ impl ::core::convert::TryFrom<&IProtocolActivatedEventArgs> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IProtocolActivatedEventArgs {
@@ -12686,19 +11460,14 @@ impl ::core::convert::From<IProtocolActivatedEventArgsWithCallerPackageFamilyNam
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IUnknown {
     fn from(value: &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IInspectable {
@@ -12706,19 +11475,14 @@ impl ::core::convert::From<IProtocolActivatedEventArgsWithCallerPackageFamilyNam
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::IInspectable {
     fn from(value: &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for IActivatedEventArgs {
@@ -12733,14 +11497,11 @@ impl ::core::convert::TryFrom<&IProtocolActivatedEventArgsWithCallerPackageFamil
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
@@ -12823,19 +11584,14 @@ impl ::core::convert::From<IProtocolForResultsActivatedEventArgs> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProtocolForResultsActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IProtocolForResultsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProtocolForResultsActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IProtocolForResultsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12843,19 +11599,14 @@ impl ::core::convert::From<IProtocolForResultsActivatedEventArgs> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IProtocolForResultsActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IProtocolForResultsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IProtocolForResultsActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
@@ -12870,14 +11621,11 @@ impl ::core::convert::TryFrom<&IProtocolForResultsActivatedEventArgs> for IActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IProtocolForResultsActivatedEventArgs {
@@ -12958,19 +11706,14 @@ impl ::core::convert::From<IRestrictedLaunchActivatedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRestrictedLaunchActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRestrictedLaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IRestrictedLaunchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -12978,19 +11721,14 @@ impl ::core::convert::From<IRestrictedLaunchActivatedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRestrictedLaunchActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRestrictedLaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IRestrictedLaunchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IRestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -13005,14 +11743,11 @@ impl ::core::convert::TryFrom<&IRestrictedLaunchActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IRestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IRestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IRestrictedLaunchActivatedEventArgs {
@@ -13098,19 +11833,14 @@ impl ::core::convert::From<ISearchActivatedEventArgs> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISearchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISearchActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ISearchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISearchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -13118,19 +11848,14 @@ impl ::core::convert::From<ISearchActivatedEventArgs> for ::windows::core::IInsp
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISearchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISearchActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ISearchActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ISearchActivatedEventArgs> for IActivatedEventArgs {
@@ -13145,14 +11870,11 @@ impl ::core::convert::TryFrom<&ISearchActivatedEventArgs> for IActivatedEventArg
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ISearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ISearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ISearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ISearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ISearchActivatedEventArgs {
@@ -13208,19 +11930,14 @@ impl ::core::convert::From<ISearchActivatedEventArgsWithLinguisticDetails> for :
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgsWithLinguisticDetails> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IUnknown {
     fn from(value: &ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchActivatedEventArgsWithLinguisticDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchActivatedEventArgsWithLinguisticDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IInspectable {
@@ -13228,19 +11945,14 @@ impl ::core::convert::From<ISearchActivatedEventArgsWithLinguisticDetails> for :
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISearchActivatedEventArgsWithLinguisticDetails> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISearchActivatedEventArgsWithLinguisticDetails> for ::windows::core::IInspectable {
     fn from(value: &ISearchActivatedEventArgsWithLinguisticDetails) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISearchActivatedEventArgsWithLinguisticDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISearchActivatedEventArgsWithLinguisticDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISearchActivatedEventArgsWithLinguisticDetails {
@@ -13322,19 +12034,14 @@ impl ::core::convert::From<IShareTargetActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IShareTargetActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IShareTargetActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IShareTargetActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IShareTargetActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
@@ -13342,19 +12049,14 @@ impl ::core::convert::From<IShareTargetActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IShareTargetActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IShareTargetActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IShareTargetActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IShareTargetActivatedEventArgs> for IActivatedEventArgs {
@@ -13369,14 +12071,11 @@ impl ::core::convert::TryFrom<&IShareTargetActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IShareTargetActivatedEventArgs {
@@ -13481,19 +12180,14 @@ impl ::core::convert::From<IStartupTaskActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStartupTaskActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStartupTaskActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStartupTaskActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IStartupTaskActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IStartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
@@ -13501,19 +12195,14 @@ impl ::core::convert::From<IStartupTaskActivatedEventArgs> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStartupTaskActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStartupTaskActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IStartupTaskActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IStartupTaskActivatedEventArgs> for IActivatedEventArgs {
@@ -13528,14 +12217,11 @@ impl ::core::convert::TryFrom<&IStartupTaskActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IStartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IStartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IStartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IStartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IStartupTaskActivatedEventArgs {
@@ -13638,19 +12324,14 @@ impl ::core::convert::From<IToastNotificationActivatedEventArgs> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IToastNotificationActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IToastNotificationActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IToastNotificationActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IToastNotificationActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
@@ -13658,19 +12339,14 @@ impl ::core::convert::From<IToastNotificationActivatedEventArgs> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IToastNotificationActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IToastNotificationActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IToastNotificationActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IToastNotificationActivatedEventArgs> for IActivatedEventArgs {
@@ -13685,14 +12361,11 @@ impl ::core::convert::TryFrom<&IToastNotificationActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IToastNotificationActivatedEventArgs {
@@ -13775,19 +12448,14 @@ impl ::core::convert::From<IUserDataAccountProviderActivatedEventArgs> for ::win
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUserDataAccountProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUserDataAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IUserDataAccountProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
@@ -13795,19 +12463,14 @@ impl ::core::convert::From<IUserDataAccountProviderActivatedEventArgs> for ::win
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUserDataAccountProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IUserDataAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IUserDataAccountProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IUserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IUserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -13822,14 +12485,11 @@ impl ::core::convert::TryFrom<&IUserDataAccountProviderActivatedEventArgs> for I
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IUserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IUserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IUserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IUserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IUserDataAccountProviderActivatedEventArgs {
@@ -13911,19 +12571,14 @@ impl ::core::convert::From<IViewSwitcherProvider> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IViewSwitcherProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IViewSwitcherProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IViewSwitcherProvider> for ::windows::core::IUnknown {
     fn from(value: &IViewSwitcherProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IViewSwitcherProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IViewSwitcherProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IViewSwitcherProvider> for ::windows::core::IInspectable {
@@ -13931,19 +12586,14 @@ impl ::core::convert::From<IViewSwitcherProvider> for ::windows::core::IInspecta
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IViewSwitcherProvider> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IViewSwitcherProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IViewSwitcherProvider> for ::windows::core::IInspectable {
     fn from(value: &IViewSwitcherProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IViewSwitcherProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IViewSwitcherProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IViewSwitcherProvider> for IActivatedEventArgs {
@@ -13958,14 +12608,11 @@ impl ::core::convert::TryFrom<&IViewSwitcherProvider> for IActivatedEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IViewSwitcherProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IViewSwitcherProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IViewSwitcherProvider> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IViewSwitcherProvider) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IViewSwitcherProvider {
@@ -14047,19 +12694,14 @@ impl ::core::convert::From<IVoiceCommandActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVoiceCommandActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVoiceCommandActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVoiceCommandActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IVoiceCommandActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IVoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
@@ -14067,19 +12709,14 @@ impl ::core::convert::From<IVoiceCommandActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVoiceCommandActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVoiceCommandActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IVoiceCommandActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IVoiceCommandActivatedEventArgs> for IActivatedEventArgs {
@@ -14094,14 +12731,11 @@ impl ::core::convert::TryFrom<&IVoiceCommandActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IVoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IVoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IVoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IVoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IVoiceCommandActivatedEventArgs {
@@ -14199,19 +12833,14 @@ impl ::core::convert::From<IWalletActionActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWalletActionActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWalletActionActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWalletActionActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IWalletActionActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWalletActionActivatedEventArgs> for ::windows::core::IInspectable {
@@ -14219,19 +12848,14 @@ impl ::core::convert::From<IWalletActionActivatedEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWalletActionActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWalletActionActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWalletActionActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IWalletActionActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IWalletActionActivatedEventArgs> for IActivatedEventArgs {
@@ -14246,14 +12870,11 @@ impl ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for IActivatedEv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IWalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IWalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IWalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IWalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IWalletActionActivatedEventArgs {
@@ -14337,19 +12958,14 @@ impl ::core::convert::From<IWebAccountProviderActivatedEventArgs> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebAccountProviderActivatedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebAccountProviderActivatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IWebAccountProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
@@ -14357,19 +12973,14 @@ impl ::core::convert::From<IWebAccountProviderActivatedEventArgs> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebAccountProviderActivatedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWebAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IWebAccountProviderActivatedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IWebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -14384,14 +12995,11 @@ impl ::core::convert::TryFrom<&IWebAccountProviderActivatedEventArgs> for IActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IWebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IWebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IWebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IWebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IWebAccountProviderActivatedEventArgs {
@@ -14482,19 +13090,14 @@ impl ::core::convert::From<IWebAuthenticationBrokerContinuationEventArgs> for ::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebAuthenticationBrokerContinuationEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebAuthenticationBrokerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
@@ -14502,19 +13105,14 @@ impl ::core::convert::From<IWebAuthenticationBrokerContinuationEventArgs> for ::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWebAuthenticationBrokerContinuationEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IWebAuthenticationBrokerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IWebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {
@@ -14529,14 +13127,11 @@ impl ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IWebAuthenticationBrokerContinuationEventArgs> for IContinuationActivatedEventArgs {
@@ -14551,14 +13146,11 @@ impl ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IWebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IWebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IWebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IWebAuthenticationBrokerContinuationEventArgs {
@@ -14724,14 +13316,9 @@ impl ::core::convert::From<&LaunchActivatedEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LaunchActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LaunchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -14744,14 +13331,9 @@ impl ::core::convert::From<&LaunchActivatedEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LaunchActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -14766,14 +13348,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -14788,14 +13367,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -14810,14 +13386,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IApplicationViewAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for ILaunchActivatedEventArgs {
@@ -14832,14 +13405,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ILaunchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for ILaunchActivatedEventArgs2 {
@@ -14854,14 +13424,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ILaunchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs2> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs2> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs2> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs2> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs2>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IPrelaunchActivatedEventArgs {
@@ -14876,14 +13443,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IPrelaunchActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPrelaunchActivatedEventArgs> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrelaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrelaunchActivatedEventArgs> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrelaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<IPrelaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IPrelaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LaunchActivatedEventArgs> for IViewSwitcherProvider {
@@ -14898,14 +13462,11 @@ impl ::core::convert::TryFrom<&LaunchActivatedEventArgs> for IViewSwitcherProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &LaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LaunchActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LaunchActivatedEventArgs {}
@@ -14996,14 +13557,9 @@ impl ::core::convert::From<&LockScreenActivatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LockScreenActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LockScreenActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LockScreenActivatedEventArgs> for ::windows::core::IInspectable {
@@ -15016,14 +13572,9 @@ impl ::core::convert::From<&LockScreenActivatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LockScreenActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LockScreenActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LockScreenActivatedEventArgs> for IActivatedEventArgs {
@@ -15038,14 +13589,11 @@ impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LockScreenActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -15060,14 +13608,11 @@ impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for IActivatedEvent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LockScreenActivatedEventArgs> for ILockScreenActivatedEventArgs {
@@ -15082,14 +13627,11 @@ impl ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ILockScreenActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILockScreenActivatedEventArgs> for LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILockScreenActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILockScreenActivatedEventArgs> for &LockScreenActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILockScreenActivatedEventArgs> {
-        ::core::convert::TryInto::<ILockScreenActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenActivatedEventArgs> for ::windows::core::InParam<'a, ILockScreenActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LockScreenActivatedEventArgs {}
@@ -15205,14 +13747,9 @@ impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LockScreenCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -15225,14 +13762,9 @@ impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LockScreenCallActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LockScreenCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for IActivatedEventArgs {
@@ -15247,14 +13779,11 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -15269,14 +13798,11 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for IApplicatio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for ILaunchActivatedEventArgs {
@@ -15291,14 +13817,11 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ILaunchActi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILaunchActivatedEventArgs> for &LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<ILaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for ILockScreenCallActivatedEventArgs {
@@ -15313,14 +13836,11 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ILockScreen
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILockScreenCallActivatedEventArgs> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILockScreenCallActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILockScreenCallActivatedEventArgs> for &LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILockScreenCallActivatedEventArgs> {
-        ::core::convert::TryInto::<ILockScreenCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, ILockScreenCallActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<LockScreenCallActivatedEventArgs> for IViewSwitcherProvider {
@@ -15335,14 +13855,11 @@ impl ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for IViewSwitch
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &LockScreenCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenCallActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LockScreenCallActivatedEventArgs {}
@@ -15416,14 +13933,9 @@ impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LockScreenComponentActivatedEventArgs> for ::windows::core::IInspectable {
@@ -15436,14 +13948,9 @@ impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LockScreenComponentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LockScreenComponentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LockScreenComponentActivatedEventArgs> for IActivatedEventArgs {
@@ -15458,14 +13965,11 @@ impl ::core::convert::TryFrom<&LockScreenComponentActivatedEventArgs> for IActiv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &LockScreenComponentActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LockScreenComponentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LockScreenComponentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LockScreenComponentActivatedEventArgs {}
@@ -15556,14 +14060,9 @@ impl ::core::convert::From<&PhoneCallActivatedEventArgs> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneCallActivatedEventArgs> for ::windows::core::IInspectable {
@@ -15576,14 +14075,9 @@ impl ::core::convert::From<&PhoneCallActivatedEventArgs> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PhoneCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PhoneCallActivatedEventArgs> for IActivatedEventArgs {
@@ -15598,14 +14092,11 @@ impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PhoneCallActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -15620,14 +14111,11 @@ impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for IActivatedEventA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PhoneCallActivatedEventArgs> for IPhoneCallActivatedEventArgs {
@@ -15642,14 +14130,11 @@ impl ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for IPhoneCallActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPhoneCallActivatedEventArgs> for PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPhoneCallActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPhoneCallActivatedEventArgs> for &PhoneCallActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPhoneCallActivatedEventArgs> {
-        ::core::convert::TryInto::<IPhoneCallActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PhoneCallActivatedEventArgs> for ::windows::core::InParam<'a, IPhoneCallActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PhoneCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PhoneCallActivatedEventArgs {}
@@ -15731,14 +14216,9 @@ impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PickerReturnedActivatedEventArgs> for ::windows::core::IInspectable {
@@ -15751,14 +14231,9 @@ impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PickerReturnedActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PickerReturnedActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PickerReturnedActivatedEventArgs> for IActivatedEventArgs {
@@ -15773,14 +14248,11 @@ impl ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for IActivatedE
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PickerReturnedActivatedEventArgs> for IPickerReturnedActivatedEventArgs {
@@ -15795,14 +14267,11 @@ impl ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for IPickerRetu
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPickerReturnedActivatedEventArgs> for PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPickerReturnedActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPickerReturnedActivatedEventArgs> for &PickerReturnedActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPickerReturnedActivatedEventArgs> {
-        ::core::convert::TryInto::<IPickerReturnedActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PickerReturnedActivatedEventArgs> for ::windows::core::InParam<'a, IPickerReturnedActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PickerReturnedActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PickerReturnedActivatedEventArgs {}
@@ -15885,14 +14354,9 @@ impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Print3DWorkflowActivatedEventArgs> for ::windows::core::IInspectable {
@@ -15905,14 +14369,9 @@ impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Print3DWorkflowActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &Print3DWorkflowActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<Print3DWorkflowActivatedEventArgs> for IActivatedEventArgs {
@@ -15927,14 +14386,11 @@ impl ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for IActivated
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Print3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<Print3DWorkflowActivatedEventArgs> for IPrint3DWorkflowActivatedEventArgs {
@@ -15949,14 +14405,11 @@ impl ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for IPrint3DWo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPrint3DWorkflowActivatedEventArgs> for Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrint3DWorkflowActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrint3DWorkflowActivatedEventArgs> for &Print3DWorkflowActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrint3DWorkflowActivatedEventArgs> {
-        ::core::convert::TryInto::<IPrint3DWorkflowActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Print3DWorkflowActivatedEventArgs> for ::windows::core::InParam<'a, IPrint3DWorkflowActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Print3DWorkflowActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Print3DWorkflowActivatedEventArgs {}
@@ -16039,14 +14492,9 @@ impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskSettingsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -16059,14 +14507,9 @@ impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskSettingsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PrintTaskSettingsActivatedEventArgs> for IActivatedEventArgs {
@@ -16081,14 +14524,11 @@ impl ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PrintTaskSettingsActivatedEventArgs> for IPrintTaskSettingsActivatedEventArgs {
@@ -16103,14 +14543,11 @@ impl ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for IPrintTa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskSettingsActivatedEventArgs> for PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskSettingsActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskSettingsActivatedEventArgs> for &PrintTaskSettingsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskSettingsActivatedEventArgs> {
-        ::core::convert::TryInto::<IPrintTaskSettingsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintTaskSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IPrintTaskSettingsActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintTaskSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskSettingsActivatedEventArgs {}
@@ -16236,14 +14673,9 @@ impl ::core::convert::From<&ProtocolActivatedEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProtocolActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ProtocolActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProtocolActivatedEventArgs> for ::windows::core::IInspectable {
@@ -16256,14 +14688,9 @@ impl ::core::convert::From<&ProtocolActivatedEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProtocolActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ProtocolActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IActivatedEventArgs {
@@ -16278,14 +14705,11 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -16300,14 +14724,11 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IActivatedEventAr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -16322,14 +14743,11 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IApplicationViewA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IProtocolActivatedEventArgs {
@@ -16344,14 +14762,11 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IProtocolActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgs> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgs> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgs> {
-        ::core::convert::TryInto::<IProtocolActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
@@ -16366,14 +14781,11 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IProtocolActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
-        ::core::convert::TryInto::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolActivatedEventArgs> for IViewSwitcherProvider {
@@ -16388,14 +14800,11 @@ impl ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for IViewSwitcherProv
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &ProtocolActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ProtocolActivatedEventArgs {}
@@ -16530,14 +14939,9 @@ impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProtocolForResultsActivatedEventArgs> for ::windows::core::IInspectable {
@@ -16550,14 +14954,9 @@ impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProtocolForResultsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ProtocolForResultsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IActivatedEventArgs {
@@ -16572,14 +14971,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -16594,14 +14990,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -16616,14 +15009,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IApplic
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IProtocolActivatedEventArgs {
@@ -16638,14 +15028,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IProtoc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgs> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgs> {
-        ::core::convert::TryInto::<IProtocolActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData {
@@ -16660,14 +15047,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IProtoc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
-        ::core::convert::TryInto::<IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IProtocolForResultsActivatedEventArgs {
@@ -16682,14 +15066,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IProtoc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IProtocolForResultsActivatedEventArgs> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolForResultsActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IProtocolForResultsActivatedEventArgs> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IProtocolForResultsActivatedEventArgs> {
-        ::core::convert::TryInto::<IProtocolForResultsActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IProtocolForResultsActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ProtocolForResultsActivatedEventArgs> for IViewSwitcherProvider {
@@ -16704,14 +15085,11 @@ impl ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for IViewSw
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &ProtocolForResultsActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ProtocolForResultsActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ProtocolForResultsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ProtocolForResultsActivatedEventArgs {}
@@ -16802,14 +15180,9 @@ impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RestrictedLaunchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -16822,14 +15195,9 @@ impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RestrictedLaunchActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RestrictedLaunchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RestrictedLaunchActivatedEventArgs> for IActivatedEventArgs {
@@ -16844,14 +15212,11 @@ impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<RestrictedLaunchActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -16866,14 +15231,11 @@ impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for IActivate
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<RestrictedLaunchActivatedEventArgs> for IRestrictedLaunchActivatedEventArgs {
@@ -16888,14 +15250,11 @@ impl ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for IRestrict
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRestrictedLaunchActivatedEventArgs> for RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IRestrictedLaunchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRestrictedLaunchActivatedEventArgs> for &RestrictedLaunchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IRestrictedLaunchActivatedEventArgs> {
-        ::core::convert::TryInto::<IRestrictedLaunchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RestrictedLaunchActivatedEventArgs> for ::windows::core::InParam<'a, IRestrictedLaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RestrictedLaunchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RestrictedLaunchActivatedEventArgs {}
@@ -17020,14 +15379,9 @@ impl ::core::convert::From<&SearchActivatedEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SearchActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SearchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SearchActivatedEventArgs> for ::windows::core::IInspectable {
@@ -17040,14 +15394,9 @@ impl ::core::convert::From<&SearchActivatedEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SearchActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SearchActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for IActivatedEventArgs {
@@ -17062,14 +15411,11 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -17084,14 +15430,11 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IActivatedEventArgs
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -17106,14 +15449,11 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IApplicationViewAct
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for ISearchActivatedEventArgs {
@@ -17128,14 +15468,11 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ISearchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISearchActivatedEventArgs> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ISearchActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISearchActivatedEventArgs> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ISearchActivatedEventArgs> {
-        ::core::convert::TryInto::<ISearchActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, ISearchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for ISearchActivatedEventArgsWithLinguisticDetails {
@@ -17150,14 +15487,11 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for ISearchActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISearchActivatedEventArgsWithLinguisticDetails> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ISearchActivatedEventArgsWithLinguisticDetails> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISearchActivatedEventArgsWithLinguisticDetails> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ISearchActivatedEventArgsWithLinguisticDetails> {
-        ::core::convert::TryInto::<ISearchActivatedEventArgsWithLinguisticDetails>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, ISearchActivatedEventArgsWithLinguisticDetails> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SearchActivatedEventArgs> for IViewSwitcherProvider {
@@ -17172,14 +15506,11 @@ impl ::core::convert::TryFrom<&SearchActivatedEventArgs> for IViewSwitcherProvid
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IViewSwitcherProvider> for &SearchActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IViewSwitcherProvider> {
-        ::core::convert::TryInto::<IViewSwitcherProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SearchActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SearchActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SearchActivatedEventArgs {}
@@ -17271,14 +15602,9 @@ impl ::core::convert::From<&ShareTargetActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShareTargetActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ShareTargetActivatedEventArgs> for ::windows::core::IInspectable {
@@ -17291,14 +15617,9 @@ impl ::core::convert::From<&ShareTargetActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShareTargetActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ShareTargetActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ShareTargetActivatedEventArgs> for IActivatedEventArgs {
@@ -17313,14 +15634,11 @@ impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ShareTargetActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -17335,14 +15653,11 @@ impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ShareTargetActivatedEventArgs> for IShareTargetActivatedEventArgs {
@@ -17357,14 +15672,11 @@ impl ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for IShareTargetAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IShareTargetActivatedEventArgs> for ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IShareTargetActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IShareTargetActivatedEventArgs> for &ShareTargetActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IShareTargetActivatedEventArgs> {
-        ::core::convert::TryInto::<IShareTargetActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ShareTargetActivatedEventArgs> for ::windows::core::InParam<'a, IShareTargetActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ShareTargetActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ShareTargetActivatedEventArgs {}
@@ -17384,18 +15696,18 @@ impl SplashScreen {
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Dismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Dismissed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Dismissed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Dismissed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDismissed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDismissed(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDismissed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDismissed)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
 }
 impl ::core::clone::Clone for SplashScreen {
@@ -17438,14 +15750,9 @@ impl ::core::convert::From<&SplashScreen> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SplashScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SplashScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SplashScreen> for &::windows::core::IUnknown {
+    fn from(value: &SplashScreen) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SplashScreen> for ::windows::core::IInspectable {
@@ -17458,14 +15765,9 @@ impl ::core::convert::From<&SplashScreen> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SplashScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SplashScreen {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SplashScreen> for &::windows::core::IInspectable {
+    fn from(value: &SplashScreen) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -17554,14 +15856,9 @@ impl ::core::convert::From<&StartupTaskActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StartupTaskActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StartupTaskActivatedEventArgs> for ::windows::core::IInspectable {
@@ -17574,14 +15871,9 @@ impl ::core::convert::From<&StartupTaskActivatedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StartupTaskActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &StartupTaskActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<StartupTaskActivatedEventArgs> for IActivatedEventArgs {
@@ -17596,14 +15888,11 @@ impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<StartupTaskActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -17618,14 +15907,11 @@ impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for IActivatedEven
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<StartupTaskActivatedEventArgs> for IStartupTaskActivatedEventArgs {
@@ -17640,14 +15926,11 @@ impl ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for IStartupTaskAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IStartupTaskActivatedEventArgs> for StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IStartupTaskActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IStartupTaskActivatedEventArgs> for &StartupTaskActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IStartupTaskActivatedEventArgs> {
-        ::core::convert::TryInto::<IStartupTaskActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StartupTaskActivatedEventArgs> for ::windows::core::InParam<'a, IStartupTaskActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StartupTaskActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for StartupTaskActivatedEventArgs {}
@@ -17706,14 +15989,9 @@ impl ::core::convert::From<&TileActivatedInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TileActivatedInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TileActivatedInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TileActivatedInfo> for &::windows::core::IUnknown {
+    fn from(value: &TileActivatedInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TileActivatedInfo> for ::windows::core::IInspectable {
@@ -17726,14 +16004,9 @@ impl ::core::convert::From<&TileActivatedInfo> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TileActivatedInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TileActivatedInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TileActivatedInfo> for &::windows::core::IInspectable {
+    fn from(value: &TileActivatedInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TileActivatedInfo {}
@@ -17841,14 +16114,9 @@ impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ToastNotificationActivatedEventArgs> for ::windows::core::IInspectable {
@@ -17861,14 +16129,9 @@ impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ToastNotificationActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ToastNotificationActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationActivatedEventArgs> for IActivatedEventArgs {
@@ -17883,14 +16146,11 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -17905,14 +16165,11 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IActivat
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationActivatedEventArgs> for IApplicationViewActivatedEventArgs {
@@ -17927,14 +16184,11 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IApplica
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IApplicationViewActivatedEventArgs> for &ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IApplicationViewActivatedEventArgs> {
-        ::core::convert::TryInto::<IApplicationViewActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ToastNotificationActivatedEventArgs> for IToastNotificationActivatedEventArgs {
@@ -17949,14 +16203,11 @@ impl ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for IToastNo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IToastNotificationActivatedEventArgs> for ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IToastNotificationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IToastNotificationActivatedEventArgs> for &ToastNotificationActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IToastNotificationActivatedEventArgs> {
-        ::core::convert::TryInto::<IToastNotificationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ToastNotificationActivatedEventArgs> for ::windows::core::InParam<'a, IToastNotificationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ToastNotificationActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ToastNotificationActivatedEventArgs {}
@@ -18039,14 +16290,9 @@ impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserDataAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
@@ -18059,14 +16305,9 @@ impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserDataAccountProviderActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &UserDataAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<UserDataAccountProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -18081,14 +16322,11 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for IA
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<UserDataAccountProviderActivatedEventArgs> for IUserDataAccountProviderActivatedEventArgs {
@@ -18103,14 +16341,11 @@ impl ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for IU
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderActivatedEventArgs> for UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUserDataAccountProviderActivatedEventArgs> for &UserDataAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserDataAccountProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IUserDataAccountProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserDataAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IUserDataAccountProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserDataAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserDataAccountProviderActivatedEventArgs {}
@@ -18202,14 +16437,9 @@ impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VoiceCommandActivatedEventArgs> for ::windows::core::IInspectable {
@@ -18222,14 +16452,9 @@ impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VoiceCommandActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &VoiceCommandActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VoiceCommandActivatedEventArgs> for IActivatedEventArgs {
@@ -18244,14 +16469,11 @@ impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<VoiceCommandActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -18266,14 +16488,11 @@ impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<VoiceCommandActivatedEventArgs> for IVoiceCommandActivatedEventArgs {
@@ -18288,14 +16507,11 @@ impl ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for IVoiceCommand
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVoiceCommandActivatedEventArgs> for VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IVoiceCommandActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVoiceCommandActivatedEventArgs> for &VoiceCommandActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IVoiceCommandActivatedEventArgs> {
-        ::core::convert::TryInto::<IVoiceCommandActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VoiceCommandActivatedEventArgs> for ::windows::core::InParam<'a, IVoiceCommandActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VoiceCommandActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for VoiceCommandActivatedEventArgs {}
@@ -18394,14 +16610,9 @@ impl ::core::convert::From<&WalletActionActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WalletActionActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WalletActionActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WalletActionActivatedEventArgs> for ::windows::core::IInspectable {
@@ -18414,14 +16625,9 @@ impl ::core::convert::From<&WalletActionActivatedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WalletActionActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WalletActionActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<WalletActionActivatedEventArgs> for IActivatedEventArgs {
@@ -18436,14 +16642,11 @@ impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for IActivatedEve
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<WalletActionActivatedEventArgs> for IWalletActionActivatedEventArgs {
@@ -18458,14 +16661,11 @@ impl ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for IWalletAction
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWalletActionActivatedEventArgs> for WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IWalletActionActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWalletActionActivatedEventArgs> for &WalletActionActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IWalletActionActivatedEventArgs> {
-        ::core::convert::TryInto::<IWalletActionActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WalletActionActivatedEventArgs> for ::windows::core::InParam<'a, IWalletActionActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WalletActionActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for WalletActionActivatedEventArgs {}
@@ -18557,14 +16757,9 @@ impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebAccountProviderActivatedEventArgs> for ::windows::core::IInspectable {
@@ -18577,14 +16772,9 @@ impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAccountProviderActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WebAccountProviderActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<WebAccountProviderActivatedEventArgs> for IActivatedEventArgs {
@@ -18599,14 +16789,11 @@ impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<WebAccountProviderActivatedEventArgs> for IActivatedEventArgsWithUser {
@@ -18621,14 +16808,11 @@ impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for IActiva
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
-        ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<WebAccountProviderActivatedEventArgs> for IWebAccountProviderActivatedEventArgs {
@@ -18643,14 +16827,11 @@ impl ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for IWebAcc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderActivatedEventArgs> for WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IWebAccountProviderActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWebAccountProviderActivatedEventArgs> for &WebAccountProviderActivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IWebAccountProviderActivatedEventArgs> {
-        ::core::convert::TryInto::<IWebAccountProviderActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WebAccountProviderActivatedEventArgs> for ::windows::core::InParam<'a, IWebAccountProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WebAccountProviderActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for WebAccountProviderActivatedEventArgs {}
@@ -18742,14 +16923,9 @@ impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::IInspectable {
@@ -18762,14 +16938,9 @@ impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WebAuthenticationBrokerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &WebAuthenticationBrokerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<WebAuthenticationBrokerContinuationEventArgs> for IActivatedEventArgs {
@@ -18784,14 +16955,11 @@ impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
-        ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<WebAuthenticationBrokerContinuationEventArgs> for IContinuationActivatedEventArgs {
@@ -18806,14 +16974,11 @@ impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
-        ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<WebAuthenticationBrokerContinuationEventArgs> for IWebAuthenticationBrokerContinuationEventArgs {
@@ -18828,14 +16993,11 @@ impl ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWebAuthenticationBrokerContinuationEventArgs> for WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IWebAuthenticationBrokerContinuationEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWebAuthenticationBrokerContinuationEventArgs> for &WebAuthenticationBrokerContinuationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IWebAuthenticationBrokerContinuationEventArgs> {
-        ::core::convert::TryInto::<IWebAuthenticationBrokerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs> for ::windows::core::InParam<'a, IWebAuthenticationBrokerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &WebAuthenticationBrokerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for WebAuthenticationBrokerContinuationEventArgs {}

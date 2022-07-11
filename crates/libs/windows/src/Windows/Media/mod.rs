@@ -133,14 +133,9 @@ impl ::core::convert::From<&AudioBuffer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioBuffer> for &::windows::core::IUnknown {
+    fn from(value: &AudioBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioBuffer> for ::windows::core::IInspectable {
@@ -153,14 +148,9 @@ impl ::core::convert::From<&AudioBuffer> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioBuffer> for &::windows::core::IInspectable {
+    fn from(value: &AudioBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -178,15 +168,11 @@ impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -204,15 +190,11 @@ impl ::core::convert::TryFrom<&AudioBuffer> for super::Foundation::IMemoryBuffer
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IMemoryBuffer> for AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IMemoryBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IMemoryBuffer> for &AudioBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IMemoryBuffer> {
-        ::core::convert::TryInto::<super::Foundation::IMemoryBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioBuffer> for ::windows::core::InParam<'a, super::Foundation::IMemoryBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioBuffer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AudioBuffer {}
@@ -257,11 +239,11 @@ unsafe impl ::windows::core::RuntimeType for AudioBufferAccessMode {
 pub struct AudioFrame(::windows::core::IUnknown);
 impl AudioFrame {
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn LockBuffer(&self, mode: AudioBufferAccessMode) -> ::windows::core::Result<AudioBuffer> {
+    pub fn LockBuffer<'a, Param0: ::std::convert::Into<AudioBufferAccessMode>>(&self, mode: Param0) -> ::windows::core::Result<AudioBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<AudioBuffer>(result__)
+            (::windows::core::Interface::vtable(this).LockBuffer)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<AudioBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
@@ -295,9 +277,9 @@ impl AudioFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRelativeTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -310,9 +292,9 @@ impl AudioFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSystemRelativeTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -325,9 +307,9 @@ impl AudioFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDuration<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -406,14 +388,9 @@ impl ::core::convert::From<&AudioFrame> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioFrame> for &::windows::core::IUnknown {
+    fn from(value: &AudioFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioFrame> for ::windows::core::IInspectable {
@@ -426,14 +403,9 @@ impl ::core::convert::From<&AudioFrame> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioFrame> for &::windows::core::IInspectable {
+    fn from(value: &AudioFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -451,15 +423,11 @@ impl ::core::convert::TryFrom<&AudioFrame> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<AudioFrame> for IMediaFrame {
@@ -474,14 +442,11 @@ impl ::core::convert::TryFrom<&AudioFrame> for IMediaFrame {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaFrame> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &AudioFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaFrame> {
-        ::core::convert::TryInto::<IMediaFrame>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioFrame> for ::windows::core::InParam<'a, IMediaFrame> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AudioFrame {}
@@ -573,14 +538,9 @@ impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AutoRepeatModeChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AutoRepeatModeChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AutoRepeatModeChangeRequestedEventArgs> for ::windows::core::IInspectable {
@@ -593,14 +553,9 @@ impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AutoRepeatModeChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AutoRepeatModeChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AutoRepeatModeChangeRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AutoRepeatModeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AutoRepeatModeChangeRequestedEventArgs {}
@@ -828,13 +783,18 @@ pub struct IMediaExtension(::windows::core::IUnknown);
 impl IMediaExtension {
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::convert::From<IMediaExtension> for ::windows::core::IUnknown {
     fn from(value: IMediaExtension) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMediaExtension> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaExtension) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -843,34 +803,19 @@ impl ::core::convert::From<&IMediaExtension> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaExtension> for ::windows::core::IInspectable {
     fn from(value: IMediaExtension) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IMediaExtension> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaExtension) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IMediaExtension> for ::windows::core::IInspectable {
     fn from(value: &IMediaExtension) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaExtension {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaExtension {
@@ -989,9 +934,9 @@ impl IMediaFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRelativeTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1004,9 +949,9 @@ impl IMediaFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSystemRelativeTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1019,9 +964,9 @@ impl IMediaFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDuration<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1066,19 +1011,14 @@ impl ::core::convert::From<IMediaFrame> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaFrame> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaFrame> for ::windows::core::IUnknown {
     fn from(value: &IMediaFrame) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMediaFrame> for ::windows::core::IInspectable {
@@ -1086,19 +1026,14 @@ impl ::core::convert::From<IMediaFrame> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaFrame> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaFrame> for ::windows::core::IInspectable {
     fn from(value: &IMediaFrame) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1116,15 +1051,11 @@ impl ::core::convert::TryFrom<&IMediaFrame> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for IMediaFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &IMediaFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IMediaFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IMediaFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IMediaFrame {
@@ -1226,19 +1157,14 @@ impl ::core::convert::From<IMediaMarker> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaMarker> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaMarker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaMarker> for ::windows::core::IUnknown {
     fn from(value: &IMediaMarker) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMediaMarker> for ::windows::core::IInspectable {
@@ -1246,19 +1172,14 @@ impl ::core::convert::From<IMediaMarker> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaMarker> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaMarker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaMarker> for ::windows::core::IInspectable {
     fn from(value: &IMediaMarker) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaMarker {
@@ -1331,19 +1252,14 @@ impl ::core::convert::From<IMediaMarkers> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaMarkers> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaMarkers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaMarkers> for ::windows::core::IUnknown {
     fn from(value: &IMediaMarkers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaMarkers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaMarkers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMediaMarkers> for ::windows::core::IInspectable {
@@ -1351,19 +1267,14 @@ impl ::core::convert::From<IMediaMarkers> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaMarkers> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaMarkers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaMarkers> for ::windows::core::IInspectable {
     fn from(value: &IMediaMarkers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaMarkers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaMarkers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaMarkers {
@@ -1980,9 +1891,9 @@ impl ImageDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1993,9 +1904,9 @@ impl ImageDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetSubtitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ImageDisplayProperties {
@@ -2038,14 +1949,9 @@ impl ::core::convert::From<&ImageDisplayProperties> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageDisplayProperties> for &::windows::core::IUnknown {
+    fn from(value: &ImageDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ImageDisplayProperties> for ::windows::core::IInspectable {
@@ -2058,14 +1964,9 @@ impl ::core::convert::From<&ImageDisplayProperties> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ImageDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageDisplayProperties> for &::windows::core::IInspectable {
+    fn from(value: &ImageDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ImageDisplayProperties {}
@@ -2077,159 +1978,159 @@ pub struct MediaControl;
 impl MediaControl {
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn SoundLevelChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SoundLevelChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SoundLevelChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSoundLevelChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveSoundLevelChanged(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSoundLevelChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn PlayPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PlayPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlayPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlayPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemovePlayPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePlayPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemovePlayPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePlayPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn PausePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PausePressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PausePressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PausePressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemovePausePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePausePressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemovePausePressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePausePressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn StopPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn StopPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StopPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StopPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveStopPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveStopPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveStopPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveStopPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn PlayPauseTogglePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PlayPauseTogglePressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlayPauseTogglePressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlayPauseTogglePressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemovePlayPauseTogglePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePlayPauseTogglePressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemovePlayPauseTogglePressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePlayPauseTogglePressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RecordPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn RecordPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RecordPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecordPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveRecordPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecordPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveRecordPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecordPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn NextTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn NextTrackPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NextTrackPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NextTrackPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveNextTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNextTrackPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveNextTrackPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNextTrackPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn PreviousTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PreviousTrackPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousTrackPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PreviousTrackPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemovePreviousTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePreviousTrackPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemovePreviousTrackPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePreviousTrackPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn FastForwardPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn FastForwardPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).FastForwardPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FastForwardPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveFastForwardPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveFastForwardPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveFastForwardPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveFastForwardPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RewindPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn RewindPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RewindPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RewindPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveRewindPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRewindPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveRewindPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRewindPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ChannelUpPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn ChannelUpPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelUpPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ChannelUpPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveChannelUpPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelUpPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveChannelUpPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelUpPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn ChannelDownPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn ChannelDownPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelDownPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ChannelDownPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveChannelDownPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelDownPressed)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveChannelDownPressed(cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelDownPressed)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2241,8 +2142,8 @@ impl MediaControl {
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetTrackName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetTrackName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetTrackName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetTrackName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2254,8 +2155,8 @@ impl MediaControl {
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetArtistName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetArtistName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetArtistName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetArtistName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2280,8 +2181,8 @@ impl MediaControl {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetAlbumArt<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetAlbumArt)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetAlbumArt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::Uri>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).SetAlbumArt)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2314,76 +2215,76 @@ impl MediaExtensionManager {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn RegisterSchemeHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0, scheme: Param1) -> ::windows::core::Result<()> {
+    pub fn RegisterSchemeHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0, scheme: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandler)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), scheme.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandler)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), scheme.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterSchemeHandlerWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, scheme: Param1, configuration: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterSchemeHandlerWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, scheme: Param1, configuration: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), scheme.into_param().abi(), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterSchemeHandlerWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), scheme.into().abi(), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn RegisterByteStreamHandler<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterByteStreamHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandler)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), fileextension.into_param().abi(), mimetype.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandler)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), fileextension.into().abi(), mimetype.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterByteStreamHandlerWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
+    pub fn RegisterByteStreamHandlerWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, fileextension: Param1, mimetype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), fileextension.into_param().abi(), mimetype.into_param().abi(), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterByteStreamHandlerWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), fileextension.into().abi(), mimetype.into().abi(), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn RegisterAudioDecoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterAudioDecoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoder)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAudioDecoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
+    pub fn RegisterAudioDecoderWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioDecoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn RegisterAudioEncoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterAudioEncoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoder)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterAudioEncoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
+    pub fn RegisterAudioEncoderWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterAudioEncoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn RegisterVideoDecoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterVideoDecoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoder)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterVideoDecoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
+    pub fn RegisterVideoDecoderWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoDecoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn RegisterVideoEncoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2) -> ::windows::core::Result<()> {
+    pub fn RegisterVideoEncoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoder)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoder)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterVideoEncoderWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param3: ::windows::core::IntoParam<'a, super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, inputsubtype: Param1, outputsubtype: Param2, configuration: Param3) -> ::windows::core::Result<()> {
+    pub fn RegisterVideoEncoderWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IPropertySet>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, inputsubtype: ::windows::core::GUID, outputsubtype: ::windows::core::GUID, configuration: Param3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), inputsubtype.into_param().abi(), outputsubtype.into_param().abi(), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterVideoEncoderWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), inputsubtype, outputsubtype, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn RegisterMediaExtensionForAppService<'a, Param0: ::windows::core::IntoParam<'a, IMediaExtension>, Param1: ::windows::core::IntoParam<'a, super::ApplicationModel::AppService::AppServiceConnection>>(&self, extension: Param0, connection: Param1) -> ::windows::core::Result<()> {
+    pub fn RegisterMediaExtensionForAppService<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaExtension>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::ApplicationModel::AppService::AppServiceConnection>>>(&self, extension: Param0, connection: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaExtensionManager2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterMediaExtensionForAppService)(::windows::core::Interface::as_raw(this), extension.into_param().abi(), connection.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterMediaExtensionForAppService)(::windows::core::Interface::as_raw(this), extension.try_into().map_err(|e| e.into())?.abi(), connection.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MediaExtensionManager {
@@ -2426,14 +2327,9 @@ impl ::core::convert::From<&MediaExtensionManager> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaExtensionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaExtensionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaExtensionManager> for &::windows::core::IUnknown {
+    fn from(value: &MediaExtensionManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaExtensionManager> for ::windows::core::IInspectable {
@@ -2446,14 +2342,9 @@ impl ::core::convert::From<&MediaExtensionManager> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaExtensionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaExtensionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaExtensionManager> for &::windows::core::IInspectable {
+    fn from(value: &MediaExtensionManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaExtensionManager {}
@@ -2639,14 +2530,9 @@ impl ::core::convert::From<&MediaProcessingTriggerDetails> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaProcessingTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaProcessingTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaProcessingTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &MediaProcessingTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaProcessingTriggerDetails> for ::windows::core::IInspectable {
@@ -2659,14 +2545,9 @@ impl ::core::convert::From<&MediaProcessingTriggerDetails> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaProcessingTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaProcessingTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaProcessingTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &MediaProcessingTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaProcessingTriggerDetails {}
@@ -2755,9 +2636,9 @@ impl MediaTimelineController {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPosition(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn ClockRate(&self) -> ::windows::core::Result<f64> {
@@ -2782,33 +2663,33 @@ impl MediaTimelineController {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>(&self, positionchangedeventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PositionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>>(&self, positionchangedeventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PositionChanged)(::windows::core::Interface::as_raw(this), positionchangedeventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PositionChanged)(::windows::core::Interface::as_raw(this), positionchangedeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePositionChanged(&self, eventcookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePositionChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePositionChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>(&self, statechangedeventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>>(&self, statechangedeventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), statechangedeventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), statechangedeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStateChanged(&self, eventcookie: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2821,9 +2702,9 @@ impl MediaTimelineController {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDuration<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn IsLoopingEnabled(&self) -> ::windows::core::Result<bool> {
@@ -2840,33 +2721,33 @@ impl MediaTimelineController {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Failed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn Failed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, MediaTimelineControllerFailedEventArgs>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Failed)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Failed)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveFailed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveFailed(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFailed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Ended<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn Ended<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<MediaTimelineController, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Ended)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Ended)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEnded<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveEnded(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTimelineController2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for MediaTimelineController {
@@ -2909,14 +2790,9 @@ impl ::core::convert::From<&MediaTimelineController> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaTimelineController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaTimelineController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaTimelineController> for &::windows::core::IUnknown {
+    fn from(value: &MediaTimelineController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaTimelineController> for ::windows::core::IInspectable {
@@ -2929,14 +2805,9 @@ impl ::core::convert::From<&MediaTimelineController> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaTimelineController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaTimelineController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaTimelineController> for &::windows::core::IInspectable {
+    fn from(value: &MediaTimelineController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaTimelineController {}
@@ -2994,14 +2865,9 @@ impl ::core::convert::From<&MediaTimelineControllerFailedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaTimelineControllerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaTimelineControllerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaTimelineControllerFailedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaTimelineControllerFailedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaTimelineControllerFailedEventArgs> for ::windows::core::IInspectable {
@@ -3014,14 +2880,9 @@ impl ::core::convert::From<&MediaTimelineControllerFailedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaTimelineControllerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaTimelineControllerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaTimelineControllerFailedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaTimelineControllerFailedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
@@ -3075,9 +2936,9 @@ impl MusicDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3088,9 +2949,9 @@ impl MusicDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetAlbumArtist<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAlbumArtist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlbumArtist)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlbumArtist)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3101,9 +2962,9 @@ impl MusicDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetArtist<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetArtist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetArtist)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetArtist)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn AlbumTitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3114,9 +2975,9 @@ impl MusicDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetAlbumTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAlbumTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMusicDisplayProperties2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlbumTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlbumTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn TrackNumber(&self) -> ::windows::core::Result<u32> {
@@ -3194,14 +3055,9 @@ impl ::core::convert::From<&MusicDisplayProperties> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MusicDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MusicDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MusicDisplayProperties> for &::windows::core::IUnknown {
+    fn from(value: &MusicDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MusicDisplayProperties> for ::windows::core::IInspectable {
@@ -3214,14 +3070,9 @@ impl ::core::convert::From<&MusicDisplayProperties> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MusicDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MusicDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MusicDisplayProperties> for &::windows::core::IInspectable {
+    fn from(value: &MusicDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MusicDisplayProperties {}
@@ -3280,14 +3131,9 @@ impl ::core::convert::From<&PlaybackPositionChangeRequestedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaybackPositionChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaybackPositionChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackPositionChangeRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PlaybackPositionChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaybackPositionChangeRequestedEventArgs> for ::windows::core::IInspectable {
@@ -3300,14 +3146,9 @@ impl ::core::convert::From<&PlaybackPositionChangeRequestedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaybackPositionChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaybackPositionChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackPositionChangeRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PlaybackPositionChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlaybackPositionChangeRequestedEventArgs {}
@@ -3365,14 +3206,9 @@ impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaybackRateChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaybackRateChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaybackRateChangeRequestedEventArgs> for ::windows::core::IInspectable {
@@ -3385,14 +3221,9 @@ impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaybackRateChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaybackRateChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackRateChangeRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PlaybackRateChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlaybackRateChangeRequestedEventArgs {}
@@ -3450,14 +3281,9 @@ impl ::core::convert::From<&ShuffleEnabledChangeRequestedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ShuffleEnabledChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ShuffleEnabledChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShuffleEnabledChangeRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ShuffleEnabledChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ShuffleEnabledChangeRequestedEventArgs> for ::windows::core::IInspectable {
@@ -3470,14 +3296,9 @@ impl ::core::convert::From<&ShuffleEnabledChangeRequestedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ShuffleEnabledChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ShuffleEnabledChangeRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShuffleEnabledChangeRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ShuffleEnabledChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
@@ -3530,9 +3351,9 @@ impl SystemMediaTransportControls {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetPlaybackStatus(&self, value: MediaPlaybackStatus) -> ::windows::core::Result<()> {
+    pub fn SetPlaybackStatus<'a, Param0: ::std::convert::Into<MediaPlaybackStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn DisplayUpdater(&self) -> ::windows::core::Result<SystemMediaTransportControlsDisplayUpdater> {
@@ -3695,33 +3516,33 @@ impl SystemMediaTransportControls {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn ButtonPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsButtonPressedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ButtonPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ButtonPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveButtonPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveButtonPressed(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveButtonPressed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveButtonPressed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PropertyChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, SystemMediaTransportControlsPropertyChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PropertyChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PropertyChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePropertyChanged(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePropertyChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePropertyChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn AutoRepeatMode(&self) -> ::windows::core::Result<MediaPlaybackAutoRepeatMode> {
@@ -3732,9 +3553,9 @@ impl SystemMediaTransportControls {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetAutoRepeatMode(&self, value: MediaPlaybackAutoRepeatMode) -> ::windows::core::Result<()> {
+    pub fn SetAutoRepeatMode<'a, Param0: ::std::convert::Into<MediaPlaybackAutoRepeatMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoRepeatMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoRepeatMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn ShuffleEnabled(&self) -> ::windows::core::Result<bool> {
@@ -3763,69 +3584,69 @@ impl SystemMediaTransportControls {
         unsafe { (::windows::core::Interface::vtable(this).SetPlaybackRate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn UpdateTimelineProperties<'a, Param0: ::windows::core::IntoParam<'a, SystemMediaTransportControlsTimelineProperties>>(&self, timelineproperties: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdateTimelineProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SystemMediaTransportControlsTimelineProperties>>>(&self, timelineproperties: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateTimelineProperties)(::windows::core::Interface::as_raw(this), timelineproperties.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateTimelineProperties)(::windows::core::Interface::as_raw(this), timelineproperties.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PlaybackPositionChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PlaybackPositionChangeRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackPositionChangeRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlaybackPositionChangeRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlaybackPositionChangeRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePlaybackPositionChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlaybackPositionChangeRequested(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackPositionChangeRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackPositionChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PlaybackRateChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PlaybackRateChangeRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, PlaybackRateChangeRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlaybackRateChangeRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlaybackRateChangeRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePlaybackRateChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlaybackRateChangeRequested(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackRateChangeRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackRateChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShuffleEnabledChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn ShuffleEnabledChangeRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, ShuffleEnabledChangeRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ShuffleEnabledChangeRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ShuffleEnabledChangeRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveShuffleEnabledChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveShuffleEnabledChangeRequested(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveShuffleEnabledChangeRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveShuffleEnabledChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AutoRepeatModeChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn AutoRepeatModeChangeRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AutoRepeatModeChangeRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AutoRepeatModeChangeRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAutoRepeatModeChangeRequested<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAutoRepeatModeChangeRequested(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISystemMediaTransportControls2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAutoRepeatModeChangeRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAutoRepeatModeChangeRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SystemMediaTransportControls> {
@@ -3880,14 +3701,9 @@ impl ::core::convert::From<&SystemMediaTransportControls> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMediaTransportControls {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMediaTransportControls {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControls> for &::windows::core::IUnknown {
+    fn from(value: &SystemMediaTransportControls) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMediaTransportControls> for ::windows::core::IInspectable {
@@ -3900,14 +3716,9 @@ impl ::core::convert::From<&SystemMediaTransportControls> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMediaTransportControls {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMediaTransportControls {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControls> for &::windows::core::IInspectable {
+    fn from(value: &SystemMediaTransportControls) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
@@ -4007,14 +3818,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsButtonPressedEventArgs> 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMediaTransportControlsButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMediaTransportControlsButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsButtonPressedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SystemMediaTransportControlsButtonPressedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMediaTransportControlsButtonPressedEventArgs> for ::windows::core::IInspectable {
@@ -4027,14 +3833,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsButtonPressedEventArgs> 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMediaTransportControlsButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMediaTransportControlsButtonPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsButtonPressedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SystemMediaTransportControlsButtonPressedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsButtonPressedEventArgs {}
@@ -4052,9 +3853,9 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetType(&self, value: MediaPlaybackType) -> ::windows::core::Result<()> {
+    pub fn SetType<'a, Param0: ::std::convert::Into<MediaPlaybackType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn AppMediaId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4065,9 +3866,9 @@ impl SystemMediaTransportControlsDisplayUpdater {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetAppMediaId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppMediaId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppMediaId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppMediaId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4080,9 +3881,9 @@ impl SystemMediaTransportControlsDisplayUpdater {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::Storage::Streams::RandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetThumbnail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::Streams::RandomAccessStreamReference>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn MusicProperties(&self) -> ::windows::core::Result<MusicDisplayProperties> {
@@ -4110,11 +3911,11 @@ impl SystemMediaTransportControlsDisplayUpdater {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CopyFromFileAsync<'a, Param1: ::windows::core::IntoParam<'a, super::Storage::StorageFile>>(&self, r#type: MediaPlaybackType, source: Param1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
+    pub fn CopyFromFileAsync<'a, Param0: ::std::convert::Into<MediaPlaybackType>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Storage::StorageFile>>>(&self, r#type: Param0, source: Param1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyFromFileAsync)(::windows::core::Interface::as_raw(this), r#type, source.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).CopyFromFileAsync)(::windows::core::Interface::as_raw(this), r#type.into(), source.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
@@ -4168,14 +3969,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsDisplayUpdater> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMediaTransportControlsDisplayUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMediaTransportControlsDisplayUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsDisplayUpdater> for &::windows::core::IUnknown {
+    fn from(value: &SystemMediaTransportControlsDisplayUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMediaTransportControlsDisplayUpdater> for ::windows::core::IInspectable {
@@ -4188,14 +3984,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsDisplayUpdater> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMediaTransportControlsDisplayUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMediaTransportControlsDisplayUpdater {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsDisplayUpdater> for &::windows::core::IInspectable {
+    fn from(value: &SystemMediaTransportControlsDisplayUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater {}
@@ -4286,14 +4077,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsPropertyChangedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMediaTransportControlsPropertyChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMediaTransportControlsPropertyChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsPropertyChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SystemMediaTransportControlsPropertyChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMediaTransportControlsPropertyChangedEventArgs> for ::windows::core::IInspectable {
@@ -4306,14 +4092,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsPropertyChangedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMediaTransportControlsPropertyChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMediaTransportControlsPropertyChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsPropertyChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SystemMediaTransportControlsPropertyChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsPropertyChangedEventArgs {}
@@ -4340,9 +4121,9 @@ impl SystemMediaTransportControlsTimelineProperties {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStartTime(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4355,9 +4136,9 @@ impl SystemMediaTransportControlsTimelineProperties {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetEndTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEndTime(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEndTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEndTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4370,9 +4151,9 @@ impl SystemMediaTransportControlsTimelineProperties {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMinSeekTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMinSeekTime(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinSeekTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinSeekTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4385,9 +4166,9 @@ impl SystemMediaTransportControlsTimelineProperties {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxSeekTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMaxSeekTime(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxSeekTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxSeekTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4400,9 +4181,9 @@ impl SystemMediaTransportControlsTimelineProperties {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPosition(&self, value: super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SystemMediaTransportControlsTimelineProperties {
@@ -4445,14 +4226,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsTimelineProperties> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMediaTransportControlsTimelineProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMediaTransportControlsTimelineProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsTimelineProperties> for &::windows::core::IUnknown {
+    fn from(value: &SystemMediaTransportControlsTimelineProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMediaTransportControlsTimelineProperties> for ::windows::core::IInspectable {
@@ -4465,14 +4241,9 @@ impl ::core::convert::From<&SystemMediaTransportControlsTimelineProperties> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMediaTransportControlsTimelineProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMediaTransportControlsTimelineProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMediaTransportControlsTimelineProperties> for &::windows::core::IInspectable {
+    fn from(value: &SystemMediaTransportControlsTimelineProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMediaTransportControlsTimelineProperties {}
@@ -4490,9 +4261,9 @@ impl VideoDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4503,9 +4274,9 @@ impl VideoDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media\"`*"]
-    pub fn SetSubtitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4557,14 +4328,9 @@ impl ::core::convert::From<&VideoDisplayProperties> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoDisplayProperties> for &::windows::core::IUnknown {
+    fn from(value: &VideoDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoDisplayProperties> for ::windows::core::IInspectable {
@@ -4577,14 +4343,9 @@ impl ::core::convert::From<&VideoDisplayProperties> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoDisplayProperties> for &::windows::core::IInspectable {
+    fn from(value: &VideoDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VideoDisplayProperties {}
@@ -4636,9 +4397,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRelativeTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4651,9 +4412,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSystemRelativeTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSystemRelativeTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemRelativeTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4666,9 +4427,9 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDuration<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaFrame>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4712,11 +4473,11 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyToAsync<'a, Param0: ::windows::core::IntoParam<'a, VideoFrame>>(&self, frame: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn CopyToAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VideoFrame>>>(&self, frame: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyToAsync)(::windows::core::Interface::as_raw(this), frame.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CopyToAsync)(::windows::core::Interface::as_raw(this), frame.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
@@ -4730,59 +4491,59 @@ impl VideoFrame {
     }
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    pub fn CopyToWithBoundsAsync<'a, Param0: ::windows::core::IntoParam<'a, VideoFrame>, Param1: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Param2: ::windows::core::IntoParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>>(&self, frame: Param0, sourcebounds: Param1, destinationbounds: Param2) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn CopyToWithBoundsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VideoFrame>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, frame: Param0, sourcebounds: Param1, destinationbounds: Param2) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IVideoFrame2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyToWithBoundsAsync)(::windows::core::Interface::as_raw(this), frame.into_param().abi(), sourcebounds.into_param().abi(), destinationbounds.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CopyToWithBoundsAsync)(::windows::core::Interface::as_raw(this), frame.into().abi(), sourcebounds.try_into().map_err(|e| e.into())?.abi(), destinationbounds.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn Create(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
+    pub fn Create<'a, Param0: ::std::convert::Into<super::Graphics::Imaging::BitmapPixelFormat>>(format: Param0, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format, width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), format.into(), width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CreateWithAlpha(format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> ::windows::core::Result<VideoFrame> {
+    pub fn CreateWithAlpha<'a, Param0: ::std::convert::Into<super::Graphics::Imaging::BitmapPixelFormat>, Param3: ::std::convert::Into<super::Graphics::Imaging::BitmapAlphaMode>>(format: Param0, width: i32, height: i32, alpha: Param3) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format, width, height, alpha, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithAlpha)(::windows::core::Interface::as_raw(this), format.into(), width, height, alpha.into(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
-    pub fn CreateAsDirect3D11SurfaceBacked(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
+    pub fn CreateAsDirect3D11SurfaceBacked<'a, Param0: ::std::convert::Into<super::Graphics::DirectX::DirectXPixelFormat>>(format: Param0, width: i32, height: i32) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(::windows::core::Interface::as_raw(this), format, width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBacked)(::windows::core::Interface::as_raw(this), format.into(), width, height, result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, Param3: ::windows::core::IntoParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: Param3) -> ::windows::core::Result<VideoFrame> {
+    pub fn CreateAsDirect3D11SurfaceBackedWithDevice<'a, Param0: ::std::convert::Into<super::Graphics::DirectX::DirectXPixelFormat>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(format: Param0, width: i32, height: i32, device: Param3) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(::windows::core::Interface::as_raw(this), format, width, height, device.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsDirect3D11SurfaceBackedWithDevice)(::windows::core::Interface::as_raw(this), format.into(), width, height, device.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn CreateWithSoftwareBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::Imaging::SoftwareBitmap>>(bitmap: Param0) -> ::windows::core::Result<VideoFrame> {
+    pub fn CreateWithSoftwareBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Graphics::Imaging::SoftwareBitmap>>>(bitmap: Param0) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithSoftwareBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithSoftwareBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc = "*Required features: `\"Media\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateWithDirect3D11Surface<'a, Param0: ::windows::core::IntoParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(surface: Param0) -> ::windows::core::Result<VideoFrame> {
+    pub fn CreateWithDirect3D11Surface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(surface: Param0) -> ::windows::core::Result<VideoFrame> {
         Self::IVideoFrameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithDirect3D11Surface)(::windows::core::Interface::as_raw(this), surface.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithDirect3D11Surface)(::windows::core::Interface::as_raw(this), surface.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoFrame>(result__)
         })
     }
     #[doc(hidden)]
@@ -4836,14 +4597,9 @@ impl ::core::convert::From<&VideoFrame> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoFrame> for &::windows::core::IUnknown {
+    fn from(value: &VideoFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoFrame> for ::windows::core::IInspectable {
@@ -4856,14 +4612,9 @@ impl ::core::convert::From<&VideoFrame> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoFrame> for &::windows::core::IInspectable {
+    fn from(value: &VideoFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4881,15 +4632,11 @@ impl ::core::convert::TryFrom<&VideoFrame> for super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IClosable> for &VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<'a, super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<VideoFrame> for IMediaFrame {
@@ -4904,14 +4651,11 @@ impl ::core::convert::TryFrom<&VideoFrame> for IMediaFrame {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaFrame> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaFrame> for &VideoFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaFrame> {
-        ::core::convert::TryInto::<IMediaFrame>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoFrame> for ::windows::core::InParam<'a, IMediaFrame> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoFrame) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for VideoFrame {}

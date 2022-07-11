@@ -76,19 +76,14 @@ impl ::core::convert::From<IFindSimilarResults> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IFindSimilarResults> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFindSimilarResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IFindSimilarResults> for ::windows::core::IUnknown {
     fn from(value: &IFindSimilarResults) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFindSimilarResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFindSimilarResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IFindSimilarResults {
@@ -124,8 +119,8 @@ pub struct IRdcComparator(::windows::core::IUnknown);
 impl IRdcComparator {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Process<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, endofinput: Param0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), endofinput.into_param().abi(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(rdc_errorcode)).ok()
+    pub unsafe fn Process<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, endofinput: Param0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffer: *mut RdcNeedPointer, rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), ::core::mem::transmute(outputbuffer), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
 impl ::core::convert::From<IRdcComparator> for ::windows::core::IUnknown {
@@ -133,19 +128,14 @@ impl ::core::convert::From<IRdcComparator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcComparator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcComparator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcComparator> for ::windows::core::IUnknown {
     fn from(value: &IRdcComparator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcComparator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcComparator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcComparator {
@@ -202,19 +192,14 @@ impl ::core::convert::From<IRdcFileReader> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcFileReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcFileReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcFileReader> for ::windows::core::IUnknown {
     fn from(value: &IRdcFileReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcFileReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcFileReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcFileReader {
@@ -286,19 +271,14 @@ impl ::core::convert::From<IRdcFileWriter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcFileWriter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcFileWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcFileWriter> for ::windows::core::IUnknown {
     fn from(value: &IRdcFileWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcFileWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcFileWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRdcFileWriter> for IRdcFileReader {
@@ -306,19 +286,14 @@ impl ::core::convert::From<IRdcFileWriter> for IRdcFileReader {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcFileWriter> for &'a IRdcFileReader {
+    fn from(value: &'a IRdcFileWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcFileWriter> for IRdcFileReader {
     fn from(value: &IRdcFileWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for IRdcFileWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for &'a IRdcFileWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcFileWriter {
@@ -360,8 +335,8 @@ impl IRdcGenerator {
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Process<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, endofinput: Param0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), endofinput.into_param().abi(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffers)), ::core::mem::transmute(rdc_errorcode)).ok()
+    pub unsafe fn Process<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, endofinput: Param0, endofoutput: *mut super::super::Foundation::BOOL, inputbuffer: *mut RdcBufferPointer, outputbuffers: &mut [*mut RdcBufferPointer], rdc_errorcode: *mut RDC_ErrorCode) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Process)(::windows::core::Interface::as_raw(self), endofinput.into(), ::core::mem::transmute(endofoutput), ::core::mem::transmute(inputbuffer), outputbuffers.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(outputbuffers)), ::core::mem::transmute(rdc_errorcode)).ok()
     }
 }
 impl ::core::convert::From<IRdcGenerator> for ::windows::core::IUnknown {
@@ -369,19 +344,14 @@ impl ::core::convert::From<IRdcGenerator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcGenerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcGenerator> for ::windows::core::IUnknown {
     fn from(value: &IRdcGenerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcGenerator {
@@ -442,19 +412,14 @@ impl ::core::convert::From<IRdcGeneratorFilterMaxParameters> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcGeneratorFilterMaxParameters> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcGeneratorFilterMaxParameters) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcGeneratorFilterMaxParameters> for ::windows::core::IUnknown {
     fn from(value: &IRdcGeneratorFilterMaxParameters) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcGeneratorFilterMaxParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcGeneratorFilterMaxParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcGeneratorFilterMaxParameters {
@@ -514,19 +479,14 @@ impl ::core::convert::From<IRdcGeneratorParameters> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcGeneratorParameters> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcGeneratorParameters) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcGeneratorParameters> for ::windows::core::IUnknown {
     fn from(value: &IRdcGeneratorParameters) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcGeneratorParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcGeneratorParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcGeneratorParameters {
@@ -568,9 +528,9 @@ impl IRdcLibrary {
         (::windows::core::Interface::vtable(self).ComputeDefaultRecursionDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filesize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters> {
+    pub unsafe fn CreateGeneratorParameters<'a, Param0: ::std::convert::Into<GeneratorParametersType>>(&self, parameterstype: Param0, level: u32) -> ::windows::core::Result<IRdcGeneratorParameters> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeneratorParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameterstype), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
+        (::windows::core::Interface::vtable(self).CreateGeneratorParameters)(::windows::core::Interface::as_raw(self), parameterstype.into(), ::core::mem::transmute(level), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGeneratorParameters>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> ::windows::core::Result<IRdcGeneratorParameters> {
@@ -583,14 +543,14 @@ impl IRdcLibrary {
         (::windows::core::Interface::vtable(self).CreateGenerator)(::windows::core::Interface::as_raw(self), igeneratorparametersarray.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(igeneratorparametersarray)), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcGenerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CreateComparator<'a, Param0: ::windows::core::IntoParam<'a, IRdcFileReader>>(&self, iseedsignaturesfile: Param0, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator> {
+    pub unsafe fn CreateComparator<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileReader>>>(&self, iseedsignaturesfile: Param0, comparatorbuffersize: u32) -> ::windows::core::Result<IRdcComparator> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateComparator)(::windows::core::Interface::as_raw(self), iseedsignaturesfile.into_param().abi(), ::core::mem::transmute(comparatorbuffersize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcComparator>(result__)
+        (::windows::core::Interface::vtable(self).CreateComparator)(::windows::core::Interface::as_raw(self), iseedsignaturesfile.into().abi(), ::core::mem::transmute(comparatorbuffersize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcComparator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CreateSignatureReader<'a, Param0: ::windows::core::IntoParam<'a, IRdcFileReader>>(&self, ifilereader: Param0) -> ::windows::core::Result<IRdcSignatureReader> {
+    pub unsafe fn CreateSignatureReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileReader>>>(&self, ifilereader: Param0) -> ::windows::core::Result<IRdcSignatureReader> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSignatureReader)(::windows::core::Interface::as_raw(self), ifilereader.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcSignatureReader>(result__)
+        (::windows::core::Interface::vtable(self).CreateSignatureReader)(::windows::core::Interface::as_raw(self), ifilereader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRdcSignatureReader>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> ::windows::core::Result<()> {
@@ -602,19 +562,14 @@ impl ::core::convert::From<IRdcLibrary> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcLibrary> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcLibrary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcLibrary> for ::windows::core::IUnknown {
     fn from(value: &IRdcLibrary) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcLibrary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcLibrary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcLibrary {
@@ -669,19 +624,14 @@ impl ::core::convert::From<IRdcSignatureReader> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcSignatureReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcSignatureReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcSignatureReader> for ::windows::core::IUnknown {
     fn from(value: &IRdcSignatureReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcSignatureReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcSignatureReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcSignatureReader {
@@ -733,19 +683,14 @@ impl ::core::convert::From<IRdcSimilarityGenerator> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRdcSimilarityGenerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRdcSimilarityGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRdcSimilarityGenerator> for ::windows::core::IUnknown {
     fn from(value: &IRdcSimilarityGenerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcSimilarityGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRdcSimilarityGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRdcSimilarityGenerator {
@@ -781,20 +726,20 @@ pub struct ISimilarity(::windows::core::IUnknown);
 impl ISimilarity {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, path: Param0, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: ::windows::core::PCWSTR, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTableIndirect<'a, Param0: ::windows::core::IntoParam<'a, ISimilarityTraitsMapping>, Param1: ::windows::core::IntoParam<'a, IRdcFileWriter>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, mapping: Param0, fileidfile: Param1, truncate: Param2, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTableIndirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityTraitsMapping>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileWriter>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, mapping: Param0, fileidfile: Param1, truncate: Param2, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), mapping.into_param().abi(), fileidfile.into_param().abi(), truncate.into_param().abi(), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), mapping.into().abi(), fileidfile.into().abi(), truncate.into(), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseTable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isvalid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into_param().abi()).ok()
+    pub unsafe fn CloseTable<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, isvalid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> ::windows::core::Result<()> {
@@ -806,8 +751,8 @@ impl ISimilarity {
         (::windows::core::Interface::vtable(self).FindSimilarFileId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(similaritydata), ::core::mem::transmute(numberofmatchesrequired), ::core::mem::transmute(resultssize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFindSimilarResults>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CopyAndSwap<'a, Param0: ::windows::core::IntoParam<'a, ISimilarity>, Param1: ::windows::core::IntoParam<'a, ISimilarityReportProgress>>(&self, newsimilaritytables: Param0, reportprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyAndSwap)(::windows::core::Interface::as_raw(self), newsimilaritytables.into_param().abi(), reportprogress.into_param().abi()).ok()
+    pub unsafe fn CopyAndSwap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarity>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityReportProgress>>>(&self, newsimilaritytables: Param0, reportprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyAndSwap)(::windows::core::Interface::as_raw(self), newsimilaritytables.into().abi(), reportprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn GetRecordCount(&self) -> ::windows::core::Result<u32> {
@@ -820,19 +765,14 @@ impl ::core::convert::From<ISimilarity> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarity> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarity> for ::windows::core::IUnknown {
     fn from(value: &ISimilarity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarity {
@@ -882,20 +822,20 @@ pub struct ISimilarityFileIdTable(::windows::core::IUnknown);
 impl ISimilarityFileIdTable {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, path: Param0, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: ::windows::core::PCWSTR, truncate: Param1, securitydescriptor: *const u8, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTableIndirect<'a, Param0: ::windows::core::IntoParam<'a, IRdcFileWriter>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fileidfile: Param0, truncate: Param1, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTableIndirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRdcFileWriter>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fileidfile: Param0, truncate: Param1, recordsize: u32) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), fileidfile.into_param().abi(), truncate.into_param().abi(), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), fileidfile.into().abi(), truncate.into(), ::core::mem::transmute(recordsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseTable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isvalid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into_param().abi()).ok()
+    pub unsafe fn CloseTable<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, isvalid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn Append(&self, similarityfileid: *const SimilarityFileId) -> ::windows::core::Result<u32> {
@@ -922,19 +862,14 @@ impl ::core::convert::From<ISimilarityFileIdTable> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarityFileIdTable> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarityFileIdTable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarityFileIdTable> for ::windows::core::IUnknown {
     fn from(value: &ISimilarityFileIdTable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarityFileIdTable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityFileIdTable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarityFileIdTable {
@@ -992,19 +927,14 @@ impl ::core::convert::From<ISimilarityReportProgress> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarityReportProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarityReportProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarityReportProgress> for ::windows::core::IUnknown {
     fn from(value: &ISimilarityReportProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarityReportProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityReportProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarityReportProgress {
@@ -1048,19 +978,14 @@ impl ::core::convert::From<ISimilarityTableDumpState> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarityTableDumpState> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarityTableDumpState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarityTableDumpState> for ::windows::core::IUnknown {
     fn from(value: &ISimilarityTableDumpState) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarityTableDumpState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTableDumpState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarityTableDumpState {
@@ -1106,9 +1031,9 @@ impl ISimilarityTraitsMappedView {
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Get<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, index: u64, dirty: Param1, numelements: u32) -> ::windows::core::Result<SimilarityMappedViewInfo> {
+    pub unsafe fn Get<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, index: u64, dirty: Param1, numelements: u32) -> ::windows::core::Result<SimilarityMappedViewInfo> {
         let mut result__ = ::core::mem::MaybeUninit::<SimilarityMappedViewInfo>::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), dirty.into_param().abi(), ::core::mem::transmute(numelements), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityMappedViewInfo>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), dirty.into(), ::core::mem::transmute(numelements), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SimilarityMappedViewInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn GetView(&self, mappedpagebegin: *mut *mut u8, mappedpageend: *mut *mut u8) {
@@ -1120,19 +1045,14 @@ impl ::core::convert::From<ISimilarityTraitsMappedView> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarityTraitsMappedView> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarityTraitsMappedView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarityTraitsMappedView> for ::windows::core::IUnknown {
     fn from(value: &ISimilarityTraitsMappedView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarityTraitsMappedView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTraitsMappedView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarityTraitsMappedView {
@@ -1185,23 +1105,23 @@ impl ISimilarityTraitsMapping {
         (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn OpenMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64> {
+    pub unsafe fn OpenMapping<'a, Param0: ::std::convert::Into<RdcMappingAccessMode>>(&self, accessmode: Param0, begin: u64, end: u64) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).OpenMapping)(::windows::core::Interface::as_raw(self), accessmode.into(), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn ResizeMapping(&self, accessmode: RdcMappingAccessMode, begin: u64, end: u64) -> ::windows::core::Result<u64> {
+    pub unsafe fn ResizeMapping<'a, Param0: ::std::convert::Into<RdcMappingAccessMode>>(&self, accessmode: Param0, begin: u64, end: u64) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).ResizeMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessmode), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).ResizeMapping)(::windows::core::Interface::as_raw(self), accessmode.into(), ::core::mem::transmute(begin), ::core::mem::transmute(end), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn GetPageSize(&self, pagesize: *mut u32) {
         (::windows::core::Interface::vtable(self).GetPageSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pagesize))
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
-    pub unsafe fn CreateView(&self, minimummappedpages: u32, accessmode: RdcMappingAccessMode) -> ::windows::core::Result<ISimilarityTraitsMappedView> {
+    pub unsafe fn CreateView<'a, Param1: ::std::convert::Into<RdcMappingAccessMode>>(&self, minimummappedpages: u32, accessmode: Param1) -> ::windows::core::Result<ISimilarityTraitsMappedView> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minimummappedpages), ::core::mem::transmute(accessmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
+        (::windows::core::Interface::vtable(self).CreateView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minimummappedpages), accessmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISimilarityTraitsMappedView>(result__)
     }
 }
 impl ::core::convert::From<ISimilarityTraitsMapping> for ::windows::core::IUnknown {
@@ -1209,19 +1129,14 @@ impl ::core::convert::From<ISimilarityTraitsMapping> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarityTraitsMapping> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarityTraitsMapping) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarityTraitsMapping> for ::windows::core::IUnknown {
     fn from(value: &ISimilarityTraitsMapping) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarityTraitsMapping {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTraitsMapping {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarityTraitsMapping {
@@ -1262,20 +1177,20 @@ pub struct ISimilarityTraitsTable(::windows::core::IUnknown);
 impl ISimilarityTraitsTable {
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, path: Param0, truncate: Param1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTable<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, path: ::windows::core::PCWSTR, truncate: Param1, securitydescriptor: *const u8) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), path.into_param().abi(), truncate.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(path), truncate.into(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTableIndirect<'a, Param0: ::windows::core::IntoParam<'a, ISimilarityTraitsMapping>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, mapping: Param0, truncate: Param1) -> ::windows::core::Result<RdcCreatedTables> {
+    pub unsafe fn CreateTableIndirect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISimilarityTraitsMapping>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, mapping: Param0, truncate: Param1) -> ::windows::core::Result<RdcCreatedTables> {
         let mut result__ = ::core::mem::MaybeUninit::<RdcCreatedTables>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), mapping.into_param().abi(), truncate.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
+        (::windows::core::Interface::vtable(self).CreateTableIndirect)(::windows::core::Interface::as_raw(self), mapping.into().abi(), truncate.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RdcCreatedTables>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CloseTable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, isvalid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into_param().abi()).ok()
+    pub unsafe fn CloseTable<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, isvalid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CloseTable)(::windows::core::Interface::as_raw(self), isvalid.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_RemoteDifferentialCompression\"`*"]
     pub unsafe fn Append(&self, data: *const SimilarityData, fileindex: u32) -> ::windows::core::Result<()> {
@@ -1301,19 +1216,14 @@ impl ::core::convert::From<ISimilarityTraitsTable> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimilarityTraitsTable> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimilarityTraitsTable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimilarityTraitsTable> for ::windows::core::IUnknown {
     fn from(value: &ISimilarityTraitsTable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimilarityTraitsTable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimilarityTraitsTable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimilarityTraitsTable {

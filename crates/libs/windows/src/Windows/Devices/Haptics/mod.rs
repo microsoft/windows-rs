@@ -310,26 +310,26 @@ impl SimpleHapticsController {
         unsafe { (::windows::core::Interface::vtable(this).StopFeedback)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`*"]
-    pub fn SendHapticFeedback<'a, Param0: ::windows::core::IntoParam<'a, SimpleHapticsControllerFeedback>>(&self, feedback: Param0) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedback)(::windows::core::Interface::as_raw(this), feedback.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedback)(::windows::core::Interface::as_raw(this), feedback.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`*"]
-    pub fn SendHapticFeedbackWithIntensity<'a, Param0: ::windows::core::IntoParam<'a, SimpleHapticsControllerFeedback>>(&self, feedback: Param0, intensity: f64) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedbackWithIntensity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0, intensity: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(::windows::core::Interface::as_raw(this), feedback.into_param().abi(), intensity).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendHapticFeedbackForDuration<'a, Param0: ::windows::core::IntoParam<'a, SimpleHapticsControllerFeedback>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, feedback: Param0, intensity: f64, playduration: Param2) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedbackForDuration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForDuration)(::windows::core::Interface::as_raw(this), feedback.into_param().abi(), intensity, playduration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForDuration)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity, playduration).ok() }
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendHapticFeedbackForPlayCount<'a, Param0: ::windows::core::IntoParam<'a, SimpleHapticsControllerFeedback>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, feedback: Param0, intensity: f64, playcount: i32, replaypauseinterval: Param3) -> ::windows::core::Result<()> {
+    pub fn SendHapticFeedbackForPlayCount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SimpleHapticsControllerFeedback>>>(&self, feedback: Param0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(::windows::core::Interface::as_raw(this), feedback.into_param().abi(), intensity, playcount, replaypauseinterval.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForPlayCount)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity, playcount, replaypauseinterval).ok() }
     }
 }
 impl ::core::clone::Clone for SimpleHapticsController {
@@ -372,14 +372,9 @@ impl ::core::convert::From<&SimpleHapticsController> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SimpleHapticsController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SimpleHapticsController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SimpleHapticsController> for &::windows::core::IUnknown {
+    fn from(value: &SimpleHapticsController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SimpleHapticsController> for ::windows::core::IInspectable {
@@ -392,14 +387,9 @@ impl ::core::convert::From<&SimpleHapticsController> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SimpleHapticsController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SimpleHapticsController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SimpleHapticsController> for &::windows::core::IInspectable {
+    fn from(value: &SimpleHapticsController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SimpleHapticsController {}
@@ -466,14 +456,9 @@ impl ::core::convert::From<&SimpleHapticsControllerFeedback> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SimpleHapticsControllerFeedback> for &::windows::core::IUnknown {
+    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SimpleHapticsControllerFeedback> for ::windows::core::IInspectable {
@@ -486,14 +471,9 @@ impl ::core::convert::From<&SimpleHapticsControllerFeedback> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SimpleHapticsControllerFeedback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SimpleHapticsControllerFeedback> for &::windows::core::IInspectable {
+    fn from(value: &SimpleHapticsControllerFeedback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
@@ -571,10 +551,10 @@ impl VibrationDevice {
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VibrationDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VibrationDevice>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Haptics\"`, `\"Foundation\"`*"]
@@ -639,14 +619,9 @@ impl ::core::convert::From<&VibrationDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VibrationDevice> for &::windows::core::IUnknown {
+    fn from(value: &VibrationDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VibrationDevice> for ::windows::core::IInspectable {
@@ -659,14 +634,9 @@ impl ::core::convert::From<&VibrationDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VibrationDevice> for &::windows::core::IInspectable {
+    fn from(value: &VibrationDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VibrationDevice {}

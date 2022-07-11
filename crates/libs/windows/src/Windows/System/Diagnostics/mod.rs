@@ -66,14 +66,9 @@ impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiagnosticActionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiagnosticActionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IUnknown {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IInspectable {
@@ -86,14 +81,9 @@ impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DiagnosticActionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiagnosticActionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IInspectable {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DiagnosticActionResult {}
@@ -143,20 +133,20 @@ pub struct DiagnosticInvoker(::windows::core::IUnknown);
 impl DiagnosticInvoker {
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Data_Json\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
-    pub fn RunDiagnosticActionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Data::Json::JsonObject>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Json::JsonObject>>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows::core::Interface::as_raw(this), context.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RunDiagnosticActionFromStringAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionFromStringAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, context: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &::windows::core::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows::core::Interface::as_raw(this), context.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+            (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -167,10 +157,10 @@ impl DiagnosticInvoker {
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<DiagnosticInvoker> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -226,14 +216,9 @@ impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiagnosticInvoker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiagnosticInvoker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IUnknown {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IInspectable {
@@ -246,14 +231,9 @@ impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DiagnosticInvoker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiagnosticInvoker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IInspectable {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DiagnosticInvoker {}
@@ -651,14 +631,9 @@ impl ::core::convert::From<&ProcessCpuUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessCpuUsage> for &::windows::core::IUnknown {
+    fn from(value: &ProcessCpuUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessCpuUsage> for ::windows::core::IInspectable {
@@ -671,14 +646,9 @@ impl ::core::convert::From<&ProcessCpuUsage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessCpuUsage> for &::windows::core::IInspectable {
+    fn from(value: &ProcessCpuUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessCpuUsage {}
@@ -746,14 +716,9 @@ impl ::core::convert::From<&ProcessCpuUsageReport> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessCpuUsageReport> for &::windows::core::IUnknown {
+    fn from(value: &ProcessCpuUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessCpuUsageReport> for ::windows::core::IInspectable {
@@ -766,14 +731,9 @@ impl ::core::convert::From<&ProcessCpuUsageReport> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessCpuUsageReport> for &::windows::core::IInspectable {
+    fn from(value: &ProcessCpuUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessCpuUsageReport {}
@@ -929,14 +889,9 @@ impl ::core::convert::From<&ProcessDiagnosticInfo> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessDiagnosticInfo> for &::windows::core::IUnknown {
+    fn from(value: &ProcessDiagnosticInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessDiagnosticInfo> for ::windows::core::IInspectable {
@@ -949,14 +904,9 @@ impl ::core::convert::From<&ProcessDiagnosticInfo> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessDiagnosticInfo> for &::windows::core::IInspectable {
+    fn from(value: &ProcessDiagnosticInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessDiagnosticInfo {}
@@ -1014,14 +964,9 @@ impl ::core::convert::From<&ProcessDiskUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessDiskUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessDiskUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessDiskUsage> for &::windows::core::IUnknown {
+    fn from(value: &ProcessDiskUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessDiskUsage> for ::windows::core::IInspectable {
@@ -1034,14 +979,9 @@ impl ::core::convert::From<&ProcessDiskUsage> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessDiskUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessDiskUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessDiskUsage> for &::windows::core::IInspectable {
+    fn from(value: &ProcessDiskUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessDiskUsage {}
@@ -1139,14 +1079,9 @@ impl ::core::convert::From<&ProcessDiskUsageReport> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessDiskUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessDiskUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessDiskUsageReport> for &::windows::core::IUnknown {
+    fn from(value: &ProcessDiskUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessDiskUsageReport> for ::windows::core::IInspectable {
@@ -1159,14 +1094,9 @@ impl ::core::convert::From<&ProcessDiskUsageReport> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessDiskUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessDiskUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessDiskUsageReport> for &::windows::core::IInspectable {
+    fn from(value: &ProcessDiskUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessDiskUsageReport {}
@@ -1224,14 +1154,9 @@ impl ::core::convert::From<&ProcessMemoryUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessMemoryUsage> for &::windows::core::IUnknown {
+    fn from(value: &ProcessMemoryUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessMemoryUsage> for ::windows::core::IInspectable {
@@ -1244,14 +1169,9 @@ impl ::core::convert::From<&ProcessMemoryUsage> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessMemoryUsage> for &::windows::core::IInspectable {
+    fn from(value: &ProcessMemoryUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessMemoryUsage {}
@@ -1397,14 +1317,9 @@ impl ::core::convert::From<&ProcessMemoryUsageReport> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessMemoryUsageReport> for &::windows::core::IUnknown {
+    fn from(value: &ProcessMemoryUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessMemoryUsageReport> for ::windows::core::IInspectable {
@@ -1417,14 +1332,9 @@ impl ::core::convert::From<&ProcessMemoryUsageReport> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessMemoryUsageReport> for &::windows::core::IInspectable {
+    fn from(value: &ProcessMemoryUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessMemoryUsageReport {}
@@ -1482,14 +1392,9 @@ impl ::core::convert::From<&SystemCpuUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemCpuUsage> for &::windows::core::IUnknown {
+    fn from(value: &SystemCpuUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemCpuUsage> for ::windows::core::IInspectable {
@@ -1502,14 +1407,9 @@ impl ::core::convert::From<&SystemCpuUsage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemCpuUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemCpuUsage> for &::windows::core::IInspectable {
+    fn from(value: &SystemCpuUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemCpuUsage {}
@@ -1586,14 +1486,9 @@ impl ::core::convert::From<&SystemCpuUsageReport> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemCpuUsageReport> for &::windows::core::IUnknown {
+    fn from(value: &SystemCpuUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemCpuUsageReport> for ::windows::core::IInspectable {
@@ -1606,14 +1501,9 @@ impl ::core::convert::From<&SystemCpuUsageReport> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemCpuUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemCpuUsageReport> for &::windows::core::IInspectable {
+    fn from(value: &SystemCpuUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemCpuUsageReport {}
@@ -1646,10 +1536,10 @@ impl SystemDiagnosticInfo {
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
-    pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> ::windows::core::Result<bool> {
+    pub fn IsArchitectureSupported<'a, Param0: ::std::convert::Into<super::ProcessorArchitecture>>(r#type: Param0) -> ::windows::core::Result<bool> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsArchitectureSupported)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics\"`*"]
@@ -1710,14 +1600,9 @@ impl ::core::convert::From<&SystemDiagnosticInfo> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemDiagnosticInfo> for &::windows::core::IUnknown {
+    fn from(value: &SystemDiagnosticInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemDiagnosticInfo> for ::windows::core::IInspectable {
@@ -1730,14 +1615,9 @@ impl ::core::convert::From<&SystemDiagnosticInfo> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemDiagnosticInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemDiagnosticInfo> for &::windows::core::IInspectable {
+    fn from(value: &SystemDiagnosticInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemDiagnosticInfo {}
@@ -1795,14 +1675,9 @@ impl ::core::convert::From<&SystemMemoryUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMemoryUsage> for &::windows::core::IUnknown {
+    fn from(value: &SystemMemoryUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMemoryUsage> for ::windows::core::IInspectable {
@@ -1815,14 +1690,9 @@ impl ::core::convert::From<&SystemMemoryUsage> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMemoryUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMemoryUsage> for &::windows::core::IInspectable {
+    fn from(value: &SystemMemoryUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMemoryUsage {}
@@ -1896,14 +1766,9 @@ impl ::core::convert::From<&SystemMemoryUsageReport> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMemoryUsageReport> for &::windows::core::IUnknown {
+    fn from(value: &SystemMemoryUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemMemoryUsageReport> for ::windows::core::IInspectable {
@@ -1916,14 +1781,9 @@ impl ::core::convert::From<&SystemMemoryUsageReport> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemMemoryUsageReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemMemoryUsageReport> for &::windows::core::IInspectable {
+    fn from(value: &SystemMemoryUsageReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}

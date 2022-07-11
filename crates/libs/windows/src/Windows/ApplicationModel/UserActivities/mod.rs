@@ -223,19 +223,14 @@ impl ::core::convert::From<IUserActivityContentInfo> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUserActivityContentInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUserActivityContentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUserActivityContentInfo> for ::windows::core::IUnknown {
     fn from(value: &IUserActivityContentInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IUserActivityContentInfo> for ::windows::core::IInspectable {
@@ -243,19 +238,14 @@ impl ::core::convert::From<IUserActivityContentInfo> for ::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUserActivityContentInfo> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IUserActivityContentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUserActivityContentInfo> for ::windows::core::IInspectable {
     fn from(value: &IUserActivityContentInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IUserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUserActivityContentInfo {
@@ -522,9 +512,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetContentUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -535,9 +525,9 @@ impl UserActivity {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetContentType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -550,9 +540,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetFallbackUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFallbackUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -565,9 +555,9 @@ impl UserActivity {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActivationUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetActivationUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetActivationUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetActivationUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn ContentInfo(&self) -> ::windows::core::Result<IUserActivityContentInfo> {
@@ -578,9 +568,9 @@ impl UserActivity {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetContentInfo<'a, Param0: ::windows::core::IntoParam<'a, IUserActivityContentInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentInfo<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IUserActivityContentInfo>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentInfo)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -621,33 +611,33 @@ impl UserActivity {
         unsafe { (::windows::core::Interface::vtable(this).SetIsRoamable)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn CreateWithActivityId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activityid: Param0) -> ::windows::core::Result<UserActivity> {
+    pub fn CreateWithActivityId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activityid: Param0) -> ::windows::core::Result<UserActivity> {
         Self::IUserActivityFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithActivityId)(::windows::core::Interface::as_raw(this), activityid.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithActivityId)(::windows::core::Interface::as_raw(this), activityid.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn TryParseFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(json: Param0) -> ::windows::core::Result<UserActivity> {
+    pub fn TryParseFromJson<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(json: Param0) -> ::windows::core::Result<UserActivity> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseFromJson)(::windows::core::Interface::as_raw(this), json.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
+            (::windows::core::Interface::vtable(this).TryParseFromJson)(::windows::core::Interface::as_raw(this), json.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryParseFromJsonArray<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(json: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
+    pub fn TryParseFromJsonArray<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(json: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseFromJsonArray)(::windows::core::Interface::as_raw(this), json.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<UserActivity>>(result__)
+            (::windows::core::Interface::vtable(this).TryParseFromJsonArray)(::windows::core::Interface::as_raw(this), json.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<UserActivity>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ToJsonArray<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<UserActivity>>>(activities: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn ToJsonArray<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<UserActivity>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(activities: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUserActivityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).ToJsonArray)(::windows::core::Interface::as_raw(this), activities.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToJsonArray)(::windows::core::Interface::as_raw(this), activities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -701,14 +691,9 @@ impl ::core::convert::From<&UserActivity> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivity> for &::windows::core::IUnknown {
+    fn from(value: &UserActivity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivity> for ::windows::core::IInspectable {
@@ -721,14 +706,9 @@ impl ::core::convert::From<&UserActivity> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivity> for &::windows::core::IInspectable {
+    fn from(value: &UserActivity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivity {}
@@ -755,9 +735,9 @@ impl UserActivityAttribution {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIconUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIconUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIconUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIconUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -768,9 +748,9 @@ impl UserActivityAttribution {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetAlternateText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAlternateText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlternateText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlternateText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn AddImageQuery(&self) -> ::windows::core::Result<bool> {
@@ -787,10 +767,10 @@ impl UserActivityAttribution {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(iconuri: Param0) -> ::windows::core::Result<UserActivityAttribution> {
+    pub fn CreateWithUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(iconuri: Param0) -> ::windows::core::Result<UserActivityAttribution> {
         Self::IUserActivityAttributionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithUri)(::windows::core::Interface::as_raw(this), iconuri.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithUri)(::windows::core::Interface::as_raw(this), iconuri.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityAttribution>(result__)
         })
     }
     #[doc(hidden)]
@@ -839,14 +819,9 @@ impl ::core::convert::From<&UserActivityAttribution> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityAttribution {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityAttribution {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityAttribution> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityAttribution) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityAttribution> for ::windows::core::IInspectable {
@@ -859,14 +834,9 @@ impl ::core::convert::From<&UserActivityAttribution> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityAttribution {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityAttribution {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityAttribution> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityAttribution) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivityAttribution {}
@@ -877,20 +847,20 @@ pub struct UserActivityChannel(::windows::core::IUnknown);
 impl UserActivityChannel {
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetOrCreateUserActivityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activityid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
+    pub fn GetOrCreateUserActivityAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activityid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetOrCreateUserActivityAsync)(::windows::core::Interface::as_raw(this), activityid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserActivity>>(result__)
+            (::windows::core::Interface::vtable(this).GetOrCreateUserActivityAsync)(::windows::core::Interface::as_raw(this), activityid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserActivity>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteActivityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activityid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteActivityAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activityid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteActivityAsync)(::windows::core::Interface::as_raw(this), activityid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteActivityAsync)(::windows::core::Interface::as_raw(this), activityid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
@@ -913,11 +883,11 @@ impl UserActivityChannel {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSessionHistoryItemsForUserActivityAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, activityid: Param0, starttime: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
+    pub fn GetSessionHistoryItemsForUserActivityAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activityid: Param0, starttime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(::windows::core::Interface::as_raw(this), activityid.into_param().abi(), starttime.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
+            (::windows::core::Interface::vtable(this).GetSessionHistoryItemsForUserActivityAsync)(::windows::core::Interface::as_raw(this), activityid.into().abi(), starttime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -933,18 +903,18 @@ impl UserActivityChannel {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn TryGetForWebAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(account: Param0) -> ::windows::core::Result<UserActivityChannel> {
+    pub fn TryGetForWebAccount<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>>(account: Param0) -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetForWebAccount)(::windows::core::Interface::as_raw(this), account.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Interface::vtable(this).TryGetForWebAccount)(::windows::core::Interface::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<UserActivityChannel> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<UserActivityChannel> {
         Self::IUserActivityChannelStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
     #[doc(hidden)]
@@ -1003,14 +973,9 @@ impl ::core::convert::From<&UserActivityChannel> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityChannel> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityChannel> for ::windows::core::IInspectable {
@@ -1023,14 +988,9 @@ impl ::core::convert::From<&UserActivityChannel> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityChannel> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivityChannel {}
@@ -1048,10 +1008,10 @@ impl UserActivityContentInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn FromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<UserActivityContentInfo> {
+    pub fn FromJson<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<UserActivityContentInfo> {
         Self::IUserActivityContentInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromJson)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserActivityContentInfo>(result__)
+            (::windows::core::Interface::vtable(this).FromJson)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityContentInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -1100,14 +1060,9 @@ impl ::core::convert::From<&UserActivityContentInfo> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityContentInfo> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityContentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityContentInfo> for ::windows::core::IInspectable {
@@ -1120,14 +1075,9 @@ impl ::core::convert::From<&UserActivityContentInfo> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityContentInfo> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityContentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<UserActivityContentInfo> for IUserActivityContentInfo {
@@ -1142,14 +1092,11 @@ impl ::core::convert::TryFrom<&UserActivityContentInfo> for IUserActivityContent
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUserActivityContentInfo> for UserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserActivityContentInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUserActivityContentInfo> for &UserActivityContentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IUserActivityContentInfo> {
-        ::core::convert::TryInto::<IUserActivityContentInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserActivityContentInfo> for ::windows::core::InParam<'a, IUserActivityContentInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserActivityContentInfo) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserActivityContentInfo {}
@@ -1159,9 +1106,9 @@ unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
 pub struct UserActivityRequest(::windows::core::IUnknown);
 impl UserActivityRequest {
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetUserActivity<'a, Param0: ::windows::core::IntoParam<'a, UserActivity>>(&self, activity: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUserActivity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UserActivity>>>(&self, activity: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserActivity)(::windows::core::Interface::as_raw(this), activity.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserActivity)(::windows::core::Interface::as_raw(this), activity.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UserActivityRequest {
@@ -1204,14 +1151,9 @@ impl ::core::convert::From<&UserActivityRequest> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityRequest> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityRequest> for ::windows::core::IInspectable {
@@ -1224,14 +1166,9 @@ impl ::core::convert::From<&UserActivityRequest> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityRequest> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivityRequest {}
@@ -1242,18 +1179,18 @@ pub struct UserActivityRequestManager(::windows::core::IUnknown);
 impl UserActivityRequestManager {
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UserActivityRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn UserActivityRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UserActivityRequestManager, UserActivityRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).UserActivityRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UserActivityRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveUserActivityRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveUserActivityRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUserActivityRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUserActivityRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<UserActivityRequestManager> {
@@ -1308,14 +1245,9 @@ impl ::core::convert::From<&UserActivityRequestManager> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityRequestManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityRequestManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityRequestManager> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityRequestManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityRequestManager> for ::windows::core::IInspectable {
@@ -1328,14 +1260,9 @@ impl ::core::convert::From<&UserActivityRequestManager> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityRequestManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityRequestManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityRequestManager> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityRequestManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
@@ -1400,14 +1327,9 @@ impl ::core::convert::From<&UserActivityRequestedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityRequestedEventArgs> for ::windows::core::IInspectable {
@@ -1420,14 +1342,9 @@ impl ::core::convert::From<&UserActivityRequestedEventArgs> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
@@ -1491,14 +1408,9 @@ impl ::core::convert::From<&UserActivitySession> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivitySession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivitySession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivitySession> for &::windows::core::IUnknown {
+    fn from(value: &UserActivitySession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivitySession> for ::windows::core::IInspectable {
@@ -1511,14 +1423,9 @@ impl ::core::convert::From<&UserActivitySession> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivitySession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivitySession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivitySession> for &::windows::core::IInspectable {
+    fn from(value: &UserActivitySession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1536,15 +1443,11 @@ impl ::core::convert::TryFrom<&UserActivitySession> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for UserActivitySession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &UserActivitySession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserActivitySession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserActivitySession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UserActivitySession {}
@@ -1620,14 +1523,9 @@ impl ::core::convert::From<&UserActivitySessionHistoryItem> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivitySessionHistoryItem> for &::windows::core::IUnknown {
+    fn from(value: &UserActivitySessionHistoryItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivitySessionHistoryItem> for ::windows::core::IInspectable {
@@ -1640,14 +1538,9 @@ impl ::core::convert::From<&UserActivitySessionHistoryItem> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivitySessionHistoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivitySessionHistoryItem> for &::windows::core::IInspectable {
+    fn from(value: &UserActivitySessionHistoryItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
@@ -1699,9 +1592,9 @@ impl UserActivityVisualElements {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetDisplayText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1712,9 +1605,9 @@ impl UserActivityVisualElements {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -1727,9 +1620,9 @@ impl UserActivityVisualElements {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
     pub fn Attribution(&self) -> ::windows::core::Result<UserActivityAttribution> {
@@ -1740,15 +1633,15 @@ impl UserActivityVisualElements {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetAttribution<'a, Param0: ::windows::core::IntoParam<'a, UserActivityAttribution>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAttribution<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UserActivityAttribution>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttribution)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAttribution)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
-    pub fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Shell::IAdaptiveCard>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContent<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::UI::Shell::IAdaptiveCard>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`, `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
@@ -1768,9 +1661,9 @@ impl UserActivityVisualElements {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-    pub fn SetAttributionDisplayText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAttributionDisplayText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUserActivityVisualElements2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAttributionDisplayText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAttributionDisplayText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UserActivityVisualElements {
@@ -1813,14 +1706,9 @@ impl ::core::convert::From<&UserActivityVisualElements> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserActivityVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserActivityVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityVisualElements> for &::windows::core::IUnknown {
+    fn from(value: &UserActivityVisualElements) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserActivityVisualElements> for ::windows::core::IInspectable {
@@ -1833,14 +1721,9 @@ impl ::core::convert::From<&UserActivityVisualElements> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserActivityVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserActivityVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserActivityVisualElements> for &::windows::core::IInspectable {
+    fn from(value: &UserActivityVisualElements) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserActivityVisualElements {}

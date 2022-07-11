@@ -37,21 +37,15 @@ impl ::core::convert::From<IEnumNetworkConnections> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEnumNetworkConnections> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumNetworkConnections) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IEnumNetworkConnections> for ::windows::core::IUnknown {
     fn from(value: &IEnumNetworkConnections) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumNetworkConnections {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumNetworkConnections {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -61,21 +55,15 @@ impl ::core::convert::From<IEnumNetworkConnections> for super::super::System::Co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEnumNetworkConnections> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IEnumNetworkConnections) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IEnumNetworkConnections> for super::super::System::Com::IDispatch {
     fn from(value: &IEnumNetworkConnections) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IEnumNetworkConnections {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IEnumNetworkConnections {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -162,21 +150,15 @@ impl ::core::convert::From<IEnumNetworks> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEnumNetworks> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumNetworks) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IEnumNetworks> for ::windows::core::IUnknown {
     fn from(value: &IEnumNetworks) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumNetworks {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumNetworks {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -186,21 +168,15 @@ impl ::core::convert::From<IEnumNetworks> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IEnumNetworks> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IEnumNetworks) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IEnumNetworks> for super::super::System::Com::IDispatch {
     fn from(value: &IEnumNetworks) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IEnumNetworks {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IEnumNetworks {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -262,8 +238,8 @@ impl INetwork {
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sznetworknewname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), sznetworknewname.into_param().abi()).ok()
+    pub unsafe fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sznetworknewname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), sznetworknewname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -273,8 +249,8 @@ impl INetwork {
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, szdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), szdescription.into_param().abi()).ok()
+    pub unsafe fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, szdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), szdescription.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
     pub unsafe fn GetNetworkId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -317,13 +293,19 @@ impl INetwork {
         (::windows::core::Interface::vtable(self).GetCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<NLM_NETWORK_CATEGORY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newcategory)).ok()
+    pub unsafe fn SetCategory<'a, Param0: ::std::convert::Into<NLM_NETWORK_CATEGORY>>(&self, newcategory: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCategory)(::windows::core::Interface::as_raw(self), newcategory.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<INetwork> for ::windows::core::IUnknown {
     fn from(value: INetwork) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetwork> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetwork) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -334,20 +316,14 @@ impl ::core::convert::From<&INetwork> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<INetwork> for super::super::System::Com::IDispatch {
     fn from(value: INetwork) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetwork> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a INetwork) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -355,18 +331,6 @@ impl ::core::convert::From<INetwork> for super::super::System::Com::IDispatch {
 impl ::core::convert::From<&INetwork> for super::super::System::Com::IDispatch {
     fn from(value: &INetwork) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for INetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a INetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -478,21 +442,15 @@ impl ::core::convert::From<INetworkConnection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetworkConnection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkConnection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&INetworkConnection> for ::windows::core::IUnknown {
     fn from(value: &INetworkConnection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -502,21 +460,15 @@ impl ::core::convert::From<INetworkConnection> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetworkConnection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a INetworkConnection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&INetworkConnection> for super::super::System::Com::IDispatch {
     fn from(value: &INetworkConnection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for INetworkConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a INetworkConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -581,19 +533,14 @@ impl ::core::convert::From<INetworkConnectionCost> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkConnectionCost> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkConnectionCost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkConnectionCost> for ::windows::core::IUnknown {
     fn from(value: &INetworkConnectionCost) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkConnectionCost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkConnectionCost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkConnectionCost {
@@ -631,12 +578,12 @@ pub struct INetworkConnectionCost_Vtbl {
 pub struct INetworkConnectionCostEvents(::windows::core::IUnknown);
 impl INetworkConnectionCostEvents {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn ConnectionCostChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0, newcost: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectionCostChanged)(::windows::core::Interface::as_raw(self), connectionid.into_param().abi(), ::core::mem::transmute(newcost)).ok()
+    pub unsafe fn ConnectionCostChanged(&self, connectionid: ::windows::core::GUID, newcost: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectionCostChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), ::core::mem::transmute(newcost)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn ConnectionDataPlanStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectionDataPlanStatusChanged)(::windows::core::Interface::as_raw(self), connectionid.into_param().abi()).ok()
+    pub unsafe fn ConnectionDataPlanStatusChanged(&self, connectionid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectionDataPlanStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid)).ok()
     }
 }
 impl ::core::convert::From<INetworkConnectionCostEvents> for ::windows::core::IUnknown {
@@ -644,19 +591,14 @@ impl ::core::convert::From<INetworkConnectionCostEvents> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkConnectionCostEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkConnectionCostEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkConnectionCostEvents> for ::windows::core::IUnknown {
     fn from(value: &INetworkConnectionCostEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkConnectionCostEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkConnectionCostEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkConnectionCostEvents {
@@ -691,12 +633,12 @@ pub struct INetworkConnectionCostEvents_Vtbl {
 pub struct INetworkConnectionEvents(::windows::core::IUnknown);
 impl INetworkConnectionEvents {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkConnectionConnectivityChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(::windows::core::Interface::as_raw(self), connectionid.into_param().abi(), ::core::mem::transmute(newconnectivity)).ok()
+    pub unsafe fn NetworkConnectionConnectivityChanged<'a, Param1: ::std::convert::Into<NLM_CONNECTIVITY>>(&self, connectionid: ::windows::core::GUID, newconnectivity: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), newconnectivity.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkConnectionPropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, connectionid: Param0, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NetworkConnectionPropertyChanged)(::windows::core::Interface::as_raw(self), connectionid.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn NetworkConnectionPropertyChanged<'a, Param1: ::std::convert::Into<NLM_CONNECTION_PROPERTY_CHANGE>>(&self, connectionid: ::windows::core::GUID, flags: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkConnectionPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(connectionid), flags.into()).ok()
     }
 }
 impl ::core::convert::From<INetworkConnectionEvents> for ::windows::core::IUnknown {
@@ -704,19 +646,14 @@ impl ::core::convert::From<INetworkConnectionEvents> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkConnectionEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkConnectionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkConnectionEvents> for ::windows::core::IUnknown {
     fn from(value: &INetworkConnectionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkConnectionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkConnectionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkConnectionEvents {
@@ -769,19 +706,14 @@ impl ::core::convert::From<INetworkCostManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkCostManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkCostManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkCostManager> for ::windows::core::IUnknown {
     fn from(value: &INetworkCostManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkCostManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkCostManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkCostManager {
@@ -833,19 +765,14 @@ impl ::core::convert::From<INetworkCostManagerEvents> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkCostManagerEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkCostManagerEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkCostManagerEvents> for ::windows::core::IUnknown {
     fn from(value: &INetworkCostManagerEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkCostManagerEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkCostManagerEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkCostManagerEvents {
@@ -880,20 +807,20 @@ pub struct INetworkCostManagerEvents_Vtbl {
 pub struct INetworkEvents(::windows::core::IUnknown);
 impl INetworkEvents {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NetworkAdded)(::windows::core::Interface::as_raw(self), networkid.into_param().abi()).ok()
+    pub unsafe fn NetworkAdded(&self, networkid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NetworkDeleted)(::windows::core::Interface::as_raw(self), networkid.into_param().abi()).ok()
+    pub unsafe fn NetworkDeleted(&self, networkid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkConnectivityChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NetworkConnectivityChanged)(::windows::core::Interface::as_raw(self), networkid.into_param().abi(), ::core::mem::transmute(newconnectivity)).ok()
+    pub unsafe fn NetworkConnectivityChanged<'a, Param1: ::std::convert::Into<NLM_CONNECTIVITY>>(&self, networkid: ::windows::core::GUID, newconnectivity: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid), newconnectivity.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn NetworkPropertyChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, networkid: Param0, flags: NLM_NETWORK_PROPERTY_CHANGE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NetworkPropertyChanged)(::windows::core::Interface::as_raw(self), networkid.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    pub unsafe fn NetworkPropertyChanged<'a, Param1: ::std::convert::Into<NLM_NETWORK_PROPERTY_CHANGE>>(&self, networkid: ::windows::core::GUID, flags: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NetworkPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(networkid), flags.into()).ok()
     }
 }
 impl ::core::convert::From<INetworkEvents> for ::windows::core::IUnknown {
@@ -901,19 +828,14 @@ impl ::core::convert::From<INetworkEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkEvents> for ::windows::core::IUnknown {
     fn from(value: &INetworkEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkEvents {
@@ -953,15 +875,15 @@ pub struct INetworkListManager(::windows::core::IUnknown);
 impl INetworkListManager {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> ::windows::core::Result<IEnumNetworks> {
+    pub unsafe fn GetNetworks<'a, Param0: ::std::convert::Into<NLM_ENUM_NETWORK>>(&self, flags: Param0) -> ::windows::core::Result<IEnumNetworks> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetworks>(result__)
+        (::windows::core::Interface::vtable(self).GetNetworks)(::windows::core::Interface::as_raw(self), flags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNetworks>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNetwork<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, gdnetworkid: Param0) -> ::windows::core::Result<INetwork> {
+    pub unsafe fn GetNetwork(&self, gdnetworkid: ::windows::core::GUID) -> ::windows::core::Result<INetwork> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetwork)(::windows::core::Interface::as_raw(self), gdnetworkid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetwork>(result__)
+        (::windows::core::Interface::vtable(self).GetNetwork)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gdnetworkid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -971,9 +893,9 @@ impl INetworkListManager {
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetNetworkConnection<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, gdnetworkconnectionid: Param0) -> ::windows::core::Result<INetworkConnection> {
+    pub unsafe fn GetNetworkConnection(&self, gdnetworkconnectionid: ::windows::core::GUID) -> ::windows::core::Result<INetworkConnection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkConnection)(::windows::core::Interface::as_raw(self), gdnetworkconnectionid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetworkConnection>(result__)
+        (::windows::core::Interface::vtable(self).GetNetworkConnection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gdnetworkconnectionid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetworkConnection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
     pub unsafe fn IsConnectedToInternet(&self) -> ::windows::core::Result<i16> {
@@ -1006,21 +928,15 @@ impl ::core::convert::From<INetworkListManager> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetworkListManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkListManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&INetworkListManager> for ::windows::core::IUnknown {
     fn from(value: &INetworkListManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkListManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkListManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1030,21 +946,15 @@ impl ::core::convert::From<INetworkListManager> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a INetworkListManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a INetworkListManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&INetworkListManager> for super::super::System::Com::IDispatch {
     fn from(value: &INetworkListManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for INetworkListManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a INetworkListManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1104,8 +1014,8 @@ pub struct INetworkListManager_Vtbl {
 pub struct INetworkListManagerEvents(::windows::core::IUnknown);
 impl INetworkListManagerEvents {
     #[doc = "*Required features: `\"Win32_Networking_NetworkListManager\"`*"]
-    pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectivityChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newconnectivity)).ok()
+    pub unsafe fn ConnectivityChanged<'a, Param0: ::std::convert::Into<NLM_CONNECTIVITY>>(&self, newconnectivity: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectivityChanged)(::windows::core::Interface::as_raw(self), newconnectivity.into()).ok()
     }
 }
 impl ::core::convert::From<INetworkListManagerEvents> for ::windows::core::IUnknown {
@@ -1113,19 +1023,14 @@ impl ::core::convert::From<INetworkListManagerEvents> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetworkListManagerEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetworkListManagerEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetworkListManagerEvents> for ::windows::core::IUnknown {
     fn from(value: &INetworkListManagerEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetworkListManagerEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetworkListManagerEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetworkListManagerEvents {

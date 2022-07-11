@@ -232,19 +232,14 @@ impl ::core::convert::From<IOplockBreakingHandler> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOplockBreakingHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOplockBreakingHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOplockBreakingHandler> for ::windows::core::IUnknown {
     fn from(value: &IOplockBreakingHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOplockBreakingHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOplockBreakingHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOplockBreakingHandler {
@@ -288,19 +283,14 @@ impl ::core::convert::From<IRandomAccessStreamFileAccessMode> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStreamFileAccessMode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRandomAccessStreamFileAccessMode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStreamFileAccessMode> for ::windows::core::IUnknown {
     fn from(value: &IRandomAccessStreamFileAccessMode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRandomAccessStreamFileAccessMode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRandomAccessStreamFileAccessMode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRandomAccessStreamFileAccessMode {
@@ -335,9 +325,9 @@ pub struct IStorageFolderHandleAccess(::windows::core::IUnknown);
 impl IStorageFolderHandleAccess {
     #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, IOplockBreakingHandler>>(&self, filename: Param0, creationoptions: HANDLE_CREATION_OPTIONS, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Param5) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
+    pub unsafe fn Create<'a, Param1: ::std::convert::Into<HANDLE_CREATION_OPTIONS>, Param2: ::std::convert::Into<HANDLE_ACCESS_OPTIONS>, Param3: ::std::convert::Into<HANDLE_SHARING_OPTIONS>, Param4: ::std::convert::Into<HANDLE_OPTIONS>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>>(&self, filename: ::windows::core::PCWSTR, creationoptions: Param1, accessoptions: Param2, sharingoptions: Param3, options: Param4, oplockbreakinghandler: Param5) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), filename.into_param().abi(), ::core::mem::transmute(creationoptions), ::core::mem::transmute(accessoptions), ::core::mem::transmute(sharingoptions), ::core::mem::transmute(options), oplockbreakinghandler.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filename), creationoptions.into(), accessoptions.into(), sharingoptions.into(), options.into(), oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::core::IUnknown {
@@ -345,19 +335,14 @@ impl ::core::convert::From<IStorageFolderHandleAccess> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageFolderHandleAccess> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageFolderHandleAccess) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageFolderHandleAccess> for ::windows::core::IUnknown {
     fn from(value: &IStorageFolderHandleAccess) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageFolderHandleAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageFolderHandleAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageFolderHandleAccess {
@@ -395,9 +380,9 @@ pub struct IStorageItemHandleAccess(::windows::core::IUnknown);
 impl IStorageItemHandleAccess {
     #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, Param3: ::windows::core::IntoParam<'a, IOplockBreakingHandler>>(&self, accessoptions: HANDLE_ACCESS_OPTIONS, sharingoptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, oplockbreakinghandler: Param3) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<HANDLE_ACCESS_OPTIONS>, Param1: ::std::convert::Into<HANDLE_SHARING_OPTIONS>, Param2: ::std::convert::Into<HANDLE_OPTIONS>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOplockBreakingHandler>>>(&self, accessoptions: Param0, sharingoptions: Param1, options: Param2, oplockbreakinghandler: Param3) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(accessoptions), ::core::mem::transmute(sharingoptions), ::core::mem::transmute(options), oplockbreakinghandler.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), accessoptions.into(), sharingoptions.into(), options.into(), oplockbreakinghandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<IStorageItemHandleAccess> for ::windows::core::IUnknown {
@@ -405,19 +390,14 @@ impl ::core::convert::From<IStorageItemHandleAccess> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageItemHandleAccess> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageItemHandleAccess) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageItemHandleAccess> for ::windows::core::IUnknown {
     fn from(value: &IStorageItemHandleAccess) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageItemHandleAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageItemHandleAccess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageItemHandleAccess {
@@ -463,19 +443,14 @@ impl ::core::convert::From<IUnbufferedFileHandleOplockCallback> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUnbufferedFileHandleOplockCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUnbufferedFileHandleOplockCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUnbufferedFileHandleOplockCallback> for ::windows::core::IUnknown {
     fn from(value: &IUnbufferedFileHandleOplockCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUnbufferedFileHandleOplockCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUnbufferedFileHandleOplockCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUnbufferedFileHandleOplockCallback {
@@ -509,9 +484,9 @@ pub struct IUnbufferedFileHandleOplockCallback_Vtbl {
 pub struct IUnbufferedFileHandleProvider(::windows::core::IUnknown);
 impl IUnbufferedFileHandleProvider {
     #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
-    pub unsafe fn OpenUnbufferedFileHandle<'a, Param0: ::windows::core::IntoParam<'a, IUnbufferedFileHandleOplockCallback>>(&self, oplockbreakcallback: Param0) -> ::windows::core::Result<usize> {
+    pub unsafe fn OpenUnbufferedFileHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUnbufferedFileHandleOplockCallback>>>(&self, oplockbreakcallback: Param0) -> ::windows::core::Result<usize> {
         let mut result__ = ::core::mem::MaybeUninit::<usize>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Interface::as_raw(self), oplockbreakcallback.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
+        (::windows::core::Interface::vtable(self).OpenUnbufferedFileHandle)(::windows::core::Interface::as_raw(self), oplockbreakcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Storage\"`*"]
     pub unsafe fn CloseUnbufferedFileHandle(&self) -> ::windows::core::Result<()> {
@@ -523,19 +498,14 @@ impl ::core::convert::From<IUnbufferedFileHandleProvider> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUnbufferedFileHandleProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUnbufferedFileHandleProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUnbufferedFileHandleProvider> for ::windows::core::IUnknown {
     fn from(value: &IUnbufferedFileHandleProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUnbufferedFileHandleProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUnbufferedFileHandleProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUnbufferedFileHandleProvider {

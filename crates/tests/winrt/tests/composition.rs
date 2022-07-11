@@ -1,4 +1,5 @@
 use windows::{
+    core::HSTRING,
     System::DispatcherQueueController,
     Win32::System::WinRT::{CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE, DQTYPE_THREAD_CURRENT},
 };
@@ -21,13 +22,13 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 
     // Convert from SpriteVisual class to base Visual class by value (dropping the sprite).
     let sprite: SpriteVisual = compositor.CreateSpriteVisual()?;
-    sprite.SetComment("test")?;
+    sprite.SetComment(&HSTRING::from("test"))?;
     let visual: Visual = sprite.into();
     assert!(visual.Comment()? == "test");
 
     // Convert from SpriteVisual class to base Visual class by reference (retaining the sprite).
     let sprite: &SpriteVisual = &compositor.CreateSpriteVisual()?;
-    sprite.SetComment("test")?;
+    sprite.SetComment(&HSTRING::from("test"))?;
     let visual: Visual = sprite.into();
     assert!(visual.Comment()? == "test");
     assert!(visual.Comment()? == sprite.Comment()?);
@@ -36,15 +37,15 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
     let container = compositor.CreateContainerVisual()?;
     let children = container.Children()?;
     let sprite: SpriteVisual = compositor.CreateSpriteVisual()?;
-    sprite.SetComment("test")?;
-    children.InsertAtBottom(sprite)?;
+    sprite.SetComment(&HSTRING::from("test"))?;
+    children.InsertAtBottom(&sprite)?;
     assert!(children.First()?.Current()?.Comment()? == "test");
 
     // Convert from SpriteVisual class to base Visual class *parameter* by reference (retaining the sprite).
     let container = compositor.CreateContainerVisual()?;
     let children = container.Children()?;
     let sprite: &SpriteVisual = &compositor.CreateSpriteVisual()?;
-    sprite.SetComment("test")?;
+    sprite.SetComment(&HSTRING::from("test"))?;
     children.InsertAtBottom(sprite)?;
     assert!(children.First()?.Current()?.Comment()? == "test");
     assert!(children.First()?.Current()?.Comment()? == sprite.Comment()?);
@@ -68,8 +69,8 @@ fn composition() -> windows::core::Result<()> {
 
     // Visual.set_brush expects a CompositionBrush but CreateColorBrushWithColor returns a
     // CompositionColorBrush that logically derives from CompositionBrush.
-    let brush = compositor.CreateColorBrushWithColor(&red)?;
-    visual.SetBrush(brush)?;
+    let brush = compositor.CreateColorBrushWithColor(red)?;
+    visual.SetBrush(&brush)?;
 
     // Visual.brush returns a CompositionBrush but we know that it's actually a CompositionColorBrush
     // and need to convert it excplicitly since Rust/WinRT doesn't know that.
@@ -84,15 +85,15 @@ fn composition() -> windows::core::Result<()> {
 
     let child = compositor.CreateSpriteVisual()?;
     child.SetOffset(Vector3 { X: 1.0, Y: 0.0, Z: 0.0 })?;
-    children.InsertAtBottom(child)?;
+    children.InsertAtBottom(&child)?;
 
     let child = compositor.CreateSpriteVisual()?;
     child.SetOffset(Vector3 { X: 2.0, Y: 0.0, Z: 0.0 })?;
-    children.InsertAtBottom(child)?;
+    children.InsertAtBottom(&child)?;
 
     let child = compositor.CreateSpriteVisual()?;
     child.SetOffset(Vector3 { X: 3.0, Y: 0.0, Z: 0.0 })?;
-    children.InsertAtBottom(child)?;
+    children.InsertAtBottom(&child)?;
 
     assert!(children.Count()? == 3);
 

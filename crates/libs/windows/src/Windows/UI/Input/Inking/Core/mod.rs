@@ -4,11 +4,11 @@ pub struct CoreIncrementalInkStroke(::windows::core::IUnknown);
 impl CoreIncrementalInkStroke {
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AppendInkPoints<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>>>(&self, inkpoints: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Rect> {
+    pub fn AppendInkPoints<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkPoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, inkpoints: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::Rect>::zeroed();
-            (::windows::core::Interface::vtable(this).AppendInkPoints)(::windows::core::Interface::as_raw(this), inkpoints.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).AppendInkPoints)(::windows::core::Interface::as_raw(this), inkpoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
@@ -47,10 +47,10 @@ impl CoreIncrementalInkStroke {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::InkDrawingAttributes>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Numerics::Matrix3x2>>(drawingattributes: Param0, pointtransform: Param1) -> ::windows::core::Result<CoreIncrementalInkStroke> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkDrawingAttributes>>>(drawingattributes: Param0, pointtransform: super::super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<CoreIncrementalInkStroke> {
         Self::ICoreIncrementalInkStrokeFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), drawingattributes.into_param().abi(), pointtransform.into_param().abi(), result__.as_mut_ptr()).from_abi::<CoreIncrementalInkStroke>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), drawingattributes.into().abi(), pointtransform, result__.as_mut_ptr()).from_abi::<CoreIncrementalInkStroke>(result__)
         })
     }
     #[doc(hidden)]
@@ -99,14 +99,9 @@ impl ::core::convert::From<&CoreIncrementalInkStroke> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreIncrementalInkStroke {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreIncrementalInkStroke {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreIncrementalInkStroke> for &::windows::core::IUnknown {
+    fn from(value: &CoreIncrementalInkStroke) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CoreIncrementalInkStroke> for ::windows::core::IInspectable {
@@ -119,14 +114,9 @@ impl ::core::convert::From<&CoreIncrementalInkStroke> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreIncrementalInkStroke {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreIncrementalInkStroke {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreIncrementalInkStroke> for &::windows::core::IInspectable {
+    fn from(value: &CoreIncrementalInkStroke) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CoreIncrementalInkStroke {}
@@ -137,108 +127,108 @@ pub struct CoreInkIndependentInputSource(::windows::core::IUnknown);
 impl CoreInkIndependentInputSource {
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerEntering<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerEntering<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerEntering)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerEntering)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerEntering<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerEntering(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntering)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerEntering)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerHovering<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerHovering<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerHovering)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerHovering)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerHovering<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerHovering(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerHovering)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerHovering)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerExiting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerExiting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerExiting)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerExiting)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerExiting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerExiting(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerExiting)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerExiting)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerPressing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerPressing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerPressing)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerPressing)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerPressing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerPressing(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressing)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerPressing)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerMoving<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerMoving<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerMoving)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerMoving)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerMoving<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerMoving(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoving)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerMoving)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerReleasing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerReleasing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerReleasing)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerReleasing)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerReleasing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerReleasing(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleasing)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerReleasing)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`, `\"UI_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))]
-    pub fn PointerLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn PointerLost<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreInkIndependentInputSource, super::super::super::Core::PointerEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PointerLost)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PointerLost)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePointerLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePointerLost(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePointerLost)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePointerLost)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
     pub fn InkPresenter(&self) -> ::windows::core::Result<super::InkPresenter> {
@@ -259,15 +249,15 @@ impl CoreInkIndependentInputSource {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
-    pub fn SetPointerCursor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Core::CoreCursor>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPointerCursor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Core::CoreCursor>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICoreInkIndependentInputSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerCursor)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::InkPresenter>>(inkpresenter: Param0) -> ::windows::core::Result<CoreInkIndependentInputSource> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkPresenter>>>(inkpresenter: Param0) -> ::windows::core::Result<CoreInkIndependentInputSource> {
         Self::ICoreInkIndependentInputSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), inkpresenter.into_param().abi(), result__.as_mut_ptr()).from_abi::<CoreInkIndependentInputSource>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), inkpresenter.into().abi(), result__.as_mut_ptr()).from_abi::<CoreInkIndependentInputSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -316,14 +306,9 @@ impl ::core::convert::From<&CoreInkIndependentInputSource> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreInkIndependentInputSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreInkIndependentInputSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreInkIndependentInputSource> for &::windows::core::IUnknown {
+    fn from(value: &CoreInkIndependentInputSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CoreInkIndependentInputSource> for ::windows::core::IInspectable {
@@ -336,14 +321,9 @@ impl ::core::convert::From<&CoreInkIndependentInputSource> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreInkIndependentInputSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreInkIndependentInputSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreInkIndependentInputSource> for &::windows::core::IInspectable {
+    fn from(value: &CoreInkIndependentInputSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CoreInkIndependentInputSource {}
@@ -378,9 +358,9 @@ impl CoreInkPresenterHost {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub fn SetRootVisual<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Composition::ContainerVisual>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRootVisual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Composition::ContainerVisual>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRootVisual)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRootVisual)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for CoreInkPresenterHost {
@@ -423,14 +403,9 @@ impl ::core::convert::From<&CoreInkPresenterHost> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreInkPresenterHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreInkPresenterHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreInkPresenterHost> for &::windows::core::IUnknown {
+    fn from(value: &CoreInkPresenterHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CoreInkPresenterHost> for ::windows::core::IInspectable {
@@ -443,14 +418,9 @@ impl ::core::convert::From<&CoreInkPresenterHost> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreInkPresenterHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreInkPresenterHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreInkPresenterHost> for &::windows::core::IInspectable {
+    fn from(value: &CoreInkPresenterHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CoreInkPresenterHost {}
@@ -520,9 +490,9 @@ impl CoreWetStrokeUpdateEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
-    pub fn SetDisposition(&self, value: CoreWetStrokeDisposition) -> ::windows::core::Result<()> {
+    pub fn SetDisposition<'a, Param0: ::std::convert::Into<CoreWetStrokeDisposition>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisposition)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisposition)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for CoreWetStrokeUpdateEventArgs {
@@ -565,14 +535,9 @@ impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreWetStrokeUpdateEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreWetStrokeUpdateEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CoreWetStrokeUpdateEventArgs> for ::windows::core::IInspectable {
@@ -585,14 +550,9 @@ impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreWetStrokeUpdateEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreWetStrokeUpdateEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreWetStrokeUpdateEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CoreWetStrokeUpdateEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateEventArgs {}
@@ -603,78 +563,78 @@ pub struct CoreWetStrokeUpdateSource(::windows::core::IUnknown);
 impl CoreWetStrokeUpdateSource {
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WetStrokeStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WetStrokeStarting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).WetStrokeStarting)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WetStrokeStarting)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveWetStrokeStarting<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveWetStrokeStarting(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeStarting)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeStarting)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WetStrokeContinuing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WetStrokeContinuing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).WetStrokeContinuing)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WetStrokeContinuing)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveWetStrokeContinuing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveWetStrokeContinuing(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeContinuing)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeContinuing)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WetStrokeStopping<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WetStrokeStopping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).WetStrokeStopping)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WetStrokeStopping)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveWetStrokeStopping<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveWetStrokeStopping(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeStopping)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeStopping)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WetStrokeCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WetStrokeCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).WetStrokeCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WetStrokeCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveWetStrokeCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveWetStrokeCompleted(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeCompleted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeCompleted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WetStrokeCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
+    pub fn WetStrokeCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Foundation::TypedEventHandler<CoreWetStrokeUpdateSource, CoreWetStrokeUpdateEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).WetStrokeCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).WetStrokeCanceled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveWetStrokeCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveWetStrokeCanceled(&self, cookie: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeCanceled)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveWetStrokeCanceled)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
     pub fn InkPresenter(&self) -> ::windows::core::Result<super::InkPresenter> {
@@ -685,10 +645,10 @@ impl CoreWetStrokeUpdateSource {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Core\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::InkPresenter>>(inkpresenter: Param0) -> ::windows::core::Result<CoreWetStrokeUpdateSource> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkPresenter>>>(inkpresenter: Param0) -> ::windows::core::Result<CoreWetStrokeUpdateSource> {
         Self::ICoreWetStrokeUpdateSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), inkpresenter.into_param().abi(), result__.as_mut_ptr()).from_abi::<CoreWetStrokeUpdateSource>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), inkpresenter.into().abi(), result__.as_mut_ptr()).from_abi::<CoreWetStrokeUpdateSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -737,14 +697,9 @@ impl ::core::convert::From<&CoreWetStrokeUpdateSource> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CoreWetStrokeUpdateSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CoreWetStrokeUpdateSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreWetStrokeUpdateSource> for &::windows::core::IUnknown {
+    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CoreWetStrokeUpdateSource> for ::windows::core::IInspectable {
@@ -757,14 +712,9 @@ impl ::core::convert::From<&CoreWetStrokeUpdateSource> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CoreWetStrokeUpdateSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CoreWetStrokeUpdateSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CoreWetStrokeUpdateSource> for &::windows::core::IInspectable {
+    fn from(value: &CoreWetStrokeUpdateSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CoreWetStrokeUpdateSource {}

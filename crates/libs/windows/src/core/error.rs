@@ -68,7 +68,7 @@ impl core::convert::From<Error> for HRESULT {
         let info = error.info.and_then(|info| info.cast().ok());
 
         unsafe {
-            let _ = SetErrorInfo(0, info);
+            let _ = SetErrorInfo(0, info.as_ref());
         }
 
         code
@@ -78,6 +78,16 @@ impl core::convert::From<Error> for HRESULT {
 impl core::convert::From<Error> for std::io::Error {
     fn from(from: Error) -> Self {
         Self::from_raw_os_error(from.code.0)
+    }
+}
+
+// Unfortunately this is needed to make types line up. The Rust type system does
+// not know the `Infallible` can never be constructed. This code needs to be here
+// to satesify the type checker but it will never be run. Once `!` is stabilizied
+// this can be removed.
+impl core::convert::From<core::convert::Infallible> for Error {
+    fn from(from: core::convert::Infallible) -> Self {
+        unreachable!()
     }
 }
 

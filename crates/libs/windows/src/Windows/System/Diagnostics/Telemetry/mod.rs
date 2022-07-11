@@ -45,17 +45,17 @@ pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
 pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
-    pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
+    pub fn Register<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
-    pub fn RegisterWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PlatformTelemetryRegistrationSettings>>(id: Param0, settings: Param1) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
+    pub fn RegisterWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PlatformTelemetryRegistrationSettings>>>(id: Param0, settings: Param1) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {
         Self::IPlatformTelemetryClientStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterWithSettings)(::windows::core::Interface::as_raw(this), id.into_param().abi(), settings.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
+            (::windows::core::Interface::vtable(this).RegisterWithSettings)(::windows::core::Interface::as_raw(this), id.into().abi(), settings.into().abi(), result__.as_mut_ptr()).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
     #[doc(hidden)]
@@ -120,14 +120,9 @@ impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlatformTelemetryRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlatformTelemetryRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for &::windows::core::IUnknown {
+    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlatformTelemetryRegistrationResult> for ::windows::core::IInspectable {
@@ -140,14 +135,9 @@ impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlatformTelemetryRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlatformTelemetryRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlatformTelemetryRegistrationResult> for &::windows::core::IInspectable {
+    fn from(value: &PlatformTelemetryRegistrationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationResult {}
@@ -230,14 +220,9 @@ impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlatformTelemetryRegistrationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlatformTelemetryRegistrationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for &::windows::core::IUnknown {
+    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlatformTelemetryRegistrationSettings> for ::windows::core::IInspectable {
@@ -250,14 +235,9 @@ impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlatformTelemetryRegistrationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlatformTelemetryRegistrationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlatformTelemetryRegistrationSettings> for &::windows::core::IInspectable {
+    fn from(value: &PlatformTelemetryRegistrationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlatformTelemetryRegistrationSettings {}

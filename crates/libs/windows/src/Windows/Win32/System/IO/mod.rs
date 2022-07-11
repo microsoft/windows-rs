@@ -1,103 +1,103 @@
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BindIoCompletionCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, function: LPOVERLAPPED_COMPLETION_ROUTINE, flags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn BindIoCompletionCallback<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(filehandle: Param0, function: LPOVERLAPPED_COMPLETION_ROUTINE, flags: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BindIoCompletionCallback(filehandle: super::super::Foundation::HANDLE, function: *mut ::core::ffi::c_void, flags: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(BindIoCompletionCallback(filehandle.into_param().abi(), ::core::mem::transmute(function), ::core::mem::transmute(flags)))
+    ::core::mem::transmute(BindIoCompletionCallback(filehandle.into(), ::core::mem::transmute(function), ::core::mem::transmute(flags)))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CancelIo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CancelIo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CancelIo(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelIo(hfile.into_param().abi()))
+    ::core::mem::transmute(CancelIo(hfile.into()))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CancelIoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn CancelIoEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hfile: Param0, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CancelIoEx(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelIoEx(hfile.into_param().abi(), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(CancelIoEx(hfile.into(), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CancelSynchronousIo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hthread: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn CancelSynchronousIo<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hthread: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CancelSynchronousIo(hthread: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CancelSynchronousIo(hthread.into_param().abi()))
+    ::core::mem::transmute(CancelSynchronousIo(hthread.into()))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateIoCompletionPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, existingcompletionport: Param1, completionkey: usize, numberofconcurrentthreads: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn CreateIoCompletionPort<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<super::super::Foundation::HANDLE>>(filehandle: Param0, existingcompletionport: Param1, completionkey: usize, numberofconcurrentthreads: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateIoCompletionPort(filehandle: super::super::Foundation::HANDLE, existingcompletionport: super::super::Foundation::HANDLE, completionkey: usize, numberofconcurrentthreads: u32) -> super::super::Foundation::HANDLE;
     }
-    let result__ = CreateIoCompletionPort(filehandle.into_param().abi(), existingcompletionport.into_param().abi(), ::core::mem::transmute(completionkey), ::core::mem::transmute(numberofconcurrentthreads));
+    let result__ = CreateIoCompletionPort(filehandle.into(), existingcompletionport.into(), ::core::mem::transmute(completionkey), ::core::mem::transmute(numberofconcurrentthreads));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DeviceIoControl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwiocontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn DeviceIoControl<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hdevice: Param0, dwiocontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DeviceIoControl(hdevice: super::super::Foundation::HANDLE, dwiocontrolcode: u32, lpinbuffer: *const ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(DeviceIoControl(hdevice.into_param().abi(), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(DeviceIoControl(hdevice.into(), ::core::mem::transmute(dwiocontrolcode), ::core::mem::transmute(lpinbuffer), ::core::mem::transmute(ninbuffersize), ::core::mem::transmute(lpoutbuffer), ::core::mem::transmute(noutbuffersize), ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped)))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOverlappedResult<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn GetOverlappedResult<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(hfile: Param0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetOverlappedResult(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetOverlappedResult(hfile.into_param().abi(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into_param().abi()))
+    ::core::mem::transmute(GetOverlappedResult(hfile.into(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into()))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOverlappedResultEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: Param4) -> super::super::Foundation::BOOL {
+pub unsafe fn GetOverlappedResultEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(hfile: Param0, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: Param4) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetOverlappedResultEx(hfile: super::super::Foundation::HANDLE, lpoverlapped: *const OVERLAPPED, lpnumberofbytestransferred: *mut u32, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetOverlappedResultEx(hfile.into_param().abi(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), ::core::mem::transmute(dwmilliseconds), balertable.into_param().abi()))
+    ::core::mem::transmute(GetOverlappedResultEx(hfile.into(), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), ::core::mem::transmute(dwmilliseconds), balertable.into()))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetQueuedCompletionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(completionport: Param0, lpnumberofbytestransferred: *mut u32, lpcompletionkey: *mut usize, lpoverlapped: *mut *mut OVERLAPPED, dwmilliseconds: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetQueuedCompletionStatus<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(completionport: Param0, lpnumberofbytestransferred: *mut u32, lpcompletionkey: *mut usize, lpoverlapped: *mut *mut OVERLAPPED, dwmilliseconds: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, lpnumberofbytestransferred: *mut u32, lpcompletionkey: *mut usize, lpoverlapped: *mut *mut OVERLAPPED, dwmilliseconds: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetQueuedCompletionStatus(completionport.into_param().abi(), ::core::mem::transmute(lpnumberofbytestransferred), ::core::mem::transmute(lpcompletionkey), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(dwmilliseconds)))
+    ::core::mem::transmute(GetQueuedCompletionStatus(completionport.into(), ::core::mem::transmute(lpnumberofbytestransferred), ::core::mem::transmute(lpcompletionkey), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(dwmilliseconds)))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetQueuedCompletionStatusEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(completionport: Param0, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: Param5) -> super::super::Foundation::BOOL {
+pub unsafe fn GetQueuedCompletionStatusEx<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param5: ::std::convert::Into<super::super::Foundation::BOOL>>(completionport: Param0, lpcompletionportentries: &mut [OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: Param5) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetQueuedCompletionStatusEx(completionport: super::super::Foundation::HANDLE, lpcompletionportentries: *mut OVERLAPPED_ENTRY, ulcount: u32, ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetQueuedCompletionStatusEx(completionport.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcompletionportentries)), lpcompletionportentries.len() as _, ::core::mem::transmute(ulnumentriesremoved), ::core::mem::transmute(dwmilliseconds), falertable.into_param().abi()))
+    ::core::mem::transmute(GetQueuedCompletionStatusEx(completionport.into(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpcompletionportentries)), lpcompletionportentries.len() as _, ::core::mem::transmute(ulnumentriesremoved), ::core::mem::transmute(dwmilliseconds), falertable.into()))
 }
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -253,12 +253,12 @@ impl ::core::default::Default for OVERLAPPED_ENTRY {
 #[doc = "*Required features: `\"Win32_System_IO\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PostQueuedCompletionStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(completionport: Param0, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn PostQueuedCompletionStatus<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(completionport: Param0, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PostQueuedCompletionStatus(completionport: super::super::Foundation::HANDLE, dwnumberofbytestransferred: u32, dwcompletionkey: usize, lpoverlapped: *const OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PostQueuedCompletionStatus(completionport.into_param().abi(), ::core::mem::transmute(dwnumberofbytestransferred), ::core::mem::transmute(dwcompletionkey), ::core::mem::transmute(lpoverlapped)))
+    ::core::mem::transmute(PostQueuedCompletionStatus(completionport.into(), ::core::mem::transmute(dwnumberofbytestransferred), ::core::mem::transmute(dwcompletionkey), ::core::mem::transmute(lpoverlapped)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

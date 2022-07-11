@@ -60,14 +60,9 @@ impl ::core::convert::From<&GameSaveBlobGetResult> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobGetResult> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveBlobGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveBlobGetResult> for ::windows::core::IInspectable {
@@ -80,14 +75,9 @@ impl ::core::convert::From<&GameSaveBlobGetResult> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobGetResult> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveBlobGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveBlobGetResult {}
@@ -153,14 +143,9 @@ impl ::core::convert::From<&GameSaveBlobInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobInfo> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveBlobInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveBlobInfo> for ::windows::core::IInspectable {
@@ -173,14 +158,9 @@ impl ::core::convert::From<&GameSaveBlobInfo> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobInfo> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveBlobInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfo {}
@@ -247,14 +227,9 @@ impl ::core::convert::From<&GameSaveBlobInfoGetResult> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobInfoGetResult> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveBlobInfoGetResult> for ::windows::core::IInspectable {
@@ -267,14 +242,9 @@ impl ::core::convert::From<&GameSaveBlobInfoGetResult> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobInfoGetResult> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveBlobInfoGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfoGetResult {}
@@ -351,14 +321,9 @@ impl ::core::convert::From<&GameSaveBlobInfoQuery> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobInfoQuery> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveBlobInfoQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveBlobInfoQuery> for ::windows::core::IInspectable {
@@ -371,14 +336,9 @@ impl ::core::convert::From<&GameSaveBlobInfoQuery> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveBlobInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveBlobInfoQuery> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveBlobInfoQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveBlobInfoQuery {}
@@ -405,46 +365,46 @@ impl GameSaveContainer {
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn SubmitUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, blobstowrite: Param0, blobstodelete: Param1, displayname: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
+    pub fn SubmitUpdatesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, blobstowrite: Param0, blobstodelete: Param1, displayname: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SubmitUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).SubmitUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>>(&self, blobstoread: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::super::Storage::Streams::IBuffer>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, blobstoread: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), blobstoread.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), blobstoread.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, blobstoread: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>> {
+    pub fn GetAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, blobstoread: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), blobstoread.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), blobstoread.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveBlobGetResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SubmitPropertySetUpdatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, blobstowrite: Param0, blobstodelete: Param1, displayname: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
+    pub fn SubmitPropertySetUpdatesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, blobstowrite: Param0, blobstodelete: Param1, displayname: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.into_param().abi(), blobstodelete.into_param().abi(), displayname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).SubmitPropertySetUpdatesAsync)(::windows::core::Interface::as_raw(this), blobstowrite.try_into().map_err(|e| e.into())?.abi(), blobstodelete.try_into().map_err(|e| e.into())?.abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
-    pub fn CreateBlobInfoQuery<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, blobnameprefix: Param0) -> ::windows::core::Result<GameSaveBlobInfoQuery> {
+    pub fn CreateBlobInfoQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, blobnameprefix: Param0) -> ::windows::core::Result<GameSaveBlobInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBlobInfoQuery)(::windows::core::Interface::as_raw(this), blobnameprefix.into_param().abi(), result__.as_mut_ptr()).from_abi::<GameSaveBlobInfoQuery>(result__)
+            (::windows::core::Interface::vtable(this).CreateBlobInfoQuery)(::windows::core::Interface::as_raw(this), blobnameprefix.into().abi(), result__.as_mut_ptr()).from_abi::<GameSaveBlobInfoQuery>(result__)
         }
     }
 }
@@ -488,14 +448,9 @@ impl ::core::convert::From<&GameSaveContainer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainer> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveContainer> for ::windows::core::IInspectable {
@@ -508,14 +463,9 @@ impl ::core::convert::From<&GameSaveContainer> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainer> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveContainer {}
@@ -606,14 +556,9 @@ impl ::core::convert::From<&GameSaveContainerInfo> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainerInfo> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveContainerInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveContainerInfo> for ::windows::core::IInspectable {
@@ -626,14 +571,9 @@ impl ::core::convert::From<&GameSaveContainerInfo> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainerInfo> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveContainerInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfo {}
@@ -700,14 +640,9 @@ impl ::core::convert::From<&GameSaveContainerInfoGetResult> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainerInfoGetResult> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveContainerInfoGetResult> for ::windows::core::IInspectable {
@@ -720,14 +655,9 @@ impl ::core::convert::From<&GameSaveContainerInfoGetResult> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainerInfoGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainerInfoGetResult> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveContainerInfoGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfoGetResult {}
@@ -804,14 +734,9 @@ impl ::core::convert::From<&GameSaveContainerInfoQuery> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainerInfoQuery> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveContainerInfoQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveContainerInfoQuery> for ::windows::core::IInspectable {
@@ -824,14 +749,9 @@ impl ::core::convert::From<&GameSaveContainerInfoQuery> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveContainerInfoQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveContainerInfoQuery> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveContainerInfoQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
@@ -936,14 +856,9 @@ impl ::core::convert::From<&GameSaveOperationResult> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveOperationResult> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveOperationResult> for ::windows::core::IInspectable {
@@ -956,14 +871,9 @@ impl ::core::convert::From<&GameSaveOperationResult> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveOperationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveOperationResult> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveOperationResult {}
@@ -982,20 +892,20 @@ impl GameSaveProvider {
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
-    pub fn CreateContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<GameSaveContainer> {
+    pub fn CreateContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<GameSaveContainer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<GameSaveContainer>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainer)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<GameSaveContainer>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteContainerAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
+    pub fn DeleteContainerAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteContainerAsync)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteContainerAsync)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveOperationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
@@ -1007,11 +917,11 @@ impl GameSaveProvider {
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`*"]
-    pub fn CreateContainerInfoQueryWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, containernameprefix: Param0) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
+    pub fn CreateContainerInfoQueryWithName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, containernameprefix: Param0) -> ::windows::core::Result<GameSaveContainerInfoQuery> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::windows::core::Interface::as_raw(this), containernameprefix.into_param().abi(), result__.as_mut_ptr()).from_abi::<GameSaveContainerInfoQuery>(result__)
+            (::windows::core::Interface::vtable(this).CreateContainerInfoQueryWithName)(::windows::core::Interface::as_raw(this), containernameprefix.into().abi(), result__.as_mut_ptr()).from_abi::<GameSaveContainerInfoQuery>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`*"]
@@ -1034,18 +944,18 @@ impl GameSaveProvider {
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
+    pub fn GetForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, serviceconfigid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUserAsync)(::windows::core::Interface::as_raw(this), user.into_param().abi(), serviceconfigid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), serviceconfigid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_XboxLive_Storage\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn GetSyncOnDemandForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, serviceconfigid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
+    pub fn GetSyncOnDemandForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, serviceconfigid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>> {
         Self::IGameSaveProviderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(::windows::core::Interface::as_raw(this), user.into_param().abi(), serviceconfigid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetSyncOnDemandForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), serviceconfigid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GameSaveProviderGetResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1094,14 +1004,9 @@ impl ::core::convert::From<&GameSaveProvider> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveProvider> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveProvider> for ::windows::core::IInspectable {
@@ -1114,14 +1019,9 @@ impl ::core::convert::From<&GameSaveProvider> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveProvider> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveProvider {}
@@ -1187,14 +1087,9 @@ impl ::core::convert::From<&GameSaveProviderGetResult> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveProviderGetResult> for &::windows::core::IUnknown {
+    fn from(value: &GameSaveProviderGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GameSaveProviderGetResult> for ::windows::core::IInspectable {
@@ -1207,14 +1102,9 @@ impl ::core::convert::From<&GameSaveProviderGetResult> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GameSaveProviderGetResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GameSaveProviderGetResult> for &::windows::core::IInspectable {
+    fn from(value: &GameSaveProviderGetResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GameSaveProviderGetResult {}

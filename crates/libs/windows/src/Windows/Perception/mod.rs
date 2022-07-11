@@ -144,14 +144,9 @@ impl ::core::convert::From<&PerceptionTimestamp> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PerceptionTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PerceptionTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PerceptionTimestamp> for &::windows::core::IUnknown {
+    fn from(value: &PerceptionTimestamp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PerceptionTimestamp> for ::windows::core::IInspectable {
@@ -164,14 +159,9 @@ impl ::core::convert::From<&PerceptionTimestamp> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PerceptionTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PerceptionTimestamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PerceptionTimestamp> for &::windows::core::IInspectable {
+    fn from(value: &PerceptionTimestamp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
@@ -181,18 +171,18 @@ pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
     #[doc = "*Required features: `\"Perception\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromHistoricalTargetTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::DateTime>>(targettime: Param0) -> ::windows::core::Result<PerceptionTimestamp> {
+    pub fn FromHistoricalTargetTime(targettime: super::Foundation::DateTime) -> ::windows::core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromHistoricalTargetTime)(::windows::core::Interface::as_raw(this), targettime.into_param().abi(), result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
+            (::windows::core::Interface::vtable(this).FromHistoricalTargetTime)(::windows::core::Interface::as_raw(this), targettime, result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromSystemRelativeTargetTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(targettime: Param0) -> ::windows::core::Result<PerceptionTimestamp> {
+    pub fn FromSystemRelativeTargetTime(targettime: super::Foundation::TimeSpan) -> ::windows::core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), targettime.into_param().abi(), result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
+            (::windows::core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), targettime, result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
         })
     }
     #[doc(hidden)]

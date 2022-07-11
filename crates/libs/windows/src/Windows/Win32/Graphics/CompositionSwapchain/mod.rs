@@ -74,12 +74,12 @@ impl ::core::fmt::Debug for CompositionFrameInstanceKind {
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[inline]
-pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn CreatePresentationFactory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreatePresentationFactory(d3ddevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    CreatePresentationFactory(d3ddevice.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(presentationfactory)).ok()
+    CreatePresentationFactory(d3ddevice.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(presentationfactory)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
@@ -112,19 +112,14 @@ impl ::core::convert::From<ICompositionFramePresentStatistics> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositionFramePresentStatistics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositionFramePresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositionFramePresentStatistics> for ::windows::core::IUnknown {
     fn from(value: &ICompositionFramePresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositionFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICompositionFramePresentStatistics> for IPresentStatistics {
@@ -132,19 +127,14 @@ impl ::core::convert::From<ICompositionFramePresentStatistics> for IPresentStati
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositionFramePresentStatistics> for &'a IPresentStatistics {
+    fn from(value: &'a ICompositionFramePresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositionFramePresentStatistics> for IPresentStatistics {
     fn from(value: &ICompositionFramePresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentStatistics> for ICompositionFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentStatistics> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentStatistics> for &'a ICompositionFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentStatistics> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositionFramePresentStatistics {
@@ -223,19 +213,14 @@ impl ::core::convert::From<IIndependentFlipFramePresentStatistics> for ::windows
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IIndependentFlipFramePresentStatistics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IIndependentFlipFramePresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IIndependentFlipFramePresentStatistics> for ::windows::core::IUnknown {
     fn from(value: &IIndependentFlipFramePresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIndependentFlipFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIndependentFlipFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IIndependentFlipFramePresentStatistics> for IPresentStatistics {
@@ -243,19 +228,14 @@ impl ::core::convert::From<IIndependentFlipFramePresentStatistics> for IPresentS
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IIndependentFlipFramePresentStatistics> for &'a IPresentStatistics {
+    fn from(value: &'a IIndependentFlipFramePresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IIndependentFlipFramePresentStatistics> for IPresentStatistics {
     fn from(value: &IIndependentFlipFramePresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentStatistics> for IIndependentFlipFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentStatistics> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentStatistics> for &'a IIndependentFlipFramePresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentStatistics> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IIndependentFlipFramePresentStatistics {
@@ -309,19 +289,14 @@ impl ::core::convert::From<IPresentStatistics> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentStatistics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentStatistics> for ::windows::core::IUnknown {
     fn from(value: &IPresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentStatistics {
@@ -377,19 +352,14 @@ impl ::core::convert::From<IPresentStatusPresentStatistics> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentStatusPresentStatistics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentStatusPresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentStatusPresentStatistics> for ::windows::core::IUnknown {
     fn from(value: &IPresentStatusPresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentStatusPresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentStatusPresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPresentStatusPresentStatistics> for IPresentStatistics {
@@ -397,19 +367,14 @@ impl ::core::convert::From<IPresentStatusPresentStatistics> for IPresentStatisti
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentStatusPresentStatistics> for &'a IPresentStatistics {
+    fn from(value: &'a IPresentStatusPresentStatistics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentStatusPresentStatistics> for IPresentStatistics {
     fn from(value: &IPresentStatusPresentStatistics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentStatistics> for IPresentStatusPresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentStatistics> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentStatistics> for &'a IPresentStatusPresentStatistics {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentStatistics> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentStatusPresentStatistics {
@@ -460,19 +425,14 @@ impl ::core::convert::From<IPresentationBuffer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentationBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentationBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentationBuffer> for ::windows::core::IUnknown {
     fn from(value: &IPresentationBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentationBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentationBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentationBuffer {
@@ -519,19 +479,14 @@ impl ::core::convert::From<IPresentationContent> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentationContent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentationContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentationContent> for ::windows::core::IUnknown {
     fn from(value: &IPresentationContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentationContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentationContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentationContent {
@@ -583,19 +538,14 @@ impl ::core::convert::From<IPresentationFactory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentationFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentationFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentationFactory> for ::windows::core::IUnknown {
     fn from(value: &IPresentationFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentationFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentationFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentationFactory {
@@ -631,27 +581,27 @@ pub struct IPresentationFactory_Vtbl {
 pub struct IPresentationManager(::windows::core::IUnknown);
 impl IPresentationManager {
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn AddBufferFromResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, resource: Param0) -> ::windows::core::Result<IPresentationBuffer> {
+    pub unsafe fn AddBufferFromResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, resource: Param0) -> ::windows::core::Result<IPresentationBuffer> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddBufferFromResource)(::windows::core::Interface::as_raw(self), resource.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationBuffer>(result__)
+        (::windows::core::Interface::vtable(self).AddBufferFromResource)(::windows::core::Interface::as_raw(self), resource.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationBuffer>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePresentationSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, compositionsurfacehandle: Param0) -> ::windows::core::Result<IPresentationSurface> {
+    pub unsafe fn CreatePresentationSurface<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, compositionsurfacehandle: Param0) -> ::windows::core::Result<IPresentationSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePresentationSurface)(::windows::core::Interface::as_raw(self), compositionsurfacehandle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreatePresentationSurface)(::windows::core::Interface::as_raw(self), compositionsurfacehandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPresentationSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextPresentId)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn SetTargetTime<'a, Param0: ::windows::core::IntoParam<'a, SystemInterruptTime>>(&self, targettime: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTargetTime)(::windows::core::Interface::as_raw(self), targettime.into_param().abi()).ok()
+    pub unsafe fn SetTargetTime(&self, targettime: SystemInterruptTime) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTargetTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targettime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn SetPreferredPresentDuration<'a, Param0: ::windows::core::IntoParam<'a, SystemInterruptTime>, Param1: ::windows::core::IntoParam<'a, SystemInterruptTime>>(&self, preferredduration: Param0, deviationtolerance: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreferredPresentDuration)(::windows::core::Interface::as_raw(self), preferredduration.into_param().abi(), deviationtolerance.into_param().abi()).ok()
+    pub unsafe fn SetPreferredPresentDuration(&self, preferredduration: SystemInterruptTime, deviationtolerance: SystemInterruptTime) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPreferredPresentDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(preferredduration), ::core::mem::transmute(deviationtolerance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()> {
@@ -683,8 +633,8 @@ impl IPresentationManager {
         (::windows::core::Interface::vtable(self).GetPresentStatisticsAvailableEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(presentstatisticskind), ::core::mem::transmute(enabled)).ok()
+    pub unsafe fn EnablePresentStatisticsKind<'a, Param0: ::std::convert::Into<PresentStatisticsKind>>(&self, presentstatisticskind: Param0, enabled: u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnablePresentStatisticsKind)(::windows::core::Interface::as_raw(self), presentstatisticskind.into(), ::core::mem::transmute(enabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
@@ -697,19 +647,14 @@ impl ::core::convert::From<IPresentationManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentationManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentationManager> for ::windows::core::IUnknown {
     fn from(value: &IPresentationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentationManager {
@@ -768,18 +713,18 @@ impl IPresentationSurface {
         (::windows::core::Interface::vtable(self).base__.SetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tag))
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn SetBuffer<'a, Param0: ::windows::core::IntoParam<'a, IPresentationBuffer>>(&self, presentationbuffer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBuffer)(::windows::core::Interface::as_raw(self), presentationbuffer.into_param().abi()).ok()
+    pub unsafe fn SetBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IPresentationBuffer>>>(&self, presentationbuffer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBuffer)(::windows::core::Interface::as_raw(self), presentationbuffer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(colorspace)).ok()
+    pub unsafe fn SetColorSpace<'a, Param0: ::std::convert::Into<super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE>>(&self, colorspace: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetColorSpace)(::windows::core::Interface::as_raw(self), colorspace.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(alphamode)).ok()
+    pub unsafe fn SetAlphaMode<'a, Param0: ::std::convert::Into<super::Dxgi::Common::DXGI_ALPHA_MODE>>(&self, alphamode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAlphaMode)(::windows::core::Interface::as_raw(self), alphamode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -791,8 +736,8 @@ impl IPresentationSurface {
         (::windows::core::Interface::vtable(self).SetTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transform)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-    pub unsafe fn RestrictToOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, output: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestrictToOutput)(::windows::core::Interface::as_raw(self), output.into_param().abi()).ok()
+    pub unsafe fn RestrictToOutput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, output: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RestrictToOutput)(::windows::core::Interface::as_raw(self), output.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
     pub unsafe fn SetDisableReadback(&self, value: u8) -> ::windows::core::Result<()> {
@@ -808,19 +753,14 @@ impl ::core::convert::From<IPresentationSurface> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentationSurface> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPresentationSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentationSurface> for ::windows::core::IUnknown {
     fn from(value: &IPresentationSurface) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPresentationSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPresentationSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPresentationSurface> for IPresentationContent {
@@ -828,19 +768,14 @@ impl ::core::convert::From<IPresentationSurface> for IPresentationContent {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPresentationSurface> for &'a IPresentationContent {
+    fn from(value: &'a IPresentationSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPresentationSurface> for IPresentationContent {
     fn from(value: &IPresentationSurface) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentationContent> for IPresentationSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentationContent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPresentationContent> for &'a IPresentationSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, IPresentationContent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPresentationSurface {

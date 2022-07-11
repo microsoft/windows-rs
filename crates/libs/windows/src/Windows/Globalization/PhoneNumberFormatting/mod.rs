@@ -126,68 +126,68 @@ impl PhoneNumberFormatter {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn Format<'a, Param0: ::windows::core::IntoParam<'a, PhoneNumberInfo>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Format<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), number.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn FormatWithOutputFormat<'a, Param0: ::windows::core::IntoParam<'a, PhoneNumberInfo>>(&self, number: Param0, numberformat: PhoneNumberFormat) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn FormatWithOutputFormat<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>, Param1: ::std::convert::Into<PhoneNumberFormat>>(&self, number: Param0, numberformat: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).FormatWithOutputFormat)(::windows::core::Interface::as_raw(this), number.into_param().abi(), numberformat, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatWithOutputFormat)(::windows::core::Interface::as_raw(this), number.into().abi(), numberformat.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn FormatPartialString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn FormatPartialString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).FormatPartialString)(::windows::core::Interface::as_raw(this), number.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatPartialString)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn FormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn FormatString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).FormatString)(::windows::core::Interface::as_raw(this), number.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatString)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn FormatStringWithLeftToRightMarkers<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn FormatStringWithLeftToRightMarkers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).FormatStringWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), number.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatStringWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn TryCreate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(regioncode: Param0, phonenumber: &mut ::core::option::Option<PhoneNumberFormatter>) -> ::windows::core::Result<()> {
-        Self::IPhoneNumberFormatterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), regioncode.into_param().abi(), phonenumber as *mut _ as _).ok() })
+    pub fn TryCreate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(regioncode: Param0, phonenumber: &mut ::core::option::Option<PhoneNumberFormatter>) -> ::windows::core::Result<()> {
+        Self::IPhoneNumberFormatterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), regioncode.into().abi(), phonenumber as *mut _ as _).ok() })
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn GetCountryCodeForRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(regioncode: Param0) -> ::windows::core::Result<i32> {
+    pub fn GetCountryCodeForRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(regioncode: Param0) -> ::windows::core::Result<i32> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCountryCodeForRegion)(::windows::core::Interface::as_raw(this), regioncode.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).GetCountryCodeForRegion)(::windows::core::Interface::as_raw(this), regioncode.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn GetNationalDirectDialingPrefixForRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(regioncode: Param0, stripnondigit: bool) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetNationalDirectDialingPrefixForRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(regioncode: Param0, stripnondigit: bool) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNationalDirectDialingPrefixForRegion)(::windows::core::Interface::as_raw(this), regioncode.into_param().abi(), stripnondigit, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetNationalDirectDialingPrefixForRegion)(::windows::core::Interface::as_raw(this), regioncode.into().abi(), stripnondigit, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn WrapWithLeftToRightMarkers<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn WrapWithLeftToRightMarkers<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(number: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPhoneNumberFormatterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).WrapWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), number.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WrapWithLeftToRightMarkers)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -236,14 +236,9 @@ impl ::core::convert::From<&PhoneNumberFormatter> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNumberFormatter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNumberFormatter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNumberFormatter> for &::windows::core::IUnknown {
+    fn from(value: &PhoneNumberFormatter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneNumberFormatter> for ::windows::core::IInspectable {
@@ -256,14 +251,9 @@ impl ::core::convert::From<&PhoneNumberFormatter> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNumberFormatter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNumberFormatter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNumberFormatter> for &::windows::core::IInspectable {
+    fn from(value: &PhoneNumberFormatter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneNumberFormatter {}
@@ -329,32 +319,32 @@ impl PhoneNumberInfo {
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn CheckNumberMatch<'a, Param0: ::windows::core::IntoParam<'a, PhoneNumberInfo>>(&self, othernumber: Param0) -> ::windows::core::Result<PhoneNumberMatchResult> {
+    pub fn CheckNumberMatch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PhoneNumberInfo>>>(&self, othernumber: Param0) -> ::windows::core::Result<PhoneNumberMatchResult> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PhoneNumberMatchResult>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckNumberMatch)(::windows::core::Interface::as_raw(this), othernumber.into_param().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberMatchResult>(result__)
+            (::windows::core::Interface::vtable(this).CheckNumberMatch)(::windows::core::Interface::as_raw(this), othernumber.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberMatchResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(number: Param0) -> ::windows::core::Result<PhoneNumberInfo> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(number: Param0) -> ::windows::core::Result<PhoneNumberInfo> {
         Self::IPhoneNumberInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), number.into_param().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberInfo>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), number.into().abi(), result__.as_mut_ptr()).from_abi::<PhoneNumberInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
+    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PhoneNumberParseResult>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into_param().abi(), phonenumber as *mut _ as _, result__.as_mut_ptr()).from_abi::<PhoneNumberParseResult>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), input.into().abi(), phonenumber as *mut _ as _, result__.as_mut_ptr()).from_abi::<PhoneNumberParseResult>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`*"]
-    pub fn TryParseWithRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(input: Param0, regioncode: Param1, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
+    pub fn TryParseWithRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(input: Param0, regioncode: Param1, phonenumber: &mut ::core::option::Option<PhoneNumberInfo>) -> ::windows::core::Result<PhoneNumberParseResult> {
         Self::IPhoneNumberInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<PhoneNumberParseResult>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseWithRegion)(::windows::core::Interface::as_raw(this), input.into_param().abi(), regioncode.into_param().abi(), phonenumber as *mut _ as _, result__.as_mut_ptr()).from_abi::<PhoneNumberParseResult>(result__)
+            (::windows::core::Interface::vtable(this).TryParseWithRegion)(::windows::core::Interface::as_raw(this), input.into().abi(), regioncode.into().abi(), phonenumber as *mut _ as _, result__.as_mut_ptr()).from_abi::<PhoneNumberParseResult>(result__)
         })
     }
     #[doc = "*Required features: `\"Globalization_PhoneNumberFormatting\"`, `\"Foundation\"`*"]
@@ -417,14 +407,9 @@ impl ::core::convert::From<&PhoneNumberInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNumberInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNumberInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNumberInfo> for &::windows::core::IUnknown {
+    fn from(value: &PhoneNumberInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneNumberInfo> for ::windows::core::IInspectable {
@@ -437,14 +422,9 @@ impl ::core::convert::From<&PhoneNumberInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNumberInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNumberInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNumberInfo> for &::windows::core::IInspectable {
+    fn from(value: &PhoneNumberInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -462,15 +442,11 @@ impl ::core::convert::TryFrom<&PhoneNumberInfo> for super::super::Foundation::IS
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> for PhoneNumberInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IStringable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> for &PhoneNumberInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IStringable> {
-        ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PhoneNumberInfo> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PhoneNumberInfo) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PhoneNumberInfo {}

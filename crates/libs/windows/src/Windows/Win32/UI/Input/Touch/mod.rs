@@ -1,22 +1,22 @@
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseGestureInfoHandle<'a, Param0: ::windows::core::IntoParam<'a, HGESTUREINFO>>(hgestureinfo: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CloseGestureInfoHandle<'a, Param0: ::std::convert::Into<HGESTUREINFO>>(hgestureinfo: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseGestureInfoHandle(hgestureinfo.into_param().abi()))
+    ::core::mem::transmute(CloseGestureInfoHandle(hgestureinfo.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CloseTouchInputHandle<'a, Param0: ::windows::core::IntoParam<'a, HTOUCHINPUT>>(htouchinput: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CloseTouchInputHandle<'a, Param0: ::std::convert::Into<HTOUCHINPUT>>(htouchinput: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(CloseTouchInputHandle(htouchinput.into_param().abi()))
+    ::core::mem::transmute(CloseTouchInputHandle(htouchinput.into()))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
@@ -208,42 +208,42 @@ impl ::core::default::Default for GESTURENOTIFYSTRUCT {
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGestureConfig<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, dwreserved: u32, dwflags: u32, pgestureconfig: &mut [GESTURECONFIG], cbsize: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetGestureConfig<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0, dwreserved: u32, dwflags: u32, pgestureconfig: &mut [GESTURECONFIG], cbsize: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureConfig(hwnd.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(dwflags), pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgestureconfig)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(GetGestureConfig(hwnd.into(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(dwflags), pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pgestureconfig)), ::core::mem::transmute(cbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGestureExtraArgs<'a, Param0: ::windows::core::IntoParam<'a, HGESTUREINFO>>(hgestureinfo: Param0, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetGestureExtraArgs<'a, Param0: ::std::convert::Into<HGESTUREINFO>>(hgestureinfo: Param0, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, cbextraargs: u32, pextraargs: *mut u8) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureExtraArgs(hgestureinfo.into_param().abi(), ::core::mem::transmute(cbextraargs), ::core::mem::transmute(pextraargs)))
+    ::core::mem::transmute(GetGestureExtraArgs(hgestureinfo.into(), ::core::mem::transmute(cbextraargs), ::core::mem::transmute(pextraargs)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetGestureInfo<'a, Param0: ::windows::core::IntoParam<'a, HGESTUREINFO>>(hgestureinfo: Param0, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetGestureInfo<'a, Param0: ::std::convert::Into<HGESTUREINFO>>(hgestureinfo: Param0, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetGestureInfo(hgestureinfo.into_param().abi(), ::core::mem::transmute(pgestureinfo)))
+    ::core::mem::transmute(GetGestureInfo(hgestureinfo.into(), ::core::mem::transmute(pgestureinfo)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTouchInputInfo<'a, Param0: ::windows::core::IntoParam<'a, HTOUCHINPUT>>(htouchinput: Param0, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetTouchInputInfo<'a, Param0: ::std::convert::Into<HTOUCHINPUT>>(htouchinput: Param0, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, cinputs: u32, pinputs: *mut TOUCHINPUT, cbsize: i32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(GetTouchInputInfo(htouchinput.into_param().abi(), pinputs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinputs)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(GetTouchInputInfo(htouchinput.into(), pinputs.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pinputs)), ::core::mem::transmute(cbsize)))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -267,6 +267,11 @@ impl ::core::marker::Copy for HGESTUREINFO {}
 impl ::core::fmt::Debug for HGESTUREINFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HGESTUREINFO").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HGESTUREINFO>> for HGESTUREINFO {
+    fn from(optional: ::core::option::Option<HGESTUREINFO>) -> HGESTUREINFO {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HGESTUREINFO {
@@ -294,6 +299,11 @@ impl ::core::marker::Copy for HTOUCHINPUT {}
 impl ::core::fmt::Debug for HTOUCHINPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HTOUCHINPUT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HTOUCHINPUT>> for HTOUCHINPUT {
+    fn from(optional: ::core::option::Option<HTOUCHINPUT>) -> HTOUCHINPUT {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HTOUCHINPUT {
@@ -531,19 +541,14 @@ impl ::core::convert::From<IInertiaProcessor> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInertiaProcessor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInertiaProcessor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInertiaProcessor> for ::windows::core::IUnknown {
     fn from(value: &IInertiaProcessor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInertiaProcessor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInertiaProcessor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInertiaProcessor {
@@ -636,8 +641,8 @@ impl IManipulationProcessor {
         (::windows::core::Interface::vtable(self).SupportedManipulations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MANIPULATION_PROCESSOR_MANIPULATIONS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
-    pub unsafe fn SetSupportedManipulations(&self, manipulations: MANIPULATION_PROCESSOR_MANIPULATIONS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(manipulations)).ok()
+    pub unsafe fn SetSupportedManipulations<'a, Param0: ::std::convert::Into<MANIPULATION_PROCESSOR_MANIPULATIONS>>(&self, manipulations: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSupportedManipulations)(::windows::core::Interface::as_raw(self), manipulations.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
     pub unsafe fn PivotPointX(&self) -> ::windows::core::Result<f32> {
@@ -729,19 +734,14 @@ impl ::core::convert::From<IManipulationProcessor> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IManipulationProcessor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IManipulationProcessor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IManipulationProcessor> for ::windows::core::IUnknown {
     fn from(value: &IManipulationProcessor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IManipulationProcessor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IManipulationProcessor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IManipulationProcessor {
@@ -794,12 +794,12 @@ pub const InertiaProcessor: ::windows::core::GUID = ::windows::core::GUID::from_
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn IsTouchWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, pulflags: *mut u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn IsTouchWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0, pulflags: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: *mut u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(IsTouchWindow(hwnd.into_param().abi(), ::core::mem::transmute(pulflags)))
+    ::core::mem::transmute(IsTouchWindow(hwnd.into(), ::core::mem::transmute(pulflags)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -867,22 +867,22 @@ impl ::core::fmt::Debug for REGISTER_TOUCH_WINDOW_FLAGS {
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterTouchWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL {
+pub unsafe fn RegisterTouchWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<REGISTER_TOUCH_WINDOW_FLAGS>>(hwnd: Param0, ulflags: Param1) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(RegisterTouchWindow(hwnd.into_param().abi(), ::core::mem::transmute(ulflags)))
+    ::core::mem::transmute(RegisterTouchWindow(hwnd.into(), ulflags.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetGestureConfig<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> super::super::super::Foundation::BOOL {
+pub unsafe fn SetGestureConfig<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, cids: u32, pgestureconfig: *const GESTURECONFIG, cbsize: u32) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(SetGestureConfig(hwnd.into_param().abi(), ::core::mem::transmute(dwreserved), pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgestureconfig)), ::core::mem::transmute(cbsize)))
+    ::core::mem::transmute(SetGestureConfig(hwnd.into(), ::core::mem::transmute(dwreserved), pgestureconfig.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pgestureconfig)), ::core::mem::transmute(cbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -1058,12 +1058,12 @@ impl ::core::ops::Not for TOUCHINPUTMASKF_MASK {
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn UnregisterTouchWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
+pub unsafe fn UnregisterTouchWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> super::super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(UnregisterTouchWindow(hwnd.into_param().abi()))
+    ::core::mem::transmute(UnregisterTouchWindow(hwnd.into()))
 }
 #[doc = "*Required features: `\"Win32_UI_Input_Touch\"`*"]
 #[repr(transparent)]
@@ -1102,19 +1102,14 @@ impl ::core::convert::From<_IManipulationEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a _IManipulationEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IManipulationEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&_IManipulationEvents> for ::windows::core::IUnknown {
     fn from(value: &_IManipulationEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IManipulationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IManipulationEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for _IManipulationEvents {

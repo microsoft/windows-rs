@@ -10,8 +10,8 @@ fn array() {
     assert!(a[0] == None);
     assert!(a[1] == None);
 
-    a[0] = Uri::CreateUri("http://kennykerr.ca").ok();
-    a[1] = Uri::CreateUri("http://microsoft.com").ok();
+    a[0] = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca")).ok();
+    a[1] = Uri::CreateUri(&windows::core::HSTRING::from("http://microsoft.com")).ok();
 
     // TODO: this seems rather tedious... may warrant a windows::Option<T> that's more convenient
     // that could handle both nullable and IReference<T> behaviors in a single abstraction.

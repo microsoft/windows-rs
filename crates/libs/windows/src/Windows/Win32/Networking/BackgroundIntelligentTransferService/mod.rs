@@ -3,24 +3,24 @@
 pub struct AsyncIBackgroundCopyCallback(::windows::core::IUnknown);
 impl AsyncIBackgroundCopyCallback {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn Begin_JobTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+    pub unsafe fn Begin_JobTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn Finish_JobTransferred(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_JobTransferred)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn Begin_JobError<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyError>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_JobError)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+    pub unsafe fn Begin_JobError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_JobError)(::windows::core::Interface::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn Finish_JobError(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_JobError)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn Begin_JobModification<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_JobModification)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn Begin_JobModification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_JobModification)(::windows::core::Interface::as_raw(self), pjob.into().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn Finish_JobModification(&self) -> ::windows::core::Result<()> {
@@ -32,19 +32,14 @@ impl ::core::convert::From<AsyncIBackgroundCopyCallback> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a AsyncIBackgroundCopyCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIBackgroundCopyCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&AsyncIBackgroundCopyCallback> for ::windows::core::IUnknown {
     fn from(value: &AsyncIBackgroundCopyCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AsyncIBackgroundCopyCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AsyncIBackgroundCopyCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for AsyncIBackgroundCopyCallback {
@@ -1320,21 +1315,15 @@ impl ::core::convert::From<IBITSExtensionSetup> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBITSExtensionSetup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBITSExtensionSetup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IBITSExtensionSetup> for ::windows::core::IUnknown {
     fn from(value: &IBITSExtensionSetup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBITSExtensionSetup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBITSExtensionSetup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1344,21 +1333,15 @@ impl ::core::convert::From<IBITSExtensionSetup> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBITSExtensionSetup> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IBITSExtensionSetup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IBITSExtensionSetup> for super::super::System::Com::IDispatch {
     fn from(value: &IBITSExtensionSetup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IBITSExtensionSetup {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IBITSExtensionSetup {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1407,14 +1390,20 @@ pub struct IBITSExtensionSetupFactory(::windows::core::IUnknown);
 impl IBITSExtensionSetupFactory {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<IBITSExtensionSetup> {
+    pub unsafe fn GetObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<IBITSExtensionSetup> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBITSExtensionSetup>(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBITSExtensionSetup>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBITSExtensionSetupFactory> for ::windows::core::IUnknown {
     fn from(value: IBITSExtensionSetupFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBITSExtensionSetupFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBITSExtensionSetupFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1425,20 +1414,14 @@ impl ::core::convert::From<&IBITSExtensionSetupFactory> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBITSExtensionSetupFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBITSExtensionSetupFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IBITSExtensionSetupFactory> for super::super::System::Com::IDispatch {
     fn from(value: IBITSExtensionSetupFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IBITSExtensionSetupFactory> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IBITSExtensionSetupFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1446,18 +1429,6 @@ impl ::core::convert::From<IBITSExtensionSetupFactory> for super::super::System:
 impl ::core::convert::From<&IBITSExtensionSetupFactory> for super::super::System::Com::IDispatch {
     fn from(value: &IBITSExtensionSetupFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IBITSExtensionSetupFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IBITSExtensionSetupFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1500,16 +1471,16 @@ pub struct IBITSExtensionSetupFactory_Vtbl {
 pub struct IBackgroundCopyCallback(::windows::core::IUnknown);
 impl IBackgroundCopyCallback {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+    pub unsafe fn JobTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobError<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyError>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).JobError)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+    pub unsafe fn JobError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).JobError)(::windows::core::Interface::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobModification<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).JobModification)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn JobModification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).JobModification)(::windows::core::Interface::as_raw(self), pjob.into().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyCallback> for ::windows::core::IUnknown {
@@ -1517,19 +1488,14 @@ impl ::core::convert::From<IBackgroundCopyCallback> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyCallback> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyCallback {
@@ -1565,16 +1531,16 @@ pub struct IBackgroundCopyCallback_Vtbl {
 pub struct IBackgroundCopyCallback1(::windows::core::IUnknown);
 impl IBackgroundCopyCallback1 {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn OnStatus<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyGroup>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyJob1>>(&self, pgroup: Param0, pjob: Param1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStatus)(::windows::core::Interface::as_raw(self), pgroup.into_param().abi(), pjob.into_param().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwstatus), ::core::mem::transmute(dwnumofretries), ::core::mem::transmute(dwwin32result), ::core::mem::transmute(dwtransportresult)).ok()
+    pub unsafe fn OnStatus<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyGroup>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob1>>>(&self, pgroup: Param0, pjob: Param1, dwfileindex: u32, dwstatus: u32, dwnumofretries: u32, dwwin32result: u32, dwtransportresult: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStatus)(::windows::core::Interface::as_raw(self), pgroup.into().abi(), pjob.into().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwstatus), ::core::mem::transmute(dwnumofretries), ::core::mem::transmute(dwwin32result), ::core::mem::transmute(dwtransportresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn OnProgress<'a, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyGroup>, Param2: ::windows::core::IntoParam<'a, IBackgroundCopyJob1>>(&self, progresstype: u32, pgroup: Param1, pjob: Param2, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(progresstype), pgroup.into_param().abi(), pjob.into_param().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwprogressvalue)).ok()
+    pub unsafe fn OnProgress<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyGroup>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob1>>>(&self, progresstype: u32, pgroup: Param1, pjob: Param2, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(progresstype), pgroup.into().abi(), pjob.into().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwprogressvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn OnProgressEx<'a, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyGroup>, Param2: ::windows::core::IntoParam<'a, IBackgroundCopyJob1>>(&self, progresstype: u32, pgroup: Param1, pjob: Param2, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnProgressEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(progresstype), pgroup.into_param().abi(), pjob.into_param().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwprogressvalue), pbyte.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbyte))).ok()
+    pub unsafe fn OnProgressEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyGroup>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob1>>>(&self, progresstype: u32, pgroup: Param1, pjob: Param2, dwfileindex: u32, dwprogressvalue: u32, pbyte: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnProgressEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(progresstype), pgroup.into().abi(), pjob.into().abi(), ::core::mem::transmute(dwfileindex), ::core::mem::transmute(dwprogressvalue), pbyte.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbyte))).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyCallback1> for ::windows::core::IUnknown {
@@ -1582,19 +1548,14 @@ impl ::core::convert::From<IBackgroundCopyCallback1> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback1> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyCallback1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyCallback1> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyCallback1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyCallback1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyCallback1 {
@@ -1630,24 +1591,29 @@ pub struct IBackgroundCopyCallback1_Vtbl {
 pub struct IBackgroundCopyCallback2(::windows::core::IUnknown);
 impl IBackgroundCopyCallback2 {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+    pub unsafe fn JobTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobError<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyError>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.JobError)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+    pub unsafe fn JobError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.JobError)(::windows::core::Interface::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobModification<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.JobModification)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn JobModification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.JobModification)(::windows::core::Interface::as_raw(self), pjob.into().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn FileTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyFile>>(&self, pjob: Param0, pfile: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FileTransferred)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), pfile.into_param().abi()).ok()
+    pub unsafe fn FileTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>>(&self, pjob: Param0, pfile: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FileTransferred)(::windows::core::Interface::as_raw(self), pjob.into().abi(), pfile.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyCallback2> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCopyCallback2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyCallback2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1656,34 +1622,19 @@ impl ::core::convert::From<&IBackgroundCopyCallback2> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyCallback2> for IBackgroundCopyCallback {
     fn from(value: IBackgroundCopyCallback2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback2> for &'a IBackgroundCopyCallback {
+    fn from(value: &'a IBackgroundCopyCallback2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyCallback2> for IBackgroundCopyCallback {
     fn from(value: &IBackgroundCopyCallback2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for IBackgroundCopyCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for &'a IBackgroundCopyCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyCallback2 {
@@ -1717,28 +1668,33 @@ pub struct IBackgroundCopyCallback2_Vtbl {
 pub struct IBackgroundCopyCallback3(::windows::core::IUnknown);
 impl IBackgroundCopyCallback3 {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into_param().abi()).ok()
+    pub unsafe fn JobTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.JobTransferred)(::windows::core::Interface::as_raw(self), pjob.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobError<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyError>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.JobError)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), perror.into_param().abi()).ok()
+    pub unsafe fn JobError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyError>>>(&self, pjob: Param0, perror: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.JobError)(::windows::core::Interface::as_raw(self), pjob.into().abi(), perror.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn JobModification<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.JobModification)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn JobModification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>>(&self, pjob: Param0, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.JobModification)(::windows::core::Interface::as_raw(self), pjob.into().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn FileTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyFile>>(&self, pjob: Param0, pfile: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.FileTransferred)(::windows::core::Interface::as_raw(self), pjob.into_param().abi(), pfile.into_param().abi()).ok()
+    pub unsafe fn FileTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>>(&self, pjob: Param0, pfile: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.FileTransferred)(::windows::core::Interface::as_raw(self), pjob.into().abi(), pfile.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn FileRangesTransferred<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyFile>>(&self, job: Param0, file: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FileRangesTransferred)(::windows::core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
+    pub unsafe fn FileRangesTransferred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>>(&self, job: Param0, file: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FileRangesTransferred)(::windows::core::Interface::as_raw(self), job.into().abi(), file.into().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyCallback3> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCopyCallback3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyCallback3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1747,18 +1703,13 @@ impl ::core::convert::From<&IBackgroundCopyCallback3> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyCallback3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyCallback3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyCallback3> for IBackgroundCopyCallback {
     fn from(value: IBackgroundCopyCallback3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback3> for &'a IBackgroundCopyCallback {
+    fn from(value: &'a IBackgroundCopyCallback3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1767,34 +1718,19 @@ impl ::core::convert::From<&IBackgroundCopyCallback3> for IBackgroundCopyCallbac
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for IBackgroundCopyCallback3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback> for &'a IBackgroundCopyCallback3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyCallback3> for IBackgroundCopyCallback2 {
     fn from(value: IBackgroundCopyCallback3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyCallback3> for &'a IBackgroundCopyCallback2 {
+    fn from(value: &'a IBackgroundCopyCallback3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyCallback3> for IBackgroundCopyCallback2 {
     fn from(value: &IBackgroundCopyCallback3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback2> for IBackgroundCopyCallback3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyCallback2> for &'a IBackgroundCopyCallback3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyCallback2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyCallback3 {
@@ -1857,19 +1793,14 @@ impl ::core::convert::From<IBackgroundCopyError> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyError> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyError> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyError {
@@ -1928,19 +1859,14 @@ impl ::core::convert::From<IBackgroundCopyFile> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyFile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyFile> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyFile) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyFile {
@@ -1999,12 +1925,17 @@ impl IBackgroundCopyFile2 {
         (::windows::core::Interface::vtable(self).GetFileRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetRemoteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRemoteName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetRemoteName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRemoteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyFile2> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCopyFile2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyFile2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2013,34 +1944,19 @@ impl ::core::convert::From<&IBackgroundCopyFile2> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyFile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile2> for IBackgroundCopyFile {
     fn from(value: IBackgroundCopyFile2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile2> for &'a IBackgroundCopyFile {
+    fn from(value: &'a IBackgroundCopyFile2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyFile2> for IBackgroundCopyFile {
     fn from(value: &IBackgroundCopyFile2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyFile2 {
@@ -2095,8 +2011,8 @@ impl IBackgroundCopyFile3 {
         (::windows::core::Interface::vtable(self).base__.GetFileRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetRemoteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetRemoteName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetRemoteName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetRemoteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2105,8 +2021,8 @@ impl IBackgroundCopyFile3 {
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValidationState)(::windows::core::Interface::as_raw(self), state.into_param().abi()).ok()
+    pub unsafe fn SetValidationState<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2126,23 +2042,23 @@ impl ::core::convert::From<IBackgroundCopyFile3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyFile3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyFile3> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyFile3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyFile3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile3> for IBackgroundCopyFile {
     fn from(value: IBackgroundCopyFile3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile3> for &'a IBackgroundCopyFile {
+    fn from(value: &'a IBackgroundCopyFile3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2151,34 +2067,19 @@ impl ::core::convert::From<&IBackgroundCopyFile3> for IBackgroundCopyFile {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile3> for IBackgroundCopyFile2 {
     fn from(value: IBackgroundCopyFile3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile3> for &'a IBackgroundCopyFile2 {
+    fn from(value: &'a IBackgroundCopyFile3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyFile3> for IBackgroundCopyFile2 {
     fn from(value: &IBackgroundCopyFile3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyFile3 {
@@ -2244,8 +2145,8 @@ impl IBackgroundCopyFile4 {
         (::windows::core::Interface::vtable(self).base__.base__.GetFileRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetRemoteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetRemoteName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetRemoteName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetRemoteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2254,8 +2155,8 @@ impl IBackgroundCopyFile4 {
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into_param().abi()).ok()
+    pub unsafe fn SetValidationState<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2279,23 +2180,23 @@ impl ::core::convert::From<IBackgroundCopyFile4> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyFile4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyFile4> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyFile4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile {
     fn from(value: IBackgroundCopyFile4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a IBackgroundCopyFile {
+    fn from(value: &'a IBackgroundCopyFile4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2304,18 +2205,13 @@ impl ::core::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile2 {
     fn from(value: IBackgroundCopyFile4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a IBackgroundCopyFile2 {
+    fn from(value: &'a IBackgroundCopyFile4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2324,34 +2220,19 @@ impl ::core::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile4> for IBackgroundCopyFile3 {
     fn from(value: IBackgroundCopyFile4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile4> for &'a IBackgroundCopyFile3 {
+    fn from(value: &'a IBackgroundCopyFile4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyFile4> for IBackgroundCopyFile3 {
     fn from(value: &IBackgroundCopyFile4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &'a IBackgroundCopyFile4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyFile4 {
@@ -2405,8 +2286,8 @@ impl IBackgroundCopyFile5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetFileRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetRemoteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRemoteName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetRemoteName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetRemoteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2415,8 +2296,8 @@ impl IBackgroundCopyFile5 {
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into_param().abi()).ok()
+    pub unsafe fn SetValidationState<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2435,17 +2316,22 @@ impl IBackgroundCopyFile5 {
         (::windows::core::Interface::vtable(self).base__.GetPeerDownloadStats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfromorigin), ::core::mem::transmute(pfrompeers)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProperty<'a, Param1: ::windows::core::IntoParam<'a, BITS_FILE_PROPERTY_VALUE>>(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), propertyvalue.into_param().abi()).ok()
+    pub unsafe fn SetProperty<'a, Param0: ::std::convert::Into<BITS_FILE_PROPERTY_ID>>(&self, propertyid: Param0, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), propertyid.into(), ::core::mem::transmute(propertyvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE> {
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<BITS_FILE_PROPERTY_ID>>(&self, propertyid: Param0) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE> {
         let mut result__ = ::core::mem::MaybeUninit::<BITS_FILE_PROPERTY_VALUE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_FILE_PROPERTY_VALUE>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), propertyid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_FILE_PROPERTY_VALUE>(result__)
     }
 }
 impl ::core::convert::From<IBackgroundCopyFile5> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCopyFile5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyFile5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2454,18 +2340,13 @@ impl ::core::convert::From<&IBackgroundCopyFile5> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile {
     fn from(value: IBackgroundCopyFile5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile {
+    fn from(value: &'a IBackgroundCopyFile5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2474,18 +2355,13 @@ impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile2 {
     fn from(value: IBackgroundCopyFile5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile2 {
+    fn from(value: &'a IBackgroundCopyFile5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2494,18 +2370,13 @@ impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile3 {
     fn from(value: IBackgroundCopyFile5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile3 {
+    fn from(value: &'a IBackgroundCopyFile5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2514,34 +2385,19 @@ impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile3 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &'a IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile5> for IBackgroundCopyFile4 {
     fn from(value: IBackgroundCopyFile5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile5> for &'a IBackgroundCopyFile4 {
+    fn from(value: &'a IBackgroundCopyFile5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyFile5> for IBackgroundCopyFile4 {
     fn from(value: &IBackgroundCopyFile5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for &'a IBackgroundCopyFile5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyFile5 {
@@ -2596,8 +2452,8 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetFileRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rangecount), ::core::mem::transmute(ranges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetRemoteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetRemoteName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetRemoteName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetRemoteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetTemporaryName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -2606,8 +2462,8 @@ impl IBackgroundCopyFile6 {
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetValidationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into_param().abi()).ok()
+    pub unsafe fn SetValidationState<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, state: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2626,13 +2482,13 @@ impl IBackgroundCopyFile6 {
         (::windows::core::Interface::vtable(self).base__.base__.GetPeerDownloadStats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfromorigin), ::core::mem::transmute(pfrompeers)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProperty<'a, Param1: ::windows::core::IntoParam<'a, BITS_FILE_PROPERTY_VALUE>>(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), propertyvalue.into_param().abi()).ok()
+    pub unsafe fn SetProperty<'a, Param0: ::std::convert::Into<BITS_FILE_PROPERTY_ID>>(&self, propertyid: Param0, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), propertyid.into(), ::core::mem::transmute(propertyvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE> {
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<BITS_FILE_PROPERTY_ID>>(&self, propertyid: Param0) -> ::windows::core::Result<BITS_FILE_PROPERTY_VALUE> {
         let mut result__ = ::core::mem::MaybeUninit::<BITS_FILE_PROPERTY_VALUE>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_FILE_PROPERTY_VALUE>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetProperty)(::windows::core::Interface::as_raw(self), propertyid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_FILE_PROPERTY_VALUE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn UpdateDownloadPosition(&self, offset: u64) -> ::windows::core::Result<()> {
@@ -2652,23 +2508,23 @@ impl ::core::convert::From<IBackgroundCopyFile6> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyFile6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyFile6> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyFile6) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile {
     fn from(value: IBackgroundCopyFile6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile {
+    fn from(value: &'a IBackgroundCopyFile6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2677,18 +2533,13 @@ impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile> for &'a IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile2 {
     fn from(value: IBackgroundCopyFile6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile2 {
+    fn from(value: &'a IBackgroundCopyFile6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2697,18 +2548,13 @@ impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile2> for &'a IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile3 {
     fn from(value: IBackgroundCopyFile6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile3 {
+    fn from(value: &'a IBackgroundCopyFile6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2717,18 +2563,13 @@ impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile3 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile3> for &'a IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile4 {
     fn from(value: IBackgroundCopyFile6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile4 {
+    fn from(value: &'a IBackgroundCopyFile6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2737,34 +2578,19 @@ impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile4 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile4> for &'a IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyFile6> for IBackgroundCopyFile5 {
     fn from(value: IBackgroundCopyFile6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyFile6> for &'a IBackgroundCopyFile5 {
+    fn from(value: &'a IBackgroundCopyFile6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyFile6> for IBackgroundCopyFile5 {
     fn from(value: &IBackgroundCopyFile6) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile5> for IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile5> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyFile5> for &'a IBackgroundCopyFile6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyFile5> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyFile6 {
@@ -2801,14 +2627,14 @@ pub struct IBackgroundCopyGroup(::windows::core::IUnknown);
 impl IBackgroundCopyGroup {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProp(&self, propid: GROUPPROP) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetProp<'a, Param0: ::std::convert::Into<GROUPPROP>>(&self, propid: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetProp)(::windows::core::Interface::as_raw(self), propid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propid), ::core::mem::transmute(pvarval)).ok()
+    pub unsafe fn SetProp<'a, Param0: ::std::convert::Into<GROUPPROP>>(&self, propid: Param0, pvarval: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProp)(::windows::core::Interface::as_raw(self), propid.into(), ::core::mem::transmute(pvarval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetProgress(&self, dwflags: u32) -> ::windows::core::Result<u32> {
@@ -2820,9 +2646,9 @@ impl IBackgroundCopyGroup {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pdwjobindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn GetJob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, jobid: Param0) -> ::windows::core::Result<IBackgroundCopyJob1> {
+    pub unsafe fn GetJob(&self, jobid: ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetJob)(::windows::core::Interface::as_raw(self), jobid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyJob1>(result__)
+        (::windows::core::Interface::vtable(self).GetJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(jobid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyJob1>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn SuspendGroup(&self) -> ::windows::core::Result<()> {
@@ -2847,9 +2673,9 @@ impl IBackgroundCopyGroup {
         (::windows::core::Interface::vtable(self).GroupID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn CreateJob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidjobid: Param0) -> ::windows::core::Result<IBackgroundCopyJob1> {
+    pub unsafe fn CreateJob(&self, guidjobid: ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob1> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateJob)(::windows::core::Interface::as_raw(self), guidjobid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyJob1>(result__)
+        (::windows::core::Interface::vtable(self).CreateJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidjobid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyJob1>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumJobs(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyJobs1> {
@@ -2866,8 +2692,8 @@ impl IBackgroundCopyGroup {
         (::windows::core::Interface::vtable(self).QueryNewJobInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotificationPointer<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, iid: *const ::windows::core::GUID, punk: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationPointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid), punk.into_param().abi()).ok()
+    pub unsafe fn SetNotificationPointer<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, iid: *const ::windows::core::GUID, punk: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotificationPointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid), punk.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyGroup> for ::windows::core::IUnknown {
@@ -2875,19 +2701,14 @@ impl ::core::convert::From<IBackgroundCopyGroup> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyGroup> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyGroup> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyGroup) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyGroup {
@@ -2945,8 +2766,8 @@ impl IBackgroundCopyJob {
         (::windows::core::Interface::vtable(self).AddFileSet)(::windows::core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFile)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+    pub unsafe fn AddFile(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles> {
@@ -3006,8 +2827,8 @@ impl IBackgroundCopyJob {
         (::windows::core::Interface::vtable(self).GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3015,8 +2836,8 @@ impl IBackgroundCopyJob {
         (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDescription(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3024,8 +2845,8 @@ impl IBackgroundCopyJob {
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<BG_JOB_PRIORITY>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), val.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY> {
@@ -3042,8 +2863,8 @@ impl IBackgroundCopyJob {
         (::windows::core::Interface::vtable(self).GetNotifyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyInterface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetNotifyInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3074,8 +2895,8 @@ impl IBackgroundCopyJob {
         (::windows::core::Interface::vtable(self).GetErrorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProxySettings<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: Param1, proxybypasslist: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProxySettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(proxyusage), proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+    pub unsafe fn SetProxySettings<'a, Param0: ::std::convert::Into<BG_JOB_PROXY_USAGE>>(&self, proxyusage: Param0, proxylist: ::windows::core::PCWSTR, proxybypasslist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProxySettings)(::windows::core::Interface::as_raw(self), proxyusage.into(), ::core::mem::transmute(proxylist), ::core::mem::transmute(proxybypasslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3091,19 +2912,14 @@ impl ::core::convert::From<IBackgroundCopyJob> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJob> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJob {
@@ -3214,19 +3030,14 @@ impl ::core::convert::From<IBackgroundCopyJob1> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob1> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJob1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJob1> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJob1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJob1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJob1 {
@@ -3277,8 +3088,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.AddFileSet)(::windows::core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddFile)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+    pub unsafe fn AddFile(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles> {
@@ -3338,8 +3149,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3347,8 +3158,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDescription(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3356,8 +3167,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<BG_JOB_PRIORITY>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), val.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY> {
@@ -3374,8 +3185,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.GetNotifyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyInterface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetNotifyInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3406,8 +3217,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.GetErrorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProxySettings<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: Param1, proxybypasslist: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetProxySettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(proxyusage), proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+    pub unsafe fn SetProxySettings<'a, Param0: ::std::convert::Into<BG_JOB_PROXY_USAGE>>(&self, proxyusage: Param0, proxylist: ::windows::core::PCWSTR, proxybypasslist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetProxySettings)(::windows::core::Interface::as_raw(self), proxyusage.into(), ::core::mem::transmute(proxylist), ::core::mem::transmute(proxybypasslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3418,8 +3229,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).base__.TakeOwnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyCmdLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, program: Param0, parameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+    pub unsafe fn SetNotifyCmdLine(&self, program: ::windows::core::PCWSTR, parameters: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(program), ::core::mem::transmute(parameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3434,8 +3245,8 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).GetReplyData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetReplyFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, replyfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplyFileName)(::windows::core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+    pub unsafe fn SetReplyFileName(&self, replyfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetReplyFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(replyfilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetReplyFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3447,12 +3258,17 @@ impl IBackgroundCopyJob2 {
         (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credentials)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target), ::core::mem::transmute(scheme)).ok()
+    pub unsafe fn RemoveCredentials<'a, Param0: ::std::convert::Into<BG_AUTH_TARGET>, Param1: ::std::convert::Into<BG_AUTH_SCHEME>>(&self, target: Param0, scheme: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveCredentials)(::windows::core::Interface::as_raw(self), target.into(), scheme.into()).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyJob2> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCopyJob2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJob2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3461,34 +3277,19 @@ impl ::core::convert::From<&IBackgroundCopyJob2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJob2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob2> for IBackgroundCopyJob {
     fn from(value: IBackgroundCopyJob2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob2> for &'a IBackgroundCopyJob {
+    fn from(value: &'a IBackgroundCopyJob2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyJob2> for IBackgroundCopyJob {
     fn from(value: &IBackgroundCopyJob2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJob2 {
@@ -3533,8 +3334,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.AddFileSet)(::windows::core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddFile)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+    pub unsafe fn AddFile(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles> {
@@ -3594,8 +3395,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDisplayName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3603,8 +3404,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDescription(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3612,8 +3413,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<BG_JOB_PRIORITY>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetPriority)(::windows::core::Interface::as_raw(self), val.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY> {
@@ -3630,8 +3431,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetNotifyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyInterface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetNotifyInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3662,8 +3463,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetErrorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProxySettings<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: Param1, proxybypasslist: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetProxySettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(proxyusage), proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+    pub unsafe fn SetProxySettings<'a, Param0: ::std::convert::Into<BG_JOB_PROXY_USAGE>>(&self, proxyusage: Param0, proxylist: ::windows::core::PCWSTR, proxybypasslist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetProxySettings)(::windows::core::Interface::as_raw(self), proxyusage.into(), ::core::mem::transmute(proxylist), ::core::mem::transmute(proxybypasslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3674,8 +3475,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.base__.TakeOwnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyCmdLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, program: Param0, parameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+    pub unsafe fn SetNotifyCmdLine(&self, program: ::windows::core::PCWSTR, parameters: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(program), ::core::mem::transmute(parameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3690,8 +3491,8 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.GetReplyData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetReplyFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, replyfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReplyFileName)(::windows::core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+    pub unsafe fn SetReplyFileName(&self, replyfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetReplyFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(replyfilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetReplyFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3703,16 +3504,16 @@ impl IBackgroundCopyJob3 {
         (::windows::core::Interface::vtable(self).base__.SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credentials)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target), ::core::mem::transmute(scheme)).ok()
+    pub unsafe fn RemoveCredentials<'a, Param0: ::std::convert::Into<BG_AUTH_TARGET>, Param1: ::std::convert::Into<BG_AUTH_SCHEME>>(&self, target: Param0, scheme: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RemoveCredentials)(::windows::core::Interface::as_raw(self), target.into(), scheme.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn ReplaceRemotePrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, oldprefix: Param0, newprefix: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReplaceRemotePrefix)(::windows::core::Interface::as_raw(self), oldprefix.into_param().abi(), newprefix.into_param().abi()).ok()
+    pub unsafe fn ReplaceRemotePrefix(&self, oldprefix: ::windows::core::PCWSTR, newprefix: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReplaceRemotePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldprefix), ::core::mem::transmute(newprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFileWithRanges<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFileWithRanges)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
+    pub unsafe fn AddFileWithRanges(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddFileWithRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -3729,23 +3530,23 @@ impl ::core::convert::From<IBackgroundCopyJob3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJob3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJob3> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJob3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJob3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob3> for IBackgroundCopyJob {
     fn from(value: IBackgroundCopyJob3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob3> for &'a IBackgroundCopyJob {
+    fn from(value: &'a IBackgroundCopyJob3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3754,34 +3555,19 @@ impl ::core::convert::From<&IBackgroundCopyJob3> for IBackgroundCopyJob {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob3> for IBackgroundCopyJob2 {
     fn from(value: IBackgroundCopyJob3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob3> for &'a IBackgroundCopyJob2 {
+    fn from(value: &'a IBackgroundCopyJob3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyJob3> for IBackgroundCopyJob2 {
     fn from(value: &IBackgroundCopyJob3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopyJob3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &'a IBackgroundCopyJob3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJob3 {
@@ -3822,8 +3608,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.AddFileSet)(::windows::core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.AddFile)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+    pub unsafe fn AddFile(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles> {
@@ -3883,8 +3669,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDisplayName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3892,8 +3678,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDescription(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3901,8 +3687,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<BG_JOB_PRIORITY>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetPriority)(::windows::core::Interface::as_raw(self), val.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY> {
@@ -3919,8 +3705,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetNotifyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyInterface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetNotifyInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3951,8 +3737,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetErrorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProxySettings<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: Param1, proxybypasslist: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetProxySettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(proxyusage), proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+    pub unsafe fn SetProxySettings<'a, Param0: ::std::convert::Into<BG_JOB_PROXY_USAGE>>(&self, proxyusage: Param0, proxylist: ::windows::core::PCWSTR, proxybypasslist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetProxySettings)(::windows::core::Interface::as_raw(self), proxyusage.into(), ::core::mem::transmute(proxylist), ::core::mem::transmute(proxybypasslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3963,8 +3749,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.TakeOwnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyCmdLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, program: Param0, parameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+    pub unsafe fn SetNotifyCmdLine(&self, program: ::windows::core::PCWSTR, parameters: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(program), ::core::mem::transmute(parameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -3979,8 +3765,8 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.GetReplyData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetReplyFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, replyfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetReplyFileName)(::windows::core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+    pub unsafe fn SetReplyFileName(&self, replyfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetReplyFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(replyfilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetReplyFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -3992,16 +3778,16 @@ impl IBackgroundCopyJob4 {
         (::windows::core::Interface::vtable(self).base__.base__.SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credentials)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.RemoveCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target), ::core::mem::transmute(scheme)).ok()
+    pub unsafe fn RemoveCredentials<'a, Param0: ::std::convert::Into<BG_AUTH_TARGET>, Param1: ::std::convert::Into<BG_AUTH_SCHEME>>(&self, target: Param0, scheme: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.RemoveCredentials)(::windows::core::Interface::as_raw(self), target.into(), scheme.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn ReplaceRemotePrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, oldprefix: Param0, newprefix: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ReplaceRemotePrefix)(::windows::core::Interface::as_raw(self), oldprefix.into_param().abi(), newprefix.into_param().abi()).ok()
+    pub unsafe fn ReplaceRemotePrefix(&self, oldprefix: ::windows::core::PCWSTR, newprefix: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ReplaceRemotePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldprefix), ::core::mem::transmute(newprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFileWithRanges<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AddFileWithRanges)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
+    pub unsafe fn AddFileWithRanges(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AddFileWithRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -4047,23 +3833,23 @@ impl ::core::convert::From<IBackgroundCopyJob4> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJob4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJob4> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJob4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob {
     fn from(value: IBackgroundCopyJob4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a IBackgroundCopyJob {
+    fn from(value: &'a IBackgroundCopyJob4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4072,18 +3858,13 @@ impl ::core::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob2 {
     fn from(value: IBackgroundCopyJob4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a IBackgroundCopyJob2 {
+    fn from(value: &'a IBackgroundCopyJob4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4092,34 +3873,19 @@ impl ::core::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &'a IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob4> for IBackgroundCopyJob3 {
     fn from(value: IBackgroundCopyJob4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob4> for &'a IBackgroundCopyJob3 {
+    fn from(value: &'a IBackgroundCopyJob4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyJob4> for IBackgroundCopyJob3 {
     fn from(value: &IBackgroundCopyJob4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for &'a IBackgroundCopyJob4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJob4 {
@@ -4165,8 +3931,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.AddFileSet)(::windows::core::Interface::as_raw(self), pfileset.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pfileset))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.AddFile)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi()).ok()
+    pub unsafe fn AddFile(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.AddFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumFiles(&self) -> ::windows::core::Result<IEnumBackgroundCopyFiles> {
@@ -4226,8 +3992,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetDisplayName)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDisplayName(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4235,8 +4001,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetDescription(&self, val: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4244,8 +4010,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetPriority(&self, val: BG_JOB_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(val)).ok()
+    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<BG_JOB_PRIORITY>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetPriority)(::windows::core::Interface::as_raw(self), val.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetPriority(&self) -> ::windows::core::Result<BG_JOB_PRIORITY> {
@@ -4262,8 +4028,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetNotifyFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyInterface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, val: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into_param().abi()).ok()
+    pub unsafe fn SetNotifyInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, val: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetNotifyInterface)(::windows::core::Interface::as_raw(self), val.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyInterface(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -4294,8 +4060,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetErrorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetProxySettings<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, proxyusage: BG_JOB_PROXY_USAGE, proxylist: Param1, proxybypasslist: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetProxySettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(proxyusage), proxylist.into_param().abi(), proxybypasslist.into_param().abi()).ok()
+    pub unsafe fn SetProxySettings<'a, Param0: ::std::convert::Into<BG_JOB_PROXY_USAGE>>(&self, proxyusage: Param0, proxylist: ::windows::core::PCWSTR, proxybypasslist: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetProxySettings)(::windows::core::Interface::as_raw(self), proxyusage.into(), ::core::mem::transmute(proxylist), ::core::mem::transmute(proxybypasslist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetProxySettings(&self, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -4306,8 +4072,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.TakeOwnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetNotifyCmdLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, program: Param0, parameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), program.into_param().abi(), parameters.into_param().abi()).ok()
+    pub unsafe fn SetNotifyCmdLine(&self, program: ::windows::core::PCWSTR, parameters: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetNotifyCmdLine)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(program), ::core::mem::transmute(parameters)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetNotifyCmdLine(&self, pprogram: *mut ::windows::core::PWSTR, pparameters: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
@@ -4322,8 +4088,8 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetReplyData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbuffer), ::core::mem::transmute(plength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetReplyFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, replyfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetReplyFileName)(::windows::core::Interface::as_raw(self), replyfilename.into_param().abi()).ok()
+    pub unsafe fn SetReplyFileName(&self, replyfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetReplyFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(replyfilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetReplyFileName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4335,16 +4101,16 @@ impl IBackgroundCopyJob5 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credentials)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn RemoveCredentials(&self, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.RemoveCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target), ::core::mem::transmute(scheme)).ok()
+    pub unsafe fn RemoveCredentials<'a, Param0: ::std::convert::Into<BG_AUTH_TARGET>, Param1: ::std::convert::Into<BG_AUTH_SCHEME>>(&self, target: Param0, scheme: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.RemoveCredentials)(::windows::core::Interface::as_raw(self), target.into(), scheme.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn ReplaceRemotePrefix<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, oldprefix: Param0, newprefix: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ReplaceRemotePrefix)(::windows::core::Interface::as_raw(self), oldprefix.into_param().abi(), newprefix.into_param().abi()).ok()
+    pub unsafe fn ReplaceRemotePrefix(&self, oldprefix: ::windows::core::PCWSTR, newprefix: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ReplaceRemotePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldprefix), ::core::mem::transmute(newprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn AddFileWithRanges<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, remoteurl: Param0, localname: Param1, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AddFileWithRanges)(::windows::core::Interface::as_raw(self), remoteurl.into_param().abi(), localname.into_param().abi(), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
+    pub unsafe fn AddFileWithRanges(&self, remoteurl: ::windows::core::PCWSTR, localname: ::windows::core::PCWSTR, ranges: &[BG_FILE_RANGE]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.AddFileWithRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(remoteurl), ::core::mem::transmute(localname), ranges.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ranges))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn SetFileACLFlags(&self, flags: u32) -> ::windows::core::Result<()> {
@@ -4386,18 +4152,23 @@ impl IBackgroundCopyJob5 {
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetProperty<'a, Param1: ::windows::core::IntoParam<'a, BITS_JOB_PROPERTY_VALUE>>(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), propertyvalue.into_param().abi()).ok()
+    pub unsafe fn SetProperty<'a, Param0: ::std::convert::Into<BITS_JOB_PROPERTY_ID>>(&self, propertyid: Param0, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), propertyid.into(), ::core::mem::transmute(propertyvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> ::windows::core::Result<BITS_JOB_PROPERTY_VALUE> {
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<BITS_JOB_PROPERTY_ID>>(&self, propertyid: Param0) -> ::windows::core::Result<BITS_JOB_PROPERTY_VALUE> {
         let mut result__ = ::core::mem::MaybeUninit::<BITS_JOB_PROPERTY_VALUE>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_JOB_PROPERTY_VALUE>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), propertyid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BITS_JOB_PROPERTY_VALUE>(result__)
     }
 }
 impl ::core::convert::From<IBackgroundCopyJob5> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCopyJob5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJob5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4406,18 +4177,13 @@ impl ::core::convert::From<&IBackgroundCopyJob5> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob {
     fn from(value: IBackgroundCopyJob5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob {
+    fn from(value: &'a IBackgroundCopyJob5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4426,18 +4192,13 @@ impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob> for &'a IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob2 {
     fn from(value: IBackgroundCopyJob5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob2 {
+    fn from(value: &'a IBackgroundCopyJob5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4446,18 +4207,13 @@ impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob2> for &'a IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob3 {
     fn from(value: IBackgroundCopyJob5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob3 {
+    fn from(value: &'a IBackgroundCopyJob5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4466,34 +4222,19 @@ impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob3 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob3> for &'a IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJob5> for IBackgroundCopyJob4 {
     fn from(value: IBackgroundCopyJob5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJob5> for &'a IBackgroundCopyJob4 {
+    fn from(value: &'a IBackgroundCopyJob5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyJob5> for IBackgroundCopyJob4 {
     fn from(value: &IBackgroundCopyJob5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob4> for IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJob4> for &'a IBackgroundCopyJob5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJob4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJob5 {
@@ -4534,12 +4275,12 @@ pub struct IBackgroundCopyJob5_Vtbl {
 pub struct IBackgroundCopyJobHttpOptions(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetClientCertificateByID<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCertificateByID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
+    pub unsafe fn SetClientCertificateByID<'a, Param0: ::std::convert::Into<BG_CERT_STORE_LOCATION>>(&self, storelocation: Param0, storename: ::windows::core::PCWSTR, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientCertificateByID)(::windows::core::Interface::as_raw(self), storelocation.into(), ::core::mem::transmute(storename), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetClientCertificateByName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, subjectname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientCertificateByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), subjectname.into_param().abi()).ok()
+    pub unsafe fn SetClientCertificateByName<'a, Param0: ::std::convert::Into<BG_CERT_STORE_LOCATION>>(&self, storelocation: Param0, storename: ::windows::core::PCWSTR, subjectname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientCertificateByName)(::windows::core::Interface::as_raw(self), storelocation.into(), ::core::mem::transmute(storename), ::core::mem::transmute(subjectname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
@@ -4550,8 +4291,8 @@ impl IBackgroundCopyJobHttpOptions {
         (::windows::core::Interface::vtable(self).GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetCustomHeaders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, requestheaders: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCustomHeaders)(::windows::core::Interface::as_raw(self), requestheaders.into_param().abi()).ok()
+    pub unsafe fn SetCustomHeaders(&self, requestheaders: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCustomHeaders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestheaders)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetCustomHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4573,19 +4314,14 @@ impl ::core::convert::From<IBackgroundCopyJobHttpOptions> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJobHttpOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJobHttpOptions> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJobHttpOptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJobHttpOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJobHttpOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions {
@@ -4626,12 +4362,12 @@ pub struct IBackgroundCopyJobHttpOptions_Vtbl {
 pub struct IBackgroundCopyJobHttpOptions2(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions2 {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetClientCertificateByID<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientCertificateByID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
+    pub unsafe fn SetClientCertificateByID<'a, Param0: ::std::convert::Into<BG_CERT_STORE_LOCATION>>(&self, storelocation: Param0, storename: ::windows::core::PCWSTR, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetClientCertificateByID)(::windows::core::Interface::as_raw(self), storelocation.into(), ::core::mem::transmute(storename), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetClientCertificateByName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, subjectname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientCertificateByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), subjectname.into_param().abi()).ok()
+    pub unsafe fn SetClientCertificateByName<'a, Param0: ::std::convert::Into<BG_CERT_STORE_LOCATION>>(&self, storelocation: Param0, storename: ::windows::core::PCWSTR, subjectname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetClientCertificateByName)(::windows::core::Interface::as_raw(self), storelocation.into(), ::core::mem::transmute(storename), ::core::mem::transmute(subjectname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
@@ -4642,8 +4378,8 @@ impl IBackgroundCopyJobHttpOptions2 {
         (::windows::core::Interface::vtable(self).base__.GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetCustomHeaders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, requestheaders: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCustomHeaders)(::windows::core::Interface::as_raw(self), requestheaders.into_param().abi()).ok()
+    pub unsafe fn SetCustomHeaders(&self, requestheaders: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetCustomHeaders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestheaders)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetCustomHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4660,8 +4396,8 @@ impl IBackgroundCopyJobHttpOptions2 {
         (::windows::core::Interface::vtable(self).base__.GetSecurityFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetHttpMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, method: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHttpMethod)(::windows::core::Interface::as_raw(self), method.into_param().abi()).ok()
+    pub unsafe fn SetHttpMethod(&self, method: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHttpMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(method)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetHttpMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4674,19 +4410,14 @@ impl ::core::convert::From<IBackgroundCopyJobHttpOptions2> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJobHttpOptions2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJobHttpOptions2> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJobHttpOptions2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJobHttpOptions2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJobHttpOptions2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions {
@@ -4694,19 +4425,14 @@ impl ::core::convert::From<IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions2> for &'a IBackgroundCopyJobHttpOptions {
+    fn from(value: &'a IBackgroundCopyJobHttpOptions2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions {
     fn from(value: &IBackgroundCopyJobHttpOptions2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for IBackgroundCopyJobHttpOptions2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &'a IBackgroundCopyJobHttpOptions2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions2 {
@@ -4741,12 +4467,12 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
 pub struct IBackgroundCopyJobHttpOptions3(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions3 {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetClientCertificateByID<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientCertificateByID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
+    pub unsafe fn SetClientCertificateByID<'a, Param0: ::std::convert::Into<BG_CERT_STORE_LOCATION>>(&self, storelocation: Param0, storename: ::windows::core::PCWSTR, pcerthashblob: &[u8; 20]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientCertificateByID)(::windows::core::Interface::as_raw(self), storelocation.into(), ::core::mem::transmute(storename), ::core::mem::transmute(::windows::core::as_ptr_or_null(pcerthashblob))).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetClientCertificateByName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, storelocation: BG_CERT_STORE_LOCATION, storename: Param1, subjectname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientCertificateByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(storelocation), storename.into_param().abi(), subjectname.into_param().abi()).ok()
+    pub unsafe fn SetClientCertificateByName<'a, Param0: ::std::convert::Into<BG_CERT_STORE_LOCATION>>(&self, storelocation: Param0, storename: ::windows::core::PCWSTR, subjectname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientCertificateByName)(::windows::core::Interface::as_raw(self), storelocation.into(), ::core::mem::transmute(storename), ::core::mem::transmute(subjectname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn RemoveClientCertificate(&self) -> ::windows::core::Result<()> {
@@ -4757,8 +4483,8 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetClientCertificate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstorelocation), ::core::mem::transmute(pstorename), ::core::mem::transmute(ppcerthashblob), ::core::mem::transmute(psubjectname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetCustomHeaders<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, requestheaders: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetCustomHeaders)(::windows::core::Interface::as_raw(self), requestheaders.into_param().abi()).ok()
+    pub unsafe fn SetCustomHeaders(&self, requestheaders: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetCustomHeaders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(requestheaders)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetCustomHeaders(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4775,8 +4501,8 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetSecurityFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetHttpMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, method: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHttpMethod)(::windows::core::Interface::as_raw(self), method.into_param().abi()).ok()
+    pub unsafe fn SetHttpMethod(&self, method: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetHttpMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(method)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetHttpMethod(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4784,8 +4510,8 @@ impl IBackgroundCopyJobHttpOptions3 {
         (::windows::core::Interface::vtable(self).base__.GetHttpMethod)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetServerCertificateValidationInterface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, certvalidationcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerCertificateValidationInterface)(::windows::core::Interface::as_raw(self), certvalidationcallback.into_param().abi()).ok()
+    pub unsafe fn SetServerCertificateValidationInterface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, certvalidationcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerCertificateValidationInterface)(::windows::core::Interface::as_raw(self), certvalidationcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn MakeCustomHeadersWriteOnly(&self) -> ::windows::core::Result<()> {
@@ -4797,23 +4523,23 @@ impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyJobHttpOptions3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyJobHttpOptions3> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyJobHttpOptions3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyJobHttpOptions3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyJobHttpOptions3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions {
     fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions3> for &'a IBackgroundCopyJobHttpOptions {
+    fn from(value: &'a IBackgroundCopyJobHttpOptions3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4822,34 +4548,19 @@ impl ::core::convert::From<&IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJ
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for IBackgroundCopyJobHttpOptions3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions> for &'a IBackgroundCopyJobHttpOptions3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions2 {
     fn from(value: IBackgroundCopyJobHttpOptions3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBackgroundCopyJobHttpOptions3> for &'a IBackgroundCopyJobHttpOptions2 {
+    fn from(value: &'a IBackgroundCopyJobHttpOptions3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBackgroundCopyJobHttpOptions3> for IBackgroundCopyJobHttpOptions2 {
     fn from(value: &IBackgroundCopyJobHttpOptions3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for IBackgroundCopyJobHttpOptions3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBackgroundCopyJobHttpOptions2> for &'a IBackgroundCopyJobHttpOptions3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IBackgroundCopyJobHttpOptions2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyJobHttpOptions3 {
@@ -4884,8 +4595,8 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
 pub struct IBackgroundCopyManager(::windows::core::IUnknown);
 impl IBackgroundCopyManager {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn CreateJob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, displayname: Param0, r#type: BG_JOB_TYPE, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateJob)(::windows::core::Interface::as_raw(self), displayname.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(pjobid), ::core::mem::transmute(ppjob)).ok()
+    pub unsafe fn CreateJob<'a, Param1: ::std::convert::Into<BG_JOB_TYPE>>(&self, displayname: ::windows::core::PCWSTR, r#type: Param1, pjobid: *mut ::windows::core::GUID, ppjob: *mut ::core::option::Option<IBackgroundCopyJob>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(displayname), r#type.into(), ::core::mem::transmute(pjobid), ::core::mem::transmute(ppjob)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetJob(&self, jobid: *const ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyJob> {
@@ -4908,19 +4619,14 @@ impl ::core::convert::From<IBackgroundCopyManager> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyManager> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyManager {
@@ -4957,14 +4663,14 @@ pub struct IBackgroundCopyManager_Vtbl {
 pub struct IBackgroundCopyQMgr(::windows::core::IUnknown);
 impl IBackgroundCopyQMgr {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn CreateGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidgroupid: Param0) -> ::windows::core::Result<IBackgroundCopyGroup> {
+    pub unsafe fn CreateGroup(&self, guidgroupid: ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGroup)(::windows::core::Interface::as_raw(self), guidgroupid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyGroup>(result__)
+        (::windows::core::Interface::vtable(self).CreateGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidgroupid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn GetGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, groupid: Param0) -> ::windows::core::Result<IBackgroundCopyGroup> {
+    pub unsafe fn GetGroup(&self, groupid: ::windows::core::GUID) -> ::windows::core::Result<IBackgroundCopyGroup> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetGroup)(::windows::core::Interface::as_raw(self), groupid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyGroup>(result__)
+        (::windows::core::Interface::vtable(self).GetGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(groupid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBackgroundCopyGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumGroups(&self, dwflags: u32) -> ::windows::core::Result<IEnumBackgroundCopyGroups> {
@@ -4977,19 +4683,14 @@ impl ::core::convert::From<IBackgroundCopyQMgr> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyQMgr> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyQMgr) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyQMgr> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyQMgr) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyQMgr {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyQMgr {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyQMgr {
@@ -5025,8 +4726,8 @@ pub struct IBackgroundCopyQMgr_Vtbl {
 pub struct IBackgroundCopyServerCertificateValidationCallback(::windows::core::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn ValidateServerCertificate<'a, Param0: ::windows::core::IntoParam<'a, IBackgroundCopyJob>, Param1: ::windows::core::IntoParam<'a, IBackgroundCopyFile>>(&self, job: Param0, file: Param1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ValidateServerCertificate)(::windows::core::Interface::as_raw(self), job.into_param().abi(), file.into_param().abi(), certdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(certdata)), ::core::mem::transmute(certencodingtype), certstoredata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(certstoredata))).ok()
+    pub unsafe fn ValidateServerCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IBackgroundCopyFile>>>(&self, job: Param0, file: Param1, certdata: &[u8], certencodingtype: u32, certstoredata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ValidateServerCertificate)(::windows::core::Interface::as_raw(self), job.into().abi(), file.into().abi(), certdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(certdata)), ::core::mem::transmute(certencodingtype), certstoredata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(certstoredata))).ok()
     }
 }
 impl ::core::convert::From<IBackgroundCopyServerCertificateValidationCallback> for ::windows::core::IUnknown {
@@ -5034,19 +4735,14 @@ impl ::core::convert::From<IBackgroundCopyServerCertificateValidationCallback> f
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBackgroundCopyServerCertificateValidationCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBackgroundCopyServerCertificateValidationCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBackgroundCopyServerCertificateValidationCallback> for ::windows::core::IUnknown {
     fn from(value: &IBackgroundCopyServerCertificateValidationCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgroundCopyServerCertificateValidationCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBackgroundCopyServerCertificateValidationCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBackgroundCopyServerCertificateValidationCallback {
@@ -5102,19 +4798,14 @@ impl ::core::convert::From<IBitsPeer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBitsPeer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBitsPeer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBitsPeer> for ::windows::core::IUnknown {
     fn from(value: &IBitsPeer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsPeer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsPeer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBitsPeer {
@@ -5201,8 +4892,8 @@ impl IBitsPeerCacheAdministration {
         (::windows::core::Interface::vtable(self).DeleteRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn DeleteUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, url: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteUrl)(::windows::core::Interface::as_raw(self), url.into_param().abi()).ok()
+    pub unsafe fn DeleteUrl(&self, url: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(url)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn EnumPeers(&self) -> ::windows::core::Result<IEnumBitsPeers> {
@@ -5223,19 +4914,14 @@ impl ::core::convert::From<IBitsPeerCacheAdministration> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBitsPeerCacheAdministration> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBitsPeerCacheAdministration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBitsPeerCacheAdministration> for ::windows::core::IUnknown {
     fn from(value: &IBitsPeerCacheAdministration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsPeerCacheAdministration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsPeerCacheAdministration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBitsPeerCacheAdministration {
@@ -5322,19 +5008,14 @@ impl ::core::convert::From<IBitsPeerCacheRecord> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBitsPeerCacheRecord> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBitsPeerCacheRecord) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBitsPeerCacheRecord> for ::windows::core::IUnknown {
     fn from(value: &IBitsPeerCacheRecord) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsPeerCacheRecord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsPeerCacheRecord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBitsPeerCacheRecord {
@@ -5380,8 +5061,8 @@ pub struct IBitsPeerCacheRecord_Vtbl {
 pub struct IBitsTokenOptions(::windows::core::IUnknown);
 impl IBitsTokenOptions {
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
-    pub unsafe fn SetHelperTokenFlags(&self, usageflags: BG_TOKEN) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHelperTokenFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usageflags)).ok()
+    pub unsafe fn SetHelperTokenFlags<'a, Param0: ::std::convert::Into<BG_TOKEN>>(&self, usageflags: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHelperTokenFlags)(::windows::core::Interface::as_raw(self), usageflags.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
     pub unsafe fn GetHelperTokenFlags(&self) -> ::windows::core::Result<BG_TOKEN> {
@@ -5407,19 +5088,14 @@ impl ::core::convert::From<IBitsTokenOptions> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBitsTokenOptions> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBitsTokenOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBitsTokenOptions> for ::windows::core::IUnknown {
     fn from(value: &IBitsTokenOptions) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitsTokenOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitsTokenOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBitsTokenOptions {
@@ -5484,19 +5160,14 @@ impl ::core::convert::From<IEnumBackgroundCopyFiles> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyFiles> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumBackgroundCopyFiles) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumBackgroundCopyFiles> for ::windows::core::IUnknown {
     fn from(value: &IEnumBackgroundCopyFiles) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBackgroundCopyFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyFiles {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumBackgroundCopyFiles {
@@ -5561,19 +5232,14 @@ impl ::core::convert::From<IEnumBackgroundCopyGroups> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyGroups> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumBackgroundCopyGroups) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumBackgroundCopyGroups> for ::windows::core::IUnknown {
     fn from(value: &IEnumBackgroundCopyGroups) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBackgroundCopyGroups {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyGroups {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumBackgroundCopyGroups {
@@ -5638,19 +5304,14 @@ impl ::core::convert::From<IEnumBackgroundCopyJobs> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyJobs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumBackgroundCopyJobs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumBackgroundCopyJobs> for ::windows::core::IUnknown {
     fn from(value: &IEnumBackgroundCopyJobs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBackgroundCopyJobs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyJobs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumBackgroundCopyJobs {
@@ -5715,19 +5376,14 @@ impl ::core::convert::From<IEnumBackgroundCopyJobs1> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumBackgroundCopyJobs1> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumBackgroundCopyJobs1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumBackgroundCopyJobs1> for ::windows::core::IUnknown {
     fn from(value: &IEnumBackgroundCopyJobs1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBackgroundCopyJobs1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBackgroundCopyJobs1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumBackgroundCopyJobs1 {
@@ -5792,19 +5448,14 @@ impl ::core::convert::From<IEnumBitsPeerCacheRecords> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumBitsPeerCacheRecords> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumBitsPeerCacheRecords) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumBitsPeerCacheRecords> for ::windows::core::IUnknown {
     fn from(value: &IEnumBitsPeerCacheRecords) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBitsPeerCacheRecords {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBitsPeerCacheRecords {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumBitsPeerCacheRecords {
@@ -5869,19 +5520,14 @@ impl ::core::convert::From<IEnumBitsPeers> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumBitsPeers> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumBitsPeers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumBitsPeers> for ::windows::core::IUnknown {
     fn from(value: &IEnumBitsPeers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumBitsPeers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumBitsPeers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumBitsPeers {

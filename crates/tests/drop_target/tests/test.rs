@@ -70,7 +70,7 @@ fn test() -> Result<()> {
         target.DragLeave()?;
 
         let mut effect = 741;
-        target.DragEnter(object, 456, POINTL { x: 10, y: 20 }, &mut effect)?;
+        target.DragEnter(&object, 456, POINTL { x: 10, y: 20 }, &mut effect)?;
         assert_eq!(effect, 147);
 
         Ok(())

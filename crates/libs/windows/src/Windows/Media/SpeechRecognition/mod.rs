@@ -120,9 +120,9 @@ impl ISpeechRecognitionConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType> {
@@ -141,13 +141,18 @@ impl ISpeechRecognitionConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
+    pub fn SetProbability<'a, Param0: ::std::convert::Into<SpeechRecognitionConstraintProbability>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IUnknown {
     fn from(value: ISpeechRecognitionConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpeechRecognitionConstraint> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpeechRecognitionConstraint) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -156,34 +161,19 @@ impl ::core::convert::From<&ISpeechRecognitionConstraint> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpeechRecognitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpeechRecognitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
     fn from(value: ISpeechRecognitionConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpeechRecognitionConstraint> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISpeechRecognitionConstraint) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
     fn from(value: &ISpeechRecognitionConstraint) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISpeechRecognitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISpeechRecognitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpeechRecognitionConstraint {
@@ -730,14 +720,9 @@ impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechContinuousRecognitionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechContinuousRecognitionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpeechContinuousRecognitionCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechContinuousRecognitionCompletedEventArgs> for ::windows::core::IInspectable {
@@ -750,14 +735,9 @@ impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechContinuousRecognitionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechContinuousRecognitionCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechContinuousRecognitionCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpeechContinuousRecognitionCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventArgs {}
@@ -849,14 +829,9 @@ impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechContinuousRecognitionResultGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechContinuousRecognitionResultGeneratedEventArgs> for ::windows::core::IInspectable {
@@ -869,14 +844,9 @@ impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechContinuousRecognitionResultGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechContinuousRecognitionResultGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechContinuousRecognitionResultGeneratedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpeechContinuousRecognitionResultGeneratedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionResultGeneratedEventArgs {}
@@ -896,9 +866,9 @@ impl SpeechContinuousRecognitionSession {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAutoStopSilenceTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAutoStopSilenceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoStopSilenceTimeout)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoStopSilenceTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -911,11 +881,11 @@ impl SpeechContinuousRecognitionSession {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartWithModeAsync(&self, mode: SpeechContinuousRecognitionMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn StartWithModeAsync<'a, Param0: ::std::convert::Into<SpeechContinuousRecognitionMode>>(&self, mode: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartWithModeAsync)(::windows::core::Interface::as_raw(this), mode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).StartWithModeAsync)(::windows::core::Interface::as_raw(this), mode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
@@ -952,33 +922,33 @@ impl SpeechContinuousRecognitionSession {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionCompletedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCompleted(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ResultGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ResultGenerated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SpeechContinuousRecognitionSession, SpeechContinuousRecognitionResultGeneratedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ResultGenerated)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ResultGenerated)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveResultGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveResultGenerated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveResultGenerated)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveResultGenerated)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SpeechContinuousRecognitionSession {
@@ -1021,14 +991,9 @@ impl ::core::convert::From<&SpeechContinuousRecognitionSession> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechContinuousRecognitionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechContinuousRecognitionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechContinuousRecognitionSession> for &::windows::core::IUnknown {
+    fn from(value: &SpeechContinuousRecognitionSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechContinuousRecognitionSession> for ::windows::core::IInspectable {
@@ -1041,14 +1006,9 @@ impl ::core::convert::From<&SpeechContinuousRecognitionSession> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechContinuousRecognitionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechContinuousRecognitionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechContinuousRecognitionSession> for &::windows::core::IInspectable {
+    fn from(value: &SpeechContinuousRecognitionSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
@@ -1145,14 +1105,9 @@ impl ::core::convert::From<&SpeechRecognitionCompilationResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionCompilationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionCompilationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionCompilationResult> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionCompilationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionCompilationResult> for ::windows::core::IInspectable {
@@ -1165,14 +1120,9 @@ impl ::core::convert::From<&SpeechRecognitionCompilationResult> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionCompilationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionCompilationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionCompilationResult> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionCompilationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
@@ -1310,9 +1260,9 @@ impl SpeechRecognitionGrammarFileConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType> {
@@ -1331,9 +1281,9 @@ impl SpeechRecognitionGrammarFileConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
+    pub fn SetProbability<'a, Param0: ::std::convert::Into<SpeechRecognitionConstraintProbability>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -1346,18 +1296,18 @@ impl SpeechRecognitionGrammarFileConstraint {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(file: Param0) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint> {
         Self::ISpeechRecognitionGrammarFileConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionGrammarFileConstraint>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionGrammarFileConstraint>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
-    pub fn CreateWithTag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(file: Param0, tag: Param1) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint> {
+    pub fn CreateWithTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(file: Param0, tag: Param1) -> ::windows::core::Result<SpeechRecognitionGrammarFileConstraint> {
         Self::ISpeechRecognitionGrammarFileConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), file.into_param().abi(), tag.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionGrammarFileConstraint>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), file.into().abi(), tag.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionGrammarFileConstraint>(result__)
         })
     }
     #[doc(hidden)]
@@ -1406,14 +1356,9 @@ impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionGrammarFileConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionGrammarFileConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionGrammarFileConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionGrammarFileConstraint> for ::windows::core::IInspectable {
@@ -1426,14 +1371,9 @@ impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionGrammarFileConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionGrammarFileConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionGrammarFileConstraint> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionGrammarFileConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SpeechRecognitionGrammarFileConstraint> for ISpeechRecognitionConstraint {
@@ -1448,14 +1388,11 @@ impl ::core::convert::TryFrom<&SpeechRecognitionGrammarFileConstraint> for ISpee
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for SpeechRecognitionGrammarFileConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &SpeechRecognitionGrammarFileConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechRecognitionGrammarFileConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechRecognitionGrammarFileConstraint) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionGrammarFileConstraint {}
@@ -1513,14 +1450,9 @@ impl ::core::convert::From<&SpeechRecognitionHypothesis> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionHypothesis {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionHypothesis {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionHypothesis> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionHypothesis) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionHypothesis> for ::windows::core::IInspectable {
@@ -1533,14 +1465,9 @@ impl ::core::convert::From<&SpeechRecognitionHypothesis> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionHypothesis {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionHypothesis {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionHypothesis> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionHypothesis) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesis {}
@@ -1598,14 +1525,9 @@ impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionHypothesisGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionHypothesisGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionHypothesisGeneratedEventArgs> for ::windows::core::IInspectable {
@@ -1618,14 +1540,9 @@ impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionHypothesisGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionHypothesisGeneratedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionHypothesisGeneratedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionHypothesisGeneratedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionHypothesisGeneratedEventArgs {}
@@ -1656,9 +1573,9 @@ impl SpeechRecognitionListConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType> {
@@ -1677,9 +1594,9 @@ impl SpeechRecognitionListConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
+    pub fn SetProbability<'a, Param0: ::std::convert::Into<SpeechRecognitionConstraintProbability>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1692,18 +1609,18 @@ impl SpeechRecognitionListConstraint {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(commands: Param0) -> ::windows::core::Result<SpeechRecognitionListConstraint> {
+    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(commands: Param0) -> ::windows::core::Result<SpeechRecognitionListConstraint> {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), commands.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionListConstraint>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), commands.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionListConstraint>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithTag<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(commands: Param0, tag: Param1) -> ::windows::core::Result<SpeechRecognitionListConstraint> {
+    pub fn CreateWithTag<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(commands: Param0, tag: Param1) -> ::windows::core::Result<SpeechRecognitionListConstraint> {
         Self::ISpeechRecognitionListConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), commands.into_param().abi(), tag.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionListConstraint>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), commands.try_into().map_err(|e| e.into())?.abi(), tag.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionListConstraint>(result__)
         })
     }
     #[doc(hidden)]
@@ -1752,14 +1669,9 @@ impl ::core::convert::From<&SpeechRecognitionListConstraint> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionListConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionListConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionListConstraint> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionListConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionListConstraint> for ::windows::core::IInspectable {
@@ -1772,14 +1684,9 @@ impl ::core::convert::From<&SpeechRecognitionListConstraint> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionListConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionListConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionListConstraint> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionListConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SpeechRecognitionListConstraint> for ISpeechRecognitionConstraint {
@@ -1794,14 +1701,11 @@ impl ::core::convert::TryFrom<&SpeechRecognitionListConstraint> for ISpeechRecog
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for SpeechRecognitionListConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &SpeechRecognitionListConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechRecognitionListConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechRecognitionListConstraint) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionListConstraint {}
@@ -1859,14 +1763,9 @@ impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionQualityDegradingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionQualityDegradingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionQualityDegradingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionQualityDegradingEventArgs> for ::windows::core::IInspectable {
@@ -1879,14 +1778,9 @@ impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionQualityDegradingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionQualityDegradingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionQualityDegradingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionQualityDegradingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionQualityDegradingEventArgs {}
@@ -2020,14 +1914,9 @@ impl ::core::convert::From<&SpeechRecognitionResult> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionResult> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionResult> for ::windows::core::IInspectable {
@@ -2040,14 +1929,9 @@ impl ::core::convert::From<&SpeechRecognitionResult> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionResult> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
@@ -2184,14 +2068,9 @@ impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionSemanticInterpretation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionSemanticInterpretation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionSemanticInterpretation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionSemanticInterpretation> for ::windows::core::IInspectable {
@@ -2204,14 +2083,9 @@ impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for ::windo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionSemanticInterpretation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionSemanticInterpretation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionSemanticInterpretation> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionSemanticInterpretation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionSemanticInterpretation {}
@@ -2242,9 +2116,9 @@ impl SpeechRecognitionTopicConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType> {
@@ -2263,9 +2137,9 @@ impl SpeechRecognitionTopicConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
+    pub fn SetProbability<'a, Param0: ::std::convert::Into<SpeechRecognitionConstraintProbability>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Scenario(&self) -> ::windows::core::Result<SpeechRecognitionScenario> {
@@ -2284,17 +2158,17 @@ impl SpeechRecognitionTopicConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn Create<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(scenario: SpeechRecognitionScenario, topichint: Param1) -> ::windows::core::Result<SpeechRecognitionTopicConstraint> {
+    pub fn Create<'a, Param0: ::std::convert::Into<SpeechRecognitionScenario>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(scenario: Param0, topichint: Param1) -> ::windows::core::Result<SpeechRecognitionTopicConstraint> {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), scenario, topichint.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), scenario.into(), topichint.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn CreateWithTag<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(scenario: SpeechRecognitionScenario, topichint: Param1, tag: Param2) -> ::windows::core::Result<SpeechRecognitionTopicConstraint> {
+    pub fn CreateWithTag<'a, Param0: ::std::convert::Into<SpeechRecognitionScenario>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(scenario: Param0, topichint: Param1, tag: Param2) -> ::windows::core::Result<SpeechRecognitionTopicConstraint> {
         Self::ISpeechRecognitionTopicConstraintFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), scenario, topichint.into_param().abi(), tag.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTag)(::windows::core::Interface::as_raw(this), scenario.into(), topichint.into().abi(), tag.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognitionTopicConstraint>(result__)
         })
     }
     #[doc(hidden)]
@@ -2343,14 +2217,9 @@ impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionTopicConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionTopicConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionTopicConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionTopicConstraint> for ::windows::core::IInspectable {
@@ -2363,14 +2232,9 @@ impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionTopicConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionTopicConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionTopicConstraint> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionTopicConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SpeechRecognitionTopicConstraint> for ISpeechRecognitionConstraint {
@@ -2385,14 +2249,11 @@ impl ::core::convert::TryFrom<&SpeechRecognitionTopicConstraint> for ISpeechReco
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for SpeechRecognitionTopicConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &SpeechRecognitionTopicConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechRecognitionTopicConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechRecognitionTopicConstraint) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionTopicConstraint {}
@@ -2423,9 +2284,9 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<SpeechRecognitionConstraintType> {
@@ -2444,9 +2305,9 @@ impl SpeechRecognitionVoiceCommandDefinitionConstraint {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetProbability(&self, value: SpeechRecognitionConstraintProbability) -> ::windows::core::Result<()> {
+    pub fn SetProbability<'a, Param0: ::std::convert::Into<SpeechRecognitionConstraintProbability>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognitionConstraint>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for SpeechRecognitionVoiceCommandDefinitionConstraint {
@@ -2489,14 +2350,9 @@ impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::IInspectable {
@@ -2509,14 +2365,9 @@ impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognitionVoiceCommandDefinitionConstraint> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SpeechRecognitionVoiceCommandDefinitionConstraint> for ISpeechRecognitionConstraint {
@@ -2531,14 +2382,11 @@ impl ::core::convert::TryFrom<&SpeechRecognitionVoiceCommandDefinitionConstraint
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpeechRecognitionConstraint> for &SpeechRecognitionVoiceCommandDefinitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpeechRecognitionConstraint> {
-        ::core::convert::TryInto::<ISpeechRecognitionConstraint>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechRecognitionVoiceCommandDefinitionConstraint> for ::windows::core::InParam<'a, ISpeechRecognitionConstraint> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechRecognitionVoiceCommandDefinitionConstraint) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognitionVoiceCommandDefinitionConstraint {}
@@ -2623,33 +2471,33 @@ impl SpeechRecognizer {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RecognitionQualityDegrading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>>(&self, speechrecognitionqualitydegradinghandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RecognitionQualityDegrading<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionQualityDegradingEventArgs>>>>(&self, speechrecognitionqualitydegradinghandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognitionQualityDegrading)(::windows::core::Interface::as_raw(this), speechrecognitionqualitydegradinghandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecognitionQualityDegrading)(::windows::core::Interface::as_raw(this), speechrecognitionqualitydegradinghandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRecognitionQualityDegrading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRecognitionQualityDegrading(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionQualityDegrading)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionQualityDegrading)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>>(&self, statechangedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognizerStateChangedEventArgs>>>>(&self, statechangedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), statechangedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), statechangedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStateChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn ContinuousRecognitionSession(&self) -> ::windows::core::Result<SpeechContinuousRecognitionSession> {
@@ -2678,25 +2526,25 @@ impl SpeechRecognizer {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HypothesisGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn HypothesisGenerated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SpeechRecognizer, SpeechRecognitionHypothesisGeneratedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognizer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).HypothesisGenerated)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HypothesisGenerated)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveHypothesisGenerated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveHypothesisGenerated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechRecognizer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHypothesisGenerated)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHypothesisGenerated)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::core::Result<SpeechRecognizer> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Globalization::Language>>>(language: Param0) -> ::windows::core::Result<SpeechRecognizer> {
         Self::ISpeechRecognizerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), language.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognizer>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), language.into().abi(), result__.as_mut_ptr()).from_abi::<SpeechRecognizer>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Globalization\"`*"]
@@ -2725,10 +2573,10 @@ impl SpeechRecognizer {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`, `\"Globalization\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Globalization"))]
-    pub fn TrySetSystemSpeechLanguageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(speechlanguage: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetSystemSpeechLanguageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Globalization::Language>>>(speechlanguage: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISpeechRecognizerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetSystemSpeechLanguageAsync)(::windows::core::Interface::as_raw(this), speechlanguage.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetSystemSpeechLanguageAsync)(::windows::core::Interface::as_raw(this), speechlanguage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2787,14 +2635,9 @@ impl ::core::convert::From<&SpeechRecognizer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizer> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognizer> for ::windows::core::IInspectable {
@@ -2807,14 +2650,9 @@ impl ::core::convert::From<&SpeechRecognizer> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizer> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2832,15 +2670,11 @@ impl ::core::convert::TryFrom<&SpeechRecognizer> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SpeechRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SpeechRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechRecognizer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechRecognizer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognizer {}
@@ -2937,14 +2771,9 @@ impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognizerStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizerStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognizerStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognizerStateChangedEventArgs> for ::windows::core::IInspectable {
@@ -2957,14 +2786,9 @@ impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognizerStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizerStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizerStateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognizerStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognizerStateChangedEventArgs {}
@@ -2984,9 +2808,9 @@ impl SpeechRecognizerTimeouts {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInitialSilenceTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInitialSilenceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInitialSilenceTimeout)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInitialSilenceTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2999,9 +2823,9 @@ impl SpeechRecognizerTimeouts {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetEndSilenceTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEndSilenceTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEndSilenceTimeout)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEndSilenceTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3014,9 +2838,9 @@ impl SpeechRecognizerTimeouts {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBabbleTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBabbleTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBabbleTimeout)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBabbleTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SpeechRecognizerTimeouts {
@@ -3059,14 +2883,9 @@ impl ::core::convert::From<&SpeechRecognizerTimeouts> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognizerTimeouts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizerTimeouts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizerTimeouts> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognizerTimeouts) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognizerTimeouts> for ::windows::core::IInspectable {
@@ -3079,14 +2898,9 @@ impl ::core::convert::From<&SpeechRecognizerTimeouts> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognizerTimeouts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizerTimeouts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizerTimeouts> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognizerTimeouts) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognizerTimeouts {}
@@ -3104,9 +2918,9 @@ impl SpeechRecognizerUIOptions {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetExampleText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExampleText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExampleText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExampleText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn AudiblePrompt(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3117,9 +2931,9 @@ impl SpeechRecognizerUIOptions {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-    pub fn SetAudiblePrompt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudiblePrompt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudiblePrompt)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudiblePrompt)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
     pub fn IsReadBackEnabled(&self) -> ::windows::core::Result<bool> {
@@ -3188,14 +3002,9 @@ impl ::core::convert::From<&SpeechRecognizerUIOptions> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechRecognizerUIOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechRecognizerUIOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizerUIOptions> for &::windows::core::IUnknown {
+    fn from(value: &SpeechRecognizerUIOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechRecognizerUIOptions> for ::windows::core::IInspectable {
@@ -3208,14 +3017,9 @@ impl ::core::convert::From<&SpeechRecognizerUIOptions> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechRecognizerUIOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechRecognizerUIOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechRecognizerUIOptions> for &::windows::core::IInspectable {
+    fn from(value: &SpeechRecognizerUIOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechRecognizerUIOptions {}
@@ -3225,10 +3029,10 @@ pub struct VoiceCommandManager;
 impl VoiceCommandManager {
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn InstallCommandSetsFromStorageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn InstallCommandSetsFromStorageFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IVoiceCommandManager(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InstallCommandSetsFromStorageFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InstallCommandSetsFromStorageFileAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation_Collections\"`*"]
@@ -3270,11 +3074,11 @@ impl VoiceCommandSet {
     }
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPhraseListAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, phraselistname: Param0, phraselist: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPhraseListAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, phraselistname: Param0, phraselist: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPhraseListAsync)(::windows::core::Interface::as_raw(this), phraselistname.into_param().abi(), phraselist.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPhraseListAsync)(::windows::core::Interface::as_raw(this), phraselistname.into().abi(), phraselist.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -3318,14 +3122,9 @@ impl ::core::convert::From<&VoiceCommandSet> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VoiceCommandSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VoiceCommandSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VoiceCommandSet> for &::windows::core::IUnknown {
+    fn from(value: &VoiceCommandSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VoiceCommandSet> for ::windows::core::IInspectable {
@@ -3338,14 +3137,9 @@ impl ::core::convert::From<&VoiceCommandSet> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VoiceCommandSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VoiceCommandSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VoiceCommandSet> for &::windows::core::IInspectable {
+    fn from(value: &VoiceCommandSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VoiceCommandSet {}

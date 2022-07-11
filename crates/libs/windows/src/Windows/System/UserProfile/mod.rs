@@ -52,10 +52,10 @@ impl AdvertisingManager {
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<AdvertisingManagerForUser> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<AdvertisingManagerForUser> {
         Self::IAdvertisingManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<AdvertisingManagerForUser>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<AdvertisingManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -133,14 +133,9 @@ impl ::core::convert::From<&AdvertisingManagerForUser> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AdvertisingManagerForUser> for &::windows::core::IUnknown {
+    fn from(value: &AdvertisingManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AdvertisingManagerForUser> for ::windows::core::IInspectable {
@@ -153,14 +148,9 @@ impl ::core::convert::From<&AdvertisingManagerForUser> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AdvertisingManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AdvertisingManagerForUser> for &::windows::core::IInspectable {
+    fn from(value: &AdvertisingManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AdvertisingManagerForUser {}
@@ -201,10 +191,10 @@ impl AssignedAccessSettings {
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<AssignedAccessSettings> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<AssignedAccessSettings> {
         Self::IAssignedAccessSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<AssignedAccessSettings>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<AssignedAccessSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -253,14 +243,9 @@ impl ::core::convert::From<&AssignedAccessSettings> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AssignedAccessSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AssignedAccessSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AssignedAccessSettings> for &::windows::core::IUnknown {
+    fn from(value: &AssignedAccessSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AssignedAccessSettings> for ::windows::core::IInspectable {
@@ -273,14 +258,9 @@ impl ::core::convert::From<&AssignedAccessSettings> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AssignedAccessSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AssignedAccessSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AssignedAccessSettings> for &::windows::core::IInspectable {
+    fn from(value: &AssignedAccessSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AssignedAccessSettings {}
@@ -313,10 +293,10 @@ impl DiagnosticsSettings {
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<DiagnosticsSettings> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<DiagnosticsSettings> {
         Self::IDiagnosticsSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticsSettings>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticsSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -365,14 +345,9 @@ impl ::core::convert::From<&DiagnosticsSettings> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DiagnosticsSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DiagnosticsSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DiagnosticsSettings> for &::windows::core::IUnknown {
+    fn from(value: &DiagnosticsSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DiagnosticsSettings> for ::windows::core::IInspectable {
@@ -385,14 +360,9 @@ impl ::core::convert::From<&DiagnosticsSettings> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DiagnosticsSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DiagnosticsSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DiagnosticsSettings> for &::windows::core::IInspectable {
+    fn from(value: &DiagnosticsSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DiagnosticsSettings {}
@@ -419,11 +389,11 @@ impl FirstSignInSettings {
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation_Collections\"`*"]
@@ -437,11 +407,11 @@ impl FirstSignInSettings {
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation_Collections\"`*"]
@@ -512,14 +482,9 @@ impl ::core::convert::From<&FirstSignInSettings> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FirstSignInSettings> for &::windows::core::IUnknown {
+    fn from(value: &FirstSignInSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FirstSignInSettings> for ::windows::core::IInspectable {
@@ -532,14 +497,9 @@ impl ::core::convert::From<&FirstSignInSettings> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FirstSignInSettings> for &::windows::core::IInspectable {
+    fn from(value: &FirstSignInSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -557,15 +517,11 @@ impl ::core::convert::TryFrom<&FirstSignInSettings> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -583,15 +539,11 @@ impl ::core::convert::TryFrom<&FirstSignInSettings> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for &FirstSignInSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FirstSignInSettings> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FirstSignInSettings) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FirstSignInSettings {}
@@ -647,25 +599,25 @@ impl GlobalizationPreferences {
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
-    pub fn TrySetHomeGeographicRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(region: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetHomeGeographicRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(region: Param0) -> ::windows::core::Result<bool> {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetHomeGeographicRegion)(::windows::core::Interface::as_raw(this), region.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetHomeGeographicRegion)(::windows::core::Interface::as_raw(this), region.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TrySetLanguages<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(languagetags: Param0) -> ::windows::core::Result<bool> {
+    pub fn TrySetLanguages<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(languagetags: Param0) -> ::windows::core::Result<bool> {
         Self::IGlobalizationPreferencesStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetLanguages)(::windows::core::Interface::as_raw(this), languagetags.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetLanguages)(::windows::core::Interface::as_raw(this), languagetags.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<GlobalizationPreferencesForUser> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<GlobalizationPreferencesForUser> {
         Self::IGlobalizationPreferencesStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<GlobalizationPreferencesForUser>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<GlobalizationPreferencesForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -793,14 +745,9 @@ impl ::core::convert::From<&GlobalizationPreferencesForUser> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GlobalizationPreferencesForUser> for &::windows::core::IUnknown {
+    fn from(value: &GlobalizationPreferencesForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GlobalizationPreferencesForUser> for ::windows::core::IInspectable {
@@ -813,14 +760,9 @@ impl ::core::convert::From<&GlobalizationPreferencesForUser> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GlobalizationPreferencesForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GlobalizationPreferencesForUser> for &::windows::core::IInspectable {
+    fn from(value: &GlobalizationPreferencesForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GlobalizationPreferencesForUser {}
@@ -1203,10 +1145,10 @@ pub struct LockScreen;
 impl LockScreen {
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestSetImageFeedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(syndicationfeeduri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>> {
+    pub fn RequestSetImageFeedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(syndicationfeeduri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetImageFeedResult>> {
         Self::ILockScreenImageFeedStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestSetImageFeedAsync)(::windows::core::Interface::as_raw(this), syndicationfeeduri.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestSetImageFeedAsync)(::windows::core::Interface::as_raw(this), syndicationfeeduri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetImageFeedResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -1234,18 +1176,18 @@ impl LockScreen {
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn SetImageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetImageFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetImageFileAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetImageFileAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SetImageStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetImageStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::ILockScreenStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetImageStreamAsync)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetImageStreamAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -1366,56 +1308,56 @@ impl UserInformation {
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub fn GetAccountPicture(kind: AccountPictureKind) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
+    pub fn GetAccountPicture<'a, Param0: ::std::convert::Into<AccountPictureKind>>(kind: Param0) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAccountPicture)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<super::super::Storage::IStorageFile>(result__)
+            (::windows::core::Interface::vtable(this).GetAccountPicture)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<super::super::Storage::IStorageFile>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn SetAccountPictureAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(image: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
+    pub fn SetAccountPictureAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(image: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAccountPictureAsync)(::windows::core::Interface::as_raw(this), image.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPictureAsync)(::windows::core::Interface::as_raw(this), image.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn SetAccountPicturesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(smallimage: Param0, largeimage: Param1, video: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
+    pub fn SetAccountPicturesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(smallimage: Param0, largeimage: Param1, video: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAccountPicturesAsync)(::windows::core::Interface::as_raw(this), smallimage.into_param().abi(), largeimage.into_param().abi(), video.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPicturesAsync)(::windows::core::Interface::as_raw(this), smallimage.try_into().map_err(|e| e.into())?.abi(), largeimage.try_into().map_err(|e| e.into())?.abi(), video.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPictureFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(image: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
+    pub fn SetAccountPictureFromStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(image: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(::windows::core::Interface::as_raw(this), image.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPictureFromStreamAsync)(::windows::core::Interface::as_raw(this), image.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetAccountPicturesFromStreamsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(smallimage: Param0, largeimage: Param1, video: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
+    pub fn SetAccountPicturesFromStreamsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(smallimage: Param0, largeimage: Param1, video: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(::windows::core::Interface::as_raw(this), smallimage.into_param().abi(), largeimage.into_param().abi(), video.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
+            (::windows::core::Interface::vtable(this).SetAccountPicturesFromStreamsAsync)(::windows::core::Interface::as_raw(this), smallimage.try_into().map_err(|e| e.into())?.abi(), largeimage.try_into().map_err(|e| e.into())?.abi(), video.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SetAccountPictureResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn AccountPictureChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(changehandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AccountPictureChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(changehandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IUserInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AccountPictureChanged)(::windows::core::Interface::as_raw(this), changehandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AccountPictureChanged)(::windows::core::Interface::as_raw(this), changehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveAccountPictureChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IUserInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAccountPictureChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveAccountPictureChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IUserInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveAccountPictureChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1482,20 +1424,20 @@ pub struct UserProfilePersonalizationSettings(::windows::core::IUnknown);
 impl UserProfilePersonalizationSettings {
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TrySetLockScreenImageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, imagefile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetLockScreenImageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, imagefile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetLockScreenImageAsync)(::windows::core::Interface::as_raw(this), imagefile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetLockScreenImageAsync)(::windows::core::Interface::as_raw(this), imagefile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TrySetWallpaperImageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, imagefile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetWallpaperImageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, imagefile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetWallpaperImageAsync)(::windows::core::Interface::as_raw(this), imagefile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetWallpaperImageAsync)(::windows::core::Interface::as_raw(this), imagefile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
@@ -1558,14 +1500,9 @@ impl ::core::convert::From<&UserProfilePersonalizationSettings> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserProfilePersonalizationSettings> for &::windows::core::IUnknown {
+    fn from(value: &UserProfilePersonalizationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserProfilePersonalizationSettings> for ::windows::core::IInspectable {
@@ -1578,14 +1515,9 @@ impl ::core::convert::From<&UserProfilePersonalizationSettings> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserProfilePersonalizationSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserProfilePersonalizationSettings> for &::windows::core::IInspectable {
+    fn from(value: &UserProfilePersonalizationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserProfilePersonalizationSettings {}

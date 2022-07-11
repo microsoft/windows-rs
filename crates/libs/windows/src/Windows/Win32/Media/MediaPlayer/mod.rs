@@ -1369,9 +1369,9 @@ pub struct IFeed(::windows::core::IUnknown);
 impl IFeed {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Xml(&self, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn Xml<'a, Param1: ::std::convert::Into<FEEDS_XML_SORT_PROPERTY>, Param2: ::std::convert::Into<FEEDS_XML_SORT_ORDER>, Param3: ::std::convert::Into<FEEDS_XML_FILTER_FLAGS>, Param4: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, count: i32, sortproperty: Param1, sortorder: Param2, filterflags: Param3, includeflags: Param4) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), sortproperty.into(), sortorder.into(), filterflags.into(), includeflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1381,8 +1381,8 @@ impl IFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1392,8 +1392,8 @@ impl IFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi()).ok()
+    pub unsafe fn SetUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), feedurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1409,8 +1409,8 @@ impl IFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), newparentpath.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), newparentpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1445,8 +1445,8 @@ impl IFeed {
         (::windows::core::Interface::vtable(self).SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetSyncSetting(&self, syncsetting: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncsetting)).ok()
+    pub unsafe fn SetSyncSetting<'a, Param0: ::std::convert::Into<FEEDS_SYNC_SETTING>>(&self, syncsetting: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSyncSetting)(::windows::core::Interface::as_raw(self), syncsetting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<i32> {
@@ -1561,8 +1561,8 @@ impl IFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedxml: Param0, feedurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), feedxml.into_param().abi(), feedurl.into_param().abi()).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedxml: Param0, feedurl: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), feedxml.into().abi(), feedurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1581,9 +1581,9 @@ impl IFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetWatcher<'a, Param0: ::std::convert::Into<FEEDS_EVENTS_SCOPE>, Param1: ::std::convert::Into<FEEDS_EVENTS_MASK>>(&self, scope: Param0, mask: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), scope.into(), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<i32> {
@@ -1603,21 +1603,15 @@ impl ::core::convert::From<IFeed> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeed> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeed) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeed> for ::windows::core::IUnknown {
     fn from(value: &IFeed) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeed {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeed {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1627,21 +1621,15 @@ impl ::core::convert::From<IFeed> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeed> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeed) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeed> for super::super::System::Com::IDispatch {
     fn from(value: &IFeed) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeed {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeed {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1790,9 +1778,9 @@ pub struct IFeed2(::windows::core::IUnknown);
 impl IFeed2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Xml(&self, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn Xml<'a, Param1: ::std::convert::Into<FEEDS_XML_SORT_PROPERTY>, Param2: ::std::convert::Into<FEEDS_XML_SORT_ORDER>, Param3: ::std::convert::Into<FEEDS_XML_FILTER_FLAGS>, Param4: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, count: i32, sortproperty: Param1, sortorder: Param2, filterflags: Param3, includeflags: Param4) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), sortproperty.into(), sortorder.into(), filterflags.into(), includeflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1802,8 +1790,8 @@ impl IFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1813,8 +1801,8 @@ impl IFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi()).ok()
+    pub unsafe fn SetUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), feedurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1830,8 +1818,8 @@ impl IFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), newparentpath.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), newparentpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1866,8 +1854,8 @@ impl IFeed2 {
         (::windows::core::Interface::vtable(self).base__.SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetSyncSetting(&self, syncsetting: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncsetting)).ok()
+    pub unsafe fn SetSyncSetting<'a, Param0: ::std::convert::Into<FEEDS_SYNC_SETTING>>(&self, syncsetting: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::windows::core::Interface::as_raw(self), syncsetting.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<i32> {
@@ -1982,8 +1970,8 @@ impl IFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedxml: Param0, feedurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), feedxml.into_param().abi(), feedurl.into_param().abi()).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedxml: Param0, feedurl: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), feedxml.into().abi(), feedurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2002,9 +1990,9 @@ impl IFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetWatcher<'a, Param0: ::std::convert::Into<FEEDS_EVENTS_SCOPE>, Param1: ::std::convert::Into<FEEDS_EVENTS_MASK>>(&self, scope: Param0, mask: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::windows::core::Interface::as_raw(self), scope.into(), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<i32> {
@@ -2041,8 +2029,8 @@ impl IFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, username: Param0, password: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), username.into_param().abi(), password.into_param().abi()).ok()
+    pub unsafe fn SetCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, username: Param0, password: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), username.into().abi(), password.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ClearCredentials(&self) -> ::windows::core::Result<()> {
@@ -2056,26 +2044,26 @@ impl ::core::convert::From<IFeed2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeed2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeed2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeed2> for ::windows::core::IUnknown {
     fn from(value: &IFeed2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeed2> for super::super::System::Com::IDispatch {
     fn from(value: IFeed2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeed2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeed2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2086,20 +2074,14 @@ impl ::core::convert::From<&IFeed2> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeed2> for IFeed {
     fn from(value: IFeed2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeed2> for &'a IFeed {
+    fn from(value: &'a IFeed2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2107,18 +2089,6 @@ impl ::core::convert::From<IFeed2> for IFeed {
 impl ::core::convert::From<&IFeed2> for IFeed {
     fn from(value: &IFeed2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFeed> for IFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFeed> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFeed> for &'a IFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFeed> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2241,13 +2211,19 @@ impl IFeedEnclosure {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, downloadurl: Param0, downloadfilepath: Param1, downloadmimetype: Param2, enclosurefilename: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), downloadurl.into_param().abi(), downloadfilepath.into_param().abi(), downloadmimetype.into_param().abi(), enclosurefilename.into_param().abi()).ok()
+    pub unsafe fn SetFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, downloadurl: Param0, downloadfilepath: Param1, downloadmimetype: Param2, enclosurefilename: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), downloadurl.into().abi(), downloadfilepath.into().abi(), downloadmimetype.into().abi(), enclosurefilename.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedEnclosure> for ::windows::core::IUnknown {
     fn from(value: IFeedEnclosure) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedEnclosure> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedEnclosure) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2258,20 +2234,14 @@ impl ::core::convert::From<&IFeedEnclosure> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedEnclosure {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedEnclosure {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedEnclosure> for super::super::System::Com::IDispatch {
     fn from(value: IFeedEnclosure) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedEnclosure> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedEnclosure) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2279,18 +2249,6 @@ impl ::core::convert::From<IFeedEnclosure> for super::super::System::Com::IDispa
 impl ::core::convert::From<&IFeedEnclosure> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedEnclosure) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedEnclosure {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedEnclosure {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2370,43 +2328,49 @@ impl IFeedEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FeedRenamed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedUrlChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FeedMoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedDownloading<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, error: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(error)).ok()
+    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, path: Param0, error: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), path.into().abi(), error.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
+    pub unsafe fn FeedItemCountChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(itemcounttype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedEvents> for ::windows::core::IUnknown {
     fn from(value: IFeedEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2417,20 +2381,14 @@ impl ::core::convert::From<&IFeedEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedEvents> for super::super::System::Com::IDispatch {
     fn from(value: IFeedEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2438,18 +2396,6 @@ impl ::core::convert::From<IFeedEvents> for super::super::System::Com::IDispatch
 impl ::core::convert::From<&IFeedEvents> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2532,39 +2478,39 @@ impl IFeedFolder {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedname: Param0, feedurl: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn CreateFeed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedname: Param0, feedurl: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), feedname.into_param().abi(), feedurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), feedname.into().abi(), feedurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateSubfolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn CreateSubfolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, foldername: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), foldername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), foldername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedname: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn ExistsFeed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedname: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), feedname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), feedname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedname: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetFeed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedname: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), feedname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), feedname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsSubfolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn ExistsSubfolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, foldername: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), foldername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), foldername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetSubfolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetSubfolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, foldername: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), foldername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), foldername.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -2578,8 +2524,8 @@ impl IFeedFolder {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), foldername.into_param().abi()).ok()
+    pub unsafe fn Rename<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, foldername: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), foldername.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2589,8 +2535,8 @@ impl IFeedFolder {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), newparentpath.into_param().abi()).ok()
+    pub unsafe fn Move<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), newparentpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2615,14 +2561,20 @@ impl IFeedFolder {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetWatcher<'a, Param0: ::std::convert::Into<FEEDS_EVENTS_SCOPE>, Param1: ::std::convert::Into<FEEDS_EVENTS_MASK>>(&self, scope: Param0, mask: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), scope.into(), mask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedFolder> for ::windows::core::IUnknown {
     fn from(value: IFeedFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedFolder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedFolder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2633,20 +2585,14 @@ impl ::core::convert::From<&IFeedFolder> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedFolder> for super::super::System::Com::IDispatch {
     fn from(value: IFeedFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedFolder> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedFolder) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2654,18 +2600,6 @@ impl ::core::convert::From<IFeedFolder> for super::super::System::Com::IDispatch
 impl ::core::convert::From<&IFeedFolder> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedFolder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2771,83 +2705,89 @@ impl IFeedFolderEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FolderAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FolderAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FolderDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FolderDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FolderRenamed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FolderRenamed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FolderMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FolderMovedFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FolderMovedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FolderMovedTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FolderItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
+    pub unsafe fn FolderItemCountChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(itemcounttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FeedRenamed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedUrlChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FeedMovedFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedMovedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+    pub unsafe fn FeedMovedTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), path.into().abi(), oldpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
+    pub unsafe fn FeedDownloading<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, error: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(error)).ok()
+    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, path: Param0, error: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), path.into().abi(), error.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
+    pub unsafe fn FeedItemCountChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(itemcounttype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedFolderEvents> for ::windows::core::IUnknown {
     fn from(value: IFeedFolderEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedFolderEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedFolderEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2858,20 +2798,14 @@ impl ::core::convert::From<&IFeedFolderEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedFolderEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedFolderEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedFolderEvents> for super::super::System::Com::IDispatch {
     fn from(value: IFeedFolderEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedFolderEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedFolderEvents) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2879,18 +2813,6 @@ impl ::core::convert::From<IFeedFolderEvents> for super::super::System::Com::IDi
 impl ::core::convert::From<&IFeedFolderEvents> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedFolderEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedFolderEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedFolderEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2993,9 +2915,9 @@ pub struct IFeedItem(::windows::core::IUnknown);
 impl IFeedItem {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Xml(&self, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn Xml<'a, Param0: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, includeflags: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includeflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), includeflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3092,21 +3014,15 @@ impl ::core::convert::From<IFeedItem> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedItem> for ::windows::core::IUnknown {
     fn from(value: &IFeedItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3116,21 +3032,15 @@ impl ::core::convert::From<IFeedItem> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedItem> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedItem> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3219,9 +3129,9 @@ pub struct IFeedItem2(::windows::core::IUnknown);
 impl IFeedItem2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Xml(&self, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn Xml<'a, Param0: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, includeflags: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includeflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), includeflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3323,26 +3233,26 @@ impl ::core::convert::From<IFeedItem2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedItem2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedItem2> for ::windows::core::IUnknown {
     fn from(value: &IFeedItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedItem2> for super::super::System::Com::IDispatch {
     fn from(value: IFeedItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedItem2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3353,20 +3263,14 @@ impl ::core::convert::From<&IFeedItem2> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFeedItem2> for IFeedItem {
     fn from(value: IFeedItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedItem2> for &'a IFeedItem {
+    fn from(value: &'a IFeedItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3374,18 +3278,6 @@ impl ::core::convert::From<IFeedItem2> for IFeedItem {
 impl ::core::convert::From<&IFeedItem2> for IFeedItem {
     fn from(value: &IFeedItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFeedItem> for IFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFeedItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IFeedItem> for &'a IFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IFeedItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3451,21 +3343,15 @@ impl ::core::convert::From<IFeedsEnum> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedsEnum> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedsEnum) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedsEnum> for ::windows::core::IUnknown {
     fn from(value: &IFeedsEnum) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedsEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedsEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3475,21 +3361,15 @@ impl ::core::convert::From<IFeedsEnum> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedsEnum> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedsEnum) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedsEnum> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedsEnum) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedsEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedsEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3546,53 +3426,53 @@ impl IFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsSubscribed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsSubscribed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedurl: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), feedurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedpath: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn ExistsFeed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedpath: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), feedpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), feedpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedpath: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetFeed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedpath: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), feedpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), feedpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFeedByUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetFeedByUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedurl: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), feedurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folderpath: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn ExistsFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, folderpath: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), folderpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), folderpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folderpath: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
+    pub unsafe fn GetFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, folderpath: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), folderpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), folderpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), feedpath.into_param().abi()).ok()
+    pub unsafe fn DeleteFeed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), feedpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folderpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), folderpath.into_param().abi()).ok()
+    pub unsafe fn DeleteFolder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, folderpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), folderpath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn BackgroundSync(&self, action: FEEDS_BACKGROUNDSYNC_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundSync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(action)).ok()
+    pub unsafe fn BackgroundSync<'a, Param0: ::std::convert::Into<FEEDS_BACKGROUNDSYNC_ACTION>>(&self, action: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BackgroundSync)(::windows::core::Interface::as_raw(self), action.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSyncStatus(&self) -> ::windows::core::Result<FEEDS_BACKGROUNDSYNC_STATUS> {
@@ -3614,9 +3494,9 @@ impl IFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Normalize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedxmlin: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn Normalize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, feedxmlin: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).Normalize)(::windows::core::Interface::as_raw(self), feedxmlin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Normalize)(::windows::core::Interface::as_raw(self), feedxmlin.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCountLimit(&self) -> ::windows::core::Result<i32> {
@@ -3631,21 +3511,15 @@ impl ::core::convert::From<IFeedsManager> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedsManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IFeedsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedsManager> for ::windows::core::IUnknown {
     fn from(value: &IFeedsManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFeedsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IFeedsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3655,21 +3529,15 @@ impl ::core::convert::From<IFeedsManager> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IFeedsManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IFeedsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IFeedsManager> for super::super::System::Com::IDispatch {
     fn from(value: &IFeedsManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IFeedsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IFeedsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3764,8 +3632,8 @@ impl IWMPAudioRenderConfig {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetaudioOutputDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroutputdevice: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetaudioOutputDevice)(::windows::core::Interface::as_raw(self), bstroutputdevice.into_param().abi()).ok()
+    pub unsafe fn SetaudioOutputDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstroutputdevice: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetaudioOutputDevice)(::windows::core::Interface::as_raw(self), bstroutputdevice.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPAudioRenderConfig> for ::windows::core::IUnknown {
@@ -3773,19 +3641,14 @@ impl ::core::convert::From<IWMPAudioRenderConfig> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPAudioRenderConfig> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPAudioRenderConfig) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPAudioRenderConfig> for ::windows::core::IUnknown {
     fn from(value: &IWMPAudioRenderConfig) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPAudioRenderConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPAudioRenderConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPAudioRenderConfig {
@@ -3850,21 +3713,15 @@ impl ::core::convert::From<IWMPCdrom> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCdrom> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCdrom) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCdrom> for ::windows::core::IUnknown {
     fn from(value: &IWMPCdrom) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCdrom {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCdrom {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3874,21 +3731,15 @@ impl ::core::convert::From<IWMPCdrom> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCdrom> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPCdrom) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCdrom> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPCdrom) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPCdrom {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPCdrom {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3937,13 +3788,13 @@ pub struct IWMPCdromBurn(::windows::core::IUnknown);
 impl IWMPCdromBurn {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3952,16 +3803,16 @@ impl IWMPCdromBurn {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Setlabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setlabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn Setlabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Setlabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn burnFormat(&self, pwmpbf: *mut WMPBurnFormat) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).burnFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpbf)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetburnFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmpbf)).ok()
+    pub unsafe fn SetburnFormat<'a, Param0: ::std::convert::Into<WMPBurnFormat>>(&self, wmpbf: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetburnFormat)(::windows::core::Interface::as_raw(self), wmpbf.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3971,8 +3822,8 @@ impl IWMPCdromBurn {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetburnPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetburnPlaylist)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi()).ok()
+    pub unsafe fn SetburnPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pplaylist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetburnPlaylist)(::windows::core::Interface::as_raw(self), pplaylist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn refreshStatus(&self) -> ::windows::core::Result<()> {
@@ -4004,19 +3855,14 @@ impl ::core::convert::From<IWMPCdromBurn> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPCdromBurn> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCdromBurn) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPCdromBurn> for ::windows::core::IUnknown {
     fn from(value: &IWMPCdromBurn) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCdromBurn {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCdromBurn {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPCdromBurn {
@@ -4094,14 +3940,20 @@ impl IWMPCdromCollection {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByDriveSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdrivespecifier: Param0) -> ::windows::core::Result<IWMPCdrom> {
+    pub unsafe fn getByDriveSpecifier<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdrivespecifier: Param0) -> ::windows::core::Result<IWMPCdrom> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByDriveSpecifier)(::windows::core::Interface::as_raw(self), bstrdrivespecifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPCdrom>(result__)
+        (::windows::core::Interface::vtable(self).getByDriveSpecifier)(::windows::core::Interface::as_raw(self), bstrdrivespecifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPCdrom>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCdromCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPCdromCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCdromCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCdromCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4112,20 +3964,14 @@ impl ::core::convert::From<&IWMPCdromCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCdromCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCdromCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCdromCollection> for super::super::System::Com::IDispatch {
     fn from(value: IWMPCdromCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCdromCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPCdromCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4133,18 +3979,6 @@ impl ::core::convert::From<IWMPCdromCollection> for super::super::System::Com::I
 impl ::core::convert::From<&IWMPCdromCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPCdromCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPCdromCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPCdromCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4213,19 +4047,14 @@ impl ::core::convert::From<IWMPCdromRip> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPCdromRip> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCdromRip) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPCdromRip> for ::windows::core::IUnknown {
     fn from(value: &IWMPCdromRip) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCdromRip {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCdromRip {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPCdromRip {
@@ -4270,8 +4099,8 @@ impl IWMPClosedCaption {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSAMIStyle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamistyle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSAMIStyle)(::windows::core::Interface::as_raw(self), bstrsamistyle.into_param().abi()).ok()
+    pub unsafe fn SetSAMIStyle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsamistyle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSAMIStyle)(::windows::core::Interface::as_raw(self), bstrsamistyle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4280,8 +4109,8 @@ impl IWMPClosedCaption {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSAMILang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamilang: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSAMILang)(::windows::core::Interface::as_raw(self), bstrsamilang.into_param().abi()).ok()
+    pub unsafe fn SetSAMILang<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsamilang: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSAMILang)(::windows::core::Interface::as_raw(self), bstrsamilang.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4290,8 +4119,8 @@ impl IWMPClosedCaption {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSAMIFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamifilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSAMIFileName)(::windows::core::Interface::as_raw(self), bstrsamifilename.into_param().abi()).ok()
+    pub unsafe fn SetSAMIFileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsamifilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSAMIFileName)(::windows::core::Interface::as_raw(self), bstrsamifilename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4300,13 +4129,19 @@ impl IWMPClosedCaption {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetcaptioningId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaptioningid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcaptioningId)(::windows::core::Interface::as_raw(self), bstrcaptioningid.into_param().abi()).ok()
+    pub unsafe fn SetcaptioningId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcaptioningid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetcaptioningId)(::windows::core::Interface::as_raw(self), bstrcaptioningid.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption> for ::windows::core::IUnknown {
     fn from(value: IWMPClosedCaption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPClosedCaption> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPClosedCaption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4317,20 +4152,14 @@ impl ::core::convert::From<&IWMPClosedCaption> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPClosedCaption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPClosedCaption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption> for super::super::System::Com::IDispatch {
     fn from(value: IWMPClosedCaption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPClosedCaption> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPClosedCaption) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4338,18 +4167,6 @@ impl ::core::convert::From<IWMPClosedCaption> for super::super::System::Com::IDi
 impl ::core::convert::From<&IWMPClosedCaption> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPClosedCaption) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPClosedCaption {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPClosedCaption {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4428,8 +4245,8 @@ impl IWMPClosedCaption2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSAMIStyle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamistyle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSAMIStyle)(::windows::core::Interface::as_raw(self), bstrsamistyle.into_param().abi()).ok()
+    pub unsafe fn SetSAMIStyle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsamistyle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSAMIStyle)(::windows::core::Interface::as_raw(self), bstrsamistyle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4438,8 +4255,8 @@ impl IWMPClosedCaption2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSAMILang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamilang: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSAMILang)(::windows::core::Interface::as_raw(self), bstrsamilang.into_param().abi()).ok()
+    pub unsafe fn SetSAMILang<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsamilang: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSAMILang)(::windows::core::Interface::as_raw(self), bstrsamilang.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4448,8 +4265,8 @@ impl IWMPClosedCaption2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSAMIFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamifilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSAMIFileName)(::windows::core::Interface::as_raw(self), bstrsamifilename.into_param().abi()).ok()
+    pub unsafe fn SetSAMIFileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsamifilename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSAMIFileName)(::windows::core::Interface::as_raw(self), bstrsamifilename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4458,8 +4275,8 @@ impl IWMPClosedCaption2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetcaptioningId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaptioningid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcaptioningId)(::windows::core::Interface::as_raw(self), bstrcaptioningid.into_param().abi()).ok()
+    pub unsafe fn SetcaptioningId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrcaptioningid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcaptioningId)(::windows::core::Interface::as_raw(self), bstrcaptioningid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SAMILangCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
@@ -4491,26 +4308,26 @@ impl ::core::convert::From<IWMPClosedCaption2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPClosedCaption2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPClosedCaption2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPClosedCaption2> for ::windows::core::IUnknown {
     fn from(value: &IWMPClosedCaption2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPClosedCaption2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPClosedCaption2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPClosedCaption2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPClosedCaption2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPClosedCaption2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4521,20 +4338,14 @@ impl ::core::convert::From<&IWMPClosedCaption2> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPClosedCaption2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPClosedCaption2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPClosedCaption2> for IWMPClosedCaption {
     fn from(value: IWMPClosedCaption2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPClosedCaption2> for &'a IWMPClosedCaption {
+    fn from(value: &'a IWMPClosedCaption2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4542,18 +4353,6 @@ impl ::core::convert::From<IWMPClosedCaption2> for IWMPClosedCaption {
 impl ::core::convert::From<&IWMPClosedCaption2> for IWMPClosedCaption {
     fn from(value: &IWMPClosedCaption2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPClosedCaption> for IWMPClosedCaption2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPClosedCaption> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPClosedCaption> for &'a IWMPClosedCaption2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPClosedCaption> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4641,19 +4440,14 @@ impl ::core::convert::From<IWMPContentContainer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPContentContainer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPContentContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPContentContainer> for ::windows::core::IUnknown {
     fn from(value: &IWMPContentContainer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPContentContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPContentContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPContentContainer {
@@ -4721,19 +4515,14 @@ impl ::core::convert::From<IWMPContentContainerList> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPContentContainerList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPContentContainerList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPContentContainerList> for ::windows::core::IUnknown {
     fn from(value: &IWMPContentContainerList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPContentContainerList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPContentContainerList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPContentContainerList {
@@ -4769,64 +4558,64 @@ pub struct IWMPContentContainerList_Vtbl {
 pub struct IWMPContentPartner(::windows::core::IUnknown);
 impl IWMPContentPartner {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetCallback<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentPartnerCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCallback)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn SetCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentPartnerCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCallback)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pcontext)).ok()
+    pub unsafe fn Notify<'a, Param0: ::std::convert::Into<WMPPartnerNotification>>(&self, r#type: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinfoname: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinfoname: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemInfo)(::windows::core::Interface::as_raw(self), bstrinfoname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetItemInfo)(::windows::core::Interface::as_raw(self), bstrinfoname.into().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetContentPartnerInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinfoname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetContentPartnerInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinfoname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetContentPartnerInfo)(::windows::core::Interface::as_raw(self), bstrinfoname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetContentPartnerInfo)(::windows::core::Interface::as_raw(self), bstrinfoname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCommands<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, location: Param0, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: Param2, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCommands)(::windows::core::Interface::as_raw(self), location.into_param().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into_param().abi(), prgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgitemids)), ::core::mem::transmute(pcitemids), ::core::mem::transmute(pprgitems)).ok()
+    pub unsafe fn GetCommands<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, location: Param0, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: Param2, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCommands)(::windows::core::Interface::as_raw(self), location.into().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into().abi(), prgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgitemids)), ::core::mem::transmute(pcitemids), ::core::mem::transmute(pprgitems)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InvokeCommand<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dwcommandid: u32, location: Param1, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: Param3, rgitemids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InvokeCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcommandid), location.into_param().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into_param().abi(), rgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgitemids))).ok()
+    pub unsafe fn InvokeCommand<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dwcommandid: u32, location: Param1, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: Param3, rgitemids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InvokeCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcommandid), location.into().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into().abi(), rgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgitemids))).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanBuySilent<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, pinfo: Param0, pbstrtotalprice: *mut super::super::Foundation::BSTR, psilentok: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CanBuySilent)(::windows::core::Interface::as_raw(self), pinfo.into_param().abi(), ::core::mem::transmute(pbstrtotalprice), ::core::mem::transmute(psilentok)).ok()
+    pub unsafe fn CanBuySilent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>>(&self, pinfo: Param0, pbstrtotalprice: *mut super::super::Foundation::BSTR, psilentok: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CanBuySilent)(::windows::core::Interface::as_raw(self), pinfo.into().abi(), ::core::mem::transmute(pbstrtotalprice), ::core::mem::transmute(psilentok)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Buy<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, pinfo: Param0, cookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Buy)(::windows::core::Interface::as_raw(self), pinfo.into_param().abi(), ::core::mem::transmute(cookie)).ok()
+    pub unsafe fn Buy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>>(&self, pinfo: Param0, cookie: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Buy)(::windows::core::Interface::as_raw(self), pinfo.into().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn GetStreamingURL<'a, Param0: ::std::convert::Into<WMPStreamingType>>(&self, st: Param0, pstreamcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStreamingURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(st), ::core::mem::transmute(pstreamcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetStreamingURL)(::windows::core::Interface::as_raw(self), st.into(), ::core::mem::transmute(pstreamcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Download<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, pinfo: Param0, cookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), pinfo.into_param().abi(), ::core::mem::transmute(cookie)).ok()
+    pub unsafe fn Download<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>>(&self, pinfo: Param0, cookie: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), pinfo.into().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DownloadTrackComplete<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hrresult: ::windows::core::HRESULT, contentid: u32, downloadtrackparam: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DownloadTrackComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(contentid), downloadtrackparam.into_param().abi()).ok()
+    pub unsafe fn DownloadTrackComplete<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, hrresult: ::windows::core::HRESULT, contentid: u32, downloadtrackparam: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DownloadTrackComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(contentid), downloadtrackparam.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn RefreshLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dwcookie: u32, flocal: i16, bstrurl: Param2, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: Param5, preasoncontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RefreshLicense)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie), ::core::mem::transmute(flocal), bstrurl.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(contentid), bstrrefreshreason.into_param().abi(), ::core::mem::transmute(preasoncontext)).ok()
+    pub unsafe fn RefreshLicense<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<WMPStreamingType>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dwcookie: u32, flocal: i16, bstrurl: Param2, r#type: Param3, contentid: u32, bstrrefreshreason: Param5, preasoncontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RefreshLicense)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie), ::core::mem::transmute(flocal), bstrurl.into().abi(), r#type.into(), ::core::mem::transmute(contentid), bstrrefreshreason.into().abi(), ::core::mem::transmute(preasoncontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -4835,28 +4624,28 @@ impl IWMPContentPartner {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetTemplate<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: WMPTaskType, location: Param1, pcontext: *const super::super::System::Com::VARIANT, clicklocation: Param3, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: Param5, bstrviewparams: Param6, pbstrtemplateurl: *mut super::super::Foundation::BSTR, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(task), location.into_param().abi(), ::core::mem::transmute(pcontext), clicklocation.into_param().abi(), ::core::mem::transmute(pclickcontext), bstrfilter.into_param().abi(), bstrviewparams.into_param().abi(), ::core::mem::transmute(pbstrtemplateurl), ::core::mem::transmute(ptemplatesize)).ok()
+    pub unsafe fn GetTemplate<'a, Param0: ::std::convert::Into<WMPTaskType>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, task: Param0, location: Param1, pcontext: *const super::super::System::Com::VARIANT, clicklocation: Param3, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: Param5, bstrviewparams: Param6, pbstrtemplateurl: *mut super::super::Foundation::BSTR, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), task.into(), location.into().abi(), ::core::mem::transmute(pcontext), clicklocation.into().abi(), ::core::mem::transmute(pclickcontext), bstrfilter.into().abi(), bstrviewparams.into().abi(), ::core::mem::transmute(pbstrtemplateurl), ::core::mem::transmute(ptemplatesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi()).ok()
+    pub unsafe fn UpdateDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetListContents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, location: Param0, pcontext: *const super::super::System::Com::VARIANT, bstrlisttype: Param2, bstrparams: Param3, dwlistcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetListContents)(::windows::core::Interface::as_raw(self), location.into_param().abi(), ::core::mem::transmute(pcontext), bstrlisttype.into_param().abi(), bstrparams.into_param().abi(), ::core::mem::transmute(dwlistcookie)).ok()
+    pub unsafe fn GetListContents<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, location: Param0, pcontext: *const super::super::System::Com::VARIANT, bstrlisttype: Param2, bstrparams: Param3, dwlistcookie: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetListContents)(::windows::core::Interface::as_raw(self), location.into().abi(), ::core::mem::transmute(pcontext), bstrlisttype.into().abi(), bstrparams.into().abi(), ::core::mem::transmute(dwlistcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Login<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>>(&self, userinfo: Param0, pwdinfo: Param1, fusedcachedcreds: i16, foktocache: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Login)(::windows::core::Interface::as_raw(self), userinfo.into_param().abi(), pwdinfo.into_param().abi(), ::core::mem::transmute(fusedcachedcreds), ::core::mem::transmute(foktocache)).ok()
+    pub unsafe fn Login(&self, userinfo: super::super::System::Com::BLOB, pwdinfo: super::super::System::Com::BLOB, fusedcachedcreds: i16, foktocache: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Login)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(userinfo), ::core::mem::transmute(pwdinfo), ::core::mem::transmute(fusedcachedcreds), ::core::mem::transmute(foktocache)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Authenticate<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>>(&self, userinfo: Param0, pwdinfo: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), userinfo.into_param().abi(), pwdinfo.into_param().abi()).ok()
+    pub unsafe fn Authenticate(&self, userinfo: super::super::System::Com::BLOB, pwdinfo: super::super::System::Com::BLOB) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(userinfo), ::core::mem::transmute(pwdinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Logout(&self) -> ::windows::core::Result<()> {
@@ -4864,23 +4653,23 @@ impl IWMPContentPartner {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmsg: Param0, bstrparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmsg.into_param().abi(), bstrparam.into_param().abi()).ok()
+    pub unsafe fn SendMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmsg: Param0, bstrparam: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmsg.into().abi(), bstrparam.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StationEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstationeventtype: Param0, stationid: u32, playlistindex: u32, trackid: u32, trackdata: Param4, dwsecondsplayed: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StationEvent)(::windows::core::Interface::as_raw(self), bstrstationeventtype.into_param().abi(), ::core::mem::transmute(stationid), ::core::mem::transmute(playlistindex), ::core::mem::transmute(trackid), trackdata.into_param().abi(), ::core::mem::transmute(dwsecondsplayed)).ok()
+    pub unsafe fn StationEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrstationeventtype: Param0, stationid: u32, playlistindex: u32, trackid: u32, trackdata: Param4, dwsecondsplayed: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StationEvent)(::windows::core::Interface::as_raw(self), bstrstationeventtype.into().abi(), ::core::mem::transmute(stationid), ::core::mem::transmute(playlistindex), ::core::mem::transmute(trackid), trackdata.into().abi(), ::core::mem::transmute(dwsecondsplayed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CompareContainerListPrices<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>, Param1: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, plistbase: Param0, plistcompare: Param1) -> ::windows::core::Result<i32> {
+    pub unsafe fn CompareContainerListPrices<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPContentContainerList>>>(&self, plistbase: Param0, plistcompare: Param1) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).CompareContainerListPrices)(::windows::core::Interface::as_raw(self), plistbase.into_param().abi(), plistcompare.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CompareContainerListPrices)(::windows::core::Interface::as_raw(self), plistbase.into().abi(), plistcompare.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VerifyPermission<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpermission: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VerifyPermission)(::windows::core::Interface::as_raw(self), bstrpermission.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
+    pub unsafe fn VerifyPermission<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpermission: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VerifyPermission)(::windows::core::Interface::as_raw(self), bstrpermission.into().abi(), ::core::mem::transmute(pcontext)).ok()
     }
 }
 impl ::core::convert::From<IWMPContentPartner> for ::windows::core::IUnknown {
@@ -4888,19 +4677,14 @@ impl ::core::convert::From<IWMPContentPartner> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPContentPartner> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPContentPartner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPContentPartner> for ::windows::core::IUnknown {
     fn from(value: &IWMPContentPartner) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPContentPartner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPContentPartner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPContentPartner {
@@ -5011,8 +4795,8 @@ pub struct IWMPContentPartnerCallback(::windows::core::IUnknown);
 impl IWMPContentPartnerCallback {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pcontext)).ok()
+    pub unsafe fn Notify<'a, Param0: ::std::convert::Into<WMPCallbackNotification>>(&self, r#type: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BuyComplete(&self, hrresult: ::windows::core::HRESULT, dwbuycookie: u32) -> ::windows::core::Result<()> {
@@ -5020,8 +4804,8 @@ impl IWMPContentPartnerCallback {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DownloadTrack<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, cookie: u32, bstrtrackurl: Param1, dwservicetrackid: u32, bstrdownloadparams: Param3, hrdownload: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DownloadTrack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), bstrtrackurl.into_param().abi(), ::core::mem::transmute(dwservicetrackid), bstrdownloadparams.into_param().abi(), ::core::mem::transmute(hrdownload)).ok()
+    pub unsafe fn DownloadTrack<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, cookie: u32, bstrtrackurl: Param1, dwservicetrackid: u32, bstrdownloadparams: Param3, hrdownload: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DownloadTrack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), bstrtrackurl.into().abi(), ::core::mem::transmute(dwservicetrackid), bstrdownloadparams.into().abi(), ::core::mem::transmute(hrdownload)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCatalogVersion(&self, pdwversion: *mut u32, pdwschemaversion: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
@@ -5029,13 +4813,13 @@ impl IWMPContentPartnerCallback {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateDeviceComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateDeviceComplete)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi()).ok()
+    pub unsafe fn UpdateDeviceComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateDeviceComplete)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ChangeView<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrid: Param1, bstrfilter: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangeView)(::windows::core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrid.into_param().abi(), bstrfilter.into_param().abi()).ok()
+    pub unsafe fn ChangeView<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtype: Param0, bstrid: Param1, bstrfilter: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ChangeView)(::windows::core::Interface::as_raw(self), bstrtype.into().abi(), bstrid.into().abi(), bstrfilter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AddListContents(&self, dwlistcookie: u32, prgitems: &[u32]) -> ::windows::core::Result<()> {
@@ -5047,8 +4831,8 @@ impl IWMPContentPartnerCallback {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SendMessageComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmsg: Param0, bstrparam: Param1, bstrresult: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMessageComplete)(::windows::core::Interface::as_raw(self), bstrmsg.into_param().abi(), bstrparam.into_param().abi(), bstrresult.into_param().abi()).ok()
+    pub unsafe fn SendMessageComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmsg: Param0, bstrparam: Param1, bstrresult: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SendMessageComplete)(::windows::core::Interface::as_raw(self), bstrmsg.into().abi(), bstrparam.into().abi(), bstrresult.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetContentIDsInLibrary(&self, pccontentids: *mut u32, pprgids: *mut *mut u32) -> ::windows::core::Result<()> {
@@ -5060,13 +4844,13 @@ impl IWMPContentPartnerCallback {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowPopup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lindex: i32, bstrparameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowPopup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), bstrparameters.into_param().abi()).ok()
+    pub unsafe fn ShowPopup<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lindex: i32, bstrparameters: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowPopup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), bstrparameters.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn VerifyPermissionComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpermission: Param0, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VerifyPermissionComplete)(::windows::core::Interface::as_raw(self), bstrpermission.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(hrpermission)).ok()
+    pub unsafe fn VerifyPermissionComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpermission: Param0, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VerifyPermissionComplete)(::windows::core::Interface::as_raw(self), bstrpermission.into().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(hrpermission)).ok()
     }
 }
 impl ::core::convert::From<IWMPContentPartnerCallback> for ::windows::core::IUnknown {
@@ -5074,19 +4858,14 @@ impl ::core::convert::From<IWMPContentPartnerCallback> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPContentPartnerCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPContentPartnerCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPContentPartnerCallback> for ::windows::core::IUnknown {
     fn from(value: &IWMPContentPartnerCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPContentPartnerCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPContentPartnerCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPContentPartnerCallback {
@@ -5156,8 +4935,8 @@ pub struct IWMPControls(::windows::core::IUnknown);
 impl IWMPControls {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn get_isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
@@ -5208,8 +4987,8 @@ impl IWMPControls {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
@@ -5221,13 +5000,19 @@ impl IWMPControls {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn playItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls> for ::windows::core::IUnknown {
     fn from(value: IWMPControls) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPControls) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5238,20 +5023,14 @@ impl ::core::convert::From<&IWMPControls> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPControls {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPControls {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls> for super::super::System::Com::IDispatch {
     fn from(value: IWMPControls) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPControls) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5259,18 +5038,6 @@ impl ::core::convert::From<IWMPControls> for super::super::System::Com::IDispatc
 impl ::core::convert::From<&IWMPControls> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPControls) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPControls {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPControls {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5343,8 +5110,8 @@ pub struct IWMPControls2(::windows::core::IUnknown);
 impl IWMPControls2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn get_isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
@@ -5395,8 +5162,8 @@ impl IWMPControls2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
@@ -5408,8 +5175,8 @@ impl IWMPControls2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn playItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn step(&self, lstep: i32) -> ::windows::core::Result<()> {
@@ -5423,26 +5190,26 @@ impl ::core::convert::From<IWMPControls2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPControls2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPControls2> for ::windows::core::IUnknown {
     fn from(value: &IWMPControls2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPControls2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPControls2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPControls2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPControls2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5453,20 +5220,14 @@ impl ::core::convert::From<&IWMPControls2> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPControls2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPControls2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls2> for IWMPControls {
     fn from(value: IWMPControls2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls2> for &'a IWMPControls {
+    fn from(value: &'a IWMPControls2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5474,18 +5235,6 @@ impl ::core::convert::From<IWMPControls2> for IWMPControls {
 impl ::core::convert::From<&IWMPControls2> for IWMPControls {
     fn from(value: &IWMPControls2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for IWMPControls2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for &'a IWMPControls2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5528,8 +5277,8 @@ pub struct IWMPControls3(::windows::core::IUnknown);
 impl IWMPControls3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn get_isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
@@ -5580,8 +5329,8 @@ impl IWMPControls3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
@@ -5593,8 +5342,8 @@ impl IWMPControls3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn playItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn step(&self, lstep: i32) -> ::windows::core::Result<()> {
@@ -5641,13 +5390,19 @@ impl IWMPControls3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetcurrentPositionTimecode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtimecode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentPositionTimecode)(::windows::core::Interface::as_raw(self), bstrtimecode.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPositionTimecode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtimecode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetcurrentPositionTimecode)(::windows::core::Interface::as_raw(self), bstrtimecode.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for ::windows::core::IUnknown {
     fn from(value: IWMPControls3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5658,20 +5413,14 @@ impl ::core::convert::From<&IWMPControls3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for super::super::System::Com::IDispatch {
     fn from(value: IWMPControls3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls3> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5682,20 +5431,14 @@ impl ::core::convert::From<&IWMPControls3> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for IWMPControls {
     fn from(value: IWMPControls3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls3> for &'a IWMPControls {
+    fn from(value: &'a IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5706,20 +5449,14 @@ impl ::core::convert::From<&IWMPControls3> for IWMPControls {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPControls> for &'a IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPControls> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPControls3> for IWMPControls2 {
     fn from(value: IWMPControls3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPControls3> for &'a IWMPControls2 {
+    fn from(value: &'a IWMPControls3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5727,18 +5464,6 @@ impl ::core::convert::From<IWMPControls3> for IWMPControls2 {
 impl ::core::convert::From<&IWMPControls3> for IWMPControls2 {
     fn from(value: &IWMPControls3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPControls2> for IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPControls2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPControls2> for &'a IWMPControls3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPControls2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5800,8 +5525,8 @@ pub struct IWMPConvert(::windows::core::IUnknown);
 impl IWMPConvert {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConvertFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinputfile: Param0, bstrdestinationfolder: Param1, pbstroutputfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertFile)(::windows::core::Interface::as_raw(self), bstrinputfile.into_param().abi(), bstrdestinationfolder.into_param().abi(), ::core::mem::transmute(pbstroutputfile)).ok()
+    pub unsafe fn ConvertFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrinputfile: Param0, bstrdestinationfolder: Param1, pbstroutputfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConvertFile)(::windows::core::Interface::as_raw(self), bstrinputfile.into().abi(), bstrdestinationfolder.into().abi(), ::core::mem::transmute(pbstroutputfile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5814,19 +5539,14 @@ impl ::core::convert::From<IWMPConvert> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPConvert> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPConvert) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPConvert> for ::windows::core::IUnknown {
     fn from(value: &IWMPConvert) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPConvert {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPConvert {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPConvert {
@@ -5879,8 +5599,8 @@ impl IWMPCore {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -5910,8 +5630,8 @@ impl IWMPCore {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5932,8 +5652,8 @@ impl IWMPCore {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5949,8 +5669,8 @@ impl IWMPCore {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5987,21 +5707,15 @@ impl ::core::convert::From<IWMPCore> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore> for ::windows::core::IUnknown {
     fn from(value: &IWMPCore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6011,21 +5725,15 @@ impl ::core::convert::From<IWMPCore> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPCore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPCore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPCore {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPCore {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6148,8 +5856,8 @@ impl IWMPCore2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -6179,8 +5887,8 @@ impl IWMPCore2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6201,8 +5909,8 @@ impl IWMPCore2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6218,8 +5926,8 @@ impl IWMPCore2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6262,26 +5970,26 @@ impl ::core::convert::From<IWMPCore2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCore2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPCore2> for ::windows::core::IUnknown {
     fn from(value: &IWMPCore2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCore2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCore2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPCore2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPCore2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6292,20 +6000,14 @@ impl ::core::convert::From<&IWMPCore2> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPCore2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPCore2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore2> for IWMPCore {
     fn from(value: IWMPCore2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore2> for &'a IWMPCore {
+    fn from(value: &'a IWMPCore2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6313,18 +6015,6 @@ impl ::core::convert::From<IWMPCore2> for IWMPCore {
 impl ::core::convert::From<&IWMPCore2> for IWMPCore {
     fn from(value: &IWMPCore2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPCore2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &'a IWMPCore2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6379,8 +6069,8 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -6410,8 +6100,8 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6432,8 +6122,8 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6449,8 +6139,8 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6487,20 +6177,26 @@ impl IWMPCore3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn newPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), bstrurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn newMedia<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
+    pub unsafe fn newMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).newMedia)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).newMedia)(::windows::core::Interface::as_raw(self), bstrurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for ::windows::core::IUnknown {
     fn from(value: IWMPCore3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6511,20 +6207,14 @@ impl ::core::convert::From<&IWMPCore3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for super::super::System::Com::IDispatch {
     fn from(value: IWMPCore3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore3> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6535,20 +6225,14 @@ impl ::core::convert::From<&IWMPCore3> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for IWMPCore {
     fn from(value: IWMPCore3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore3> for &'a IWMPCore {
+    fn from(value: &'a IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6559,20 +6243,14 @@ impl ::core::convert::From<&IWMPCore3> for IWMPCore {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &'a IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPCore3> for IWMPCore2 {
     fn from(value: IWMPCore3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPCore3> for &'a IWMPCore2 {
+    fn from(value: &'a IWMPCore3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6580,18 +6258,6 @@ impl ::core::convert::From<IWMPCore3> for IWMPCore2 {
 impl ::core::convert::From<&IWMPCore3> for IWMPCore2 {
     fn from(value: &IWMPCore3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for &'a IWMPCore3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6641,8 +6307,8 @@ pub struct IWMPDVD(::windows::core::IUnknown);
 impl IWMPDVD {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn get_isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6673,21 +6339,15 @@ impl ::core::convert::From<IWMPDVD> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDVD> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPDVD) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDVD> for ::windows::core::IUnknown {
     fn from(value: &IWMPDVD) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDVD {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPDVD {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6697,21 +6357,15 @@ impl ::core::convert::From<IWMPDVD> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDVD> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPDVD) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDVD> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPDVD) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPDVD {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPDVD {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6779,9 +6433,9 @@ impl IWMPDownloadCollection {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn startDownload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsourceurl: Param0, bstrtype: Param1) -> ::windows::core::Result<IWMPDownloadItem2> {
+    pub unsafe fn startDownload<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsourceurl: Param0, bstrtype: Param1) -> ::windows::core::Result<IWMPDownloadItem2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).startDownload)(::windows::core::Interface::as_raw(self), bstrsourceurl.into_param().abi(), bstrtype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPDownloadItem2>(result__)
+        (::windows::core::Interface::vtable(self).startDownload)(::windows::core::Interface::as_raw(self), bstrsourceurl.into().abi(), bstrtype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPDownloadItem2>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn removeItem(&self, litem: i32) -> ::windows::core::Result<()> {
@@ -6799,21 +6453,15 @@ impl ::core::convert::From<IWMPDownloadCollection> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPDownloadCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPDownloadCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6823,21 +6471,15 @@ impl ::core::convert::From<IWMPDownloadCollection> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPDownloadCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPDownloadCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPDownloadCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPDownloadCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6931,21 +6573,15 @@ impl ::core::convert::From<IWMPDownloadItem> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPDownloadItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadItem> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPDownloadItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6955,21 +6591,15 @@ impl ::core::convert::From<IWMPDownloadItem> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadItem> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPDownloadItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadItem> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPDownloadItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPDownloadItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPDownloadItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7059,13 +6689,19 @@ impl IWMPDownloadItem2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadItem2> for ::windows::core::IUnknown {
     fn from(value: IWMPDownloadItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadItem2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPDownloadItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7076,20 +6712,14 @@ impl ::core::convert::From<&IWMPDownloadItem2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPDownloadItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadItem2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPDownloadItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadItem2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPDownloadItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7100,20 +6730,14 @@ impl ::core::convert::From<&IWMPDownloadItem2> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPDownloadItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPDownloadItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPDownloadItem2> for IWMPDownloadItem {
     fn from(value: IWMPDownloadItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadItem2> for &'a IWMPDownloadItem {
+    fn from(value: &'a IWMPDownloadItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7121,18 +6745,6 @@ impl ::core::convert::From<IWMPDownloadItem2> for IWMPDownloadItem {
 impl ::core::convert::From<&IWMPDownloadItem2> for IWMPDownloadItem {
     fn from(value: &IWMPDownloadItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPDownloadItem> for IWMPDownloadItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPDownloadItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPDownloadItem> for &'a IWMPDownloadItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPDownloadItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7196,21 +6808,15 @@ impl ::core::convert::From<IWMPDownloadManager> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPDownloadManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadManager> for ::windows::core::IUnknown {
     fn from(value: &IWMPDownloadManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPDownloadManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPDownloadManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7220,21 +6826,15 @@ impl ::core::convert::From<IWMPDownloadManager> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPDownloadManager> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPDownloadManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPDownloadManager> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPDownloadManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPDownloadManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPDownloadManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7282,13 +6882,13 @@ pub struct IWMPEffects(::windows::core::IUnknown);
 impl IWMPEffects {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Render<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, plevels: *mut TimedLevel, hdc: Param1, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
+    pub unsafe fn Render<'a, Param1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>>(&self, plevels: *mut TimedLevel, hdc: Param1, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels), hdc.into(), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into_param().abi()).ok()
+    pub unsafe fn MediaInfo<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> ::windows::core::Result<()> {
@@ -7318,13 +6918,13 @@ impl IWMPEffects {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayPropertyPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
+    pub unsafe fn DisplayPropertyPage<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndowner: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndowner.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GoFullscreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GoFullscreen)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
+    pub unsafe fn GoFullscreen<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GoFullscreen)(::windows::core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()> {
@@ -7336,19 +6936,14 @@ impl ::core::convert::From<IWMPEffects> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPEffects> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPEffects) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPEffects> for ::windows::core::IUnknown {
     fn from(value: &IWMPEffects) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPEffects {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPEffects {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPEffects {
@@ -7411,13 +7006,13 @@ pub struct IWMPEffects2(::windows::core::IUnknown);
 impl IWMPEffects2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn Render<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, plevels: *mut TimedLevel, hdc: Param1, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
+    pub unsafe fn Render<'a, Param1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>>(&self, plevels: *mut TimedLevel, hdc: Param1, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels), hdc.into(), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into_param().abi()).ok()
+    pub unsafe fn MediaInfo<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.MediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> ::windows::core::Result<()> {
@@ -7447,13 +7042,13 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayPropertyPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
+    pub unsafe fn DisplayPropertyPage<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndowner: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndowner.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GoFullscreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GoFullscreen)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
+    pub unsafe fn GoFullscreen<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GoFullscreen)(::windows::core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()> {
@@ -7461,13 +7056,13 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCore<'a, Param0: ::windows::core::IntoParam<'a, IWMPCore>>(&self, pplayer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCore)(::windows::core::Interface::as_raw(self), pplayer.into_param().abi()).ok()
+    pub unsafe fn SetCore<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCore>>>(&self, pplayer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCore)(::windows::core::Interface::as_raw(self), pplayer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi()).ok()
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), hwndparent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
@@ -7475,22 +7070,27 @@ impl IWMPEffects2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn NotifyNewMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyNewMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn NotifyNewMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NotifyNewMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresultparam: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresultparam)).ok()
+    pub unsafe fn OnWindowMessage<'a, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresultparam: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into(), lparam.into(), ::core::mem::transmute(plresultparam)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RenderWindowed<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdata: *mut TimedLevel, frequiredrender: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenderWindowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), frequiredrender.into_param().abi()).ok()
+    pub unsafe fn RenderWindowed<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pdata: *mut TimedLevel, frequiredrender: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RenderWindowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), frequiredrender.into()).ok()
     }
 }
 impl ::core::convert::From<IWMPEffects2> for ::windows::core::IUnknown {
     fn from(value: IWMPEffects2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEffects2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPEffects2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7499,34 +7099,19 @@ impl ::core::convert::From<&IWMPEffects2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPEffects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPEffects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEffects2> for IWMPEffects {
     fn from(value: IWMPEffects2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEffects2> for &'a IWMPEffects {
+    fn from(value: &'a IWMPEffects2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPEffects2> for IWMPEffects {
     fn from(value: &IWMPEffects2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEffects> for IWMPEffects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEffects> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEffects> for &'a IWMPEffects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEffects> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPEffects2 {
@@ -7607,21 +7192,15 @@ impl ::core::convert::From<IWMPError> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPError> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPError> for ::windows::core::IUnknown {
     fn from(value: &IWMPError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7631,21 +7210,15 @@ impl ::core::convert::From<IWMPError> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPError> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPError> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPError) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPError {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPError {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7723,21 +7296,15 @@ impl ::core::convert::From<IWMPErrorItem> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPErrorItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPErrorItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPErrorItem> for ::windows::core::IUnknown {
     fn from(value: &IWMPErrorItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPErrorItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPErrorItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7747,21 +7314,15 @@ impl ::core::convert::From<IWMPErrorItem> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPErrorItem> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPErrorItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPErrorItem> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPErrorItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPErrorItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPErrorItem {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7850,26 +7411,26 @@ impl ::core::convert::From<IWMPErrorItem2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPErrorItem2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPErrorItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPErrorItem2> for ::windows::core::IUnknown {
     fn from(value: &IWMPErrorItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPErrorItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPErrorItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPErrorItem2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPErrorItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPErrorItem2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPErrorItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7880,20 +7441,14 @@ impl ::core::convert::From<&IWMPErrorItem2> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPErrorItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPErrorItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPErrorItem2> for IWMPErrorItem {
     fn from(value: IWMPErrorItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPErrorItem2> for &'a IWMPErrorItem {
+    fn from(value: &'a IWMPErrorItem2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7901,18 +7456,6 @@ impl ::core::convert::From<IWMPErrorItem2> for IWMPErrorItem {
 impl ::core::convert::From<&IWMPErrorItem2> for IWMPErrorItem {
     fn from(value: &IWMPErrorItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPErrorItem> for IWMPErrorItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPErrorItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPErrorItem> for &'a IWMPErrorItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPErrorItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7969,8 +7512,8 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
+    pub unsafe fn ScriptCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sctype: Param0, param: Param1) {
+        (::windows::core::Interface::vtable(self).ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into().abi(), param.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
@@ -7990,8 +7533,8 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+    pub unsafe fn Warning<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, warningtype: i32, param: i32, description: Param2) {
+        (::windows::core::Interface::vtable(self).Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
@@ -8015,32 +7558,32 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+    pub unsafe fn PlaylistChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>, Param1: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, playlist: Param0, change: Param1) {
+        (::windows::core::Interface::vtable(self).PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into().abi(), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
+    pub unsafe fn CurrentPlaylistChange<'a, Param0: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, change: Param0) {
+        (::windows::core::Interface::vtable(self).CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
+    pub unsafe fn MediaChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, item: Param0) {
+        (::windows::core::Interface::vtable(self).MediaChange)(::windows::core::Interface::as_raw(self), item.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn CurrentItemChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
@@ -8048,18 +7591,18 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
+        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstroldattribval.into().abi(), bstrnewattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
@@ -8067,38 +7610,38 @@ impl IWMPEvents {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
+        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+    pub unsafe fn ModeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, modename: Param0, newvalue: i16) {
+        (::windows::core::Interface::vtable(self).ModeChange)(::windows::core::Interface::as_raw(self), modename.into().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
+    pub unsafe fn MediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pmediaobject: Param0) {
+        (::windows::core::Interface::vtable(self).MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
+    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pitem: Param0) {
+        (::windows::core::Interface::vtable(self).OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
+    pub unsafe fn DomainChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strdomain: Param0) {
+        (::windows::core::Interface::vtable(self).DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
@@ -8154,19 +7697,14 @@ impl ::core::convert::From<IWMPEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPEvents> for ::windows::core::IUnknown {
     fn from(value: &IWMPEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPEvents {
@@ -8312,8 +7850,8 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
+    pub unsafe fn ScriptCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sctype: Param0, param: Param1) {
+        (::windows::core::Interface::vtable(self).base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into().abi(), param.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
@@ -8333,8 +7871,8 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+    pub unsafe fn Warning<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, warningtype: i32, param: i32, description: Param2) {
+        (::windows::core::Interface::vtable(self).base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
@@ -8358,32 +7896,32 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+    pub unsafe fn PlaylistChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>, Param1: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, playlist: Param0, change: Param1) {
+        (::windows::core::Interface::vtable(self).base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into().abi(), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
+    pub unsafe fn CurrentPlaylistChange<'a, Param0: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, change: Param0) {
+        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
+    pub unsafe fn MediaChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, item: Param0) {
+        (::windows::core::Interface::vtable(self).base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn CurrentItemChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
@@ -8391,18 +7929,18 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstroldattribval.into().abi(), bstrnewattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
@@ -8410,38 +7948,38 @@ impl IWMPEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+    pub unsafe fn ModeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, modename: Param0, newvalue: i16) {
+        (::windows::core::Interface::vtable(self).base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
+    pub unsafe fn MediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pmediaobject: Param0) {
+        (::windows::core::Interface::vtable(self).base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
+    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pitem: Param0) {
+        (::windows::core::Interface::vtable(self).base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
+    pub unsafe fn DomainChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strdomain: Param0) {
+        (::windows::core::Interface::vtable(self).base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
@@ -8492,33 +8030,38 @@ impl IWMPEvents2 {
         (::windows::core::Interface::vtable(self).base__.MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
+    pub unsafe fn DeviceConnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0) {
+        (::windows::core::Interface::vtable(self).DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
+    pub unsafe fn DeviceDisconnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0) {
+        (::windows::core::Interface::vtable(self).DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        (::windows::core::Interface::vtable(self).DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
+    pub unsafe fn DeviceStatusChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<WMPDeviceStatus>>(&self, pdevice: Param0, newstatus: Param1) {
+        (::windows::core::Interface::vtable(self).DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), newstatus.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        (::windows::core::Interface::vtable(self).DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
+    pub unsafe fn DeviceSyncStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<WMPSyncState>>(&self, pdevice: Param0, newstate: Param1) {
+        (::windows::core::Interface::vtable(self).DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), newstate.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn DeviceSyncError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdevice: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
+    pub unsafe fn CreatePartnershipComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
+        (::windows::core::Interface::vtable(self).CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(hrresult))
     }
 }
 impl ::core::convert::From<IWMPEvents2> for ::windows::core::IUnknown {
     fn from(value: IWMPEvents2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPEvents2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8527,34 +8070,19 @@ impl ::core::convert::From<&IWMPEvents2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEvents2> for IWMPEvents {
     fn from(value: IWMPEvents2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents2> for &'a IWMPEvents {
+    fn from(value: &'a IWMPEvents2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPEvents2> for IWMPEvents {
     fn from(value: &IWMPEvents2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents> for IWMPEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents> for &'a IWMPEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPEvents2 {
@@ -8613,8 +8141,8 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
+    pub unsafe fn ScriptCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sctype: Param0, param: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into().abi(), param.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
@@ -8634,8 +8162,8 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+    pub unsafe fn Warning<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, warningtype: i32, param: i32, description: Param2) {
+        (::windows::core::Interface::vtable(self).base__.base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
@@ -8659,32 +8187,32 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+    pub unsafe fn PlaylistChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>, Param1: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, playlist: Param0, change: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into().abi(), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
+    pub unsafe fn CurrentPlaylistChange<'a, Param0: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, change: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
+    pub unsafe fn MediaChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, item: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn CurrentItemChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
@@ -8692,18 +8220,18 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstroldattribval.into().abi(), bstrnewattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
@@ -8711,38 +8239,38 @@ impl IWMPEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+    pub unsafe fn ModeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, modename: Param0, newvalue: i16) {
+        (::windows::core::Interface::vtable(self).base__.base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
+    pub unsafe fn MediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pmediaobject: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
+    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pitem: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
+    pub unsafe fn DomainChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strdomain: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
@@ -8793,82 +8321,87 @@ impl IWMPEvents3 {
         (::windows::core::Interface::vtable(self).base__.base__.MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
+    pub unsafe fn DeviceConnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0) {
+        (::windows::core::Interface::vtable(self).base__.DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
+    pub unsafe fn DeviceDisconnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0) {
+        (::windows::core::Interface::vtable(self).base__.DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        (::windows::core::Interface::vtable(self).base__.DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
+    pub unsafe fn DeviceStatusChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<WMPDeviceStatus>>(&self, pdevice: Param0, newstatus: Param1) {
+        (::windows::core::Interface::vtable(self).base__.DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), newstatus.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        (::windows::core::Interface::vtable(self).base__.DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
+    pub unsafe fn DeviceSyncStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<WMPSyncState>>(&self, pdevice: Param0, newstate: Param1) {
+        (::windows::core::Interface::vtable(self).base__.DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), newstate.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn DeviceSyncError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdevice: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).base__.DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).base__.CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
+    pub unsafe fn CreatePartnershipComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
+        (::windows::core::Interface::vtable(self).base__.CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(hrresult))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CdromRipStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>>(&self, pcdromrip: Param0, wmprs: WMPRipState) {
-        (::windows::core::Interface::vtable(self).CdromRipStateChange)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
+    pub unsafe fn CdromRipStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>, Param1: ::std::convert::Into<WMPRipState>>(&self, pcdromrip: Param0, wmprs: Param1) {
+        (::windows::core::Interface::vtable(self).CdromRipStateChange)(::windows::core::Interface::as_raw(self), pcdromrip.into().abi(), wmprs.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromRipMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromrip: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).CdromRipMediaError)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn CdromRipMediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pcdromrip: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).CdromRipMediaError)(::windows::core::Interface::as_raw(self), pcdromrip.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CdromBurnStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, wmpbs: WMPBurnState) {
-        (::windows::core::Interface::vtable(self).CdromBurnStateChange)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
+    pub unsafe fn CdromBurnStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>, Param1: ::std::convert::Into<WMPBurnState>>(&self, pcdromburn: Param0, wmpbs: Param1) {
+        (::windows::core::Interface::vtable(self).CdromBurnStateChange)(::windows::core::Interface::as_raw(self), pcdromburn.into().abi(), wmpbs.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromBurnMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromburn: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).CdromBurnMediaError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn CdromBurnMediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pcdromburn: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).CdromBurnMediaError)(::windows::core::Interface::as_raw(self), pcdromburn.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CdromBurnError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).CdromBurnError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
+    pub unsafe fn CdromBurnError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
+        (::windows::core::Interface::vtable(self).CdromBurnError)(::windows::core::Interface::as_raw(self), pcdromburn.into().abi(), ::core::mem::transmute(hrerror))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn LibraryConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).LibraryConnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
+    pub unsafe fn LibraryConnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>>(&self, plibrary: Param0) {
+        (::windows::core::Interface::vtable(self).LibraryConnect)(::windows::core::Interface::as_raw(self), plibrary.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn LibraryDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).LibraryDisconnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
+    pub unsafe fn LibraryDisconnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>>(&self, plibrary: Param0) {
+        (::windows::core::Interface::vtable(self).LibraryDisconnect)(::windows::core::Interface::as_raw(self), plibrary.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        (::windows::core::Interface::vtable(self).FolderScanStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmpfss))
+    pub unsafe fn FolderScanStateChange<'a, Param0: ::std::convert::Into<WMPFolderScanState>>(&self, wmpfss: Param0) {
+        (::windows::core::Interface::vtable(self).FolderScanStateChange)(::windows::core::Interface::as_raw(self), wmpfss.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn StringCollectionChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispstringcollection: Param0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
-        (::windows::core::Interface::vtable(self).StringCollectionChange)(::windows::core::Interface::as_raw(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
+    pub unsafe fn StringCollectionChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>, Param1: ::std::convert::Into<WMPStringCollectionChangeEventType>>(&self, pdispstringcollection: Param0, change: Param1, lcollectionindex: i32) {
+        (::windows::core::Interface::vtable(self).StringCollectionChange)(::windows::core::Interface::as_raw(self), pdispstringcollection.into().abi(), change.into(), ::core::mem::transmute(lcollectionindex))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).MediaCollectionMediaAdded)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).MediaCollectionMediaAdded)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).MediaCollectionMediaRemoved)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).MediaCollectionMediaRemoved)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
 }
 impl ::core::convert::From<IWMPEvents3> for ::windows::core::IUnknown {
     fn from(value: IWMPEvents3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPEvents3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8877,18 +8410,13 @@ impl ::core::convert::From<&IWMPEvents3> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEvents3> for IWMPEvents {
     fn from(value: IWMPEvents3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents3> for &'a IWMPEvents {
+    fn from(value: &'a IWMPEvents3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8897,34 +8425,19 @@ impl ::core::convert::From<&IWMPEvents3> for IWMPEvents {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents> for IWMPEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents> for &'a IWMPEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEvents3> for IWMPEvents2 {
     fn from(value: IWMPEvents3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents3> for &'a IWMPEvents2 {
+    fn from(value: &'a IWMPEvents3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPEvents3> for IWMPEvents2 {
     fn from(value: &IWMPEvents3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents2> for IWMPEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents2> for &'a IWMPEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPEvents3 {
@@ -9000,8 +8513,8 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
+    pub unsafe fn ScriptCommand<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, sctype: Param0, param: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into().abi(), param.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
@@ -9021,8 +8534,8 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+    pub unsafe fn Warning<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, warningtype: i32, param: i32, description: Param2) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
@@ -9046,32 +8559,32 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+    pub unsafe fn PlaylistChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>, Param1: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, playlist: Param0, change: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into().abi(), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
+    pub unsafe fn CurrentPlaylistChange<'a, Param0: ::std::convert::Into<WMPPlaylistChangeEventType>>(&self, change: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), change.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
+    pub unsafe fn MediaChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, item: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
+    pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn CurrentItemChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
@@ -9079,18 +8592,18 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstrattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+    pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into().abi(), bstroldattribval.into().abi(), bstrnewattribval.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
@@ -9098,38 +8611,38 @@ impl IWMPEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
+    pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+    pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+    pub unsafe fn ModeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, modename: Param0, newvalue: i16) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
+    pub unsafe fn MediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pmediaobject: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
+    pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pitem: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
+    pub unsafe fn DomainChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, strdomain: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
@@ -9180,86 +8693,91 @@ impl IWMPEvents4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
+    pub unsafe fn DeviceConnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
+    pub unsafe fn DeviceDisconnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0) {
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
+    pub unsafe fn DeviceStatusChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<WMPDeviceStatus>>(&self, pdevice: Param0, newstatus: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), newstatus.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
+    pub unsafe fn DeviceSyncStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<WMPSyncState>>(&self, pdevice: Param0, newstate: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), newstate.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn DeviceSyncError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdevice: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).base__.base__.CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
+    pub unsafe fn CreatePartnershipComplete<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
+        (::windows::core::Interface::vtable(self).base__.base__.CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(hrresult))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CdromRipStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>>(&self, pcdromrip: Param0, wmprs: WMPRipState) {
-        (::windows::core::Interface::vtable(self).base__.CdromRipStateChange)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
+    pub unsafe fn CdromRipStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>, Param1: ::std::convert::Into<WMPRipState>>(&self, pcdromrip: Param0, wmprs: Param1) {
+        (::windows::core::Interface::vtable(self).base__.CdromRipStateChange)(::windows::core::Interface::as_raw(self), pcdromrip.into().abi(), wmprs.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromRipMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromrip: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.CdromRipMediaError)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn CdromRipMediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromRip>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pcdromrip: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).base__.CdromRipMediaError)(::windows::core::Interface::as_raw(self), pcdromrip.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CdromBurnStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, wmpbs: WMPBurnState) {
-        (::windows::core::Interface::vtable(self).base__.CdromBurnStateChange)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
+    pub unsafe fn CdromBurnStateChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>, Param1: ::std::convert::Into<WMPBurnState>>(&self, pcdromburn: Param0, wmpbs: Param1) {
+        (::windows::core::Interface::vtable(self).base__.CdromBurnStateChange)(::windows::core::Interface::as_raw(self), pcdromburn.into().abi(), wmpbs.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CdromBurnMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromburn: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.CdromBurnMediaError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
+    pub unsafe fn CdromBurnMediaError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pcdromburn: Param0, pmedia: Param1) {
+        (::windows::core::Interface::vtable(self).base__.CdromBurnMediaError)(::windows::core::Interface::as_raw(self), pcdromburn.into().abi(), pmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CdromBurnError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).base__.CdromBurnError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
+    pub unsafe fn CdromBurnError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCdromBurn>>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
+        (::windows::core::Interface::vtable(self).base__.CdromBurnError)(::windows::core::Interface::as_raw(self), pcdromburn.into().abi(), ::core::mem::transmute(hrerror))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn LibraryConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).base__.LibraryConnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
+    pub unsafe fn LibraryConnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>>(&self, plibrary: Param0) {
+        (::windows::core::Interface::vtable(self).base__.LibraryConnect)(::windows::core::Interface::as_raw(self), plibrary.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn LibraryDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).base__.LibraryDisconnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
+    pub unsafe fn LibraryDisconnect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>>(&self, plibrary: Param0) {
+        (::windows::core::Interface::vtable(self).base__.LibraryDisconnect)(::windows::core::Interface::as_raw(self), plibrary.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        (::windows::core::Interface::vtable(self).base__.FolderScanStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmpfss))
+    pub unsafe fn FolderScanStateChange<'a, Param0: ::std::convert::Into<WMPFolderScanState>>(&self, wmpfss: Param0) {
+        (::windows::core::Interface::vtable(self).base__.FolderScanStateChange)(::windows::core::Interface::as_raw(self), wmpfss.into())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn StringCollectionChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispstringcollection: Param0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
-        (::windows::core::Interface::vtable(self).base__.StringCollectionChange)(::windows::core::Interface::as_raw(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
+    pub unsafe fn StringCollectionChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>, Param1: ::std::convert::Into<WMPStringCollectionChangeEventType>>(&self, pdispstringcollection: Param0, change: Param1, lcollectionindex: i32) {
+        (::windows::core::Interface::vtable(self).base__.StringCollectionChange)(::windows::core::Interface::as_raw(self), pdispstringcollection.into().abi(), change.into(), ::core::mem::transmute(lcollectionindex))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaAdded)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaAdded)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaRemoved)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
+    pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDispatch>>>(&self, pdispmedia: Param0) {
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaRemoved)(::windows::core::Interface::as_raw(self), pdispmedia.into().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeviceEstimation<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
-        (::windows::core::Interface::vtable(self).DeviceEstimation)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(qwestimatedusedspace), ::core::mem::transmute(qwestimatedspace))
+    pub unsafe fn DeviceEstimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
+        (::windows::core::Interface::vtable(self).DeviceEstimation)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(qwestimatedusedspace), ::core::mem::transmute(qwestimatedspace))
     }
 }
 impl ::core::convert::From<IWMPEvents4> for ::windows::core::IUnknown {
     fn from(value: IWMPEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9268,18 +8786,13 @@ impl ::core::convert::From<&IWMPEvents4> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEvents4> for IWMPEvents {
     fn from(value: IWMPEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents4> for &'a IWMPEvents {
+    fn from(value: &'a IWMPEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9288,18 +8801,13 @@ impl ::core::convert::From<&IWMPEvents4> for IWMPEvents {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents> for IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents> for &'a IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEvents4> for IWMPEvents2 {
     fn from(value: IWMPEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents4> for &'a IWMPEvents2 {
+    fn from(value: &'a IWMPEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9308,34 +8816,19 @@ impl ::core::convert::From<&IWMPEvents4> for IWMPEvents2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents2> for IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents2> for &'a IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPEvents4> for IWMPEvents3 {
     fn from(value: IWMPEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPEvents4> for &'a IWMPEvents3 {
+    fn from(value: &'a IWMPEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPEvents4> for IWMPEvents3 {
     fn from(value: &IWMPEvents4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents3> for IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPEvents3> for &'a IWMPEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPEvents3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPEvents4 {
@@ -9379,8 +8872,8 @@ impl IWMPFolderMonitorServices {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfolder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).add)(::windows::core::Interface::as_raw(self), bstrfolder.into_param().abi()).ok()
+    pub unsafe fn add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrfolder: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).add)(::windows::core::Interface::as_raw(self), bstrfolder.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn remove(&self, lindex: i32) -> ::windows::core::Result<()> {
@@ -9421,19 +8914,14 @@ impl ::core::convert::From<IWMPFolderMonitorServices> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPFolderMonitorServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPFolderMonitorServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPFolderMonitorServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPFolderMonitorServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPFolderMonitorServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPFolderMonitorServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPFolderMonitorServices {
@@ -9486,12 +8974,12 @@ pub struct IWMPFolderMonitorServices_Vtbl {
 pub struct IWMPGraphCreation(::windows::core::IUnknown);
 impl IWMPGraphCreation {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GraphCreationPreRender<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfiltergraph: Param0, preserved: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GraphCreationPreRender)(::windows::core::Interface::as_raw(self), pfiltergraph.into_param().abi(), preserved.into_param().abi()).ok()
+    pub unsafe fn GraphCreationPreRender<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pfiltergraph: Param0, preserved: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GraphCreationPreRender)(::windows::core::Interface::as_raw(self), pfiltergraph.into().abi(), preserved.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GraphCreationPostRender<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfiltergraph: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GraphCreationPostRender)(::windows::core::Interface::as_raw(self), pfiltergraph.into_param().abi()).ok()
+    pub unsafe fn GraphCreationPostRender<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, pfiltergraph: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GraphCreationPostRender)(::windows::core::Interface::as_raw(self), pfiltergraph.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetGraphCreationFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
@@ -9503,19 +8991,14 @@ impl ::core::convert::From<IWMPGraphCreation> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPGraphCreation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPGraphCreation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPGraphCreation> for ::windows::core::IUnknown {
     fn from(value: &IWMPGraphCreation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPGraphCreation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPGraphCreation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPGraphCreation {
@@ -9566,8 +9049,8 @@ impl IWMPLibrary {
         (::windows::core::Interface::vtable(self).mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, piwmplibrary: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), piwmplibrary.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>>(&self, piwmplibrary: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), piwmplibrary.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
 }
 impl ::core::convert::From<IWMPLibrary> for ::windows::core::IUnknown {
@@ -9575,19 +9058,14 @@ impl ::core::convert::From<IWMPLibrary> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPLibrary> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPLibrary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPLibrary> for ::windows::core::IUnknown {
     fn from(value: &IWMPLibrary) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPLibrary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPLibrary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPLibrary {
@@ -9645,17 +9123,22 @@ impl IWMPLibrary2 {
         (::windows::core::Interface::vtable(self).base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, piwmplibrary: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isIdentical)(::windows::core::Interface::as_raw(self), piwmplibrary.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPLibrary>>>(&self, piwmplibrary: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.isIdentical)(::windows::core::Interface::as_raw(self), piwmplibrary.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
 }
 impl ::core::convert::From<IWMPLibrary2> for ::windows::core::IUnknown {
     fn from(value: IWMPLibrary2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPLibrary2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPLibrary2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9664,34 +9147,19 @@ impl ::core::convert::From<&IWMPLibrary2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPLibrary2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPLibrary2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPLibrary2> for IWMPLibrary {
     fn from(value: IWMPLibrary2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPLibrary2> for &'a IWMPLibrary {
+    fn from(value: &'a IWMPLibrary2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPLibrary2> for IWMPLibrary {
     fn from(value: &IWMPLibrary2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPLibrary> for IWMPLibrary2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPLibrary> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPLibrary> for &'a IWMPLibrary2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPLibrary> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPLibrary2 {
@@ -9728,13 +9196,13 @@ pub struct IWMPLibrary2_Vtbl {
 pub struct IWMPLibraryServices(::windows::core::IUnknown);
 impl IWMPLibraryServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn getCountByType(&self, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getCountByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmplt), ::core::mem::transmute(plcount)).ok()
+    pub unsafe fn getCountByType<'a, Param0: ::std::convert::Into<WMPLibraryType>>(&self, wmplt: Param0, plcount: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getCountByType)(::windows::core::Interface::as_raw(self), wmplt.into(), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn getLibraryByType(&self, wmplt: WMPLibraryType, lindex: i32) -> ::windows::core::Result<IWMPLibrary> {
+    pub unsafe fn getLibraryByType<'a, Param0: ::std::convert::Into<WMPLibraryType>>(&self, wmplt: Param0, lindex: i32) -> ::windows::core::Result<IWMPLibrary> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getLibraryByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmplt), ::core::mem::transmute(lindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPLibrary>(result__)
+        (::windows::core::Interface::vtable(self).getLibraryByType)(::windows::core::Interface::as_raw(self), wmplt.into(), ::core::mem::transmute(lindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPLibrary>(result__)
     }
 }
 impl ::core::convert::From<IWMPLibraryServices> for ::windows::core::IUnknown {
@@ -9742,19 +9210,14 @@ impl ::core::convert::From<IWMPLibraryServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPLibraryServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPLibraryServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPLibraryServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPLibraryServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPLibraryServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPLibraryServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPLibraryServices {
@@ -9806,19 +9269,14 @@ impl ::core::convert::From<IWMPLibrarySharingServices> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPLibrarySharingServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPLibrarySharingServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPLibrarySharingServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPLibrarySharingServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPLibrarySharingServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPLibrarySharingServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPLibrarySharingServices {
@@ -9857,8 +9315,8 @@ pub struct IWMPMedia(::windows::core::IUnknown);
 impl IWMPMedia {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn get_isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9872,8 +9330,8 @@ impl IWMPMedia {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn Setname<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Setname)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -9916,13 +9374,13 @@ impl IWMPMedia {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+    pub unsafe fn setItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), bstrval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -9931,18 +9389,24 @@ impl IWMPMedia {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+    pub unsafe fn isMemberOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isReadOnlyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
+    pub unsafe fn isReadOnlyItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia> for ::windows::core::IUnknown {
     fn from(value: IWMPMedia) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMedia) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9953,20 +9417,14 @@ impl ::core::convert::From<&IWMPMedia> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMedia {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMedia {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia> for super::super::System::Com::IDispatch {
     fn from(value: IWMPMedia) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMedia) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9974,18 +9432,6 @@ impl ::core::convert::From<IWMPMedia> for super::super::System::Com::IDispatch {
 impl ::core::convert::From<&IWMPMedia> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPMedia) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMedia {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMedia {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10081,8 +9527,8 @@ pub struct IWMPMedia2(::windows::core::IUnknown);
 impl IWMPMedia2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn get_isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10096,8 +9542,8 @@ impl IWMPMedia2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn Setname<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Setname)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -10140,13 +9586,13 @@ impl IWMPMedia2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+    pub unsafe fn setItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), bstrval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10155,13 +9601,13 @@ impl IWMPMedia2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+    pub unsafe fn isMemberOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isReadOnlyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
+    pub unsafe fn isReadOnlyItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10177,26 +9623,26 @@ impl ::core::convert::From<IWMPMedia2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMedia2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMedia2> for ::windows::core::IUnknown {
     fn from(value: &IWMPMedia2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMedia2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMedia2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPMedia2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMedia2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10207,20 +9653,14 @@ impl ::core::convert::From<&IWMPMedia2> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMedia2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMedia2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia2> for IWMPMedia {
     fn from(value: IWMPMedia2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia2> for &'a IWMPMedia {
+    fn from(value: &'a IWMPMedia2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10228,18 +9668,6 @@ impl ::core::convert::From<IWMPMedia2> for IWMPMedia {
 impl ::core::convert::From<&IWMPMedia2> for IWMPMedia {
     fn from(value: &IWMPMedia2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for IWMPMedia2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for &'a IWMPMedia2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10285,8 +9713,8 @@ pub struct IWMPMedia3(::windows::core::IUnknown);
 impl IWMPMedia3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn get_isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10300,8 +9728,8 @@ impl IWMPMedia3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn Setname<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Setname)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -10344,13 +9772,13 @@ impl IWMPMedia3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+    pub unsafe fn setItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), bstrval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10359,13 +9787,13 @@ impl IWMPMedia3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+    pub unsafe fn isMemberOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn isReadOnlyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
+    pub unsafe fn isReadOnlyItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10375,18 +9803,24 @@ impl IWMPMedia3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getAttributeCountByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrlanguage: Param1, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::windows::core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(plcount)).ok()
+    pub unsafe fn getAttributeCountByType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtype: Param0, bstrlanguage: Param1, plcount: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi(), bstrlanguage.into().abi(), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getItemInfoByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrlanguage: Param1, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfoByType)(::windows::core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn getItemInfoByType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtype: Param0, bstrlanguage: Param1, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfoByType)(::windows::core::Interface::as_raw(self), bstrtype.into().abi(), bstrlanguage.into().abi(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for ::windows::core::IUnknown {
     fn from(value: IWMPMedia3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10397,20 +9831,14 @@ impl ::core::convert::From<&IWMPMedia3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for super::super::System::Com::IDispatch {
     fn from(value: IWMPMedia3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia3> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10421,20 +9849,14 @@ impl ::core::convert::From<&IWMPMedia3> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for IWMPMedia {
     fn from(value: IWMPMedia3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia3> for &'a IWMPMedia {
+    fn from(value: &'a IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10445,20 +9867,14 @@ impl ::core::convert::From<&IWMPMedia3> for IWMPMedia {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMedia> for &'a IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMedia3> for IWMPMedia2 {
     fn from(value: IWMPMedia3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMedia3> for &'a IWMPMedia2 {
+    fn from(value: &'a IWMPMedia3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10466,18 +9882,6 @@ impl ::core::convert::From<IWMPMedia3> for IWMPMedia2 {
 impl ::core::convert::From<&IWMPMedia3> for IWMPMedia2 {
     fn from(value: &IWMPMedia3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMedia2> for IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMedia2> for &'a IWMPMedia3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMedia2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10527,9 +9931,9 @@ pub struct IWMPMediaCollection(::windows::core::IUnknown);
 impl IWMPMediaCollection {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
+    pub unsafe fn add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).add)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).add)(::windows::core::Interface::as_raw(self), bstrurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10539,64 +9943,70 @@ impl IWMPMediaCollection {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByName)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByGenre<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByGenre<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByGenre)(::windows::core::Interface::as_raw(self), bstrgenre.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByGenre)(::windows::core::Interface::as_raw(self), bstrgenre.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAuthor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByAuthor)(::windows::core::Interface::as_raw(self), bstrauthor.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAuthor)(::windows::core::Interface::as_raw(self), bstrauthor.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAlbum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAlbum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByAlbum)(::windows::core::Interface::as_raw(self), bstralbum.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAlbum)(::windows::core::Interface::as_raw(self), bstralbum.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAttribute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByAttribute)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAttribute)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), bstrvalue.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
+    pub unsafe fn remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(varfdeletefile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getAttributeStringCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
+    pub unsafe fn getAttributeStringCollection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getAttributeStringCollection)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).getAttributeStringCollection)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), bstrmediatype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getMediaAtom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getMediaAtom)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
+    pub unsafe fn getMediaAtom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getMediaAtom)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(platom)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
+    pub unsafe fn setDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setDeleted)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+    pub unsafe fn isDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isDeleted)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPMediaCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMediaCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMediaCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10607,20 +10017,14 @@ impl ::core::convert::From<&IWMPMediaCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMediaCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMediaCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection> for super::super::System::Com::IDispatch {
     fn from(value: IWMPMediaCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMediaCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMediaCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10628,18 +10032,6 @@ impl ::core::convert::From<IWMPMediaCollection> for super::super::System::Com::I
 impl ::core::convert::From<&IWMPMediaCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPMediaCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMediaCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMediaCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10729,9 +10121,9 @@ pub struct IWMPMediaCollection2(::windows::core::IUnknown);
 impl IWMPMediaCollection2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
+    pub unsafe fn add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.add)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.add)(::windows::core::Interface::as_raw(self), bstrurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10741,59 +10133,59 @@ impl IWMPMediaCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByName)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByGenre<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByGenre<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByGenre)(::windows::core::Interface::as_raw(self), bstrgenre.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByGenre)(::windows::core::Interface::as_raw(self), bstrgenre.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAuthor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByAuthor)(::windows::core::Interface::as_raw(self), bstrauthor.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByAuthor)(::windows::core::Interface::as_raw(self), bstrauthor.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAlbum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAlbum<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByAlbum)(::windows::core::Interface::as_raw(self), bstralbum.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByAlbum)(::windows::core::Interface::as_raw(self), bstralbum.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAttribute<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByAttribute)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByAttribute)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), bstrvalue.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
+    pub unsafe fn remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.remove)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(varfdeletefile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getAttributeStringCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
+    pub unsafe fn getAttributeStringCollection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getAttributeStringCollection)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.getAttributeStringCollection)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), bstrmediatype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getMediaAtom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getMediaAtom)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
+    pub unsafe fn getMediaAtom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.getMediaAtom)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(platom)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
+    pub unsafe fn setDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.setDeleted)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+    pub unsafe fn isDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.isDeleted)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10803,26 +10195,32 @@ impl IWMPMediaCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getPlaylistByQuery<'a, Param0: ::windows::core::IntoParam<'a, IWMPQuery>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pquery: Param0, bstrmediatype: Param1, bstrsortattribute: Param2, fsortascending: i16) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getPlaylistByQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPQuery>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, pquery: Param0, bstrmediatype: Param1, bstrsortattribute: Param2, fsortascending: i16) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getPlaylistByQuery)(::windows::core::Interface::as_raw(self), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getPlaylistByQuery)(::windows::core::Interface::as_raw(self), pquery.into().abi(), bstrmediatype.into().abi(), bstrsortattribute.into().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getStringCollectionByQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IWMPQuery>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, pquery: Param1, bstrmediatype: Param2, bstrsortattribute: Param3, fsortascending: i16) -> ::windows::core::Result<IWMPStringCollection> {
+    pub unsafe fn getStringCollectionByQuery<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPQuery>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, pquery: Param1, bstrmediatype: Param2, bstrsortattribute: Param3, fsortascending: i16) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getStringCollectionByQuery)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).getStringCollectionByQuery)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), pquery.into().abi(), bstrmediatype.into().abi(), bstrsortattribute.into().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByAttributeAndMediaType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1, bstrmediatype: Param2) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn getByAttributeAndMediaType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, bstrvalue: Param1, bstrmediatype: Param2) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByAttributeAndMediaType)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAttributeAndMediaType)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), bstrvalue.into().abi(), bstrmediatype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection2> for ::windows::core::IUnknown {
     fn from(value: IWMPMediaCollection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMediaCollection2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMediaCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10833,20 +10231,14 @@ impl ::core::convert::From<&IWMPMediaCollection2> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMediaCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMediaCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPMediaCollection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMediaCollection2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMediaCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10857,20 +10249,14 @@ impl ::core::convert::From<&IWMPMediaCollection2> for super::super::System::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMediaCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMediaCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPMediaCollection2> for IWMPMediaCollection {
     fn from(value: IWMPMediaCollection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMediaCollection2> for &'a IWMPMediaCollection {
+    fn from(value: &'a IWMPMediaCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10878,18 +10264,6 @@ impl ::core::convert::From<IWMPMediaCollection2> for IWMPMediaCollection {
 impl ::core::convert::From<&IWMPMediaCollection2> for IWMPMediaCollection {
     fn from(value: &IWMPMediaCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMediaCollection> for IWMPMediaCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMediaCollection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPMediaCollection> for &'a IWMPMediaCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPMediaCollection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10944,12 +10318,12 @@ pub struct IWMPMediaCollection2_Vtbl {
 pub struct IWMPMediaPluginRegistrar(::windows::core::IUnknown);
 impl IWMPMediaPluginRegistrar {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn WMPRegisterPlayerPlugin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, pwszfriendlyname: Param0, pwszdescription: Param1, pwszuninstallstring: Param2, dwpriority: u32, guidplugintype: Param4, clsid: Param5, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into_param().abi(), pwszdescription.into_param().abi(), pwszuninstallstring.into_param().abi(), ::core::mem::transmute(dwpriority), guidplugintype.into_param().abi(), clsid.into_param().abi(), ::core::mem::transmute(cmediatypes), ::core::mem::transmute(pmediatypes)).ok()
+    pub unsafe fn WMPRegisterPlayerPlugin(&self, pwszfriendlyname: ::windows::core::PCWSTR, pwszdescription: ::windows::core::PCWSTR, pwszuninstallstring: ::windows::core::PCWSTR, dwpriority: u32, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszfriendlyname), ::core::mem::transmute(pwszdescription), ::core::mem::transmute(pwszuninstallstring), ::core::mem::transmute(dwpriority), ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid), ::core::mem::transmute(cmediatypes), ::core::mem::transmute(pmediatypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn WMPUnRegisterPlayerPlugin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidplugintype: Param0, clsid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WMPUnRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), guidplugintype.into_param().abi(), clsid.into_param().abi()).ok()
+    pub unsafe fn WMPUnRegisterPlayerPlugin(&self, guidplugintype: ::windows::core::GUID, clsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WMPUnRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidplugintype), ::core::mem::transmute(clsid)).ok()
     }
 }
 impl ::core::convert::From<IWMPMediaPluginRegistrar> for ::windows::core::IUnknown {
@@ -10957,19 +10331,14 @@ impl ::core::convert::From<IWMPMediaPluginRegistrar> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPMediaPluginRegistrar> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMediaPluginRegistrar) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPMediaPluginRegistrar> for ::windows::core::IUnknown {
     fn from(value: &IWMPMediaPluginRegistrar) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMediaPluginRegistrar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMediaPluginRegistrar {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPMediaPluginRegistrar {
@@ -11033,21 +10402,15 @@ impl ::core::convert::From<IWMPMetadataPicture> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMetadataPicture> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMetadataPicture) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMetadataPicture> for ::windows::core::IUnknown {
     fn from(value: &IWMPMetadataPicture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMetadataPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMetadataPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11057,21 +10420,15 @@ impl ::core::convert::From<IWMPMetadataPicture> for super::super::System::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMetadataPicture> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMetadataPicture) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMetadataPicture> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPMetadataPicture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMetadataPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMetadataPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11145,21 +10502,15 @@ impl ::core::convert::From<IWMPMetadataText> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMetadataText> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPMetadataText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMetadataText> for ::windows::core::IUnknown {
     fn from(value: &IWMPMetadataText) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPMetadataText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPMetadataText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11169,21 +10520,15 @@ impl ::core::convert::From<IWMPMetadataText> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPMetadataText> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPMetadataText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPMetadataText> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPMetadataText) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPMetadataText {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPMetadataText {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11286,53 +10631,53 @@ impl IWMPNetwork {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getProxySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, plproxysetting: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxySettings)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(plproxysetting)).ok()
+    pub unsafe fn getProxySettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, plproxysetting: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getProxySettings)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(plproxysetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setProxySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, lproxysetting: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxySettings)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxysetting)).ok()
+    pub unsafe fn setProxySettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, lproxysetting: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setProxySettings)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(lproxysetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getProxyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pbstrproxyname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyName)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pbstrproxyname)).ok()
+    pub unsafe fn getProxyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, pbstrproxyname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getProxyName)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(pbstrproxyname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setProxyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, bstrproxyname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyName)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), bstrproxyname.into_param().abi()).ok()
+    pub unsafe fn setProxyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, bstrproxyname: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setProxyName)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), bstrproxyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getProxyPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, lproxyport: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyPort)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxyport)).ok()
+    pub unsafe fn getProxyPort<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, lproxyport: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getProxyPort)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(lproxyport)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setProxyPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, lproxyport: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyPort)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxyport)).ok()
+    pub unsafe fn setProxyPort<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, lproxyport: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setProxyPort)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(lproxyport)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getProxyExceptionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pbstrexceptionlist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyExceptionList)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pbstrexceptionlist)).ok()
+    pub unsafe fn getProxyExceptionList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, pbstrexceptionlist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getProxyExceptionList)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(pbstrexceptionlist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setProxyExceptionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pbstrexceptionlist: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyExceptionList)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), pbstrexceptionlist.into_param().abi()).ok()
+    pub unsafe fn setProxyExceptionList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, pbstrexceptionlist: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setProxyExceptionList)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), pbstrexceptionlist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getProxyBypassForLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pfbypassforlocal: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyBypassForLocal)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pfbypassforlocal)).ok()
+    pub unsafe fn getProxyBypassForLocal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, pfbypassforlocal: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getProxyBypassForLocal)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(pfbypassforlocal)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setProxyBypassForLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, fbypassforlocal: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyBypassForLocal)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(fbypassforlocal)).ok()
+    pub unsafe fn setProxyBypassForLocal<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrprotocol: Param0, fbypassforlocal: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setProxyBypassForLocal)(::windows::core::Interface::as_raw(self), bstrprotocol.into().abi(), ::core::mem::transmute(fbypassforlocal)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn maxBandwidth(&self, lmaxbandwidth: *mut i32) -> ::windows::core::Result<()> {
@@ -11362,21 +10707,15 @@ impl ::core::convert::From<IWMPNetwork> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPNetwork> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNetwork) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPNetwork> for ::windows::core::IUnknown {
     fn from(value: &IWMPNetwork) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11386,21 +10725,15 @@ impl ::core::convert::From<IWMPNetwork> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPNetwork> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPNetwork) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPNetwork> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPNetwork) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11516,8 +10849,8 @@ impl IWMPNodeRealEstate {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetWindowless<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fwindowless: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWindowless)(::windows::core::Interface::as_raw(self), fwindowless.into_param().abi()).ok()
+    pub unsafe fn SetWindowless<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fwindowless: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWindowless)(::windows::core::Interface::as_raw(self), fwindowless.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11526,8 +10859,8 @@ impl IWMPNodeRealEstate {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullScreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullScreen)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
+    pub unsafe fn SetFullScreen<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFullScreen)(::windows::core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11540,19 +10873,14 @@ impl ::core::convert::From<IWMPNodeRealEstate> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeRealEstate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNodeRealEstate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeRealEstate> for ::windows::core::IUnknown {
     fn from(value: &IWMPNodeRealEstate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNodeRealEstate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNodeRealEstate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPNodeRealEstate {
@@ -11619,8 +10947,8 @@ impl IWMPNodeRealEstateHost {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnFullScreenTransition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnFullScreenTransition)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
+    pub unsafe fn OnFullScreenTransition<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnFullScreenTransition)(::windows::core::Interface::as_raw(self), ffullscreen.into()).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeRealEstateHost> for ::windows::core::IUnknown {
@@ -11628,19 +10956,14 @@ impl ::core::convert::From<IWMPNodeRealEstateHost> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeRealEstateHost> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNodeRealEstateHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeRealEstateHost> for ::windows::core::IUnknown {
     fn from(value: &IWMPNodeRealEstateHost) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNodeRealEstateHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNodeRealEstateHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPNodeRealEstateHost {
@@ -11694,19 +11017,14 @@ impl ::core::convert::From<IWMPNodeWindowed> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeWindowed> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNodeWindowed) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeWindowed> for ::windows::core::IUnknown {
     fn from(value: &IWMPNodeWindowed) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNodeWindowed {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNodeWindowed {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPNodeWindowed {
@@ -11742,8 +11060,8 @@ pub struct IWMPNodeWindowedHost(::windows::core::IUnknown);
 impl IWMPNodeWindowedHost {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessageFromRenderer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnWindowMessageFromRenderer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+    pub unsafe fn OnWindowMessageFromRenderer<'a, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnWindowMessageFromRenderer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into(), lparam.into(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeWindowedHost> for ::windows::core::IUnknown {
@@ -11751,19 +11069,14 @@ impl ::core::convert::From<IWMPNodeWindowedHost> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeWindowedHost> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNodeWindowedHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeWindowedHost> for ::windows::core::IUnknown {
     fn from(value: &IWMPNodeWindowedHost) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNodeWindowedHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNodeWindowedHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPNodeWindowedHost {
@@ -11801,8 +11114,8 @@ pub struct IWMPNodeWindowless(::windows::core::IUnknown);
 impl IWMPNodeWindowless {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+    pub unsafe fn OnWindowMessage<'a, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into(), lparam.into(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11815,19 +11128,14 @@ impl ::core::convert::From<IWMPNodeWindowless> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeWindowless> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNodeWindowless) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeWindowless> for ::windows::core::IUnknown {
     fn from(value: &IWMPNodeWindowless) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNodeWindowless {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNodeWindowless {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWMPNodeWindowless> for IWMPWindowMessageSink {
@@ -11835,19 +11143,14 @@ impl ::core::convert::From<IWMPNodeWindowless> for IWMPWindowMessageSink {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeWindowless> for &'a IWMPWindowMessageSink {
+    fn from(value: &'a IWMPNodeWindowless) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeWindowless> for IWMPWindowMessageSink {
     fn from(value: &IWMPNodeWindowless) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPWindowMessageSink> for IWMPNodeWindowless {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPWindowMessageSink> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPWindowMessageSink> for &'a IWMPNodeWindowless {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPWindowMessageSink> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPNodeWindowless {
@@ -11885,8 +11188,8 @@ pub struct IWMPNodeWindowlessHost(::windows::core::IUnknown);
 impl IWMPNodeWindowlessHost {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prc: *const super::super::Foundation::RECT, ferase: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ferase.into_param().abi()).ok()
+    pub unsafe fn InvalidateRect<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, prc: *const super::super::Foundation::RECT, ferase: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ferase.into()).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeWindowlessHost> for ::windows::core::IUnknown {
@@ -11894,19 +11197,14 @@ impl ::core::convert::From<IWMPNodeWindowlessHost> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPNodeWindowlessHost> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPNodeWindowlessHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPNodeWindowlessHost> for ::windows::core::IUnknown {
     fn from(value: &IWMPNodeWindowlessHost) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPNodeWindowlessHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPNodeWindowlessHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPNodeWindowlessHost {
@@ -11955,8 +11253,8 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -11986,8 +11284,8 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12008,8 +11306,8 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12025,8 +11323,8 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12081,8 +11379,8 @@ impl IWMPPlayer {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
+    pub unsafe fn SetuiMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12097,26 +11395,26 @@ impl ::core::convert::From<IWMPPlayer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer> for super::super::System::Com::IDispatch {
     fn from(value: IWMPPlayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlayer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12127,20 +11425,14 @@ impl ::core::convert::From<&IWMPPlayer> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer> for IWMPCore {
     fn from(value: IWMPPlayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer> for &'a IWMPCore {
+    fn from(value: &'a IWMPPlayer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12148,18 +11440,6 @@ impl ::core::convert::From<IWMPPlayer> for IWMPCore {
 impl ::core::convert::From<&IWMPPlayer> for IWMPCore {
     fn from(value: &IWMPPlayer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &'a IWMPPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12224,8 +11504,8 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -12255,8 +11535,8 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12277,8 +11557,8 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12294,8 +11574,8 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12350,8 +11630,8 @@ impl IWMPPlayer2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
+    pub unsafe fn SetuiMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12382,26 +11662,26 @@ impl ::core::convert::From<IWMPPlayer2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer2> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPPlayer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlayer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12412,20 +11692,14 @@ impl ::core::convert::From<&IWMPPlayer2> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlayer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlayer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer2> for IWMPCore {
     fn from(value: IWMPPlayer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer2> for &'a IWMPCore {
+    fn from(value: &'a IWMPPlayer2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12433,18 +11707,6 @@ impl ::core::convert::From<IWMPPlayer2> for IWMPCore {
 impl ::core::convert::From<&IWMPPlayer2> for IWMPCore {
     fn from(value: &IWMPPlayer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &'a IWMPPlayer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12513,8 +11775,8 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -12544,8 +11806,8 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12566,8 +11828,8 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12583,8 +11845,8 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12645,8 +11907,8 @@ impl IWMPPlayer3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
+    pub unsafe fn SetuiMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12677,26 +11939,26 @@ impl ::core::convert::From<IWMPPlayer3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayer3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayer3> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayer3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer3> for super::super::System::Com::IDispatch {
     fn from(value: IWMPPlayer3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer3> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlayer3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12707,20 +11969,14 @@ impl ::core::convert::From<&IWMPPlayer3> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer3> for IWMPCore {
     fn from(value: IWMPPlayer3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer3> for &'a IWMPCore {
+    fn from(value: &'a IWMPPlayer3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12731,20 +11987,14 @@ impl ::core::convert::From<&IWMPPlayer3> for IWMPCore {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &'a IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer3> for IWMPCore2 {
     fn from(value: IWMPPlayer3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer3> for &'a IWMPCore2 {
+    fn from(value: &'a IWMPPlayer3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12752,18 +12002,6 @@ impl ::core::convert::From<IWMPPlayer3> for IWMPCore2 {
 impl ::core::convert::From<&IWMPPlayer3> for IWMPCore2 {
     fn from(value: &IWMPPlayer3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for &'a IWMPPlayer3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12832,8 +12070,8 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn SetURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
@@ -12863,8 +12101,8 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
+    pub unsafe fn SetcurrentMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12885,8 +12123,8 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn launchURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12902,8 +12140,8 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
+    pub unsafe fn SetcurrentPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12940,15 +12178,15 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn newPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), bstrurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn newMedia<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
+    pub unsafe fn newMedia<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.newMedia)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.newMedia)(::windows::core::Interface::as_raw(self), bstrurl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
@@ -12976,8 +12214,8 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
+    pub unsafe fn SetuiMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -13012,13 +12250,19 @@ impl IWMPPlayer4 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn openPlayer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).openPlayer)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
+    pub unsafe fn openPlayer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).openPlayer)(::windows::core::Interface::as_raw(self), bstrurl.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayer4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13029,20 +12273,14 @@ impl ::core::convert::From<&IWMPPlayer4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for super::super::System::Com::IDispatch {
     fn from(value: IWMPPlayer4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer4> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13053,20 +12291,14 @@ impl ::core::convert::From<&IWMPPlayer4> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for IWMPCore {
     fn from(value: IWMPPlayer4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer4> for &'a IWMPCore {
+    fn from(value: &'a IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13077,20 +12309,14 @@ impl ::core::convert::From<&IWMPPlayer4> for IWMPCore {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore> for &'a IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for IWMPCore2 {
     fn from(value: IWMPPlayer4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer4> for &'a IWMPCore2 {
+    fn from(value: &'a IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13101,20 +12327,14 @@ impl ::core::convert::From<&IWMPPlayer4> for IWMPCore2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore2> for &'a IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlayer4> for IWMPCore3 {
     fn from(value: IWMPPlayer4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayer4> for &'a IWMPCore3 {
+    fn from(value: &'a IWMPPlayer4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13122,18 +12342,6 @@ impl ::core::convert::From<IWMPPlayer4> for IWMPCore3 {
 impl ::core::convert::From<&IWMPPlayer4> for IWMPCore3 {
     fn from(value: &IWMPPlayer4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore3> for IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPCore3> for &'a IWMPPlayer4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPCore3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13224,21 +12432,15 @@ impl ::core::convert::From<IWMPPlayerApplication> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayerApplication> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayerApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayerApplication> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayerApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayerApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayerApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13248,21 +12450,15 @@ impl ::core::convert::From<IWMPPlayerApplication> for super::super::System::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlayerApplication> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlayerApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlayerApplication> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPPlayerApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlayerApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlayerApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13306,18 +12502,18 @@ pub struct IWMPPlayerServices(::windows::core::IUnknown);
 impl IWMPPlayerServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn activateUIPlugin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplugin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).activateUIPlugin)(::windows::core::Interface::as_raw(self), bstrplugin.into_param().abi()).ok()
+    pub unsafe fn activateUIPlugin<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplugin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).activateUIPlugin)(::windows::core::Interface::as_raw(self), bstrplugin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setTaskPane<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setTaskPane)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi()).ok()
+    pub unsafe fn setTaskPane<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtaskpane: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setTaskPane)(::windows::core::Interface::as_raw(self), bstrtaskpane.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setTaskPaneURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0, bstrurl: Param1, bstrfriendlyname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setTaskPaneURL)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi(), bstrurl.into_param().abi(), bstrfriendlyname.into_param().abi()).ok()
+    pub unsafe fn setTaskPaneURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtaskpane: Param0, bstrurl: Param1, bstrfriendlyname: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setTaskPaneURL)(::windows::core::Interface::as_raw(self), bstrtaskpane.into().abi(), bstrurl.into().abi(), bstrfriendlyname.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPPlayerServices> for ::windows::core::IUnknown {
@@ -13325,19 +12521,14 @@ impl ::core::convert::From<IWMPPlayerServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPPlayerServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayerServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPPlayerServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlayerServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayerServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayerServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPPlayerServices {
@@ -13383,27 +12574,32 @@ pub struct IWMPPlayerServices2(::windows::core::IUnknown);
 impl IWMPPlayerServices2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn activateUIPlugin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplugin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.activateUIPlugin)(::windows::core::Interface::as_raw(self), bstrplugin.into_param().abi()).ok()
+    pub unsafe fn activateUIPlugin<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrplugin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.activateUIPlugin)(::windows::core::Interface::as_raw(self), bstrplugin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setTaskPane<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setTaskPane)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi()).ok()
+    pub unsafe fn setTaskPane<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtaskpane: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.setTaskPane)(::windows::core::Interface::as_raw(self), bstrtaskpane.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setTaskPaneURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0, bstrurl: Param1, bstrfriendlyname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setTaskPaneURL)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi(), bstrurl.into_param().abi(), bstrfriendlyname.into_param().abi()).ok()
+    pub unsafe fn setTaskPaneURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrtaskpane: Param0, bstrurl: Param1, bstrfriendlyname: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.setTaskPaneURL)(::windows::core::Interface::as_raw(self), bstrtaskpane.into().abi(), bstrurl.into().abi(), bstrfriendlyname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setBackgroundProcessingPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpriority: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setBackgroundProcessingPriority)(::windows::core::Interface::as_raw(self), bstrpriority.into_param().abi()).ok()
+    pub unsafe fn setBackgroundProcessingPriority<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpriority: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setBackgroundProcessingPriority)(::windows::core::Interface::as_raw(self), bstrpriority.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPPlayerServices2> for ::windows::core::IUnknown {
     fn from(value: IWMPPlayerServices2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPPlayerServices2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlayerServices2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13412,34 +12608,19 @@ impl ::core::convert::From<&IWMPPlayerServices2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlayerServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlayerServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPPlayerServices2> for IWMPPlayerServices {
     fn from(value: IWMPPlayerServices2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPPlayerServices2> for &'a IWMPPlayerServices {
+    fn from(value: &'a IWMPPlayerServices2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPPlayerServices2> for IWMPPlayerServices {
     fn from(value: &IWMPPlayerServices2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPPlayerServices> for IWMPPlayerServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPPlayerServices> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPPlayerServices> for &'a IWMPPlayerServices2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPPlayerServices> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPPlayerServices2 {
@@ -13488,8 +12669,8 @@ impl IWMPPlaylist {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn Setname<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Setname)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
@@ -13508,18 +12689,18 @@ impl IWMPPlaylist {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
+    pub unsafe fn setItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), bstrvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, piwmpplaylist: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpplaylist.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn get_isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, piwmpplaylist: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpplaylist.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn clear(&self) -> ::windows::core::Result<()> {
@@ -13527,18 +12708,18 @@ impl IWMPPlaylist {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn insertItem<'a, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, lindex: i32, piwmpmedia: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).insertItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn insertItem<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, lindex: i32, piwmpmedia: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).insertItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn appendItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).appendItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn appendItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).appendItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn removeItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).removeItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
+    pub unsafe fn removeItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).removeItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn moveItem(&self, lindexold: i32, lindexnew: i32) -> ::windows::core::Result<()> {
@@ -13552,21 +12733,15 @@ impl ::core::convert::From<IWMPPlaylist> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlaylist> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlaylist) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylist> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlaylist) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlaylist {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlaylist {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13576,21 +12751,15 @@ impl ::core::convert::From<IWMPPlaylist> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlaylist> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlaylist) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylist> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPPlaylist) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlaylist {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlaylist {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13692,21 +12861,15 @@ impl ::core::convert::From<IWMPPlaylistArray> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlaylistArray> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlaylistArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylistArray> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlaylistArray) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlaylistArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlaylistArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13716,21 +12879,15 @@ impl ::core::convert::From<IWMPPlaylistArray> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlaylistArray> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlaylistArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPPlaylistArray> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPPlaylistArray) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlaylistArray {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlaylistArray {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13777,9 +12934,9 @@ pub struct IWMPPlaylistCollection(::windows::core::IUnknown);
 impl IWMPPlaylistCollection {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn newPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -13789,35 +12946,41 @@ impl IWMPPlaylistCollection {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylistArray> {
+    pub unsafe fn getByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylistArray> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).getByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylistArray>(result__)
+        (::windows::core::Interface::vtable(self).getByName)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylistArray>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi()).ok()
+    pub unsafe fn remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pitem: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), pitem.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
+    pub unsafe fn setDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setDeleted)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+    pub unsafe fn isDeleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isDeleted)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn importPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0) -> ::windows::core::Result<IWMPPlaylist> {
+    pub unsafe fn importPlaylist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pitem: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).importPlaylist)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).importPlaylist)(::windows::core::Interface::as_raw(self), pitem.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMPPlaylist>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlaylistCollection> for ::windows::core::IUnknown {
     fn from(value: IWMPPlaylistCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlaylistCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlaylistCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13828,20 +12991,14 @@ impl ::core::convert::From<&IWMPPlaylistCollection> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlaylistCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlaylistCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPPlaylistCollection> for super::super::System::Com::IDispatch {
     fn from(value: IWMPPlaylistCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPPlaylistCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPPlaylistCollection) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13849,18 +13006,6 @@ impl ::core::convert::From<IWMPPlaylistCollection> for super::super::System::Com
 impl ::core::convert::From<&IWMPPlaylistCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPPlaylistCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPPlaylistCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPPlaylistCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13943,8 +13088,8 @@ impl IWMPPlugin {
         (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn AdviseWMPServices<'a, Param0: ::windows::core::IntoParam<'a, IWMPServices>>(&self, pwmpservices: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AdviseWMPServices)(::windows::core::Interface::as_raw(self), pwmpservices.into_param().abi()).ok()
+    pub unsafe fn AdviseWMPServices<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPServices>>>(&self, pwmpservices: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AdviseWMPServices)(::windows::core::Interface::as_raw(self), pwmpservices.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnAdviseWMPServices(&self) -> ::windows::core::Result<()> {
@@ -13956,19 +13101,14 @@ impl ::core::convert::From<IWMPPlugin> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPPlugin> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPlugin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPPlugin> for ::windows::core::IUnknown {
     fn from(value: &IWMPPlugin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPPlugin {
@@ -14008,8 +13148,8 @@ pub struct IWMPPluginEnable(::windows::core::IUnknown);
 impl IWMPPluginEnable {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnable)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn SetEnable<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnable)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14022,19 +13162,14 @@ impl ::core::convert::From<IWMPPluginEnable> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPPluginEnable> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPluginEnable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPPluginEnable> for ::windows::core::IUnknown {
     fn from(value: &IWMPPluginEnable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPluginEnable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPluginEnable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPPluginEnable {
@@ -14076,13 +13211,13 @@ pub struct IWMPPluginUI(::windows::core::IUnknown);
 impl IWMPPluginUI {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetCore<'a, Param0: ::windows::core::IntoParam<'a, IWMPCore>>(&self, pcore: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCore)(::windows::core::Interface::as_raw(self), pcore.into_param().abi()).ok()
+    pub unsafe fn SetCore<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPCore>>>(&self, pcore: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCore)(::windows::core::Interface::as_raw(self), pcore.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(phwndwindow)).ok()
+    pub unsafe fn Create<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(phwndwindow)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
@@ -14090,18 +13225,18 @@ impl IWMPPluginUI {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DisplayPropertyPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi()).ok()
+    pub unsafe fn DisplayPropertyPage<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndparent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), ::core::mem::transmute(pvarproperty)).ok()
+    pub unsafe fn GetProperty(&self, pwszname: ::windows::core::PCWSTR, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), ::core::mem::transmute(pvarproperty)).ok()
+    pub unsafe fn SetProperty(&self, pwszname: ::windows::core::PCWSTR, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszname), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -14114,19 +13249,14 @@ impl ::core::convert::From<IWMPPluginUI> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPPluginUI> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPPluginUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPPluginUI> for ::windows::core::IUnknown {
     fn from(value: &IWMPPluginUI) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPPluginUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPPluginUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPPluginUI {
@@ -14187,8 +13317,8 @@ pub struct IWMPQuery(::windows::core::IUnknown);
 impl IWMPQuery {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn addCondition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstroperator: Param1, bstrvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addCondition)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstroperator.into_param().abi(), bstrvalue.into_param().abi()).ok()
+    pub unsafe fn addCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrattribute: Param0, bstroperator: Param1, bstrvalue: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).addCondition)(::windows::core::Interface::as_raw(self), bstrattribute.into().abi(), bstroperator.into().abi(), bstrvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn beginNextGroup(&self) -> ::windows::core::Result<()> {
@@ -14202,21 +13332,15 @@ impl ::core::convert::From<IWMPQuery> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPQuery> for ::windows::core::IUnknown {
     fn from(value: &IWMPQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14226,21 +13350,15 @@ impl ::core::convert::From<IWMPQuery> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPQuery> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPQuery> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14309,19 +13427,14 @@ impl ::core::convert::From<IWMPRemoteMediaServices> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPRemoteMediaServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPRemoteMediaServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPRemoteMediaServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPRemoteMediaServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPRemoteMediaServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPRemoteMediaServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPRemoteMediaServices {
@@ -14371,8 +13484,8 @@ pub struct IWMPRenderConfig(::windows::core::IUnknown);
 impl IWMPRenderConfig {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetinProcOnly<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, finproc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetinProcOnly)(::windows::core::Interface::as_raw(self), finproc.into_param().abi()).ok()
+    pub unsafe fn SetinProcOnly<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, finproc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetinProcOnly)(::windows::core::Interface::as_raw(self), finproc.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14385,19 +13498,14 @@ impl ::core::convert::From<IWMPRenderConfig> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPRenderConfig> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPRenderConfig) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPRenderConfig> for ::windows::core::IUnknown {
     fn from(value: &IWMPRenderConfig) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPRenderConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPRenderConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPRenderConfig {
@@ -14451,19 +13559,14 @@ impl ::core::convert::From<IWMPServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPServices {
@@ -14501,8 +13604,8 @@ pub struct IWMPSettings(::windows::core::IUnknown);
 impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn get_isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn autoStart(&self, pfautostart: *mut i16) -> ::windows::core::Result<()> {
@@ -14519,8 +13622,8 @@ impl IWMPSettings {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetbaseURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbaseurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetbaseURL)(::windows::core::Interface::as_raw(self), bstrbaseurl.into_param().abi()).ok()
+    pub unsafe fn SetbaseURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrbaseurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetbaseURL)(::windows::core::Interface::as_raw(self), bstrbaseurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14529,8 +13632,8 @@ impl IWMPSettings {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetdefaultFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdefaultframe: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetdefaultFrame)(::windows::core::Interface::as_raw(self), bstrdefaultframe.into_param().abi()).ok()
+    pub unsafe fn SetdefaultFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdefaultframe: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetdefaultFrame)(::windows::core::Interface::as_raw(self), bstrdefaultframe.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut i16) -> ::windows::core::Result<()> {
@@ -14582,13 +13685,13 @@ impl IWMPSettings {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, pvarfmode: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(pvarfmode)).ok()
+    pub unsafe fn getMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0, pvarfmode: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi(), ::core::mem::transmute(pvarfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, varfmode: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(varfmode)).ok()
+    pub unsafe fn setMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0, varfmode: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi(), ::core::mem::transmute(varfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut i16) -> ::windows::core::Result<()> {
@@ -14606,21 +13709,15 @@ impl ::core::convert::From<IWMPSettings> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPSettings> for ::windows::core::IUnknown {
     fn from(value: &IWMPSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14630,21 +13727,15 @@ impl ::core::convert::From<IWMPSettings> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPSettings> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPSettings> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14730,8 +13821,8 @@ pub struct IWMPSettings2(::windows::core::IUnknown);
 impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+    pub unsafe fn get_isAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn autoStart(&self, pfautostart: *mut i16) -> ::windows::core::Result<()> {
@@ -14748,8 +13839,8 @@ impl IWMPSettings2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetbaseURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbaseurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetbaseURL)(::windows::core::Interface::as_raw(self), bstrbaseurl.into_param().abi()).ok()
+    pub unsafe fn SetbaseURL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrbaseurl: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetbaseURL)(::windows::core::Interface::as_raw(self), bstrbaseurl.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -14758,8 +13849,8 @@ impl IWMPSettings2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetdefaultFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdefaultframe: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetdefaultFrame)(::windows::core::Interface::as_raw(self), bstrdefaultframe.into_param().abi()).ok()
+    pub unsafe fn SetdefaultFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdefaultframe: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetdefaultFrame)(::windows::core::Interface::as_raw(self), bstrdefaultframe.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut i16) -> ::windows::core::Result<()> {
@@ -14811,13 +13902,13 @@ impl IWMPSettings2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, pvarfmode: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(pvarfmode)).ok()
+    pub unsafe fn getMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0, pvarfmode: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.getMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi(), ::core::mem::transmute(pvarfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, varfmode: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(varfmode)).ok()
+    pub unsafe fn setMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmode: Param0, varfmode: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.setMode)(::windows::core::Interface::as_raw(self), bstrmode.into().abi(), ::core::mem::transmute(varfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut i16) -> ::windows::core::Result<()> {
@@ -14838,13 +13929,19 @@ impl IWMPSettings2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn requestMediaAccessRights<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdesiredaccess: Param0, pvbaccepted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).requestMediaAccessRights)(::windows::core::Interface::as_raw(self), bstrdesiredaccess.into_param().abi(), ::core::mem::transmute(pvbaccepted)).ok()
+    pub unsafe fn requestMediaAccessRights<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrdesiredaccess: Param0, pvbaccepted: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).requestMediaAccessRights)(::windows::core::Interface::as_raw(self), bstrdesiredaccess.into().abi(), ::core::mem::transmute(pvbaccepted)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPSettings2> for ::windows::core::IUnknown {
     fn from(value: IWMPSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPSettings2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14855,20 +13952,14 @@ impl ::core::convert::From<&IWMPSettings2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPSettings2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPSettings2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14879,20 +13970,14 @@ impl ::core::convert::From<&IWMPSettings2> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPSettings2> for IWMPSettings {
     fn from(value: IWMPSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPSettings2> for &'a IWMPSettings {
+    fn from(value: &'a IWMPSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14900,18 +13985,6 @@ impl ::core::convert::From<IWMPSettings2> for IWMPSettings {
 impl ::core::convert::From<&IWMPSettings2> for IWMPSettings {
     fn from(value: &IWMPSettings2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPSettings> for IWMPSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSettings> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPSettings> for &'a IWMPSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSettings> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14960,8 +14033,8 @@ pub struct IWMPSkinManager(::windows::core::IUnknown);
 impl IWMPSkinManager {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisualStyle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisualStyle)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
+    pub unsafe fn SetVisualStyle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVisualStyle)(::windows::core::Interface::as_raw(self), bstrpath.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSkinManager> for ::windows::core::IUnknown {
@@ -14969,19 +14042,14 @@ impl ::core::convert::From<IWMPSkinManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPSkinManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSkinManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPSkinManager> for ::windows::core::IUnknown {
     fn from(value: &IWMPSkinManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSkinManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSkinManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSkinManager {
@@ -15036,21 +14104,15 @@ impl ::core::convert::From<IWMPStringCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPStringCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPStringCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPStringCollection> for ::windows::core::IUnknown {
     fn from(value: &IWMPStringCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15060,21 +14122,15 @@ impl ::core::convert::From<IWMPStringCollection> for super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPStringCollection> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPStringCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWMPStringCollection> for super::super::System::Com::IDispatch {
     fn from(value: &IWMPStringCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15130,28 +14186,34 @@ impl IWMPStringCollection2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPStringCollection2>>(&self, piwmpstringcollection2: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), piwmpstringcollection2.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPStringCollection2>>>(&self, piwmpstringcollection2: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), piwmpstringcollection2.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcollectionindex: i32, bstritemname: Param1, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrvalue)).ok()
+    pub unsafe fn getItemInfo<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lcollectionindex: i32, bstritemname: Param1, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstritemname.into().abi(), ::core::mem::transmute(pbstrvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getAttributeCountByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcollectionindex: i32, bstrtype: Param1, bstrlanguage: Param2, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(plcount)).ok()
+    pub unsafe fn getAttributeCountByType<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lcollectionindex: i32, bstrtype: Param1, bstrlanguage: Param2, plcount: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstrtype.into().abi(), bstrlanguage.into().abi(), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn getItemInfoByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcollectionindex: i32, bstrtype: Param1, bstrlanguage: Param2, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfoByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lattributeindex), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn getItemInfoByType<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, lcollectionindex: i32, bstrtype: Param1, bstrlanguage: Param2, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfoByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstrtype.into().abi(), bstrlanguage.into().abi(), ::core::mem::transmute(lattributeindex), ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPStringCollection2> for ::windows::core::IUnknown {
     fn from(value: IWMPStringCollection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPStringCollection2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPStringCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15162,20 +14224,14 @@ impl ::core::convert::From<&IWMPStringCollection2> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPStringCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPStringCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPStringCollection2> for super::super::System::Com::IDispatch {
     fn from(value: IWMPStringCollection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPStringCollection2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWMPStringCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15186,20 +14242,14 @@ impl ::core::convert::From<&IWMPStringCollection2> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWMPStringCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWMPStringCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWMPStringCollection2> for IWMPStringCollection {
     fn from(value: IWMPStringCollection2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWMPStringCollection2> for &'a IWMPStringCollection {
+    fn from(value: &'a IWMPStringCollection2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15207,18 +14257,6 @@ impl ::core::convert::From<IWMPStringCollection2> for IWMPStringCollection {
 impl ::core::convert::From<&IWMPStringCollection2> for IWMPStringCollection {
     fn from(value: &IWMPStringCollection2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPStringCollection> for IWMPStringCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPStringCollection> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWMPStringCollection> for &'a IWMPStringCollection2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPStringCollection> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15274,23 +14312,23 @@ pub struct IWMPSubscriptionService(::windows::core::IUnknown);
 impl IWMPSubscriptionService {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPlay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowPlay)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
+    pub unsafe fn allowPlay<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).allowPlay)(::windows::core::Interface::as_raw(self), hwnd.into(), pmedia.into().abi(), ::core::mem::transmute(pfallowplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowCDBurn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowCDBurn)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
+    pub unsafe fn allowCDBurn<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).allowCDBurn)(::windows::core::Interface::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowburn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPDATransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowPDATransfer)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
+    pub unsafe fn allowPDATransfer<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).allowPDATransfer)(::windows::core::Interface::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn startBackgroundProcessing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startBackgroundProcessing)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    pub unsafe fn startBackgroundProcessing<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).startBackgroundProcessing)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
 }
 impl ::core::convert::From<IWMPSubscriptionService> for ::windows::core::IUnknown {
@@ -15298,19 +14336,14 @@ impl ::core::convert::From<IWMPSubscriptionService> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPSubscriptionService> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSubscriptionService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPSubscriptionService> for ::windows::core::IUnknown {
     fn from(value: &IWMPSubscriptionService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSubscriptionService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSubscriptionService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSubscriptionService {
@@ -15360,45 +14393,50 @@ pub struct IWMPSubscriptionService2(::windows::core::IUnknown);
 impl IWMPSubscriptionService2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPlay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.allowPlay)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
+    pub unsafe fn allowPlay<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPMedia>>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.allowPlay)(::windows::core::Interface::as_raw(self), hwnd.into(), pmedia.into().abi(), ::core::mem::transmute(pfallowplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowCDBurn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.allowCDBurn)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
+    pub unsafe fn allowCDBurn<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.allowCDBurn)(::windows::core::Interface::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowburn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn allowPDATransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.allowPDATransfer)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
+    pub unsafe fn allowPDATransfer<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.allowPDATransfer)(::windows::core::Interface::as_raw(self), hwnd.into(), pplaylist.into().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn startBackgroundProcessing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.startBackgroundProcessing)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    pub unsafe fn startBackgroundProcessing<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.startBackgroundProcessing)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stopBackgroundProcessing(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).stopBackgroundProcessing)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn serviceEvent(&self, event: WMPSubscriptionServiceEvent) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).serviceEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(event)).ok()
+    pub unsafe fn serviceEvent<'a, Param0: ::std::convert::Into<WMPSubscriptionServiceEvent>>(&self, event: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).serviceEvent)(::windows::core::Interface::as_raw(self), event.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn deviceAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IWMPSubscriptionServiceCallback>>(&self, bstrdevicename: Param0, pcb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deviceAvailable)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
+    pub unsafe fn deviceAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPSubscriptionServiceCallback>>>(&self, bstrdevicename: Param0, pcb: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).deviceAvailable)(::windows::core::Interface::as_raw(self), bstrdevicename.into().abi(), pcb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn prepareForSync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWMPSubscriptionServiceCallback>>(&self, bstrfilename: Param0, bstrdevicename: Param1, pcb: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).prepareForSync)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
+    pub unsafe fn prepareForSync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWMPSubscriptionServiceCallback>>>(&self, bstrfilename: Param0, bstrdevicename: Param1, pcb: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).prepareForSync)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), bstrdevicename.into().abi(), pcb.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSubscriptionService2> for ::windows::core::IUnknown {
     fn from(value: IWMPSubscriptionService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPSubscriptionService2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSubscriptionService2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15407,34 +14445,19 @@ impl ::core::convert::From<&IWMPSubscriptionService2> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSubscriptionService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSubscriptionService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPSubscriptionService2> for IWMPSubscriptionService {
     fn from(value: IWMPSubscriptionService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPSubscriptionService2> for &'a IWMPSubscriptionService {
+    fn from(value: &'a IWMPSubscriptionService2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPSubscriptionService2> for IWMPSubscriptionService {
     fn from(value: &IWMPSubscriptionService2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSubscriptionService> for IWMPSubscriptionService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSubscriptionService> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSubscriptionService> for &'a IWMPSubscriptionService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSubscriptionService> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSubscriptionService2 {
@@ -15486,19 +14509,14 @@ impl ::core::convert::From<IWMPSubscriptionServiceCallback> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPSubscriptionServiceCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSubscriptionServiceCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPSubscriptionServiceCallback> for ::windows::core::IUnknown {
     fn from(value: &IWMPSubscriptionServiceCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSubscriptionServiceCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSubscriptionServiceCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSubscriptionServiceCallback {
@@ -15538,8 +14556,8 @@ impl IWMPSyncDevice {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetfriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetfriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15573,8 +14591,8 @@ impl IWMPSyncDevice {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn createPartnership(&self, vbshowui: i16) -> ::windows::core::Result<()> {
@@ -15597,8 +14615,8 @@ impl IWMPSyncDevice {
         (::windows::core::Interface::vtable(self).showSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
 }
 impl ::core::convert::From<IWMPSyncDevice> for ::windows::core::IUnknown {
@@ -15606,19 +14624,14 @@ impl ::core::convert::From<IWMPSyncDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPSyncDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSyncDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPSyncDevice> for ::windows::core::IUnknown {
     fn from(value: &IWMPSyncDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSyncDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSyncDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSyncDevice {
@@ -15688,8 +14701,8 @@ impl IWMPSyncDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetfriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetfriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15723,8 +14736,8 @@ impl IWMPSyncDevice2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn createPartnership(&self, vbshowui: i16) -> ::windows::core::Result<()> {
@@ -15747,17 +14760,22 @@ impl IWMPSyncDevice2 {
         (::windows::core::Interface::vtable(self).base__.showSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+    pub unsafe fn setItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), bstrval.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSyncDevice2> for ::windows::core::IUnknown {
     fn from(value: IWMPSyncDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPSyncDevice2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSyncDevice2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15766,34 +14784,19 @@ impl ::core::convert::From<&IWMPSyncDevice2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSyncDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSyncDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPSyncDevice2> for IWMPSyncDevice {
     fn from(value: IWMPSyncDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPSyncDevice2> for &'a IWMPSyncDevice {
+    fn from(value: &'a IWMPSyncDevice2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPSyncDevice2> for IWMPSyncDevice {
     fn from(value: &IWMPSyncDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSyncDevice> for IWMPSyncDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSyncDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSyncDevice> for &'a IWMPSyncDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSyncDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSyncDevice2 {
@@ -15836,8 +14839,8 @@ impl IWMPSyncDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetfriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
+    pub unsafe fn SetfriendlyName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -15871,8 +14874,8 @@ impl IWMPSyncDevice3 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+    pub unsafe fn getItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn createPartnership(&self, vbshowui: i16) -> ::windows::core::Result<()> {
@@ -15895,18 +14898,18 @@ impl IWMPSyncDevice3 {
         (::windows::core::Interface::vtable(self).base__.base__.showSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+    pub unsafe fn isIdentical<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPSyncDevice>>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+    pub unsafe fn setItemInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into().abi(), bstrval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn estimateSyncSize<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pnonruleplaylist: Param0, prulesplaylist: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).estimateSyncSize)(::windows::core::Interface::as_raw(self), pnonruleplaylist.into_param().abi(), prulesplaylist.into_param().abi()).ok()
+    pub unsafe fn estimateSyncSize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWMPPlaylist>>>(&self, pnonruleplaylist: Param0, prulesplaylist: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).estimateSyncSize)(::windows::core::Interface::as_raw(self), pnonruleplaylist.into().abi(), prulesplaylist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn cancelEstimation(&self) -> ::windows::core::Result<()> {
@@ -15918,23 +14921,23 @@ impl ::core::convert::From<IWMPSyncDevice3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPSyncDevice3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSyncDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPSyncDevice3> for ::windows::core::IUnknown {
     fn from(value: &IWMPSyncDevice3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSyncDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSyncDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPSyncDevice3> for IWMPSyncDevice {
     fn from(value: IWMPSyncDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPSyncDevice3> for &'a IWMPSyncDevice {
+    fn from(value: &'a IWMPSyncDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -15943,34 +14946,19 @@ impl ::core::convert::From<&IWMPSyncDevice3> for IWMPSyncDevice {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWMPSyncDevice> for IWMPSyncDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSyncDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSyncDevice> for &'a IWMPSyncDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSyncDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWMPSyncDevice3> for IWMPSyncDevice2 {
     fn from(value: IWMPSyncDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWMPSyncDevice3> for &'a IWMPSyncDevice2 {
+    fn from(value: &'a IWMPSyncDevice3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWMPSyncDevice3> for IWMPSyncDevice2 {
     fn from(value: &IWMPSyncDevice3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSyncDevice2> for IWMPSyncDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSyncDevice2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWMPSyncDevice2> for &'a IWMPSyncDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWMPSyncDevice2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSyncDevice3 {
@@ -16022,19 +15010,14 @@ impl ::core::convert::From<IWMPSyncServices> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPSyncServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPSyncServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPSyncServices> for ::windows::core::IUnknown {
     fn from(value: &IWMPSyncServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPSyncServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPSyncServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPSyncServices {
@@ -16078,19 +15061,14 @@ impl ::core::convert::From<IWMPTranscodePolicy> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPTranscodePolicy> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPTranscodePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPTranscodePolicy> for ::windows::core::IUnknown {
     fn from(value: &IWMPTranscodePolicy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPTranscodePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPTranscodePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPTranscodePolicy {
@@ -16133,19 +15111,14 @@ impl ::core::convert::From<IWMPUserEventSink> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPUserEventSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPUserEventSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPUserEventSink> for ::windows::core::IUnknown {
     fn from(value: &IWMPUserEventSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPUserEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPUserEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPUserEventSink {
@@ -16180,8 +15153,8 @@ pub struct IWMPVideoRenderConfig(::windows::core::IUnknown);
 impl IWMPVideoRenderConfig {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
-    pub unsafe fn SetpresenterActivate<'a, Param0: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFActivate>>(&self, pactivate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetpresenterActivate)(::windows::core::Interface::as_raw(self), pactivate.into_param().abi()).ok()
+    pub unsafe fn SetpresenterActivate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaFoundation::IMFActivate>>>(&self, pactivate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetpresenterActivate)(::windows::core::Interface::as_raw(self), pactivate.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPVideoRenderConfig> for ::windows::core::IUnknown {
@@ -16189,19 +15162,14 @@ impl ::core::convert::From<IWMPVideoRenderConfig> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPVideoRenderConfig> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPVideoRenderConfig) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPVideoRenderConfig> for ::windows::core::IUnknown {
     fn from(value: &IWMPVideoRenderConfig) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPVideoRenderConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPVideoRenderConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPVideoRenderConfig {
@@ -16239,8 +15207,8 @@ pub struct IWMPWindowMessageSink(::windows::core::IUnknown);
 impl IWMPWindowMessageSink {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+    pub unsafe fn OnWindowMessage<'a, Param1: ::std::convert::Into<super::super::Foundation::WPARAM>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into(), lparam.into(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
     }
 }
 impl ::core::convert::From<IWMPWindowMessageSink> for ::windows::core::IUnknown {
@@ -16248,19 +15216,14 @@ impl ::core::convert::From<IWMPWindowMessageSink> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWMPWindowMessageSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWMPWindowMessageSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWMPWindowMessageSink> for ::windows::core::IUnknown {
     fn from(value: &IWMPWindowMessageSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWMPWindowMessageSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWMPWindowMessageSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWMPWindowMessageSink {
@@ -16298,9 +15261,9 @@ pub struct IXFeed(::windows::core::IUnknown);
 impl IXFeed {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Xml<'a, Param1: ::std::convert::Into<FEEDS_XML_SORT_PROPERTY>, Param2: ::std::convert::Into<FEEDS_XML_SORT_ORDER>, Param3: ::std::convert::Into<FEEDS_XML_FILTER_FLAGS>, Param4: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, uiitemcount: u32, sortproperty: Param1, sortorder: Param2, filterflags: Param3, includeflags: Param4) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiitemcount), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiitemcount), sortproperty.into(), sortorder.into(), filterflags.into(), includeflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16308,8 +15271,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
+    pub unsafe fn Rename(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16317,8 +15280,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi()).ok()
+    pub unsafe fn SetUrl(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -16331,8 +15294,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn Move(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -16367,8 +15330,8 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetSyncSetting(&self, fss: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fss)).ok()
+    pub unsafe fn SetSyncSetting<'a, Param0: ::std::convert::Into<FEEDS_SYNC_SETTING>>(&self, fss: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSyncSetting)(::windows::core::Interface::as_raw(self), fss.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<u32> {
@@ -16421,8 +15384,8 @@ impl IXFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDownloadEnclosuresAutomatically<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bdownloadenclosuresautomatically: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), bdownloadenclosuresautomatically.into_param().abi()).ok()
+    pub unsafe fn SetDownloadEnclosuresAutomatically<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bdownloadenclosuresautomatically: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), bdownloadenclosuresautomatically.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
@@ -16436,8 +15399,8 @@ impl IXFeed {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pstream: Param0, pszurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), pszurl.into_param().abi()).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstream: Param0, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ::core::mem::transmute(pszurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16498,9 +15461,9 @@ impl IXFeed {
         (::windows::core::Interface::vtable(self).IsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetWatcher<T: ::windows::core::Interface>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<T> {
+    pub unsafe fn GetWatcher<'a, Param0: ::std::convert::Into<FEEDS_EVENTS_SCOPE>, Param1: ::std::convert::Into<FEEDS_EVENTS_MASK>, T: ::windows::core::Interface>(&self, scope: Param0, mask: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), scope.into(), mask.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<u32> {
@@ -16518,19 +15481,14 @@ impl ::core::convert::From<IXFeed> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeed> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeed) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeed> for ::windows::core::IUnknown {
     fn from(value: &IXFeed) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeed {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeed {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeed {
@@ -16635,9 +15593,9 @@ pub struct IXFeed2(::windows::core::IUnknown);
 impl IXFeed2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Xml<'a, Param1: ::std::convert::Into<FEEDS_XML_SORT_PROPERTY>, Param2: ::std::convert::Into<FEEDS_XML_SORT_ORDER>, Param3: ::std::convert::Into<FEEDS_XML_FILTER_FLAGS>, Param4: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, uiitemcount: u32, sortproperty: Param1, sortorder: Param2, filterflags: Param3, includeflags: Param4) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiitemcount), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiitemcount), sortproperty.into(), sortorder.into(), filterflags.into(), includeflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16645,8 +15603,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
+    pub unsafe fn Rename(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16654,8 +15612,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi()).ok()
+    pub unsafe fn SetUrl(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -16668,8 +15626,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn Move(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -16704,8 +15662,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetSyncSetting(&self, fss: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fss)).ok()
+    pub unsafe fn SetSyncSetting<'a, Param0: ::std::convert::Into<FEEDS_SYNC_SETTING>>(&self, fss: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::windows::core::Interface::as_raw(self), fss.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<u32> {
@@ -16758,8 +15716,8 @@ impl IXFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDownloadEnclosuresAutomatically<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bdownloadenclosuresautomatically: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), bdownloadenclosuresautomatically.into_param().abi()).ok()
+    pub unsafe fn SetDownloadEnclosuresAutomatically<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bdownloadenclosuresautomatically: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), bdownloadenclosuresautomatically.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
@@ -16773,8 +15731,8 @@ impl IXFeed2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pstream: Param0, pszurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), pszurl.into_param().abi()).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstream: Param0, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ::core::mem::transmute(pszurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -16835,9 +15793,9 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).base__.IsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetWatcher<T: ::windows::core::Interface>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<T> {
+    pub unsafe fn GetWatcher<'a, Param0: ::std::convert::Into<FEEDS_EVENTS_SCOPE>, Param1: ::std::convert::Into<FEEDS_EVENTS_MASK>, T: ::windows::core::Interface>(&self, scope: Param0, mask: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::windows::core::Interface::as_raw(self), scope.into(), mask.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<u32> {
@@ -16871,8 +15829,8 @@ impl IXFeed2 {
         (::windows::core::Interface::vtable(self).Password)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszusername: Param0, pszpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
+    pub unsafe fn SetCredentials(&self, pszusername: ::windows::core::PCWSTR, pszpassword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszusername), ::core::mem::transmute(pszpassword)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ClearCredentials(&self) -> ::windows::core::Result<()> {
@@ -16884,19 +15842,14 @@ impl ::core::convert::From<IXFeed2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeed2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeed2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeed2> for ::windows::core::IUnknown {
     fn from(value: &IXFeed2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IXFeed2> for IXFeed {
@@ -16904,19 +15857,14 @@ impl ::core::convert::From<IXFeed2> for IXFeed {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeed2> for &'a IXFeed {
+    fn from(value: &'a IXFeed2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeed2> for IXFeed {
     fn from(value: &IXFeed2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXFeed> for IXFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IXFeed> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXFeed> for &'a IXFeed2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IXFeed> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeed2 {
@@ -17015,8 +15963,8 @@ impl IXFeedEnclosure {
         (::windows::core::Interface::vtable(self).RemoveFile)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn SetFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszdownloadurl: Param0, pszdownloadfilepath: Param1, pszdownloadmimetype: Param2, pszenclosurefilename: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), pszdownloadurl.into_param().abi(), pszdownloadfilepath.into_param().abi(), pszdownloadmimetype.into_param().abi(), pszenclosurefilename.into_param().abi()).ok()
+    pub unsafe fn SetFile(&self, pszdownloadurl: ::windows::core::PCWSTR, pszdownloadfilepath: ::windows::core::PCWSTR, pszdownloadmimetype: ::windows::core::PCWSTR, pszenclosurefilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdownloadurl), ::core::mem::transmute(pszdownloadfilepath), ::core::mem::transmute(pszdownloadmimetype), ::core::mem::transmute(pszenclosurefilename)).ok()
     }
 }
 impl ::core::convert::From<IXFeedEnclosure> for ::windows::core::IUnknown {
@@ -17024,19 +15972,14 @@ impl ::core::convert::From<IXFeedEnclosure> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedEnclosure> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedEnclosure) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedEnclosure> for ::windows::core::IUnknown {
     fn from(value: &IXFeedEnclosure) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedEnclosure {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedEnclosure {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedEnclosure {
@@ -17086,32 +16029,32 @@ impl IXFeedEvents {
         (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedDeleted(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FeedRenamed(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedUrlChanged(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedMoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FeedMoved(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedDownloading(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(fde)).ok()
+    pub unsafe fn FeedDownloadCompleted<'a, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, pszpath: ::windows::core::PCWSTR, fde: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), fde.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
+    pub unsafe fn FeedItemCountChanged(&self, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(feicfflags)).ok()
     }
 }
 impl ::core::convert::From<IXFeedEvents> for ::windows::core::IUnknown {
@@ -17119,19 +16062,14 @@ impl ::core::convert::From<IXFeedEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedEvents> for ::windows::core::IUnknown {
     fn from(value: &IXFeedEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedEvents {
@@ -17182,34 +16120,34 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).Subfolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXFeedsEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreateFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0, pszurl: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFeed<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), pszurl.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pszurl), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn CreateSubfolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateSubfolder<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), ::core::mem::transmute(pbfeedexists)).ok()
+    pub unsafe fn ExistsFeed(&self, pszname: ::windows::core::PCWSTR, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pbfeedexists)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsSubfolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), ::core::mem::transmute(pbsubfolderexists)).ok()
+    pub unsafe fn ExistsSubfolder(&self, pszname: ::windows::core::PCWSTR, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), ::core::mem::transmute(pbsubfolderexists)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFeed<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetSubfolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetSubfolder<T: ::windows::core::Interface>(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
@@ -17221,8 +16159,8 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
+    pub unsafe fn Rename(&self, pszname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -17230,8 +16168,8 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn Move(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -17245,9 +16183,9 @@ impl IXFeedFolder {
         (::windows::core::Interface::vtable(self).IsRoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetWatcher<T: ::windows::core::Interface>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<T> {
+    pub unsafe fn GetWatcher<'a, Param0: ::std::convert::Into<FEEDS_EVENTS_SCOPE>, Param1: ::std::convert::Into<FEEDS_EVENTS_MASK>, T: ::windows::core::Interface>(&self, scope: Param0, mask: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), scope.into(), mask.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn TotalUnreadItemCount(&self) -> ::windows::core::Result<u32> {
@@ -17265,19 +16203,14 @@ impl ::core::convert::From<IXFeedFolder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedFolder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedFolder> for ::windows::core::IUnknown {
     fn from(value: &IXFeedFolder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedFolder {
@@ -17341,64 +16274,64 @@ impl IXFeedFolderEvents {
         (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FolderAdded(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FolderDeleted(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FolderRenamed(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FolderMovedFrom(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderMovedTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FolderMovedTo(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FolderItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
+    pub unsafe fn FolderItemCountChanged(&self, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(feicfflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedAdded(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedDeleted(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FeedRenamed(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedUrlChanged(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FeedMovedFrom(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedMovedTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+    pub unsafe fn FeedMovedTo(&self, pszpath: ::windows::core::PCWSTR, pszoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pszoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn FeedDownloading(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(fde)).ok()
+    pub unsafe fn FeedDownloadCompleted<'a, Param1: ::std::convert::Into<FEEDS_DOWNLOAD_ERROR>>(&self, pszpath: ::windows::core::PCWSTR, fde: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), fde.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
+    pub unsafe fn FeedItemCountChanged(&self, pszpath: ::windows::core::PCWSTR, feicfflags: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(feicfflags)).ok()
     }
 }
 impl ::core::convert::From<IXFeedFolderEvents> for ::windows::core::IUnknown {
@@ -17406,19 +16339,14 @@ impl ::core::convert::From<IXFeedFolderEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedFolderEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedFolderEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedFolderEvents> for ::windows::core::IUnknown {
     fn from(value: &IXFeedFolderEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedFolderEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedFolderEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedFolderEvents {
@@ -17468,9 +16396,9 @@ pub struct IXFeedItem(::windows::core::IUnknown);
 impl IXFeedItem {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Xml<'a, Param0: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, fxif: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fxif), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), fxif.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -17521,8 +16449,8 @@ impl IXFeedItem {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bisread: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsRead)(::windows::core::Interface::as_raw(self), bisread.into_param().abi()).ok()
+    pub unsafe fn SetIsRead<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bisread: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIsRead)(::windows::core::Interface::as_raw(self), bisread.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<u32> {
@@ -17561,19 +16489,14 @@ impl ::core::convert::From<IXFeedItem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedItem> for ::windows::core::IUnknown {
     fn from(value: &IXFeedItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedItem {
@@ -17642,9 +16565,9 @@ pub struct IXFeedItem2(::windows::core::IUnknown);
 impl IXFeedItem2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Xml<'a, Param0: ::std::convert::Into<FEEDS_XML_INCLUDE_FLAGS>>(&self, fxif: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fxif), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), fxif.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -17695,8 +16618,8 @@ impl IXFeedItem2 {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bisread: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIsRead)(::windows::core::Interface::as_raw(self), bisread.into_param().abi()).ok()
+    pub unsafe fn SetIsRead<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bisread: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetIsRead)(::windows::core::Interface::as_raw(self), bisread.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<u32> {
@@ -17740,19 +16663,14 @@ impl ::core::convert::From<IXFeedItem2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedItem2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedItem2> for ::windows::core::IUnknown {
     fn from(value: &IXFeedItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IXFeedItem2> for IXFeedItem {
@@ -17760,19 +16678,14 @@ impl ::core::convert::From<IXFeedItem2> for IXFeedItem {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedItem2> for &'a IXFeedItem {
+    fn from(value: &'a IXFeedItem2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedItem2> for IXFeedItem {
     fn from(value: &IXFeedItem2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXFeedItem> for IXFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IXFeedItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IXFeedItem> for &'a IXFeedItem2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IXFeedItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedItem2 {
@@ -17821,19 +16734,14 @@ impl ::core::convert::From<IXFeedsEnum> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedsEnum> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedsEnum) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedsEnum> for ::windows::core::IUnknown {
     fn from(value: &IXFeedsEnum) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedsEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedsEnum {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedsEnum {
@@ -17874,48 +16782,48 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsSubscribed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsSubscribed(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn ExistsFeed(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszpath: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFeed<T: ::windows::core::Interface>(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFeedByUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszurl: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFeedByUrl<T: ::windows::core::Interface>(&self, pszurl: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszurl), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExistsFolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn ExistsFolder(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn GetFolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszpath: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetFolder<T: ::windows::core::Interface>(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeleteFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn DeleteFeed(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn DeleteFolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn DeleteFolder(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
-    pub unsafe fn BackgroundSync(&self, fbsa: FEEDS_BACKGROUNDSYNC_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundSync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fbsa)).ok()
+    pub unsafe fn BackgroundSync<'a, Param0: ::std::convert::Into<FEEDS_BACKGROUNDSYNC_ACTION>>(&self, fbsa: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BackgroundSync)(::windows::core::Interface::as_raw(self), fbsa.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSyncStatus(&self) -> ::windows::core::Result<FEEDS_BACKGROUNDSYNC_STATUS> {
@@ -17937,9 +16845,9 @@ impl IXFeedsManager {
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Normalize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstreamin: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
+    pub unsafe fn Normalize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstreamin: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Normalize)(::windows::core::Interface::as_raw(self), pstreamin.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).Normalize)(::windows::core::Interface::as_raw(self), pstreamin.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCountLimit(&self) -> ::windows::core::Result<u32> {
@@ -17952,19 +16860,14 @@ impl ::core::convert::From<IXFeedsManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXFeedsManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXFeedsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXFeedsManager> for ::windows::core::IUnknown {
     fn from(value: &IXFeedsManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXFeedsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXFeedsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXFeedsManager {
@@ -19159,21 +18062,15 @@ impl ::core::convert::From<_WMPOCXEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _WMPOCXEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _WMPOCXEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_WMPOCXEvents> for ::windows::core::IUnknown {
     fn from(value: &_WMPOCXEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _WMPOCXEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _WMPOCXEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19183,21 +18080,15 @@ impl ::core::convert::From<_WMPOCXEvents> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _WMPOCXEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _WMPOCXEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_WMPOCXEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_WMPOCXEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _WMPOCXEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _WMPOCXEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

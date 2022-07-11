@@ -3,8 +3,8 @@
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
     #[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
-    pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
+    pub unsafe fn Activate(&self, appusermodelid: ::windows::core::PCWSTR, invokedargs: ::windows::core::PCWSTR, data: &[NOTIFICATION_USER_INPUT_DATA]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(appusermodelid), ::core::mem::transmute(invokedargs), ::core::mem::transmute(::windows::core::as_ptr_or_null(data)), data.len() as _).ok()
     }
 }
 impl ::core::convert::From<INotificationActivationCallback> for ::windows::core::IUnknown {
@@ -12,19 +12,14 @@ impl ::core::convert::From<INotificationActivationCallback> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INotificationActivationCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INotificationActivationCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INotificationActivationCallback> for ::windows::core::IUnknown {
     fn from(value: &INotificationActivationCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INotificationActivationCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INotificationActivationCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INotificationActivationCallback {

@@ -23,7 +23,7 @@ fn add_remove() -> Result<()> {
 
     // Raise and observe event.
     assert_eq!(check.load(Ordering::Relaxed), 0);
-    event.call(|delegate| delegate.Invoke(None, 123))?;
+    event.call(|delegate| delegate.Invoke(None, &123))?;
     assert_eq!(check.load(Ordering::Relaxed), 123);
 
     // Remove event handler.
@@ -31,7 +31,7 @@ fn add_remove() -> Result<()> {
 
     // Raise event without effect.
     check.store(0, Ordering::Relaxed);
-    event.call(|delegate| delegate.Invoke(None, 123))?;
+    event.call(|delegate| delegate.Invoke(None, &123))?;
     assert_eq!(check.load(Ordering::Relaxed), 0);
 
     Ok(())

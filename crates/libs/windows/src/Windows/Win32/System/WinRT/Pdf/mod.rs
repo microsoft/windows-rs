@@ -4,13 +4,13 @@ pub struct IPdfRendererNative(::windows::core::IUnknown);
 impl IPdfRendererNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
-    pub unsafe fn RenderPageToSurface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::POINT>>(&self, pdfpage: Param0, psurface: Param1, offset: Param2, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenderPageToSurface)(::windows::core::Interface::as_raw(self), pdfpage.into_param().abi(), psurface.into_param().abi(), offset.into_param().abi(), ::core::mem::transmute(prenderparams)).ok()
+    pub unsafe fn RenderPageToSurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>>(&self, pdfpage: Param0, psurface: Param1, offset: super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RenderPageToSurface)(::windows::core::Interface::as_raw(self), pdfpage.into().abi(), psurface.into().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(prenderparams)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub unsafe fn RenderPageToDeviceContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct2D::ID2D1DeviceContext>>(&self, pdfpage: Param0, pd2ddevicecontext: Param1, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenderPageToDeviceContext)(::windows::core::Interface::as_raw(self), pdfpage.into_param().abi(), pd2ddevicecontext.into_param().abi(), ::core::mem::transmute(prenderparams)).ok()
+    pub unsafe fn RenderPageToDeviceContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct2D::ID2D1DeviceContext>>>(&self, pdfpage: Param0, pd2ddevicecontext: Param1, prenderparams: *const PDF_RENDER_PARAMS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RenderPageToDeviceContext)(::windows::core::Interface::as_raw(self), pdfpage.into().abi(), pd2ddevicecontext.into().abi(), ::core::mem::transmute(prenderparams)).ok()
     }
 }
 impl ::core::convert::From<IPdfRendererNative> for ::windows::core::IUnknown {
@@ -18,19 +18,14 @@ impl ::core::convert::From<IPdfRendererNative> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPdfRendererNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPdfRendererNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPdfRendererNative> for ::windows::core::IUnknown {
     fn from(value: &IPdfRendererNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPdfRendererNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPdfRendererNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPdfRendererNative {
@@ -114,13 +109,13 @@ pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system"
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn PdfCreateRenderer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(pdevice: Param0) -> ::windows::core::Result<IPdfRendererNative> {
+pub unsafe fn PdfCreateRenderer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>>(pdevice: Param0) -> ::windows::core::Result<IPdfRendererNative> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PdfCreateRenderer(pdevice: *mut ::core::ffi::c_void, pprenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    PdfCreateRenderer(pdevice.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPdfRendererNative>(result__)
+    PdfCreateRenderer(pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPdfRendererNative>(result__)
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

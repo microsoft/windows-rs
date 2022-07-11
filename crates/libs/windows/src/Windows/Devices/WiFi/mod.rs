@@ -235,44 +235,44 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailableNetworksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable>>>(&self, args: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailableNetworksChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<WiFiAdapter, ::windows::core::IInspectable>>>>(&self, args: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableNetworksChanged)(::windows::core::Interface::as_raw(this), args.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AvailableNetworksChanged)(::windows::core::Interface::as_raw(this), args.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAvailableNetworksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAvailableNetworksChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableNetworksChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableNetworksChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, Param0: ::windows::core::IntoParam<'a, WiFiAvailableNetwork>>(&self, availablenetwork: Param0, reconnectionkind: WiFiReconnectionKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>>(&self, availablenetwork: Param0, reconnectionkind: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into().abi(), reconnectionkind.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAsync<'a, Param0: ::windows::core::IntoParam<'a, WiFiAvailableNetwork>, Param2: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, availablenetwork: Param0, reconnectionkind: WiFiReconnectionKind, passwordcredential: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>>(&self, availablenetwork: Param0, reconnectionkind: Param1, passwordcredential: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into().abi(), reconnectionkind.into(), passwordcredential.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAndSsidAsync<'a, Param0: ::windows::core::IntoParam<'a, WiFiAvailableNetwork>, Param2: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, availablenetwork: Param0, reconnectionkind: WiFiReconnectionKind, passwordcredential: Param2, ssid: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAndSsidAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, availablenetwork: Param0, reconnectionkind: Param1, passwordcredential: Param2, ssid: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ssid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into().abi(), reconnectionkind.into(), passwordcredential.into().abi(), ssid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -282,20 +282,20 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetWpsConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, WiFiAvailableNetwork>>(&self, availablenetwork: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>> {
+    pub fn GetWpsConfigurationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>>(&self, availablenetwork: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>> {
         let this = &::windows::core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWpsConfigurationAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetWpsConfigurationAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
-    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<'a, Param0: ::windows::core::IntoParam<'a, WiFiAvailableNetwork>, Param2: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, availablenetwork: Param0, reconnectionkind: WiFiReconnectionKind, passwordcredential: Param2, ssid: Param3, connectionmethod: WiFiConnectionMethod) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
+    pub fn ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WiFiAvailableNetwork>>, Param1: ::std::convert::Into<WiFiReconnectionKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::PasswordCredential>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<WiFiConnectionMethod>>(&self, availablenetwork: Param0, reconnectionkind: Param1, passwordcredential: Param2, ssid: Param3, connectionmethod: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>> {
         let this = &::windows::core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ssid.into_param().abi(), connectionmethod, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into().abi(), reconnectionkind.into(), passwordcredential.into().abi(), ssid.into().abi(), connectionmethod.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation_Collections\"`*"]
@@ -315,10 +315,10 @@ impl WiFiAdapter {
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAdapter>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAdapter>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
@@ -375,14 +375,9 @@ impl ::core::convert::From<&WiFiAdapter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiAdapter> for &::windows::core::IUnknown {
+    fn from(value: &WiFiAdapter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WiFiAdapter> for ::windows::core::IInspectable {
@@ -395,14 +390,9 @@ impl ::core::convert::From<&WiFiAdapter> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiAdapter> for &::windows::core::IInspectable {
+    fn from(value: &WiFiAdapter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WiFiAdapter {}
@@ -543,14 +533,9 @@ impl ::core::convert::From<&WiFiAvailableNetwork> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiAvailableNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiAvailableNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiAvailableNetwork> for &::windows::core::IUnknown {
+    fn from(value: &WiFiAvailableNetwork) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WiFiAvailableNetwork> for ::windows::core::IInspectable {
@@ -563,14 +548,9 @@ impl ::core::convert::From<&WiFiAvailableNetwork> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiAvailableNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiAvailableNetwork {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiAvailableNetwork> for &::windows::core::IInspectable {
+    fn from(value: &WiFiAvailableNetwork) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
@@ -663,14 +643,9 @@ impl ::core::convert::From<&WiFiConnectionResult> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiConnectionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiConnectionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiConnectionResult> for &::windows::core::IUnknown {
+    fn from(value: &WiFiConnectionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WiFiConnectionResult> for ::windows::core::IInspectable {
@@ -683,14 +658,9 @@ impl ::core::convert::From<&WiFiConnectionResult> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiConnectionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiConnectionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiConnectionResult> for &::windows::core::IInspectable {
+    fn from(value: &WiFiConnectionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WiFiConnectionResult {}
@@ -832,14 +802,9 @@ impl ::core::convert::From<&WiFiNetworkReport> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiNetworkReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiNetworkReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiNetworkReport> for &::windows::core::IUnknown {
+    fn from(value: &WiFiNetworkReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WiFiNetworkReport> for ::windows::core::IInspectable {
@@ -852,14 +817,9 @@ impl ::core::convert::From<&WiFiNetworkReport> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiNetworkReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiNetworkReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiNetworkReport> for &::windows::core::IInspectable {
+    fn from(value: &WiFiNetworkReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WiFiNetworkReport {}
@@ -1003,14 +963,9 @@ impl ::core::convert::From<&WiFiWpsConfigurationResult> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WiFiWpsConfigurationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WiFiWpsConfigurationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiWpsConfigurationResult> for &::windows::core::IUnknown {
+    fn from(value: &WiFiWpsConfigurationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WiFiWpsConfigurationResult> for ::windows::core::IInspectable {
@@ -1023,14 +978,9 @@ impl ::core::convert::From<&WiFiWpsConfigurationResult> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WiFiWpsConfigurationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WiFiWpsConfigurationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WiFiWpsConfigurationResult> for &::windows::core::IInspectable {
+    fn from(value: &WiFiWpsConfigurationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}

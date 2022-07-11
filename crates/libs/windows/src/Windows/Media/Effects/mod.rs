@@ -4,18 +4,18 @@ pub struct AudioCaptureEffectsManager(::windows::core::IUnknown);
 impl AudioCaptureEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioCaptureEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioCaptureEffectsChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioCaptureEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAudioCaptureEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -67,14 +67,9 @@ impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioCaptureEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioCaptureEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IUnknown {
+    fn from(value: &AudioCaptureEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioCaptureEffectsManager> for ::windows::core::IInspectable {
@@ -87,14 +82,9 @@ impl ::core::convert::From<&AudioCaptureEffectsManager> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioCaptureEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioCaptureEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioCaptureEffectsManager> for &::windows::core::IInspectable {
+    fn from(value: &AudioCaptureEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AudioCaptureEffectsManager {}
@@ -152,14 +142,9 @@ impl ::core::convert::From<&AudioEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioEffect> for &::windows::core::IUnknown {
+    fn from(value: &AudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioEffect> for ::windows::core::IInspectable {
@@ -172,14 +157,9 @@ impl ::core::convert::From<&AudioEffect> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioEffect> for &::windows::core::IInspectable {
+    fn from(value: &AudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AudioEffect {}
@@ -206,18 +186,18 @@ impl AudioEffectDefinition {
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<AudioEffectDefinition> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<AudioEffectDefinition> {
+    pub fn CreateWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), props.into_param().abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<AudioEffectDefinition>(result__)
         })
     }
     #[doc(hidden)]
@@ -266,14 +246,9 @@ impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IUnknown {
+    fn from(value: &AudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioEffectDefinition> for ::windows::core::IInspectable {
@@ -286,14 +261,9 @@ impl ::core::convert::From<&AudioEffectDefinition> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioEffectDefinition> for &::windows::core::IInspectable {
+    fn from(value: &AudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AudioEffectDefinition> for IAudioEffectDefinition {
@@ -308,14 +278,11 @@ impl ::core::convert::TryFrom<&AudioEffectDefinition> for IAudioEffectDefinition
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAudioEffectDefinition> for AudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioEffectDefinition> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioEffectDefinition> for &AudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioEffectDefinition> {
-        ::core::convert::TryInto::<IAudioEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioEffectDefinition> for ::windows::core::InParam<'a, IAudioEffectDefinition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioEffectDefinition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AudioEffectDefinition {}
@@ -377,34 +344,34 @@ pub struct AudioEffectsManager;
 impl AudioEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Render::AudioRenderCategory) -> ::windows::core::Result<AudioRenderEffectsManager> {
+    pub fn CreateAudioRenderEffectsManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Render::AudioRenderCategory>>(deviceid: Param0, category: Param1) -> ::windows::core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), category, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManagerWithMode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioRenderEffectsManager> {
+    pub fn CreateAudioRenderEffectsManagerWithMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Render::AudioRenderCategory>, Param2: ::std::convert::Into<super::AudioProcessing>>(deviceid: Param0, category: Param1, mode: Param2) -> ::windows::core::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), category, mode, result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), mode.into(), result__.as_mut_ptr()).from_abi::<AudioRenderEffectsManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Capture::MediaCategory) -> ::windows::core::Result<AudioCaptureEffectsManager> {
+    pub fn CreateAudioCaptureEffectsManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Capture::MediaCategory>>(deviceid: Param0, category: Param1) -> ::windows::core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), category, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManagerWithMode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> ::windows::core::Result<AudioCaptureEffectsManager> {
+    pub fn CreateAudioCaptureEffectsManagerWithMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::Capture::MediaCategory>, Param2: ::std::convert::Into<super::AudioProcessing>>(deviceid: Param0, category: Param1, mode: Param2) -> ::windows::core::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), category, mode, result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
+            (::windows::core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), category.into(), mode.into(), result__.as_mut_ptr()).from_abi::<AudioCaptureEffectsManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -422,18 +389,18 @@ pub struct AudioRenderEffectsManager(::windows::core::IUnknown);
 impl AudioRenderEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioRenderEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioRenderEffectsChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioRenderEffectsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAudioRenderEffectsChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -509,14 +476,9 @@ impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioRenderEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioRenderEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IUnknown {
+    fn from(value: &AudioRenderEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioRenderEffectsManager> for ::windows::core::IInspectable {
@@ -529,14 +491,9 @@ impl ::core::convert::From<&AudioRenderEffectsManager> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioRenderEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioRenderEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioRenderEffectsManager> for &::windows::core::IInspectable {
+    fn from(value: &AudioRenderEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AudioRenderEffectsManager {}
@@ -572,11 +529,11 @@ impl CompositeVideoFrameContext {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_Editing\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    pub fn GetOverlayForSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(&self, surfacetooverlay: Param0) -> ::windows::core::Result<super::Editing::MediaOverlay> {
+    pub fn GetOverlayForSurface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, surfacetooverlay: Param0) -> ::windows::core::Result<super::Editing::MediaOverlay> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetOverlayForSurface)(::windows::core::Interface::as_raw(this), surfacetooverlay.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Editing::MediaOverlay>(result__)
+            (::windows::core::Interface::vtable(this).GetOverlayForSurface)(::windows::core::Interface::as_raw(this), surfacetooverlay.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Editing::MediaOverlay>(result__)
         }
     }
 }
@@ -620,14 +577,9 @@ impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompositeVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositeVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IUnknown {
+    fn from(value: &CompositeVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompositeVideoFrameContext> for ::windows::core::IInspectable {
@@ -640,14 +592,9 @@ impl ::core::convert::From<&CompositeVideoFrameContext> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CompositeVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositeVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositeVideoFrameContext> for &::windows::core::IInspectable {
+    fn from(value: &CompositeVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CompositeVideoFrameContext {}
@@ -716,19 +663,14 @@ impl ::core::convert::From<IAudioEffectDefinition> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioEffectDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioEffectDefinition> for ::windows::core::IUnknown {
     fn from(value: &IAudioEffectDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAudioEffectDefinition> for ::windows::core::IInspectable {
@@ -736,19 +678,14 @@ impl ::core::convert::From<IAudioEffectDefinition> for ::windows::core::IInspect
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioEffectDefinition> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAudioEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioEffectDefinition> for ::windows::core::IInspectable {
     fn from(value: &IAudioEffectDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioEffectDefinition {
@@ -907,19 +844,19 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetEncodingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::AudioEncodingProperties>>(&self, encodingproperties: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEncodingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::AudioEncodingProperties>>>(&self, encodingproperties: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), encodingproperties.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), encodingproperties.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn ProcessFrame<'a, Param0: ::windows::core::IntoParam<'a, ProcessAudioFrameContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProcessAudioFrameContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
+    pub fn Close<'a, Param0: ::std::convert::Into<MediaEffectClosedReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
@@ -928,13 +865,18 @@ impl IBasicAudioEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::convert::From<IBasicAudioEffect> for ::windows::core::IUnknown {
     fn from(value: IBasicAudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBasicAudioEffect> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBasicAudioEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -943,34 +885,19 @@ impl ::core::convert::From<&IBasicAudioEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBasicAudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBasicAudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBasicAudioEffect> for ::windows::core::IInspectable {
     fn from(value: IBasicAudioEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBasicAudioEffect> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBasicAudioEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBasicAudioEffect> for ::windows::core::IInspectable {
     fn from(value: &IBasicAudioEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBasicAudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBasicAudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBasicAudioEffect> for super::IMediaExtension {
@@ -985,14 +912,11 @@ impl ::core::convert::TryFrom<&IBasicAudioEffect> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for IBasicAudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaExtension> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for &IBasicAudioEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaExtension> {
-        ::core::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBasicAudioEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBasicAudioEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBasicAudioEffect {
@@ -1078,19 +1002,19 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::VideoEncodingProperties>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(&self, encodingproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
+    pub fn SetEncodingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, encodingproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), encodingproperties.into_param().abi(), device.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), encodingproperties.into().abi(), device.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn ProcessFrame<'a, Param0: ::windows::core::IntoParam<'a, ProcessVideoFrameContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
+    pub fn ProcessFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProcessVideoFrameContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ProcessFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
+    pub fn Close<'a, Param0: ::std::convert::Into<MediaEffectClosedReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
@@ -1099,13 +1023,18 @@ impl IBasicVideoEffect {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::convert::From<IBasicVideoEffect> for ::windows::core::IUnknown {
     fn from(value: IBasicVideoEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBasicVideoEffect> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBasicVideoEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1114,34 +1043,19 @@ impl ::core::convert::From<&IBasicVideoEffect> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBasicVideoEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBasicVideoEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBasicVideoEffect> for ::windows::core::IInspectable {
     fn from(value: IBasicVideoEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IBasicVideoEffect> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBasicVideoEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IBasicVideoEffect> for ::windows::core::IInspectable {
     fn from(value: &IBasicVideoEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBasicVideoEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBasicVideoEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IBasicVideoEffect> for super::IMediaExtension {
@@ -1156,14 +1070,11 @@ impl ::core::convert::TryFrom<&IBasicVideoEffect> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for IBasicVideoEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaExtension> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for &IBasicVideoEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaExtension> {
-        ::core::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IBasicVideoEffect> for ::windows::core::InParam<'a, super::IMediaExtension> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IBasicVideoEffect) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IBasicVideoEffect {
@@ -1290,19 +1201,19 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Graphics_DirectX_Direct3D11\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::VideoEncodingProperties>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>>(&self, backgroundproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
+    pub fn SetEncodingProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::VideoEncodingProperties>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, backgroundproperties: Param0, device: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), backgroundproperties.into_param().abi(), device.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncodingProperties)(::windows::core::Interface::as_raw(this), backgroundproperties.into().abi(), device.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn CompositeFrame<'a, Param0: ::windows::core::IntoParam<'a, CompositeVideoFrameContext>>(&self, context: Param0) -> ::windows::core::Result<()> {
+    pub fn CompositeFrame<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CompositeVideoFrameContext>>>(&self, context: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CompositeFrame)(::windows::core::Interface::as_raw(this), context.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CompositeFrame)(::windows::core::Interface::as_raw(this), context.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Close(&self, reason: MediaEffectClosedReason) -> ::windows::core::Result<()> {
+    pub fn Close<'a, Param0: ::std::convert::Into<MediaEffectClosedReason>>(&self, reason: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this), reason.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn DiscardQueuedFrames(&self) -> ::windows::core::Result<()> {
@@ -1311,13 +1222,18 @@ impl IVideoCompositor {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProperties<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, configuration: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IMediaExtension>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProperties)(::windows::core::Interface::as_raw(this), configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::convert::From<IVideoCompositor> for ::windows::core::IUnknown {
     fn from(value: IVideoCompositor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVideoCompositor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVideoCompositor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1326,34 +1242,19 @@ impl ::core::convert::From<&IVideoCompositor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoCompositor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoCompositor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVideoCompositor> for ::windows::core::IInspectable {
     fn from(value: IVideoCompositor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVideoCompositor> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVideoCompositor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IVideoCompositor> for ::windows::core::IInspectable {
     fn from(value: &IVideoCompositor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVideoCompositor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoCompositor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IVideoCompositor> for super::IMediaExtension {
@@ -1368,14 +1269,11 @@ impl ::core::convert::TryFrom<&IVideoCompositor> for super::IMediaExtension {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for IVideoCompositor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaExtension> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IMediaExtension> for &IVideoCompositor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IMediaExtension> {
-        ::core::convert::TryInto::<super::IMediaExtension>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IVideoCompositor> for ::windows::core::InParam<'a, super::IMediaExtension> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IVideoCompositor) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IVideoCompositor {
@@ -1445,19 +1343,14 @@ impl ::core::convert::From<IVideoCompositorDefinition> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVideoCompositorDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVideoCompositorDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVideoCompositorDefinition> for ::windows::core::IUnknown {
     fn from(value: &IVideoCompositorDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IVideoCompositorDefinition> for ::windows::core::IInspectable {
@@ -1465,19 +1358,14 @@ impl ::core::convert::From<IVideoCompositorDefinition> for ::windows::core::IIns
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVideoCompositorDefinition> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVideoCompositorDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVideoCompositorDefinition> for ::windows::core::IInspectable {
     fn from(value: &IVideoCompositorDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVideoCompositorDefinition {
@@ -1561,19 +1449,14 @@ impl ::core::convert::From<IVideoEffectDefinition> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVideoEffectDefinition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVideoEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVideoEffectDefinition> for ::windows::core::IUnknown {
     fn from(value: &IVideoEffectDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IVideoEffectDefinition> for ::windows::core::IInspectable {
@@ -1581,19 +1464,14 @@ impl ::core::convert::From<IVideoEffectDefinition> for ::windows::core::IInspect
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVideoEffectDefinition> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVideoEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVideoEffectDefinition> for ::windows::core::IInspectable {
     fn from(value: &IVideoEffectDefinition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVideoEffectDefinition {
@@ -1895,14 +1773,9 @@ impl ::core::convert::From<&ProcessAudioFrameContext> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessAudioFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessAudioFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessAudioFrameContext> for &::windows::core::IUnknown {
+    fn from(value: &ProcessAudioFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessAudioFrameContext> for ::windows::core::IInspectable {
@@ -1915,14 +1788,9 @@ impl ::core::convert::From<&ProcessAudioFrameContext> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessAudioFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessAudioFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessAudioFrameContext> for &::windows::core::IInspectable {
+    fn from(value: &ProcessAudioFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessAudioFrameContext {}
@@ -1988,14 +1856,9 @@ impl ::core::convert::From<&ProcessVideoFrameContext> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProcessVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProcessVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessVideoFrameContext> for &::windows::core::IUnknown {
+    fn from(value: &ProcessVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProcessVideoFrameContext> for ::windows::core::IInspectable {
@@ -2008,14 +1871,9 @@ impl ::core::convert::From<&ProcessVideoFrameContext> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProcessVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProcessVideoFrameContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProcessVideoFrameContext> for &::windows::core::IInspectable {
+    fn from(value: &ProcessVideoFrameContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProcessVideoFrameContext {}
@@ -2102,14 +1960,9 @@ impl ::core::convert::From<&SlowMotionEffectDefinition> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SlowMotionEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SlowMotionEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SlowMotionEffectDefinition> for &::windows::core::IUnknown {
+    fn from(value: &SlowMotionEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SlowMotionEffectDefinition> for ::windows::core::IInspectable {
@@ -2122,14 +1975,9 @@ impl ::core::convert::From<&SlowMotionEffectDefinition> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SlowMotionEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SlowMotionEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SlowMotionEffectDefinition> for &::windows::core::IInspectable {
+    fn from(value: &SlowMotionEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SlowMotionEffectDefinition> for IVideoEffectDefinition {
@@ -2144,14 +1992,11 @@ impl ::core::convert::TryFrom<&SlowMotionEffectDefinition> for IVideoEffectDefin
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for SlowMotionEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoEffectDefinition> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &SlowMotionEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoEffectDefinition> {
-        ::core::convert::TryInto::<IVideoEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SlowMotionEffectDefinition> for ::windows::core::InParam<'a, IVideoEffectDefinition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SlowMotionEffectDefinition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SlowMotionEffectDefinition {}
@@ -2178,18 +2023,18 @@ impl VideoCompositorDefinition {
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<VideoCompositorDefinition> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoCompositorDefinition> {
+    pub fn CreateWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), props.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoCompositorDefinition>(result__)
         })
     }
     #[doc(hidden)]
@@ -2238,14 +2083,9 @@ impl ::core::convert::From<&VideoCompositorDefinition> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoCompositorDefinition> for &::windows::core::IUnknown {
+    fn from(value: &VideoCompositorDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoCompositorDefinition> for ::windows::core::IInspectable {
@@ -2258,14 +2098,9 @@ impl ::core::convert::From<&VideoCompositorDefinition> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoCompositorDefinition> for &::windows::core::IInspectable {
+    fn from(value: &VideoCompositorDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VideoCompositorDefinition> for IVideoCompositorDefinition {
@@ -2280,14 +2115,11 @@ impl ::core::convert::TryFrom<&VideoCompositorDefinition> for IVideoCompositorDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVideoCompositorDefinition> for VideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoCompositorDefinition> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVideoCompositorDefinition> for &VideoCompositorDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoCompositorDefinition> {
-        ::core::convert::TryInto::<IVideoCompositorDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoCompositorDefinition> for ::windows::core::InParam<'a, IVideoCompositorDefinition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoCompositorDefinition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for VideoCompositorDefinition {}
@@ -2314,18 +2146,18 @@ impl VideoEffectDefinition {
         }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<VideoEffectDefinition> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(activatableclassid: Param0) -> ::windows::core::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoEffectDefinition> {
+    pub fn CreateWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(activatableclassid: Param0, props: Param1) -> ::windows::core::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), props.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithProperties)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), props.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoEffectDefinition>(result__)
         })
     }
     #[doc(hidden)]
@@ -2374,14 +2206,9 @@ impl ::core::convert::From<&VideoEffectDefinition> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoEffectDefinition> for &::windows::core::IUnknown {
+    fn from(value: &VideoEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoEffectDefinition> for ::windows::core::IInspectable {
@@ -2394,14 +2221,9 @@ impl ::core::convert::From<&VideoEffectDefinition> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoEffectDefinition> for &::windows::core::IInspectable {
+    fn from(value: &VideoEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VideoEffectDefinition> for IVideoEffectDefinition {
@@ -2416,14 +2238,11 @@ impl ::core::convert::TryFrom<&VideoEffectDefinition> for IVideoEffectDefinition
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for VideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoEffectDefinition> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoEffectDefinition> {
-        ::core::convert::TryInto::<IVideoEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoEffectDefinition> for ::windows::core::InParam<'a, IVideoEffectDefinition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoEffectDefinition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for VideoEffectDefinition {}
@@ -2467,9 +2286,9 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetPaddingColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPaddingColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPaddingColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPaddingColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2482,9 +2301,9 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOutputSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutputSize(&self, value: super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutputSize)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutputSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2497,9 +2316,9 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCropRectangle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCropRectangle(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCropRectangle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCropRectangle)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
@@ -2512,9 +2331,9 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetRotation(&self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()> {
+    pub fn SetRotation<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
@@ -2527,15 +2346,15 @@ impl VideoTransformEffectDefinition {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetMirror(&self, value: super::MediaProperties::MediaMirroringOptions) -> ::windows::core::Result<()> {
+    pub fn SetMirror<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaMirroringOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMirror)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMirror)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Transcoding\"`*"]
     #[cfg(feature = "Media_Transcoding")]
-    pub fn SetProcessingAlgorithm(&self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()> {
+    pub fn SetProcessingAlgorithm<'a, Param0: ::std::convert::Into<super::Transcoding::MediaVideoProcessingAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Transcoding\"`*"]
     #[cfg(feature = "Media_Transcoding")]
@@ -2595,14 +2414,9 @@ impl ::core::convert::From<&VideoTransformEffectDefinition> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoTransformEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoTransformEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoTransformEffectDefinition> for &::windows::core::IUnknown {
+    fn from(value: &VideoTransformEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoTransformEffectDefinition> for ::windows::core::IInspectable {
@@ -2615,14 +2429,9 @@ impl ::core::convert::From<&VideoTransformEffectDefinition> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoTransformEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoTransformEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoTransformEffectDefinition> for &::windows::core::IInspectable {
+    fn from(value: &VideoTransformEffectDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VideoTransformEffectDefinition> for IVideoEffectDefinition {
@@ -2637,14 +2446,11 @@ impl ::core::convert::TryFrom<&VideoTransformEffectDefinition> for IVideoEffectD
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for VideoTransformEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoEffectDefinition> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVideoEffectDefinition> for &VideoTransformEffectDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, IVideoEffectDefinition> {
-        ::core::convert::TryInto::<IVideoEffectDefinition>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoTransformEffectDefinition> for ::windows::core::InParam<'a, IVideoEffectDefinition> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoTransformEffectDefinition) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for VideoTransformEffectDefinition {}
@@ -2677,9 +2483,9 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()> {
+    pub fn SetFrameFormat<'a, Param0: ::std::convert::Into<super::MediaProperties::SphericalVideoFrameFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Playback\"`*"]
     #[cfg(feature = "Media_Playback")]
@@ -2692,9 +2498,9 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Playback\"`*"]
     #[cfg(feature = "Media_Playback")]
-    pub fn SetProjectionMode(&self, value: super::Playback::SphericalVideoProjectionMode) -> ::windows::core::Result<()> {
+    pub fn SetProjectionMode<'a, Param0: ::std::convert::Into<super::Playback::SphericalVideoProjectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Effects\"`*"]
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64> {
@@ -2720,9 +2526,9 @@ impl VideoTransformSphericalProjection {
     }
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetViewOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetViewOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewOrientation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for VideoTransformSphericalProjection {
@@ -2765,14 +2571,9 @@ impl ::core::convert::From<&VideoTransformSphericalProjection> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoTransformSphericalProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoTransformSphericalProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoTransformSphericalProjection> for &::windows::core::IUnknown {
+    fn from(value: &VideoTransformSphericalProjection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoTransformSphericalProjection> for ::windows::core::IInspectable {
@@ -2785,14 +2586,9 @@ impl ::core::convert::From<&VideoTransformSphericalProjection> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoTransformSphericalProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoTransformSphericalProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoTransformSphericalProjection> for &::windows::core::IInspectable {
+    fn from(value: &VideoTransformSphericalProjection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VideoTransformSphericalProjection {}

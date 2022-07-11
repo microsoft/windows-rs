@@ -36,8 +36,8 @@ impl IADesktopP2 {
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn MakeDynamicChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IOleObject>>(&self, poleobj: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeDynamicChanges)(::windows::core::Interface::as_raw(self), poleobj.into_param().abi()).ok()
+    pub unsafe fn MakeDynamicChanges<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IOleObject>>>(&self, poleobj: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).MakeDynamicChanges)(::windows::core::Interface::as_raw(self), poleobj.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IADesktopP2> for ::windows::core::IUnknown {
@@ -45,19 +45,14 @@ impl ::core::convert::From<IADesktopP2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IADesktopP2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IADesktopP2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IADesktopP2> for ::windows::core::IUnknown {
     fn from(value: &IADesktopP2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IADesktopP2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IADesktopP2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IADesktopP2 {
@@ -105,8 +100,8 @@ impl IActiveDesktopP {
         (::windows::core::Interface::vtable(self).EnsureUpdateHTML)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn SetScheme<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszschemename: Param0, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScheme)(::windows::core::Interface::as_raw(self), pwszschemename.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn SetScheme(&self, pwszschemename: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScheme)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszschemename), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetScheme(&self, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
@@ -118,19 +113,14 @@ impl ::core::convert::From<IActiveDesktopP> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActiveDesktopP> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IActiveDesktopP) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActiveDesktopP> for ::windows::core::IUnknown {
     fn from(value: &IActiveDesktopP) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActiveDesktopP {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActiveDesktopP {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IActiveDesktopP {
@@ -168,8 +158,8 @@ pub struct IBriefcaseInitiator(::windows::core::IUnknown);
 impl IBriefcaseInitiator {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsMonikerInBriefcase<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IMoniker>>(&self, pmk: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsMonikerInBriefcase)(::windows::core::Interface::as_raw(self), pmk.into_param().abi()).ok()
+    pub unsafe fn IsMonikerInBriefcase<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IMoniker>>>(&self, pmk: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsMonikerInBriefcase)(::windows::core::Interface::as_raw(self), pmk.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IBriefcaseInitiator> for ::windows::core::IUnknown {
@@ -177,19 +167,14 @@ impl ::core::convert::From<IBriefcaseInitiator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBriefcaseInitiator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBriefcaseInitiator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBriefcaseInitiator> for ::windows::core::IUnknown {
     fn from(value: &IBriefcaseInitiator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBriefcaseInitiator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBriefcaseInitiator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBriefcaseInitiator {
@@ -227,21 +212,21 @@ pub struct IEmptyVolumeCache(::windows::core::IUnknown);
 impl IEmptyVolumeCache {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::System::Registry::HKEY>>(&self, hkregkey: Param0, pcwszvolume: ::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into(), ::core::mem::transmute(pcwszvolume), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn GetSpaceUsed<'a, Param1: ::windows::core::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into_param().abi()).ok()
+    pub unsafe fn GetSpaceUsed<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn Purge<'a, Param1: ::windows::core::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacetofree), picb.into_param().abi()).ok()
+    pub unsafe fn Purge<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacetofree), picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    pub unsafe fn ShowProperties<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<u32> {
@@ -254,19 +239,14 @@ impl ::core::convert::From<IEmptyVolumeCache> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEmptyVolumeCache> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEmptyVolumeCache) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEmptyVolumeCache> for ::windows::core::IUnknown {
     fn from(value: &IEmptyVolumeCache) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEmptyVolumeCache {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEmptyVolumeCache {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEmptyVolumeCache {
@@ -311,21 +291,21 @@ pub struct IEmptyVolumeCache2(::windows::core::IUnknown);
 impl IEmptyVolumeCache2 {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<super::super::System::Registry::HKEY>>(&self, hkregkey: Param0, pcwszvolume: ::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), hkregkey.into(), ::core::mem::transmute(pcwszvolume), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn GetSpaceUsed<'a, Param1: ::windows::core::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into_param().abi()).ok()
+    pub unsafe fn GetSpaceUsed<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetSpaceUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwlspaceused), picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn Purge<'a, Param1: ::windows::core::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacetofree), picb.into_param().abi()).ok()
+    pub unsafe fn Purge<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IEmptyVolumeCacheCallBack>>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacetofree), picb.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ShowProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    pub unsafe fn ShowProperties<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ShowProperties)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<u32> {
@@ -334,12 +314,17 @@ impl IEmptyVolumeCache2 {
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn InitializeEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, pcwszkeyname: Param2, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, ppwszbtntext: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeEx)(::windows::core::Interface::as_raw(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), pcwszkeyname.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
+    pub unsafe fn InitializeEx<'a, Param0: ::std::convert::Into<super::super::System::Registry::HKEY>>(&self, hkregkey: Param0, pcwszvolume: ::windows::core::PCWSTR, pcwszkeyname: ::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, ppwszbtntext: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeEx)(::windows::core::Interface::as_raw(self), hkregkey.into(), ::core::mem::transmute(pcwszvolume), ::core::mem::transmute(pcwszkeyname), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
     }
 }
 impl ::core::convert::From<IEmptyVolumeCache2> for ::windows::core::IUnknown {
     fn from(value: IEmptyVolumeCache2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IEmptyVolumeCache2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEmptyVolumeCache2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -348,34 +333,19 @@ impl ::core::convert::From<&IEmptyVolumeCache2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEmptyVolumeCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEmptyVolumeCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IEmptyVolumeCache2> for IEmptyVolumeCache {
     fn from(value: IEmptyVolumeCache2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IEmptyVolumeCache2> for &'a IEmptyVolumeCache {
+    fn from(value: &'a IEmptyVolumeCache2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IEmptyVolumeCache2> for IEmptyVolumeCache {
     fn from(value: &IEmptyVolumeCache2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IEmptyVolumeCache> for IEmptyVolumeCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IEmptyVolumeCache> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IEmptyVolumeCache> for &'a IEmptyVolumeCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IEmptyVolumeCache> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEmptyVolumeCache2 {
@@ -412,12 +382,12 @@ pub struct IEmptyVolumeCache2_Vtbl {
 pub struct IEmptyVolumeCacheCallBack(::windows::core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn ScanProgress<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScanProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspaceused), ::core::mem::transmute(dwflags), pcwszstatus.into_param().abi()).ok()
+    pub unsafe fn ScanProgress(&self, dwlspaceused: u64, dwflags: u32, pcwszstatus: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ScanProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspaceused), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcwszstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn PurgeProgress<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PurgeProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacefreed), ::core::mem::transmute(dwlspacetofree), ::core::mem::transmute(dwflags), pcwszstatus.into_param().abi()).ok()
+    pub unsafe fn PurgeProgress(&self, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PurgeProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlspacefreed), ::core::mem::transmute(dwlspacetofree), ::core::mem::transmute(dwflags), ::core::mem::transmute(pcwszstatus)).ok()
     }
 }
 impl ::core::convert::From<IEmptyVolumeCacheCallBack> for ::windows::core::IUnknown {
@@ -425,19 +395,14 @@ impl ::core::convert::From<IEmptyVolumeCacheCallBack> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEmptyVolumeCacheCallBack> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEmptyVolumeCacheCallBack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEmptyVolumeCacheCallBack> for ::windows::core::IUnknown {
     fn from(value: &IEmptyVolumeCacheCallBack) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEmptyVolumeCacheCallBack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEmptyVolumeCacheCallBack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEmptyVolumeCacheCallBack {
@@ -473,8 +438,8 @@ pub struct IReconcilableObject(::windows::core::IUnknown);
 impl IReconcilableObject {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Reconcile<'a, Param0: ::windows::core::IntoParam<'a, IReconcileInitiator>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param7: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IStorage>>(&self, pinitiator: Param0, dwflags: u32, hwndowner: Param2, hwndprogressfeedback: Param3, rgpmkotherinput: &mut [::core::option::Option<super::super::System::Com::IMoniker>], ploutindex: *mut i32, pstgnewresidues: Param7, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reconcile)(::windows::core::Interface::as_raw(self), pinitiator.into_param().abi(), ::core::mem::transmute(dwflags), hwndowner.into_param().abi(), hwndprogressfeedback.into_param().abi(), rgpmkotherinput.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpmkotherinput)), ::core::mem::transmute(ploutindex), pstgnewresidues.into_param().abi(), ::core::mem::transmute(pvreserved)).ok()
+    pub unsafe fn Reconcile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IReconcileInitiator>>, Param2: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::HWND>, Param7: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IStorage>>>(&self, pinitiator: Param0, dwflags: u32, hwndowner: Param2, hwndprogressfeedback: Param3, rgpmkotherinput: &mut [::core::option::Option<super::super::System::Com::IMoniker>], ploutindex: *mut i32, pstgnewresidues: Param7, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reconcile)(::windows::core::Interface::as_raw(self), pinitiator.into().abi(), ::core::mem::transmute(dwflags), hwndowner.into(), hwndprogressfeedback.into(), rgpmkotherinput.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgpmkotherinput)), ::core::mem::transmute(ploutindex), pstgnewresidues.into().abi(), ::core::mem::transmute(pvreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn GetProgressFeedbackMaxEstimate(&self) -> ::windows::core::Result<u32> {
@@ -487,19 +452,14 @@ impl ::core::convert::From<IReconcilableObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReconcilableObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReconcilableObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReconcilableObject> for ::windows::core::IUnknown {
     fn from(value: &IReconcilableObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReconcilableObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReconcilableObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IReconcilableObject {
@@ -537,8 +497,8 @@ pub struct IReconcilableObject_Vtbl {
 pub struct IReconcileInitiator(::windows::core::IUnknown);
 impl IReconcileInitiator {
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
-    pub unsafe fn SetAbortCallback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkforabort: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAbortCallback)(::windows::core::Interface::as_raw(self), punkforabort.into_param().abi()).ok()
+    pub unsafe fn SetAbortCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, punkforabort: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAbortCallback)(::windows::core::Interface::as_raw(self), punkforabort.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
     pub unsafe fn SetProgressFeedback(&self, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::Result<()> {
@@ -550,19 +510,14 @@ impl ::core::convert::From<IReconcileInitiator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReconcileInitiator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReconcileInitiator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReconcileInitiator> for ::windows::core::IUnknown {
     fn from(value: &IReconcileInitiator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReconcileInitiator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReconcileInitiator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IReconcileInitiator {

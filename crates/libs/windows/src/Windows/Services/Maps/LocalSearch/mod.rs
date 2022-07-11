@@ -344,14 +344,9 @@ impl ::core::convert::From<&LocalLocation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocation> for &::windows::core::IUnknown {
+    fn from(value: &LocalLocation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LocalLocation> for ::windows::core::IInspectable {
@@ -364,14 +359,9 @@ impl ::core::convert::From<&LocalLocation> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LocalLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocation> for &::windows::core::IInspectable {
+    fn from(value: &LocalLocation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LocalLocation {}
@@ -381,10 +371,10 @@ pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocalLocationsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geocircle>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(searchterm: Param0, searcharea: Param1, localcategory: Param2, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
+    pub fn FindLocalLocationsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocircle>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(searchterm: Param0, searcharea: Param1, localcategory: Param2, maxresults: u32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>> {
         Self::ILocalLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocalLocationsAsync)(::windows::core::Interface::as_raw(this), searchterm.into_param().abi(), searcharea.into_param().abi(), localcategory.into_param().abi(), maxresults, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocalLocationsAsync)(::windows::core::Interface::as_raw(this), searchterm.into().abi(), searcharea.into().abi(), localcategory.into().abi(), maxresults, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -458,14 +448,9 @@ impl ::core::convert::From<&LocalLocationFinderResult> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocationFinderResult> for &::windows::core::IUnknown {
+    fn from(value: &LocalLocationFinderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LocalLocationFinderResult> for ::windows::core::IInspectable {
@@ -478,14 +463,9 @@ impl ::core::convert::From<&LocalLocationFinderResult> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LocalLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocationFinderResult> for &::windows::core::IInspectable {
+    fn from(value: &LocalLocationFinderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
@@ -602,14 +582,9 @@ impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLocationHoursOfOperationItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocationHoursOfOperationItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for &::windows::core::IUnknown {
+    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LocalLocationHoursOfOperationItem> for ::windows::core::IInspectable {
@@ -622,14 +597,9 @@ impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LocalLocationHoursOfOperationItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocationHoursOfOperationItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocationHoursOfOperationItem> for &::windows::core::IInspectable {
+    fn from(value: &LocalLocationHoursOfOperationItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LocalLocationHoursOfOperationItem {}
@@ -705,14 +675,9 @@ impl ::core::convert::From<&LocalLocationRatingInfo> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LocalLocationRatingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LocalLocationRatingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocationRatingInfo> for &::windows::core::IUnknown {
+    fn from(value: &LocalLocationRatingInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LocalLocationRatingInfo> for ::windows::core::IInspectable {
@@ -725,14 +690,9 @@ impl ::core::convert::From<&LocalLocationRatingInfo> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LocalLocationRatingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LocalLocationRatingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LocalLocationRatingInfo> for &::windows::core::IInspectable {
+    fn from(value: &LocalLocationRatingInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
@@ -741,10 +701,10 @@ unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
     #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
-    pub fn CreateFromLocalLocation<'a, Param0: ::windows::core::IntoParam<'a, LocalLocation>>(location: Param0) -> ::windows::core::Result<super::PlaceInfo> {
+    pub fn CreateFromLocalLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LocalLocation>>>(location: Param0) -> ::windows::core::Result<super::PlaceInfo> {
         Self::IPlaceInfoHelperStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocalLocation)(::windows::core::Interface::as_raw(this), location.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocalLocation)(::windows::core::Interface::as_raw(this), location.into().abi(), result__.as_mut_ptr()).from_abi::<super::PlaceInfo>(result__)
         })
     }
     #[doc(hidden)]

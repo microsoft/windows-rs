@@ -31,7 +31,7 @@ fn originate() {
 fn bad_uri() {
     assert!(helpers::set_thread_ui_language("en-US"));
 
-    let result = Uri::CreateUri("INVALID");
+    let result = Uri::CreateUri(&windows::core::HSTRING::from("INVALID"));
     let error: windows::core::Error = result.unwrap_err();
 
     assert_eq!(error.code(), windows::core::HRESULT(-2147024809));

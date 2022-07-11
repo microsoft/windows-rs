@@ -3,24 +3,24 @@
 pub struct CompositionDebugHeatMaps(::windows::core::IUnknown);
 impl CompositionDebugHeatMaps {
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn Hide<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
+    pub fn Hide<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this), subtree.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Hide)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowMemoryUsage<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
+    pub fn ShowMemoryUsage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::windows::core::Interface::as_raw(this), subtree.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowMemoryUsage)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowOverdraw<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0, contentkinds: CompositionDebugOverdrawContentKinds) -> ::windows::core::Result<()> {
+    pub fn ShowOverdraw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>, Param1: ::std::convert::Into<CompositionDebugOverdrawContentKinds>>(&self, subtree: Param0, contentkinds: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into_param().abi(), contentkinds).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowOverdraw)(::windows::core::Interface::as_raw(this), subtree.into().abi(), contentkinds.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn ShowRedraw<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
+    pub fn ShowRedraw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(&self, subtree: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowRedraw)(::windows::core::Interface::as_raw(this), subtree.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowRedraw)(::windows::core::Interface::as_raw(this), subtree.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for CompositionDebugHeatMaps {
@@ -63,14 +63,9 @@ impl ::core::convert::From<&CompositionDebugHeatMaps> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompositionDebugHeatMaps {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositionDebugHeatMaps {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionDebugHeatMaps> for &::windows::core::IUnknown {
+    fn from(value: &CompositionDebugHeatMaps) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompositionDebugHeatMaps> for ::windows::core::IInspectable {
@@ -83,14 +78,9 @@ impl ::core::convert::From<&CompositionDebugHeatMaps> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CompositionDebugHeatMaps {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositionDebugHeatMaps {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionDebugHeatMaps> for &::windows::core::IInspectable {
+    fn from(value: &CompositionDebugHeatMaps) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
@@ -177,10 +167,10 @@ impl CompositionDebugSettings {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
-    pub fn TryGetSettings<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<CompositionDebugSettings> {
+    pub fn TryGetSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<CompositionDebugSettings> {
         Self::ICompositionDebugSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetSettings)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionDebugSettings>(result__)
+            (::windows::core::Interface::vtable(this).TryGetSettings)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<CompositionDebugSettings>(result__)
         })
     }
     #[doc(hidden)]
@@ -229,14 +219,9 @@ impl ::core::convert::From<&CompositionDebugSettings> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompositionDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositionDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionDebugSettings> for &::windows::core::IUnknown {
+    fn from(value: &CompositionDebugSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompositionDebugSettings> for ::windows::core::IInspectable {
@@ -249,14 +234,9 @@ impl ::core::convert::From<&CompositionDebugSettings> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CompositionDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositionDebugSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionDebugSettings> for &::windows::core::IInspectable {
+    fn from(value: &CompositionDebugSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CompositionDebugSettings {}

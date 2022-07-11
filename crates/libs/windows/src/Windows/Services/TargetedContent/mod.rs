@@ -386,14 +386,9 @@ impl ::core::convert::From<&TargetedContentAction> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentAction> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentAction> for ::windows::core::IInspectable {
@@ -406,14 +401,9 @@ impl ::core::convert::From<&TargetedContentAction> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentAction> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentAction {}
@@ -542,14 +532,9 @@ impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
@@ -562,14 +547,9 @@ impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentAvailabilityChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentAvailabilityChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentAvailabilityChangedEventArgs {}
@@ -636,14 +616,9 @@ impl ::core::convert::From<&TargetedContentChangedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentChangedEventArgs> for ::windows::core::IInspectable {
@@ -656,14 +631,9 @@ impl ::core::convert::From<&TargetedContentChangedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentChangedEventArgs {}
@@ -681,14 +651,14 @@ impl TargetedContentCollection {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
+    pub fn ReportInteraction<'a, Param0: ::std::convert::Into<TargetedContentInteraction>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportCustomInteraction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCustomInteraction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -766,14 +736,9 @@ impl ::core::convert::From<&TargetedContentCollection> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentCollection> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentCollection> for ::windows::core::IInspectable {
@@ -786,14 +751,9 @@ impl ::core::convert::From<&TargetedContentCollection> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentCollection> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentCollection {}
@@ -836,19 +796,19 @@ impl TargetedContentContainer {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn SelectSingleObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, path: Param0) -> ::windows::core::Result<TargetedContentObject> {
+    pub fn SelectSingleObject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, path: Param0) -> ::windows::core::Result<TargetedContentObject> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleObject)(::windows::core::Interface::as_raw(this), path.into_param().abi(), result__.as_mut_ptr()).from_abi::<TargetedContentObject>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleObject)(::windows::core::Interface::as_raw(this), path.into().abi(), result__.as_mut_ptr()).from_abi::<TargetedContentObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
+    pub fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(contentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         Self::ITargetedContentContainerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), contentid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), contentid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -897,14 +857,9 @@ impl ::core::convert::From<&TargetedContentContainer> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentContainer> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentContainer> for ::windows::core::IInspectable {
@@ -917,14 +872,9 @@ impl ::core::convert::From<&TargetedContentContainer> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentContainer> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentContainer {}
@@ -995,15 +945,9 @@ impl ::core::convert::From<&TargetedContentFile> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentFile> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentFile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -1019,15 +963,9 @@ impl ::core::convert::From<&TargetedContentFile> for ::windows::core::IInspectab
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentFile> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentFile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -1045,15 +983,11 @@ impl ::core::convert::TryFrom<&TargetedContentFile> for super::super::Storage::S
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for TargetedContentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for &TargetedContentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TargetedContentFile> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TargetedContentFile) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -1130,14 +1064,9 @@ impl ::core::convert::From<&TargetedContentImage> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentImage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentImage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentImage> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentImage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentImage> for ::windows::core::IInspectable {
@@ -1150,14 +1079,9 @@ impl ::core::convert::From<&TargetedContentImage> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentImage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentImage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentImage> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentImage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -1175,15 +1099,11 @@ impl ::core::convert::TryFrom<&TargetedContentImage> for super::super::Storage::
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for TargetedContentImage {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for &TargetedContentImage {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TargetedContentImage> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TargetedContentImage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentImage {}
@@ -1246,14 +1166,14 @@ impl TargetedContentItem {
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
+    pub fn ReportInteraction<'a, Param0: ::std::convert::Into<TargetedContentInteraction>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn ReportCustomInteraction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCustomInteraction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn State(&self) -> ::windows::core::Result<TargetedContentItemState> {
@@ -1322,14 +1242,9 @@ impl ::core::convert::From<&TargetedContentItem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentItem> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentItem> for ::windows::core::IInspectable {
@@ -1342,14 +1257,9 @@ impl ::core::convert::From<&TargetedContentItem> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentItem> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentItem {}
@@ -1415,14 +1325,9 @@ impl ::core::convert::From<&TargetedContentItemState> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentItemState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentItemState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentItemState> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentItemState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentItemState> for ::windows::core::IInspectable {
@@ -1435,14 +1340,9 @@ impl ::core::convert::From<&TargetedContentItemState> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentItemState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentItemState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentItemState> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentItemState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentItemState {}
@@ -1524,14 +1424,9 @@ impl ::core::convert::From<&TargetedContentObject> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentObject> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentObject> for ::windows::core::IInspectable {
@@ -1544,14 +1439,9 @@ impl ::core::convert::From<&TargetedContentObject> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentObject> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentObject {}
@@ -1645,14 +1535,9 @@ impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentStateChangedEventArgs> for ::windows::core::IInspectable {
@@ -1665,14 +1550,9 @@ impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentStateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentStateChangedEventArgs {}
@@ -1700,62 +1580,62 @@ impl TargetedContentSubscription {
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ContentChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ContentChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ContentChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveContentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveContentChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailabilityChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAvailabilityChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStateChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subscriptionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
+    pub fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(subscriptionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), subscriptionid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), subscriptionid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
-    pub fn GetOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subscriptionid: Param0) -> ::windows::core::Result<TargetedContentSubscriptionOptions> {
+    pub fn GetOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(subscriptionid: Param0) -> ::windows::core::Result<TargetedContentSubscriptionOptions> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetOptions)(::windows::core::Interface::as_raw(this), subscriptionid.into_param().abi(), result__.as_mut_ptr()).from_abi::<TargetedContentSubscriptionOptions>(result__)
+            (::windows::core::Interface::vtable(this).GetOptions)(::windows::core::Interface::as_raw(this), subscriptionid.into().abi(), result__.as_mut_ptr()).from_abi::<TargetedContentSubscriptionOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -1804,14 +1684,9 @@ impl ::core::convert::From<&TargetedContentSubscription> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentSubscription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentSubscription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentSubscription> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentSubscription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentSubscription> for ::windows::core::IInspectable {
@@ -1824,14 +1699,9 @@ impl ::core::convert::From<&TargetedContentSubscription> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentSubscription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentSubscription {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentSubscription> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentSubscription) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentSubscription {}
@@ -1925,14 +1795,9 @@ impl ::core::convert::From<&TargetedContentSubscriptionOptions> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentSubscriptionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentSubscriptionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentSubscriptionOptions> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentSubscriptionOptions> for ::windows::core::IInspectable {
@@ -1945,14 +1810,9 @@ impl ::core::convert::From<&TargetedContentSubscriptionOptions> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentSubscriptionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentSubscriptionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentSubscriptionOptions> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentSubscriptionOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentSubscriptionOptions {}
@@ -2139,14 +1999,9 @@ impl ::core::convert::From<&TargetedContentValue> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TargetedContentValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TargetedContentValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentValue> for &::windows::core::IUnknown {
+    fn from(value: &TargetedContentValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TargetedContentValue> for ::windows::core::IInspectable {
@@ -2159,14 +2014,9 @@ impl ::core::convert::From<&TargetedContentValue> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TargetedContentValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TargetedContentValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TargetedContentValue> for &::windows::core::IInspectable {
+    fn from(value: &TargetedContentValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TargetedContentValue {}

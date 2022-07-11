@@ -100,8 +100,8 @@ unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
 pub struct CachedFileUpdater;
 impl CachedFileUpdater {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetUpdateInformation<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(file: Param0, contentid: Param1, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()> {
-        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.into_param().abi(), contentid.into_param().abi(), readmode, writemode, options).ok() })
+    pub fn SetUpdateInformation<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<ReadActivationMode>, Param3: ::std::convert::Into<WriteActivationMode>, Param4: ::std::convert::Into<CachedFileOptions>>(file: Param0, contentid: Param1, readmode: Param2, writemode: Param3, options: Param4) -> ::windows::core::Result<()> {
+        Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetUpdateInformation)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), contentid.into().abi(), readmode.into(), writemode.into(), options.into()).ok() })
     }
     #[doc(hidden)]
     pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -125,9 +125,9 @@ impl CachedFileUpdaterUI {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTitle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget> {
@@ -139,33 +139,33 @@ impl CachedFileUpdaterUI {
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FileUpdateRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn FileUpdateRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).FileUpdateRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FileUpdateRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveFileUpdateRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveFileUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFileUpdateRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFileUpdateRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UIRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn UIRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).UIRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UIRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveUIRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveUIRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUIRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUIRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn UIStatus(&self) -> ::windows::core::Result<UIStatus> {
@@ -232,14 +232,9 @@ impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CachedFileUpdaterUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CachedFileUpdaterUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CachedFileUpdaterUI> for ::windows::core::IInspectable {
@@ -252,14 +247,9 @@ impl ::core::convert::From<&CachedFileUpdaterUI> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CachedFileUpdaterUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CachedFileUpdaterUI {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterUI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -291,9 +281,9 @@ impl FileUpdateRequest {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus<'a, Param0: ::std::convert::Into<FileUpdateStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
@@ -304,9 +294,9 @@ impl FileUpdateRequest {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn UpdateLocalFile<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn UpdateLocalFile<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateLocalFile)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateLocalFile)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -317,9 +307,9 @@ impl FileUpdateRequest {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetUserInputNeededMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUserInputNeededMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserInputNeededMessage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserInputNeededMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FileUpdateRequest {
@@ -362,14 +352,9 @@ impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileUpdateRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileUpdateRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileUpdateRequest> for ::windows::core::IInspectable {
@@ -382,14 +367,9 @@ impl ::core::convert::From<&FileUpdateRequest> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileUpdateRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileUpdateRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -442,14 +422,9 @@ impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileUpdateRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileUpdateRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileUpdateRequestDeferral> for ::windows::core::IInspectable {
@@ -462,14 +437,9 @@ impl ::core::convert::From<&FileUpdateRequestDeferral> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileUpdateRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileUpdateRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -525,14 +495,9 @@ impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileUpdateRequestedEventArgs> for ::windows::core::IInspectable {
@@ -545,14 +510,9 @@ impl ::core::convert::From<&FileUpdateRequestedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileUpdateRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileUpdateRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
@@ -845,11 +805,11 @@ pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
 pub struct IStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl IStorageProviderHandlerFactory {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn GetStatusSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, syncrootid: Param0) -> ::windows::core::Result<IStorageProviderStatusSource> {
+    pub fn GetStatusSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, syncrootid: Param0) -> ::windows::core::Result<IStorageProviderStatusSource> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatusSource)(::windows::core::Interface::as_raw(this), syncrootid.into_param().abi(), result__.as_mut_ptr()).from_abi::<IStorageProviderStatusSource>(result__)
+            (::windows::core::Interface::vtable(this).GetStatusSource)(::windows::core::Interface::as_raw(this), syncrootid.into().abi(), result__.as_mut_ptr()).from_abi::<IStorageProviderStatusSource>(result__)
         }
     }
 }
@@ -858,19 +818,14 @@ impl ::core::convert::From<IStorageProviderHandlerFactory> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageProviderHandlerFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageProviderHandlerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageProviderHandlerFactory> for ::windows::core::IUnknown {
     fn from(value: &IStorageProviderHandlerFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IStorageProviderHandlerFactory> for ::windows::core::IInspectable {
@@ -878,19 +833,14 @@ impl ::core::convert::From<IStorageProviderHandlerFactory> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageProviderHandlerFactory> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStorageProviderHandlerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageProviderHandlerFactory> for ::windows::core::IInspectable {
     fn from(value: &IStorageProviderHandlerFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageProviderHandlerFactory {
@@ -982,11 +932,11 @@ pub struct IStorageProviderItemPropertySource(::windows::core::IUnknown);
 impl IStorageProviderItemPropertySource {
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetItemProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, itempath: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
+    pub fn GetItemProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, itempath: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetItemProperties)(::windows::core::Interface::as_raw(this), itempath.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>(result__)
+            (::windows::core::Interface::vtable(this).GetItemProperties)(::windows::core::Interface::as_raw(this), itempath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>(result__)
         }
     }
 }
@@ -995,19 +945,14 @@ impl ::core::convert::From<IStorageProviderItemPropertySource> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageProviderItemPropertySource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageProviderItemPropertySource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageProviderItemPropertySource> for ::windows::core::IUnknown {
     fn from(value: &IStorageProviderItemPropertySource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageProviderItemPropertySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderItemPropertySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IStorageProviderItemPropertySource> for ::windows::core::IInspectable {
@@ -1015,19 +960,14 @@ impl ::core::convert::From<IStorageProviderItemPropertySource> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageProviderItemPropertySource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStorageProviderItemPropertySource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageProviderItemPropertySource> for ::windows::core::IInspectable {
     fn from(value: &IStorageProviderItemPropertySource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageProviderItemPropertySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderItemPropertySource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageProviderItemPropertySource {
@@ -1071,11 +1011,11 @@ pub struct IStorageProviderItemPropertySource_Vtbl {
 pub struct IStorageProviderPropertyCapabilities(::windows::core::IUnknown);
 impl IStorageProviderPropertyCapabilities {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn IsPropertySupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertycanonicalname: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsPropertySupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertycanonicalname: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsPropertySupported)(::windows::core::Interface::as_raw(this), propertycanonicalname.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPropertySupported)(::windows::core::Interface::as_raw(this), propertycanonicalname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1084,19 +1024,14 @@ impl ::core::convert::From<IStorageProviderPropertyCapabilities> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageProviderPropertyCapabilities> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageProviderPropertyCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageProviderPropertyCapabilities> for ::windows::core::IUnknown {
     fn from(value: &IStorageProviderPropertyCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageProviderPropertyCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderPropertyCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IStorageProviderPropertyCapabilities> for ::windows::core::IInspectable {
@@ -1104,19 +1039,14 @@ impl ::core::convert::From<IStorageProviderPropertyCapabilities> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStorageProviderPropertyCapabilities> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStorageProviderPropertyCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStorageProviderPropertyCapabilities> for ::windows::core::IInspectable {
     fn from(value: &IStorageProviderPropertyCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageProviderPropertyCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderPropertyCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageProviderPropertyCapabilities {
@@ -1201,22 +1131,27 @@ impl IStorageProviderStatusSource {
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Changed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::convert::From<IStorageProviderStatusSource> for ::windows::core::IUnknown {
     fn from(value: IStorageProviderStatusSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IStorageProviderStatusSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageProviderStatusSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1225,34 +1160,19 @@ impl ::core::convert::From<&IStorageProviderStatusSource> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageProviderStatusSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderStatusSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IStorageProviderStatusSource> for ::windows::core::IInspectable {
     fn from(value: IStorageProviderStatusSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IStorageProviderStatusSource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStorageProviderStatusSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IStorageProviderStatusSource> for ::windows::core::IInspectable {
     fn from(value: &IStorageProviderStatusSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageProviderStatusSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderStatusSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageProviderStatusSource {
@@ -1422,18 +1342,23 @@ pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
 pub struct IStorageProviderUriSource(::windows::core::IUnknown);
 impl IStorageProviderUriSource {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn GetPathForContentUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, StorageProviderGetPathForContentUriResult>>(&self, contenturi: Param0, result: Param1) -> ::windows::core::Result<()> {
+    pub fn GetPathForContentUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetPathForContentUriResult>>>(&self, contenturi: Param0, result: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetPathForContentUri)(::windows::core::Interface::as_raw(this), contenturi.into_param().abi(), result.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetPathForContentUri)(::windows::core::Interface::as_raw(this), contenturi.into().abi(), result.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn GetContentInfoForPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, StorageProviderGetContentInfoForPathResult>>(&self, path: Param0, result: Param1) -> ::windows::core::Result<()> {
+    pub fn GetContentInfoForPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderGetContentInfoForPathResult>>>(&self, path: Param0, result: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetContentInfoForPath)(::windows::core::Interface::as_raw(this), path.into_param().abi(), result.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetContentInfoForPath)(::windows::core::Interface::as_raw(this), path.into().abi(), result.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IStorageProviderUriSource> for ::windows::core::IUnknown {
     fn from(value: IStorageProviderUriSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IStorageProviderUriSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageProviderUriSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1442,34 +1367,19 @@ impl ::core::convert::From<&IStorageProviderUriSource> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageProviderUriSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStorageProviderUriSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IStorageProviderUriSource> for ::windows::core::IInspectable {
     fn from(value: IStorageProviderUriSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IStorageProviderUriSource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStorageProviderUriSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IStorageProviderUriSource> for ::windows::core::IInspectable {
     fn from(value: &IStorageProviderUriSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageProviderUriSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IStorageProviderUriSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStorageProviderUriSource {
@@ -1577,9 +1487,9 @@ impl StorageProviderError {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetFilePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFilePath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFilePath)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFilePath)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn PrimaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
@@ -1590,9 +1500,9 @@ impl StorageProviderError {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetPrimaryAction<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrimaryAction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderErrorCommand>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryAction)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryAction)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn SecondaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
@@ -1603,9 +1513,9 @@ impl StorageProviderError {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetSecondaryAction<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSecondaryAction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderErrorCommand>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSecondaryAction)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSecondaryAction)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn InformationalLink(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
@@ -1616,15 +1526,15 @@ impl StorageProviderError {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetInformationalLink<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInformationalLink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderErrorCommand>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInformationalLink)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInformationalLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0, title: Param1, message: Param2) -> ::windows::core::Result<StorageProviderError> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0, title: Param1, message: Param2) -> ::windows::core::Result<StorageProviderError> {
         Self::IStorageProviderErrorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), id.into_param().abi(), title.into_param().abi(), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderError>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), id.into().abi(), title.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderError>(result__)
         })
     }
     #[doc(hidden)]
@@ -1673,14 +1583,9 @@ impl ::core::convert::From<&StorageProviderError> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderError> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderError> for ::windows::core::IInspectable {
@@ -1693,14 +1598,9 @@ impl ::core::convert::From<&StorageProviderError> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderError> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderError {}
@@ -1728,10 +1628,10 @@ impl StorageProviderErrorCommand {
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(label: Param0, actionuri: Param1) -> ::windows::core::Result<StorageProviderErrorCommand> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(label: Param0, actionuri: Param1) -> ::windows::core::Result<StorageProviderErrorCommand> {
         Self::IStorageProviderErrorCommandFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), label.into_param().abi(), actionuri.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), label.into().abi(), actionuri.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderErrorCommand>(result__)
         })
     }
     #[doc(hidden)]
@@ -1780,14 +1680,9 @@ impl ::core::convert::From<&StorageProviderErrorCommand> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderErrorCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderErrorCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderErrorCommand> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderErrorCommand) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderErrorCommand> for ::windows::core::IInspectable {
@@ -1800,14 +1695,9 @@ impl ::core::convert::From<&StorageProviderErrorCommand> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderErrorCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderErrorCommand {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderErrorCommand> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderErrorCommand) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderErrorCommand {}
@@ -1833,10 +1723,10 @@ impl StorageProviderFileTypeInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fileextension: Param0, iconresource: Param1) -> ::windows::core::Result<StorageProviderFileTypeInfo> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(fileextension: Param0, iconresource: Param1) -> ::windows::core::Result<StorageProviderFileTypeInfo> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), fileextension.into_param().abi(), iconresource.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderFileTypeInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), fileextension.into().abi(), iconresource.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderFileTypeInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -1885,14 +1775,9 @@ impl ::core::convert::From<&StorageProviderFileTypeInfo> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderFileTypeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderFileTypeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderFileTypeInfo> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderFileTypeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderFileTypeInfo> for ::windows::core::IInspectable {
@@ -1905,14 +1790,9 @@ impl ::core::convert::From<&StorageProviderFileTypeInfo> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderFileTypeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderFileTypeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderFileTypeInfo> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderFileTypeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
@@ -1937,9 +1817,9 @@ impl StorageProviderGetContentInfoForPathResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus<'a, Param0: ::std::convert::Into<StorageProviderUriSourceStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ContentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1950,9 +1830,9 @@ impl StorageProviderGetContentInfoForPathResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetContentUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1963,9 +1843,9 @@ impl StorageProviderGetContentInfoForPathResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetContentId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for StorageProviderGetContentInfoForPathResult {
@@ -2008,14 +1888,9 @@ impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderGetContentInfoForPathResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderGetContentInfoForPathResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderGetContentInfoForPathResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderGetContentInfoForPathResult> for ::windows::core::IInspectable {
@@ -2028,14 +1903,9 @@ impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderGetContentInfoForPathResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderGetContentInfoForPathResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderGetContentInfoForPathResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
@@ -2060,9 +1930,9 @@ impl StorageProviderGetPathForContentUriResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus<'a, Param0: ::std::convert::Into<StorageProviderUriSourceStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2073,9 +1943,9 @@ impl StorageProviderGetPathForContentUriResult {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for StorageProviderGetPathForContentUriResult {
@@ -2118,14 +1988,9 @@ impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderGetPathForContentUriResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderGetPathForContentUriResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderGetPathForContentUriResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderGetPathForContentUriResult> for ::windows::core::IInspectable {
@@ -2138,14 +2003,9 @@ impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderGetPathForContentUriResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderGetPathForContentUriResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderGetPathForContentUriResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
@@ -2390,10 +2250,10 @@ pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>>(item: Param0, itemproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageItem>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(item: Param0, itemproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAsync)(::windows::core::Interface::as_raw(this), item.into_param().abi(), itemproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetAsync)(::windows::core::Interface::as_raw(this), item.try_into().map_err(|e| e.into())?.abi(), itemproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -2430,9 +2290,9 @@ impl StorageProviderItemProperty {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2443,9 +2303,9 @@ impl StorageProviderItemProperty {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetIconResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIconResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2496,14 +2356,9 @@ impl ::core::convert::From<&StorageProviderItemProperty> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderItemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderItemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderItemProperty> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderItemProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderItemProperty> for ::windows::core::IInspectable {
@@ -2516,14 +2371,9 @@ impl ::core::convert::From<&StorageProviderItemProperty> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderItemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderItemProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderItemProperty> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderItemProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
@@ -2561,9 +2411,9 @@ impl StorageProviderItemPropertyDefinition {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetDisplayNameResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayNameResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for StorageProviderItemPropertyDefinition {
@@ -2606,14 +2456,9 @@ impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderItemPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderItemPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderItemPropertyDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderItemPropertyDefinition> for ::windows::core::IInspectable {
@@ -2626,14 +2471,9 @@ impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderItemPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderItemPropertyDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderItemPropertyDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
@@ -2774,18 +2614,18 @@ impl StorageProviderStatus {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn CreateInstance<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(state: StorageProviderState, message: Param1) -> ::windows::core::Result<StorageProviderStatus> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<StorageProviderState>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(state: Param0, message: Param1) -> ::windows::core::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state, message.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state.into(), message.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>>(state: StorageProviderState, message: Param1, errormessages: Param2) -> ::windows::core::Result<StorageProviderStatus> {
+    pub fn CreateInstance2<'a, Param0: ::std::convert::Into<StorageProviderState>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(state: Param0, message: Param1, errormessages: Param2) -> ::windows::core::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance2)(::windows::core::Interface::as_raw(this), state, message.into_param().abi(), errormessages.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance2)(::windows::core::Interface::as_raw(this), state.into(), message.into().abi(), errormessages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
     #[doc(hidden)]
@@ -2834,14 +2674,9 @@ impl ::core::convert::From<&StorageProviderStatus> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderStatus> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderStatus> for ::windows::core::IInspectable {
@@ -2854,14 +2689,9 @@ impl ::core::convert::From<&StorageProviderStatus> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderStatus> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderStatus {}
@@ -2886,9 +2716,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -2901,9 +2731,9 @@ impl StorageProviderSyncRootInfo {
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContext<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContext)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContext)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<super::IStorageFolder> {
@@ -2914,9 +2744,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFolder>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPath<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2927,9 +2757,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetDisplayNameResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayNameResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayNameResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2940,9 +2770,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetIconResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIconResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIconResource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn HydrationPolicy(&self) -> ::windows::core::Result<StorageProviderHydrationPolicy> {
@@ -2953,9 +2783,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetHydrationPolicy(&self, value: StorageProviderHydrationPolicy) -> ::windows::core::Result<()> {
+    pub fn SetHydrationPolicy<'a, Param0: ::std::convert::Into<StorageProviderHydrationPolicy>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn HydrationPolicyModifier(&self) -> ::windows::core::Result<StorageProviderHydrationPolicyModifier> {
@@ -2966,9 +2796,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetHydrationPolicyModifier(&self, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::Result<()> {
+    pub fn SetHydrationPolicyModifier<'a, Param0: ::std::convert::Into<StorageProviderHydrationPolicyModifier>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicyModifier)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHydrationPolicyModifier)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn PopulationPolicy(&self) -> ::windows::core::Result<StorageProviderPopulationPolicy> {
@@ -2979,9 +2809,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetPopulationPolicy(&self, value: StorageProviderPopulationPolicy) -> ::windows::core::Result<()> {
+    pub fn SetPopulationPolicy<'a, Param0: ::std::convert::Into<StorageProviderPopulationPolicy>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPopulationPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPopulationPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn InSyncPolicy(&self) -> ::windows::core::Result<StorageProviderInSyncPolicy> {
@@ -2992,9 +2822,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetInSyncPolicy(&self, value: StorageProviderInSyncPolicy) -> ::windows::core::Result<()> {
+    pub fn SetInSyncPolicy<'a, Param0: ::std::convert::Into<StorageProviderInSyncPolicy>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInSyncPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInSyncPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn HardlinkPolicy(&self) -> ::windows::core::Result<StorageProviderHardlinkPolicy> {
@@ -3005,9 +2835,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetHardlinkPolicy(&self, value: StorageProviderHardlinkPolicy) -> ::windows::core::Result<()> {
+    pub fn SetHardlinkPolicy<'a, Param0: ::std::convert::Into<StorageProviderHardlinkPolicy>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHardlinkPolicy)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHardlinkPolicy)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ShowSiblingsAsGroup(&self) -> ::windows::core::Result<bool> {
@@ -3031,9 +2861,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVersion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ProtectionMode(&self) -> ::windows::core::Result<StorageProviderProtectionMode> {
@@ -3044,9 +2874,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetProtectionMode(&self, value: StorageProviderProtectionMode) -> ::windows::core::Result<()> {
+    pub fn SetProtectionMode<'a, Param0: ::std::convert::Into<StorageProviderProtectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn AllowPinning(&self) -> ::windows::core::Result<bool> {
@@ -3081,9 +2911,9 @@ impl StorageProviderSyncRootInfo {
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRecycleBinUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRecycleBinUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecycleBinUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecycleBinUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -3094,9 +2924,9 @@ impl StorageProviderSyncRootInfo {
         }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn SetProviderId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProviderId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProviderId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProviderId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3148,14 +2978,9 @@ impl ::core::convert::From<&StorageProviderSyncRootInfo> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StorageProviderSyncRootInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StorageProviderSyncRootInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderSyncRootInfo> for &::windows::core::IUnknown {
+    fn from(value: &StorageProviderSyncRootInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StorageProviderSyncRootInfo> for ::windows::core::IInspectable {
@@ -3168,14 +2993,9 @@ impl ::core::convert::From<&StorageProviderSyncRootInfo> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StorageProviderSyncRootInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StorageProviderSyncRootInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StorageProviderSyncRootInfo> for &::windows::core::IInspectable {
+    fn from(value: &StorageProviderSyncRootInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
@@ -3184,25 +3004,25 @@ unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
 pub struct StorageProviderSyncRootManager;
 impl StorageProviderSyncRootManager {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderSyncRootInfo>>(syncrootinformation: Param0) -> ::windows::core::Result<()> {
-        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), syncrootinformation.into_param().abi()).ok() })
+    pub fn Register<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, StorageProviderSyncRootInfo>>>(syncrootinformation: Param0) -> ::windows::core::Result<()> {
+        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), syncrootinformation.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn Unregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<()> {
-        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), id.into_param().abi()).ok() })
+    pub fn Unregister<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0) -> ::windows::core::Result<()> {
+        Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), id.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn GetSyncRootInformationForFolder<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFolder>>(folder: Param0) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
+    pub fn GetSyncRootInformationForFolder<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFolder>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(folder: Param0) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSyncRootInformationForFolder)(::windows::core::Interface::as_raw(this), folder.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetSyncRootInformationForFolder)(::windows::core::Interface::as_raw(this), folder.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    pub fn GetSyncRootInformationForId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
+    pub fn GetSyncRootInformationForId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSyncRootInformationForId)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetSyncRootInformationForId)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]

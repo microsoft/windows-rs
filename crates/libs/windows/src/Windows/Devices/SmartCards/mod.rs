@@ -51,14 +51,9 @@ impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CardAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CardAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IInspectable {
@@ -71,14 +66,9 @@ impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CardAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CardAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CardAddedEventArgs {}
@@ -136,14 +126,9 @@ impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CardRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CardRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IInspectable {
@@ -156,14 +141,9 @@ impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CardRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CardRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
@@ -1423,14 +1403,9 @@ impl ::core::convert::From<&SmartCard> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCard> for &::windows::core::IUnknown {
+    fn from(value: &SmartCard) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCard> for ::windows::core::IInspectable {
@@ -1443,14 +1418,9 @@ impl ::core::convert::From<&SmartCard> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCard> for &::windows::core::IInspectable {
+    fn from(value: &SmartCard) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCard {}
@@ -1509,9 +1479,9 @@ impl SmartCardAppletIdGroup {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
@@ -1531,9 +1501,9 @@ impl SmartCardAppletIdGroup {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetSmartCardEmulationCategory(&self, value: SmartCardEmulationCategory) -> ::windows::core::Result<()> {
+    pub fn SetSmartCardEmulationCategory<'a, Param0: ::std::convert::Into<SmartCardEmulationCategory>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationCategory)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationCategory)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn SmartCardEmulationType(&self) -> ::windows::core::Result<SmartCardEmulationType> {
@@ -1544,9 +1514,9 @@ impl SmartCardAppletIdGroup {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetSmartCardEmulationType(&self, value: SmartCardEmulationType) -> ::windows::core::Result<()> {
+    pub fn SetSmartCardEmulationType<'a, Param0: ::std::convert::Into<SmartCardEmulationType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmartCardEmulationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn AutomaticEnablement(&self) -> ::windows::core::Result<bool> {
@@ -1572,9 +1542,9 @@ impl SmartCardAppletIdGroup {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLogo<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1585,9 +1555,9 @@ impl SmartCardAppletIdGroup {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISmartCardAppletIdGroup2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1613,10 +1583,10 @@ impl SmartCardAppletIdGroup {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>>(displayname: Param0, appletids: Param1, emulationcategory: SmartCardEmulationCategory, emulationtype: SmartCardEmulationType) -> ::windows::core::Result<SmartCardAppletIdGroup> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<super::super::Storage::Streams::IBuffer>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<SmartCardEmulationCategory>, Param3: ::std::convert::Into<SmartCardEmulationType>>(displayname: Param0, appletids: Param1, emulationcategory: Param2, emulationtype: Param3) -> ::windows::core::Result<SmartCardAppletIdGroup> {
         Self::ISmartCardAppletIdGroupFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), displayname.into_param().abi(), appletids.into_param().abi(), emulationcategory, emulationtype, result__.as_mut_ptr()).from_abi::<SmartCardAppletIdGroup>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), displayname.into().abi(), appletids.try_into().map_err(|e| e.into())?.abi(), emulationcategory.into(), emulationtype.into(), result__.as_mut_ptr()).from_abi::<SmartCardAppletIdGroup>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1677,14 +1647,9 @@ impl ::core::convert::From<&SmartCardAppletIdGroup> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardAppletIdGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardAppletIdGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardAppletIdGroup> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardAppletIdGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardAppletIdGroup> for ::windows::core::IInspectable {
@@ -1697,14 +1662,9 @@ impl ::core::convert::From<&SmartCardAppletIdGroup> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardAppletIdGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardAppletIdGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardAppletIdGroup> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardAppletIdGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
@@ -1766,11 +1726,11 @@ impl SmartCardAppletIdGroupRegistration {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestActivationPolicyChangeAsync(&self, policy: SmartCardAppletIdGroupActivationPolicy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>> {
+    pub fn RequestActivationPolicyChangeAsync<'a, Param0: ::std::convert::Into<SmartCardAppletIdGroupActivationPolicy>>(&self, policy: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestActivationPolicyChangeAsync)(::windows::core::Interface::as_raw(this), policy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestActivationPolicyChangeAsync)(::windows::core::Interface::as_raw(this), policy.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardActivationPolicyChangeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1783,11 +1743,11 @@ impl SmartCardAppletIdGroupRegistration {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAutomaticResponseApdusAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>>(&self, apdus: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetAutomaticResponseApdusAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SmartCardAutomaticResponseApdu>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, apdus: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetAutomaticResponseApdusAsync)(::windows::core::Interface::as_raw(this), apdus.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetAutomaticResponseApdusAsync)(::windows::core::Interface::as_raw(this), apdus.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -1800,11 +1760,11 @@ impl SmartCardAppletIdGroupRegistration {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetPropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, props: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPropertiesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(&self, props: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<ISmartCardAppletIdGroupRegistration2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPropertiesAsync)(::windows::core::Interface::as_raw(this), props.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPropertiesAsync)(::windows::core::Interface::as_raw(this), props.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1848,14 +1808,9 @@ impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardAppletIdGroupRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardAppletIdGroupRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardAppletIdGroupRegistration> for ::windows::core::IInspectable {
@@ -1868,14 +1823,9 @@ impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardAppletIdGroupRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardAppletIdGroupRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardAppletIdGroupRegistration> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardAppletIdGroupRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroupRegistration {}
@@ -1895,9 +1845,9 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetCommandApdu<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCommandApdu<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommandApdu)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommandApdu)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1910,9 +1860,9 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetCommandApduBitMask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCommandApduBitMask<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommandApduBitMask)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommandApduBitMask)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn ShouldMatchLength(&self) -> ::windows::core::Result<bool> {
@@ -1938,9 +1888,9 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetAppletId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppletId<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppletId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppletId)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1953,9 +1903,9 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetResponseApdu<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetResponseApdu<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResponseApdu)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResponseApdu)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1968,9 +1918,9 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInputState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInputState<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputState)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputState)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1983,9 +1933,9 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetOutputState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutputState<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISmartCardAutomaticResponseApdu2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutputState)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutputState)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn AllowWhenCryptogramGeneratorNotPrepared(&self) -> ::windows::core::Result<bool> {
@@ -2002,10 +1952,10 @@ impl SmartCardAutomaticResponseApdu {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(commandapdu: Param0, responseapdu: Param1) -> ::windows::core::Result<SmartCardAutomaticResponseApdu> {
+    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(commandapdu: Param0, responseapdu: Param1) -> ::windows::core::Result<SmartCardAutomaticResponseApdu> {
         Self::ISmartCardAutomaticResponseApduFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), commandapdu.into_param().abi(), responseapdu.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmartCardAutomaticResponseApdu>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), commandapdu.try_into().map_err(|e| e.into())?.abi(), responseapdu.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<SmartCardAutomaticResponseApdu>(result__)
         })
     }
     #[doc(hidden)]
@@ -2054,14 +2004,9 @@ impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardAutomaticResponseApdu {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardAutomaticResponseApdu {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardAutomaticResponseApdu> for ::windows::core::IInspectable {
@@ -2074,14 +2019,9 @@ impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardAutomaticResponseApdu {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardAutomaticResponseApdu {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardAutomaticResponseApdu> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardAutomaticResponseApdu) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
@@ -2142,38 +2082,38 @@ impl SmartCardChallengeContext {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn VerifyResponseAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn VerifyResponseAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, response: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).VerifyResponseAsync)(::windows::core::Interface::as_raw(this), response.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).VerifyResponseAsync)(::windows::core::Interface::as_raw(this), response.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProvisionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, response: Param0, formatcard: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ProvisionAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, response: Param0, formatcard: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionAsync)(::windows::core::Interface::as_raw(this), response.into_param().abi(), formatcard, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionAsync)(::windows::core::Interface::as_raw(this), response.try_into().map_err(|e| e.into())?.abi(), formatcard, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProvisionAsyncWithNewCardId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, response: Param0, formatcard: bool, newcardid: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ProvisionAsyncWithNewCardId<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, response: Param0, formatcard: bool, newcardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(::windows::core::Interface::as_raw(this), response.into_param().abi(), formatcard, newcardid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ProvisionAsyncWithNewCardId)(::windows::core::Interface::as_raw(this), response.try_into().map_err(|e| e.into())?.abi(), formatcard, newcardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ChangeAdministrativeKeyAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, response: Param0, newadministrativekey: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ChangeAdministrativeKeyAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, response: Param0, newadministrativekey: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeAdministrativeKeyAsync)(::windows::core::Interface::as_raw(this), response.into_param().abi(), newadministrativekey.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ChangeAdministrativeKeyAsync)(::windows::core::Interface::as_raw(this), response.try_into().map_err(|e| e.into())?.abi(), newadministrativekey.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -2217,14 +2157,9 @@ impl ::core::convert::From<&SmartCardChallengeContext> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardChallengeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardChallengeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardChallengeContext> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardChallengeContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardChallengeContext> for ::windows::core::IInspectable {
@@ -2237,14 +2172,9 @@ impl ::core::convert::From<&SmartCardChallengeContext> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardChallengeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardChallengeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardChallengeContext> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardChallengeContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2262,15 +2192,11 @@ impl ::core::convert::TryFrom<&SmartCardChallengeContext> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SmartCardChallengeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SmartCardChallengeContext {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmartCardChallengeContext> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmartCardChallengeContext) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmartCardChallengeContext {}
@@ -2287,11 +2213,11 @@ impl SmartCardConnection {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TransmitAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, command: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn TransmitAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, command: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TransmitAsync)(::windows::core::Interface::as_raw(this), command.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).TransmitAsync)(::windows::core::Interface::as_raw(this), command.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
 }
@@ -2335,14 +2261,9 @@ impl ::core::convert::From<&SmartCardConnection> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardConnection> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardConnection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardConnection> for ::windows::core::IInspectable {
@@ -2355,14 +2276,9 @@ impl ::core::convert::From<&SmartCardConnection> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardConnection> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardConnection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2380,15 +2296,11 @@ impl ::core::convert::TryFrom<&SmartCardConnection> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SmartCardConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SmartCardConnection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmartCardConnection> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmartCardConnection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmartCardConnection {}
@@ -2485,74 +2397,81 @@ impl SmartCardCryptogramGenerator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteCryptogramMaterialStorageKeyAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, storagekeyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn DeleteCryptogramMaterialStorageKeyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, storagekeyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteCryptogramMaterialStorageKeyAsync)(::windows::core::Interface::as_raw(this), storagekeyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteCryptogramMaterialStorageKeyAsync)(::windows::core::Interface::as_raw(this), storagekeyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateCryptogramMaterialStorageKeyAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: Param1, algorithm: SmartCardCryptogramStorageKeyAlgorithm, capabilities: SmartCardCryptogramStorageKeyCapabilities) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn CreateCryptogramMaterialStorageKeyAsync<'a, Param0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<SmartCardCryptogramStorageKeyAlgorithm>, Param3: ::std::convert::Into<SmartCardCryptogramStorageKeyCapabilities>>(&self, promptingbehavior: Param0, storagekeyname: Param1, algorithm: Param2, capabilities: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCryptogramMaterialStorageKeyAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, storagekeyname.into_param().abi(), algorithm, capabilities, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).CreateCryptogramMaterialStorageKeyAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), storagekeyname.into().abi(), algorithm.into(), capabilities.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Security_Cryptography_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core"))]
-    pub fn RequestCryptogramMaterialStorageKeyInfoAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, storagekeyname: Param1, format: super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>> {
+    pub fn RequestCryptogramMaterialStorageKeyInfoAsync<'a, Param0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<super::super::Security::Cryptography::Core::CryptographicPublicKeyBlobType>>(&self, promptingbehavior: Param0, storagekeyname: Param1, format: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCryptogramMaterialStorageKeyInfoAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, storagekeyname.into_param().abi(), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCryptogramMaterialStorageKeyInfoAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), storagekeyname.into().abi(), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramStorageKeyInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ImportCryptogramMaterialPackageAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, format: SmartCardCryptogramMaterialPackageFormat, storagekeyname: Param1, materialpackagename: Param2, cryptogrammaterialpackage: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn ImportCryptogramMaterialPackageAsync<'a, Param0: ::std::convert::Into<SmartCardCryptogramMaterialPackageFormat>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, format: Param0, storagekeyname: Param1, materialpackagename: Param2, cryptogrammaterialpackage: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), format, storagekeyname.into_param().abi(), materialpackagename.into_param().abi(), cryptogrammaterialpackage.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ImportCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), format.into(), storagekeyname.into().abi(), materialpackagename.into().abi(), cryptogrammaterialpackage.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, responseformat: SmartCardCryptogramMaterialPackageConfirmationResponseFormat, materialpackagename: Param2, materialname: Param3, challenge: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>> {
+    pub fn TryProvePossessionOfCryptogramMaterialPackageAsync<'a, Param0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>, Param1: ::std::convert::Into<SmartCardCryptogramMaterialPackageConfirmationResponseFormat>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E4>, E4: ::std::convert::Into<::windows::core::Error>>(
+        &self,
+        promptingbehavior: Param0,
+        responseformat: Param1,
+        materialpackagename: Param2,
+        materialname: Param3,
+        challenge: Param4,
+    ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, responseformat, materialpackagename.into_param().abi(), materialname.into_param().abi(), challenge.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>(result__)
+            (::windows::core::Interface::vtable(this).TryProvePossessionOfCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), responseformat.into(), materialpackagename.into().abi(), materialname.into().abi(), challenge.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramMaterialPossessionProof>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestUnlockCryptogramMaterialForUseAsync(&self, promptingbehavior: SmartCardUnlockPromptingBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn RequestUnlockCryptogramMaterialForUseAsync<'a, Param0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>>(&self, promptingbehavior: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUnlockCryptogramMaterialForUseAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestUnlockCryptogramMaterialForUseAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteCryptogramMaterialPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, materialpackagename: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn DeleteCryptogramMaterialPackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, materialpackagename: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), materialpackagename.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteCryptogramMaterialPackageAsync)(::windows::core::Interface::as_raw(this), materialpackagename.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn ValidateRequestApduAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, apdutovalidate: Param1, cryptogramplacementsteps: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn ValidateRequestApduAsync<'a, Param0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, promptingbehavior: Param0, apdutovalidate: Param1, cryptogramplacementsteps: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = &::windows::core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateRequestApduAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, apdutovalidate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).ValidateRequestApduAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), apdutovalidate.try_into().map_err(|e| e.into())?.abi(), cryptogramplacementsteps.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -2575,20 +2494,20 @@ impl SmartCardCryptogramGenerator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, storagekeyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
+    pub fn GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, storagekeyname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync)(::windows::core::Interface::as_raw(this), storagekeyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllCryptogramMaterialPackageCharacteristicsWithStorageKeyAsync)(::windows::core::Interface::as_raw(this), storagekeyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAllCryptogramMaterialCharacteristicsAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, promptingbehavior: SmartCardUnlockPromptingBehavior, materialpackagename: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>> {
+    pub fn GetAllCryptogramMaterialCharacteristicsAsync<'a, Param0: ::std::convert::Into<SmartCardUnlockPromptingBehavior>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, promptingbehavior: Param0, materialpackagename: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<ISmartCardCryptogramGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(::windows::core::Interface::as_raw(this), promptingbehavior, materialpackagename.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetAllCryptogramMaterialCharacteristicsAsync)(::windows::core::Interface::as_raw(this), promptingbehavior.into(), materialpackagename.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -2657,14 +2576,9 @@ impl ::core::convert::From<&SmartCardCryptogramGenerator> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGenerator> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramGenerator> for ::windows::core::IInspectable {
@@ -2677,14 +2591,9 @@ impl ::core::convert::From<&SmartCardCryptogramGenerator> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGenerator> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
@@ -2804,14 +2713,9 @@ impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacter
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for ::windows::core::IInspectable {
@@ -2824,14 +2728,9 @@ impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacter
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {}
@@ -2905,14 +2804,9 @@ impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCh
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for ::windows::core::IInspectable {
@@ -2925,14 +2819,9 @@ impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCh
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {}
@@ -3006,14 +2895,9 @@ impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharact
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for ::windows::core::IInspectable {
@@ -3026,14 +2910,9 @@ impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharact
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {}
@@ -3157,14 +3036,9 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramMaterialCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramMaterialCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramMaterialCharacteristics> for ::windows::core::IInspectable {
@@ -3177,14 +3051,9 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramMaterialCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramMaterialCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramMaterialCharacteristics> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramMaterialCharacteristics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialCharacteristics {}
@@ -3274,14 +3143,9 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramMaterialPackageCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramMaterialPackageCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramMaterialPackageCharacteristics> for ::windows::core::IInspectable {
@@ -3294,14 +3158,9 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramMaterialPackageCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramMaterialPackageCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramMaterialPackageCharacteristics> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramMaterialPackageCharacteristics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacteristics {}
@@ -3436,14 +3295,9 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramMaterialPossessionProof {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramMaterialPossessionProof {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramMaterialPossessionProof> for ::windows::core::IInspectable {
@@ -3456,14 +3310,9 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramMaterialPossessionProof {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramMaterialPossessionProof {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramMaterialPossessionProof) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
@@ -3622,9 +3471,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetAlgorithm(&self, value: SmartCardCryptogramAlgorithm) -> ::windows::core::Result<()> {
+    pub fn SetAlgorithm<'a, Param0: ::std::convert::Into<SmartCardCryptogramAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3637,9 +3486,9 @@ impl SmartCardCryptogramPlacementStep {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSourceData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSourceData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSourceData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSourceData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn CryptogramMaterialPackageName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3650,9 +3499,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetCryptogramMaterialPackageName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCryptogramMaterialPackageName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramMaterialPackageName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramMaterialPackageName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn CryptogramMaterialName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3663,9 +3512,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetCryptogramMaterialName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCryptogramMaterialName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramMaterialName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramMaterialName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn TemplateOffset(&self) -> ::windows::core::Result<i32> {
@@ -3715,9 +3564,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetCryptogramPlacementOptions(&self, value: SmartCardCryptogramPlacementOptions) -> ::windows::core::Result<()> {
+    pub fn SetCryptogramPlacementOptions<'a, Param0: ::std::convert::Into<SmartCardCryptogramPlacementOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramPlacementOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCryptogramPlacementOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn ChainedOutputStep(&self) -> ::windows::core::Result<SmartCardCryptogramPlacementStep> {
@@ -3728,9 +3577,9 @@ impl SmartCardCryptogramPlacementStep {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetChainedOutputStep<'a, Param0: ::windows::core::IntoParam<'a, SmartCardCryptogramPlacementStep>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetChainedOutputStep<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardCryptogramPlacementStep>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetChainedOutputStep)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetChainedOutputStep)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for SmartCardCryptogramPlacementStep {
@@ -3773,14 +3622,9 @@ impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramPlacementStep {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramPlacementStep {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramPlacementStep> for ::windows::core::IInspectable {
@@ -3793,14 +3637,9 @@ impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramPlacementStep {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramPlacementStep {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramPlacementStep) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
@@ -3987,14 +3826,9 @@ impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramStorageKeyCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramStorageKeyCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramStorageKeyCharacteristics> for ::windows::core::IInspectable {
@@ -4007,14 +3841,9 @@ impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramStorageKeyCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramStorageKeyCharacteristics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramStorageKeyCharacteristics> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramStorageKeyCharacteristics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyCharacteristics {}
@@ -4132,14 +3961,9 @@ impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardCryptogramStorageKeyInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardCryptogramStorageKeyInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardCryptogramStorageKeyInfo> for ::windows::core::IInspectable {
@@ -4152,14 +3976,9 @@ impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardCryptogramStorageKeyInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardCryptogramStorageKeyInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardCryptogramStorageKeyInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
@@ -4287,33 +4106,33 @@ impl SmartCardEmulator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApduReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ApduReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorApduReceivedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ApduReceived)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ApduReceived)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveApduReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveApduReceived(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveApduReceived)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveApduReceived)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionDeactivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ConnectionDeactivated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardEmulator, SmartCardEmulatorConnectionDeactivatedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionDeactivated)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionDeactivated)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveConnectionDeactivated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveConnectionDeactivated(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionDeactivated)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionDeactivated)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
@@ -4346,18 +4165,18 @@ impl SmartCardEmulator {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RegisterAppletIdGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, SmartCardAppletIdGroup>>(appletidgroup: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>> {
+    pub fn RegisterAppletIdGroupAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardAppletIdGroup>>>(appletidgroup: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterAppletIdGroupAsync)(::windows::core::Interface::as_raw(this), appletidgroup.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>(result__)
+            (::windows::core::Interface::vtable(this).RegisterAppletIdGroupAsync)(::windows::core::Interface::as_raw(this), appletidgroup.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardAppletIdGroupRegistration>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UnregisterAppletIdGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, SmartCardAppletIdGroupRegistration>>(registration: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UnregisterAppletIdGroupAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardAppletIdGroupRegistration>>>(registration: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::ISmartCardEmulatorStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UnregisterAppletIdGroupAsync)(::windows::core::Interface::as_raw(this), registration.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UnregisterAppletIdGroupAsync)(::windows::core::Interface::as_raw(this), registration.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4430,14 +4249,9 @@ impl ::core::convert::From<&SmartCardEmulator> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardEmulator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulator> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardEmulator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardEmulator> for ::windows::core::IInspectable {
@@ -4450,14 +4264,9 @@ impl ::core::convert::From<&SmartCardEmulator> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardEmulator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulator> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardEmulator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardEmulator {}
@@ -4485,11 +4294,11 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryRespondAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, responseapdu: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRespondAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, responseapdu: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRespondAsync)(::windows::core::Interface::as_raw(this), responseapdu.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRespondAsync)(::windows::core::Interface::as_raw(this), responseapdu.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -4510,29 +4319,29 @@ impl SmartCardEmulatorApduReceivedEventArgs {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryRespondWithStateAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, responseapdu: Param0, nextstate: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRespondWithStateAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, responseapdu: Param0, nextstate: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgs2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRespondWithStateAsync)(::windows::core::Interface::as_raw(this), responseapdu.into_param().abi(), nextstate.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRespondWithStateAsync)(::windows::core::Interface::as_raw(this), responseapdu.try_into().map_err(|e| e.into())?.abi(), nextstate.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn TryRespondWithCryptogramsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>>(&self, responsetemplate: Param0, cryptogramplacementsteps: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn TryRespondWithCryptogramsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, responsetemplate: Param0, cryptogramplacementsteps: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(::windows::core::Interface::as_raw(this), responsetemplate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).TryRespondWithCryptogramsAsync)(::windows::core::Interface::as_raw(this), responsetemplate.try_into().map_err(|e| e.into())?.abi(), cryptogramplacementsteps.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn TryRespondWithCryptogramsAndStateAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, responsetemplate: Param0, cryptogramplacementsteps: Param1, nextstate: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
+    pub fn TryRespondWithCryptogramsAndStateAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SmartCardCryptogramPlacementStep>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, responsetemplate: Param0, cryptogramplacementsteps: Param1, nextstate: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>> {
         let this = &::windows::core::Interface::cast::<ISmartCardEmulatorApduReceivedEventArgsWithCryptograms>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(::windows::core::Interface::as_raw(this), responsetemplate.into_param().abi(), cryptogramplacementsteps.into_param().abi(), nextstate.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
+            (::windows::core::Interface::vtable(this).TryRespondWithCryptogramsAndStateAsync)(::windows::core::Interface::as_raw(this), responsetemplate.try_into().map_err(|e| e.into())?.abi(), cryptogramplacementsteps.try_into().map_err(|e| e.into())?.abi(), nextstate.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardCryptogramGeneratorOperationStatus>>(result__)
         }
     }
 }
@@ -4576,14 +4385,9 @@ impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardEmulatorApduReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulatorApduReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardEmulatorApduReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4596,14 +4400,9 @@ impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardEmulatorApduReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulatorApduReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulatorApduReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardEmulatorApduReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorApduReceivedEventArgs {}
@@ -4669,14 +4468,9 @@ impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulatorConnectionDeactivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardEmulatorConnectionDeactivatedEventArgs> for ::windows::core::IInspectable {
@@ -4689,14 +4483,9 @@ impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardEmulatorConnectionDeactivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulatorConnectionDeactivatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulatorConnectionDeactivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardEmulatorConnectionDeactivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEventArgs {}
@@ -4796,14 +4585,9 @@ impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardEmulatorConnectionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardEmulatorConnectionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardEmulatorConnectionProperties> for ::windows::core::IInspectable {
@@ -4816,14 +4600,9 @@ impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardEmulatorConnectionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardEmulatorConnectionProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardEmulatorConnectionProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
@@ -5013,9 +4792,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetUppercaseLetters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
+    pub fn SetUppercaseLetters<'a, Param0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUppercaseLetters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUppercaseLetters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn LowercaseLetters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption> {
@@ -5026,9 +4805,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetLowercaseLetters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
+    pub fn SetLowercaseLetters<'a, Param0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLowercaseLetters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLowercaseLetters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn Digits(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption> {
@@ -5039,9 +4818,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetDigits(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
+    pub fn SetDigits<'a, Param0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDigits)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDigits)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn SpecialCharacters(&self) -> ::windows::core::Result<SmartCardPinCharacterPolicyOption> {
@@ -5052,9 +4831,9 @@ impl SmartCardPinPolicy {
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn SetSpecialCharacters(&self, value: SmartCardPinCharacterPolicyOption) -> ::windows::core::Result<()> {
+    pub fn SetSpecialCharacters<'a, Param0: ::std::convert::Into<SmartCardPinCharacterPolicyOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSpecialCharacters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpecialCharacters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for SmartCardPinPolicy {
@@ -5097,14 +4876,9 @@ impl ::core::convert::From<&SmartCardPinPolicy> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardPinPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardPinPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardPinPolicy> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardPinPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardPinPolicy> for ::windows::core::IInspectable {
@@ -5117,14 +4891,9 @@ impl ::core::convert::From<&SmartCardPinPolicy> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardPinPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardPinPolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardPinPolicy> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardPinPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardPinPolicy {}
@@ -5179,14 +4948,9 @@ impl ::core::convert::From<&SmartCardPinResetDeferral> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardPinResetDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardPinResetDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardPinResetDeferral> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardPinResetDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardPinResetDeferral> for ::windows::core::IInspectable {
@@ -5199,14 +4963,9 @@ impl ::core::convert::From<&SmartCardPinResetDeferral> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardPinResetDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardPinResetDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardPinResetDeferral> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardPinResetDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
@@ -5220,9 +4979,9 @@ impl SmartCardPinResetHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, SmartCardProvisioning>, Param1: ::windows::core::IntoParam<'a, SmartCardPinResetRequest>>(&self, sender: Param0, request: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardProvisioning>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinResetRequest>>>(&self, sender: Param0, request: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), request.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), request.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5328,9 +5087,9 @@ impl SmartCardPinResetRequest {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetResponse<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, response: Param0) -> ::windows::core::Result<()> {
+    pub fn SetResponse<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, response: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResponse)(::windows::core::Interface::as_raw(this), response.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResponse)(::windows::core::Interface::as_raw(this), response.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for SmartCardPinResetRequest {
@@ -5373,14 +5132,9 @@ impl ::core::convert::From<&SmartCardPinResetRequest> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardPinResetRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardPinResetRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardPinResetRequest> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardPinResetRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardPinResetRequest> for ::windows::core::IInspectable {
@@ -5393,14 +5147,9 @@ impl ::core::convert::From<&SmartCardPinResetRequest> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardPinResetRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardPinResetRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardPinResetRequest> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardPinResetRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardPinResetRequest {}
@@ -5455,11 +5204,11 @@ impl SmartCardProvisioning {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestPinResetAsync<'a, Param0: ::windows::core::IntoParam<'a, SmartCardPinResetHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinResetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinResetHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPinResetAsync)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPinResetAsync)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
@@ -5473,50 +5222,50 @@ impl SmartCardProvisioning {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromSmartCardAsync<'a, Param0: ::windows::core::IntoParam<'a, SmartCard>>(card: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
+    pub fn FromSmartCardAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCard>>>(card: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromSmartCardAsync)(::windows::core::Interface::as_raw(this), card.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Interface::vtable(this).FromSmartCardAsync)(::windows::core::Interface::as_raw(this), card.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestVirtualSmartCardCreationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, SmartCardPinPolicy>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
+    pub fn RequestVirtualSmartCardCreationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Interface::vtable(this).RequestVirtualSmartCardCreationAsync)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestVirtualSmartCardCreationAsyncWithCardId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, SmartCardPinPolicy>, Param3: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2, cardid: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
+    pub fn RequestVirtualSmartCardCreationAsyncWithCardId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2, cardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), cardid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Interface::vtable(this).RequestVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), cardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestVirtualSmartCardDeletionAsync<'a, Param0: ::windows::core::IntoParam<'a, SmartCard>>(card: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestVirtualSmartCardDeletionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmartCard>>>(card: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISmartCardProvisioningStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestVirtualSmartCardDeletionAsync)(::windows::core::Interface::as_raw(this), card.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestVirtualSmartCardDeletionAsync)(::windows::core::Interface::as_raw(this), card.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestAttestedVirtualSmartCardCreationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, SmartCardPinPolicy>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
+    pub fn RequestAttestedVirtualSmartCardCreationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsync)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, SmartCardPinPolicy>, Param3: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2, cardid: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
+    pub fn RequestAttestedVirtualSmartCardCreationAsyncWithCardId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinPolicy>>>(friendlyname: Param0, administrativekey: Param1, pinpolicy: Param2, cardid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>> {
         Self::ISmartCardProvisioningStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), administrativekey.into_param().abi(), pinpolicy.into_param().abi(), cardid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAttestedVirtualSmartCardCreationAsyncWithCardId)(::windows::core::Interface::as_raw(this), friendlyname.into().abi(), administrativekey.try_into().map_err(|e| e.into())?.abi(), pinpolicy.into().abi(), cardid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardProvisioning>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5570,14 +5319,9 @@ impl ::core::convert::From<&SmartCardProvisioning> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardProvisioning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardProvisioning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardProvisioning> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardProvisioning) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardProvisioning> for ::windows::core::IInspectable {
@@ -5590,14 +5334,9 @@ impl ::core::convert::From<&SmartCardProvisioning> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardProvisioning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardProvisioning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardProvisioning> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardProvisioning) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardProvisioning {}
@@ -5650,33 +5389,33 @@ impl SmartCardReader {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CardAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CardAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardReader, CardAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CardAdded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CardAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCardAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCardAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCardAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCardAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CardRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CardRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmartCardReader, CardRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CardRemoved)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CardRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCardRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCardRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCardRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCardRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5686,18 +5425,18 @@ impl SmartCardReader {
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-    pub fn GetDeviceSelectorWithKind(kind: SmartCardReaderKind) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithKind<'a, Param0: ::std::convert::Into<SmartCardReaderKind>>(kind: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISmartCardReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithKind)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithKind)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmartCardReader>> {
         Self::ISmartCardReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardReader>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmartCardReader>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5746,14 +5485,9 @@ impl ::core::convert::From<&SmartCardReader> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardReader> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardReader> for ::windows::core::IInspectable {
@@ -5766,14 +5500,9 @@ impl ::core::convert::From<&SmartCardReader> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardReader> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardReader {}
@@ -5928,20 +5657,20 @@ impl SmartCardTriggerDetails {
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryLaunchCurrentAppAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, arguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryLaunchCurrentAppAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, arguments: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryLaunchCurrentAppAsync)(::windows::core::Interface::as_raw(this), arguments.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryLaunchCurrentAppAsync)(::windows::core::Interface::as_raw(this), arguments.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryLaunchCurrentAppWithBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, arguments: Param0, behavior: SmartCardLaunchBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryLaunchCurrentAppWithBehaviorAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<SmartCardLaunchBehavior>>(&self, arguments: Param0, behavior: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ISmartCardTriggerDetails2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryLaunchCurrentAppWithBehaviorAsync)(::windows::core::Interface::as_raw(this), arguments.into_param().abi(), behavior, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryLaunchCurrentAppWithBehaviorAsync)(::windows::core::Interface::as_raw(this), arguments.into().abi(), behavior.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
@@ -5993,14 +5722,9 @@ impl ::core::convert::From<&SmartCardTriggerDetails> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmartCardTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmartCardTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &SmartCardTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmartCardTriggerDetails> for ::windows::core::IInspectable {
@@ -6013,14 +5737,9 @@ impl ::core::convert::From<&SmartCardTriggerDetails> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmartCardTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmartCardTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmartCardTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &SmartCardTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}

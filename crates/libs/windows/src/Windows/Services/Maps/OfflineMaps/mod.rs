@@ -118,17 +118,17 @@ impl OfflineMapPackage {
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation\"`*"]
@@ -142,26 +142,26 @@ impl OfflineMapPackage {
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
+    pub fn FindPackagesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geopoint>>>(querypoint: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesAsync)(::windows::core::Interface::as_raw(this), querypoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesAsync)(::windows::core::Interface::as_raw(this), querypoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindPackagesInBoundingBoxAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::GeoboundingBox>>(queryboundingbox: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
+    pub fn FindPackagesInBoundingBoxAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::GeoboundingBox>>>(queryboundingbox: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Interface::as_raw(this), queryboundingbox.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Interface::as_raw(this), queryboundingbox.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindPackagesInGeocircleAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geocircle>>(querycircle: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
+    pub fn FindPackagesInGeocircleAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Devices::Geolocation::Geocircle>>>(querycircle: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Interface::as_raw(this), querycircle.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Interface::as_raw(this), querycircle.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -210,14 +210,9 @@ impl ::core::convert::From<&OfflineMapPackage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OfflineMapPackage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OfflineMapPackage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OfflineMapPackage> for &::windows::core::IUnknown {
+    fn from(value: &OfflineMapPackage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OfflineMapPackage> for ::windows::core::IInspectable {
@@ -230,14 +225,9 @@ impl ::core::convert::From<&OfflineMapPackage> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OfflineMapPackage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OfflineMapPackage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OfflineMapPackage> for &::windows::core::IInspectable {
+    fn from(value: &OfflineMapPackage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OfflineMapPackage {}
@@ -304,14 +294,9 @@ impl ::core::convert::From<&OfflineMapPackageQueryResult> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OfflineMapPackageQueryResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OfflineMapPackageQueryResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OfflineMapPackageQueryResult> for &::windows::core::IUnknown {
+    fn from(value: &OfflineMapPackageQueryResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OfflineMapPackageQueryResult> for ::windows::core::IInspectable {
@@ -324,14 +309,9 @@ impl ::core::convert::From<&OfflineMapPackageQueryResult> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OfflineMapPackageQueryResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OfflineMapPackageQueryResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OfflineMapPackageQueryResult> for &::windows::core::IInspectable {
+    fn from(value: &OfflineMapPackageQueryResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
@@ -425,14 +405,9 @@ impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OfflineMapPackageStartDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OfflineMapPackageStartDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for &::windows::core::IUnknown {
+    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OfflineMapPackageStartDownloadResult> for ::windows::core::IInspectable {
@@ -445,14 +420,9 @@ impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OfflineMapPackageStartDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OfflineMapPackageStartDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OfflineMapPackageStartDownloadResult> for &::windows::core::IInspectable {
+    fn from(value: &OfflineMapPackageStartDownloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}

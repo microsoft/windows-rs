@@ -55,9 +55,9 @@ impl IGeometrySource2DInterop {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
-    pub unsafe fn TryGetGeometryUsingFactory<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Direct2D::ID2D1Factory>>(&self, factory: Param0) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
+    pub unsafe fn TryGetGeometryUsingFactory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::super::Graphics::Direct2D::ID2D1Factory>>>(&self, factory: Param0) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Interface::as_raw(self), factory.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
+        (::windows::core::Interface::vtable(self).TryGetGeometryUsingFactory)(::windows::core::Interface::as_raw(self), factory.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
     }
 }
 impl ::core::convert::From<IGeometrySource2DInterop> for ::windows::core::IUnknown {
@@ -65,19 +65,14 @@ impl ::core::convert::From<IGeometrySource2DInterop> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IGeometrySource2DInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGeometrySource2DInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IGeometrySource2DInterop> for ::windows::core::IUnknown {
     fn from(value: &IGeometrySource2DInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGeometrySource2DInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGeometrySource2DInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IGeometrySource2DInterop {
@@ -123,8 +118,8 @@ impl IGraphicsEffectD2D1Interop {
         (::windows::core::Interface::vtable(self).GetEffectId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
-    pub unsafe fn GetNamedPropertyMapping<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, name: Param0, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
+    pub unsafe fn GetNamedPropertyMapping(&self, name: ::windows::core::PCWSTR, index: *mut u32, mapping: *mut GRAPHICS_EFFECT_PROPERTY_MAPPING) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetNamedPropertyMapping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(name), ::core::mem::transmute(index), ::core::mem::transmute(mapping)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
     pub unsafe fn GetPropertyCount(&self) -> ::windows::core::Result<u32> {
@@ -154,19 +149,14 @@ impl ::core::convert::From<IGraphicsEffectD2D1Interop> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IGraphicsEffectD2D1Interop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGraphicsEffectD2D1Interop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IGraphicsEffectD2D1Interop> for ::windows::core::IUnknown {
     fn from(value: &IGraphicsEffectD2D1Interop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGraphicsEffectD2D1Interop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGraphicsEffectD2D1Interop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IGraphicsEffectD2D1Interop {

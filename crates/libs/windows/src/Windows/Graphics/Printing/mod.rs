@@ -15,19 +15,14 @@ impl ::core::convert::From<IPrintDocumentSource> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintDocumentSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintDocumentSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintDocumentSource> for ::windows::core::IUnknown {
     fn from(value: &IPrintDocumentSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintDocumentSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintDocumentSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrintDocumentSource> for ::windows::core::IInspectable {
@@ -35,19 +30,14 @@ impl ::core::convert::From<IPrintDocumentSource> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintDocumentSource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrintDocumentSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintDocumentSource> for ::windows::core::IInspectable {
     fn from(value: &IPrintDocumentSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintDocumentSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrintDocumentSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrintDocumentSource {
@@ -337,19 +327,14 @@ impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCore> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintTaskOptionsCore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskOptionsCore> for ::windows::core::IUnknown {
     fn from(value: &IPrintTaskOptionsCore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintTaskOptionsCore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintTaskOptionsCore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::core::IInspectable {
@@ -357,19 +342,14 @@ impl ::core::convert::From<IPrintTaskOptionsCore> for ::windows::core::IInspecta
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCore> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrintTaskOptionsCore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskOptionsCore> for ::windows::core::IInspectable {
     fn from(value: &IPrintTaskOptionsCore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintTaskOptionsCore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrintTaskOptionsCore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrintTaskOptionsCore {
@@ -413,9 +393,9 @@ pub struct IPrintTaskOptionsCore_Vtbl {
 pub struct IPrintTaskOptionsCoreProperties(::windows::core::IUnknown);
 impl IPrintTaskOptionsCoreProperties {
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
+    pub fn SetMediaSize<'a, Param0: ::std::convert::Into<PrintMediaSize>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize> {
@@ -426,9 +406,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaType(&self, value: PrintMediaType) -> ::windows::core::Result<()> {
+    pub fn SetMediaType<'a, Param0: ::std::convert::Into<PrintMediaType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaType(&self) -> ::windows::core::Result<PrintMediaType> {
@@ -439,9 +419,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()> {
+    pub fn SetOrientation<'a, Param0: ::std::convert::Into<PrintOrientation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PrintOrientation> {
@@ -452,9 +432,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::core::Result<()> {
+    pub fn SetPrintQuality<'a, Param0: ::std::convert::Into<PrintQuality>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn PrintQuality(&self) -> ::windows::core::Result<PrintQuality> {
@@ -465,9 +445,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetColorMode(&self, value: PrintColorMode) -> ::windows::core::Result<()> {
+    pub fn SetColorMode<'a, Param0: ::std::convert::Into<PrintColorMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<PrintColorMode> {
@@ -478,9 +458,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetDuplex(&self, value: PrintDuplex) -> ::windows::core::Result<()> {
+    pub fn SetDuplex<'a, Param0: ::std::convert::Into<PrintDuplex>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Duplex(&self) -> ::windows::core::Result<PrintDuplex> {
@@ -491,9 +471,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetCollation(&self, value: PrintCollation) -> ::windows::core::Result<()> {
+    pub fn SetCollation<'a, Param0: ::std::convert::Into<PrintCollation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Collation(&self) -> ::windows::core::Result<PrintCollation> {
@@ -504,9 +484,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetStaple(&self, value: PrintStaple) -> ::windows::core::Result<()> {
+    pub fn SetStaple<'a, Param0: ::std::convert::Into<PrintStaple>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Staple(&self) -> ::windows::core::Result<PrintStaple> {
@@ -517,9 +497,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::core::Result<()> {
+    pub fn SetHolePunch<'a, Param0: ::std::convert::Into<PrintHolePunch>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn HolePunch(&self) -> ::windows::core::Result<PrintHolePunch> {
@@ -530,9 +510,9 @@ impl IPrintTaskOptionsCoreProperties {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetBinding(&self, value: PrintBinding) -> ::windows::core::Result<()> {
+    pub fn SetBinding<'a, Param0: ::std::convert::Into<PrintBinding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Binding(&self) -> ::windows::core::Result<PrintBinding> {
@@ -577,19 +557,14 @@ impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreProperties> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintTaskOptionsCoreProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::core::IUnknown {
     fn from(value: &IPrintTaskOptionsCoreProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintTaskOptionsCoreProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintTaskOptionsCoreProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::core::IInspectable {
@@ -597,19 +572,14 @@ impl ::core::convert::From<IPrintTaskOptionsCoreProperties> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreProperties> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrintTaskOptionsCoreProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskOptionsCoreProperties> for ::windows::core::IInspectable {
     fn from(value: &IPrintTaskOptionsCoreProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintTaskOptionsCoreProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrintTaskOptionsCoreProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrintTaskOptionsCoreProperties {
@@ -687,19 +657,14 @@ impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreUIConfiguration> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintTaskOptionsCoreUIConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IUnknown {
     fn from(value: &IPrintTaskOptionsCoreUIConfiguration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintTaskOptionsCoreUIConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPrintTaskOptionsCoreUIConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IInspectable {
@@ -707,19 +672,14 @@ impl ::core::convert::From<IPrintTaskOptionsCoreUIConfiguration> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPrintTaskOptionsCoreUIConfiguration> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPrintTaskOptionsCoreUIConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPrintTaskOptionsCoreUIConfiguration> for ::windows::core::IInspectable {
     fn from(value: &IPrintTaskOptionsCoreUIConfiguration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintTaskOptionsCoreUIConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPrintTaskOptionsCoreUIConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPrintTaskOptionsCoreUIConfiguration {
@@ -1158,18 +1118,18 @@ pub struct PrintManager(::windows::core::IUnknown);
 impl PrintManager {
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PrintTaskRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PrintTaskRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PrintManager, PrintTaskRequestedEventArgs>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PrintTaskRequested)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PrintTaskRequested)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePrintTaskRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePrintTaskRequested(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePrintTaskRequested)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePrintTaskRequested)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<PrintManager> {
@@ -1244,14 +1204,9 @@ impl ::core::convert::From<&PrintManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintManager> for &::windows::core::IUnknown {
+    fn from(value: &PrintManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintManager> for ::windows::core::IInspectable {
@@ -1264,14 +1219,9 @@ impl ::core::convert::From<&PrintManager> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintManager> for &::windows::core::IInspectable {
+    fn from(value: &PrintManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintManager {}
@@ -1645,9 +1595,9 @@ impl PrintPageInfo {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
+    pub fn SetMediaSize<'a, Param0: ::std::convert::Into<PrintMediaSize>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize> {
@@ -1659,9 +1609,9 @@ impl PrintPageInfo {
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPageSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPageSize(&self, value: super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPageSize)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPageSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1699,9 +1649,9 @@ impl PrintPageInfo {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()> {
+    pub fn SetOrientation<'a, Param0: ::std::convert::Into<PrintOrientation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PrintOrientation> {
@@ -1752,14 +1702,9 @@ impl ::core::convert::From<&PrintPageInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintPageInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintPageInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintPageInfo> for &::windows::core::IUnknown {
+    fn from(value: &PrintPageInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintPageInfo> for ::windows::core::IInspectable {
@@ -1772,14 +1717,9 @@ impl ::core::convert::From<&PrintPageInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintPageInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintPageInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintPageInfo> for &::windows::core::IInspectable {
+    fn from(value: &PrintPageInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintPageInfo {}
@@ -1864,14 +1804,9 @@ impl ::core::convert::From<&PrintPageRange> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintPageRange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintPageRange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintPageRange> for &::windows::core::IUnknown {
+    fn from(value: &PrintPageRange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintPageRange> for ::windows::core::IInspectable {
@@ -1884,14 +1819,9 @@ impl ::core::convert::From<&PrintPageRange> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintPageRange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintPageRange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintPageRange> for &::windows::core::IInspectable {
+    fn from(value: &PrintPageRange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintPageRange {}
@@ -1980,14 +1910,9 @@ impl ::core::convert::From<&PrintPageRangeOptions> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintPageRangeOptions> for &::windows::core::IUnknown {
+    fn from(value: &PrintPageRangeOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintPageRangeOptions> for ::windows::core::IInspectable {
@@ -2000,14 +1925,9 @@ impl ::core::convert::From<&PrintPageRangeOptions> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintPageRangeOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintPageRangeOptions> for &::windows::core::IInspectable {
+    fn from(value: &PrintPageRangeOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
@@ -2130,63 +2050,63 @@ impl PrintTask {
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Previewing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Previewing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Previewing)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Previewing)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePreviewing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePreviewing(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePreviewing)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePreviewing)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Submitting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Submitting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Submitting)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Submitting)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSubmitting<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSubmitting(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSubmitting)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSubmitting)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Progressing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Progressing<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskProgressingEventArgs>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Progressing)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Progressing)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveProgressing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveProgressing(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProgressing)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProgressing)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Completed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Completed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PrintTask, PrintTaskCompletedEventArgs>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCompleted(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn SetIsPreviewEnabled(&self, value: bool) -> ::windows::core::Result<()> {
@@ -2268,14 +2188,9 @@ impl ::core::convert::From<&PrintTask> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTask> for &::windows::core::IUnknown {
+    fn from(value: &PrintTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTask> for ::windows::core::IInspectable {
@@ -2288,14 +2203,9 @@ impl ::core::convert::From<&PrintTask> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTask> for &::windows::core::IInspectable {
+    fn from(value: &PrintTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTask {}
@@ -2353,14 +2263,9 @@ impl ::core::convert::From<&PrintTaskCompletedEventArgs> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskCompletedEventArgs> for ::windows::core::IInspectable {
@@ -2373,14 +2278,9 @@ impl ::core::convert::From<&PrintTaskCompletedEventArgs> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
@@ -2426,9 +2326,9 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskCompletion {
 pub struct PrintTaskOptions(::windows::core::IUnknown);
 impl PrintTaskOptions {
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetBordering(&self, value: PrintBordering) -> ::windows::core::Result<()> {
+    pub fn SetBordering<'a, Param0: ::std::convert::Into<PrintBordering>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptions>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBordering)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBordering)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Bordering(&self) -> ::windows::core::Result<PrintBordering> {
@@ -2440,11 +2340,11 @@ impl PrintTaskOptions {
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPagePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, PrintPageInfo>>(&self, printpageinfo: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
+    pub fn GetPagePrintTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PrintPageInfo>>>(&self, printpageinfo: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptions>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPagePrintTicket)(::windows::core::Interface::as_raw(this), printpageinfo.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Interface::vtable(this).GetPagePrintTicket)(::windows::core::Interface::as_raw(this), printpageinfo.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2474,9 +2374,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaSize(&self, value: PrintMediaSize) -> ::windows::core::Result<()> {
+    pub fn SetMediaSize<'a, Param0: ::std::convert::Into<PrintMediaSize>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSize)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize(&self) -> ::windows::core::Result<PrintMediaSize> {
@@ -2487,9 +2387,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetMediaType(&self, value: PrintMediaType) -> ::windows::core::Result<()> {
+    pub fn SetMediaType<'a, Param0: ::std::convert::Into<PrintMediaType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaType(&self) -> ::windows::core::Result<PrintMediaType> {
@@ -2500,9 +2400,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetOrientation(&self, value: PrintOrientation) -> ::windows::core::Result<()> {
+    pub fn SetOrientation<'a, Param0: ::std::convert::Into<PrintOrientation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOrientation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PrintOrientation> {
@@ -2513,9 +2413,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetPrintQuality(&self, value: PrintQuality) -> ::windows::core::Result<()> {
+    pub fn SetPrintQuality<'a, Param0: ::std::convert::Into<PrintQuality>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintQuality)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn PrintQuality(&self) -> ::windows::core::Result<PrintQuality> {
@@ -2526,9 +2426,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetColorMode(&self, value: PrintColorMode) -> ::windows::core::Result<()> {
+    pub fn SetColorMode<'a, Param0: ::std::convert::Into<PrintColorMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn ColorMode(&self) -> ::windows::core::Result<PrintColorMode> {
@@ -2539,9 +2439,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetDuplex(&self, value: PrintDuplex) -> ::windows::core::Result<()> {
+    pub fn SetDuplex<'a, Param0: ::std::convert::Into<PrintDuplex>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuplex)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Duplex(&self) -> ::windows::core::Result<PrintDuplex> {
@@ -2552,9 +2452,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetCollation(&self, value: PrintCollation) -> ::windows::core::Result<()> {
+    pub fn SetCollation<'a, Param0: ::std::convert::Into<PrintCollation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCollation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Collation(&self) -> ::windows::core::Result<PrintCollation> {
@@ -2565,9 +2465,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetStaple(&self, value: PrintStaple) -> ::windows::core::Result<()> {
+    pub fn SetStaple<'a, Param0: ::std::convert::Into<PrintStaple>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStaple)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Staple(&self) -> ::windows::core::Result<PrintStaple> {
@@ -2578,9 +2478,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetHolePunch(&self, value: PrintHolePunch) -> ::windows::core::Result<()> {
+    pub fn SetHolePunch<'a, Param0: ::std::convert::Into<PrintHolePunch>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHolePunch)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn HolePunch(&self) -> ::windows::core::Result<PrintHolePunch> {
@@ -2591,9 +2491,9 @@ impl PrintTaskOptions {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetBinding(&self, value: PrintBinding) -> ::windows::core::Result<()> {
+    pub fn SetBinding<'a, Param0: ::std::convert::Into<PrintBinding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintTaskOptionsCoreProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBinding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn Binding(&self) -> ::windows::core::Result<PrintBinding> {
@@ -2682,14 +2582,9 @@ impl ::core::convert::From<&PrintTaskOptions> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskOptions> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskOptions> for ::windows::core::IInspectable {
@@ -2702,14 +2597,9 @@ impl ::core::convert::From<&PrintTaskOptions> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskOptions> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCore {
@@ -2724,14 +2614,11 @@ impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCore {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCore> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskOptionsCore> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCore> for &PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskOptionsCore> {
-        ::core::convert::TryInto::<IPrintTaskOptionsCore>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<'a, IPrintTaskOptionsCore> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintTaskOptions) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreProperties {
@@ -2746,14 +2633,11 @@ impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCoreProperties> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskOptionsCoreProperties> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCoreProperties> for &PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskOptionsCoreProperties> {
-        ::core::convert::TryInto::<IPrintTaskOptionsCoreProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<'a, IPrintTaskOptionsCoreProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintTaskOptions) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PrintTaskOptions> for IPrintTaskOptionsCoreUIConfiguration {
@@ -2768,14 +2652,11 @@ impl ::core::convert::TryFrom<&PrintTaskOptions> for IPrintTaskOptionsCoreUIConf
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCoreUIConfiguration> for PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskOptionsCoreUIConfiguration> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrintTaskOptionsCoreUIConfiguration> for &PrintTaskOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintTaskOptionsCoreUIConfiguration> {
-        ::core::convert::TryInto::<IPrintTaskOptionsCoreUIConfiguration>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PrintTaskOptions> for ::windows::core::InParam<'a, IPrintTaskOptionsCoreUIConfiguration> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PrintTaskOptions) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskOptions {}
@@ -2833,14 +2714,9 @@ impl ::core::convert::From<&PrintTaskProgressingEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskProgressingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskProgressingEventArgs> for ::windows::core::IInspectable {
@@ -2853,14 +2729,9 @@ impl ::core::convert::From<&PrintTaskProgressingEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskProgressingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskProgressingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskProgressingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskProgressingEventArgs {}
@@ -2879,11 +2750,11 @@ impl PrintTaskRequest {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn CreatePrintTask<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PrintTaskSourceRequestedHandler>>(&self, title: Param0, handler: Param1) -> ::windows::core::Result<PrintTask> {
+    pub fn CreatePrintTask<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PrintTaskSourceRequestedHandler>>>(&self, title: Param0, handler: Param1) -> ::windows::core::Result<PrintTask> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePrintTask)(::windows::core::Interface::as_raw(this), title.into_param().abi(), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTask>(result__)
+            (::windows::core::Interface::vtable(this).CreatePrintTask)(::windows::core::Interface::as_raw(this), title.into().abi(), handler.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTask>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
@@ -2935,14 +2806,9 @@ impl ::core::convert::From<&PrintTaskRequest> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskRequest> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskRequest> for ::windows::core::IInspectable {
@@ -2955,14 +2821,9 @@ impl ::core::convert::From<&PrintTaskRequest> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskRequest> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskRequest {}
@@ -3017,14 +2878,9 @@ impl ::core::convert::From<&PrintTaskRequestedDeferral> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskRequestedDeferral> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskRequestedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskRequestedDeferral> for ::windows::core::IInspectable {
@@ -3037,14 +2893,9 @@ impl ::core::convert::From<&PrintTaskRequestedDeferral> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskRequestedDeferral> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskRequestedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskRequestedDeferral {}
@@ -3102,14 +2953,9 @@ impl ::core::convert::From<&PrintTaskRequestedEventArgs> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskRequestedEventArgs> for ::windows::core::IInspectable {
@@ -3122,14 +2968,9 @@ impl ::core::convert::From<&PrintTaskRequestedEventArgs> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskRequestedEventArgs {}
@@ -3148,9 +2989,9 @@ impl PrintTaskSourceRequestedArgs {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, IPrintDocumentSource>>(&self, source: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IPrintDocumentSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<PrintTaskSourceRequestedDeferral> {
@@ -3201,14 +3042,9 @@ impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskSourceRequestedArgs> for ::windows::core::IInspectable {
@@ -3221,14 +3057,9 @@ impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskSourceRequestedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskSourceRequestedArgs> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskSourceRequestedArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedArgs {}
@@ -3283,14 +3114,9 @@ impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for &::windows::core::IUnknown {
+    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTaskSourceRequestedDeferral> for ::windows::core::IInspectable {
@@ -3303,14 +3129,9 @@ impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTaskSourceRequestedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTaskSourceRequestedDeferral> for &::windows::core::IInspectable {
+    fn from(value: &PrintTaskSourceRequestedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTaskSourceRequestedDeferral {}
@@ -3324,9 +3145,9 @@ impl PrintTaskSourceRequestedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, PrintTaskSourceRequestedArgs>>(&self, args: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PrintTaskSourceRequestedArgs>>>(&self, args: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into().abi()).ok() }
     }
 }
 #[repr(C)]

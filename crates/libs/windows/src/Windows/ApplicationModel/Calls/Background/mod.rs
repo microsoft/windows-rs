@@ -196,14 +196,9 @@ impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneCallBlockedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneCallBlockedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneCallBlockedTriggerDetails> for ::windows::core::IInspectable {
@@ -216,14 +211,9 @@ impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneCallBlockedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneCallBlockedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneCallBlockedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
@@ -289,14 +279,9 @@ impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneCallOriginDataRequestTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneCallOriginDataRequestTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneCallOriginDataRequestTriggerDetails> for ::windows::core::IInspectable {
@@ -309,14 +294,9 @@ impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneCallOriginDataRequestTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneCallOriginDataRequestTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneCallOriginDataRequestTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
@@ -451,14 +431,9 @@ impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneIncomingCallDismissedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneIncomingCallDismissedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneIncomingCallDismissedTriggerDetails> for ::windows::core::IInspectable {
@@ -471,14 +446,9 @@ impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneIncomingCallDismissedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneIncomingCallDismissedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneIncomingCallDismissedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
@@ -544,14 +514,9 @@ impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneIncomingCallNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneIncomingCallNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneIncomingCallNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -564,14 +529,9 @@ impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneIncomingCallNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneIncomingCallNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneIncomingCallNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
@@ -632,11 +592,11 @@ impl PhoneLineChangedTriggerDetails {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
-    pub fn HasLinePropertyChanged(&self, lineproperty: PhoneLineProperties) -> ::windows::core::Result<bool> {
+    pub fn HasLinePropertyChanged<'a, Param0: ::std::convert::Into<PhoneLineProperties>>(&self, lineproperty: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasLinePropertyChanged)(::windows::core::Interface::as_raw(this), lineproperty, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasLinePropertyChanged)(::windows::core::Interface::as_raw(this), lineproperty.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -680,14 +640,9 @@ impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneLineChangedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneLineChangedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneLineChangedTriggerDetails> for ::windows::core::IInspectable {
@@ -700,14 +655,9 @@ impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneLineChangedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneLineChangedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneLineChangedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
@@ -851,14 +801,9 @@ impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhoneNewVoicemailMessageTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhoneNewVoicemailMessageTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhoneNewVoicemailMessageTriggerDetails> for ::windows::core::IInspectable {
@@ -871,14 +816,9 @@ impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhoneNewVoicemailMessageTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhoneNewVoicemailMessageTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &PhoneNewVoicemailMessageTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}

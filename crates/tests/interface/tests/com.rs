@@ -108,7 +108,8 @@ impl ICustomPersistMemory_Impl for Persist {
 fn test_custom_interface() -> windows::core::Result<()> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
-        let a: IUri = CreateUri("http://kennykerr.ca", Default::default(), 0)?;
+        let url: HSTRING = "http://kennykerr.ca".into();
+        let a: IUri = CreateUri(PCWSTR(url.as_wide().as_ptr()), URI_CREATE_FLAGS::default(), 0)?;
         let b: ICustomUri = a.cast()?;
         let mut domain = BSTR::new();
         b.GetDomain(&mut domain).ok()?;
@@ -150,14 +151,6 @@ fn test_custom_interface() -> windows::core::Result<()> {
         p.GetClassID(&mut b).ok()?;
         assert_eq!(b, "117fb826-2155-483a-b50d-bc99a2c7cca3".into());
 
-        CheckConversionWorks(p);
-
         Ok(())
     }
-}
-
-pub fn CheckConversionWorks<'a, P>(_p: P)
-where
-    P: windows::core::IntoParam<'a, windows::core::IUnknown>,
-{
 }

@@ -84,14 +84,9 @@ impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AttributedNetworkUsage> for &::windows::core::IUnknown {
+    fn from(value: &AttributedNetworkUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AttributedNetworkUsage> for ::windows::core::IInspectable {
@@ -104,14 +99,9 @@ impl ::core::convert::From<&AttributedNetworkUsage> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AttributedNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AttributedNetworkUsage> for &::windows::core::IInspectable {
+    fn from(value: &AttributedNetworkUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
@@ -172,9 +162,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetProviderId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProviderId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProviderId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProviderId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn AccessPointName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -185,9 +175,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetAccessPointName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAccessPointName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAccessPointName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAccessPointName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -198,9 +188,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetUserName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUserName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -211,9 +201,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPassword)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPassword)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn IsCompressionEnabled(&self) -> ::windows::core::Result<bool> {
@@ -237,9 +227,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetAuthenticationType(&self, value: CellularApnAuthenticationType) -> ::windows::core::Result<()> {
+    pub fn SetAuthenticationType<'a, Param0: ::std::convert::Into<CellularApnAuthenticationType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn ProfileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -250,9 +240,9 @@ impl CellularApnContext {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetProfileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProfileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICellularApnContext2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProfileName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProfileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for CellularApnContext {
@@ -295,14 +285,9 @@ impl ::core::convert::From<&CellularApnContext> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CellularApnContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CellularApnContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CellularApnContext> for &::windows::core::IUnknown {
+    fn from(value: &CellularApnContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CellularApnContext> for ::windows::core::IInspectable {
@@ -315,14 +300,9 @@ impl ::core::convert::From<&CellularApnContext> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CellularApnContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CellularApnContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CellularApnContext> for &::windows::core::IInspectable {
+    fn from(value: &CellularApnContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CellularApnContext {}
@@ -412,14 +392,9 @@ impl ::core::convert::From<&ConnectionCost> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionCost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionCost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionCost> for &::windows::core::IUnknown {
+    fn from(value: &ConnectionCost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConnectionCost> for ::windows::core::IInspectable {
@@ -432,14 +407,9 @@ impl ::core::convert::From<&ConnectionCost> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionCost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionCost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionCost> for &::windows::core::IInspectable {
+    fn from(value: &ConnectionCost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ConnectionCost {}
@@ -499,20 +469,20 @@ impl ConnectionProfile {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetLocalUsage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1) -> ::windows::core::Result<DataUsage> {
+    pub fn GetLocalUsage(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLocalUsage)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), endtime.into_param().abi(), result__.as_mut_ptr()).from_abi::<DataUsage>(result__)
+            (::windows::core::Interface::vtable(this).GetLocalUsage)(::windows::core::Interface::as_raw(this), starttime, endtime, result__.as_mut_ptr()).from_abi::<DataUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn GetLocalUsagePerRoamingStates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1, states: RoamingStates) -> ::windows::core::Result<DataUsage> {
+    pub fn GetLocalUsagePerRoamingStates<'a, Param2: ::std::convert::Into<RoamingStates>>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: Param2) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLocalUsagePerRoamingStates)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), endtime.into_param().abi(), states, result__.as_mut_ptr()).from_abi::<DataUsage>(result__)
+            (::windows::core::Interface::vtable(this).GetLocalUsagePerRoamingStates)(::windows::core::Interface::as_raw(this), starttime, endtime, states.into(), result__.as_mut_ptr()).from_abi::<DataUsage>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -583,38 +553,38 @@ impl ConnectionProfile {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNetworkUsageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param3: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, granularity: DataUsageGranularity, states: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
+    pub fn GetNetworkUsageAsync<'a, Param2: ::std::convert::Into<DataUsageGranularity>>(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: Param2, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>> {
         let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), endtime.into_param().abi(), granularity, states.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>(result__)
+            (::windows::core::Interface::vtable(this).GetNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime, endtime, granularity.into(), states, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetConnectivityIntervalsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>> {
+    pub fn GetConnectivityIntervalsAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>> {
         let this = &::windows::core::Interface::cast::<IConnectionProfile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConnectivityIntervalsAsync)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>>(result__)
+            (::windows::core::Interface::vtable(this).GetConnectivityIntervalsAsync)(::windows::core::Interface::as_raw(this), starttime, endtime, states, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAttributedNetworkUsageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>> {
+    pub fn GetAttributedNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>> {
         let this = &::windows::core::Interface::cast::<IConnectionProfile3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAttributedNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>>(result__)
+            (::windows::core::Interface::vtable(this).GetAttributedNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime, endtime, states, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetProviderNetworkUsageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, NetworkUsageStates>>(&self, starttime: Param0, endtime: Param1, states: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>> {
+    pub fn GetProviderNetworkUsageAsync(&self, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>> {
         let this = &::windows::core::Interface::cast::<IConnectionProfile4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetProviderNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime.into_param().abi(), endtime.into_param().abi(), states.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>>(result__)
+            (::windows::core::Interface::vtable(this).GetProviderNetworkUsageAsync)(::windows::core::Interface::as_raw(this), starttime, endtime, states, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
@@ -675,14 +645,9 @@ impl ::core::convert::From<&ConnectionProfile> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionProfile> for &::windows::core::IUnknown {
+    fn from(value: &ConnectionProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConnectionProfile> for ::windows::core::IInspectable {
@@ -695,14 +660,9 @@ impl ::core::convert::From<&ConnectionProfile> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionProfile> for &::windows::core::IInspectable {
+    fn from(value: &ConnectionProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ConnectionProfile {}
@@ -794,9 +754,9 @@ impl ConnectionProfileFilter {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn SetNetworkCostType(&self, value: NetworkCostType) -> ::windows::core::Result<()> {
+    pub fn SetNetworkCostType<'a, Param0: ::std::convert::Into<NetworkCostType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNetworkCostType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNetworkCostType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     pub fn NetworkCostType(&self) -> ::windows::core::Result<NetworkCostType> {
@@ -808,9 +768,9 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetServiceProviderGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetServiceProviderGuid<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServiceProviderGuid)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServiceProviderGuid)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -823,9 +783,9 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsRoaming<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsRoaming<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsRoaming)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsRoaming)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -838,9 +798,9 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsOverDataLimit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsOverDataLimit<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsOverDataLimit)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsOverDataLimit)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -853,9 +813,9 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetIsBackgroundDataUsageRestricted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIsBackgroundDataUsageRestricted<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<bool>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsBackgroundDataUsageRestricted)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -877,9 +837,9 @@ impl ConnectionProfileFilter {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPurposeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPurposeGuid<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<::windows::core::GUID>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConnectionProfileFilter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPurposeGuid)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPurposeGuid)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -931,14 +891,9 @@ impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionProfileFilter> for &::windows::core::IUnknown {
+    fn from(value: &ConnectionProfileFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConnectionProfileFilter> for ::windows::core::IInspectable {
@@ -951,14 +906,9 @@ impl ::core::convert::From<&ConnectionProfileFilter> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionProfileFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionProfileFilter> for &::windows::core::IInspectable {
+    fn from(value: &ConnectionProfileFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ConnectionProfileFilter {}
@@ -1022,14 +972,9 @@ impl ::core::convert::From<&ConnectionSession> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionSession> for &::windows::core::IUnknown {
+    fn from(value: &ConnectionSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConnectionSession> for ::windows::core::IInspectable {
@@ -1042,14 +987,9 @@ impl ::core::convert::From<&ConnectionSession> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionSession> for &::windows::core::IInspectable {
+    fn from(value: &ConnectionSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1067,15 +1007,11 @@ impl ::core::convert::TryFrom<&ConnectionSession> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ConnectionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ConnectionSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ConnectionSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ConnectionSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ConnectionSession {}
@@ -1143,14 +1079,9 @@ impl ::core::convert::From<&ConnectivityInterval> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectivityInterval {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectivityInterval {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectivityInterval> for &::windows::core::IUnknown {
+    fn from(value: &ConnectivityInterval) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConnectivityInterval> for ::windows::core::IInspectable {
@@ -1163,14 +1094,9 @@ impl ::core::convert::From<&ConnectivityInterval> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectivityInterval {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectivityInterval {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectivityInterval> for &::windows::core::IInspectable {
+    fn from(value: &ConnectivityInterval) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ConnectivityInterval {}
@@ -1180,19 +1106,19 @@ pub struct ConnectivityManager;
 impl ConnectivityManager {
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AcquireConnectionAsync<'a, Param0: ::windows::core::IntoParam<'a, CellularApnContext>>(cellularapncontext: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>> {
+    pub fn AcquireConnectionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CellularApnContext>>>(cellularapncontext: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ConnectionSession>> {
         Self::IConnectivityManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AcquireConnectionAsync)(::windows::core::Interface::as_raw(this), cellularapncontext.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
+            (::windows::core::Interface::vtable(this).AcquireConnectionAsync)(::windows::core::Interface::as_raw(this), cellularapncontext.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ConnectionSession>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn AddHttpRoutePolicy<'a, Param0: ::windows::core::IntoParam<'a, RoutePolicy>>(routepolicy: Param0) -> ::windows::core::Result<()> {
-        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).AddHttpRoutePolicy)(::windows::core::Interface::as_raw(this), routepolicy.into_param().abi()).ok() })
+    pub fn AddHttpRoutePolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>>(routepolicy: Param0) -> ::windows::core::Result<()> {
+        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).AddHttpRoutePolicy)(::windows::core::Interface::as_raw(this), routepolicy.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn RemoveHttpRoutePolicy<'a, Param0: ::windows::core::IntoParam<'a, RoutePolicy>>(routepolicy: Param0) -> ::windows::core::Result<()> {
-        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveHttpRoutePolicy)(::windows::core::Interface::as_raw(this), routepolicy.into_param().abi()).ok() })
+    pub fn RemoveHttpRoutePolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RoutePolicy>>>(routepolicy: Param0) -> ::windows::core::Result<()> {
+        Self::IConnectivityManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveHttpRoutePolicy)(::windows::core::Interface::as_raw(this), routepolicy.into().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IConnectivityManagerStatics<R, F: FnOnce(&IConnectivityManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1301,14 +1227,9 @@ impl ::core::convert::From<&DataPlanStatus> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataPlanStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataPlanStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataPlanStatus> for &::windows::core::IUnknown {
+    fn from(value: &DataPlanStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DataPlanStatus> for ::windows::core::IInspectable {
@@ -1321,14 +1242,9 @@ impl ::core::convert::From<&DataPlanStatus> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataPlanStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataPlanStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataPlanStatus> for &::windows::core::IInspectable {
+    fn from(value: &DataPlanStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DataPlanStatus {}
@@ -1395,14 +1311,9 @@ impl ::core::convert::From<&DataPlanUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataPlanUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataPlanUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataPlanUsage> for &::windows::core::IUnknown {
+    fn from(value: &DataPlanUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DataPlanUsage> for ::windows::core::IInspectable {
@@ -1415,14 +1326,9 @@ impl ::core::convert::From<&DataPlanUsage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataPlanUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataPlanUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataPlanUsage> for &::windows::core::IInspectable {
+    fn from(value: &DataPlanUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DataPlanUsage {}
@@ -1502,15 +1408,9 @@ impl ::core::convert::From<&DataUsage> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataUsage> for &::windows::core::IUnknown {
+    fn from(value: &DataUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1526,15 +1426,9 @@ impl ::core::convert::From<&DataUsage> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataUsage> for &::windows::core::IInspectable {
+    fn from(value: &DataUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2290,14 +2184,9 @@ impl ::core::convert::From<&IPInformation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IPInformation> for &::windows::core::IUnknown {
+    fn from(value: &IPInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IPInformation> for ::windows::core::IInspectable {
@@ -2310,14 +2199,9 @@ impl ::core::convert::From<&IPInformation> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IPInformation> for &::windows::core::IInspectable {
+    fn from(value: &IPInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IPInformation {}
@@ -2497,14 +2381,9 @@ impl ::core::convert::From<&LanIdentifier> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LanIdentifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LanIdentifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanIdentifier> for &::windows::core::IUnknown {
+    fn from(value: &LanIdentifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LanIdentifier> for ::windows::core::IInspectable {
@@ -2517,14 +2396,9 @@ impl ::core::convert::From<&LanIdentifier> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LanIdentifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LanIdentifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanIdentifier> for &::windows::core::IInspectable {
+    fn from(value: &LanIdentifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LanIdentifier {}
@@ -2591,14 +2465,9 @@ impl ::core::convert::From<&LanIdentifierData> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LanIdentifierData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LanIdentifierData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanIdentifierData> for &::windows::core::IUnknown {
+    fn from(value: &LanIdentifierData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LanIdentifierData> for ::windows::core::IInspectable {
@@ -2611,14 +2480,9 @@ impl ::core::convert::From<&LanIdentifierData> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LanIdentifierData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LanIdentifierData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LanIdentifierData> for &::windows::core::IInspectable {
+    fn from(value: &LanIdentifierData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LanIdentifierData {}
@@ -2717,14 +2581,9 @@ impl ::core::convert::From<&NetworkAdapter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkAdapter> for &::windows::core::IUnknown {
+    fn from(value: &NetworkAdapter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkAdapter> for ::windows::core::IInspectable {
@@ -2737,14 +2596,9 @@ impl ::core::convert::From<&NetworkAdapter> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkAdapter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkAdapter> for &::windows::core::IInspectable {
+    fn from(value: &NetworkAdapter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for NetworkAdapter {}
@@ -2948,39 +2802,39 @@ impl NetworkInformation {
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetProxyConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>> {
+    pub fn GetProxyConfigurationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(uri: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProxyConfiguration>> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetProxyConfigurationAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
+            (::windows::core::Interface::vtable(this).GetProxyConfigurationAsync)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ProxyConfiguration>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSortedEndpointPairs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>>(destinationlist: Param0, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>> {
+    pub fn GetSortedEndpointPairs<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::EndpointPair>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<super::HostNameSortOptions>>(destinationlist: Param0, sortoptions: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::EndpointPair>> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSortedEndpointPairs)(::windows::core::Interface::as_raw(this), destinationlist.into_param().abi(), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
+            (::windows::core::Interface::vtable(this).GetSortedEndpointPairs)(::windows::core::Interface::as_raw(this), destinationlist.try_into().map_err(|e| e.into())?.abi(), sortoptions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NetworkStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, NetworkStatusChangedEventHandler>>(networkstatushandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn NetworkStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, NetworkStatusChangedEventHandler>>>(networkstatushandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::INetworkInformationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkStatusChanged)(::windows::core::Interface::as_raw(this), networkstatushandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NetworkStatusChanged)(::windows::core::Interface::as_raw(this), networkstatushandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNetworkStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(eventcookie: Param0) -> ::windows::core::Result<()> {
-        Self::INetworkInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNetworkStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() })
+    pub fn RemoveNetworkStatusChanged(eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::INetworkInformationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveNetworkStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() })
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindConnectionProfilesAsync<'a, Param0: ::windows::core::IntoParam<'a, ConnectionProfileFilter>>(pprofilefilter: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>> {
+    pub fn FindConnectionProfilesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfileFilter>>>(pprofilefilter: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>> {
         Self::INetworkInformationStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindConnectionProfilesAsync)(::windows::core::Interface::as_raw(this), pprofilefilter.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
+            (::windows::core::Interface::vtable(this).FindConnectionProfilesAsync)(::windows::core::Interface::as_raw(this), pprofilefilter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3058,14 +2912,9 @@ impl ::core::convert::From<&NetworkItem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkItem> for &::windows::core::IUnknown {
+    fn from(value: &NetworkItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkItem> for ::windows::core::IInspectable {
@@ -3078,14 +2927,9 @@ impl ::core::convert::From<&NetworkItem> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkItem> for &::windows::core::IInspectable {
+    fn from(value: &NetworkItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for NetworkItem {}
@@ -3151,14 +2995,9 @@ impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkSecuritySettings> for &::windows::core::IUnknown {
+    fn from(value: &NetworkSecuritySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkSecuritySettings> for ::windows::core::IInspectable {
@@ -3171,14 +3010,9 @@ impl ::core::convert::From<&NetworkSecuritySettings> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkSecuritySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkSecuritySettings> for &::windows::core::IInspectable {
+    fn from(value: &NetworkSecuritySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for NetworkSecuritySettings {}
@@ -3292,14 +3126,9 @@ impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkStateChangeEventDetails> for &::windows::core::IUnknown {
+    fn from(value: &NetworkStateChangeEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkStateChangeEventDetails> for ::windows::core::IInspectable {
@@ -3312,14 +3141,9 @@ impl ::core::convert::From<&NetworkStateChangeEventDetails> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkStateChangeEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkStateChangeEventDetails> for &::windows::core::IInspectable {
+    fn from(value: &NetworkStateChangeEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
@@ -3333,9 +3157,9 @@ impl NetworkStatusChangedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -3542,14 +3366,9 @@ impl ::core::convert::From<&NetworkUsage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for NetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a NetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkUsage> for &::windows::core::IUnknown {
+    fn from(value: &NetworkUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<NetworkUsage> for ::windows::core::IInspectable {
@@ -3562,14 +3381,9 @@ impl ::core::convert::From<&NetworkUsage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for NetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a NetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&NetworkUsage> for &::windows::core::IInspectable {
+    fn from(value: &NetworkUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for NetworkUsage {}
@@ -3681,14 +3495,9 @@ impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProviderNetworkUsage> for &::windows::core::IUnknown {
+    fn from(value: &ProviderNetworkUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProviderNetworkUsage> for ::windows::core::IInspectable {
@@ -3701,14 +3510,9 @@ impl ::core::convert::From<&ProviderNetworkUsage> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProviderNetworkUsage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProviderNetworkUsage> for &::windows::core::IInspectable {
+    fn from(value: &ProviderNetworkUsage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProviderNetworkUsage {}
@@ -3775,14 +3579,9 @@ impl ::core::convert::From<&ProxyConfiguration> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProxyConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProxyConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProxyConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &ProxyConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProxyConfiguration> for ::windows::core::IInspectable {
@@ -3795,14 +3594,9 @@ impl ::core::convert::From<&ProxyConfiguration> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProxyConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProxyConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProxyConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &ProxyConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProxyConfiguration {}
@@ -3899,10 +3693,10 @@ impl RoutePolicy {
         }
     }
     #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    pub fn CreateRoutePolicy<'a, Param0: ::windows::core::IntoParam<'a, ConnectionProfile>, Param1: ::windows::core::IntoParam<'a, super::HostName>>(connectionprofile: Param0, hostname: Param1, r#type: super::DomainNameType) -> ::windows::core::Result<RoutePolicy> {
+    pub fn CreateRoutePolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ConnectionProfile>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>, Param2: ::std::convert::Into<super::DomainNameType>>(connectionprofile: Param0, hostname: Param1, r#type: Param2) -> ::windows::core::Result<RoutePolicy> {
         Self::IRoutePolicyFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRoutePolicy)(::windows::core::Interface::as_raw(this), connectionprofile.into_param().abi(), hostname.into_param().abi(), r#type, result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)
+            (::windows::core::Interface::vtable(this).CreateRoutePolicy)(::windows::core::Interface::as_raw(this), connectionprofile.into().abi(), hostname.into().abi(), r#type.into(), result__.as_mut_ptr()).from_abi::<RoutePolicy>(result__)
         })
     }
     #[doc(hidden)]
@@ -3951,14 +3745,9 @@ impl ::core::convert::From<&RoutePolicy> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RoutePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RoutePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RoutePolicy> for &::windows::core::IUnknown {
+    fn from(value: &RoutePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RoutePolicy> for ::windows::core::IInspectable {
@@ -3971,14 +3760,9 @@ impl ::core::convert::From<&RoutePolicy> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RoutePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RoutePolicy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RoutePolicy> for &::windows::core::IInspectable {
+    fn from(value: &RoutePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RoutePolicy {}
@@ -4071,14 +3855,9 @@ impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WlanConnectionProfileDetails> for &::windows::core::IUnknown {
+    fn from(value: &WlanConnectionProfileDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WlanConnectionProfileDetails> for ::windows::core::IInspectable {
@@ -4091,14 +3870,9 @@ impl ::core::convert::From<&WlanConnectionProfileDetails> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WlanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WlanConnectionProfileDetails> for &::windows::core::IInspectable {
+    fn from(value: &WlanConnectionProfileDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WlanConnectionProfileDetails {}
@@ -4197,14 +3971,9 @@ impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WwanConnectionProfileDetails> for &::windows::core::IUnknown {
+    fn from(value: &WwanConnectionProfileDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WwanConnectionProfileDetails> for ::windows::core::IInspectable {
@@ -4217,14 +3986,9 @@ impl ::core::convert::From<&WwanConnectionProfileDetails> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WwanConnectionProfileDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WwanConnectionProfileDetails> for &::windows::core::IInspectable {
+    fn from(value: &WwanConnectionProfileDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}

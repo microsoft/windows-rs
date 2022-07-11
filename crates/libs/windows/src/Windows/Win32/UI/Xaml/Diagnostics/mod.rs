@@ -202,19 +202,14 @@ impl ::core::convert::From<IBitmapData> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBitmapData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBitmapData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBitmapData> for ::windows::core::IUnknown {
     fn from(value: &IBitmapData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitmapData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBitmapData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBitmapData {
@@ -257,12 +252,12 @@ pub struct IBitmapData_Vtbl {
 pub struct IVisualTreeService(::windows::core::IUnknown);
 impl IVisualTreeService {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AdviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IVisualTreeServiceCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AdviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IVisualTreeServiceCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -271,9 +266,9 @@ impl IVisualTreeService {
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, typename: Param0, value: Param1) -> ::windows::core::Result<u64> {
+    pub unsafe fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, typename: Param0, value: Param1) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), typename.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), typename.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -316,19 +311,14 @@ impl ::core::convert::From<IVisualTreeService> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVisualTreeService> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVisualTreeService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVisualTreeService> for ::windows::core::IUnknown {
     fn from(value: &IVisualTreeService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTreeService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVisualTreeService {
@@ -385,12 +375,12 @@ pub struct IVisualTreeService_Vtbl {
 pub struct IVisualTreeService2(::windows::core::IUnknown);
 impl IVisualTreeService2 {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AdviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IVisualTreeServiceCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.AdviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IVisualTreeServiceCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -399,9 +389,9 @@ impl IVisualTreeService2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, typename: Param0, value: Param1) -> ::windows::core::Result<u64> {
+    pub unsafe fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, typename: Param0, value: Param1) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateInstance)(::windows::core::Interface::as_raw(self), typename.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateInstance)(::windows::core::Interface::as_raw(self), typename.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -439,9 +429,9 @@ impl IVisualTreeService2 {
         (::windows::core::Interface::vtable(self).base__.ClearChildren)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn GetPropertyIndex<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, object: u64, propertyname: Param1) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetPropertyIndex(&self, object: u64, propertyname: ::windows::core::PCWSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), propertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(propertyname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64> {
@@ -453,13 +443,18 @@ impl IVisualTreeService2 {
         (::windows::core::Interface::vtable(self).ReplaceResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcedictionary), ::core::mem::transmute(key), ::core::mem::transmute(newvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
+    pub unsafe fn RenderTargetBitmap<'a, Param1: ::std::convert::Into<RenderTargetBitmapOptions>>(&self, handle: u64, options: Param1, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(options), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Interface::vtable(self).RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), options.into(), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
 }
 impl ::core::convert::From<IVisualTreeService2> for ::windows::core::IUnknown {
     fn from(value: IVisualTreeService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVisualTreeService2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVisualTreeService2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -468,34 +463,19 @@ impl ::core::convert::From<&IVisualTreeService2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTreeService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVisualTreeService2> for IVisualTreeService {
     fn from(value: IVisualTreeService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVisualTreeService2> for &'a IVisualTreeService {
+    fn from(value: &'a IVisualTreeService2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IVisualTreeService2> for IVisualTreeService {
     fn from(value: &IVisualTreeService2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for IVisualTreeService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for &'a IVisualTreeService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVisualTreeService2 {
@@ -532,12 +512,12 @@ pub struct IVisualTreeService2_Vtbl {
 pub struct IVisualTreeService3(::windows::core::IUnknown);
 impl IVisualTreeService3 {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.AdviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn AdviseVisualTreeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IVisualTreeServiceCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.AdviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, IVisualTreeServiceCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn UnadviseVisualTreeChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IVisualTreeServiceCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -546,9 +526,9 @@ impl IVisualTreeService3 {
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, typename: Param0, value: Param1) -> ::windows::core::Result<u64> {
+    pub unsafe fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::BSTR>>>(&self, typename: Param0, value: Param1) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.CreateInstance)(::windows::core::Interface::as_raw(self), typename.into_param().abi(), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.CreateInstance)(::windows::core::Interface::as_raw(self), typename.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -586,9 +566,9 @@ impl IVisualTreeService3 {
         (::windows::core::Interface::vtable(self).base__.base__.ClearChildren)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parent)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn GetPropertyIndex<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, object: u64, propertyname: Param1) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetPropertyIndex(&self, object: u64, propertyname: ::windows::core::PCWSTR) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), propertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetPropertyIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(propertyname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn GetProperty(&self, object: u64, propertyindex: u32) -> ::windows::core::Result<u64> {
@@ -600,19 +580,19 @@ impl IVisualTreeService3 {
         (::windows::core::Interface::vtable(self).base__.ReplaceResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcedictionary), ::core::mem::transmute(key), ::core::mem::transmute(newvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn RenderTargetBitmap(&self, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
+    pub unsafe fn RenderTargetBitmap<'a, Param1: ::std::convert::Into<RenderTargetBitmapOptions>>(&self, handle: u64, options: Param1, maxpixelwidth: u32, maxpixelheight: u32) -> ::windows::core::Result<IBitmapData> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), ::core::mem::transmute(options), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
+        (::windows::core::Interface::vtable(self).base__.RenderTargetBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(handle), options.into(), ::core::mem::transmute(maxpixelwidth), ::core::mem::transmute(maxpixelheight), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IBitmapData>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn ResolveResource<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, resourcecontext: u64, resourcename: Param1, resourcetype: ResourceType, propertyindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcecontext), resourcename.into_param().abi(), ::core::mem::transmute(resourcetype), ::core::mem::transmute(propertyindex)).ok()
+    pub unsafe fn ResolveResource<'a, Param2: ::std::convert::Into<ResourceType>>(&self, resourcecontext: u64, resourcename: ::windows::core::PCWSTR, resourcetype: Param2, propertyindex: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(resourcecontext), ::core::mem::transmute(resourcename), resourcetype.into(), ::core::mem::transmute(propertyindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDictionaryItem<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, dictionaryhandle: u64, resourcename: Param1, resourceisimplicitstyle: Param2) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetDictionaryItem<'a, Param2: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, dictionaryhandle: u64, resourcename: ::windows::core::PCWSTR, resourceisimplicitstyle: Param2) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionaryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dictionaryhandle), resourcename.into_param().abi(), resourceisimplicitstyle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).GetDictionaryItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dictionaryhandle), ::core::mem::transmute(resourcename), resourceisimplicitstyle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub unsafe fn AddDictionaryItem(&self, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::Result<()> {
@@ -628,23 +608,23 @@ impl ::core::convert::From<IVisualTreeService3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVisualTreeService3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVisualTreeService3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVisualTreeService3> for ::windows::core::IUnknown {
     fn from(value: &IVisualTreeService3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTreeService3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeService3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVisualTreeService3> for IVisualTreeService {
     fn from(value: IVisualTreeService3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVisualTreeService3> for &'a IVisualTreeService {
+    fn from(value: &'a IVisualTreeService3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -653,34 +633,19 @@ impl ::core::convert::From<&IVisualTreeService3> for IVisualTreeService {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for IVisualTreeService3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService> for &'a IVisualTreeService3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVisualTreeService3> for IVisualTreeService2 {
     fn from(value: IVisualTreeService3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVisualTreeService3> for &'a IVisualTreeService2 {
+    fn from(value: &'a IVisualTreeService3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IVisualTreeService3> for IVisualTreeService2 {
     fn from(value: &IVisualTreeService3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService2> for IVisualTreeService3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeService2> for &'a IVisualTreeService3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeService2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVisualTreeService3 {
@@ -721,8 +686,8 @@ pub struct IVisualTreeServiceCallback(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, ParentChildRelation>, Param1: ::windows::core::IntoParam<'a, VisualElement>>(&self, relation: Param0, element: Param1, mutationtype: VisualMutationType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnVisualTreeChange)(::windows::core::Interface::as_raw(self), relation.into_param().abi(), element.into_param().abi(), ::core::mem::transmute(mutationtype)).ok()
+    pub unsafe fn OnVisualTreeChange<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, VisualElement>>, Param2: ::std::convert::Into<VisualMutationType>>(&self, relation: ParentChildRelation, element: Param1, mutationtype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype.into()).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeServiceCallback> for ::windows::core::IUnknown {
@@ -730,19 +695,14 @@ impl ::core::convert::From<IVisualTreeServiceCallback> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVisualTreeServiceCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVisualTreeServiceCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVisualTreeServiceCallback> for ::windows::core::IUnknown {
     fn from(value: &IVisualTreeServiceCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTreeServiceCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeServiceCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVisualTreeServiceCallback {
@@ -780,16 +740,21 @@ pub struct IVisualTreeServiceCallback2(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback2 {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnVisualTreeChange<'a, Param0: ::windows::core::IntoParam<'a, ParentChildRelation>, Param1: ::windows::core::IntoParam<'a, VisualElement>>(&self, relation: Param0, element: Param1, mutationtype: VisualMutationType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnVisualTreeChange)(::windows::core::Interface::as_raw(self), relation.into_param().abi(), element.into_param().abi(), ::core::mem::transmute(mutationtype)).ok()
+    pub unsafe fn OnVisualTreeChange<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, VisualElement>>, Param2: ::std::convert::Into<VisualMutationType>>(&self, relation: ParentChildRelation, element: Param1, mutationtype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.OnVisualTreeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(relation), element.into().abi(), mutationtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn OnElementStateChanged<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, element: u64, elementstate: VisualElementState, context: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnElementStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(element), ::core::mem::transmute(elementstate), context.into_param().abi()).ok()
+    pub unsafe fn OnElementStateChanged<'a, Param1: ::std::convert::Into<VisualElementState>>(&self, element: u64, elementstate: Param1, context: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnElementStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(element), elementstate.into(), ::core::mem::transmute(context)).ok()
     }
 }
 impl ::core::convert::From<IVisualTreeServiceCallback2> for ::windows::core::IUnknown {
     fn from(value: IVisualTreeServiceCallback2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVisualTreeServiceCallback2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVisualTreeServiceCallback2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -798,34 +763,19 @@ impl ::core::convert::From<&IVisualTreeServiceCallback2> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualTreeServiceCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualTreeServiceCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVisualTreeServiceCallback2> for IVisualTreeServiceCallback {
     fn from(value: IVisualTreeServiceCallback2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVisualTreeServiceCallback2> for &'a IVisualTreeServiceCallback {
+    fn from(value: &'a IVisualTreeServiceCallback2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IVisualTreeServiceCallback2> for IVisualTreeServiceCallback {
     fn from(value: &IVisualTreeServiceCallback2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeServiceCallback> for IVisualTreeServiceCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeServiceCallback> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IVisualTreeServiceCallback> for &'a IVisualTreeServiceCallback2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IVisualTreeServiceCallback> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVisualTreeServiceCallback2 {
@@ -879,19 +829,19 @@ impl IXamlDiagnostics {
         (::windows::core::Interface::vtable(self).GetIInspectableFromHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(instancehandle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn GetHandleFromIInspectable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, pinstance: Param0) -> ::windows::core::Result<u64> {
+    pub unsafe fn GetHandleFromIInspectable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, pinstance: Param0) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetHandleFromIInspectable)(::windows::core::Interface::as_raw(self), pinstance.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).GetHandleFromIInspectable)(::windows::core::Interface::as_raw(self), pinstance.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HitTest<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, rect: Param0, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HitTest)(::windows::core::Interface::as_raw(self), rect.into_param().abi(), ::core::mem::transmute(pcount), ::core::mem::transmute(ppinstancehandles)).ok()
+    pub unsafe fn HitTest(&self, rect: super::super::super::Foundation::RECT, pcount: *mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HitTest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rect), ::core::mem::transmute(pcount), ::core::mem::transmute(ppinstancehandles)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
-    pub unsafe fn RegisterInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, pinstance: Param0) -> ::windows::core::Result<u64> {
+    pub unsafe fn RegisterInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, pinstance: Param0) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterInstance)(::windows::core::Interface::as_raw(self), pinstance.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).RegisterInstance)(::windows::core::Interface::as_raw(self), pinstance.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -905,19 +855,14 @@ impl ::core::convert::From<IXamlDiagnostics> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IXamlDiagnostics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IXamlDiagnostics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IXamlDiagnostics> for ::windows::core::IUnknown {
     fn from(value: &IXamlDiagnostics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlDiagnostics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IXamlDiagnostics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IXamlDiagnostics {
@@ -961,21 +906,21 @@ pub struct IXamlDiagnostics_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
-pub unsafe fn InitializeXamlDiagnostic<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4) -> ::windows::core::Result<()> {
+pub unsafe fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitializeXamlDiagnostic(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    InitializeXamlDiagnostic(endpointname.into_param().abi(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into_param().abi(), wsztapdllname.into_param().abi(), tapclsid.into_param().abi()).ok()
+    InitializeXamlDiagnostic(::core::mem::transmute(endpointname), ::core::mem::transmute(pid), ::core::mem::transmute(wszdllxamldiagnostics), ::core::mem::transmute(wsztapdllname), ::core::mem::transmute(tapclsid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
-pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(endpointname: Param0, pid: u32, wszdllxamldiagnostics: Param2, wsztapdllname: Param3, tapclsid: Param4, wszinitializationdata: Param5) -> ::windows::core::Result<()> {
+pub unsafe fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitializeXamlDiagnosticsEx(endpointname: ::windows::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows::core::PCWSTR, wsztapdllname: ::windows::core::PCWSTR, tapclsid: ::windows::core::GUID, wszinitializationdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    InitializeXamlDiagnosticsEx(endpointname.into_param().abi(), ::core::mem::transmute(pid), wszdllxamldiagnostics.into_param().abi(), wsztapdllname.into_param().abi(), tapclsid.into_param().abi(), wszinitializationdata.into_param().abi()).ok()
+    InitializeXamlDiagnosticsEx(::core::mem::transmute(endpointname), ::core::mem::transmute(pid), ::core::mem::transmute(wszdllxamldiagnostics), ::core::mem::transmute(wsztapdllname), ::core::mem::transmute(tapclsid), ::core::mem::transmute(wszinitializationdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]

@@ -129,14 +129,9 @@ impl ::core::convert::From<&InstalledDesktopApp> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InstalledDesktopApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InstalledDesktopApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InstalledDesktopApp> for &::windows::core::IUnknown {
+    fn from(value: &InstalledDesktopApp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InstalledDesktopApp> for ::windows::core::IInspectable {
@@ -149,14 +144,9 @@ impl ::core::convert::From<&InstalledDesktopApp> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InstalledDesktopApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InstalledDesktopApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InstalledDesktopApp> for &::windows::core::IInspectable {
+    fn from(value: &InstalledDesktopApp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -174,15 +164,11 @@ impl ::core::convert::TryFrom<&InstalledDesktopApp> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> for InstalledDesktopApp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IStringable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IStringable> for &InstalledDesktopApp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IStringable> {
-        ::core::convert::TryInto::<super::super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InstalledDesktopApp> for ::windows::core::InParam<'a, super::super::Foundation::IStringable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InstalledDesktopApp) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InstalledDesktopApp {}

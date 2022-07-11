@@ -150,7 +150,7 @@ fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         if gen.reader.param_flags(param.def).input() {
             if param.ty.is_winrt_array() {
                 result.combine(&quote! { #name: &[#default_type], });
-            } else if gen.reader.signature_param_is_convertible(param) {
+            } else if gen.reader.signature_param_is_borrowed(param) || gen.reader.signature_param_is_convertible(param) {
                 let kind: TokenStream = format!("Param{}", position).into();
                 result.combine(&quote! { #name: #kind, });
             } else {
@@ -176,14 +176,26 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         let param = if gen.reader.param_flags(param.def).input() {
             if param.ty.is_winrt_array() {
                 quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
-            } else if gen.reader.signature_param_is_convertible(param) {
+            } else if gen.reader.signature_param_is_failible_param(param) {
                 if param.ty.is_winrt_const_ref() {
-                    quote! { &#name.into_param().abi(), }
+                    quote! { &#name.try_into().map_err(|e| e.into())?.abi(), }
                 } else {
-                    quote! { #name.into_param().abi(), }
+                    quote! { #name.try_into().map_err(|e| e.into())?.abi(), }
                 }
+            } else if gen.reader.signature_param_is_borrowed(param) {
+                if param.ty.is_winrt_const_ref() {
+                    quote! { &#name.into().abi(), }
+                } else {
+                    quote! { #name.into().abi(), }
+                }
+            } else if gen.reader.signature_param_is_convertible(param) {
+                quote! { #name.into(), }
             } else if gen.reader.type_is_blittable(&param.ty) {
-                quote! { #name, }
+                if param.ty.is_winrt_const_ref() {
+                    quote! { &#name, }
+                } else {
+                    quote! { #name, }
+                }
             } else {
                 quote! { ::core::mem::transmute_copy(#name), }
             }

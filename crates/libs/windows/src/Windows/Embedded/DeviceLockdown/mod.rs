@@ -18,17 +18,17 @@ impl DeviceLockdownProfile {
     }
     #[doc = "*Required features: `\"Embedded_DeviceLockdown\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ApplyLockdownProfileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(profileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ApplyLockdownProfileAsync(profileid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ApplyLockdownProfileAsync)(::windows::core::Interface::as_raw(this), profileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ApplyLockdownProfileAsync)(::windows::core::Interface::as_raw(this), profileid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"Embedded_DeviceLockdown\"`*"]
-    pub fn GetLockdownProfileInformation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(profileid: Param0) -> ::windows::core::Result<DeviceLockdownProfileInformation> {
+    pub fn GetLockdownProfileInformation(profileid: ::windows::core::GUID) -> ::windows::core::Result<DeviceLockdownProfileInformation> {
         Self::IDeviceLockdownProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLockdownProfileInformation)(::windows::core::Interface::as_raw(this), profileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<DeviceLockdownProfileInformation>(result__)
+            (::windows::core::Interface::vtable(this).GetLockdownProfileInformation)(::windows::core::Interface::as_raw(this), profileid, result__.as_mut_ptr()).from_abi::<DeviceLockdownProfileInformation>(result__)
         })
     }
     #[doc(hidden)]
@@ -93,14 +93,9 @@ impl ::core::convert::From<&DeviceLockdownProfileInformation> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceLockdownProfileInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceLockdownProfileInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceLockdownProfileInformation> for &::windows::core::IUnknown {
+    fn from(value: &DeviceLockdownProfileInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceLockdownProfileInformation> for ::windows::core::IInspectable {
@@ -113,14 +108,9 @@ impl ::core::convert::From<&DeviceLockdownProfileInformation> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceLockdownProfileInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceLockdownProfileInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceLockdownProfileInformation> for &::windows::core::IInspectable {
+    fn from(value: &DeviceLockdownProfileInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}

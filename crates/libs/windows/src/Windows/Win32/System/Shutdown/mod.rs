@@ -1,32 +1,32 @@
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AbortSystemShutdownA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpmachinename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn AbortSystemShutdownA(lpmachinename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AbortSystemShutdownA(lpmachinename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AbortSystemShutdownA(lpmachinename.into_param().abi()))
+    ::core::mem::transmute(AbortSystemShutdownA(::core::mem::transmute(lpmachinename)))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AbortSystemShutdownW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpmachinename: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn AbortSystemShutdownW(lpmachinename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AbortSystemShutdownW(lpmachinename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(AbortSystemShutdownW(lpmachinename.into_param().abi()))
+    ::core::mem::transmute(AbortSystemShutdownW(::core::mem::transmute(lpmachinename)))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CheckForHiberboot<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: Param1) -> u32 {
+pub unsafe fn CheckForHiberboot<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOLEAN>>(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: Param1) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CheckForHiberboot(phiberboot: *mut super::super::Foundation::BOOLEAN, bclearflag: super::super::Foundation::BOOLEAN) -> u32;
     }
-    ::core::mem::transmute(CheckForHiberboot(::core::mem::transmute(phiberboot), bclearflag.into_param().abi()))
+    ::core::mem::transmute(CheckForHiberboot(::core::mem::transmute(phiberboot), bclearflag.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[repr(transparent)]
@@ -66,70 +66,70 @@ impl ::core::fmt::Debug for EXIT_WINDOWS_FLAGS {
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL {
+pub unsafe fn ExitWindowsEx<'a, Param0: ::std::convert::Into<EXIT_WINDOWS_FLAGS>, Param1: ::std::convert::Into<SHUTDOWN_REASON>>(uflags: Param0, dwreason: Param1) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ExitWindowsEx(::core::mem::transmute(uflags), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(ExitWindowsEx(uflags.into(), dwreason.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[inline]
-pub unsafe fn InitiateShutdownA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(lpmachinename: Param0, lpmessage: Param1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
+pub unsafe fn InitiateShutdownA<'a, Param3: ::std::convert::Into<SHUTDOWN_FLAGS>, Param4: ::std::convert::Into<SHUTDOWN_REASON>>(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwgraceperiod: u32, dwshutdownflags: Param3, dwreason: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitiateShutdownA(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
     }
-    ::core::mem::transmute(InitiateShutdownA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwgraceperiod), ::core::mem::transmute(dwshutdownflags), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateShutdownA(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwgraceperiod), dwshutdownflags.into(), dwreason.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[inline]
-pub unsafe fn InitiateShutdownW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(lpmachinename: Param0, lpmessage: Param1, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32 {
+pub unsafe fn InitiateShutdownW<'a, Param3: ::std::convert::Into<SHUTDOWN_FLAGS>, Param4: ::std::convert::Into<SHUTDOWN_REASON>>(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwgraceperiod: u32, dwshutdownflags: Param3, dwreason: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitiateShutdownW(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwgraceperiod: u32, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON) -> u32;
     }
-    ::core::mem::transmute(InitiateShutdownW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwgraceperiod), ::core::mem::transmute(dwshutdownflags), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateShutdownW(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwgraceperiod), dwshutdownflags.into(), dwreason.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
+pub unsafe fn InitiateSystemShutdownA<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitiateSystemShutdownA(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi()))
+    ::core::mem::transmute(InitiateSystemShutdownA(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownExA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL {
+pub unsafe fn InitiateSystemShutdownExA<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param5: ::std::convert::Into<SHUTDOWN_REASON>>(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4, dwreason: Param5) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitiateSystemShutdownExA(lpmachinename: ::windows::core::PCSTR, lpmessage: ::windows::core::PCSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownExA(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi(), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateSystemShutdownExA(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into(), dwreason.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownExW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL {
+pub unsafe fn InitiateSystemShutdownExW<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param5: ::std::convert::Into<SHUTDOWN_REASON>>(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4, dwreason: Param5) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitiateSystemShutdownExW(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL, dwreason: SHUTDOWN_REASON) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownExW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi(), ::core::mem::transmute(dwreason)))
+    ::core::mem::transmute(InitiateSystemShutdownExW(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into(), dwreason.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn InitiateSystemShutdownW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpmachinename: Param0, lpmessage: Param1, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
+pub unsafe fn InitiateSystemShutdownW<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwtimeout: u32, bforceappsclosed: Param3, brebootaftershutdown: Param4) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn InitiateSystemShutdownW(lpmachinename: ::windows::core::PCWSTR, lpmessage: ::windows::core::PCWSTR, dwtimeout: u32, bforceappsclosed: super::super::Foundation::BOOL, brebootaftershutdown: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(InitiateSystemShutdownW(lpmachinename.into_param().abi(), lpmessage.into_param().abi(), ::core::mem::transmute(dwtimeout), bforceappsclosed.into_param().abi(), brebootaftershutdown.into_param().abi()))
+    ::core::mem::transmute(InitiateSystemShutdownW(::core::mem::transmute(lpmachinename), ::core::mem::transmute(lpmessage), ::core::mem::transmute(dwtimeout), bforceappsclosed.into(), brebootaftershutdown.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -408,32 +408,32 @@ pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonCreate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwnd: Param0, pwszreason: Param1) -> super::super::Foundation::BOOL {
+pub unsafe fn ShutdownBlockReasonCreate<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pwszreason: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ShutdownBlockReasonCreate(hwnd: super::super::Foundation::HWND, pwszreason: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShutdownBlockReasonCreate(hwnd.into_param().abi(), pwszreason.into_param().abi()))
+    ::core::mem::transmute(ShutdownBlockReasonCreate(hwnd.into(), ::core::mem::transmute(pwszreason)))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonDestroy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
+pub unsafe fn ShutdownBlockReasonDestroy<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShutdownBlockReasonDestroy(hwnd.into_param().abi()))
+    ::core::mem::transmute(ShutdownBlockReasonDestroy(hwnd.into()))
 }
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ShutdownBlockReasonQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL {
+pub unsafe fn ShutdownBlockReasonQuery<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(hwnd: Param0, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(ShutdownBlockReasonQuery(hwnd.into_param().abi(), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(pcchbuff)))
+    ::core::mem::transmute(ShutdownBlockReasonQuery(hwnd.into(), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(pcchbuff)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

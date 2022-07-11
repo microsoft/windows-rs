@@ -921,218 +921,218 @@ pub struct SpatialGestureRecognizer(::windows::core::IUnknown);
 impl SpatialGestureRecognizer {
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RecognitionStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RecognitionStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognitionStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecognitionStarted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRecognitionStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRecognitionStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionStarted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RecognitionEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn RecognitionEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialRecognitionEndedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognitionEnded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecognitionEnded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRecognitionEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRecognitionEnded(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionEnded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Tapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn Tapped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialTappedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Tapped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Tapped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveTapped(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTapped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn HoldStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).HoldStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HoldStarted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveHoldStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveHoldStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldStarted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn HoldCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).HoldCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HoldCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveHoldCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveHoldCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HoldCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn HoldCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialHoldCanceledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).HoldCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HoldCanceled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveHoldCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveHoldCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCanceled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCanceled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationStarted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveManipulationStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationStarted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveManipulationUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveManipulationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ManipulationCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn ManipulationCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialManipulationCanceledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationCanceled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveManipulationCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveManipulationCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCanceled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCanceled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationStarted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNavigationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNavigationStarted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationStarted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNavigationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNavigationUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNavigationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNavigationCompleted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NavigationCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn NavigationCanceled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialGestureRecognizer, SpatialNavigationCanceledEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationCanceled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNavigationCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNavigationCanceled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCanceled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCanceled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn CaptureInteraction<'a, Param0: ::windows::core::IntoParam<'a, SpatialInteraction>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
+    pub fn CaptureInteraction<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SpatialInteraction>>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CaptureInteraction)(::windows::core::Interface::as_raw(this), interaction.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CaptureInteraction)(::windows::core::Interface::as_raw(this), interaction.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn CancelPendingGestures(&self) -> ::windows::core::Result<()> {
@@ -1140,11 +1140,11 @@ impl SpatialGestureRecognizer {
         unsafe { (::windows::core::Interface::vtable(this).CancelPendingGestures)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> ::windows::core::Result<bool> {
+    pub fn TrySetGestureSettings<'a, Param0: ::std::convert::Into<SpatialGestureSettings>>(&self, settings: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetGestureSettings)(::windows::core::Interface::as_raw(this), settings, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetGestureSettings)(::windows::core::Interface::as_raw(this), settings.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1156,10 +1156,10 @@ impl SpatialGestureRecognizer {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn Create(settings: SpatialGestureSettings) -> ::windows::core::Result<SpatialGestureRecognizer> {
+    pub fn Create<'a, Param0: ::std::convert::Into<SpatialGestureSettings>>(settings: Param0) -> ::windows::core::Result<SpatialGestureRecognizer> {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), settings, result__.as_mut_ptr()).from_abi::<SpatialGestureRecognizer>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), settings.into(), result__.as_mut_ptr()).from_abi::<SpatialGestureRecognizer>(result__)
         })
     }
     #[doc(hidden)]
@@ -1208,14 +1208,9 @@ impl ::core::convert::From<&SpatialGestureRecognizer> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialGestureRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialGestureRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialGestureRecognizer> for &::windows::core::IUnknown {
+    fn from(value: &SpatialGestureRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialGestureRecognizer> for ::windows::core::IInspectable {
@@ -1228,14 +1223,9 @@ impl ::core::convert::From<&SpatialGestureRecognizer> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialGestureRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialGestureRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialGestureRecognizer> for &::windows::core::IInspectable {
+    fn from(value: &SpatialGestureRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialGestureRecognizer {}
@@ -1364,14 +1354,9 @@ impl ::core::convert::From<&SpatialHoldCanceledEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialHoldCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialHoldCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialHoldCanceledEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialHoldCanceledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialHoldCanceledEventArgs> for ::windows::core::IInspectable {
@@ -1384,14 +1369,9 @@ impl ::core::convert::From<&SpatialHoldCanceledEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialHoldCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialHoldCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialHoldCanceledEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialHoldCanceledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialHoldCanceledEventArgs {}
@@ -1449,14 +1429,9 @@ impl ::core::convert::From<&SpatialHoldCompletedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialHoldCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialHoldCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialHoldCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialHoldCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialHoldCompletedEventArgs> for ::windows::core::IInspectable {
@@ -1469,14 +1444,9 @@ impl ::core::convert::From<&SpatialHoldCompletedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialHoldCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialHoldCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialHoldCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialHoldCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialHoldCompletedEventArgs {}
@@ -1495,11 +1465,11 @@ impl SpatialHoldStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
 }
@@ -1543,14 +1513,9 @@ impl ::core::convert::From<&SpatialHoldStartedEventArgs> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialHoldStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialHoldStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialHoldStartedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialHoldStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialHoldStartedEventArgs> for ::windows::core::IInspectable {
@@ -1563,14 +1528,9 @@ impl ::core::convert::From<&SpatialHoldStartedEventArgs> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialHoldStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialHoldStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialHoldStartedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialHoldStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialHoldStartedEventArgs {}
@@ -1628,14 +1588,9 @@ impl ::core::convert::From<&SpatialInteraction> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteraction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteraction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteraction> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteraction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteraction> for ::windows::core::IInspectable {
@@ -1648,14 +1603,9 @@ impl ::core::convert::From<&SpatialInteraction> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteraction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteraction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteraction> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteraction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteraction {}
@@ -1772,14 +1722,9 @@ impl ::core::convert::From<&SpatialInteractionController> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionController> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionController> for ::windows::core::IInspectable {
@@ -1792,14 +1737,9 @@ impl ::core::convert::From<&SpatialInteractionController> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionController> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionController {}
@@ -1905,14 +1845,9 @@ impl ::core::convert::From<&SpatialInteractionControllerProperties> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionControllerProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionControllerProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionControllerProperties> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionControllerProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionControllerProperties> for ::windows::core::IInspectable {
@@ -1925,14 +1860,9 @@ impl ::core::convert::From<&SpatialInteractionControllerProperties> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionControllerProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionControllerProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionControllerProperties> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionControllerProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionControllerProperties {}
@@ -1951,11 +1881,11 @@ impl SpatialInteractionDetectedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2015,14 +1945,9 @@ impl ::core::convert::From<&SpatialInteractionDetectedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionDetectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionDetectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionDetectedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionDetectedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionDetectedEventArgs> for ::windows::core::IInspectable {
@@ -2035,14 +1960,9 @@ impl ::core::convert::From<&SpatialInteractionDetectedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionDetectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionDetectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionDetectedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionDetectedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionDetectedEventArgs {}
@@ -2053,101 +1973,101 @@ pub struct SpatialInteractionManager(::windows::core::IUnknown);
 impl SpatialInteractionManager {
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceDetected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SourceDetected)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceDetected)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSourceDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSourceDetected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceDetected)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceDetected)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceLost<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SourceLost)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceLost)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSourceLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSourceLost(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceLost)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceLost)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SourceUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSourceUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSourceUpdated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourcePressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourcePressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SourcePressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourcePressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSourcePressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSourcePressed(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourcePressed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourcePressed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceReleased<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionSourceEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SourceReleased)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceReleased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSourceReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSourceReleased(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceReleased)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceReleased)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InteractionDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn InteractionDetected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<SpatialInteractionManager, SpatialInteractionDetectedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionDetected)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).InteractionDetected)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveInteractionDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveInteractionDetected(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveInteractionDetected)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveInteractionDetected)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Collections\"`, `\"Perception\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
-    pub fn GetDetectedSourcesAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(&self, timestamp: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>> {
+    pub fn GetDetectedSourcesAtTimestamp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>>(&self, timestamp: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>(result__)
+            (::windows::core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2158,10 +2078,10 @@ impl SpatialInteractionManager {
         })
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn IsSourceKindSupported(kind: SpatialInteractionSourceKind) -> ::windows::core::Result<bool> {
+    pub fn IsSourceKindSupported<'a, Param0: ::std::convert::Into<SpatialInteractionSourceKind>>(kind: Param0) -> ::windows::core::Result<bool> {
         Self::ISpatialInteractionManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -2215,14 +2135,9 @@ impl ::core::convert::From<&SpatialInteractionManager> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionManager> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionManager> for ::windows::core::IInspectable {
@@ -2235,14 +2150,9 @@ impl ::core::convert::From<&SpatialInteractionManager> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionManager> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionManager {}
@@ -2339,11 +2249,11 @@ impl SpatialInteractionSource {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception\"`*"]
     #[cfg(feature = "Perception")]
-    pub fn TryGetStateAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(&self, timestamp: Param0) -> ::windows::core::Result<SpatialInteractionSourceState> {
+    pub fn TryGetStateAtTimestamp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>>(&self, timestamp: Param0) -> ::windows::core::Result<SpatialInteractionSourceState> {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetStateAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialInteractionSourceState>(result__)
+            (::windows::core::Interface::vtable(this).TryGetStateAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialInteractionSourceState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2413,14 +2323,9 @@ impl ::core::convert::From<&SpatialInteractionSource> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSource> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionSource> for ::windows::core::IInspectable {
@@ -2433,14 +2338,9 @@ impl ::core::convert::From<&SpatialInteractionSource> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSource> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSource {}
@@ -2506,14 +2406,9 @@ impl ::core::convert::From<&SpatialInteractionSourceEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionSourceEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionSourceEventArgs> for ::windows::core::IInspectable {
@@ -2526,14 +2421,9 @@ impl ::core::convert::From<&SpatialInteractionSourceEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionSourceEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceEventArgs {}
@@ -2706,14 +2596,9 @@ impl ::core::convert::From<&SpatialInteractionSourceLocation> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionSourceLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionSourceLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceLocation> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionSourceLocation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionSourceLocation> for ::windows::core::IInspectable {
@@ -2726,14 +2611,9 @@ impl ::core::convert::From<&SpatialInteractionSourceLocation> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionSourceLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionSourceLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceLocation> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionSourceLocation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceLocation {}
@@ -2778,11 +2658,11 @@ pub struct SpatialInteractionSourceProperties(::windows::core::IUnknown);
 impl SpatialInteractionSourceProperties {
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetSourceLossMitigationDirection<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
+    pub fn TryGetSourceLossMitigationDirection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2795,11 +2675,11 @@ impl SpatialInteractionSourceProperties {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialInteractionSourceLocation> {
+    pub fn TryGetLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialInteractionSourceLocation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetLocation)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialInteractionSourceLocation>(result__)
+            (::windows::core::Interface::vtable(this).TryGetLocation)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialInteractionSourceLocation>(result__)
         }
     }
 }
@@ -2843,14 +2723,9 @@ impl ::core::convert::From<&SpatialInteractionSourceProperties> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionSourceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionSourceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceProperties> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionSourceProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionSourceProperties> for ::windows::core::IInspectable {
@@ -2863,14 +2738,9 @@ impl ::core::convert::From<&SpatialInteractionSourceProperties> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionSourceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionSourceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceProperties> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionSourceProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceProperties {}
@@ -2914,11 +2784,11 @@ impl SpatialInteractionSourceState {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3011,14 +2881,9 @@ impl ::core::convert::From<&SpatialInteractionSourceState> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialInteractionSourceState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialInteractionSourceState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceState> for &::windows::core::IUnknown {
+    fn from(value: &SpatialInteractionSourceState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialInteractionSourceState> for ::windows::core::IInspectable {
@@ -3031,14 +2896,9 @@ impl ::core::convert::From<&SpatialInteractionSourceState> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialInteractionSourceState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialInteractionSourceState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialInteractionSourceState> for &::windows::core::IInspectable {
+    fn from(value: &SpatialInteractionSourceState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialInteractionSourceState {}
@@ -3096,14 +2956,9 @@ impl ::core::convert::From<&SpatialManipulationCanceledEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialManipulationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialManipulationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationCanceledEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialManipulationCanceledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialManipulationCanceledEventArgs> for ::windows::core::IInspectable {
@@ -3116,14 +2971,9 @@ impl ::core::convert::From<&SpatialManipulationCanceledEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialManipulationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialManipulationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationCanceledEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialManipulationCanceledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialManipulationCanceledEventArgs {}
@@ -3142,11 +2992,11 @@ impl SpatialManipulationCompletedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetCumulativeDelta<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialManipulationDelta> {
+    pub fn TryGetCumulativeDelta<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialManipulationDelta>(result__)
         }
     }
 }
@@ -3190,14 +3040,9 @@ impl ::core::convert::From<&SpatialManipulationCompletedEventArgs> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialManipulationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialManipulationCompletedEventArgs> for ::windows::core::IInspectable {
@@ -3210,14 +3055,9 @@ impl ::core::convert::From<&SpatialManipulationCompletedEventArgs> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialManipulationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialManipulationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialManipulationCompletedEventArgs {}
@@ -3276,14 +3116,9 @@ impl ::core::convert::From<&SpatialManipulationDelta> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialManipulationDelta {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialManipulationDelta {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationDelta> for &::windows::core::IUnknown {
+    fn from(value: &SpatialManipulationDelta) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialManipulationDelta> for ::windows::core::IInspectable {
@@ -3296,14 +3131,9 @@ impl ::core::convert::From<&SpatialManipulationDelta> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialManipulationDelta {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialManipulationDelta {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationDelta> for &::windows::core::IInspectable {
+    fn from(value: &SpatialManipulationDelta) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialManipulationDelta {}
@@ -3322,11 +3152,11 @@ impl SpatialManipulationStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
 }
@@ -3370,14 +3200,9 @@ impl ::core::convert::From<&SpatialManipulationStartedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationStartedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialManipulationStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialManipulationStartedEventArgs> for ::windows::core::IInspectable {
@@ -3390,14 +3215,9 @@ impl ::core::convert::From<&SpatialManipulationStartedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialManipulationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationStartedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialManipulationStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialManipulationStartedEventArgs {}
@@ -3416,11 +3236,11 @@ impl SpatialManipulationUpdatedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetCumulativeDelta<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialManipulationDelta> {
+    pub fn TryGetCumulativeDelta<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialManipulationDelta> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialManipulationDelta>(result__)
         }
     }
 }
@@ -3464,14 +3284,9 @@ impl ::core::convert::From<&SpatialManipulationUpdatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialManipulationUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialManipulationUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -3484,14 +3299,9 @@ impl ::core::convert::From<&SpatialManipulationUpdatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialManipulationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialManipulationUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialManipulationUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialManipulationUpdatedEventArgs {}
@@ -3549,14 +3359,9 @@ impl ::core::convert::From<&SpatialNavigationCanceledEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialNavigationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialNavigationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationCanceledEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialNavigationCanceledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialNavigationCanceledEventArgs> for ::windows::core::IInspectable {
@@ -3569,14 +3374,9 @@ impl ::core::convert::From<&SpatialNavigationCanceledEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialNavigationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialNavigationCanceledEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationCanceledEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialNavigationCanceledEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialNavigationCanceledEventArgs {}
@@ -3643,14 +3443,9 @@ impl ::core::convert::From<&SpatialNavigationCompletedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialNavigationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialNavigationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialNavigationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialNavigationCompletedEventArgs> for ::windows::core::IInspectable {
@@ -3663,14 +3458,9 @@ impl ::core::convert::From<&SpatialNavigationCompletedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialNavigationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialNavigationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialNavigationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialNavigationCompletedEventArgs {}
@@ -3689,11 +3479,11 @@ impl SpatialNavigationStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3761,14 +3551,9 @@ impl ::core::convert::From<&SpatialNavigationStartedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialNavigationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialNavigationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationStartedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialNavigationStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialNavigationStartedEventArgs> for ::windows::core::IInspectable {
@@ -3781,14 +3566,9 @@ impl ::core::convert::From<&SpatialNavigationStartedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialNavigationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialNavigationStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationStartedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialNavigationStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialNavigationStartedEventArgs {}
@@ -3855,14 +3635,9 @@ impl ::core::convert::From<&SpatialNavigationUpdatedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialNavigationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialNavigationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialNavigationUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialNavigationUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -3875,14 +3650,9 @@ impl ::core::convert::From<&SpatialNavigationUpdatedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialNavigationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialNavigationUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialNavigationUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialNavigationUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialNavigationUpdatedEventArgs {}
@@ -3976,14 +3746,9 @@ impl ::core::convert::From<&SpatialPointerInteractionSourcePose> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialPointerInteractionSourcePose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialPointerInteractionSourcePose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialPointerInteractionSourcePose> for &::windows::core::IUnknown {
+    fn from(value: &SpatialPointerInteractionSourcePose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialPointerInteractionSourcePose> for ::windows::core::IInspectable {
@@ -3996,14 +3761,9 @@ impl ::core::convert::From<&SpatialPointerInteractionSourcePose> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialPointerInteractionSourcePose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialPointerInteractionSourcePose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialPointerInteractionSourcePose> for &::windows::core::IInspectable {
+    fn from(value: &SpatialPointerInteractionSourcePose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialPointerInteractionSourcePose {}
@@ -4031,11 +3791,11 @@ impl SpatialPointerPose {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn TryGetInteractionSourcePose<'a, Param0: ::windows::core::IntoParam<'a, SpatialInteractionSource>>(&self, source: Param0) -> ::windows::core::Result<SpatialPointerInteractionSourcePose> {
+    pub fn TryGetInteractionSourcePose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SpatialInteractionSource>>>(&self, source: Param0) -> ::windows::core::Result<SpatialPointerInteractionSourcePose> {
         let this = &::windows::core::Interface::cast::<ISpatialPointerPose2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetInteractionSourcePose)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerInteractionSourcePose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetInteractionSourcePose)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerInteractionSourcePose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_People\"`*"]
@@ -4057,10 +3817,10 @@ impl SpatialPointerPose {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(coordinatesystem: Param0, timestamp: Param1) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetAtTimestamp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::PerceptionTimestamp>>>(coordinatesystem: Param0, timestamp: Param1) -> ::windows::core::Result<SpatialPointerPose> {
         Self::ISpatialPointerPoseStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAtTimestamp)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), timestamp.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAtTimestamp)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), timestamp.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         })
     }
     #[doc(hidden)]
@@ -4109,14 +3869,9 @@ impl ::core::convert::From<&SpatialPointerPose> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialPointerPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialPointerPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialPointerPose> for &::windows::core::IUnknown {
+    fn from(value: &SpatialPointerPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialPointerPose> for ::windows::core::IInspectable {
@@ -4129,14 +3884,9 @@ impl ::core::convert::From<&SpatialPointerPose> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialPointerPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialPointerPose {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialPointerPose> for &::windows::core::IInspectable {
+    fn from(value: &SpatialPointerPose) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialPointerPose {}
@@ -4194,14 +3944,9 @@ impl ::core::convert::From<&SpatialRecognitionEndedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialRecognitionEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialRecognitionEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialRecognitionEndedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialRecognitionEndedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialRecognitionEndedEventArgs> for ::windows::core::IInspectable {
@@ -4214,14 +3959,9 @@ impl ::core::convert::From<&SpatialRecognitionEndedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialRecognitionEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialRecognitionEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialRecognitionEndedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialRecognitionEndedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialRecognitionEndedEventArgs {}
@@ -4240,19 +3980,19 @@ impl SpatialRecognitionStartedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
-    pub fn IsGesturePossible(&self, gesture: SpatialGestureSettings) -> ::windows::core::Result<bool> {
+    pub fn IsGesturePossible<'a, Param0: ::std::convert::Into<SpatialGestureSettings>>(&self, gesture: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsGesturePossible)(::windows::core::Interface::as_raw(this), gesture, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGesturePossible)(::windows::core::Interface::as_raw(this), gesture.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -4296,14 +4036,9 @@ impl ::core::convert::From<&SpatialRecognitionStartedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialRecognitionStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialRecognitionStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialRecognitionStartedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialRecognitionStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialRecognitionStartedEventArgs> for ::windows::core::IInspectable {
@@ -4316,14 +4051,9 @@ impl ::core::convert::From<&SpatialRecognitionStartedEventArgs> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialRecognitionStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialRecognitionStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialRecognitionStartedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialRecognitionStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialRecognitionStartedEventArgs {}
@@ -4342,11 +4072,11 @@ impl SpatialTappedEventArgs {
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
-    pub fn TryGetPointerPose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
+    pub fn TryGetPointerPose<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0) -> ::windows::core::Result<SpatialPointerPose> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -4398,14 +4128,9 @@ impl ::core::convert::From<&SpatialTappedEventArgs> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpatialTappedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpatialTappedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialTappedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SpatialTappedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpatialTappedEventArgs> for ::windows::core::IInspectable {
@@ -4418,14 +4143,9 @@ impl ::core::convert::From<&SpatialTappedEventArgs> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpatialTappedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpatialTappedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpatialTappedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SpatialTappedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpatialTappedEventArgs {}

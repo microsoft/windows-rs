@@ -360,21 +360,15 @@ impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::window
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ILearningModelVariableDescriptorPreview> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -384,21 +378,15 @@ impl ::core::convert::From<ILearningModelVariableDescriptorPreview> for ::window
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ILearningModelVariableDescriptorPreview> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILearningModelVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ILearningModelVariableDescriptorPreview> for ::windows::core::IInspectable {
     fn from(value: &ILearningModelVariableDescriptorPreview) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -649,15 +637,9 @@ impl ::core::convert::From<&ImageVariableDescriptorPreview> for ::windows::core:
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageVariableDescriptorPreview> for &::windows::core::IUnknown {
+    fn from(value: &ImageVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -673,15 +655,9 @@ impl ::core::convert::From<&ImageVariableDescriptorPreview> for ::windows::core:
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ImageVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageVariableDescriptorPreview> for &::windows::core::IInspectable {
+    fn from(value: &ImageVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -699,15 +675,11 @@ impl ::core::convert::TryFrom<&ImageVariableDescriptorPreview> for ILearningMode
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for ImageVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &ImageVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ImageVariableDescriptorPreview> for ::windows::core::InParam<'a, ILearningModelVariableDescriptorPreview> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ImageVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -727,9 +699,9 @@ impl InferencingOptionsPreview {
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetPreferredDeviceKind(&self, value: LearningModelDeviceKindPreview) -> ::windows::core::Result<()> {
+    pub fn SetPreferredDeviceKind<'a, Param0: ::std::convert::Into<LearningModelDeviceKindPreview>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreferredDeviceKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreferredDeviceKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -842,15 +814,9 @@ impl ::core::convert::From<&InferencingOptionsPreview> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InferencingOptionsPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InferencingOptionsPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InferencingOptionsPreview> for &::windows::core::IUnknown {
+    fn from(value: &InferencingOptionsPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -866,15 +832,9 @@ impl ::core::convert::From<&InferencingOptionsPreview> for ::windows::core::IIns
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InferencingOptionsPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InferencingOptionsPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InferencingOptionsPreview> for &::windows::core::IInspectable {
+    fn from(value: &InferencingOptionsPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -894,15 +854,15 @@ impl LearningModelBindingPreview {
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Bind<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
+    pub fn Bind<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, name: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Bind)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn BindWithProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IPropertySet>>(&self, name: Param0, value: Param1, metadata: Param2) -> ::windows::core::Result<()> {
+    pub fn BindWithProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, name: Param0, value: Param1, metadata: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into_param().abi(), value.into_param().abi(), metadata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).BindWithProperties)(::windows::core::Interface::as_raw(this), name.into().abi(), value.into().abi(), metadata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -912,19 +872,19 @@ impl LearningModelBindingPreview {
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CreateFromModel<'a, Param0: ::windows::core::IntoParam<'a, LearningModelPreview>>(model: Param0) -> ::windows::core::Result<LearningModelBindingPreview> {
+    pub fn CreateFromModel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelPreview>>>(model: Param0) -> ::windows::core::Result<LearningModelBindingPreview> {
         Self::ILearningModelBindingPreviewFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromModel)(::windows::core::Interface::as_raw(this), model.into_param().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBindingPreview>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromModel)(::windows::core::Interface::as_raw(this), model.into().abi(), result__.as_mut_ptr()).from_abi::<LearningModelBindingPreview>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
@@ -938,11 +898,11 @@ impl LearningModelBindingPreview {
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`*"]
@@ -1024,15 +984,9 @@ impl ::core::convert::From<&LearningModelBindingPreview> for ::windows::core::IU
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelBindingPreview> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelBindingPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1048,15 +1002,9 @@ impl ::core::convert::From<&LearningModelBindingPreview> for ::windows::core::II
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelBindingPreview> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelBindingPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1074,15 +1022,11 @@ impl ::core::convert::TryFrom<&LearningModelBindingPreview> for super::super::su
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModelBindingPreview> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelBindingPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1100,15 +1044,11 @@ impl ::core::convert::TryFrom<&LearningModelBindingPreview> for super::super::su
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> for &LearningModelBindingPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModelBindingPreview> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelBindingPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1240,15 +1180,9 @@ impl ::core::convert::From<&LearningModelDescriptionPreview> for ::windows::core
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelDescriptionPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelDescriptionPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelDescriptionPreview> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelDescriptionPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1264,15 +1198,9 @@ impl ::core::convert::From<&LearningModelDescriptionPreview> for ::windows::core
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelDescriptionPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelDescriptionPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelDescriptionPreview> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelDescriptionPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1396,15 +1324,9 @@ impl ::core::convert::From<&LearningModelEvaluationResultPreview> for ::windows:
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelEvaluationResultPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelEvaluationResultPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelEvaluationResultPreview> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1420,15 +1342,9 @@ impl ::core::convert::From<&LearningModelEvaluationResultPreview> for ::windows:
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelEvaluationResultPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelEvaluationResultPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelEvaluationResultPreview> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelEvaluationResultPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1484,20 +1400,20 @@ pub struct LearningModelPreview(::windows::core::IUnknown);
 impl LearningModelPreview {
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn EvaluateAsync<'a, Param0: ::windows::core::IntoParam<'a, LearningModelBindingPreview>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, binding: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
+    pub fn EvaluateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LearningModelBindingPreview>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, binding: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), binding.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateAsync)(::windows::core::Interface::as_raw(this), binding.into().abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn EvaluateFeaturesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
+    pub fn EvaluateFeaturesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, features: Param0, correlationid: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.into_param().abi(), correlationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
+            (::windows::core::Interface::vtable(this).EvaluateFeaturesAsync)(::windows::core::Interface::as_raw(this), features.try_into().map_err(|e| e.into())?.abi(), correlationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelEvaluationResultPreview>>(result__)
         }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1520,24 +1436,24 @@ impl LearningModelPreview {
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetInferencingOptions<'a, Param0: ::windows::core::IntoParam<'a, InferencingOptionsPreview>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInferencingOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InferencingOptionsPreview>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInferencingOptions)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInferencingOptions)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
-    pub fn LoadModelFromStorageFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::IStorageFile>>(modelfile: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
+    pub fn LoadModelFromStorageFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelfile: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
         Self::ILearningModelPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadModelFromStorageFileAsync)(::windows::core::Interface::as_raw(this), modelfile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
+            (::windows::core::Interface::vtable(this).LoadModelFromStorageFileAsync)(::windows::core::Interface::as_raw(this), modelfile.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
         })
     }
     #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn LoadModelFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>>(modelstream: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
+    pub fn LoadModelFromStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(modelstream: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>> {
         Self::ILearningModelPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LoadModelFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
+            (::windows::core::Interface::vtable(this).LoadModelFromStreamAsync)(::windows::core::Interface::as_raw(this), modelstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LearningModelPreview>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1597,15 +1513,9 @@ impl ::core::convert::From<&LearningModelPreview> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelPreview> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1621,15 +1531,9 @@ impl ::core::convert::From<&LearningModelPreview> for ::windows::core::IInspecta
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelPreview> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1725,15 +1629,9 @@ impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ::window
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for &::windows::core::IUnknown {
+    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1749,15 +1647,9 @@ impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for ::window
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LearningModelVariableDescriptorPreview> for &::windows::core::IInspectable {
+    fn from(value: &LearningModelVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1775,15 +1667,11 @@ impl ::core::convert::TryFrom<&LearningModelVariableDescriptorPreview> for ILear
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for LearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &LearningModelVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LearningModelVariableDescriptorPreview> for ::windows::core::InParam<'a, ILearningModelVariableDescriptorPreview> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LearningModelVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -1915,15 +1803,9 @@ impl ::core::convert::From<&MapVariableDescriptorPreview> for ::windows::core::I
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapVariableDescriptorPreview> for &::windows::core::IUnknown {
+    fn from(value: &MapVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1939,15 +1821,9 @@ impl ::core::convert::From<&MapVariableDescriptorPreview> for ::windows::core::I
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapVariableDescriptorPreview> for &::windows::core::IInspectable {
+    fn from(value: &MapVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1965,15 +1841,11 @@ impl ::core::convert::TryFrom<&MapVariableDescriptorPreview> for ILearningModelV
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for MapVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &MapVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MapVariableDescriptorPreview> for ::windows::core::InParam<'a, ILearningModelVariableDescriptorPreview> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MapVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2078,15 +1950,9 @@ impl ::core::convert::From<&SequenceVariableDescriptorPreview> for ::windows::co
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SequenceVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SequenceVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SequenceVariableDescriptorPreview> for &::windows::core::IUnknown {
+    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2102,15 +1968,9 @@ impl ::core::convert::From<&SequenceVariableDescriptorPreview> for ::windows::co
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SequenceVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SequenceVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SequenceVariableDescriptorPreview> for &::windows::core::IInspectable {
+    fn from(value: &SequenceVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2128,15 +1988,11 @@ impl ::core::convert::TryFrom<&SequenceVariableDescriptorPreview> for ILearningM
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for SequenceVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &SequenceVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SequenceVariableDescriptorPreview> for ::windows::core::InParam<'a, ILearningModelVariableDescriptorPreview> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SequenceVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"AI_MachineLearning_Preview\"`, `\"deprecated\"`*"]
@@ -2250,15 +2106,9 @@ impl ::core::convert::From<&TensorVariableDescriptorPreview> for ::windows::core
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TensorVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TensorVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorVariableDescriptorPreview> for &::windows::core::IUnknown {
+    fn from(value: &TensorVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2274,15 +2124,9 @@ impl ::core::convert::From<&TensorVariableDescriptorPreview> for ::windows::core
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TensorVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TensorVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TensorVariableDescriptorPreview> for &::windows::core::IInspectable {
+    fn from(value: &TensorVariableDescriptorPreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2300,15 +2144,11 @@ impl ::core::convert::TryFrom<&TensorVariableDescriptorPreview> for ILearningMod
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for TensorVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ILearningModelVariableDescriptorPreview> for &TensorVariableDescriptorPreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ILearningModelVariableDescriptorPreview> {
-        ::core::convert::TryInto::<ILearningModelVariableDescriptorPreview>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TensorVariableDescriptorPreview> for ::windows::core::InParam<'a, ILearningModelVariableDescriptorPreview> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TensorVariableDescriptorPreview) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "implement")]

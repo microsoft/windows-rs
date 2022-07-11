@@ -11,45 +11,45 @@ impl DataProtectionProvider {
     }
     #[doc = "*Required features: `\"Security_Cryptography_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProtectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn ProtectAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectAsync)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).ProtectAsync)(::windows::core::Interface::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UnprotectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
+    pub fn UnprotectAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, data: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UnprotectAsync)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).UnprotectAsync)(::windows::core::Interface::as_raw(this), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ProtectStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IOutputStream>>(&self, src: Param0, dest: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn ProtectStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, src: Param0, dest: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ProtectStreamAsync)(::windows::core::Interface::as_raw(this), src.into_param().abi(), dest.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ProtectStreamAsync)(::windows::core::Interface::as_raw(this), src.try_into().map_err(|e| e.into())?.abi(), dest.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_DataProtection\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn UnprotectStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IOutputStream>>(&self, src: Param0, dest: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn UnprotectStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IOutputStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, src: Param0, dest: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UnprotectStreamAsync)(::windows::core::Interface::as_raw(this), src.into_param().abi(), dest.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UnprotectStreamAsync)(::windows::core::Interface::as_raw(this), src.try_into().map_err(|e| e.into())?.abi(), dest.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Cryptography_DataProtection\"`*"]
-    pub fn CreateOverloadExplicit<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(protectiondescriptor: Param0) -> ::windows::core::Result<DataProtectionProvider> {
+    pub fn CreateOverloadExplicit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(protectiondescriptor: Param0) -> ::windows::core::Result<DataProtectionProvider> {
         Self::IDataProtectionProviderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateOverloadExplicit)(::windows::core::Interface::as_raw(this), protectiondescriptor.into_param().abi(), result__.as_mut_ptr()).from_abi::<DataProtectionProvider>(result__)
+            (::windows::core::Interface::vtable(this).CreateOverloadExplicit)(::windows::core::Interface::as_raw(this), protectiondescriptor.into().abi(), result__.as_mut_ptr()).from_abi::<DataProtectionProvider>(result__)
         })
     }
     #[doc(hidden)]
@@ -98,14 +98,9 @@ impl ::core::convert::From<&DataProtectionProvider> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataProtectionProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataProtectionProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataProtectionProvider> for &::windows::core::IUnknown {
+    fn from(value: &DataProtectionProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DataProtectionProvider> for ::windows::core::IInspectable {
@@ -118,14 +113,9 @@ impl ::core::convert::From<&DataProtectionProvider> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataProtectionProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataProtectionProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataProtectionProvider> for &::windows::core::IInspectable {
+    fn from(value: &DataProtectionProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DataProtectionProvider {}

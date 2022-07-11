@@ -6,13 +6,19 @@ pub struct IWSCDefaultProduct(::windows::core::IUnknown);
 impl IWSCDefaultProduct {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDefaultProduct<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, etype: SECURITY_PRODUCT_TYPE, pguid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(etype), pguid.into_param().abi()).ok()
+    pub unsafe fn SetDefaultProduct<'a, Param0: ::std::convert::Into<SECURITY_PRODUCT_TYPE>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, etype: Param0, pguid: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultProduct)(::windows::core::Interface::as_raw(self), etype.into(), pguid.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWSCDefaultProduct> for ::windows::core::IUnknown {
     fn from(value: IWSCDefaultProduct) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWSCDefaultProduct> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWSCDefaultProduct) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -23,20 +29,14 @@ impl ::core::convert::From<&IWSCDefaultProduct> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSCDefaultProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSCDefaultProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWSCDefaultProduct> for super::Com::IDispatch {
     fn from(value: IWSCDefaultProduct) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWSCDefaultProduct> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWSCDefaultProduct) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -44,18 +44,6 @@ impl ::core::convert::From<IWSCDefaultProduct> for super::Com::IDispatch {
 impl ::core::convert::From<&IWSCDefaultProduct> for super::Com::IDispatch {
     fn from(value: &IWSCDefaultProduct) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSCDefaultProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSCDefaultProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -100,8 +88,8 @@ pub struct IWSCProductList(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
-    pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(provider)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<WSC_SECURITY_PROVIDER>>(&self, provider: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), provider.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
@@ -122,21 +110,15 @@ impl ::core::convert::From<IWSCProductList> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWSCProductList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWSCProductList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWSCProductList> for ::windows::core::IUnknown {
     fn from(value: &IWSCProductList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWSCProductList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWSCProductList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -146,21 +128,15 @@ impl ::core::convert::From<IWSCProductList> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWSCProductList> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWSCProductList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWSCProductList> for super::Com::IDispatch {
     fn from(value: &IWSCProductList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWSCProductList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWSCProductList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -254,21 +230,15 @@ impl ::core::convert::From<IWscProduct> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWscProduct) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct> for ::windows::core::IUnknown {
     fn from(value: &IWscProduct) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWscProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWscProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -278,21 +248,15 @@ impl ::core::convert::From<IWscProduct> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWscProduct) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct> for super::Com::IDispatch {
     fn from(value: &IWscProduct) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWscProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWscProduct {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -432,26 +396,26 @@ impl ::core::convert::From<IWscProduct2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWscProduct2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct2> for ::windows::core::IUnknown {
     fn from(value: &IWscProduct2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWscProduct2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWscProduct2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct2> for super::Com::IDispatch {
     fn from(value: IWscProduct2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWscProduct2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -462,20 +426,14 @@ impl ::core::convert::From<&IWscProduct2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWscProduct2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWscProduct2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct2> for IWscProduct {
     fn from(value: IWscProduct2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct2> for &'a IWscProduct {
+    fn from(value: &'a IWscProduct2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -483,18 +441,6 @@ impl ::core::convert::From<IWscProduct2> for IWscProduct {
 impl ::core::convert::From<&IWscProduct2> for IWscProduct {
     fn from(value: &IWscProduct2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for IWscProduct2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for &'a IWscProduct2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -623,26 +569,26 @@ impl ::core::convert::From<IWscProduct3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWscProduct3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWscProduct3> for ::windows::core::IUnknown {
     fn from(value: &IWscProduct3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct3> for super::Com::IDispatch {
     fn from(value: IWscProduct3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWscProduct3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -653,20 +599,14 @@ impl ::core::convert::From<&IWscProduct3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct3> for IWscProduct {
     fn from(value: IWscProduct3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a IWscProduct {
+    fn from(value: &'a IWscProduct3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -677,20 +617,14 @@ impl ::core::convert::From<&IWscProduct3> for IWscProduct {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWscProduct> for &'a IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWscProduct> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWscProduct3> for IWscProduct2 {
     fn from(value: IWscProduct3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWscProduct3> for &'a IWscProduct2 {
+    fn from(value: &'a IWscProduct3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -698,18 +632,6 @@ impl ::core::convert::From<IWscProduct3> for IWscProduct2 {
 impl ::core::convert::From<&IWscProduct3> for IWscProduct2 {
     fn from(value: &IWscProduct3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWscProduct2> for IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWscProduct2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWscProduct2> for &'a IWscProduct3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWscProduct2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -986,12 +908,12 @@ pub unsafe fn WscRegisterForUserNotifications() -> ::windows::core::Result<()> {
 #[doc = "*Required features: `\"Win32_System_SecurityCenter\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WscUnRegisterChanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hregistrationhandle: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn WscUnRegisterChanges<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(hregistrationhandle: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
-    WscUnRegisterChanges(hregistrationhandle.into_param().abi()).ok()
+    WscUnRegisterChanges(hregistrationhandle.into()).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

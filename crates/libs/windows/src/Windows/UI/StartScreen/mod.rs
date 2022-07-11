@@ -613,9 +613,9 @@ impl JumpList {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetSystemGroupKind(&self, value: JumpListSystemGroupKind) -> ::windows::core::Result<()> {
+    pub fn SetSystemGroupKind<'a, Param0: ::std::convert::Into<JumpListSystemGroupKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSystemGroupKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSystemGroupKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -687,14 +687,9 @@ impl ::core::convert::From<&JumpList> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JumpList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JumpList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JumpList> for &::windows::core::IUnknown {
+    fn from(value: &JumpList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<JumpList> for ::windows::core::IInspectable {
@@ -707,14 +702,9 @@ impl ::core::convert::From<&JumpList> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JumpList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JumpList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JumpList> for &::windows::core::IInspectable {
+    fn from(value: &JumpList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for JumpList {}
@@ -756,9 +746,9 @@ impl JumpListItem {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -769,9 +759,9 @@ impl JumpListItem {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn GroupName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -782,9 +772,9 @@ impl JumpListItem {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetGroupName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetGroupName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGroupName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGroupName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -797,15 +787,15 @@ impl JumpListItem {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLogo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn CreateWithArguments<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(arguments: Param0, displayname: Param1) -> ::windows::core::Result<JumpListItem> {
+    pub fn CreateWithArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(arguments: Param0, displayname: Param1) -> ::windows::core::Result<JumpListItem> {
         Self::IJumpListItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithArguments)(::windows::core::Interface::as_raw(this), arguments.into_param().abi(), displayname.into_param().abi(), result__.as_mut_ptr()).from_abi::<JumpListItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithArguments)(::windows::core::Interface::as_raw(this), arguments.into().abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<JumpListItem>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -861,14 +851,9 @@ impl ::core::convert::From<&JumpListItem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JumpListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JumpListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JumpListItem> for &::windows::core::IUnknown {
+    fn from(value: &JumpListItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<JumpListItem> for ::windows::core::IInspectable {
@@ -881,14 +866,9 @@ impl ::core::convert::From<&JumpListItem> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JumpListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JumpListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JumpListItem> for &::windows::core::IInspectable {
+    fn from(value: &JumpListItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for JumpListItem {}
@@ -974,9 +954,9 @@ impl SecondaryTile {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetTileId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTileId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -987,9 +967,9 @@ impl SecondaryTile {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetArguments<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetArguments<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetArguments)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetArguments)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1001,9 +981,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetShortName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetShortName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetShortName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShortName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1015,9 +995,9 @@ impl SecondaryTile {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1029,9 +1009,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLogo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1044,9 +1024,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSmallLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSmallLogo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmallLogo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmallLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1059,9 +1039,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetWideLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWideLogo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWideLogo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWideLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1074,9 +1054,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLockScreenBadgeLogo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLockScreenBadgeLogo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLockScreenBadgeLogo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLockScreenBadgeLogo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1102,9 +1082,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetTileOptions(&self, value: TileOptions) -> ::windows::core::Result<()> {
+    pub fn SetTileOptions<'a, Param0: ::std::convert::Into<TileOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTileOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTileOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1117,9 +1097,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()> {
+    pub fn SetForegroundText<'a, Param0: ::std::convert::Into<ForegroundText>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1132,9 +1112,9 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBackgroundColor(&self, value: super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1156,29 +1136,29 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestCreateAsyncWithPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, invocationpoint: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithPoint)(::windows::core::Interface::as_raw(this), invocationpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithPoint)(::windows::core::Interface::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestCreateAsyncWithRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRect)(::windows::core::Interface::as_raw(this), selection.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRect)(::windows::core::Interface::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn RequestCreateAsyncWithRectAndPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestCreateAsyncWithRectAndPlacement<'a, Param1: ::std::convert::Into<super::Popups::Placement>>(&self, selection: super::super::Foundation::Rect, preferredplacement: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection.into_param().abi(), preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestCreateAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
@@ -1192,29 +1172,29 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestDeleteAsyncWithPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, invocationpoint: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsyncWithPoint(&self, invocationpoint: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithPoint)(::windows::core::Interface::as_raw(this), invocationpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithPoint)(::windows::core::Interface::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestDeleteAsyncWithRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRect)(::windows::core::Interface::as_raw(this), selection.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRect)(::windows::core::Interface::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn RequestDeleteAsyncWithRectAndPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::Popups::Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestDeleteAsyncWithRectAndPlacement<'a, Param1: ::std::convert::Into<super::Popups::Placement>>(&self, selection: super::super::Foundation::Rect, preferredplacement: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection.into_param().abi(), preferredplacement, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDeleteAsyncWithRectAndPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
@@ -1227,9 +1207,9 @@ impl SecondaryTile {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetPhoneticName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPhoneticName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPhoneticName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPhoneticName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn PhoneticName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1262,55 +1242,55 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VisualElementsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VisualElementsRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).VisualElementsRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VisualElementsRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveVisualElementsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveVisualElementsRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISecondaryTile2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVisualElementsRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVisualElementsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateTile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(tileid: Param0, shortname: Param1, displayname: Param2, arguments: Param3, tileoptions: TileOptions, logoreference: Param5) -> ::windows::core::Result<SecondaryTile> {
+    pub fn CreateTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<TileOptions>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(tileid: Param0, shortname: Param1, displayname: Param2, arguments: Param3, tileoptions: Param4, logoreference: Param5) -> ::windows::core::Result<SecondaryTile> {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTile)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), shortname.into_param().abi(), displayname.into_param().abi(), arguments.into_param().abi(), tileoptions, logoreference.into_param().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions.into(), logoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CreateWideTile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(tileid: Param0, shortname: Param1, displayname: Param2, arguments: Param3, tileoptions: TileOptions, logoreference: Param5, widelogoreference: Param6) -> ::windows::core::Result<SecondaryTile> {
+    pub fn CreateWideTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<TileOptions>, Param5: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(tileid: Param0, shortname: Param1, displayname: Param2, arguments: Param3, tileoptions: Param4, logoreference: Param5, widelogoreference: Param6) -> ::windows::core::Result<SecondaryTile> {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWideTile)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), shortname.into_param().abi(), displayname.into_param().abi(), arguments.into_param().abi(), tileoptions, logoreference.into_param().abi(), widelogoreference.into_param().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateWideTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), shortname.into().abi(), displayname.into().abi(), arguments.into().abi(), tileoptions.into(), logoreference.into().abi(), widelogoreference.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn CreateWithId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(tileid: Param0) -> ::windows::core::Result<SecondaryTile> {
+    pub fn CreateWithId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tileid: Param0) -> ::windows::core::Result<SecondaryTile> {
         Self::ISecondaryTileFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithId)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithId)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMinimalTile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(tileid: Param0, displayname: Param1, arguments: Param2, square150x150logo: Param3, desiredsize: TileSize) -> ::windows::core::Result<SecondaryTile> {
+    pub fn CreateMinimalTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param4: ::std::convert::Into<TileSize>>(tileid: Param0, displayname: Param1, arguments: Param2, square150x150logo: Param3, desiredsize: Param4) -> ::windows::core::Result<SecondaryTile> {
         Self::ISecondaryTileFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMinimalTile)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), displayname.into_param().abi(), arguments.into_param().abi(), square150x150logo.into_param().abi(), desiredsize, result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
+            (::windows::core::Interface::vtable(this).CreateMinimalTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), displayname.into().abi(), arguments.into().abi(), square150x150logo.into().abi(), desiredsize.into(), result__.as_mut_ptr()).from_abi::<SecondaryTile>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn Exists<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(tileid: Param0) -> ::windows::core::Result<bool> {
+    pub fn Exists<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(tileid: Param0) -> ::windows::core::Result<bool> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Exists)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Exists)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
@@ -1323,10 +1303,10 @@ impl SecondaryTile {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllForApplicationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(applicationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
+    pub fn FindAllForApplicationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(applicationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>> {
         Self::ISecondaryTileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllForApplicationAsync)(::windows::core::Interface::as_raw(this), applicationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllForApplicationAsync)(::windows::core::Interface::as_raw(this), applicationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Collections\"`*"]
@@ -1393,14 +1373,9 @@ impl ::core::convert::From<&SecondaryTile> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecondaryTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecondaryTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecondaryTile> for &::windows::core::IUnknown {
+    fn from(value: &SecondaryTile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SecondaryTile> for ::windows::core::IInspectable {
@@ -1413,14 +1388,9 @@ impl ::core::convert::From<&SecondaryTile> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SecondaryTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecondaryTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecondaryTile> for &::windows::core::IInspectable {
+    fn from(value: &SecondaryTile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SecondaryTile {}
@@ -1431,9 +1401,9 @@ pub struct SecondaryTileVisualElements(::windows::core::IUnknown);
 impl SecondaryTileVisualElements {
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSquare30x30Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSquare30x30Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSquare30x30Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSquare30x30Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1446,9 +1416,9 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetSquare70x70Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSquare70x70Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSquare70x70Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSquare70x70Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -1461,9 +1431,9 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare150x150Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSquare150x150Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSquare150x150Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSquare150x150Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1476,9 +1446,9 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetWide310x150Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWide310x150Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWide310x150Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWide310x150Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1491,9 +1461,9 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare310x310Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSquare310x310Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSquare310x310Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSquare310x310Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1505,9 +1475,9 @@ impl SecondaryTileVisualElements {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetForegroundText(&self, value: ForegroundText) -> ::windows::core::Result<()> {
+    pub fn SetForegroundText<'a, Param0: ::std::convert::Into<ForegroundText>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetForegroundText)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ForegroundText(&self) -> ::windows::core::Result<ForegroundText> {
@@ -1518,9 +1488,9 @@ impl SecondaryTileVisualElements {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBackgroundColor(&self, value: super::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBackgroundColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::Color> {
@@ -1571,9 +1541,9 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare71x71Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSquare71x71Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSquare71x71Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSquare71x71Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1586,9 +1556,9 @@ impl SecondaryTileVisualElements {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSquare44x44Logo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSquare44x44Logo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISecondaryTileVisualElements3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSquare44x44Logo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSquare44x44Logo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1648,14 +1618,9 @@ impl ::core::convert::From<&SecondaryTileVisualElements> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecondaryTileVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecondaryTileVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecondaryTileVisualElements> for &::windows::core::IUnknown {
+    fn from(value: &SecondaryTileVisualElements) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SecondaryTileVisualElements> for ::windows::core::IInspectable {
@@ -1668,14 +1633,9 @@ impl ::core::convert::From<&SecondaryTileVisualElements> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SecondaryTileVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecondaryTileVisualElements {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecondaryTileVisualElements> for &::windows::core::IInspectable {
+    fn from(value: &SecondaryTileVisualElements) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SecondaryTileVisualElements {}
@@ -1695,47 +1655,47 @@ impl StartScreenManager {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"ApplicationModel_Core\"`*"]
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn SupportsAppListEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<bool> {
+    pub fn SupportsAppListEntry<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).SupportsAppListEntry)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SupportsAppListEntry)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn ContainsAppListEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ContainsAppListEntryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ContainsAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).ContainsAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn RequestAddAppListEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestAddAppListEntryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAddAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAddAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ContainsSecondaryTileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ContainsSecondaryTileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IStartScreenManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ContainsSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).ContainsSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryRemoveSecondaryTileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRemoveSecondaryTileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IStartScreenManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRemoveSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRemoveSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
@@ -1747,10 +1707,10 @@ impl StartScreenManager {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<StartScreenManager> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<StartScreenManager> {
         Self::IStartScreenManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<StartScreenManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<StartScreenManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -1799,14 +1759,9 @@ impl ::core::convert::From<&StartScreenManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StartScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StartScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StartScreenManager> for &::windows::core::IUnknown {
+    fn from(value: &StartScreenManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StartScreenManager> for ::windows::core::IInspectable {
@@ -1819,14 +1774,9 @@ impl ::core::convert::From<&StartScreenManager> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StartScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StartScreenManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StartScreenManager> for &::windows::core::IInspectable {
+    fn from(value: &StartScreenManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StartScreenManager {}
@@ -1837,9 +1787,9 @@ pub struct TileMixedRealityModel(::windows::core::IUnknown);
 impl TileMixedRealityModel {
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1852,9 +1802,9 @@ impl TileMixedRealityModel {
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetBoundingBox<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBoundingBox<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBoundingBox)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBoundingBox)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
@@ -1866,9 +1816,9 @@ impl TileMixedRealityModel {
         }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
-    pub fn SetActivationBehavior(&self, value: TileMixedRealityModelActivationBehavior) -> ::windows::core::Result<()> {
+    pub fn SetActivationBehavior<'a, Param0: ::std::convert::Into<TileMixedRealityModelActivationBehavior>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITileMixedRealityModel2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetActivationBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetActivationBehavior)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_StartScreen\"`*"]
     pub fn ActivationBehavior(&self) -> ::windows::core::Result<TileMixedRealityModelActivationBehavior> {
@@ -1919,14 +1869,9 @@ impl ::core::convert::From<&TileMixedRealityModel> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TileMixedRealityModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TileMixedRealityModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TileMixedRealityModel> for &::windows::core::IUnknown {
+    fn from(value: &TileMixedRealityModel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TileMixedRealityModel> for ::windows::core::IInspectable {
@@ -1939,14 +1884,9 @@ impl ::core::convert::From<&TileMixedRealityModel> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TileMixedRealityModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TileMixedRealityModel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TileMixedRealityModel> for &::windows::core::IInspectable {
+    fn from(value: &TileMixedRealityModel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TileMixedRealityModel {}
@@ -2168,14 +2108,9 @@ impl ::core::convert::From<&VisualElementsRequest> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualElementsRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualElementsRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualElementsRequest> for &::windows::core::IUnknown {
+    fn from(value: &VisualElementsRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VisualElementsRequest> for ::windows::core::IInspectable {
@@ -2188,14 +2123,9 @@ impl ::core::convert::From<&VisualElementsRequest> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VisualElementsRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualElementsRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualElementsRequest> for &::windows::core::IInspectable {
+    fn from(value: &VisualElementsRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VisualElementsRequest {}
@@ -2250,14 +2180,9 @@ impl ::core::convert::From<&VisualElementsRequestDeferral> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualElementsRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualElementsRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualElementsRequestDeferral> for &::windows::core::IUnknown {
+    fn from(value: &VisualElementsRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VisualElementsRequestDeferral> for ::windows::core::IInspectable {
@@ -2270,14 +2195,9 @@ impl ::core::convert::From<&VisualElementsRequestDeferral> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VisualElementsRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualElementsRequestDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualElementsRequestDeferral> for &::windows::core::IInspectable {
+    fn from(value: &VisualElementsRequestDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VisualElementsRequestDeferral {}
@@ -2335,14 +2255,9 @@ impl ::core::convert::From<&VisualElementsRequestedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualElementsRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualElementsRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualElementsRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &VisualElementsRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VisualElementsRequestedEventArgs> for ::windows::core::IInspectable {
@@ -2355,14 +2270,9 @@ impl ::core::convert::From<&VisualElementsRequestedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VisualElementsRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualElementsRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualElementsRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &VisualElementsRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VisualElementsRequestedEventArgs {}

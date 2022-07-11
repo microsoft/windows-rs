@@ -31,11 +31,11 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
@@ -58,11 +58,11 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RetrieveStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RetrieveStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).RetrieveStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
@@ -75,27 +75,27 @@ impl BarcodeScanner {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn IsProfileSupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, profile: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsProfileSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, profile: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsProfileSupported)(::windows::core::Interface::as_raw(this), profile.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsProfileSupported)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -115,10 +115,10 @@ impl BarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -129,10 +129,10 @@ impl BarcodeScanner {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBarcodeScannerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -192,14 +192,9 @@ impl ::core::convert::From<&BarcodeScanner> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScanner> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScanner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScanner> for ::windows::core::IInspectable {
@@ -212,14 +207,9 @@ impl ::core::convert::From<&BarcodeScanner> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScanner> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScanner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -237,15 +227,11 @@ impl ::core::convert::TryFrom<&BarcodeScanner> for super::super::Foundation::ICl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for BarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &BarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&BarcodeScanner> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScanner) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScanner {}
@@ -343,14 +329,9 @@ impl ::core::convert::From<&BarcodeScannerCapabilities> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerCapabilities> for ::windows::core::IInspectable {
@@ -363,14 +344,9 @@ impl ::core::convert::From<&BarcodeScannerCapabilities> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
@@ -428,14 +404,9 @@ impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerDataReceivedEventArgs> for ::windows::core::IInspectable {
@@ -448,14 +419,9 @@ impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
@@ -529,14 +495,9 @@ impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerErrorOccurredEventArgs> for ::windows::core::IInspectable {
@@ -549,14 +510,9 @@ impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerErrorOccurredEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
@@ -615,14 +571,9 @@ impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerImagePreviewReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerImagePreviewReceivedEventArgs> for ::windows::core::IInspectable {
@@ -635,14 +586,9 @@ impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerImagePreviewReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerImagePreviewReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerImagePreviewReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
@@ -679,10 +625,10 @@ impl BarcodeScannerReport {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(scandatatype: u32, scandata: Param1, scandatalabel: Param2) -> ::windows::core::Result<BarcodeScannerReport> {
+    pub fn CreateInstance<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(scandatatype: u32, scandata: Param1, scandatalabel: Param2) -> ::windows::core::Result<BarcodeScannerReport> {
         Self::IBarcodeScannerReportFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), scandatatype, scandata.into_param().abi(), scandatalabel.into_param().abi(), result__.as_mut_ptr()).from_abi::<BarcodeScannerReport>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), scandatatype, scandata.try_into().map_err(|e| e.into())?.abi(), scandatalabel.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<BarcodeScannerReport>(result__)
         })
     }
     #[doc(hidden)]
@@ -731,14 +677,9 @@ impl ::core::convert::From<&BarcodeScannerReport> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerReport> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerReport> for ::windows::core::IInspectable {
@@ -751,14 +692,9 @@ impl ::core::convert::From<&BarcodeScannerReport> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerReport> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerReport {}
@@ -861,14 +797,9 @@ impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeScannerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeScannerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeScannerStatusUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -881,14 +812,9 @@ impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeScannerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeScannerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
@@ -1656,9 +1582,9 @@ impl BarcodeSymbologyAttributes {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetDecodeLengthKind(&self, value: BarcodeSymbologyDecodeLengthKind) -> ::windows::core::Result<()> {
+    pub fn SetDecodeLengthKind<'a, Param0: ::std::convert::Into<BarcodeSymbologyDecodeLengthKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDecodeLengthKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDecodeLengthKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn IsDecodeLengthSupported(&self) -> ::windows::core::Result<bool> {
@@ -1709,14 +1635,9 @@ impl ::core::convert::From<&BarcodeSymbologyAttributes> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for BarcodeSymbologyAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a BarcodeSymbologyAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeSymbologyAttributes> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeSymbologyAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<BarcodeSymbologyAttributes> for ::windows::core::IInspectable {
@@ -1729,14 +1650,9 @@ impl ::core::convert::From<&BarcodeSymbologyAttributes> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for BarcodeSymbologyAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a BarcodeSymbologyAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&BarcodeSymbologyAttributes> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeSymbologyAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
@@ -1831,36 +1747,36 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1872,10 +1788,10 @@ impl CashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -1886,10 +1802,10 @@ impl CashDrawer {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICashDrawerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -1949,14 +1865,9 @@ impl ::core::convert::From<&CashDrawer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawer> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawer> for ::windows::core::IInspectable {
@@ -1969,14 +1880,9 @@ impl ::core::convert::From<&CashDrawer> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawer> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1994,15 +1900,11 @@ impl ::core::convert::TryFrom<&CashDrawer> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for CashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CashDrawer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CashDrawer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CashDrawer {}
@@ -2100,14 +2002,9 @@ impl ::core::convert::From<&CashDrawerCapabilities> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerCapabilities> for ::windows::core::IInspectable {
@@ -2120,14 +2017,9 @@ impl ::core::convert::From<&CashDrawerCapabilities> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
@@ -2138,9 +2030,9 @@ pub struct CashDrawerCloseAlarm(::windows::core::IUnknown);
 impl CashDrawerCloseAlarm {
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAlarmTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAlarmTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlarmTimeout)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlarmTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2166,9 +2058,9 @@ impl CashDrawerCloseAlarm {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBeepDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBeepDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBeepDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBeepDuration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2181,9 +2073,9 @@ impl CashDrawerCloseAlarm {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBeepDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBeepDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBeepDelay)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBeepDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2196,18 +2088,18 @@ impl CashDrawerCloseAlarm {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AlarmTimeoutExpired<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AlarmTimeoutExpired<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AlarmTimeoutExpired)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AlarmTimeoutExpired)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAlarmTimeoutExpired<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAlarmTimeoutExpired(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAlarmTimeoutExpired)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAlarmTimeoutExpired)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2259,14 +2151,9 @@ impl ::core::convert::From<&CashDrawerCloseAlarm> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerCloseAlarm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerCloseAlarm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerCloseAlarm> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerCloseAlarm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerCloseAlarm> for ::windows::core::IInspectable {
@@ -2279,14 +2166,9 @@ impl ::core::convert::From<&CashDrawerCloseAlarm> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerCloseAlarm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerCloseAlarm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerCloseAlarm> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerCloseAlarm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
@@ -2344,14 +2226,9 @@ impl ::core::convert::From<&CashDrawerClosedEventArgs> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerClosedEventArgs> for ::windows::core::IInspectable {
@@ -2364,14 +2241,9 @@ impl ::core::convert::From<&CashDrawerClosedEventArgs> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CashDrawerClosedEventArgs> for ICashDrawerEventSourceEventArgs {
@@ -2386,14 +2258,11 @@ impl ::core::convert::TryFrom<&CashDrawerClosedEventArgs> for ICashDrawerEventSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for CashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &CashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::core::convert::TryInto::<ICashDrawerEventSourceEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CashDrawerClosedEventArgs> for ::windows::core::InParam<'a, ICashDrawerEventSourceEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CashDrawerClosedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerClosedEventArgs {}
@@ -2404,33 +2273,33 @@ pub struct CashDrawerEventSource(::windows::core::IUnknown);
 impl CashDrawerEventSource {
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DrawerClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DrawerClosed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DrawerClosed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DrawerClosed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDrawerClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDrawerClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDrawerClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDrawerClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DrawerOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DrawerOpened<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DrawerOpened)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DrawerOpened)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDrawerOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDrawerOpened(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDrawerOpened)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDrawerOpened)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for CashDrawerEventSource {
@@ -2473,14 +2342,9 @@ impl ::core::convert::From<&CashDrawerEventSource> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerEventSource> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerEventSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerEventSource> for ::windows::core::IInspectable {
@@ -2493,14 +2357,9 @@ impl ::core::convert::From<&CashDrawerEventSource> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerEventSource> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerEventSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerEventSource {}
@@ -2558,14 +2417,9 @@ impl ::core::convert::From<&CashDrawerOpenedEventArgs> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerOpenedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerOpenedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerOpenedEventArgs> for ::windows::core::IInspectable {
@@ -2578,14 +2432,9 @@ impl ::core::convert::From<&CashDrawerOpenedEventArgs> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerOpenedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerOpenedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CashDrawerOpenedEventArgs> for ICashDrawerEventSourceEventArgs {
@@ -2600,14 +2449,11 @@ impl ::core::convert::TryFrom<&CashDrawerOpenedEventArgs> for ICashDrawerEventSo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for CashDrawerOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &CashDrawerOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ICashDrawerEventSourceEventArgs> {
-        ::core::convert::TryInto::<ICashDrawerEventSourceEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CashDrawerOpenedEventArgs> for ::windows::core::InParam<'a, ICashDrawerEventSourceEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CashDrawerOpenedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerOpenedEventArgs {}
@@ -2673,14 +2519,9 @@ impl ::core::convert::From<&CashDrawerStatus> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerStatus> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerStatus> for ::windows::core::IInspectable {
@@ -2693,14 +2534,9 @@ impl ::core::convert::From<&CashDrawerStatus> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerStatus> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerStatus {}
@@ -2795,14 +2631,9 @@ impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CashDrawerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CashDrawerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CashDrawerStatusUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -2815,14 +2646,9 @@ impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CashDrawerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CashDrawerStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CashDrawerStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
@@ -2898,129 +2724,129 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetActiveSymbologiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u32>>>(&self, symbologies: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetActiveSymbologiesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, symbologies: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetActiveSymbologiesAsync)(::windows::core::Interface::as_raw(this), symbologies.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetActiveSymbologiesAsync)(::windows::core::Interface::as_raw(this), symbologies.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetActiveProfileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, profile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetActiveProfileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, profile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetActiveProfileAsync)(::windows::core::Interface::as_raw(this), profile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetActiveProfileAsync)(::windows::core::Interface::as_raw(this), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggerPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).TriggerPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TriggerPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTriggerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveTriggerPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTriggerPressed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTriggerPressed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggerReleased<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).TriggerReleased)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TriggerReleased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTriggerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveTriggerReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTriggerReleased)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTriggerReleased)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ImagePreviewReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ImagePreviewReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ImagePreviewReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ImagePreviewReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveImagePreviewReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveImagePreviewReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveImagePreviewReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveImagePreviewReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3051,11 +2877,11 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSymbologyAttributesAsync<'a, Param1: ::windows::core::IntoParam<'a, BarcodeSymbologyAttributes>>(&self, barcodesymbology: u32, attributes: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SetSymbologyAttributesAsync<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, BarcodeSymbologyAttributes>>>(&self, barcodesymbology: u32, attributes: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetSymbologyAttributesAsync)(::windows::core::Interface::as_raw(this), barcodesymbology, attributes.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).SetSymbologyAttributesAsync)(::windows::core::Interface::as_raw(this), barcodesymbology, attributes.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -3087,18 +2913,18 @@ impl ClaimedBarcodeScanner {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3147,14 +2973,9 @@ impl ::core::convert::From<&ClaimedBarcodeScanner> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedBarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedBarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedBarcodeScanner> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedBarcodeScanner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedBarcodeScanner> for ::windows::core::IInspectable {
@@ -3167,14 +2988,9 @@ impl ::core::convert::From<&ClaimedBarcodeScanner> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedBarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedBarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedBarcodeScanner> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedBarcodeScanner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3192,15 +3008,11 @@ impl ::core::convert::TryFrom<&ClaimedBarcodeScanner> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ClaimedBarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ClaimedBarcodeScanner {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedBarcodeScanner> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedBarcodeScanner) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScanner {}
@@ -3249,14 +3061,9 @@ impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedBarcodeScannerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedBarcodeScannerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedBarcodeScannerClosedEventArgs> for ::windows::core::IInspectable {
@@ -3269,14 +3076,9 @@ impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedBarcodeScannerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedBarcodeScannerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedBarcodeScannerClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
@@ -3355,51 +3157,51 @@ impl ClaimedCashDrawer {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedCashDrawer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3448,14 +3250,9 @@ impl ::core::convert::From<&ClaimedCashDrawer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedCashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedCashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedCashDrawer> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedCashDrawer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedCashDrawer> for ::windows::core::IInspectable {
@@ -3468,14 +3265,9 @@ impl ::core::convert::From<&ClaimedCashDrawer> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedCashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedCashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedCashDrawer> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedCashDrawer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3493,15 +3285,11 @@ impl ::core::convert::TryFrom<&ClaimedCashDrawer> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ClaimedCashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ClaimedCashDrawer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedCashDrawer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedCashDrawer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawer {}
@@ -3550,14 +3338,9 @@ impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedCashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedCashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedCashDrawerClosedEventArgs> for ::windows::core::IInspectable {
@@ -3570,14 +3353,9 @@ impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedCashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedCashDrawerClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedCashDrawerClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
@@ -3663,9 +3441,9 @@ impl ClaimedJournalPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
@@ -3724,11 +3502,11 @@ impl ClaimedJournalPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -3772,14 +3550,9 @@ impl ::core::convert::From<&ClaimedJournalPrinter> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedJournalPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedJournalPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedJournalPrinter> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedJournalPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedJournalPrinter> for ::windows::core::IInspectable {
@@ -3792,14 +3565,9 @@ impl ::core::convert::From<&ClaimedJournalPrinter> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedJournalPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedJournalPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedJournalPrinter> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedJournalPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ClaimedJournalPrinter> for ICommonClaimedPosPrinterStation {
@@ -3814,14 +3582,11 @@ impl ::core::convert::TryFrom<&ClaimedJournalPrinter> for ICommonClaimedPosPrint
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for ClaimedJournalPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonClaimedPosPrinterStation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &ClaimedJournalPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonClaimedPosPrinterStation> {
-        ::core::convert::TryInto::<ICommonClaimedPosPrinterStation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedJournalPrinter> for ::windows::core::InParam<'a, ICommonClaimedPosPrinterStation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedJournalPrinter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedJournalPrinter {}
@@ -3901,35 +3666,35 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -3943,18 +3708,18 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4001,20 +3766,20 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateAttributesAsync<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayAttributes>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateAttributesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayAttributes>>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows::core::Interface::as_raw(this), attributes.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows::core::Interface::as_raw(this), attributes.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetDescriptorAsync<'a, Param1: ::std::convert::Into<LineDisplayDescriptorState>>(&self, descriptor: u32, descriptorstate: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetDescriptorAsync)(::windows::core::Interface::as_raw(this), descriptor, descriptorstate, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetDescriptorAsync)(::windows::core::Interface::as_raw(this), descriptor, descriptorstate.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -4028,61 +3793,61 @@ impl ClaimedLineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCreateWindowAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, viewport: Param0, windowsize: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayWindow>> {
+    pub fn TryCreateWindowAsync(&self, viewport: super::super::Foundation::Rect, windowsize: super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayWindow>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateWindowAsync)(::windows::core::Interface::as_raw(this), viewport.into_param().abi(), windowsize.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayWindow>>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateWindowAsync)(::windows::core::Interface::as_raw(this), viewport, windowsize, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayWindow>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapWithAlignmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment.into(), verticalalignment.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
+    pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
+            (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment.into(), verticalalignment.into(), widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -4093,10 +3858,10 @@ impl ClaimedLineDisplay {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -4151,14 +3916,9 @@ impl ::core::convert::From<&ClaimedLineDisplay> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedLineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedLineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedLineDisplay> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedLineDisplay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedLineDisplay> for ::windows::core::IInspectable {
@@ -4171,14 +3931,9 @@ impl ::core::convert::From<&ClaimedLineDisplay> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedLineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedLineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedLineDisplay> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedLineDisplay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4196,15 +3951,11 @@ impl ::core::convert::TryFrom<&ClaimedLineDisplay> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ClaimedLineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ClaimedLineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedLineDisplay> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedLineDisplay) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplay {}
@@ -4253,14 +4004,9 @@ impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedLineDisplayClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedLineDisplayClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedLineDisplayClosedEventArgs> for ::windows::core::IInspectable {
@@ -4273,14 +4019,9 @@ impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedLineDisplayClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedLineDisplayClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedLineDisplayClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
@@ -4353,9 +4094,9 @@ impl ClaimedMagneticStripeReader {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetTracksToRead(&self, value: MagneticStripeReaderTrackIds) -> ::windows::core::Result<()> {
+    pub fn SetTracksToRead<'a, Param0: ::std::convert::Into<MagneticStripeReaderTrackIds>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTracksToRead)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTracksToRead)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn TracksToRead(&self) -> ::windows::core::Result<MagneticStripeReaderTrackIds> {
@@ -4402,9 +4143,9 @@ impl ClaimedMagneticStripeReader {
         unsafe { (::windows::core::Interface::vtable(this).RetainDevice)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetErrorReportingType(&self, value: MagneticStripeReaderErrorReportingType) -> ::windows::core::Result<()> {
+    pub fn SetErrorReportingType<'a, Param0: ::std::convert::Into<MagneticStripeReaderErrorReportingType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetErrorReportingType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetErrorReportingType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -4435,120 +4176,120 @@ impl ClaimedMagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateKeyAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0, keyname: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateKeyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0, keyname: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateKeyAsync)(::windows::core::Interface::as_raw(this), key.into_param().abi(), keyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UpdateKeyAsync)(::windows::core::Interface::as_raw(this), key.into().abi(), keyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BankCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BankCardDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BankCardDataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BankCardDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBankCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBankCardDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBankCardDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBankCardDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AamvaCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AamvaCardDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AamvaCardDataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AamvaCardDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAamvaCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAamvaCardDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAamvaCardDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAamvaCardDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VendorSpecificDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VendorSpecificDataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).VendorSpecificDataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VendorSpecificDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveVendorSpecificDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveVendorSpecificDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVendorSpecificDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVendorSpecificDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4597,14 +4338,9 @@ impl ::core::convert::From<&ClaimedMagneticStripeReader> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedMagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedMagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedMagneticStripeReader> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedMagneticStripeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedMagneticStripeReader> for ::windows::core::IInspectable {
@@ -4617,14 +4353,9 @@ impl ::core::convert::From<&ClaimedMagneticStripeReader> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedMagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedMagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedMagneticStripeReader> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedMagneticStripeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4642,15 +4373,11 @@ impl ::core::convert::TryFrom<&ClaimedMagneticStripeReader> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ClaimedMagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ClaimedMagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedMagneticStripeReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedMagneticStripeReader) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReader {}
@@ -4699,14 +4426,9 @@ impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedMagneticStripeReaderClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedMagneticStripeReaderClosedEventArgs> for ::windows::core::IInspectable {
@@ -4719,14 +4441,9 @@ impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedMagneticStripeReaderClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedMagneticStripeReaderClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedMagneticStripeReaderClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
@@ -4786,9 +4503,9 @@ impl ClaimedPosPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetMapMode(&self, value: PosPrinterMapMode) -> ::windows::core::Result<()> {
+    pub fn SetMapMode<'a, Param0: ::std::convert::Into<PosPrinterMapMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn MapMode(&self) -> ::windows::core::Result<PosPrinterMapMode> {
@@ -4851,51 +4568,51 @@ impl ClaimedPosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn ResetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UpdateStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ReleaseDeviceRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Closed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedPosPrinter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4944,14 +4661,9 @@ impl ::core::convert::From<&ClaimedPosPrinter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedPosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedPosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedPosPrinter> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedPosPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedPosPrinter> for ::windows::core::IInspectable {
@@ -4964,14 +4676,9 @@ impl ::core::convert::From<&ClaimedPosPrinter> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedPosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedPosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedPosPrinter> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedPosPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4989,15 +4696,11 @@ impl ::core::convert::TryFrom<&ClaimedPosPrinter> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ClaimedPosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ClaimedPosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedPosPrinter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedPosPrinter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinter {}
@@ -5046,14 +4749,9 @@ impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedPosPrinterClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedPosPrinterClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedPosPrinterClosedEventArgs> for ::windows::core::IInspectable {
@@ -5066,14 +4764,9 @@ impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedPosPrinterClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedPosPrinterClosedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedPosPrinterClosedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
@@ -5201,9 +4894,9 @@ impl ClaimedReceiptPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
@@ -5262,11 +4955,11 @@ impl ClaimedReceiptPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -5310,14 +5003,9 @@ impl ::core::convert::From<&ClaimedReceiptPrinter> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedReceiptPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedReceiptPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedReceiptPrinter> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedReceiptPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedReceiptPrinter> for ::windows::core::IInspectable {
@@ -5330,14 +5018,9 @@ impl ::core::convert::From<&ClaimedReceiptPrinter> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedReceiptPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedReceiptPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedReceiptPrinter> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedReceiptPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ClaimedReceiptPrinter> for ICommonClaimedPosPrinterStation {
@@ -5352,14 +5035,11 @@ impl ::core::convert::TryFrom<&ClaimedReceiptPrinter> for ICommonClaimedPosPrint
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for ClaimedReceiptPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonClaimedPosPrinterStation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &ClaimedReceiptPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonClaimedPosPrinterStation> {
-        ::core::convert::TryInto::<ICommonClaimedPosPrinterStation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedReceiptPrinter> for ::windows::core::InParam<'a, ICommonClaimedPosPrinterStation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedReceiptPrinter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedReceiptPrinter {}
@@ -5438,26 +5118,26 @@ impl ClaimedSlipPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InsertSlipAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, timeout: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn InsertSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).InsertSlipAsync)(::windows::core::Interface::as_raw(this), timeout.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).InsertSlipAsync)(::windows::core::Interface::as_raw(this), timeout, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSlipAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, timeout: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RemoveSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveSlipAsync)(::windows::core::Interface::as_raw(this), timeout.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveSlipAsync)(::windows::core::Interface::as_raw(this), timeout, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ChangePrintSide(&self, printside: PosPrinterPrintSide) -> ::windows::core::Result<()> {
+    pub fn ChangePrintSide<'a, Param0: ::std::convert::Into<PosPrinterPrintSide>>(&self, printside: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ChangePrintSide)(::windows::core::Interface::as_raw(this), printside).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ChangePrintSide)(::windows::core::Interface::as_raw(this), printside.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn CreateJob(&self) -> ::windows::core::Result<SlipPrintJob> {
@@ -5536,9 +5216,9 @@ impl ClaimedSlipPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
@@ -5597,11 +5277,11 @@ impl ClaimedSlipPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -5645,14 +5325,9 @@ impl ::core::convert::From<&ClaimedSlipPrinter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ClaimedSlipPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ClaimedSlipPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedSlipPrinter> for &::windows::core::IUnknown {
+    fn from(value: &ClaimedSlipPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ClaimedSlipPrinter> for ::windows::core::IInspectable {
@@ -5665,14 +5340,9 @@ impl ::core::convert::From<&ClaimedSlipPrinter> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ClaimedSlipPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ClaimedSlipPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ClaimedSlipPrinter> for &::windows::core::IInspectable {
+    fn from(value: &ClaimedSlipPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ClaimedSlipPrinter> for ICommonClaimedPosPrinterStation {
@@ -5687,14 +5357,11 @@ impl ::core::convert::TryFrom<&ClaimedSlipPrinter> for ICommonClaimedPosPrinterS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for ClaimedSlipPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonClaimedPosPrinterStation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &ClaimedSlipPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonClaimedPosPrinterStation> {
-        ::core::convert::TryInto::<ICommonClaimedPosPrinterStation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ClaimedSlipPrinter> for ::windows::core::InParam<'a, ICommonClaimedPosPrinterStation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ClaimedSlipPrinter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ClaimedSlipPrinter {}
@@ -6225,19 +5892,14 @@ impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICashDrawerEventSourceEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICashDrawerEventSourceEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICashDrawerEventSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICashDrawerEventSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
@@ -6245,19 +5907,14 @@ impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICashDrawerEventSourceEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICashDrawerEventSourceEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICashDrawerEventSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICashDrawerEventSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICashDrawerEventSourceEventArgs {
@@ -7131,9 +6788,9 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
+    pub fn SetColorCartridge<'a, Param0: ::std::convert::Into<PosPrinterColorCartridge>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorCartridge)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
@@ -7192,11 +6849,11 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
+    pub fn ValidateData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ValidateData)(::windows::core::Interface::as_raw(this), data.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -7205,19 +6862,14 @@ impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonClaimedPosPrinterStation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICommonClaimedPosPrinterStation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::core::IUnknown {
     fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonClaimedPosPrinterStation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICommonClaimedPosPrinterStation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
@@ -7225,19 +6877,14 @@ impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonClaimedPosPrinterStation> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICommonClaimedPosPrinterStation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
     fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonClaimedPosPrinterStation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICommonClaimedPosPrinterStation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICommonClaimedPosPrinterStation {
@@ -7406,19 +7053,14 @@ impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonPosPrintStationCapabilities> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICommonPosPrintStationCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::core::IUnknown {
     fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonPosPrintStationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICommonPosPrintStationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
@@ -7426,19 +7068,14 @@ impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonPosPrintStationCapabilities> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICommonPosPrintStationCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
     fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonPosPrintStationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICommonPosPrintStationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICommonPosPrintStationCapabilities {
@@ -7678,19 +7315,14 @@ impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonReceiptSlipCapabilities> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICommonReceiptSlipCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::core::IUnknown {
     fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
@@ -7698,19 +7330,14 @@ impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICommonReceiptSlipCapabilities> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICommonReceiptSlipCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
     fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<ICommonReceiptSlipCapabilities> for ICommonPosPrintStationCapabilities {
@@ -7725,14 +7352,11 @@ impl ::core::convert::TryFrom<&ICommonReceiptSlipCapabilities> for ICommonPosPri
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for &ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::core::convert::TryInto::<ICommonPosPrintStationCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ICommonReceiptSlipCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ICommonReceiptSlipCapabilities) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for ICommonReceiptSlipCapabilities {
@@ -8612,14 +8236,14 @@ pub struct IPosPrinterFontProperty_Vtbl {
 pub struct IPosPrinterJob(::windows::core::IUnknown);
 impl IPosPrinterJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
@@ -8641,19 +8265,14 @@ impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPosPrinterJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPosPrinterJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPosPrinterJob> for ::windows::core::IUnknown {
     fn from(value: &IPosPrinterJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPosPrinterJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPosPrinterJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IInspectable {
@@ -8661,19 +8280,14 @@ impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPosPrinterJob> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPosPrinterJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPosPrinterJob> for ::windows::core::IInspectable {
     fn from(value: &IPosPrinterJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPosPrinterJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPosPrinterJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPosPrinterJob {
@@ -8831,44 +8445,44 @@ pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
 pub struct IReceiptOrSlipJob(::windows::core::IUnknown);
 impl IReceiptOrSlipJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()> {
+    pub fn SetBarcodeRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()> {
+    pub fn SetPrintRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0, includebitmaps: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value, includebitmaps).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value.into(), includebitmaps).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPrintArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrintArea(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn SetBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn SetCustomAlignedBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()> {
@@ -8876,53 +8490,53 @@ impl IReceiptOrSlipJob {
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn DrawRuledLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, positionlist: Param0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
+    pub fn DrawRuledLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PosPrinterLineDirection>, Param3: ::std::convert::Into<PosPrinterLineStyle>>(&self, positionlist: Param0, linedirection: Param1, linewidth: u32, linestyle: Param3, linecolor: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into_param().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection.into(), linewidth, linestyle.into(), linecolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn PrintBarcode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>, Param5: ::std::convert::Into<PosPrinterAlignment>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignment: Param5) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into_param().abi(), symbology, height, width, textposition, alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcodeCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBarcodeCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into_param().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn PrintBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
@@ -8944,19 +8558,14 @@ impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReceiptOrSlipJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IReceiptOrSlipJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReceiptOrSlipJob> for ::windows::core::IUnknown {
     fn from(value: &IReceiptOrSlipJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IInspectable {
@@ -8964,19 +8573,14 @@ impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IReceiptOrSlipJob> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IReceiptOrSlipJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IReceiptOrSlipJob> for ::windows::core::IInspectable {
     fn from(value: &IReceiptOrSlipJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IReceiptOrSlipJob> for IPosPrinterJob {
@@ -8991,14 +8595,11 @@ impl ::core::convert::TryFrom<&IReceiptOrSlipJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::core::convert::TryInto::<IPosPrinterJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IReceiptOrSlipJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IReceiptOrSlipJob) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IReceiptOrSlipJob {
@@ -9220,9 +8821,9 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
 pub struct JournalPrintJob(::windows::core::IUnknown);
 impl JournalPrintJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
+    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
@@ -9235,14 +8836,14 @@ impl JournalPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).FeedPaperByMapModeUnit)(::windows::core::Interface::as_raw(this), distance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
@@ -9299,14 +8900,9 @@ impl ::core::convert::From<&JournalPrintJob> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JournalPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JournalPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JournalPrintJob> for &::windows::core::IUnknown {
+    fn from(value: &JournalPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<JournalPrintJob> for ::windows::core::IInspectable {
@@ -9319,14 +8915,9 @@ impl ::core::convert::From<&JournalPrintJob> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JournalPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JournalPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JournalPrintJob> for &::windows::core::IInspectable {
+    fn from(value: &JournalPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<JournalPrintJob> for IPosPrinterJob {
@@ -9341,14 +8932,11 @@ impl ::core::convert::TryFrom<&JournalPrintJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for JournalPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &JournalPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::core::convert::TryInto::<IPosPrinterJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&JournalPrintJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &JournalPrintJob) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for JournalPrintJob {}
@@ -9551,14 +9139,9 @@ impl ::core::convert::From<&JournalPrinterCapabilities> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for JournalPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a JournalPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JournalPrinterCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &JournalPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<JournalPrinterCapabilities> for ::windows::core::IInspectable {
@@ -9571,14 +9154,9 @@ impl ::core::convert::From<&JournalPrinterCapabilities> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for JournalPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a JournalPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&JournalPrinterCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &JournalPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<JournalPrinterCapabilities> for ICommonPosPrintStationCapabilities {
@@ -9593,14 +9171,11 @@ impl ::core::convert::TryFrom<&JournalPrinterCapabilities> for ICommonPosPrintSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for JournalPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for &JournalPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::core::convert::TryInto::<ICommonPosPrintStationCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&JournalPrinterCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &JournalPrinterCapabilities) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for JournalPrinterCapabilities {}
@@ -9691,10 +9266,10 @@ impl LineDisplay {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -9713,10 +9288,10 @@ impl LineDisplay {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -9777,14 +9352,9 @@ impl ::core::convert::From<&LineDisplay> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplay> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplay> for ::windows::core::IInspectable {
@@ -9797,14 +9367,9 @@ impl ::core::convert::From<&LineDisplay> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplay> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -9822,15 +9387,11 @@ impl ::core::convert::TryFrom<&LineDisplay> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for LineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &LineDisplay {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LineDisplay> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LineDisplay) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LineDisplay {}
@@ -9876,9 +9437,9 @@ impl LineDisplayAttributes {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBlinkRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBlinkRate(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBlinkRate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBlinkRate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -9891,9 +9452,9 @@ impl LineDisplayAttributes {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetScreenSizeInCharacters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetScreenSizeInCharacters(&self, value: super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScreenSizeInCharacters)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScreenSizeInCharacters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn CharacterSet(&self) -> ::windows::core::Result<i32> {
@@ -9930,9 +9491,9 @@ impl LineDisplayAttributes {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetCurrentWindow<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayWindow>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCurrentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayWindow>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurrentWindow)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurrentWindow)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for LineDisplayAttributes {
@@ -9975,14 +9536,9 @@ impl ::core::convert::From<&LineDisplayAttributes> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayAttributes> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayAttributes> for ::windows::core::IInspectable {
@@ -9995,14 +9551,9 @@ impl ::core::convert::From<&LineDisplayAttributes> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayAttributes> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayAttributes {}
@@ -10196,14 +9747,9 @@ impl ::core::convert::From<&LineDisplayCapabilities> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayCapabilities> for ::windows::core::IInspectable {
@@ -10216,14 +9762,9 @@ impl ::core::convert::From<&LineDisplayCapabilities> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
@@ -10298,11 +9839,11 @@ impl LineDisplayCursor {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateAttributesAsync<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayCursorAttributes>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateAttributesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayCursorAttributes>>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows::core::Interface::as_raw(this), attributes.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows::core::Interface::as_raw(this), attributes.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
 }
@@ -10346,14 +9887,9 @@ impl ::core::convert::From<&LineDisplayCursor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCursor> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayCursor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayCursor> for ::windows::core::IInspectable {
@@ -10366,14 +9902,9 @@ impl ::core::convert::From<&LineDisplayCursor> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCursor> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayCursor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayCursor {}
@@ -10404,9 +9935,9 @@ impl LineDisplayCursorAttributes {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetCursorType(&self, value: LineDisplayCursorType) -> ::windows::core::Result<()> {
+    pub fn SetCursorType<'a, Param0: ::std::convert::Into<LineDisplayCursorType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCursorType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCursorType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn IsAutoAdvanceEnabled(&self) -> ::windows::core::Result<bool> {
@@ -10432,9 +9963,9 @@ impl LineDisplayCursorAttributes {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPosition(&self, value: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for LineDisplayCursorAttributes {
@@ -10477,14 +10008,9 @@ impl ::core::convert::From<&LineDisplayCursorAttributes> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayCursorAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayCursorAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCursorAttributes> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayCursorAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayCursorAttributes> for ::windows::core::IInspectable {
@@ -10497,14 +10023,9 @@ impl ::core::convert::From<&LineDisplayCursorAttributes> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayCursorAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayCursorAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCursorAttributes> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayCursorAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
@@ -10571,11 +10092,11 @@ impl LineDisplayCustomGlyphs {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn TryRedefineAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, glyphcode: u32, glyphdata: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryRedefineAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, glyphcode: u32, glyphdata: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryRedefineAsync)(::windows::core::Interface::as_raw(this), glyphcode, glyphdata.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRedefineAsync)(::windows::core::Interface::as_raw(this), glyphcode, glyphdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
 }
@@ -10619,14 +10140,9 @@ impl ::core::convert::From<&LineDisplayCustomGlyphs> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayCustomGlyphs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayCustomGlyphs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCustomGlyphs> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayCustomGlyphs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayCustomGlyphs> for ::windows::core::IInspectable {
@@ -10639,14 +10155,9 @@ impl ::core::convert::From<&LineDisplayCustomGlyphs> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayCustomGlyphs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayCustomGlyphs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayCustomGlyphs> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayCustomGlyphs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
@@ -10734,9 +10245,9 @@ impl LineDisplayMarquee {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetFormat(&self, value: LineDisplayMarqueeFormat) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, Param0: ::std::convert::Into<LineDisplayMarqueeFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -10749,9 +10260,9 @@ impl LineDisplayMarquee {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRepeatWaitInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRepeatWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRepeatWaitInterval)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRepeatWaitInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -10764,17 +10275,17 @@ impl LineDisplayMarquee {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetScrollWaitInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetScrollWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScrollWaitInterval)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScrollWaitInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryStartScrollingAsync<'a, Param0: ::std::convert::Into<LineDisplayScrollDirection>>(&self, direction: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryStartScrollingAsync)(::windows::core::Interface::as_raw(this), direction, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryStartScrollingAsync)(::windows::core::Interface::as_raw(this), direction.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -10827,14 +10338,9 @@ impl ::core::convert::From<&LineDisplayMarquee> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayMarquee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayMarquee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayMarquee> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayMarquee) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayMarquee> for ::windows::core::IInspectable {
@@ -10847,14 +10353,9 @@ impl ::core::convert::From<&LineDisplayMarquee> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayMarquee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayMarquee {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayMarquee> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayMarquee) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayMarquee {}
@@ -11036,14 +10537,9 @@ impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayStatisticsCategorySelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayStatisticsCategorySelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayStatisticsCategorySelector> for ::windows::core::IInspectable {
@@ -11056,14 +10552,9 @@ impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayStatisticsCategorySelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayStatisticsCategorySelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayStatisticsCategorySelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
@@ -11121,14 +10612,9 @@ impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayStatusUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -11141,14 +10627,9 @@ impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
@@ -11215,14 +10696,9 @@ impl ::core::convert::From<&LineDisplayStoredBitmap> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayStoredBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayStoredBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayStoredBitmap> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayStoredBitmap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayStoredBitmap> for ::windows::core::IInspectable {
@@ -11235,14 +10711,9 @@ impl ::core::convert::From<&LineDisplayStoredBitmap> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayStoredBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayStoredBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayStoredBitmap> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayStoredBitmap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
@@ -11383,9 +10854,9 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInterCharacterWaitInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInterCharacterWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInterCharacterWaitInterval)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInterCharacterWaitInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11398,38 +10869,38 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0, displayattribute: LineDisplayTextAttribute) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LineDisplayTextAttribute>>(&self, text: Param0, displayattribute: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayTextAsync)(::windows::core::Interface::as_raw(this), text.into_param().abi(), displayattribute, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayTextAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), displayattribute.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextAtPositionAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, text: Param0, displayattribute: LineDisplayTextAttribute, startposition: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextAtPositionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<LineDisplayTextAttribute>>(&self, text: Param0, displayattribute: Param1, startposition: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayTextAtPositionAsync)(::windows::core::Interface::as_raw(this), text.into_param().abi(), displayattribute, startposition.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayTextAtPositionAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), displayattribute.into(), startposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayTextNormalAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayTextNormalAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayTextNormalAsync)(::windows::core::Interface::as_raw(this), text.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayTextNormalAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryScrollTextAsync<'a, Param0: ::std::convert::Into<LineDisplayScrollDirection>>(&self, direction: Param0, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryScrollTextAsync)(::windows::core::Interface::as_raw(this), direction, numberofcolumnsorrows, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryScrollTextAsync)(::windows::core::Interface::as_raw(this), direction.into(), numberofcolumnsorrows, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -11468,56 +10939,56 @@ impl LineDisplayWindow {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDisplayStoredBitmapAtCursorAsync<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayStoredBitmap>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStoredBitmapAtCursorAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, LineDisplayStoredBitmap>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment.into(), verticalalignment.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>, Param1: ::std::convert::Into<LineDisplayHorizontalAlignment>, Param2: ::std::convert::Into<LineDisplayVerticalAlignment>>(&self, bitmap: Param0, horizontalalignment: Param1, verticalalignment: Param2, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment.into(), verticalalignment.into(), widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtPointAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, bitmap: Param0, offsetinpixels: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtPointAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0, offsetinpixels: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), offsetinpixels.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), offsetinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, bitmap: Param0, offsetinpixels: Param1, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::StorageFile>>>(&self, bitmap: Param0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), offsetinpixels.into_param().abi(), widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointWithWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), offsetinpixels, widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
 }
@@ -11561,14 +11032,9 @@ impl ::core::convert::From<&LineDisplayWindow> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LineDisplayWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LineDisplayWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayWindow> for &::windows::core::IUnknown {
+    fn from(value: &LineDisplayWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LineDisplayWindow> for ::windows::core::IInspectable {
@@ -11581,14 +11047,9 @@ impl ::core::convert::From<&LineDisplayWindow> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LineDisplayWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LineDisplayWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LineDisplayWindow> for &::windows::core::IInspectable {
+    fn from(value: &LineDisplayWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -11606,15 +11067,11 @@ impl ::core::convert::TryFrom<&LineDisplayWindow> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for LineDisplayWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &LineDisplayWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LineDisplayWindow> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LineDisplayWindow) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LineDisplayWindow {}
@@ -11663,11 +11120,11 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -11681,11 +11138,11 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
-    pub fn RetrieveStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn RetrieveStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RetrieveStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).RetrieveStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11698,18 +11155,18 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11721,10 +11178,10 @@ impl MagneticStripeReader {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -11735,10 +11192,10 @@ impl MagneticStripeReader {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMagneticStripeReaderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -11792,14 +11249,9 @@ impl ::core::convert::From<&MagneticStripeReader> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReader> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReader> for ::windows::core::IInspectable {
@@ -11812,14 +11264,9 @@ impl ::core::convert::From<&MagneticStripeReader> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReader> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -11837,15 +11284,11 @@ impl ::core::convert::TryFrom<&MagneticStripeReader> for super::super::Foundatio
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for MagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &MagneticStripeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MagneticStripeReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MagneticStripeReader) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReader {}
@@ -12047,14 +11490,9 @@ impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderAamvaCardDataReceivedEventArgs> for ::windows::core::IInspectable {
@@ -12067,14 +11505,9 @@ impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderAamvaCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderAamvaCardDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
@@ -12265,14 +11698,9 @@ impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderBankCardDataReceivedEventArgs> for ::windows::core::IInspectable {
@@ -12285,14 +11713,9 @@ impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderBankCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderBankCardDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
@@ -12430,14 +11853,9 @@ impl ::core::convert::From<&MagneticStripeReaderCapabilities> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderCapabilities> for ::windows::core::IInspectable {
@@ -12450,14 +11868,9 @@ impl ::core::convert::From<&MagneticStripeReaderCapabilities> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
@@ -12628,14 +12041,9 @@ impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderErrorOccurredEventArgs> for ::windows::core::IInspectable {
@@ -12648,14 +12056,9 @@ impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderErrorOccurredEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
@@ -12814,14 +12217,9 @@ impl ::core::convert::From<&MagneticStripeReaderReport> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderReport> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderReport> for ::windows::core::IInspectable {
@@ -12834,14 +12232,9 @@ impl ::core::convert::From<&MagneticStripeReaderReport> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderReport> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
@@ -12942,14 +12335,9 @@ impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderStatusUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -12962,14 +12350,9 @@ impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
@@ -13046,14 +12429,9 @@ impl ::core::convert::From<&MagneticStripeReaderTrackData> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderTrackData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderTrackData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderTrackData> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderTrackData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderTrackData> for ::windows::core::IInspectable {
@@ -13066,14 +12444,9 @@ impl ::core::convert::From<&MagneticStripeReaderTrackData> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderTrackData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderTrackData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderTrackData> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderTrackData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
@@ -13206,14 +12579,9 @@ impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEv
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for ::windows::core::IInspectable {
@@ -13226,14 +12594,9 @@ impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEv
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
@@ -13365,36 +12728,36 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CheckHealthAsync<'a, Param0: ::std::convert::Into<UnifiedPosHealthCheckLevel>>(&self, level: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn GetStatisticsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -13406,11 +12769,11 @@ impl PosPrinter {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetFontProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, typeface: Param0) -> ::windows::core::Result<PosPrinterFontProperty> {
+    pub fn GetFontProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, typeface: Param0) -> ::windows::core::Result<PosPrinterFontProperty> {
         let this = &::windows::core::Interface::cast::<IPosPrinter2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFontProperty)(::windows::core::Interface::as_raw(this), typeface.into_param().abi(), result__.as_mut_ptr()).from_abi::<PosPrinterFontProperty>(result__)
+            (::windows::core::Interface::vtable(this).GetFontProperty)(::windows::core::Interface::as_raw(this), typeface.into().abi(), result__.as_mut_ptr()).from_abi::<PosPrinterFontProperty>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
@@ -13423,10 +12786,10 @@ impl PosPrinter {
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
@@ -13437,10 +12800,10 @@ impl PosPrinter {
         })
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorWithConnectionTypes<'a, Param0: ::std::convert::Into<PosConnectionTypes>>(connectiontypes: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPosPrinterStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -13494,14 +12857,9 @@ impl ::core::convert::From<&PosPrinter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinter> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinter> for ::windows::core::IInspectable {
@@ -13514,14 +12872,9 @@ impl ::core::convert::From<&PosPrinter> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinter> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -13539,15 +12892,11 @@ impl ::core::convert::TryFrom<&PosPrinter> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for PosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &PosPrinter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PosPrinter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PosPrinter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PosPrinter {}
@@ -13747,14 +13096,9 @@ impl ::core::convert::From<&PosPrinterCapabilities> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinterCapabilities> for ::windows::core::IInspectable {
@@ -13767,14 +13111,9 @@ impl ::core::convert::From<&PosPrinterCapabilities> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
@@ -14062,14 +13401,9 @@ impl ::core::convert::From<&PosPrinterFontProperty> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinterFontProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinterFontProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterFontProperty> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinterFontProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinterFontProperty> for ::windows::core::IInspectable {
@@ -14082,14 +13416,9 @@ impl ::core::convert::From<&PosPrinterFontProperty> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinterFontProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinterFontProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterFontProperty> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinterFontProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
@@ -14321,9 +13650,9 @@ impl PosPrinterPrintOptions {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetTypeFace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTypeFace<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTypeFace)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTypeFace)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn CharacterHeight(&self) -> ::windows::core::Result<u32> {
@@ -14464,9 +13793,9 @@ impl PosPrinterPrintOptions {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetAlignment(&self, value: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn SetAlignment<'a, Param0: ::std::convert::Into<PosPrinterAlignment>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAlignment)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAlignment)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn CharacterSet(&self) -> ::windows::core::Result<u32> {
@@ -14522,14 +13851,9 @@ impl ::core::convert::From<&PosPrinterPrintOptions> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinterPrintOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinterPrintOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterPrintOptions> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinterPrintOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinterPrintOptions> for ::windows::core::IInspectable {
@@ -14542,14 +13866,9 @@ impl ::core::convert::From<&PosPrinterPrintOptions> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinterPrintOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinterPrintOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterPrintOptions> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinterPrintOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
@@ -14633,14 +13952,9 @@ impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinterReleaseDeviceRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinterReleaseDeviceRequestedEventArgs> for ::windows::core::IInspectable {
@@ -14653,14 +13967,9 @@ impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinterReleaseDeviceRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinterReleaseDeviceRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinterReleaseDeviceRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
@@ -14825,14 +14134,9 @@ impl ::core::convert::From<&PosPrinterStatus> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinterStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinterStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterStatus> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinterStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinterStatus> for ::windows::core::IInspectable {
@@ -14845,14 +14149,9 @@ impl ::core::convert::From<&PosPrinterStatus> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinterStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinterStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterStatus> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinterStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PosPrinterStatus {}
@@ -14947,14 +14246,9 @@ impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PosPrinterStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PosPrinterStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PosPrinterStatusUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -14967,14 +14261,9 @@ impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PosPrinterStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PosPrinterStatusUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PosPrinterStatusUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
@@ -14984,14 +14273,14 @@ unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
@@ -15008,44 +14297,44 @@ impl ReceiptPrintJob {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()> {
+    pub fn SetBarcodeRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()> {
+    pub fn SetPrintRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0, includebitmaps: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value, includebitmaps).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value.into(), includebitmaps).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPrintArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrintArea(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn SetBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn SetCustomAlignedBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()> {
@@ -15053,48 +14342,48 @@ impl ReceiptPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn DrawRuledLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, positionlist: Param0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
+    pub fn DrawRuledLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PosPrinterLineDirection>, Param3: ::std::convert::Into<PosPrinterLineStyle>>(&self, positionlist: Param0, linedirection: Param1, linewidth: u32, linestyle: Param3, linecolor: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into_param().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection.into(), linewidth, linestyle.into(), linecolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn PrintBarcode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>, Param5: ::std::convert::Into<PosPrinterAlignment>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignment: Param5) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into_param().abi(), symbology, height, width, textposition, alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcodeCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBarcodeCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into_param().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn PrintBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn MarkFeed(&self, kind: PosPrinterMarkFeedKind) -> ::windows::core::Result<()> {
+    pub fn MarkFeed<'a, Param0: ::std::convert::Into<PosPrinterMarkFeedKind>>(&self, kind: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).MarkFeed)(::windows::core::Interface::as_raw(this), kind).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).MarkFeed)(::windows::core::Interface::as_raw(this), kind.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn CutPaper(&self, percentage: f64) -> ::windows::core::Result<()> {
@@ -15112,9 +14401,9 @@ impl ReceiptPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).StampPaper)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
+    pub fn Print2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
@@ -15167,14 +14456,9 @@ impl ::core::convert::From<&ReceiptPrintJob> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReceiptPrintJob> for &::windows::core::IUnknown {
+    fn from(value: &ReceiptPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ReceiptPrintJob> for ::windows::core::IInspectable {
@@ -15187,14 +14471,9 @@ impl ::core::convert::From<&ReceiptPrintJob> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReceiptPrintJob> for &::windows::core::IInspectable {
+    fn from(value: &ReceiptPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ReceiptPrintJob> for IPosPrinterJob {
@@ -15209,14 +14488,11 @@ impl ::core::convert::TryFrom<&ReceiptPrintJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::core::convert::TryInto::<IPosPrinterJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ReceiptPrintJob) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ReceiptPrintJob> for IReceiptOrSlipJob {
@@ -15231,14 +14507,11 @@ impl ::core::convert::TryFrom<&ReceiptPrintJob> for IReceiptOrSlipJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IReceiptOrSlipJob> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &ReceiptPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IReceiptOrSlipJob> {
-        ::core::convert::TryInto::<IReceiptOrSlipJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam<'a, IReceiptOrSlipJob> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ReceiptPrintJob) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ReceiptPrintJob {}
@@ -15539,14 +14812,9 @@ impl ::core::convert::From<&ReceiptPrinterCapabilities> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReceiptPrinterCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &ReceiptPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ReceiptPrinterCapabilities> for ::windows::core::IInspectable {
@@ -15559,14 +14827,9 @@ impl ::core::convert::From<&ReceiptPrinterCapabilities> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReceiptPrinterCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &ReceiptPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ReceiptPrinterCapabilities> for ICommonPosPrintStationCapabilities {
@@ -15581,14 +14844,11 @@ impl ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ICommonPosPrintSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for &ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::core::convert::TryInto::<ICommonPosPrintStationCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ReceiptPrinterCapabilities) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ReceiptPrinterCapabilities> for ICommonReceiptSlipCapabilities {
@@ -15603,14 +14863,11 @@ impl ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ICommonReceiptSli
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonReceiptSlipCapabilities> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &ReceiptPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonReceiptSlipCapabilities> {
-        ::core::convert::TryInto::<ICommonReceiptSlipCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::core::InParam<'a, ICommonReceiptSlipCapabilities> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ReceiptPrinterCapabilities) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ReceiptPrinterCapabilities {}
@@ -15658,14 +14915,14 @@ impl ::core::default::Default for SizeUInt32 {
 pub struct SlipPrintJob(::windows::core::IUnknown);
 impl SlipPrintJob {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn Print<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
+    pub fn PrintLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintLine)(::windows::core::Interface::as_raw(this), data.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
@@ -15682,44 +14939,44 @@ impl SlipPrintJob {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()> {
+    pub fn SetBarcodeRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBarcodeRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()> {
+    pub fn SetPrintRotation<'a, Param0: ::std::convert::Into<PosPrinterRotation>>(&self, value: Param0, includebitmaps: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value, includebitmaps).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value.into(), includebitmaps).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPrintArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrintArea(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn SetBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param2: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: Param2, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetCustomAlignedBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn SetCustomAlignedBitmap<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()> {
@@ -15727,48 +14984,48 @@ impl SlipPrintJob {
         unsafe { (::windows::core::Interface::vtable(this).PrintSavedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn DrawRuledLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, positionlist: Param0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
+    pub fn DrawRuledLine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<PosPrinterLineDirection>, Param3: ::std::convert::Into<PosPrinterLineStyle>>(&self, positionlist: Param0, linedirection: Param1, linewidth: u32, linestyle: Param3, linecolor: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into_param().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DrawRuledLine)(::windows::core::Interface::as_raw(this), positionlist.into().abi(), linedirection.into(), linewidth, linestyle.into(), linecolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn PrintBarcode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>, Param5: ::std::convert::Into<PosPrinterAlignment>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignment: Param5) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into_param().abi(), symbology, height, width, textposition, alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcode)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn PrintBarcodeCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBarcodeCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<PosPrinterBarcodeTextPosition>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: Param4, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into_param().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), data.into().abi(), symbology, height, width, textposition.into(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
+    pub fn PrintBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignment).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>, Param1: ::std::convert::Into<PosPrinterAlignment>>(&self, bitmap: Param0, alignment: Param1, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignment, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment.into(), width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintCustomAlignedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
+    pub fn PrintCustomAlignedBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
+    pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::BitmapFrame>>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthCustomAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance, width).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
+    pub fn Print2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PosPrinterPrintOptions>>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::windows::core::Interface::as_raw(this), data.into().abi(), printoptions.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
@@ -15821,14 +15078,9 @@ impl ::core::convert::From<&SlipPrintJob> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SlipPrintJob> for &::windows::core::IUnknown {
+    fn from(value: &SlipPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SlipPrintJob> for ::windows::core::IInspectable {
@@ -15841,14 +15093,9 @@ impl ::core::convert::From<&SlipPrintJob> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SlipPrintJob> for &::windows::core::IInspectable {
+    fn from(value: &SlipPrintJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SlipPrintJob> for IPosPrinterJob {
@@ -15863,14 +15110,11 @@ impl ::core::convert::TryFrom<&SlipPrintJob> for IPosPrinterJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IPosPrinterJob> {
-        ::core::convert::TryInto::<IPosPrinterJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<'a, IPosPrinterJob> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SlipPrintJob) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SlipPrintJob> for IReceiptOrSlipJob {
@@ -15885,14 +15129,11 @@ impl ::core::convert::TryFrom<&SlipPrintJob> for IReceiptOrSlipJob {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IReceiptOrSlipJob> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &SlipPrintJob {
-    fn into_param(self) -> ::windows::core::Param<'a, IReceiptOrSlipJob> {
-        ::core::convert::TryInto::<IReceiptOrSlipJob>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<'a, IReceiptOrSlipJob> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SlipPrintJob) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SlipPrintJob {}
@@ -16185,14 +15426,9 @@ impl ::core::convert::From<&SlipPrinterCapabilities> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SlipPrinterCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &SlipPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SlipPrinterCapabilities> for ::windows::core::IInspectable {
@@ -16205,14 +15441,9 @@ impl ::core::convert::From<&SlipPrinterCapabilities> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SlipPrinterCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &SlipPrinterCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SlipPrinterCapabilities> for ICommonPosPrintStationCapabilities {
@@ -16227,14 +15458,11 @@ impl ::core::convert::TryFrom<&SlipPrinterCapabilities> for ICommonPosPrintStati
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for &SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonPosPrintStationCapabilities> {
-        ::core::convert::TryInto::<ICommonPosPrintStationCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core::InParam<'a, ICommonPosPrintStationCapabilities> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SlipPrinterCapabilities) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<SlipPrinterCapabilities> for ICommonReceiptSlipCapabilities {
@@ -16249,14 +15477,11 @@ impl ::core::convert::TryFrom<&SlipPrinterCapabilities> for ICommonReceiptSlipCa
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonReceiptSlipCapabilities> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &SlipPrinterCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ICommonReceiptSlipCapabilities> {
-        ::core::convert::TryInto::<ICommonReceiptSlipCapabilities>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core::InParam<'a, ICommonReceiptSlipCapabilities> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SlipPrinterCapabilities) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SlipPrinterCapabilities {}
@@ -16298,10 +15523,10 @@ impl UnifiedPosErrorData {
         }
     }
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(message: Param0, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData> {
+    pub fn CreateInstance<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<UnifiedPosErrorSeverity>, Param2: ::std::convert::Into<UnifiedPosErrorReason>>(message: Param0, severity: Param1, reason: Param2, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData> {
         Self::IUnifiedPosErrorDataFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), message.into_param().abi(), severity, reason, extendedreason, result__.as_mut_ptr()).from_abi::<UnifiedPosErrorData>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), message.into().abi(), severity.into(), reason.into(), extendedreason, result__.as_mut_ptr()).from_abi::<UnifiedPosErrorData>(result__)
         })
     }
     #[doc(hidden)]
@@ -16350,14 +15575,9 @@ impl ::core::convert::From<&UnifiedPosErrorData> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UnifiedPosErrorData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UnifiedPosErrorData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UnifiedPosErrorData> for &::windows::core::IUnknown {
+    fn from(value: &UnifiedPosErrorData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UnifiedPosErrorData> for ::windows::core::IInspectable {
@@ -16370,14 +15590,9 @@ impl ::core::convert::From<&UnifiedPosErrorData> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UnifiedPosErrorData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UnifiedPosErrorData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UnifiedPosErrorData> for &::windows::core::IInspectable {
+    fn from(value: &UnifiedPosErrorData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}

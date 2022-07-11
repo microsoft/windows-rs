@@ -3,7 +3,7 @@ use windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
 fn class() -> windows::core::Result<()> {
-    let uri = Uri::CreateUri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
 
     // All WinRT classes are convertible to windows::core::IInspectable.
     let object: windows::core::IInspectable = uri.into();
@@ -15,7 +15,7 @@ fn class() -> windows::core::Result<()> {
 
 #[test]
 fn interface() -> windows::core::Result<()> {
-    let uri = Uri::CreateUri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let stringable: IStringable = uri.try_into().unwrap();
 
     // All WinRT interfaces are convertible to windows::core::IInspectable.
@@ -28,7 +28,7 @@ fn interface() -> windows::core::Result<()> {
 
 #[test]
 fn boxing() -> windows::core::Result<()> {
-    let object = PropertyValue::CreateString("hello")?;
+    let object = PropertyValue::CreateString(&windows::core::HSTRING::from("hello"))?;
 
     assert!(object.GetRuntimeClassName()? == "Windows.Foundation.IReference`1<String>");
 

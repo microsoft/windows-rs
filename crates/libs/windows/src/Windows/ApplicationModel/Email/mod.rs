@@ -20,9 +20,9 @@ impl EmailAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFileName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -35,9 +35,9 @@ impl EmailAttachment {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -56,9 +56,9 @@ impl EmailAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetContentId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn ContentLocation(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -69,9 +69,9 @@ impl EmailAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetContentLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContentLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentLocation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentLocation)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn DownloadState(&self) -> ::windows::core::Result<EmailAttachmentDownloadState> {
@@ -82,9 +82,9 @@ impl EmailAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetDownloadState(&self, value: EmailAttachmentDownloadState) -> ::windows::core::Result<()> {
+    pub fn SetDownloadState<'a, Param0: ::std::convert::Into<EmailAttachmentDownloadState>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDownloadState)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDownloadState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn EstimatedDownloadSizeInBytes(&self) -> ::windows::core::Result<u64> {
@@ -129,24 +129,24 @@ impl EmailAttachment {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetMimeType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMimeType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailAttachment2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMimeType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMimeType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(filename: Param0, data: Param1) -> ::windows::core::Result<EmailAttachment> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(filename: Param0, data: Param1) -> ::windows::core::Result<EmailAttachment> {
         Self::IEmailAttachmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filename.into_param().abi(), data.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailAttachment>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filename.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<EmailAttachment>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn Create2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filename: Param0, data: Param1, mimetype: Param2) -> ::windows::core::Result<EmailAttachment> {
+    pub fn Create2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(filename: Param0, data: Param1, mimetype: Param2) -> ::windows::core::Result<EmailAttachment> {
         Self::IEmailAttachmentFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filename.into_param().abi(), data.into_param().abi(), mimetype.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailAttachment>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filename.into().abi(), data.try_into().map_err(|e| e.into())?.abi(), mimetype.into().abi(), result__.as_mut_ptr()).from_abi::<EmailAttachment>(result__)
         })
     }
     #[doc(hidden)]
@@ -200,14 +200,9 @@ impl ::core::convert::From<&EmailAttachment> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailAttachment> for &::windows::core::IUnknown {
+    fn from(value: &EmailAttachment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailAttachment> for ::windows::core::IInspectable {
@@ -220,14 +215,9 @@ impl ::core::convert::From<&EmailAttachment> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailAttachment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailAttachment> for &::windows::core::IInspectable {
+    fn from(value: &EmailAttachment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailAttachment {}
@@ -514,14 +504,9 @@ impl ::core::convert::From<&EmailConversation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailConversation> for &::windows::core::IUnknown {
+    fn from(value: &EmailConversation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailConversation> for ::windows::core::IInspectable {
@@ -534,14 +519,9 @@ impl ::core::convert::From<&EmailConversation> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailConversation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailConversation> for &::windows::core::IInspectable {
+    fn from(value: &EmailConversation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailConversation {}
@@ -608,14 +588,9 @@ impl ::core::convert::From<&EmailConversationBatch> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailConversationBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailConversationBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailConversationBatch> for &::windows::core::IUnknown {
+    fn from(value: &EmailConversationBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailConversationBatch> for ::windows::core::IInspectable {
@@ -628,14 +603,9 @@ impl ::core::convert::From<&EmailConversationBatch> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailConversationBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailConversationBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailConversationBatch> for &::windows::core::IInspectable {
+    fn from(value: &EmailConversationBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailConversationBatch {}
@@ -694,14 +664,9 @@ impl ::core::convert::From<&EmailConversationReader> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailConversationReader> for &::windows::core::IUnknown {
+    fn from(value: &EmailConversationReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailConversationReader> for ::windows::core::IInspectable {
@@ -714,14 +679,9 @@ impl ::core::convert::From<&EmailConversationReader> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailConversationReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailConversationReader> for &::windows::core::IInspectable {
+    fn from(value: &EmailConversationReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailConversationReader {}
@@ -783,9 +743,9 @@ impl EmailFolder {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn MailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -812,9 +772,9 @@ impl EmailFolder {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn IsSyncEnabled(&self) -> ::windows::core::Result<bool> {
@@ -840,9 +800,9 @@ impl EmailFolder {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLastSuccessfulSyncTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<EmailSpecialFolderKind> {
@@ -854,11 +814,11 @@ impl EmailFolder {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
+    pub fn CreateFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFolderAsync)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
@@ -888,20 +848,20 @@ impl EmailFolder {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetConversationReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<EmailConversationReader> {
+    pub fn GetConversationReaderWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<EmailConversationReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailConversationReader>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<EmailConversationReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
+    pub fn GetMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -913,11 +873,11 @@ impl EmailFolder {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetMessageReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<EmailMessageReader> {
+    pub fn GetMessageReaderWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<EmailMessageReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailMessageReader>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<EmailMessageReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
@@ -931,20 +891,20 @@ impl EmailFolder {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailFolder>>(&self, newparentfolder: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailFolder>>>(&self, newparentfolder: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveAsync)(::windows::core::Interface::as_raw(this), newparentfolder.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryMoveAsync)(::windows::core::Interface::as_raw(this), newparentfolder.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveWithNewNameAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, newparentfolder: Param0, newfoldername: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveWithNewNameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailFolder>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, newparentfolder: Param0, newfoldername: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveWithNewNameAsync)(::windows::core::Interface::as_raw(this), newparentfolder.into_param().abi(), newfoldername.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryMoveWithNewNameAsync)(::windows::core::Interface::as_raw(this), newparentfolder.into().abi(), newfoldername.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
@@ -958,11 +918,11 @@ impl EmailFolder {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveMessageAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SaveMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -1006,14 +966,9 @@ impl ::core::convert::From<&EmailFolder> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailFolder> for &::windows::core::IUnknown {
+    fn from(value: &EmailFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailFolder> for ::windows::core::IInspectable {
@@ -1026,14 +981,9 @@ impl ::core::convert::From<&EmailFolder> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailFolder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailFolder> for &::windows::core::IInspectable {
+    fn from(value: &EmailFolder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailFolder {}
@@ -1199,9 +1149,9 @@ impl EmailIrmInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetExpirationDate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetExpirationDate(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExpirationDate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExpirationDate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn IsIrmOriginator(&self) -> ::windows::core::Result<bool> {
@@ -1238,16 +1188,16 @@ impl EmailIrmInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetTemplate<'a, Param0: ::windows::core::IntoParam<'a, EmailIrmTemplate>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTemplate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailIrmTemplate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTemplate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTemplate)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, EmailIrmTemplate>>(expiration: Param0, irmtemplate: Param1) -> ::windows::core::Result<EmailIrmInfo> {
+    pub fn Create<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, EmailIrmTemplate>>>(expiration: super::super::Foundation::DateTime, irmtemplate: Param1) -> ::windows::core::Result<EmailIrmInfo> {
         Self::IEmailIrmInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), expiration.into_param().abi(), irmtemplate.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailIrmInfo>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), expiration, irmtemplate.into().abi(), result__.as_mut_ptr()).from_abi::<EmailIrmInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -1296,14 +1246,9 @@ impl ::core::convert::From<&EmailIrmInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailIrmInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailIrmInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailIrmInfo> for &::windows::core::IUnknown {
+    fn from(value: &EmailIrmInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailIrmInfo> for ::windows::core::IInspectable {
@@ -1316,14 +1261,9 @@ impl ::core::convert::From<&EmailIrmInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailIrmInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailIrmInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailIrmInfo> for &::windows::core::IInspectable {
+    fn from(value: &EmailIrmInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailIrmInfo {}
@@ -1348,9 +1288,9 @@ impl EmailIrmTemplate {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1361,9 +1301,9 @@ impl EmailIrmTemplate {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1374,15 +1314,15 @@ impl EmailIrmTemplate {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0, name: Param1, description: Param2) -> ::windows::core::Result<EmailIrmTemplate> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(id: Param0, name: Param1, description: Param2) -> ::windows::core::Result<EmailIrmTemplate> {
         Self::IEmailIrmTemplateFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into_param().abi(), name.into_param().abi(), description.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailIrmTemplate>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), name.into().abi(), description.into().abi(), result__.as_mut_ptr()).from_abi::<EmailIrmTemplate>(result__)
         })
     }
     #[doc(hidden)]
@@ -1431,14 +1371,9 @@ impl ::core::convert::From<&EmailIrmTemplate> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailIrmTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailIrmTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailIrmTemplate> for &::windows::core::IUnknown {
+    fn from(value: &EmailIrmTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailIrmTemplate> for ::windows::core::IInspectable {
@@ -1451,14 +1386,9 @@ impl ::core::convert::From<&EmailIrmTemplate> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailIrmTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailIrmTemplate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailIrmTemplate> for &::windows::core::IInspectable {
+    fn from(value: &EmailIrmTemplate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailIrmTemplate {}
@@ -1540,14 +1470,9 @@ impl ::core::convert::From<&EmailItemCounts> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailItemCounts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailItemCounts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailItemCounts> for &::windows::core::IUnknown {
+    fn from(value: &EmailItemCounts) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailItemCounts> for ::windows::core::IInspectable {
@@ -1560,14 +1485,9 @@ impl ::core::convert::From<&EmailItemCounts> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailItemCounts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailItemCounts {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailItemCounts> for &::windows::core::IInspectable {
+    fn from(value: &EmailItemCounts) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailItemCounts {}
@@ -1601,9 +1521,9 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1638,9 +1558,9 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetMailAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMailAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMailAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMailAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1660,9 +1580,9 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetOtherAppReadAccess(&self, value: EmailMailboxOtherAppReadAccess) -> ::windows::core::Result<()> {
+    pub fn SetOtherAppReadAccess<'a, Param0: ::std::convert::Into<EmailMailboxOtherAppReadAccess>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppReadAccess)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn OtherAppWriteAccess(&self) -> ::windows::core::Result<EmailMailboxOtherAppWriteAccess> {
@@ -1673,9 +1593,9 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetOtherAppWriteAccess(&self, value: EmailMailboxOtherAppWriteAccess) -> ::windows::core::Result<()> {
+    pub fn SetOtherAppWriteAccess<'a, Param0: ::std::convert::Into<EmailMailboxOtherAppWriteAccess>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppWriteAccess)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOtherAppWriteAccess)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Policies(&self) -> ::windows::core::Result<EmailMailboxPolicies> {
@@ -1718,11 +1638,11 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetConversationReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<EmailConversationReader> {
+    pub fn GetConversationReaderWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<EmailConversationReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailConversationReader>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<EmailConversationReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -1734,11 +1654,11 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetMessageReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<EmailMessageReader> {
+    pub fn GetMessageReaderWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<EmailMessageReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailMessageReader>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<EmailMessageReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
@@ -1752,38 +1672,38 @@ impl EmailMailbox {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetConversationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
+    pub fn GetConversationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailConversation>>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailConversation>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
+    pub fn GetFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
+    pub fn GetMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetSpecialFolderAsync(&self, foldertype: EmailSpecialFolderKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
+    pub fn GetSpecialFolderAsync<'a, Param0: ::std::convert::Into<EmailSpecialFolderKind>>(&self, foldertype: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSpecialFolderAsync)(::windows::core::Interface::as_raw(this), foldertype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetSpecialFolderAsync)(::windows::core::Interface::as_raw(this), foldertype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
@@ -1797,197 +1717,205 @@ impl EmailMailbox {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkMessageAsSeenAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessageAsSeenAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkMessageAsSeenAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkMessageAsSeenAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkFolderAsSeenAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folderid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkFolderAsSeenAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folderid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkFolderAsSeenAsync)(::windows::core::Interface::as_raw(this), folderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkFolderAsSeenAsync)(::windows::core::Interface::as_raw(this), folderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkMessageReadAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0, isread: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkMessageReadAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messageid: Param0, isread: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkMessageReadAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), isread, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkMessageReadAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), isread, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ChangeMessageFlagStateAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0, flagstate: EmailFlagState) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ChangeMessageFlagStateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<EmailFlagState>>(&self, messageid: Param0, flagstate: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeMessageFlagStateAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), flagstate, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ChangeMessageFlagStateAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), flagstate.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0, newparentfolderid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messageid: Param0, newparentfolderid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), newparentfolderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryMoveMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), newparentfolderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folderid: Param0, newparentfolderid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folderid: Param0, newparentfolderid: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into_param().abi(), newparentfolderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryMoveFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into().abi(), newparentfolderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryMoveFolderWithNewNameAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folderid: Param0, newparentfolderid: Param1, newfoldername: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryMoveFolderWithNewNameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folderid: Param0, newparentfolderid: Param1, newfoldername: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveFolderWithNewNameAsync)(::windows::core::Interface::as_raw(this), folderid.into_param().abi(), newparentfolderid.into_param().abi(), newfoldername.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryMoveFolderWithNewNameAsync)(::windows::core::Interface::as_raw(this), folderid.into().abi(), newparentfolderid.into().abi(), newfoldername.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MarkFolderSyncEnabledAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folderid: Param0, issyncenabled: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn MarkFolderSyncEnabledAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folderid: Param0, issyncenabled: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MarkFolderSyncEnabledAsync)(::windows::core::Interface::as_raw(this), folderid.into_param().abi(), issyncenabled, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).MarkFolderSyncEnabledAsync)(::windows::core::Interface::as_raw(this), folderid.into().abi(), issyncenabled, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SaveDraftAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SaveDraftAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SaveDraftAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SaveDraftAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DownloadMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DownloadMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messageid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DownloadMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DownloadAttachmentAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, attachmentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DownloadAttachmentAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, attachmentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadAttachmentAsync)(::windows::core::Interface::as_raw(this), attachmentid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DownloadAttachmentAsync)(::windows::core::Interface::as_raw(this), attachmentid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateResponseMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messageid: Param0, responsetype: EmailMessageResponseKind, subject: Param2, responseheadertype: EmailMessageBodyKind, responseheader: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
+    pub fn CreateResponseMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<EmailMessageResponseKind>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<EmailMessageBodyKind>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messageid: Param0, responsetype: Param1, subject: Param2, responseheadertype: Param3, responseheader: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResponseMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into_param().abi(), responsetype, subject.into_param().abi(), responseheadertype, responseheader.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
+            (::windows::core::Interface::vtable(this).CreateResponseMessageAsync)(::windows::core::Interface::as_raw(this), messageid.into().abi(), responsetype.into(), subject.into().abi(), responseheadertype.into(), responseheader.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUpdateMeetingResponseAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, meeting: Param0, response: EmailMeetingResponseType, subject: Param2, comment: Param3, sendupdate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUpdateMeetingResponseAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>, Param1: ::std::convert::Into<EmailMeetingResponseType>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, meeting: Param0, response: Param1, subject: Param2, comment: Param3, sendupdate: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(::windows::core::Interface::as_raw(this), meeting.into_param().abi(), response, subject.into_param().abi(), comment.into_param().abi(), sendupdate, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(::windows::core::Interface::as_raw(this), meeting.into().abi(), response.into(), subject.into().abi(), comment.into().abi(), sendupdate, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TryForwardMeetingAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EmailRecipient>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param5: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, meeting: Param0, recipients: Param1, subject: Param2, forwardheadertype: EmailMessageBodyKind, forwardheader: Param4, comment: Param5) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryForwardMeetingAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<EmailRecipient>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<EmailMessageBodyKind>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param5: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(
+        &self,
+        meeting: Param0,
+        recipients: Param1,
+        subject: Param2,
+        forwardheadertype: Param3,
+        forwardheader: Param4,
+        comment: Param5,
+    ) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryForwardMeetingAsync)(::windows::core::Interface::as_raw(this), meeting.into_param().abi(), recipients.into_param().abi(), subject.into_param().abi(), forwardheadertype, forwardheader.into_param().abi(), comment.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryForwardMeetingAsync)(::windows::core::Interface::as_raw(this), meeting.into().abi(), recipients.try_into().map_err(|e| e.into())?.abi(), subject.into().abi(), forwardheadertype.into(), forwardheader.into().abi(), comment.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryProposeNewTimeForMeetingAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, meeting: Param0, newstarttime: Param1, newduration: Param2, subject: Param3, comment: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryProposeNewTimeForMeetingAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, meeting: Param0, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: Param3, comment: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(::windows::core::Interface::as_raw(this), meeting.into_param().abi(), newstarttime.into_param().abi(), newduration.into_param().abi(), subject.into_param().abi(), comment.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(::windows::core::Interface::as_raw(this), meeting.into().abi(), newstarttime, newduration, subject.into().abi(), comment.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MailboxChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>>(&self, phandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MailboxChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EmailMailbox, EmailMailboxChangedEventArgs>>>>(&self, phandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MailboxChanged)(::windows::core::Interface::as_raw(this), phandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MailboxChanged)(::windows::core::Interface::as_raw(this), phandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMailboxChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMailboxChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMailboxChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMailboxChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SmartSendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>>(&self, message: Param0, smartsend: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SmartSendMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>>(&self, message: Param0, smartsend: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SmartSendMessageAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), smartsend, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SmartSendMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), smartsend, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetAutoReplySettingsAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMailboxAutoReplySettings>>(&self, autoreplysettings: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetAutoReplySettingsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMailboxAutoReplySettings>>>(&self, autoreplysettings: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetAutoReplySettingsAsync)(::windows::core::Interface::as_raw(this), autoreplysettings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetAutoReplySettingsAsync)(::windows::core::Interface::as_raw(this), autoreplysettings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryGetAutoReplySettingsAsync(&self, requestedformat: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>> {
+    pub fn TryGetAutoReplySettingsAsync<'a, Param0: ::std::convert::Into<EmailMailboxAutoReplyMessageResponseKind>>(&self, requestedformat: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAutoReplySettingsAsync)(::windows::core::Interface::as_raw(this), requestedformat, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAutoReplySettingsAsync)(::windows::core::Interface::as_raw(this), requestedformat.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxAutoReplySettings>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -2016,47 +1944,47 @@ impl EmailMailbox {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ResolveRecipientsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, recipients: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>> {
+    pub fn ResolveRecipientsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, recipients: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>> {
         let this = &::windows::core::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ResolveRecipientsAsync)(::windows::core::Interface::as_raw(this), recipients.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>>(result__)
+            (::windows::core::Interface::vtable(this).ResolveRecipientsAsync)(::windows::core::Interface::as_raw(this), recipients.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailRecipientResolutionResult>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn ValidateCertificatesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>>(&self, certificates: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>> {
+    pub fn ValidateCertificatesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, certificates: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>> {
         let this = &::windows::core::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ValidateCertificatesAsync)(::windows::core::Interface::as_raw(this), certificates.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>(result__)
+            (::windows::core::Interface::vtable(this).ValidateCertificatesAsync)(::windows::core::Interface::as_raw(this), certificates.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<EmailCertificateValidationStatus>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryEmptyFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folderid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>> {
+    pub fn TryEmptyFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folderid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>> {
         let this = &::windows::core::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryEmptyFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>>(result__)
+            (::windows::core::Interface::vtable(this).TryEmptyFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxEmptyFolderStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryCreateFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, parentfolderid: Param0, name: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>> {
+    pub fn TryCreateFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, parentfolderid: Param0, name: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>> {
         let this = &::windows::core::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFolderAsync)(::windows::core::Interface::as_raw(this), parentfolderid.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFolderAsync)(::windows::core::Interface::as_raw(this), parentfolderid.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxCreateFolderResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryDeleteFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, folderid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>> {
+    pub fn TryDeleteFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, folderid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>> {
         let this = &::windows::core::Interface::cast::<IEmailMailbox3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryDeleteFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>>(result__)
+            (::windows::core::Interface::vtable(this).TryDeleteFolderAsync)(::windows::core::Interface::as_raw(this), folderid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailboxDeleteFolderStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
@@ -2069,11 +1997,11 @@ impl EmailMailbox {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetChangeTracker<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, identity: Param0) -> ::windows::core::Result<EmailMailboxChangeTracker> {
+    pub fn GetChangeTracker<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, identity: Param0) -> ::windows::core::Result<EmailMailboxChangeTracker> {
         let this = &::windows::core::Interface::cast::<IEmailMailbox5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetChangeTracker)(::windows::core::Interface::as_raw(this), identity.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailMailboxChangeTracker>(result__)
+            (::windows::core::Interface::vtable(this).GetChangeTracker)(::windows::core::Interface::as_raw(this), identity.into().abi(), result__.as_mut_ptr()).from_abi::<EmailMailboxChangeTracker>(result__)
         }
     }
 }
@@ -2117,14 +2045,9 @@ impl ::core::convert::From<&EmailMailbox> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailbox {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailbox {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailbox> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailbox) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailbox> for ::windows::core::IInspectable {
@@ -2137,14 +2060,9 @@ impl ::core::convert::From<&EmailMailbox> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailbox {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailbox {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailbox> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailbox) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailbox {}
@@ -2210,14 +2128,9 @@ impl ::core::convert::From<&EmailMailboxAction> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxAction> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxAction> for ::windows::core::IInspectable {
@@ -2230,14 +2143,9 @@ impl ::core::convert::From<&EmailMailboxAction> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxAction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxAction> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxAction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxAction {}
@@ -2346,9 +2254,9 @@ impl EmailMailboxAutoReply {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetResponse<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetResponse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResponse)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResponse)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for EmailMailboxAutoReply {
@@ -2391,14 +2299,9 @@ impl ::core::convert::From<&EmailMailboxAutoReply> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxAutoReply {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxAutoReply {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxAutoReply> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxAutoReply) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxAutoReply> for ::windows::core::IInspectable {
@@ -2411,14 +2314,9 @@ impl ::core::convert::From<&EmailMailboxAutoReply> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxAutoReply {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxAutoReply {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxAutoReply> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxAutoReply) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxAutoReply {}
@@ -2490,9 +2388,9 @@ impl EmailMailboxAutoReplySettings {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetResponseKind(&self, value: EmailMailboxAutoReplyMessageResponseKind) -> ::windows::core::Result<()> {
+    pub fn SetResponseKind<'a, Param0: ::std::convert::Into<EmailMailboxAutoReplyMessageResponseKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResponseKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResponseKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2505,9 +2403,9 @@ impl EmailMailboxAutoReplySettings {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStartTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2520,9 +2418,9 @@ impl EmailMailboxAutoReplySettings {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetEndTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEndTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEndTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEndTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn InternalReply(&self) -> ::windows::core::Result<EmailMailboxAutoReply> {
@@ -2589,14 +2487,9 @@ impl ::core::convert::From<&EmailMailboxAutoReplySettings> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxAutoReplySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxAutoReplySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxAutoReplySettings> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxAutoReplySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxAutoReplySettings> for ::windows::core::IInspectable {
@@ -2609,14 +2502,9 @@ impl ::core::convert::From<&EmailMailboxAutoReplySettings> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxAutoReplySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxAutoReplySettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxAutoReplySettings> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxAutoReplySettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxAutoReplySettings {}
@@ -2848,14 +2736,9 @@ impl ::core::convert::From<&EmailMailboxCapabilities> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxCapabilities> for ::windows::core::IInspectable {
@@ -2868,14 +2751,9 @@ impl ::core::convert::From<&EmailMailboxCapabilities> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxCapabilities {}
@@ -2958,14 +2836,9 @@ impl ::core::convert::From<&EmailMailboxChange> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChange> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxChange> for ::windows::core::IInspectable {
@@ -2978,14 +2851,9 @@ impl ::core::convert::From<&EmailMailboxChange> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxChange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChange> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxChange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxChange {}
@@ -3000,9 +2868,9 @@ impl EmailMailboxChangeReader {
         unsafe { (::windows::core::Interface::vtable(this).AcceptChanges)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn AcceptChangesThrough<'a, Param0: ::windows::core::IntoParam<'a, EmailMailboxChange>>(&self, lastchangetoacknowledge: Param0) -> ::windows::core::Result<()> {
+    pub fn AcceptChangesThrough<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMailboxChange>>>(&self, lastchangetoacknowledge: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AcceptChangesThrough)(::windows::core::Interface::as_raw(this), lastchangetoacknowledge.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AcceptChangesThrough)(::windows::core::Interface::as_raw(this), lastchangetoacknowledge.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3054,14 +2922,9 @@ impl ::core::convert::From<&EmailMailboxChangeReader> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangeReader> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxChangeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxChangeReader> for ::windows::core::IInspectable {
@@ -3074,14 +2937,9 @@ impl ::core::convert::From<&EmailMailboxChangeReader> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxChangeReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangeReader> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxChangeReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangeReader {}
@@ -3157,14 +3015,9 @@ impl ::core::convert::From<&EmailMailboxChangeTracker> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangeTracker> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxChangeTracker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxChangeTracker> for ::windows::core::IInspectable {
@@ -3177,14 +3030,9 @@ impl ::core::convert::From<&EmailMailboxChangeTracker> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxChangeTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangeTracker> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxChangeTracker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangeTracker {}
@@ -3278,14 +3126,9 @@ impl ::core::convert::From<&EmailMailboxChangedDeferral> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangedDeferral> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxChangedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxChangedDeferral> for ::windows::core::IInspectable {
@@ -3298,14 +3141,9 @@ impl ::core::convert::From<&EmailMailboxChangedDeferral> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxChangedDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangedDeferral> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxChangedDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangedDeferral {}
@@ -3363,14 +3201,9 @@ impl ::core::convert::From<&EmailMailboxChangedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxChangedEventArgs> for ::windows::core::IInspectable {
@@ -3383,14 +3216,9 @@ impl ::core::convert::From<&EmailMailboxChangedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxChangedEventArgs {}
@@ -3456,14 +3284,9 @@ impl ::core::convert::From<&EmailMailboxCreateFolderResult> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxCreateFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxCreateFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxCreateFolderResult> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxCreateFolderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxCreateFolderResult> for ::windows::core::IInspectable {
@@ -3476,14 +3299,9 @@ impl ::core::convert::From<&EmailMailboxCreateFolderResult> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxCreateFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxCreateFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxCreateFolderResult> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxCreateFolderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderResult {}
@@ -3727,9 +3545,9 @@ impl EmailMailboxPolicies {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetAllowedSmimeEncryptionAlgorithmNegotiation(&self, value: EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation) -> ::windows::core::Result<()> {
+    pub fn SetAllowedSmimeEncryptionAlgorithmNegotiation<'a, Param0: ::std::convert::Into<EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowedSmimeEncryptionAlgorithmNegotiation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowedSmimeEncryptionAlgorithmNegotiation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn SetAllowSmimeSoftCertificates(&self, value: bool) -> ::windows::core::Result<()> {
@@ -3738,15 +3556,15 @@ impl EmailMailboxPolicies {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRequiredSmimeEncryptionAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRequiredSmimeEncryptionAlgorithm<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<EmailMailboxSmimeEncryptionAlgorithm>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequiredSmimeEncryptionAlgorithm)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequiredSmimeEncryptionAlgorithm)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRequiredSmimeSigningAlgorithm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRequiredSmimeSigningAlgorithm<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<EmailMailboxSmimeSigningAlgorithm>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMailboxPolicies3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequiredSmimeSigningAlgorithm)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequiredSmimeSigningAlgorithm)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn SetMustEncryptSmimeMessages(&self, value: bool) -> ::windows::core::Result<()> {
@@ -3799,14 +3617,9 @@ impl ::core::convert::From<&EmailMailboxPolicies> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxPolicies {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxPolicies {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxPolicies> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxPolicies) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxPolicies> for ::windows::core::IInspectable {
@@ -3819,14 +3632,9 @@ impl ::core::convert::From<&EmailMailboxPolicies> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxPolicies {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxPolicies {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxPolicies> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxPolicies) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxPolicies {}
@@ -3945,35 +3753,35 @@ impl EmailMailboxSyncManager {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SyncStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SyncStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<EmailMailboxSyncManager, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SyncStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SyncStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSyncStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSyncStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSyncStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetStatus(&self, value: EmailMailboxSyncStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus<'a, Param0: ::std::convert::Into<EmailMailboxSyncStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLastSuccessfulSyncTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetLastAttemptedSyncTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMailboxSyncManager2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLastAttemptedSyncTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLastAttemptedSyncTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for EmailMailboxSyncManager {
@@ -4016,14 +3824,9 @@ impl ::core::convert::From<&EmailMailboxSyncManager> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMailboxSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMailboxSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxSyncManager> for &::windows::core::IUnknown {
+    fn from(value: &EmailMailboxSyncManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMailboxSyncManager> for ::windows::core::IInspectable {
@@ -4036,14 +3839,9 @@ impl ::core::convert::From<&EmailMailboxSyncManager> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMailboxSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMailboxSyncManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMailboxSyncManager> for &::windows::core::IInspectable {
+    fn from(value: &EmailMailboxSyncManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMailboxSyncManager {}
@@ -4092,26 +3890,26 @@ pub struct EmailManager;
 impl EmailManager {
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowComposeNewEmailAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>>(message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowComposeNewEmailAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>>(message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IEmailManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync(accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
+    pub fn RequestStoreAsync<'a, Param0: ::std::convert::Into<EmailStoreAccessType>>(accesstype: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
         Self::IEmailManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailStore>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<EmailManagerForUser> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<EmailManagerForUser> {
         Self::IEmailManagerStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailManagerForUser>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<EmailManagerForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -4139,20 +3937,20 @@ pub struct EmailManagerForUser(::windows::core::IUnknown);
 impl EmailManagerForUser {
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShowComposeNewEmailAsync<'a, Param0: ::windows::core::IntoParam<'a, EmailMessage>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn ShowComposeNewEmailAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMessage>>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ShowComposeNewEmailAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestStoreAsync(&self, accesstype: EmailStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
+    pub fn RequestStoreAsync<'a, Param0: ::std::convert::Into<EmailStoreAccessType>>(&self, accesstype: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailStore>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailStore>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailStore>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"System\"`*"]
@@ -4205,14 +4003,9 @@ impl ::core::convert::From<&EmailManagerForUser> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailManagerForUser> for &::windows::core::IUnknown {
+    fn from(value: &EmailManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailManagerForUser> for ::windows::core::IInspectable {
@@ -4225,14 +4018,9 @@ impl ::core::convert::From<&EmailManagerForUser> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailManagerForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailManagerForUser> for &::windows::core::IInspectable {
+    fn from(value: &EmailManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailManagerForUser {}
@@ -4270,9 +4058,9 @@ impl EmailMeetingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetAppointmentRoamingId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppointmentRoamingId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppointmentRoamingId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppointmentRoamingId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4285,9 +4073,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetAppointmentOriginalStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAppointmentOriginalStartTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppointmentOriginalStartTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppointmentOriginalStartTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4300,9 +4088,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn IsAllDay(&self) -> ::windows::core::Result<bool> {
@@ -4339,9 +4127,9 @@ impl EmailMeetingInfo {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4354,9 +4142,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetProposedStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, proposedstarttime: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProposedStartTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, proposedstarttime: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProposedStartTime)(::windows::core::Interface::as_raw(this), proposedstarttime.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProposedStartTime)(::windows::core::Interface::as_raw(this), proposedstarttime.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4369,9 +4157,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetProposedDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, duration: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProposedDuration<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, duration: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProposedDuration)(::windows::core::Interface::as_raw(this), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProposedDuration)(::windows::core::Interface::as_raw(this), duration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4384,9 +4172,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetRecurrenceStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRecurrenceStartTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecurrenceStartTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecurrenceStartTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"ApplicationModel_Appointments\"`*"]
     #[cfg(feature = "ApplicationModel_Appointments")]
@@ -4399,9 +4187,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"ApplicationModel_Appointments\"`*"]
     #[cfg(feature = "ApplicationModel_Appointments")]
-    pub fn SetRecurrence<'a, Param0: ::windows::core::IntoParam<'a, super::Appointments::AppointmentRecurrence>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRecurrence<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Appointments::AppointmentRecurrence>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecurrence)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecurrence)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn RemoteChangeNumber(&self) -> ::windows::core::Result<u64> {
@@ -4427,9 +4215,9 @@ impl EmailMeetingInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStartTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn IsReportedOutOfDateByServer(&self) -> ::windows::core::Result<bool> {
@@ -4480,14 +4268,9 @@ impl ::core::convert::From<&EmailMeetingInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMeetingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMeetingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMeetingInfo> for &::windows::core::IUnknown {
+    fn from(value: &EmailMeetingInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMeetingInfo> for ::windows::core::IInspectable {
@@ -4500,14 +4283,9 @@ impl ::core::convert::From<&EmailMeetingInfo> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMeetingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMeetingInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMeetingInfo> for &::windows::core::IInspectable {
+    fn from(value: &EmailMeetingInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMeetingInfo {}
@@ -4567,9 +4345,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubject<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubject)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Body(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4580,9 +4358,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4637,9 +4415,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetRemoteId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn MailboxId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4695,9 +4473,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetDownloadState(&self, value: EmailMessageDownloadState) -> ::windows::core::Result<()> {
+    pub fn SetDownloadState<'a, Param0: ::std::convert::Into<EmailMessageDownloadState>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDownloadState)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDownloadState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn EstimatedDownloadSizeInBytes(&self) -> ::windows::core::Result<u32> {
@@ -4721,9 +4499,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetFlagState(&self, value: EmailFlagState) -> ::windows::core::Result<()> {
+    pub fn SetFlagState<'a, Param0: ::std::convert::Into<EmailFlagState>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFlagState)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFlagState)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn HasPartialBodies(&self) -> ::windows::core::Result<bool> {
@@ -4742,9 +4520,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetImportance(&self, value: EmailImportance) -> ::windows::core::Result<()> {
+    pub fn SetImportance<'a, Param0: ::std::convert::Into<EmailImportance>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImportance)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImportance)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn InResponseToMessageId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4763,9 +4541,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetIrmInfo<'a, Param0: ::windows::core::IntoParam<'a, EmailIrmInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIrmInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailIrmInfo>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIrmInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIrmInfo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn IsDraftMessage(&self) -> ::windows::core::Result<bool> {
@@ -4826,9 +4604,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetMessageClass<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMessageClass<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMessageClass)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessageClass)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn NormalizedSubject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4860,9 +4638,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetPreview<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPreview<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreview)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreview)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn LastResponseKind(&self) -> ::windows::core::Result<EmailMessageResponseKind> {
@@ -4873,9 +4651,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetLastResponseKind(&self, value: EmailMessageResponseKind) -> ::windows::core::Result<()> {
+    pub fn SetLastResponseKind<'a, Param0: ::std::convert::Into<EmailMessageResponseKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLastResponseKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLastResponseKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Sender(&self) -> ::windows::core::Result<EmailRecipient> {
@@ -4886,9 +4664,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSender<'a, Param0: ::windows::core::IntoParam<'a, EmailRecipient>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSender<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailRecipient>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSender)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSender)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4901,9 +4679,9 @@ impl EmailMessage {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSentTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSentTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSentTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSentTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn MeetingInfo(&self) -> ::windows::core::Result<EmailMeetingInfo> {
@@ -4914,24 +4692,24 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetMeetingInfo<'a, Param0: ::windows::core::IntoParam<'a, EmailMeetingInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMeetingInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailMeetingInfo>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMeetingInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMeetingInfo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetBodyStream(&self, r#type: EmailMessageBodyKind) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn GetBodyStream<'a, Param0: ::std::convert::Into<EmailMessageBodyKind>>(&self, r#type: Param0) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBodyStream)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).GetBodyStream)(::windows::core::Interface::as_raw(this), r#type.into(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBodyStream<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, r#type: EmailMessageBodyKind, stream: Param1) -> ::windows::core::Result<()> {
+    pub fn SetBodyStream<'a, Param0: ::std::convert::Into<EmailMessageBodyKind>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, r#type: Param0, stream: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBodyStream)(::windows::core::Interface::as_raw(this), r#type, stream.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBodyStream)(::windows::core::Interface::as_raw(this), r#type.into(), stream.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -4944,9 +4722,9 @@ impl EmailMessage {
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSmimeData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSmimeData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmimeData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmimeData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn SmimeKind(&self) -> ::windows::core::Result<EmailMessageSmimeKind> {
@@ -4957,9 +4735,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSmimeKind(&self, value: EmailMessageSmimeKind) -> ::windows::core::Result<()> {
+    pub fn SetSmimeKind<'a, Param0: ::std::convert::Into<EmailMessageSmimeKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmimeKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmimeKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4979,9 +4757,9 @@ impl EmailMessage {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSentRepresenting<'a, Param0: ::windows::core::IntoParam<'a, EmailRecipient>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSentRepresenting<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailRecipient>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailMessage4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSentRepresenting)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSentRepresenting)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for EmailMessage {
@@ -5024,14 +4802,9 @@ impl ::core::convert::From<&EmailMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMessage> for &::windows::core::IUnknown {
+    fn from(value: &EmailMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMessage> for ::windows::core::IInspectable {
@@ -5044,14 +4817,9 @@ impl ::core::convert::From<&EmailMessage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMessage> for &::windows::core::IInspectable {
+    fn from(value: &EmailMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMessage {}
@@ -5118,14 +4886,9 @@ impl ::core::convert::From<&EmailMessageBatch> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMessageBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMessageBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMessageBatch> for &::windows::core::IUnknown {
+    fn from(value: &EmailMessageBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMessageBatch> for ::windows::core::IInspectable {
@@ -5138,14 +4901,9 @@ impl ::core::convert::From<&EmailMessageBatch> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMessageBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMessageBatch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMessageBatch> for &::windows::core::IInspectable {
+    fn from(value: &EmailMessageBatch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMessageBatch {}
@@ -5274,14 +5032,9 @@ impl ::core::convert::From<&EmailMessageReader> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMessageReader> for &::windows::core::IUnknown {
+    fn from(value: &EmailMessageReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailMessageReader> for ::windows::core::IInspectable {
@@ -5294,14 +5047,9 @@ impl ::core::convert::From<&EmailMessageReader> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailMessageReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailMessageReader> for &::windows::core::IInspectable {
+    fn from(value: &EmailMessageReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailMessageReader {}
@@ -5444,9 +5192,9 @@ impl EmailQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSortDirection(&self, value: EmailQuerySortDirection) -> ::windows::core::Result<()> {
+    pub fn SetSortDirection<'a, Param0: ::std::convert::Into<EmailQuerySortDirection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSortDirection)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSortDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn SortProperty(&self) -> ::windows::core::Result<EmailQuerySortProperty> {
@@ -5457,9 +5205,9 @@ impl EmailQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSortProperty(&self, value: EmailQuerySortProperty) -> ::windows::core::Result<()> {
+    pub fn SetSortProperty<'a, Param0: ::std::convert::Into<EmailQuerySortProperty>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSortProperty)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSortProperty)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<EmailQueryKind> {
@@ -5470,9 +5218,9 @@ impl EmailQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetKind(&self, value: EmailQueryKind) -> ::windows::core::Result<()> {
+    pub fn SetKind<'a, Param0: ::std::convert::Into<EmailQueryKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5484,17 +5232,17 @@ impl EmailQueryOptions {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn CreateWithText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(text: Param0) -> ::windows::core::Result<EmailQueryOptions> {
+    pub fn CreateWithText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(text: Param0) -> ::windows::core::Result<EmailQueryOptions> {
         Self::IEmailQueryOptionsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithText)(::windows::core::Interface::as_raw(this), text.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailQueryOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithText)(::windows::core::Interface::as_raw(this), text.into().abi(), result__.as_mut_ptr()).from_abi::<EmailQueryOptions>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn CreateWithTextAndFields<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(text: Param0, fields: EmailQuerySearchFields) -> ::windows::core::Result<EmailQueryOptions> {
+    pub fn CreateWithTextAndFields<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<EmailQuerySearchFields>>(text: Param0, fields: Param1) -> ::windows::core::Result<EmailQueryOptions> {
         Self::IEmailQueryOptionsFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTextAndFields)(::windows::core::Interface::as_raw(this), text.into_param().abi(), fields, result__.as_mut_ptr()).from_abi::<EmailQueryOptions>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTextAndFields)(::windows::core::Interface::as_raw(this), text.into().abi(), fields.into(), result__.as_mut_ptr()).from_abi::<EmailQueryOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -5543,14 +5291,9 @@ impl ::core::convert::From<&EmailQueryOptions> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailQueryOptions> for &::windows::core::IUnknown {
+    fn from(value: &EmailQueryOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailQueryOptions> for ::windows::core::IInspectable {
@@ -5563,14 +5306,9 @@ impl ::core::convert::From<&EmailQueryOptions> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailQueryOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailQueryOptions> for &::windows::core::IInspectable {
+    fn from(value: &EmailQueryOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailQueryOptions {}
@@ -5755,9 +5493,9 @@ impl EmailQueryTextSearch {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetFields(&self, value: EmailQuerySearchFields) -> ::windows::core::Result<()> {
+    pub fn SetFields<'a, Param0: ::std::convert::Into<EmailQuerySearchFields>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFields)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFields)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn SearchScope(&self) -> ::windows::core::Result<EmailQuerySearchScope> {
@@ -5768,9 +5506,9 @@ impl EmailQueryTextSearch {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetSearchScope(&self, value: EmailQuerySearchScope) -> ::windows::core::Result<()> {
+    pub fn SetSearchScope<'a, Param0: ::std::convert::Into<EmailQuerySearchScope>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSearchScope)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSearchScope)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5781,9 +5519,9 @@ impl EmailQueryTextSearch {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for EmailQueryTextSearch {
@@ -5826,14 +5564,9 @@ impl ::core::convert::From<&EmailQueryTextSearch> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailQueryTextSearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailQueryTextSearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailQueryTextSearch> for &::windows::core::IUnknown {
+    fn from(value: &EmailQueryTextSearch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailQueryTextSearch> for ::windows::core::IInspectable {
@@ -5846,14 +5579,9 @@ impl ::core::convert::From<&EmailQueryTextSearch> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailQueryTextSearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailQueryTextSearch {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailQueryTextSearch> for &::windows::core::IInspectable {
+    fn from(value: &EmailQueryTextSearch) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailQueryTextSearch {}
@@ -5878,9 +5606,9 @@ impl EmailRecipient {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
     pub fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5891,22 +5619,22 @@ impl EmailRecipient {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(address: Param0) -> ::windows::core::Result<EmailRecipient> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(address: Param0) -> ::windows::core::Result<EmailRecipient> {
         Self::IEmailRecipientFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), address.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailRecipient>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), address.into().abi(), result__.as_mut_ptr()).from_abi::<EmailRecipient>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn CreateWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(address: Param0, name: Param1) -> ::windows::core::Result<EmailRecipient> {
+    pub fn CreateWithName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(address: Param0, name: Param1) -> ::windows::core::Result<EmailRecipient> {
         Self::IEmailRecipientFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithName)(::windows::core::Interface::as_raw(this), address.into_param().abi(), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailRecipient>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithName)(::windows::core::Interface::as_raw(this), address.into().abi(), name.into().abi(), result__.as_mut_ptr()).from_abi::<EmailRecipient>(result__)
         })
     }
     #[doc(hidden)]
@@ -5955,14 +5683,9 @@ impl ::core::convert::From<&EmailRecipient> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailRecipient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailRecipient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailRecipient> for &::windows::core::IUnknown {
+    fn from(value: &EmailRecipient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailRecipient> for ::windows::core::IInspectable {
@@ -5975,14 +5698,9 @@ impl ::core::convert::From<&EmailRecipient> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailRecipient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailRecipient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailRecipient> for &::windows::core::IInspectable {
+    fn from(value: &EmailRecipient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailRecipient {}
@@ -6016,15 +5734,15 @@ impl EmailRecipientResolutionResult {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn SetStatus(&self, value: EmailRecipientResolutionStatus) -> ::windows::core::Result<()> {
+    pub fn SetStatus<'a, Param0: ::std::convert::Into<EmailRecipientResolutionStatus>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailRecipientResolutionResult2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
-    pub fn SetPublicKeys<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPublicKeys<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Security::Cryptography::Certificates::Certificate>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IEmailRecipientResolutionResult2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPublicKeys)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPublicKeys)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for EmailRecipientResolutionResult {
@@ -6067,14 +5785,9 @@ impl ::core::convert::From<&EmailRecipientResolutionResult> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailRecipientResolutionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailRecipientResolutionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailRecipientResolutionResult> for &::windows::core::IUnknown {
+    fn from(value: &EmailRecipientResolutionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailRecipientResolutionResult> for ::windows::core::IInspectable {
@@ -6087,14 +5800,9 @@ impl ::core::convert::From<&EmailRecipientResolutionResult> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailRecipientResolutionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailRecipientResolutionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailRecipientResolutionResult> for &::windows::core::IInspectable {
+    fn from(value: &EmailRecipientResolutionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailRecipientResolutionResult {}
@@ -6200,11 +5908,11 @@ impl EmailStore {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetConversationReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<EmailConversationReader> {
+    pub fn GetConversationReaderWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<EmailConversationReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailConversationReader>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<EmailConversationReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
@@ -6216,65 +5924,65 @@ impl EmailStore {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-    pub fn GetMessageReaderWithOptions<'a, Param0: ::windows::core::IntoParam<'a, EmailQueryOptions>>(&self, options: Param0) -> ::windows::core::Result<EmailMessageReader> {
+    pub fn GetMessageReaderWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, EmailQueryOptions>>>(&self, options: Param0) -> ::windows::core::Result<EmailMessageReader> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<EmailMessageReader>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<EmailMessageReader>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMailboxAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
+    pub fn GetMailboxAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMailboxAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailbox>>(result__)
+            (::windows::core::Interface::vtable(this).GetMailboxAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailbox>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetConversationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
+    pub fn GetConversationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailConversation>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetConversationAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailConversation>>(result__)
+            (::windows::core::Interface::vtable(this).GetConversationAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailConversation>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
+    pub fn GetFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailFolder>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFolderAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
+            (::windows::core::Interface::vtable(this).GetFolderAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailFolder>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
+    pub fn GetMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, id: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), id.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessageAsync)(::windows::core::Interface::as_raw(this), id.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMailboxAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, accountname: Param0, accountaddress: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
+    pub fn CreateMailboxAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, accountname: Param0, accountaddress: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMailboxAsync)(::windows::core::Interface::as_raw(this), accountname.into_param().abi(), accountaddress.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailbox>>(result__)
+            (::windows::core::Interface::vtable(this).CreateMailboxAsync)(::windows::core::Interface::as_raw(this), accountname.into().abi(), accountaddress.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailbox>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMailboxInAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, accountname: Param0, accountaddress: Param1, userdataaccountid: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
+    pub fn CreateMailboxInAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, accountname: Param0, accountaddress: Param1, userdataaccountid: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EmailMailbox>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMailboxInAccountAsync)(::windows::core::Interface::as_raw(this), accountname.into_param().abi(), accountaddress.into_param().abi(), userdataaccountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailbox>>(result__)
+            (::windows::core::Interface::vtable(this).CreateMailboxInAccountAsync)(::windows::core::Interface::as_raw(this), accountname.into().abi(), accountaddress.into().abi(), userdataaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<EmailMailbox>>(result__)
         }
     }
 }
@@ -6318,14 +6026,9 @@ impl ::core::convert::From<&EmailStore> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailStore> for &::windows::core::IUnknown {
+    fn from(value: &EmailStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailStore> for ::windows::core::IInspectable {
@@ -6338,14 +6041,9 @@ impl ::core::convert::From<&EmailStore> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailStore> for &::windows::core::IInspectable {
+    fn from(value: &EmailStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailStore {}
@@ -6428,14 +6126,9 @@ impl ::core::convert::From<&EmailStoreNotificationTriggerDetails> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EmailStoreNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EmailStoreNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailStoreNotificationTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &EmailStoreNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EmailStoreNotificationTriggerDetails> for ::windows::core::IInspectable {
@@ -6448,14 +6141,9 @@ impl ::core::convert::From<&EmailStoreNotificationTriggerDetails> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EmailStoreNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EmailStoreNotificationTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EmailStoreNotificationTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &EmailStoreNotificationTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EmailStoreNotificationTriggerDetails {}

@@ -278,10 +278,23 @@ impl<'a> Gen<'a> {
     pub fn param_constraints(&self, params: &[SignatureParam]) -> TokenStream {
         let mut tokens = TokenStream::new();
         for (position, param) in params.iter().enumerate() {
-            if self.reader.signature_param_is_convertible(param) {
+            if self.reader.signature_param_is_param(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });
+                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
+            } else if self.reader.signature_param_is_failible_param(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let error_name: TokenStream = format!("E{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::std::convert::TryInto<::windows::core::InParam<'a, #into>, Error = #error_name>, #error_name: ::std::convert::Into<::windows::core::Error>, });
+            } else if self.reader.signature_param_is_borrowed(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::InParam<'a, #into>>, });
+            } else if self.reader.signature_param_is_convertible(param) {
+                let name: TokenStream = format!("Param{}", position).into();
+                let into = self.type_name(&param.ty);
+                tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
             }
         }
         if !tokens.is_empty() {
@@ -574,7 +587,7 @@ impl<'a> Gen<'a> {
                     pub fn get(&self) -> ::windows::core::Result<#return_type> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-                            self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
+                            self.SetCompleted(&#namespace  #handler::new(move |_sender, _args| {
                                 // Safe because the waiter will only be dropped after being signaled.
                                 unsafe { signaler.signal(); }
                                 Ok(())
@@ -591,7 +604,7 @@ impl<'a> Gen<'a> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let waker = context.waker().clone();
 
-                            let _ = self.SetCompleted(#namespace #handler::new(move |_sender, _args| {
+                            let _ = self.SetCompleted(&#namespace #handler::new(move |_sender, _args| {
                                 waker.wake_by_ref();
                                 Ok(())
                             }));
@@ -877,8 +890,12 @@ impl<'a> Gen<'a> {
                         tokens.combine(&quote! { #name.len() as _, });
                         continue;
                     }
+                    if self.reader.signature_param_is_borrowed(param) {
+                        tokens.combine(&quote! { #name.into().abi(), });
+                        continue;
+                    }
                     if self.reader.signature_param_is_convertible(param) {
-                        tokens.combine(&quote! { #name.into_param().abi(), });
+                        tokens.combine(&quote! { #name.into(), });
                         continue;
                     }
                     tokens.combine(&quote! { ::core::mem::transmute(#name), });
@@ -937,7 +954,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if self.reader.signature_param_is_convertible(param) {
+            if self.reader.signature_param_is_borrowed(param) || self.reader.signature_param_is_convertible(param) {
                 let kind: TokenStream = format!("Param{}", position).into();
                 tokens.combine(&quote! { #name: #kind, });
                 continue;

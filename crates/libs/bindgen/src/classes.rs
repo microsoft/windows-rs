@@ -152,15 +152,9 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &'a #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+            impl ::core::convert::From<&#name> for &#into {
+                fn from(value: &#name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
                 }
             }
         });
@@ -195,17 +189,11 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::IntoParam::into_param(&self)
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::core::convert::TryInto::<#into>::try_into(self)
-                        .map(::windows::core::Param::Owned)
-                        .unwrap_or(::windows::core::Param::None)
+            impl<'a> ::core::convert::TryFrom<&#name> for ::windows::core::InParam<'a, #into> {
+                type Error = ::windows::core::Error;
+                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                    let item = ::std::convert::TryInto::try_into(value)?;
+                    Ok(::windows::core::InParam::owned(item))
                 }
             }
         });
@@ -231,15 +219,9 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                 }
             }
             #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::IntoParam::into_param(&self)
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))
+            impl <'a> ::core::convert::From<&#name> for ::windows::core::InParam<'a, #into> {
+                fn from(value: &#name) -> Self {
+                    ::windows::core::InParam::owned(value.into())
                 }
             }
         });

@@ -4,15 +4,15 @@ pub struct IDisplayDeviceInterop(::windows::core::IUnknown);
 impl IDisplayDeviceInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, pobject: Param0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSharedHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, pobject: Param0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: Param3) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HANDLE>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into_param().abi(), ::core::mem::transmute(psecurityattributes), ::core::mem::transmute(access), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
+        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::windows::core::Interface::as_raw(self), pobject.into().abi(), ::core::mem::transmute(psecurityattributes), ::core::mem::transmute(access), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HANDLE>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Display\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, nthandle: Param0, riid: Param1) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
+    pub unsafe fn OpenSharedHandle<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(&self, nthandle: Param0, riid: ::windows::core::GUID) -> ::windows::core::Result<*mut ::core::ffi::c_void> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenSharedHandle)(::windows::core::Interface::as_raw(self), nthandle.into_param().abi(), riid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
+        (::windows::core::Interface::vtable(self).OpenSharedHandle)(::windows::core::Interface::as_raw(self), nthandle.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut ::core::ffi::c_void>(result__)
     }
 }
 impl ::core::convert::From<IDisplayDeviceInterop> for ::windows::core::IUnknown {
@@ -20,19 +20,14 @@ impl ::core::convert::From<IDisplayDeviceInterop> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDisplayDeviceInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDisplayDeviceInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDisplayDeviceInterop> for ::windows::core::IUnknown {
     fn from(value: &IDisplayDeviceInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDisplayDeviceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDisplayDeviceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDisplayDeviceInterop {
@@ -89,19 +84,14 @@ impl ::core::convert::From<IDisplayPathInterop> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDisplayPathInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDisplayPathInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDisplayPathInterop> for ::windows::core::IUnknown {
     fn from(value: &IDisplayPathInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDisplayPathInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDisplayPathInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDisplayPathInterop {

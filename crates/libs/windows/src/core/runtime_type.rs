@@ -17,9 +17,6 @@ macro_rules! primitive_runtime_types {
                     Ok(*from)
                 }
             }
-            unsafe impl Abi for $t {
-                type Abi = Self;
-            }
         )*
     };
 }

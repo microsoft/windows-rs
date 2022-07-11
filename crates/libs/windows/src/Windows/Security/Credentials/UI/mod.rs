@@ -42,26 +42,26 @@ pub struct CredentialPicker;
 impl CredentialPicker {
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PickWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, CredentialPickerOptions>>(options: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
+    pub fn PickWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CredentialPickerOptions>>>(options: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PickWithOptionsAsync)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
+            (::windows::core::Interface::vtable(this).PickWithOptionsAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PickWithMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetname: Param0, message: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
+    pub fn PickWithMessageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(targetname: Param0, message: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PickWithMessageAsync)(::windows::core::Interface::as_raw(this), targetname.into_param().abi(), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
+            (::windows::core::Interface::vtable(this).PickWithMessageAsync)(::windows::core::Interface::as_raw(this), targetname.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PickWithCaptionAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(targetname: Param0, message: Param1, caption: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
+    pub fn PickWithCaptionAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(targetname: Param0, message: Param1, caption: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>> {
         Self::ICredentialPickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PickWithCaptionAsync)(::windows::core::Interface::as_raw(this), targetname.into_param().abi(), message.into_param().abi(), caption.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
+            (::windows::core::Interface::vtable(this).PickWithCaptionAsync)(::windows::core::Interface::as_raw(this), targetname.into().abi(), message.into().abi(), caption.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
     #[doc(hidden)]
@@ -85,9 +85,9 @@ impl CredentialPickerOptions {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetCaption<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCaption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCaption)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCaption)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn Caption(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -98,9 +98,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMessage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMessage)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -124,9 +124,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetTargetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTargetName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTargetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTargetName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn TargetName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -137,9 +137,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetAuthenticationProtocol(&self, value: AuthenticationProtocol) -> ::windows::core::Result<()> {
+    pub fn SetAuthenticationProtocol<'a, Param0: ::std::convert::Into<AuthenticationProtocol>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn AuthenticationProtocol(&self) -> ::windows::core::Result<AuthenticationProtocol> {
@@ -150,9 +150,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetCustomAuthenticationProtocol<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCustomAuthenticationProtocol<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomAuthenticationProtocol)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CustomAuthenticationProtocol(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -164,9 +164,9 @@ impl CredentialPickerOptions {
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPreviousCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPreviousCredential<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPreviousCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPreviousCredential)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -204,9 +204,9 @@ impl CredentialPickerOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-    pub fn SetCredentialSaveOption(&self, value: CredentialSaveOption) -> ::windows::core::Result<()> {
+    pub fn SetCredentialSaveOption<'a, Param0: ::std::convert::Into<CredentialSaveOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCredentialSaveOption)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCredentialSaveOption)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
     pub fn CredentialSaveOption(&self) -> ::windows::core::Result<CredentialSaveOption> {
@@ -257,14 +257,9 @@ impl ::core::convert::From<&CredentialPickerOptions> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CredentialPickerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CredentialPickerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CredentialPickerOptions> for &::windows::core::IUnknown {
+    fn from(value: &CredentialPickerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CredentialPickerOptions> for ::windows::core::IInspectable {
@@ -277,14 +272,9 @@ impl ::core::convert::From<&CredentialPickerOptions> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CredentialPickerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CredentialPickerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CredentialPickerOptions> for &::windows::core::IInspectable {
+    fn from(value: &CredentialPickerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
@@ -389,14 +379,9 @@ impl ::core::convert::From<&CredentialPickerResults> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CredentialPickerResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CredentialPickerResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CredentialPickerResults> for &::windows::core::IUnknown {
+    fn from(value: &CredentialPickerResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CredentialPickerResults> for ::windows::core::IInspectable {
@@ -409,14 +394,9 @@ impl ::core::convert::From<&CredentialPickerResults> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CredentialPickerResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CredentialPickerResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CredentialPickerResults> for &::windows::core::IInspectable {
+    fn from(value: &CredentialPickerResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
@@ -610,10 +590,10 @@ impl UserConsentVerifier {
     }
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RequestVerificationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(message: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
+    pub fn RequestVerificationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(message: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>> {
         Self::IUserConsentVerifierStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestVerificationAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestVerificationAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>(result__)
         })
     }
     #[doc(hidden)]

@@ -15,19 +15,14 @@ impl ::core::convert::From<IAudioFrameNative> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioFrameNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioFrameNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioFrameNative> for ::windows::core::IUnknown {
     fn from(value: &IAudioFrameNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAudioFrameNative> for ::windows::core::IInspectable {
@@ -35,19 +30,14 @@ impl ::core::convert::From<IAudioFrameNative> for ::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioFrameNative> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAudioFrameNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioFrameNative> for ::windows::core::IInspectable {
     fn from(value: &IAudioFrameNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudioFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioFrameNative {
@@ -82,13 +72,18 @@ pub struct IAudioFrameNativeFactory(::windows::core::IUnknown);
 impl IAudioFrameNativeFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateFromMFSample<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Media::MediaFoundation::IMFSample>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFromMFSample<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFSample>>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into_param().abi(), forcereadonly.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IAudioFrameNativeFactory> for ::windows::core::IUnknown {
     fn from(value: IAudioFrameNativeFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioFrameNativeFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioFrameNativeFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -97,34 +92,19 @@ impl ::core::convert::From<&IAudioFrameNativeFactory> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioFrameNativeFactory> for ::windows::core::IInspectable {
     fn from(value: IAudioFrameNativeFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioFrameNativeFactory> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAudioFrameNativeFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IAudioFrameNativeFactory> for ::windows::core::IInspectable {
     fn from(value: &IAudioFrameNativeFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAudioFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAudioFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioFrameNativeFactory {
@@ -176,19 +156,14 @@ impl ::core::convert::From<IVideoFrameNative> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVideoFrameNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVideoFrameNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVideoFrameNative> for ::windows::core::IUnknown {
     fn from(value: &IVideoFrameNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IVideoFrameNative> for ::windows::core::IInspectable {
@@ -196,19 +171,14 @@ impl ::core::convert::From<IVideoFrameNative> for ::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVideoFrameNative> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVideoFrameNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVideoFrameNative> for ::windows::core::IInspectable {
     fn from(value: &IVideoFrameNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVideoFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoFrameNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVideoFrameNative {
@@ -244,13 +214,18 @@ pub struct IVideoFrameNativeFactory(::windows::core::IUnknown);
 impl IVideoFrameNativeFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Media\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateFromMFSample<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Media::MediaFoundation::IMFSample>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, T: ::windows::core::Interface>(&self, data: Param0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: Param6) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateFromMFSample<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFSample>>, Param4: ::std::convert::Into<super::super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>>, T: ::windows::core::Interface>(&self, data: Param0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: Param6) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into_param().abi(), ::core::mem::transmute(subtype), ::core::mem::transmute(width), ::core::mem::transmute(height), forcereadonly.into_param().abi(), ::core::mem::transmute(mindisplayaperture), device.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFromMFSample)(::windows::core::Interface::as_raw(self), data.into().abi(), ::core::mem::transmute(subtype), ::core::mem::transmute(width), ::core::mem::transmute(height), forcereadonly.into(), ::core::mem::transmute(mindisplayaperture), device.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IVideoFrameNativeFactory> for ::windows::core::IUnknown {
     fn from(value: IVideoFrameNativeFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVideoFrameNativeFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVideoFrameNativeFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -259,34 +234,19 @@ impl ::core::convert::From<&IVideoFrameNativeFactory> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVideoFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVideoFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVideoFrameNativeFactory> for ::windows::core::IInspectable {
     fn from(value: IVideoFrameNativeFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IVideoFrameNativeFactory> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVideoFrameNativeFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IVideoFrameNativeFactory> for ::windows::core::IInspectable {
     fn from(value: &IVideoFrameNativeFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVideoFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVideoFrameNativeFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVideoFrameNativeFactory {

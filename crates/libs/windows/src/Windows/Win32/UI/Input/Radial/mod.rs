@@ -4,13 +4,18 @@ pub struct IRadialControllerConfigurationInterop(::windows::core::IUnknown);
 impl IRadialControllerConfigurationInterop {
     #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IRadialControllerConfigurationInterop> for ::windows::core::IUnknown {
     fn from(value: IRadialControllerConfigurationInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRadialControllerConfigurationInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRadialControllerConfigurationInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -19,34 +24,19 @@ impl ::core::convert::From<&IRadialControllerConfigurationInterop> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRadialControllerConfigurationInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRadialControllerConfigurationInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRadialControllerConfigurationInterop> for ::windows::core::IInspectable {
     fn from(value: IRadialControllerConfigurationInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRadialControllerConfigurationInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRadialControllerConfigurationInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRadialControllerConfigurationInterop> for ::windows::core::IInspectable {
     fn from(value: &IRadialControllerConfigurationInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRadialControllerConfigurationInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRadialControllerConfigurationInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRadialControllerConfigurationInterop {
@@ -84,13 +74,18 @@ pub struct IRadialControllerIndependentInputSourceInterop(::windows::core::IUnkn
 impl IRadialControllerIndependentInputSourceInterop {
     #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::core::IUnknown {
     fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRadialControllerIndependentInputSourceInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRadialControllerIndependentInputSourceInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -99,34 +94,19 @@ impl ::core::convert::From<&IRadialControllerIndependentInputSourceInterop> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRadialControllerIndependentInputSourceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRadialControllerIndependentInputSourceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRadialControllerIndependentInputSourceInterop> for ::windows::core::IInspectable {
     fn from(value: IRadialControllerIndependentInputSourceInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRadialControllerIndependentInputSourceInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRadialControllerIndependentInputSourceInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRadialControllerIndependentInputSourceInterop> for ::windows::core::IInspectable {
     fn from(value: &IRadialControllerIndependentInputSourceInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRadialControllerIndependentInputSourceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRadialControllerIndependentInputSourceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRadialControllerIndependentInputSourceInterop {
@@ -164,13 +144,18 @@ pub struct IRadialControllerInterop(::windows::core::IUnknown);
 impl IRadialControllerInterop {
     #[doc = "*Required features: `\"Win32_UI_Input_Radial\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, hwnd: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IRadialControllerInterop> for ::windows::core::IUnknown {
     fn from(value: IRadialControllerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRadialControllerInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRadialControllerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -179,34 +164,19 @@ impl ::core::convert::From<&IRadialControllerInterop> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRadialControllerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRadialControllerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRadialControllerInterop> for ::windows::core::IInspectable {
     fn from(value: IRadialControllerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IRadialControllerInterop> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRadialControllerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IRadialControllerInterop> for ::windows::core::IInspectable {
     fn from(value: &IRadialControllerInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRadialControllerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRadialControllerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRadialControllerInterop {

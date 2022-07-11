@@ -1,4 +1,5 @@
 use windows::{
+    core::HSTRING,
     ApplicationModel::Email::EmailAttachment,
     Devices::WiFiDirect::{WiFiDirectConnectionParameters, WiFiDirectDevice, WiFiDirectDeviceSelectorType},
     Storage::Streams::{InMemoryRandomAccessStream, RandomAccessStreamReference},
@@ -13,14 +14,14 @@ fn wifi() -> windows::core::Result<()> {
     assert!(!a.is_empty());
 
     // from_id_async from IWiFiDirectDeviceStatics
-    assert!(WiFiDirectDevice::FromIdAsync(a)?.get() == Err(windows::core::Error::OK));
+    assert!(WiFiDirectDevice::FromIdAsync(&a)?.get() == Err(windows::core::Error::OK));
 
     // get_device_selector overload from IWiFiDirectDeviceStatics2 is renamed to get_device_selector2
     let c = WiFiDirectDevice::GetDeviceSelector2(WiFiDirectDeviceSelectorType::DeviceInterface)?;
     assert!(!c.is_empty());
 
     // from_id_async overload from IWiFiDirectDeviceStatics2 is renamed to from_id_async2
-    WiFiDirectDevice::FromIdAsync2(c, WiFiDirectConnectionParameters::new()?)?;
+    WiFiDirectDevice::FromIdAsync2(&c, &WiFiDirectConnectionParameters::new()?)?;
     Ok(())
 }
 
@@ -29,18 +30,18 @@ fn wifi() -> windows::core::Result<()> {
 #[test]
 fn email() -> windows::core::Result<()> {
     let stream = InMemoryRandomAccessStream::new()?;
-    let reference = RandomAccessStreamReference::CreateFromStream(stream)?;
+    let reference = RandomAccessStreamReference::CreateFromStream(&stream)?;
 
     // Default constructor via IActivationFactory
     let a = EmailAttachment::new()?;
     assert!(a.FileName()?.is_empty());
 
     // create from IEmailAttachmentFactory
-    let b = EmailAttachment::Create("create.txt", &reference)?;
+    let b = EmailAttachment::Create(&HSTRING::from("create.txt"), &reference)?;
     assert!(b.FileName()? == "create.txt");
 
     // create from IEmailAttachmentFactory2 is renamed to create2
-    let c = EmailAttachment::Create2("create2.txt", &reference, "text")?;
+    let c = EmailAttachment::Create2(&HSTRING::from("create2.txt"), &reference, &HSTRING::from("text"))?;
     assert!(c.FileName()? == "create2.txt");
 
     Ok(())

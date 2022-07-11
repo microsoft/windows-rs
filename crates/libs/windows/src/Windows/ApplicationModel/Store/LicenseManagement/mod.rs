@@ -75,26 +75,26 @@ pub struct LicenseManager;
 impl LicenseManager {
     #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn AddLicenseAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(license: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn AddLicenseAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(license: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddLicenseAsync)(::windows::core::Interface::as_raw(this), license.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).AddLicenseAsync)(::windows::core::Interface::as_raw(this), license.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSatisfactionInfosAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(contentids: Param0, keyids: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>> {
+    pub fn GetSatisfactionInfosAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(contentids: Param0, keyids: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>> {
         Self::ILicenseManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSatisfactionInfosAsync)(::windows::core::Interface::as_raw(this), contentids.into_param().abi(), keyids.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetSatisfactionInfosAsync)(::windows::core::Interface::as_raw(this), contentids.try_into().map_err(|e| e.into())?.abi(), keyids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn RefreshLicensesAsync<'a, Param0: ::std::convert::Into<LicenseRefreshOption>>(refreshoption: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RefreshLicensesAsync)(::windows::core::Interface::as_raw(this), refreshoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).RefreshLicensesAsync)(::windows::core::Interface::as_raw(this), refreshoption.into(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc(hidden)]
@@ -246,14 +246,9 @@ impl ::core::convert::From<&LicenseSatisfactionInfo> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LicenseSatisfactionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LicenseSatisfactionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LicenseSatisfactionInfo> for &::windows::core::IUnknown {
+    fn from(value: &LicenseSatisfactionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LicenseSatisfactionInfo> for ::windows::core::IInspectable {
@@ -266,14 +261,9 @@ impl ::core::convert::From<&LicenseSatisfactionInfo> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LicenseSatisfactionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LicenseSatisfactionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LicenseSatisfactionInfo> for &::windows::core::IInspectable {
+    fn from(value: &LicenseSatisfactionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
@@ -340,14 +330,9 @@ impl ::core::convert::From<&LicenseSatisfactionResult> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LicenseSatisfactionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LicenseSatisfactionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LicenseSatisfactionResult> for &::windows::core::IUnknown {
+    fn from(value: &LicenseSatisfactionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LicenseSatisfactionResult> for ::windows::core::IInspectable {
@@ -360,14 +345,9 @@ impl ::core::convert::From<&LicenseSatisfactionResult> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LicenseSatisfactionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LicenseSatisfactionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LicenseSatisfactionResult> for &::windows::core::IInspectable {
+    fn from(value: &LicenseSatisfactionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionResult {}

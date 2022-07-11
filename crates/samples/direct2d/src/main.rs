@@ -66,7 +66,7 @@ impl Window {
         let variable = unsafe {
             let variable = manager.CreateAnimationVariable(0.0)?;
 
-            manager.ScheduleTransition(&variable, transition, get_time(frequency)?)?;
+            manager.ScheduleTransition(&variable, &transition, get_time(frequency)?)?;
 
             variable
         };
@@ -156,13 +156,13 @@ impl Window {
             target.SetTarget(clock);
             target.Clear(std::ptr::null());
             self.draw_clock()?;
-            target.SetTarget(previous);
+            target.SetTarget(previous.as_ref());
             target.SetTransform(&Matrix3x2::translation(5.0, 5.0));
 
             let mut output = None;
             shadow.GetOutput(&mut output);
 
-            target.DrawImage(output, std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
+            target.DrawImage(output.as_ref(), std::ptr::null(), std::ptr::null(), D2D1_INTERPOLATION_MODE_LINEAR, D2D1_COMPOSITE_MODE_SOURCE_OVER);
 
             target.SetTransform(&Matrix3x2::identity());
 
@@ -309,7 +309,7 @@ impl Window {
 
     fn run(&mut self) -> Result<()> {
         unsafe {
-            let instance = GetModuleHandleA(None)?;
+            let instance = GetModuleHandleA(PCSTR::default())?;
             debug_assert!(instance.0 != 0);
 
             let wc = WNDCLASSA {
@@ -325,7 +325,7 @@ impl Window {
             let atom = RegisterClassA(&wc);
             debug_assert!(atom != 0);
 
-            let handle = CreateWindowExA(Default::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
+            let handle = CreateWindowExA(WINDOW_EX_STYLE::default(), PCSTR(b"window\0".as_ptr()), PCSTR(b"Sample Window\0".as_ptr()), WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, None, None, instance, self as *mut _ as _);
 
             debug_assert!(handle.0 != 0);
             debug_assert!(handle == self.handle);
@@ -432,7 +432,7 @@ fn create_device_with_type(drive_type: D3D_DRIVER_TYPE) -> Result<ID3D11Device> 
 
     let mut device = None;
 
-    unsafe { D3D11CreateDevice(None, drive_type, HINSTANCE::default(), flags, &[], D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
+    unsafe { D3D11CreateDevice(None, drive_type, None, flags, &[], D3D11_SDK_VERSION, &mut device, std::ptr::null_mut(), &mut None).map(|()| device.unwrap()) }
 }
 
 fn create_device() -> Result<ID3D11Device> {
@@ -449,7 +449,7 @@ fn create_device() -> Result<ID3D11Device> {
 
 fn create_render_target(factory: &ID2D1Factory1, device: &ID3D11Device) -> Result<ID2D1DeviceContext> {
     unsafe {
-        let d2device = factory.CreateDevice(device.cast::<IDXGIDevice>()?)?;
+        let d2device = factory.CreateDevice(&device.cast::<IDXGIDevice>()?)?;
 
         let target = d2device.CreateDeviceContext(D2D1_DEVICE_CONTEXT_OPTIONS_NONE)?;
 
@@ -477,7 +477,7 @@ fn create_swapchain_bitmap(swapchain: &IDXGISwapChain1, target: &ID2D1DeviceCont
 
     unsafe {
         let bitmap = target.CreateBitmapFromDxgiSurface(&surface, &props)?;
-        target.SetTarget(bitmap);
+        target.SetTarget(&bitmap);
     };
 
     Ok(())

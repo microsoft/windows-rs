@@ -208,20 +208,20 @@ impl OnlineIdAuthenticator {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AuthenticateUserAsync<'a, Param0: ::windows::core::IntoParam<'a, OnlineIdServiceTicketRequest>>(&self, request: Param0) -> ::windows::core::Result<UserAuthenticationOperation> {
+    pub fn AuthenticateUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, OnlineIdServiceTicketRequest>>>(&self, request: Param0) -> ::windows::core::Result<UserAuthenticationOperation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticateUserAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), result__.as_mut_ptr()).from_abi::<UserAuthenticationOperation>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateUserAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<UserAuthenticationOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AuthenticateUserAsyncAdvanced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>>(&self, requests: Param0, credentialprompttype: CredentialPromptType) -> ::windows::core::Result<UserAuthenticationOperation> {
+    pub fn AuthenticateUserAsyncAdvanced<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<CredentialPromptType>>(&self, requests: Param0, credentialprompttype: Param1) -> ::windows::core::Result<UserAuthenticationOperation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows::core::Interface::as_raw(this), requests.into_param().abi(), credentialprompttype, result__.as_mut_ptr()).from_abi::<UserAuthenticationOperation>(result__)
+            (::windows::core::Interface::vtable(this).AuthenticateUserAsyncAdvanced)(::windows::core::Interface::as_raw(this), requests.try_into().map_err(|e| e.into())?.abi(), credentialprompttype.into(), result__.as_mut_ptr()).from_abi::<UserAuthenticationOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
@@ -234,9 +234,9 @@ impl OnlineIdAuthenticator {
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-    pub fn SetApplicationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetApplicationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetApplicationId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetApplicationId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
     pub fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -303,14 +303,9 @@ impl ::core::convert::From<&OnlineIdAuthenticator> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdAuthenticator> for &::windows::core::IUnknown {
+    fn from(value: &OnlineIdAuthenticator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OnlineIdAuthenticator> for ::windows::core::IInspectable {
@@ -323,14 +318,9 @@ impl ::core::convert::From<&OnlineIdAuthenticator> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdAuthenticator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdAuthenticator> for &::windows::core::IInspectable {
+    fn from(value: &OnlineIdAuthenticator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OnlineIdAuthenticator {}
@@ -404,14 +394,9 @@ impl ::core::convert::From<&OnlineIdServiceTicket> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdServiceTicket> for &::windows::core::IUnknown {
+    fn from(value: &OnlineIdServiceTicket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OnlineIdServiceTicket> for ::windows::core::IInspectable {
@@ -424,14 +409,9 @@ impl ::core::convert::From<&OnlineIdServiceTicket> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdServiceTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdServiceTicket> for &::windows::core::IInspectable {
+    fn from(value: &OnlineIdServiceTicket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OnlineIdServiceTicket {}
@@ -457,17 +437,17 @@ impl OnlineIdServiceTicketRequest {
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-    pub fn CreateOnlineIdServiceTicketRequest<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(service: Param0, policy: Param1) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
+    pub fn CreateOnlineIdServiceTicketRequest<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(service: Param0, policy: Param1) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequest)(::windows::core::Interface::as_raw(this), service.into_param().abi(), policy.into_param().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdServiceTicketRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequest)(::windows::core::Interface::as_raw(this), service.into().abi(), policy.into().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdServiceTicketRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-    pub fn CreateOnlineIdServiceTicketRequestAdvanced<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(service: Param0) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
+    pub fn CreateOnlineIdServiceTicketRequestAdvanced<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(service: Param0) -> ::windows::core::Result<OnlineIdServiceTicketRequest> {
         Self::IOnlineIdServiceTicketRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(::windows::core::Interface::as_raw(this), service.into_param().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdServiceTicketRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateOnlineIdServiceTicketRequestAdvanced)(::windows::core::Interface::as_raw(this), service.into().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdServiceTicketRequest>(result__)
         })
     }
     #[doc(hidden)]
@@ -516,14 +496,9 @@ impl ::core::convert::From<&OnlineIdServiceTicketRequest> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdServiceTicketRequest> for &::windows::core::IUnknown {
+    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OnlineIdServiceTicketRequest> for ::windows::core::IInspectable {
@@ -536,14 +511,9 @@ impl ::core::convert::From<&OnlineIdServiceTicketRequest> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdServiceTicketRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdServiceTicketRequest> for &::windows::core::IInspectable {
+    fn from(value: &OnlineIdServiceTicketRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OnlineIdServiceTicketRequest {}
@@ -560,10 +530,10 @@ impl OnlineIdSystemAuthenticator {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::User>>>(user: Param0) -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {
         Self::IOnlineIdSystemAuthenticatorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdSystemAuthenticatorForUser>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<OnlineIdSystemAuthenticatorForUser>(result__)
         })
     }
     #[doc(hidden)]
@@ -581,17 +551,17 @@ pub struct OnlineIdSystemAuthenticatorForUser(::windows::core::IUnknown);
 impl OnlineIdSystemAuthenticatorForUser {
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetTicketAsync<'a, Param0: ::windows::core::IntoParam<'a, OnlineIdServiceTicketRequest>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>> {
+    pub fn GetTicketAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, OnlineIdServiceTicketRequest>>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTicketAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetTicketAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-    pub fn SetApplicationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetApplicationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetApplicationId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetApplicationId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
     pub fn ApplicationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -651,14 +621,9 @@ impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for &::windows::core::IUnknown {
+    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OnlineIdSystemAuthenticatorForUser> for ::windows::core::IInspectable {
@@ -671,14 +636,9 @@ impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdSystemAuthenticatorForUser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdSystemAuthenticatorForUser> for &::windows::core::IInspectable {
+    fn from(value: &OnlineIdSystemAuthenticatorForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemAuthenticatorForUser {}
@@ -744,14 +704,9 @@ impl ::core::convert::From<&OnlineIdSystemIdentity> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdSystemIdentity> for &::windows::core::IUnknown {
+    fn from(value: &OnlineIdSystemIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OnlineIdSystemIdentity> for ::windows::core::IInspectable {
@@ -764,14 +719,9 @@ impl ::core::convert::From<&OnlineIdSystemIdentity> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdSystemIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdSystemIdentity> for &::windows::core::IInspectable {
+    fn from(value: &OnlineIdSystemIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemIdentity {}
@@ -845,14 +795,9 @@ impl ::core::convert::From<&OnlineIdSystemTicketResult> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdSystemTicketResult> for &::windows::core::IUnknown {
+    fn from(value: &OnlineIdSystemTicketResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OnlineIdSystemTicketResult> for ::windows::core::IInspectable {
@@ -865,14 +810,9 @@ impl ::core::convert::From<&OnlineIdSystemTicketResult> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OnlineIdSystemTicketResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OnlineIdSystemTicketResult> for &::windows::core::IInspectable {
+    fn from(value: &OnlineIdSystemTicketResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
@@ -920,9 +860,9 @@ pub struct SignOutUserOperation(::windows::core::IUnknown);
 impl SignOutUserOperation {
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::AsyncActionCompletedHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1021,7 +961,7 @@ impl SignOutUserOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -1037,7 +977,7 @@ impl ::std::future::Future for SignOutUserOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -1060,15 +1000,9 @@ impl ::core::convert::From<&SignOutUserOperation> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SignOutUserOperation> for &::windows::core::IUnknown {
+    fn from(value: &SignOutUserOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1084,15 +1018,9 @@ impl ::core::convert::From<&SignOutUserOperation> for ::windows::core::IInspecta
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SignOutUserOperation> for &::windows::core::IInspectable {
+    fn from(value: &SignOutUserOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1110,15 +1038,11 @@ impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncAction> for SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncAction> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncAction> for &SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncAction> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IAsyncAction>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncAction> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1136,15 +1060,11 @@ impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for &SignOutUserOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SignOutUserOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1198,9 +1118,9 @@ impl UserAuthenticationOperation {
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::AsyncOperationCompletedHandler<UserIdentity>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1263,7 +1183,7 @@ impl UserAuthenticationOperation {
     pub fn get(&self) -> ::windows::core::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -1279,7 +1199,7 @@ impl ::std::future::Future for UserAuthenticationOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -1302,15 +1222,9 @@ impl ::core::convert::From<&UserAuthenticationOperation> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserAuthenticationOperation> for &::windows::core::IUnknown {
+    fn from(value: &UserAuthenticationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1326,15 +1240,9 @@ impl ::core::convert::From<&UserAuthenticationOperation> for ::windows::core::II
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserAuthenticationOperation> for &::windows::core::IInspectable {
+    fn from(value: &UserAuthenticationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1352,15 +1260,11 @@ impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for &UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1378,15 +1282,11 @@ impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> for UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> for &UserAuthenticationOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IAsyncOperation<UserIdentity>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UserAuthenticationOperation> for ::windows::core::InParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1503,14 +1403,9 @@ impl ::core::convert::From<&UserIdentity> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UserIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UserIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserIdentity> for &::windows::core::IUnknown {
+    fn from(value: &UserIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UserIdentity> for ::windows::core::IInspectable {
@@ -1523,14 +1418,9 @@ impl ::core::convert::From<&UserIdentity> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UserIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UserIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UserIdentity> for &::windows::core::IInspectable {
+    fn from(value: &UserIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UserIdentity {}

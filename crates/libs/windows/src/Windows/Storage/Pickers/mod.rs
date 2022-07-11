@@ -44,24 +44,24 @@ impl FileExtensionVector {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetAt<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertAt<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -71,9 +71,9 @@ impl FileExtensionVector {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Append<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -169,15 +169,9 @@ impl ::core::convert::From<&FileExtensionVector> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileExtensionVector> for &::windows::core::IUnknown {
+    fn from(value: &FileExtensionVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -193,15 +187,9 @@ impl ::core::convert::From<&FileExtensionVector> for ::windows::core::IInspectab
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileExtensionVector> for &::windows::core::IInspectable {
+    fn from(value: &FileExtensionVector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -219,15 +207,11 @@ impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> for FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> for &FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileExtensionVector> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileExtensionVector) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -245,15 +229,11 @@ impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> for FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> for &FileExtensionVector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileExtensionVector> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileExtensionVector) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -280,9 +260,9 @@ impl FileOpenPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetViewMode(&self, value: PickerViewMode) -> ::windows::core::Result<()> {
+    pub fn SetViewMode<'a, Param0: ::std::convert::Into<PickerViewMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -293,9 +273,9 @@ impl FileOpenPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSettingsIdentifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSettingsIdentifier<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSettingsIdentifier)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSettingsIdentifier)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SuggestedStartLocation(&self) -> ::windows::core::Result<PickerLocationId> {
@@ -306,9 +286,9 @@ impl FileOpenPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::core::Result<()> {
+    pub fn SetSuggestedStartLocation<'a, Param0: ::std::convert::Into<PickerLocationId>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -319,9 +299,9 @@ impl FileOpenPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetCommitButtonText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCommitButtonText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommitButtonText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommitButtonText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -390,19 +370,19 @@ impl FileOpenPicker {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<FileOpenPicker> {
+    pub fn CreateForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<FileOpenPicker> {
         Self::IFileOpenPickerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<FileOpenPicker>(result__)
+            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<FileOpenPicker>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PickSingleFileAsync2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, pickeroperationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
+    pub fn PickSingleFileAsync2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, pickeroperationid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         let this = &::windows::core::Interface::cast::<IFileOpenPickerWithOperationId>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PickSingleFileAsync)(::windows::core::Interface::as_raw(this), pickeroperationid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
+            (::windows::core::Interface::vtable(this).PickSingleFileAsync)(::windows::core::Interface::as_raw(this), pickeroperationid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageFile>>(result__)
         }
     }
     #[doc(hidden)]
@@ -456,14 +436,9 @@ impl ::core::convert::From<&FileOpenPicker> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileOpenPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileOpenPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOpenPicker> for &::windows::core::IUnknown {
+    fn from(value: &FileOpenPicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileOpenPicker> for ::windows::core::IInspectable {
@@ -476,14 +451,9 @@ impl ::core::convert::From<&FileOpenPicker> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileOpenPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileOpenPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOpenPicker> for &::windows::core::IInspectable {
+    fn from(value: &FileOpenPicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FileOpenPicker {}
@@ -505,11 +475,11 @@ impl FilePickerFileTypesOrderedMap {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
@@ -523,11 +493,11 @@ impl FilePickerFileTypesOrderedMap {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
@@ -541,18 +511,18 @@ impl FilePickerFileTypesOrderedMap {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -627,15 +597,9 @@ impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for ::windows::core::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for &::windows::core::IUnknown {
+    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -651,15 +615,9 @@ impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for ::windows::core::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FilePickerFileTypesOrderedMap> for &::windows::core::IInspectable {
+    fn from(value: &FilePickerFileTypesOrderedMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -677,15 +635,11 @@ impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> for FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> for &FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FilePickerFileTypesOrderedMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -703,15 +657,11 @@ impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> for FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> for &FilePickerFileTypesOrderedMap {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FilePickerFileTypesOrderedMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -753,11 +703,11 @@ impl FilePickerSelectedFilesArray {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::StorageFile>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::StorageFile>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
@@ -836,15 +786,9 @@ impl ::core::convert::From<&FilePickerSelectedFilesArray> for ::windows::core::I
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FilePickerSelectedFilesArray> for &::windows::core::IUnknown {
+    fn from(value: &FilePickerSelectedFilesArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -860,15 +804,9 @@ impl ::core::convert::From<&FilePickerSelectedFilesArray> for ::windows::core::I
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FilePickerSelectedFilesArray> for &::windows::core::IInspectable {
+    fn from(value: &FilePickerSelectedFilesArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -886,15 +824,11 @@ impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> for FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> for &FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::StorageFile>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FilePickerSelectedFilesArray) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -912,15 +846,11 @@ impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> for FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> for &FilePickerSelectedFilesArray {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::StorageFile>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FilePickerSelectedFilesArray) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -947,9 +877,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSettingsIdentifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSettingsIdentifier<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSettingsIdentifier)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSettingsIdentifier)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SuggestedStartLocation(&self) -> ::windows::core::Result<PickerLocationId> {
@@ -960,9 +890,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::core::Result<()> {
+    pub fn SetSuggestedStartLocation<'a, Param0: ::std::convert::Into<PickerLocationId>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -973,9 +903,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetCommitButtonText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCommitButtonText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommitButtonText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommitButtonText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -995,9 +925,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetDefaultFileExtension<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDefaultFileExtension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDefaultFileExtension)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDefaultFileExtension)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SuggestedSaveFile(&self) -> ::windows::core::Result<super::StorageFile> {
@@ -1008,9 +938,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedSaveFile<'a, Param0: ::windows::core::IntoParam<'a, super::StorageFile>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSuggestedSaveFile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::StorageFile>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedSaveFile)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedSaveFile)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SuggestedFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1021,9 +951,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSuggestedFileName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedFileName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedFileName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1058,9 +988,9 @@ impl FileSavePicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetEnterpriseId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEnterpriseId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFileSavePicker3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnterpriseId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnterpriseId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -1073,10 +1003,10 @@ impl FileSavePicker {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<FileSavePicker> {
+    pub fn CreateForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<FileSavePicker> {
         Self::IFileSavePickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<FileSavePicker>(result__)
+            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<FileSavePicker>(result__)
         })
     }
     #[doc(hidden)]
@@ -1125,14 +1055,9 @@ impl ::core::convert::From<&FileSavePicker> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileSavePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileSavePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileSavePicker> for &::windows::core::IUnknown {
+    fn from(value: &FileSavePicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileSavePicker> for ::windows::core::IInspectable {
@@ -1145,14 +1070,9 @@ impl ::core::convert::From<&FileSavePicker> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileSavePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileSavePicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileSavePicker> for &::windows::core::IInspectable {
+    fn from(value: &FileSavePicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FileSavePicker {}
@@ -1177,9 +1097,9 @@ impl FolderPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetViewMode(&self, value: PickerViewMode) -> ::windows::core::Result<()> {
+    pub fn SetViewMode<'a, Param0: ::std::convert::Into<PickerViewMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1190,9 +1110,9 @@ impl FolderPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSettingsIdentifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSettingsIdentifier<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSettingsIdentifier)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSettingsIdentifier)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn SuggestedStartLocation(&self) -> ::windows::core::Result<PickerLocationId> {
@@ -1203,9 +1123,9 @@ impl FolderPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetSuggestedStartLocation(&self, value: PickerLocationId) -> ::windows::core::Result<()> {
+    pub fn SetSuggestedStartLocation<'a, Param0: ::std::convert::Into<PickerLocationId>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSuggestedStartLocation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
     pub fn CommitButtonText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1216,9 +1136,9 @@ impl FolderPicker {
         }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`*"]
-    pub fn SetCommitButtonText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCommitButtonText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommitButtonText)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommitButtonText)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1264,10 +1184,10 @@ impl FolderPicker {
     }
     #[doc = "*Required features: `\"Storage_Pickers\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn CreateForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<FolderPicker> {
+    pub fn CreateForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>>(user: Param0) -> ::windows::core::Result<FolderPicker> {
         Self::IFolderPickerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<FolderPicker>(result__)
+            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<FolderPicker>(result__)
         })
     }
     #[doc(hidden)]
@@ -1316,14 +1236,9 @@ impl ::core::convert::From<&FolderPicker> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FolderPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FolderPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FolderPicker> for &::windows::core::IUnknown {
+    fn from(value: &FolderPicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FolderPicker> for ::windows::core::IInspectable {
@@ -1336,14 +1251,9 @@ impl ::core::convert::From<&FolderPicker> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FolderPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FolderPicker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FolderPicker> for &::windows::core::IInspectable {
+    fn from(value: &FolderPicker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FolderPicker {}

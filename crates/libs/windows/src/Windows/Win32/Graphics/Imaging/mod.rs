@@ -285,8 +285,8 @@ impl IWICBitmap {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
@@ -298,8 +298,8 @@ impl IWICBitmap {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prclock), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapLock>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn SetPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn SetResolution(&self, dpix: f64, dpiy: f64) -> ::windows::core::Result<()> {
@@ -311,19 +311,14 @@ impl ::core::convert::From<IWICBitmap> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmap> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmap> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICBitmap> for IWICBitmapSource {
@@ -331,19 +326,14 @@ impl ::core::convert::From<IWICBitmap> for IWICBitmapSource {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmap> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICBitmap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmap> for IWICBitmapSource {
     fn from(value: &IWICBitmap) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmap {
@@ -392,20 +382,25 @@ impl IWICBitmapClipper {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, prc: *const WICRect) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), ::core::mem::transmute(prc)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pisource: Param0, prc: *const WICRect) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into().abi(), ::core::mem::transmute(prc)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapClipper> for ::windows::core::IUnknown {
     fn from(value: IWICBitmapClipper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapClipper> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapClipper) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -414,34 +409,19 @@ impl ::core::convert::From<&IWICBitmapClipper> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapClipper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapClipper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapClipper> for IWICBitmapSource {
     fn from(value: IWICBitmapClipper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapClipper> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICBitmapClipper) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICBitmapClipper> for IWICBitmapSource {
     fn from(value: &IWICBitmapClipper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapClipper {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapClipper {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapClipper {
@@ -565,13 +545,18 @@ impl IWICBitmapCodecInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesMimeType(&self, wzmimetype: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).MatchesMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzmimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IWICBitmapCodecInfo> for ::windows::core::IUnknown {
     fn from(value: IWICBitmapCodecInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapCodecInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapCodecInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -580,34 +565,19 @@ impl ::core::convert::From<&IWICBitmapCodecInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapCodecInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapCodecInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapCodecInfo> for IWICComponentInfo {
     fn from(value: IWICBitmapCodecInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapCodecInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICBitmapCodecInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICBitmapCodecInfo> for IWICComponentInfo {
     fn from(value: &IWICBitmapCodecInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICBitmapCodecInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICBitmapCodecInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapCodecInfo {
@@ -676,19 +646,14 @@ impl ::core::convert::From<IWICBitmapCodecProgressNotification> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapCodecProgressNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapCodecProgressNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapCodecProgressNotification> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapCodecProgressNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapCodecProgressNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapCodecProgressNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapCodecProgressNotification {
@@ -723,14 +688,14 @@ pub struct IWICBitmapDecoder(::windows::core::IUnknown);
 impl IWICBitmapDecoder {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryCapability<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::core::Result<u32> {
+    pub unsafe fn QueryCapability<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pistream: Param0) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryCapability)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).QueryCapability)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, cacheoptions: WICDecodeOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(cacheoptions)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param1: ::std::convert::Into<WICDecodeOptions>>(&self, pistream: Param0, cacheoptions: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pistream.into().abi(), cacheoptions.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -743,8 +708,8 @@ impl IWICBitmapDecoder {
         (::windows::core::Interface::vtable(self).GetDecoderInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoderInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
@@ -781,19 +746,14 @@ impl ::core::convert::From<IWICBitmapDecoder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapDecoder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapDecoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapDecoder> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapDecoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapDecoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapDecoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapDecoder {
@@ -933,9 +893,9 @@ impl IWICBitmapDecoderInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesMimeType(&self, wzmimetype: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzmimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -944,9 +904,9 @@ impl IWICBitmapDecoderInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn MatchesPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesPattern<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pistream: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).MatchesPattern)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).MatchesPattern)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapDecoder> {
@@ -959,23 +919,23 @@ impl ::core::convert::From<IWICBitmapDecoderInfo> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapDecoderInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapDecoderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapDecoderInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapDecoderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapDecoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapDecoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapDecoderInfo> for IWICComponentInfo {
     fn from(value: IWICBitmapDecoderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapDecoderInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICBitmapDecoderInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -984,34 +944,19 @@ impl ::core::convert::From<&IWICBitmapDecoderInfo> for IWICComponentInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICBitmapDecoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICBitmapDecoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
     fn from(value: IWICBitmapDecoderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapDecoderInfo> for &'a IWICBitmapCodecInfo {
+    fn from(value: &'a IWICBitmapDecoderInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
     fn from(value: &IWICBitmapDecoderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapDecoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for &'a IWICBitmapDecoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapDecoderInfo {
@@ -1054,8 +999,8 @@ pub struct IWICBitmapEncoder(::windows::core::IUnknown);
 impl IWICBitmapEncoder {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, cacheoption: WICBitmapEncoderCacheOption) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(cacheoption)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param1: ::std::convert::Into<WICBitmapEncoderCacheOption>>(&self, pistream: Param0, cacheoption: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pistream.into().abi(), cacheoption.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -1072,16 +1017,16 @@ impl IWICBitmapEncoder {
         (::windows::core::Interface::vtable(self).SetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppicolorcontext))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn SetPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pithumbnail: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetThumbnail)(::windows::core::Interface::as_raw(self), pithumbnail.into_param().abi()).ok()
+    pub unsafe fn SetThumbnail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pithumbnail: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetThumbnail)(::windows::core::Interface::as_raw(self), pithumbnail.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetPreview<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pipreview: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreview)(::windows::core::Interface::as_raw(self), pipreview.into_param().abi()).ok()
+    pub unsafe fn SetPreview<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pipreview: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPreview)(::windows::core::Interface::as_raw(self), pipreview.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -1103,19 +1048,14 @@ impl ::core::convert::From<IWICBitmapEncoder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapEncoder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapEncoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapEncoder> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapEncoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapEncoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapEncoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapEncoder {
@@ -1254,9 +1194,9 @@ impl IWICBitmapEncoderInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesMimeType(&self, wzmimetype: ::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), wzmimetype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.MatchesMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzmimetype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder> {
@@ -1269,23 +1209,23 @@ impl ::core::convert::From<IWICBitmapEncoderInfo> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapEncoderInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapEncoderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapEncoderInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapEncoderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapEncoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapEncoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapEncoderInfo> for IWICComponentInfo {
     fn from(value: IWICBitmapEncoderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapEncoderInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICBitmapEncoderInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1294,34 +1234,19 @@ impl ::core::convert::From<&IWICBitmapEncoderInfo> for IWICComponentInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICBitmapEncoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICBitmapEncoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
     fn from(value: IWICBitmapEncoderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapEncoderInfo> for &'a IWICBitmapCodecInfo {
+    fn from(value: &'a IWICBitmapEncoderInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
     fn from(value: &IWICBitmapEncoderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for IWICBitmapEncoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapCodecInfo> for &'a IWICBitmapEncoderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapCodecInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapEncoderInfo {
@@ -1368,20 +1293,25 @@ impl IWICBitmapFlipRotator {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, options: WICBitmapTransformOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), ::core::mem::transmute(options)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param1: ::std::convert::Into<WICBitmapTransformOptions>>(&self, pisource: Param0, options: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into().abi(), options.into()).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapFlipRotator> for ::windows::core::IUnknown {
     fn from(value: IWICBitmapFlipRotator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapFlipRotator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapFlipRotator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1390,34 +1320,19 @@ impl ::core::convert::From<&IWICBitmapFlipRotator> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapFlipRotator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapFlipRotator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapFlipRotator> for IWICBitmapSource {
     fn from(value: IWICBitmapFlipRotator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapFlipRotator> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICBitmapFlipRotator) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICBitmapFlipRotator> for IWICBitmapSource {
     fn from(value: &IWICBitmapFlipRotator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapFlipRotator {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapFlipRotator {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapFlipRotator {
@@ -1464,8 +1379,8 @@ impl IWICBitmapFrameDecode {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
@@ -1491,19 +1406,14 @@ impl ::core::convert::From<IWICBitmapFrameDecode> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapFrameDecode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapFrameDecode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapFrameDecode> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapFrameDecode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICBitmapFrameDecode> for IWICBitmapSource {
@@ -1511,19 +1421,14 @@ impl ::core::convert::From<IWICBitmapFrameDecode> for IWICBitmapSource {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapFrameDecode> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICBitmapFrameDecode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapFrameDecode> for IWICBitmapSource {
     fn from(value: &IWICBitmapFrameDecode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapFrameDecode {
@@ -1560,8 +1465,8 @@ pub struct IWICBitmapFrameEncode(::windows::core::IUnknown);
 impl IWICBitmapFrameEncode {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::StructuredStorage::IPropertyBag2>>(&self, piencoderoptions: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), piencoderoptions.into_param().abi()).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::StructuredStorage::IPropertyBag2>>>(&self, piencoderoptions: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), piencoderoptions.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn SetSize(&self, uiwidth: u32, uiheight: u32) -> ::windows::core::Result<()> {
@@ -1580,20 +1485,20 @@ impl IWICBitmapFrameEncode {
         (::windows::core::Interface::vtable(self).SetColorContexts)(::windows::core::Interface::as_raw(self), ppicolorcontext.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppicolorcontext))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn SetPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pithumbnail: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetThumbnail)(::windows::core::Interface::as_raw(self), pithumbnail.into_param().abi()).ok()
+    pub unsafe fn SetThumbnail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pithumbnail: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetThumbnail)(::windows::core::Interface::as_raw(self), pithumbnail.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn WritePixels(&self, linecount: u32, cbstride: u32, pbpixels: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WritePixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(linecount), ::core::mem::transmute(cbstride), pbpixels.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbpixels))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn WriteSource<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, prc: *const WICRect) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(prc)).ok()
+    pub unsafe fn WriteSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pibitmapsource: Param0, prc: *const WICRect) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WriteSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into().abi(), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
@@ -1610,19 +1515,14 @@ impl ::core::convert::From<IWICBitmapFrameEncode> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapFrameEncode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapFrameEncode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapFrameEncode> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapFrameEncode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapFrameEncode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapFrameEncode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapFrameEncode {
@@ -1692,19 +1592,14 @@ impl ::core::convert::From<IWICBitmapLock> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapLock> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapLock) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapLock> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapLock) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapLock {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapLock {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapLock {
@@ -1754,20 +1649,25 @@ impl IWICBitmapScaler {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param3: ::std::convert::Into<WICBitmapInterpolationMode>>(&self, pisource: Param0, uiwidth: u32, uiheight: u32, mode: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into().abi(), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), mode.into()).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapScaler> for ::windows::core::IUnknown {
     fn from(value: IWICBitmapScaler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapScaler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapScaler) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1776,34 +1676,19 @@ impl ::core::convert::From<&IWICBitmapScaler> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapScaler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapScaler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICBitmapScaler> for IWICBitmapSource {
     fn from(value: IWICBitmapScaler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICBitmapScaler> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICBitmapScaler) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICBitmapScaler> for IWICBitmapSource {
     fn from(value: &IWICBitmapScaler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICBitmapScaler {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICBitmapScaler {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapScaler {
@@ -1850,8 +1735,8 @@ impl IWICBitmapSource {
         (::windows::core::Interface::vtable(self).GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
@@ -1863,19 +1748,14 @@ impl ::core::convert::From<IWICBitmapSource> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapSource> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapSource {
@@ -1913,8 +1793,8 @@ pub struct IWICBitmapSource_Vtbl {
 pub struct IWICBitmapSourceTransform(::windows::core::IUnknown);
 impl IWICBitmapSourceTransform {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPixels(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::core::GUID, dsttransform: WICBitmapTransformOptions, nstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pguiddstformat), ::core::mem::transmute(dsttransform), ::core::mem::transmute(nstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
+    pub unsafe fn CopyPixels<'a, Param4: ::std::convert::Into<WICBitmapTransformOptions>>(&self, prc: *const WICRect, uiwidth: u32, uiheight: u32, pguiddstformat: *const ::windows::core::GUID, dsttransform: Param4, nstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pguiddstformat), dsttransform.into(), ::core::mem::transmute(nstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetClosestSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
@@ -1926,9 +1806,9 @@ impl IWICBitmapSourceTransform {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportTransform(&self, dsttransform: WICBitmapTransformOptions) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn DoesSupportTransform<'a, Param0: ::std::convert::Into<WICBitmapTransformOptions>>(&self, dsttransform: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dsttransform), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).DoesSupportTransform)(::windows::core::Interface::as_raw(self), dsttransform.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IWICBitmapSourceTransform> for ::windows::core::IUnknown {
@@ -1936,19 +1816,14 @@ impl ::core::convert::From<IWICBitmapSourceTransform> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICBitmapSourceTransform> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICBitmapSourceTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICBitmapSourceTransform> for ::windows::core::IUnknown {
     fn from(value: &IWICBitmapSourceTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICBitmapSourceTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICBitmapSourceTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICBitmapSourceTransform {
@@ -1988,8 +1863,8 @@ pub struct IWICBitmapSourceTransform_Vtbl {
 pub struct IWICColorContext(::windows::core::IUnknown);
 impl IWICColorContext {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn InitializeFromFilename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi()).ok()
+    pub unsafe fn InitializeFromFilename(&self, wzfilename: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
@@ -2019,19 +1894,14 @@ impl ::core::convert::From<IWICColorContext> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICColorContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICColorContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICColorContext> for ::windows::core::IUnknown {
     fn from(value: &IWICColorContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICColorContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICColorContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICColorContext {
@@ -2083,20 +1953,25 @@ impl IWICColorTransform {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>, Param1: ::windows::core::IntoParam<'a, IWICColorContext>, Param2: ::windows::core::IntoParam<'a, IWICColorContext>>(&self, pibitmapsource: Param0, picontextsource: Param1, picontextdest: Param2, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), picontextsource.into_param().abi(), picontextdest.into_param().abi(), ::core::mem::transmute(pixelfmtdest)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWICColorContext>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IWICColorContext>>>(&self, pibitmapsource: Param0, picontextsource: Param1, picontextdest: Param2, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pibitmapsource.into().abi(), picontextsource.into().abi(), picontextdest.into().abi(), ::core::mem::transmute(pixelfmtdest)).ok()
     }
 }
 impl ::core::convert::From<IWICColorTransform> for ::windows::core::IUnknown {
     fn from(value: IWICColorTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICColorTransform> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICColorTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2105,34 +1980,19 @@ impl ::core::convert::From<&IWICColorTransform> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICColorTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICColorTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICColorTransform> for IWICBitmapSource {
     fn from(value: IWICColorTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICColorTransform> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICColorTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICColorTransform> for IWICBitmapSource {
     fn from(value: &IWICColorTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICColorTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICColorTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICColorTransform {
@@ -2166,20 +2026,20 @@ pub struct IWICColorTransform_Vtbl {
 pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFilename<'a, Param3: ::std::convert::Into<WICDecodeOptions>>(&self, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDecoderFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param2: ::std::convert::Into<WICDecodeOptions>>(&self, pistream: Param0, pguidvendor: *const ::windows::core::GUID, metadataoptions: Param2) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromStream)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromStream)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(pguidvendor), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFileHandle<'a, Param2: ::std::convert::Into<WICDecodeOptions>>(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: Param2) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFileHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hfile), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateDecoderFromFileHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hfile), ::core::mem::transmute(pguidvendor), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo> {
@@ -2238,19 +2098,19 @@ impl IWICComponentFactory {
         (::windows::core::Interface::vtable(self).base__.CreateColorTransformer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICColorTransform>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmap<'a, Param3: ::std::convert::Into<WICBitmapCreateCacheOption>>(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: Param3) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), option.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateBitmapFromSource<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param1: ::std::convert::Into<WICBitmapCreateCacheOption>>(&self, pibitmapsource: Param0, option: Param1) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into().abi(), option.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateBitmapFromSourceRect<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromSourceRect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pibitmapsource: Param0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromSourceRect)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromSourceRect)(::windows::core::Interface::as_raw(self), pibitmapsource.into().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, pbbuffer: &[u8]) -> ::windows::core::Result<IWICBitmap> {
@@ -2259,15 +2119,15 @@ impl IWICComponentFactory {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateBitmapFromHBITMAP<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HPALETTE>>(&self, hbitmap: Param0, hpalette: Param1, options: WICBitmapAlphaChannelOption) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromHBITMAP<'a, Param0: ::std::convert::Into<super::Gdi::HBITMAP>, Param1: ::std::convert::Into<super::Gdi::HPALETTE>, Param2: ::std::convert::Into<WICBitmapAlphaChannelOption>>(&self, hbitmap: Param0, hpalette: Param1, options: Param2) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromHBITMAP)(::windows::core::Interface::as_raw(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromHBITMAP)(::windows::core::Interface::as_raw(self), hbitmap.into(), hpalette.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn CreateBitmapFromHICON<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromHICON<'a, Param0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromHICON)(::windows::core::Interface::as_raw(self), hicon.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateBitmapFromHICON)(::windows::core::Interface::as_raw(self), hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2276,14 +2136,14 @@ impl IWICComponentFactory {
         (::windows::core::Interface::vtable(self).base__.CreateComponentEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(componenttypes), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateFastMetadataEncoderFromDecoder<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapDecoder>>(&self, pidecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
+    pub unsafe fn CreateFastMetadataEncoderFromDecoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapDecoder>>>(&self, pidecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateFastMetadataEncoderFromDecoder)(::windows::core::Interface::as_raw(self), pidecoder.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateFastMetadataEncoderFromDecoder)(::windows::core::Interface::as_raw(self), pidecoder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapFrameDecode>>(&self, piframedecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
+    pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapFrameDecode>>>(&self, piframedecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Interface::as_raw(self), piframedecoder.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Interface::as_raw(self), piframedecoder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
@@ -2291,21 +2151,21 @@ impl IWICComponentFactory {
         (::windows::core::Interface::vtable(self).base__.CreateQueryWriter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateQueryWriterFromReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataQueryReader>>(&self, piqueryreader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
+    pub unsafe fn CreateQueryWriterFromReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataQueryReader>>>(&self, piqueryreader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateQueryWriterFromReader)(::windows::core::Interface::as_raw(self), piqueryreader.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateQueryWriterFromReader)(::windows::core::Interface::as_raw(self), piqueryreader.into().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateMetadataReader<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: Param3) -> ::windows::core::Result<IWICMetadataReader> {
+    pub unsafe fn CreateMetadataReader<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: Param3) -> ::windows::core::Result<IWICMetadataReader> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateMetadataReader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwoptions), pistream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataReader>(result__)
+        (::windows::core::Interface::vtable(self).CreateMetadataReader)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwoptions), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataReader>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateMetadataReaderFromContainer<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: Param3) -> ::windows::core::Result<IWICMetadataReader> {
+    pub unsafe fn CreateMetadataReaderFromContainer<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: Param3) -> ::windows::core::Result<IWICMetadataReader> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateMetadataReaderFromContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwoptions), pistream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataReader>(result__)
+        (::windows::core::Interface::vtable(self).CreateMetadataReaderFromContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwoptions), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataReader>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateMetadataWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwmetadataoptions: u32) -> ::windows::core::Result<IWICMetadataWriter> {
@@ -2313,19 +2173,19 @@ impl IWICComponentFactory {
         (::windows::core::Interface::vtable(self).CreateMetadataWriter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwmetadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateMetadataWriterFromReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataReader>>(&self, pireader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataWriter> {
+    pub unsafe fn CreateMetadataWriterFromReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataReader>>>(&self, pireader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataWriter> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateMetadataWriterFromReader)(::windows::core::Interface::as_raw(self), pireader.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataWriter>(result__)
+        (::windows::core::Interface::vtable(self).CreateMetadataWriterFromReader)(::windows::core::Interface::as_raw(self), pireader.into().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateQueryReaderFromBlockReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataBlockReader>>(&self, piblockreader: Param0) -> ::windows::core::Result<IWICMetadataQueryReader> {
+    pub unsafe fn CreateQueryReaderFromBlockReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataBlockReader>>>(&self, piblockreader: Param0) -> ::windows::core::Result<IWICMetadataQueryReader> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQueryReaderFromBlockReader)(::windows::core::Interface::as_raw(self), piblockreader.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryReader>(result__)
+        (::windows::core::Interface::vtable(self).CreateQueryReaderFromBlockReader)(::windows::core::Interface::as_raw(self), piblockreader.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryReader>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateQueryWriterFromBlockWriter<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataBlockWriter>>(&self, piblockwriter: Param0) -> ::windows::core::Result<IWICMetadataQueryWriter> {
+    pub unsafe fn CreateQueryWriterFromBlockWriter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataBlockWriter>>>(&self, piblockwriter: Param0) -> ::windows::core::Result<IWICMetadataQueryWriter> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQueryWriterFromBlockWriter)(::windows::core::Interface::as_raw(self), piblockwriter.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
+        (::windows::core::Interface::vtable(self).CreateQueryWriterFromBlockWriter)(::windows::core::Interface::as_raw(self), piblockwriter.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2339,19 +2199,14 @@ impl ::core::convert::From<IWICComponentFactory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICComponentFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICComponentFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICComponentFactory> for ::windows::core::IUnknown {
     fn from(value: &IWICComponentFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICComponentFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICComponentFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICComponentFactory> for IWICImagingFactory {
@@ -2359,19 +2214,14 @@ impl ::core::convert::From<IWICComponentFactory> for IWICImagingFactory {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICComponentFactory> for &'a IWICImagingFactory {
+    fn from(value: &'a IWICComponentFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICComponentFactory> for IWICImagingFactory {
     fn from(value: &IWICComponentFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICImagingFactory> for IWICComponentFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICImagingFactory> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICImagingFactory> for &'a IWICComponentFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICImagingFactory> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICComponentFactory {
@@ -2461,19 +2311,14 @@ impl ::core::convert::From<IWICComponentInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICComponentInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICComponentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICComponentInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICComponentInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICComponentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICComponentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICComponentInfo {
@@ -2530,19 +2375,14 @@ impl ::core::convert::From<IWICDdsDecoder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICDdsDecoder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICDdsDecoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICDdsDecoder> for ::windows::core::IUnknown {
     fn from(value: &IWICDdsDecoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDdsDecoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDdsDecoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICDdsDecoder {
@@ -2600,19 +2440,14 @@ impl ::core::convert::From<IWICDdsEncoder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICDdsEncoder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICDdsEncoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICDdsEncoder> for ::windows::core::IUnknown {
     fn from(value: &IWICDdsEncoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDdsEncoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDdsEncoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICDdsEncoder {
@@ -2673,19 +2508,14 @@ impl ::core::convert::From<IWICDdsFrameDecode> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICDdsFrameDecode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICDdsFrameDecode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICDdsFrameDecode> for ::windows::core::IUnknown {
     fn from(value: &IWICDdsFrameDecode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDdsFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDdsFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICDdsFrameDecode {
@@ -2737,8 +2567,8 @@ impl IWICDevelopRaw {
         (::windows::core::Interface::vtable(self).base__.base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
@@ -2763,8 +2593,8 @@ impl IWICDevelopRaw {
         (::windows::core::Interface::vtable(self).QueryRawCapabilitiesInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn LoadParameterSet(&self, parameterset: WICRawParameterSet) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadParameterSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameterset)).ok()
+    pub unsafe fn LoadParameterSet<'a, Param0: ::std::convert::Into<WICRawParameterSet>>(&self, parameterset: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadParameterSet)(::windows::core::Interface::as_raw(self), parameterset.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
@@ -2790,8 +2620,8 @@ impl IWICDevelopRaw {
         (::windows::core::Interface::vtable(self).GetWhitePointRGB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pred), ::core::mem::transmute(pgreen), ::core::mem::transmute(pblue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetNamedWhitePoint(&self, whitepoint: WICNamedWhitePoint) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamedWhitePoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(whitepoint)).ok()
+    pub unsafe fn SetNamedWhitePoint<'a, Param0: ::std::convert::Into<WICNamedWhitePoint>>(&self, whitepoint: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNamedWhitePoint)(::windows::core::Interface::as_raw(self), whitepoint.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetNamedWhitePoint(&self) -> ::windows::core::Result<WICNamedWhitePoint> {
@@ -2866,8 +2696,8 @@ impl IWICDevelopRaw {
         (::windows::core::Interface::vtable(self).GetNoiseReduction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetDestinationColorContext<'a, Param0: ::windows::core::IntoParam<'a, IWICColorContext>>(&self, pcolorcontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationColorContext)(::windows::core::Interface::as_raw(self), pcolorcontext.into_param().abi()).ok()
+    pub unsafe fn SetDestinationColorContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICColorContext>>>(&self, pcolorcontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDestinationColorContext)(::windows::core::Interface::as_raw(self), pcolorcontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn SetToneCurve(&self, cbtonecurvesize: u32, ptonecurve: *const WICRawToneCurve) -> ::windows::core::Result<()> {
@@ -2887,8 +2717,8 @@ impl IWICDevelopRaw {
         (::windows::core::Interface::vtable(self).GetRotation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetRenderMode(&self, rendermode: WICRawRenderMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRenderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rendermode)).ok()
+    pub unsafe fn SetRenderMode<'a, Param0: ::std::convert::Into<WICRawRenderMode>>(&self, rendermode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRenderMode)(::windows::core::Interface::as_raw(self), rendermode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetRenderMode(&self) -> ::windows::core::Result<WICRawRenderMode> {
@@ -2896,12 +2726,17 @@ impl IWICDevelopRaw {
         (::windows::core::Interface::vtable(self).GetRenderMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WICRawRenderMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetNotificationCallback<'a, Param0: ::windows::core::IntoParam<'a, IWICDevelopRawNotificationCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationCallback)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
+    pub unsafe fn SetNotificationCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICDevelopRawNotificationCallback>>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotificationCallback)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IWICDevelopRaw> for ::windows::core::IUnknown {
     fn from(value: IWICDevelopRaw) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICDevelopRaw> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICDevelopRaw) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2910,18 +2745,13 @@ impl ::core::convert::From<&IWICDevelopRaw> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDevelopRaw {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDevelopRaw {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICDevelopRaw> for IWICBitmapSource {
     fn from(value: IWICDevelopRaw) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICDevelopRaw> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICDevelopRaw) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2930,34 +2760,19 @@ impl ::core::convert::From<&IWICDevelopRaw> for IWICBitmapSource {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICDevelopRaw {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICDevelopRaw {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICDevelopRaw> for IWICBitmapFrameDecode {
     fn from(value: IWICDevelopRaw) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICDevelopRaw> for &'a IWICBitmapFrameDecode {
+    fn from(value: &'a IWICDevelopRaw) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICDevelopRaw> for IWICBitmapFrameDecode {
     fn from(value: &IWICDevelopRaw) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapFrameDecode> for IWICDevelopRaw {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapFrameDecode> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapFrameDecode> for &'a IWICDevelopRaw {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapFrameDecode> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICDevelopRaw {
@@ -3034,19 +2849,14 @@ impl ::core::convert::From<IWICDevelopRawNotificationCallback> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICDevelopRawNotificationCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICDevelopRawNotificationCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICDevelopRawNotificationCallback> for ::windows::core::IUnknown {
     fn from(value: &IWICDevelopRawNotificationCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICDevelopRawNotificationCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICDevelopRawNotificationCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICDevelopRawNotificationCallback {
@@ -3103,19 +2913,14 @@ impl ::core::convert::From<IWICEnumMetadataItem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICEnumMetadataItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICEnumMetadataItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICEnumMetadataItem> for ::windows::core::IUnknown {
     fn from(value: &IWICEnumMetadataItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICEnumMetadataItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICEnumMetadataItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICEnumMetadataItem {
@@ -3169,19 +2974,14 @@ impl ::core::convert::From<IWICFastMetadataEncoder> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICFastMetadataEncoder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICFastMetadataEncoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICFastMetadataEncoder> for ::windows::core::IUnknown {
     fn from(value: &IWICFastMetadataEncoder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICFastMetadataEncoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICFastMetadataEncoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICFastMetadataEncoder {
@@ -3229,16 +3029,16 @@ impl IWICFormatConverter {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>, Param3: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pisource: Param0, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: Param3, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into_param().abi(), ::core::mem::transmute(dstformat), ::core::mem::transmute(dither), pipalette.into_param().abi(), ::core::mem::transmute(alphathresholdpercent), ::core::mem::transmute(palettetranslate)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param2: ::std::convert::Into<WICBitmapDitherType>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>, Param5: ::std::convert::Into<WICBitmapPaletteType>>(&self, pisource: Param0, dstformat: *const ::windows::core::GUID, dither: Param2, pipalette: Param3, alphathresholdpercent: f64, palettetranslate: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pisource.into().abi(), ::core::mem::transmute(dstformat), dither.into(), pipalette.into().abi(), ::core::mem::transmute(alphathresholdpercent), palettetranslate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3252,19 +3052,14 @@ impl ::core::convert::From<IWICFormatConverter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICFormatConverter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICFormatConverter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICFormatConverter> for ::windows::core::IUnknown {
     fn from(value: &IWICFormatConverter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICFormatConverter> for IWICBitmapSource {
@@ -3272,19 +3067,14 @@ impl ::core::convert::From<IWICFormatConverter> for IWICBitmapSource {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICFormatConverter> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICFormatConverter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICFormatConverter> for IWICBitmapSource {
     fn from(value: &IWICFormatConverter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICFormatConverter {
@@ -3372,19 +3162,14 @@ impl ::core::convert::From<IWICFormatConverterInfo> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICFormatConverterInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICFormatConverterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICFormatConverterInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICFormatConverterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICFormatConverterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICFormatConverterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICFormatConverterInfo> for IWICComponentInfo {
@@ -3392,19 +3177,14 @@ impl ::core::convert::From<IWICFormatConverterInfo> for IWICComponentInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICFormatConverterInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICFormatConverterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICFormatConverterInfo> for IWICComponentInfo {
     fn from(value: &IWICFormatConverterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICFormatConverterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICFormatConverterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICFormatConverterInfo {
@@ -3439,20 +3219,20 @@ pub struct IWICFormatConverterInfo_Vtbl {
 pub struct IWICImagingFactory(::windows::core::IUnknown);
 impl IWICImagingFactory {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFilename<'a, Param3: ::std::convert::Into<WICDecodeOptions>>(&self, wzfilename: ::windows::core::PCWSTR, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: Param3) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).CreateDecoderFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDecoderFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param2: ::std::convert::Into<WICDecodeOptions>>(&self, pistream: Param0, pguidvendor: *const ::windows::core::GUID, metadataoptions: Param2) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromStream)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).CreateDecoderFromStream)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(pguidvendor), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+    pub unsafe fn CreateDecoderFromFileHandle<'a, Param2: ::std::convert::Into<WICDecodeOptions>>(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: Param2) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromFileHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hfile), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
+        (::windows::core::Interface::vtable(self).CreateDecoderFromFileHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hfile), ::core::mem::transmute(pguidvendor), metadataoptions.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapDecoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo> {
@@ -3511,19 +3291,19 @@ impl IWICImagingFactory {
         (::windows::core::Interface::vtable(self).CreateColorTransformer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICColorTransform>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmap<'a, Param3: ::std::convert::Into<WICBitmapCreateCacheOption>>(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: Param3) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmap)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), option.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateBitmapFromSource<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param1: ::std::convert::Into<WICBitmapCreateCacheOption>>(&self, pibitmapsource: Param0, option: Param1) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(option), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmapFromSource)(::windows::core::Interface::as_raw(self), pibitmapsource.into().abi(), option.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateBitmapFromSourceRect<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromSourceRect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(&self, pibitmapsource: Param0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromSourceRect)(::windows::core::Interface::as_raw(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmapFromSourceRect)(::windows::core::Interface::as_raw(self), pibitmapsource.into().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, pbbuffer: &[u8]) -> ::windows::core::Result<IWICBitmap> {
@@ -3532,15 +3312,15 @@ impl IWICImagingFactory {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateBitmapFromHBITMAP<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HPALETTE>>(&self, hbitmap: Param0, hpalette: Param1, options: WICBitmapAlphaChannelOption) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromHBITMAP<'a, Param0: ::std::convert::Into<super::Gdi::HBITMAP>, Param1: ::std::convert::Into<super::Gdi::HPALETTE>, Param2: ::std::convert::Into<WICBitmapAlphaChannelOption>>(&self, hbitmap: Param0, hpalette: Param1, options: Param2) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromHBITMAP)(::windows::core::Interface::as_raw(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmapFromHBITMAP)(::windows::core::Interface::as_raw(self), hbitmap.into(), hpalette.into(), options.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn CreateBitmapFromHICON<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::core::Result<IWICBitmap> {
+    pub unsafe fn CreateBitmapFromHICON<'a, Param0: ::std::convert::Into<super::super::UI::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::core::Result<IWICBitmap> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromHICON)(::windows::core::Interface::as_raw(self), hicon.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmapFromHICON)(::windows::core::Interface::as_raw(self), hicon.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3549,14 +3329,14 @@ impl IWICImagingFactory {
         (::windows::core::Interface::vtable(self).CreateComponentEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(componenttypes), ::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateFastMetadataEncoderFromDecoder<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapDecoder>>(&self, pidecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
+    pub unsafe fn CreateFastMetadataEncoderFromDecoder<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapDecoder>>>(&self, pidecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromDecoder)(::windows::core::Interface::as_raw(self), pidecoder.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
+        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromDecoder)(::windows::core::Interface::as_raw(self), pidecoder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapFrameDecode>>(&self, piframedecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
+    pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapFrameDecode>>>(&self, piframedecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Interface::as_raw(self), piframedecoder.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
+        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromFrameDecode)(::windows::core::Interface::as_raw(self), piframedecoder.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICFastMetadataEncoder>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
@@ -3564,9 +3344,9 @@ impl IWICImagingFactory {
         (::windows::core::Interface::vtable(self).CreateQueryWriter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CreateQueryWriterFromReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataQueryReader>>(&self, piqueryreader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
+    pub unsafe fn CreateQueryWriterFromReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataQueryReader>>>(&self, piqueryreader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQueryWriterFromReader)(::windows::core::Interface::as_raw(self), piqueryreader.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
+        (::windows::core::Interface::vtable(self).CreateQueryWriterFromReader)(::windows::core::Interface::as_raw(self), piqueryreader.into().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataQueryWriter>(result__)
     }
 }
 impl ::core::convert::From<IWICImagingFactory> for ::windows::core::IUnknown {
@@ -3574,19 +3354,14 @@ impl ::core::convert::From<IWICImagingFactory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICImagingFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICImagingFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICImagingFactory> for ::windows::core::IUnknown {
     fn from(value: &IWICImagingFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICImagingFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICImagingFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICImagingFactory {
@@ -3665,8 +3440,8 @@ impl IWICJpegFrameDecode {
         (::windows::core::Interface::vtable(self).DoesSupportIndexing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetIndexing(&self, options: WICJpegIndexingOptions, horizontalintervalsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIndexing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options), ::core::mem::transmute(horizontalintervalsize)).ok()
+    pub unsafe fn SetIndexing<'a, Param0: ::std::convert::Into<WICJpegIndexingOptions>>(&self, options: Param0, horizontalintervalsize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIndexing)(::windows::core::Interface::as_raw(self), options.into(), ::core::mem::transmute(horizontalintervalsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn ClearIndexing(&self) -> ::windows::core::Result<()> {
@@ -3714,19 +3489,14 @@ impl ::core::convert::From<IWICJpegFrameDecode> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICJpegFrameDecode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICJpegFrameDecode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICJpegFrameDecode> for ::windows::core::IUnknown {
     fn from(value: &IWICJpegFrameDecode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICJpegFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICJpegFrameDecode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICJpegFrameDecode {
@@ -3808,19 +3578,14 @@ impl ::core::convert::From<IWICJpegFrameEncode> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICJpegFrameEncode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICJpegFrameEncode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICJpegFrameEncode> for ::windows::core::IUnknown {
     fn from(value: &IWICJpegFrameEncode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICJpegFrameEncode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICJpegFrameEncode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICJpegFrameEncode {
@@ -3892,19 +3657,14 @@ impl ::core::convert::From<IWICMetadataBlockReader> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataBlockReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataBlockReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataBlockReader> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataBlockReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataBlockReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataBlockReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataBlockReader {
@@ -3965,8 +3725,8 @@ impl IWICMetadataBlockWriter {
         (::windows::core::Interface::vtable(self).base__.GetEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn InitializeFromBlockReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataBlockReader>>(&self, pimdblockreader: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromBlockReader)(::windows::core::Interface::as_raw(self), pimdblockreader.into_param().abi()).ok()
+    pub unsafe fn InitializeFromBlockReader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataBlockReader>>>(&self, pimdblockreader: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromBlockReader)(::windows::core::Interface::as_raw(self), pimdblockreader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetWriterByIndex(&self, nindex: u32) -> ::windows::core::Result<IWICMetadataWriter> {
@@ -3974,12 +3734,12 @@ impl IWICMetadataBlockWriter {
         (::windows::core::Interface::vtable(self).GetWriterByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICMetadataWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn AddWriter<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataWriter>>(&self, pimetadatawriter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWriter)(::windows::core::Interface::as_raw(self), pimetadatawriter.into_param().abi()).ok()
+    pub unsafe fn AddWriter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>>(&self, pimetadatawriter: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddWriter)(::windows::core::Interface::as_raw(self), pimetadatawriter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn SetWriterByIndex<'a, Param1: ::windows::core::IntoParam<'a, IWICMetadataWriter>>(&self, nindex: u32, pimetadatawriter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWriterByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), pimetadatawriter.into_param().abi()).ok()
+    pub unsafe fn SetWriterByIndex<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>>(&self, nindex: u32, pimetadatawriter: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWriterByIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), pimetadatawriter.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn RemoveWriterByIndex(&self, nindex: u32) -> ::windows::core::Result<()> {
@@ -3991,19 +3751,14 @@ impl ::core::convert::From<IWICMetadataBlockWriter> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataBlockWriter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataBlockWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataBlockWriter> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataBlockWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataBlockWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataBlockWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICMetadataBlockWriter> for IWICMetadataBlockReader {
@@ -4011,19 +3766,14 @@ impl ::core::convert::From<IWICMetadataBlockWriter> for IWICMetadataBlockReader 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataBlockWriter> for &'a IWICMetadataBlockReader {
+    fn from(value: &'a IWICMetadataBlockWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataBlockWriter> for IWICMetadataBlockReader {
     fn from(value: &IWICMetadataBlockWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataBlockReader> for IWICMetadataBlockWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataBlockReader> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataBlockReader> for &'a IWICMetadataBlockWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataBlockReader> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataBlockWriter {
@@ -4137,19 +3887,14 @@ impl ::core::convert::From<IWICMetadataHandlerInfo> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataHandlerInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataHandlerInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataHandlerInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataHandlerInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataHandlerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataHandlerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICMetadataHandlerInfo> for IWICComponentInfo {
@@ -4157,19 +3902,14 @@ impl ::core::convert::From<IWICMetadataHandlerInfo> for IWICComponentInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataHandlerInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICMetadataHandlerInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataHandlerInfo> for IWICComponentInfo {
     fn from(value: &IWICMetadataHandlerInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICMetadataHandlerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICMetadataHandlerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataHandlerInfo {
@@ -4228,8 +3968,8 @@ impl IWICMetadataQueryReader {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzname: Param0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi(), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn GetMetadataByName(&self, wzname: ::windows::core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname), ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4243,19 +3983,14 @@ impl ::core::convert::From<IWICMetadataQueryReader> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataQueryReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataQueryReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataQueryReader> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataQueryReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataQueryReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataQueryReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataQueryReader {
@@ -4308,8 +4043,8 @@ impl IWICMetadataQueryWriter {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzname: Param0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi(), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn GetMetadataByName(&self, wzname: ::windows::core::PCWSTR, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname), ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4319,16 +4054,21 @@ impl IWICMetadataQueryWriter {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn SetMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzname: Param0, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi(), ::core::mem::transmute(pvarvalue)).ok()
+    pub unsafe fn SetMetadataByName(&self, wzname: ::windows::core::PCWSTR, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname), ::core::mem::transmute(pvarvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn RemoveMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveMetadataByName)(::windows::core::Interface::as_raw(self), wzname.into_param().abi()).ok()
+    pub unsafe fn RemoveMetadataByName(&self, wzname: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveMetadataByName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzname)).ok()
     }
 }
 impl ::core::convert::From<IWICMetadataQueryWriter> for ::windows::core::IUnknown {
     fn from(value: IWICMetadataQueryWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICMetadataQueryWriter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataQueryWriter) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4337,34 +4077,19 @@ impl ::core::convert::From<&IWICMetadataQueryWriter> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataQueryWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataQueryWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICMetadataQueryWriter> for IWICMetadataQueryReader {
     fn from(value: IWICMetadataQueryWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICMetadataQueryWriter> for &'a IWICMetadataQueryReader {
+    fn from(value: &'a IWICMetadataQueryWriter) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICMetadataQueryWriter> for IWICMetadataQueryReader {
     fn from(value: &IWICMetadataQueryWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataQueryReader> for IWICMetadataQueryWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataQueryReader> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataQueryReader> for &'a IWICMetadataQueryWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataQueryReader> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataQueryWriter {
@@ -4437,19 +4162,14 @@ impl ::core::convert::From<IWICMetadataReader> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataReader> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataReader {
@@ -4570,9 +4290,9 @@ impl IWICMetadataReaderInfo {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn MatchesPattern<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, guidcontainerformat: *const ::windows::core::GUID, pistream: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn MatchesPattern<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, guidcontainerformat: *const ::windows::core::GUID, pistream: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).MatchesPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), pistream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).MatchesPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidcontainerformat), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataReader> {
@@ -4585,23 +4305,23 @@ impl ::core::convert::From<IWICMetadataReaderInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataReaderInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataReaderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataReaderInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataReaderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataReaderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataReaderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICMetadataReaderInfo> for IWICComponentInfo {
     fn from(value: IWICMetadataReaderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICMetadataReaderInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICMetadataReaderInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4610,34 +4330,19 @@ impl ::core::convert::From<&IWICMetadataReaderInfo> for IWICComponentInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICMetadataReaderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICMetadataReaderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
     fn from(value: IWICMetadataReaderInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICMetadataReaderInfo> for &'a IWICMetadataHandlerInfo {
+    fn from(value: &'a IWICMetadataReaderInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
     fn from(value: &IWICMetadataReaderInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadataReaderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for &'a IWICMetadataReaderInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataReaderInfo {
@@ -4730,19 +4435,14 @@ impl ::core::convert::From<IWICMetadataWriter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataWriter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataWriter> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICMetadataWriter> for IWICMetadataReader {
@@ -4750,19 +4450,14 @@ impl ::core::convert::From<IWICMetadataWriter> for IWICMetadataReader {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataWriter> for &'a IWICMetadataReader {
+    fn from(value: &'a IWICMetadataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataWriter> for IWICMetadataReader {
     fn from(value: &IWICMetadataWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataReader> for IWICMetadataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataReader> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataReader> for &'a IWICMetadataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataReader> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataWriter {
@@ -4893,23 +4588,23 @@ impl ::core::convert::From<IWICMetadataWriterInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICMetadataWriterInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICMetadataWriterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICMetadataWriterInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICMetadataWriterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICMetadataWriterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICMetadataWriterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICMetadataWriterInfo> for IWICComponentInfo {
     fn from(value: IWICMetadataWriterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICMetadataWriterInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICMetadataWriterInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4918,34 +4613,19 @@ impl ::core::convert::From<&IWICMetadataWriterInfo> for IWICComponentInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICMetadataWriterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICMetadataWriterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
     fn from(value: IWICMetadataWriterInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICMetadataWriterInfo> for &'a IWICMetadataHandlerInfo {
+    fn from(value: &'a IWICMetadataWriterInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
     fn from(value: &IWICMetadataWriterInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for IWICMetadataWriterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICMetadataHandlerInfo> for &'a IWICMetadataWriterInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICMetadataHandlerInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICMetadataWriterInfo {
@@ -4981,8 +4661,8 @@ pub struct IWICPalette(::windows::core::IUnknown);
 impl IWICPalette {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitializePredefined<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, epalettetype: WICBitmapPaletteType, faddtransparentcolor: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializePredefined)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(epalettetype), faddtransparentcolor.into_param().abi()).ok()
+    pub unsafe fn InitializePredefined<'a, Param0: ::std::convert::Into<WICBitmapPaletteType>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, epalettetype: Param0, faddtransparentcolor: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializePredefined)(::windows::core::Interface::as_raw(self), epalettetype.into(), faddtransparentcolor.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn InitializeCustom(&self, pcolors: &[u32]) -> ::windows::core::Result<()> {
@@ -4990,12 +4670,12 @@ impl IWICPalette {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InitializeFromBitmap<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pisurface: Param0, ccount: u32, faddtransparentcolor: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromBitmap)(::windows::core::Interface::as_raw(self), pisurface.into_param().abi(), ::core::mem::transmute(ccount), faddtransparentcolor.into_param().abi()).ok()
+    pub unsafe fn InitializeFromBitmap<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pisurface: Param0, ccount: u32, faddtransparentcolor: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromBitmap)(::windows::core::Interface::as_raw(self), pisurface.into().abi(), ::core::mem::transmute(ccount), faddtransparentcolor.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn InitializeFromPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn InitializeFromPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<WICBitmapPaletteType> {
@@ -5035,19 +4715,14 @@ impl ::core::convert::From<IWICPalette> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPalette> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPalette) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPalette> for ::windows::core::IUnknown {
     fn from(value: &IWICPalette) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPalette {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPalette {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICPalette {
@@ -5119,13 +4794,13 @@ impl IWICPersistStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self), pstm.into_param().abi()).ok()
+    pub unsafe fn Load<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Load)(::windows::core::Interface::as_raw(self), pstm.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
+    pub unsafe fn Save<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), pstm.into().abi(), fcleardirty.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5135,18 +4810,24 @@ impl IWICPersistStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadEx)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(pguidpreferredvendor), ::core::mem::transmute(dwpersistoptions)).ok()
+    pub unsafe fn LoadEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pistream: Param0, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadEx)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(pguidpreferredvendor), ::core::mem::transmute(dwpersistoptions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn SaveEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pistream: Param0, dwpersistoptions: u32, fcleardirty: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveEx)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(dwpersistoptions), fcleardirty.into_param().abi()).ok()
+    pub unsafe fn SaveEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pistream: Param0, dwpersistoptions: u32, fcleardirty: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SaveEx)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(dwpersistoptions), fcleardirty.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWICPersistStream> for ::windows::core::IUnknown {
     fn from(value: IWICPersistStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWICPersistStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPersistStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5157,20 +4838,14 @@ impl ::core::convert::From<&IWICPersistStream> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPersistStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPersistStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWICPersistStream> for super::super::System::Com::IPersist {
     fn from(value: IWICPersistStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWICPersistStream> for &'a super::super::System::Com::IPersist {
+    fn from(value: &'a IWICPersistStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5181,20 +4856,14 @@ impl ::core::convert::From<&IWICPersistStream> for super::super::System::Com::IP
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for IWICPersistStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for &'a IWICPersistStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWICPersistStream> for super::super::System::Com::IPersistStream {
     fn from(value: IWICPersistStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWICPersistStream> for &'a super::super::System::Com::IPersistStream {
+    fn from(value: &'a IWICPersistStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5202,18 +4871,6 @@ impl ::core::convert::From<IWICPersistStream> for super::super::System::Com::IPe
 impl ::core::convert::From<&IWICPersistStream> for super::super::System::Com::IPersistStream {
     fn from(value: &IWICPersistStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistStream> for IWICPersistStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistStream> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistStream> for &'a IWICPersistStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistStream> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5325,19 +4982,14 @@ impl ::core::convert::From<IWICPixelFormatInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPixelFormatInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPixelFormatInfo> for ::windows::core::IUnknown {
     fn from(value: &IWICPixelFormatInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPixelFormatInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPixelFormatInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICPixelFormatInfo> for IWICComponentInfo {
@@ -5345,19 +4997,14 @@ impl ::core::convert::From<IWICPixelFormatInfo> for IWICComponentInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICPixelFormatInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPixelFormatInfo> for IWICComponentInfo {
     fn from(value: &IWICPixelFormatInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICPixelFormatInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICPixelFormatInfo {
@@ -5471,23 +5118,23 @@ impl ::core::convert::From<IWICPixelFormatInfo2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPixelFormatInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPixelFormatInfo2> for ::windows::core::IUnknown {
     fn from(value: &IWICPixelFormatInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPixelFormatInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPixelFormatInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICPixelFormatInfo2> for IWICComponentInfo {
     fn from(value: IWICPixelFormatInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo2> for &'a IWICComponentInfo {
+    fn from(value: &'a IWICPixelFormatInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5496,34 +5143,19 @@ impl ::core::convert::From<&IWICPixelFormatInfo2> for IWICComponentInfo {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for IWICPixelFormatInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICComponentInfo> for &'a IWICPixelFormatInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICComponentInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWICPixelFormatInfo2> for IWICPixelFormatInfo {
     fn from(value: IWICPixelFormatInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWICPixelFormatInfo2> for &'a IWICPixelFormatInfo {
+    fn from(value: &'a IWICPixelFormatInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IWICPixelFormatInfo2> for IWICPixelFormatInfo {
     fn from(value: &IWICPixelFormatInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICPixelFormatInfo> for IWICPixelFormatInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICPixelFormatInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICPixelFormatInfo> for &'a IWICPixelFormatInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICPixelFormatInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICPixelFormatInfo2 {
@@ -5574,19 +5206,14 @@ impl ::core::convert::From<IWICPlanarBitmapFrameEncode> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPlanarBitmapFrameEncode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPlanarBitmapFrameEncode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPlanarBitmapFrameEncode> for ::windows::core::IUnknown {
     fn from(value: &IWICPlanarBitmapFrameEncode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPlanarBitmapFrameEncode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPlanarBitmapFrameEncode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICPlanarBitmapFrameEncode {
@@ -5622,12 +5249,12 @@ pub struct IWICPlanarBitmapSourceTransform(::windows::core::IUnknown);
 impl IWICPlanarBitmapSourceTransform {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportTransform(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pguiddstformats: *const ::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DoesSupportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight), ::core::mem::transmute(dsttransform), ::core::mem::transmute(dstplanaroptions), ::core::mem::transmute(pguiddstformats), ::core::mem::transmute(pplanedescriptions), ::core::mem::transmute(cplanes), ::core::mem::transmute(pfissupported)).ok()
+    pub unsafe fn DoesSupportTransform<'a, Param2: ::std::convert::Into<WICBitmapTransformOptions>, Param3: ::std::convert::Into<WICPlanarOptions>>(&self, puiwidth: *mut u32, puiheight: *mut u32, dsttransform: Param2, dstplanaroptions: Param3, pguiddstformats: *const ::windows::core::GUID, pplanedescriptions: *mut WICBitmapPlaneDescription, cplanes: u32, pfissupported: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DoesSupportTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight), dsttransform.into(), dstplanaroptions.into(), ::core::mem::transmute(pguiddstformats), ::core::mem::transmute(pplanedescriptions), ::core::mem::transmute(cplanes), ::core::mem::transmute(pfissupported)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPixels(&self, prcsource: *const WICRect, uiwidth: u32, uiheight: u32, dsttransform: WICBitmapTransformOptions, dstplanaroptions: WICPlanarOptions, pdstplanes: &[WICBitmapPlane]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcsource), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(dsttransform), ::core::mem::transmute(dstplanaroptions), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdstplanes)), pdstplanes.len() as _).ok()
+    pub unsafe fn CopyPixels<'a, Param3: ::std::convert::Into<WICBitmapTransformOptions>, Param4: ::std::convert::Into<WICPlanarOptions>>(&self, prcsource: *const WICRect, uiwidth: u32, uiheight: u32, dsttransform: Param3, dstplanaroptions: Param4, pdstplanes: &[WICBitmapPlane]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcsource), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), dsttransform.into(), dstplanaroptions.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(pdstplanes)), pdstplanes.len() as _).ok()
     }
 }
 impl ::core::convert::From<IWICPlanarBitmapSourceTransform> for ::windows::core::IUnknown {
@@ -5635,19 +5262,14 @@ impl ::core::convert::From<IWICPlanarBitmapSourceTransform> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPlanarBitmapSourceTransform> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPlanarBitmapSourceTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPlanarBitmapSourceTransform> for ::windows::core::IUnknown {
     fn from(value: &IWICPlanarBitmapSourceTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPlanarBitmapSourceTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPlanarBitmapSourceTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICPlanarBitmapSourceTransform {
@@ -5698,16 +5320,16 @@ impl IWICPlanarFormatConverter {
         (::windows::core::Interface::vtable(self).base__.GetResolution)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into_param().abi()).ok()
+    pub unsafe fn CopyPalette<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyPalette)(::windows::core::Interface::as_raw(self), pipalette.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, pbbuffer: &mut [u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CopyPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), pbbuffer.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pbbuffer))).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Initialize<'a, Param4: ::windows::core::IntoParam<'a, IWICPalette>>(&self, ppplanes: &[::core::option::Option<IWICBitmapSource>], dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: Param4, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppplanes)), ppplanes.len() as _, ::core::mem::transmute(dstformat), ::core::mem::transmute(dither), pipalette.into_param().abi(), ::core::mem::transmute(alphathresholdpercent), ::core::mem::transmute(palettetranslate)).ok()
+    pub unsafe fn Initialize<'a, Param3: ::std::convert::Into<WICBitmapDitherType>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IWICPalette>>, Param6: ::std::convert::Into<WICBitmapPaletteType>>(&self, ppplanes: &[::core::option::Option<IWICBitmapSource>], dstformat: *const ::windows::core::GUID, dither: Param3, pipalette: Param4, alphathresholdpercent: f64, palettetranslate: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(ppplanes)), ppplanes.len() as _, ::core::mem::transmute(dstformat), dither.into(), pipalette.into().abi(), ::core::mem::transmute(alphathresholdpercent), palettetranslate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5721,19 +5343,14 @@ impl ::core::convert::From<IWICPlanarFormatConverter> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPlanarFormatConverter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICPlanarFormatConverter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPlanarFormatConverter> for ::windows::core::IUnknown {
     fn from(value: &IWICPlanarFormatConverter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICPlanarFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICPlanarFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IWICPlanarFormatConverter> for IWICBitmapSource {
@@ -5741,19 +5358,14 @@ impl ::core::convert::From<IWICPlanarFormatConverter> for IWICBitmapSource {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICPlanarFormatConverter> for &'a IWICBitmapSource {
+    fn from(value: &'a IWICPlanarFormatConverter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICPlanarFormatConverter> for IWICBitmapSource {
     fn from(value: &IWICPlanarFormatConverter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for IWICPlanarFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IWICBitmapSource> for &'a IWICPlanarFormatConverter {
-    fn into_param(self) -> ::windows::core::Param<'a, IWICBitmapSource> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICPlanarFormatConverter {
@@ -5791,8 +5403,8 @@ pub struct IWICPlanarFormatConverter_Vtbl {
 pub struct IWICProgressCallback(::windows::core::IUnknown);
 impl IWICProgressCallback {
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn Notify(&self, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uframenum), ::core::mem::transmute(operation), ::core::mem::transmute(dblprogress)).ok()
+    pub unsafe fn Notify<'a, Param1: ::std::convert::Into<WICProgressOperation>>(&self, uframenum: u32, operation: Param1, dblprogress: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uframenum), operation.into(), ::core::mem::transmute(dblprogress)).ok()
     }
 }
 impl ::core::convert::From<IWICProgressCallback> for ::windows::core::IUnknown {
@@ -5800,19 +5412,14 @@ impl ::core::convert::From<IWICProgressCallback> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICProgressCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICProgressCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICProgressCallback> for ::windows::core::IUnknown {
     fn from(value: &IWICProgressCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICProgressCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICProgressCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICProgressCallback {
@@ -5865,19 +5472,14 @@ impl ::core::convert::From<IWICProgressiveLevelControl> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICProgressiveLevelControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICProgressiveLevelControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICProgressiveLevelControl> for ::windows::core::IUnknown {
     fn from(value: &IWICProgressiveLevelControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICProgressiveLevelControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICProgressiveLevelControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICProgressiveLevelControl {
@@ -5926,9 +5528,9 @@ impl IWICStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
+    pub unsafe fn Seek<'a, Param1: ::std::convert::Into<super::super::System::Com::STREAM_SEEK>>(&self, dlibmove: i64, dworigin: Param1) -> ::windows::core::Result<u64> {
         let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Seek)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dlibmove), dworigin.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5937,13 +5539,13 @@ impl IWICStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+    pub unsafe fn CopyTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyTo)(::windows::core::Interface::as_raw(self), pstm.into().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::STGC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(grfcommitflags)).ok()
+    pub unsafe fn Commit<'a, Param0: ::std::convert::Into<super::super::System::Com::STGC>>(&self, grfcommitflags: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self), grfcommitflags.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5973,12 +5575,12 @@ impl IWICStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromIStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromIStream)(::windows::core::Interface::as_raw(self), pistream.into_param().abi()).ok()
+    pub unsafe fn InitializeFromIStream<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pistream: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromIStream)(::windows::core::Interface::as_raw(self), pistream.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
-    pub unsafe fn InitializeFromFilename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, wzfilename: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), wzfilename.into_param().abi(), ::core::mem::transmute(dwdesiredaccess)).ok()
+    pub unsafe fn InitializeFromFilename(&self, wzfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromFilename)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wzfilename), ::core::mem::transmute(dwdesiredaccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
     pub unsafe fn InitializeFromMemory(&self, pbbuffer: &[u8]) -> ::windows::core::Result<()> {
@@ -5986,13 +5588,19 @@ impl IWICStream {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InitializeFromIStreamRegion<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, uloffset: u64, ulmaxsize: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeFromIStreamRegion)(::windows::core::Interface::as_raw(self), pistream.into_param().abi(), ::core::mem::transmute(uloffset), ::core::mem::transmute(ulmaxsize)).ok()
+    pub unsafe fn InitializeFromIStreamRegion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(&self, pistream: Param0, uloffset: u64, ulmaxsize: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeFromIStreamRegion)(::windows::core::Interface::as_raw(self), pistream.into().abi(), ::core::mem::transmute(uloffset), ::core::mem::transmute(ulmaxsize)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWICStream> for ::windows::core::IUnknown {
     fn from(value: IWICStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWICStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6003,20 +5611,14 @@ impl ::core::convert::From<&IWICStream> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWICStream> for super::super::System::Com::ISequentialStream {
     fn from(value: IWICStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWICStream> for &'a super::super::System::Com::ISequentialStream {
+    fn from(value: &'a IWICStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6027,20 +5629,14 @@ impl ::core::convert::From<&IWICStream> for super::super::System::Com::ISequenti
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream> for IWICStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream> for &'a IWICStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::ISequentialStream> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWICStream> for super::super::System::Com::IStream {
     fn from(value: IWICStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWICStream> for &'a super::super::System::Com::IStream {
+    fn from(value: &'a IWICStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6048,18 +5644,6 @@ impl ::core::convert::From<IWICStream> for super::super::System::Com::IStream {
 impl ::core::convert::From<&IWICStream> for super::super::System::Com::IStream {
     fn from(value: &IWICStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for IWICStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IStream> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IStream> for &'a IWICStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IStream> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6133,19 +5717,14 @@ impl ::core::convert::From<IWICStreamProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IWICStreamProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWICStreamProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IWICStreamProvider> for ::windows::core::IUnknown {
     fn from(value: &IWICStreamProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICStreamProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWICStreamProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IWICStreamProvider {
@@ -6851,35 +6430,35 @@ impl ::core::fmt::Debug for WICComponentType {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
-pub unsafe fn WICConvertBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IWICBitmapSource>>(dstformat: *const ::windows::core::GUID, pisrc: Param1) -> ::windows::core::Result<IWICBitmapSource> {
+pub unsafe fn WICConvertBitmapSource<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWICBitmapSource>>>(dstformat: *const ::windows::core::GUID, pisrc: Param1) -> ::windows::core::Result<IWICBitmapSource> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICConvertBitmapSource(dstformat: *const ::windows::core::GUID, pisrc: *mut ::core::ffi::c_void, ppidst: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    WICConvertBitmapSource(::core::mem::transmute(dstformat), pisrc.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapSource>(result__)
+    WICConvertBitmapSource(::core::mem::transmute(dstformat), pisrc.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmapSource>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: Param3, stride: u32, offset: u32) -> ::windows::core::Result<IWICBitmap> {
+pub unsafe fn WICCreateBitmapFromSection<'a, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: Param3, stride: u32, offset: u32) -> ::windows::core::Result<IWICBitmap> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICCreateBitmapFromSection(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, ppibitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    WICCreateBitmapFromSection(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), hsection.into_param().abi(), ::core::mem::transmute(stride), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+    WICCreateBitmapFromSection(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), hsection.into(), ::core::mem::transmute(stride), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: Param3, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel) -> ::windows::core::Result<IWICBitmap> {
+pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::std::convert::Into<super::super::Foundation::HANDLE>, Param6: ::std::convert::Into<WICSectionAccessLevel>>(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: Param3, stride: u32, offset: u32, desiredaccesslevel: Param6) -> ::windows::core::Result<IWICBitmap> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat: *const ::windows::core::GUID, hsection: super::super::Foundation::HANDLE, stride: u32, offset: u32, desiredaccesslevel: WICSectionAccessLevel, ppibitmap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    WICCreateBitmapFromSectionEx(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), hsection.into_param().abi(), ::core::mem::transmute(stride), ::core::mem::transmute(offset), ::core::mem::transmute(desiredaccesslevel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
+    WICCreateBitmapFromSectionEx(::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(pixelformat), hsection.into(), ::core::mem::transmute(stride), ::core::mem::transmute(offset), desiredaccesslevel.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWICBitmap>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -7066,13 +6645,13 @@ impl ::core::fmt::Debug for WICDecodeOptions {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
-pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::windows::core::IntoParam<'a, IWICMetadataWriter>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1) -> ::windows::core::Result<u64> {
+pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1) -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICGetMetadataContentSize(guidcontainerformat: *const ::windows::core::GUID, piwriter: *mut ::core::ffi::c_void, pcbsize: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-    WICGetMetadataContentSize(::core::mem::transmute(guidcontainerformat), piwriter.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+    WICGetMetadataContentSize(::core::mem::transmute(guidcontainerformat), piwriter.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -7654,33 +7233,33 @@ pub unsafe fn WICMapGuidToShortName(guid: *const ::windows::core::GUID, wzname: 
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
-pub unsafe fn WICMapSchemaToName<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(guidmetadataformat: *const ::windows::core::GUID, pwzschema: Param1, wzname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
+pub unsafe fn WICMapSchemaToName(guidmetadataformat: *const ::windows::core::GUID, pwzschema: ::windows::core::PCWSTR, wzname: &mut [u16], pcchactual: *mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICMapSchemaToName(guidmetadataformat: *const ::windows::core::GUID, pwzschema: ::windows::core::PCWSTR, cchname: u32, wzname: ::windows::core::PWSTR, pcchactual: *mut u32) -> ::windows::core::HRESULT;
     }
-    WICMapSchemaToName(::core::mem::transmute(guidmetadataformat), pwzschema.into_param().abi(), wzname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzname)), ::core::mem::transmute(pcchactual)).ok()
+    WICMapSchemaToName(::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pwzschema), wzname.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(wzname)), ::core::mem::transmute(pcchactual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[inline]
-pub unsafe fn WICMapShortNameToGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(wzname: Param0) -> ::windows::core::Result<::windows::core::GUID> {
+pub unsafe fn WICMapShortNameToGuid(wzname: ::windows::core::PCWSTR) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICMapShortNameToGuid(wzname: ::windows::core::PCWSTR, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-    WICMapShortNameToGuid(wzname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    WICMapShortNameToGuid(::core::mem::transmute(wzname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, pistream: Param2) -> ::windows::core::Result<::windows::core::GUID> {
+pub unsafe fn WICMatchMetadataContent<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, pistream: Param2) -> ::windows::core::Result<::windows::core::GUID> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICMatchMetadataContent(guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, pistream: *mut ::core::ffi::c_void, pguidmetadataformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-    WICMatchMetadataContent(::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), pistream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+    WICMatchMetadataContent(::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), pistream.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]
@@ -8630,12 +8209,12 @@ impl ::core::fmt::Debug for WICSectionAccessLevel {
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::core::IntoParam<'a, IWICMetadataWriter>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1, dwpersistoptions: u32, pistream: Param3) -> ::windows::core::Result<()> {
+pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IWICMetadataWriter>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1, dwpersistoptions: u32, pistream: Param3) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WICSerializeMetadataContent(guidcontainerformat: *const ::windows::core::GUID, piwriter: *mut ::core::ffi::c_void, dwpersistoptions: u32, pistream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    WICSerializeMetadataContent(::core::mem::transmute(guidcontainerformat), piwriter.into_param().abi(), ::core::mem::transmute(dwpersistoptions), pistream.into_param().abi()).ok()
+    WICSerializeMetadataContent(::core::mem::transmute(guidcontainerformat), piwriter.into().abi(), ::core::mem::transmute(dwpersistoptions), pistream.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Imaging\"`*"]
 #[repr(transparent)]

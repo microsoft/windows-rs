@@ -99,13 +99,13 @@ impl core::convert::TryFrom<&str> for IInspectable {
     type Error = Error;
     fn try_from(value: &str) -> Result<Self> {
         let value: HSTRING = value.into();
-        PropertyValue::CreateString(value)
+        PropertyValue::CreateString(&value)
     }
 }
 impl core::convert::TryFrom<HSTRING> for IInspectable {
     type Error = Error;
     fn try_from(value: HSTRING) -> Result<Self> {
-        PropertyValue::CreateString(value)
+        PropertyValue::CreateString(&value)
     }
 }
 impl core::convert::TryFrom<&HSTRING> for IInspectable {

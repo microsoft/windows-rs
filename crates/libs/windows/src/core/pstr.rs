@@ -32,8 +32,4 @@ impl ::core::fmt::Debug for PSTR {
 }
 unsafe impl Abi for PSTR {
     type Abi = Self;
-
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
-    }
 }

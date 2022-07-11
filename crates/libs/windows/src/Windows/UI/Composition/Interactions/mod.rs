@@ -3,9 +3,9 @@
 pub struct CompositionConditionalValue(::windows::core::IUnknown);
 impl CompositionConditionalValue {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -22,9 +22,9 @@ impl CompositionConditionalValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetCondition<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
@@ -35,15 +35,15 @@ impl CompositionConditionalValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<CompositionConditionalValue> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<CompositionConditionalValue> {
         Self::ICompositionConditionalValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<CompositionConditionalValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<CompositionConditionalValue>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -72,14 +72,14 @@ impl CompositionConditionalValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -90,9 +90,9 @@ impl CompositionConditionalValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -103,19 +103,19 @@ impl CompositionConditionalValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -127,11 +127,11 @@ impl CompositionConditionalValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc(hidden)]
@@ -180,14 +180,9 @@ impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IUnknown {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IInspectable {
@@ -200,14 +195,9 @@ impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IInspectable {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CompositionConditionalValue> for super::IAnimationObject {
@@ -222,14 +212,11 @@ impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::IAnimatio
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -247,15 +234,11 @@ impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<CompositionConditionalValue> for super::CompositionObject {
@@ -268,14 +251,9 @@ impl ::core::convert::From<&CompositionConditionalValue> for super::CompositionO
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &CompositionConditionalValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for CompositionConditionalValue {}
@@ -285,9 +263,9 @@ unsafe impl ::core::marker::Sync for CompositionConditionalValue {}
 pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
 impl CompositionInteractionSourceCollection {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -304,14 +282,14 @@ impl CompositionInteractionSourceCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, ICompositionInteractionSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Add<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ICompositionInteractionSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn RemoveAll(&self) -> ::windows::core::Result<()> {
@@ -344,14 +322,14 @@ impl CompositionInteractionSourceCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -362,9 +340,9 @@ impl CompositionInteractionSourceCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -375,19 +353,19 @@ impl CompositionInteractionSourceCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -399,11 +377,11 @@ impl CompositionInteractionSourceCollection {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
@@ -472,14 +450,9 @@ impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IUnknown {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
@@ -492,14 +465,9 @@ impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IInspectable {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::IAnimationObject {
@@ -514,14 +482,11 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -539,15 +504,11 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -565,15 +526,11 @@ impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> for &CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
-        ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<CompositionInteractionSourceCollection> for super::CompositionObject {
@@ -586,14 +543,9 @@ impl ::core::convert::From<&CompositionInteractionSourceCollection> for super::C
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &CompositionInteractionSourceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for CompositionInteractionSourceCollection {}
@@ -636,19 +588,14 @@ impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositionInteractionSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositionInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositionInteractionSource> for ::windows::core::IUnknown {
     fn from(value: &ICompositionInteractionSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::IInspectable {
@@ -656,19 +603,14 @@ impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositionInteractionSource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICompositionInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositionInteractionSource> for ::windows::core::IInspectable {
     fn from(value: &ICompositionInteractionSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositionInteractionSource {
@@ -1166,38 +1108,43 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
 pub struct IInteractionTrackerOwner(::windows::core::IUnknown);
 impl IInteractionTrackerOwner {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn CustomAnimationStateEntered<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTrackerCustomAnimationStateEnteredArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn CustomAnimationStateEntered<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTrackerCustomAnimationStateEnteredArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CustomAnimationStateEntered)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CustomAnimationStateEntered)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn IdleStateEntered<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTrackerIdleStateEnteredArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn IdleStateEntered<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTrackerIdleStateEnteredArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).IdleStateEntered)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).IdleStateEntered)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn InertiaStateEntered<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTrackerInertiaStateEnteredArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn InertiaStateEntered<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTrackerInertiaStateEnteredArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InertiaStateEntered)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InertiaStateEntered)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn InteractingStateEntered<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTrackerInteractingStateEnteredArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn InteractingStateEntered<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTrackerInteractingStateEnteredArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InteractingStateEntered)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InteractingStateEntered)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn RequestIgnored<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTrackerRequestIgnoredArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn RequestIgnored<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTrackerRequestIgnoredArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RequestIgnored)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RequestIgnored)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn ValuesChanged<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTrackerValuesChangedArgs>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
+    pub fn ValuesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTrackerValuesChangedArgs>>>(&self, sender: Param0, args: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ValuesChanged)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), args.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ValuesChanged)(::windows::core::Interface::as_raw(this), sender.into().abi(), args.into().abi()).ok() }
     }
 }
 impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IUnknown {
     fn from(value: IInteractionTrackerOwner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IInteractionTrackerOwner> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInteractionTrackerOwner) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1206,34 +1153,19 @@ impl ::core::convert::From<&IInteractionTrackerOwner> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IInspectable {
     fn from(value: IInteractionTrackerOwner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IInteractionTrackerOwner> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IInteractionTrackerOwner) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IInteractionTrackerOwner> for ::windows::core::IInspectable {
     fn from(value: &IInteractionTrackerOwner) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInteractionTrackerOwner {
@@ -1623,9 +1555,9 @@ unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
 pub struct InteractionSourceConfiguration(::windows::core::IUnknown);
 impl InteractionSourceConfiguration {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1659,14 +1591,14 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1677,9 +1609,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -1690,19 +1622,19 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -1714,11 +1646,11 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -1730,9 +1662,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionXSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
+    pub fn SetPositionXSourceMode<'a, Param0: ::std::convert::Into<InteractionSourceRedirectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
@@ -1743,9 +1675,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionYSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
+    pub fn SetPositionYSourceMode<'a, Param0: ::std::convert::Into<InteractionSourceRedirectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceRedirectionMode> {
@@ -1756,9 +1688,9 @@ impl InteractionSourceConfiguration {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetScaleSourceMode(&self, value: InteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
+    pub fn SetScaleSourceMode<'a, Param0: ::std::convert::Into<InteractionSourceRedirectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for InteractionSourceConfiguration {
@@ -1801,14 +1733,9 @@ impl ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionSourceConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &InteractionSourceConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionSourceConfiguration> for ::windows::core::IInspectable {
@@ -1821,14 +1748,9 @@ impl ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionSourceConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &InteractionSourceConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionSourceConfiguration> for super::IAnimationObject {
@@ -1843,14 +1765,11 @@ impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for super::IAnima
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1868,15 +1787,11 @@ impl ::core::convert::TryFrom<&InteractionSourceConfiguration> for super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionSourceConfiguration> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionSourceConfiguration) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionSourceConfiguration> for super::CompositionObject {
@@ -1889,14 +1804,9 @@ impl ::core::convert::From<&InteractionSourceConfiguration> for super::Compositi
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionSourceConfiguration> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionSourceConfiguration) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
@@ -1975,9 +1885,9 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
 pub struct InteractionTracker(::windows::core::IUnknown);
 impl InteractionTracker {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2011,14 +1921,14 @@ impl InteractionTracker {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2029,9 +1939,9 @@ impl InteractionTracker {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -2042,19 +1952,19 @@ impl InteractionTracker {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -2066,11 +1976,11 @@ impl InteractionTracker {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2100,9 +2010,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMaxPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMaxPosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn MaxScale(&self) -> ::windows::core::Result<f32> {
@@ -2128,9 +2038,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetMinPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMinPosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMinPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMinPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn MinScale(&self) -> ::windows::core::Result<f32> {
@@ -2190,9 +2100,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetPositionInertiaDecayRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPositionInertiaDecayRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionInertiaDecayRate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionInertiaDecayRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -2222,9 +2132,9 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetScaleInertiaDecayRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<f32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetScaleInertiaDecayRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::IReference<f32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleInertiaDecayRate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleInertiaDecayRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleVelocityInPercentPerSecond(&self) -> ::windows::core::Result<f32> {
@@ -2246,118 +2156,118 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigurePositionXInertiaModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigurePositionXInertiaModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigurePositionXInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigurePositionXInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigurePositionYInertiaModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigurePositionYInertiaModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigurePositionYInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigurePositionYInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureScaleInertiaModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureScaleInertiaModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureScaleInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureScaleInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePosition)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePosition)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionBy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, amount: Param0) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionBy)(::windows::core::Interface::as_raw(this), amount.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionBy)(::windows::core::Interface::as_raw(this), amount, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryUpdatePositionWithAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePositionWithAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, animation: Param0) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithAnimation)(::windows::core::Interface::as_raw(this), animation.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithAnimation)(::windows::core::Interface::as_raw(this), animation.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithAdditionalVelocity<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, velocityinpixelspersecond: Param0) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePositionWithAdditionalVelocity(&self, velocityinpixelspersecond: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithAdditionalVelocity)(::windows::core::Interface::as_raw(this), velocityinpixelspersecond.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithAdditionalVelocity)(::windows::core::Interface::as_raw(this), velocityinpixelspersecond, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScale<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: f32, centerpoint: Param1) -> ::windows::core::Result<i32> {
+    pub fn TryUpdateScale(&self, value: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdateScale)(::windows::core::Interface::as_raw(this), value, centerpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdateScale)(::windows::core::Interface::as_raw(this), value, centerpoint, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScaleWithAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::CompositionAnimation>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, animation: Param0, centerpoint: Param1) -> ::windows::core::Result<i32> {
+    pub fn TryUpdateScaleWithAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, animation: Param0, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdateScaleWithAnimation)(::windows::core::Interface::as_raw(this), animation.into_param().abi(), centerpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdateScaleWithAnimation)(::windows::core::Interface::as_raw(this), animation.into().abi(), centerpoint, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdateScaleWithAdditionalVelocity<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, velocityinpercentpersecond: f32, centerpoint: Param1) -> ::windows::core::Result<i32> {
+    pub fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdateScaleWithAdditionalVelocity)(::windows::core::Interface::as_raw(this), velocityinpercentpersecond, centerpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdateScaleWithAdditionalVelocity)(::windows::core::Interface::as_raw(this), velocityinpercentpersecond, centerpoint, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointXInertiaModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureCenterPointXInertiaModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointXInertiaModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointXInertiaModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointYInertiaModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureCenterPointYInertiaModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointYInertiaModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointYInertiaModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureVector2PositionInertiaModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureVector2PositionInertiaModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, modifiers: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureVector2PositionInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureVector2PositionInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePositionWithOption<'a, Param1: ::std::convert::Into<InteractionTrackerClampingOption>>(&self, value: super::super::super::Foundation::Numerics::Vector3, option: Param1) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value.into_param().abi(), option, result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option.into(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionByWithOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, amount: Param0, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePositionByWithOption<'a, Param1: ::std::convert::Into<InteractionTrackerClampingOption>>(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: Param1) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionByWithOption)(::windows::core::Interface::as_raw(this), amount.into_param().abi(), option, result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionByWithOption)(::windows::core::Interface::as_raw(this), amount, option.into(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -2370,36 +2280,36 @@ impl InteractionTracker {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryUpdatePositionWithOption2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32> {
+    pub fn TryUpdatePositionWithOption2<'a, Param1: ::std::convert::Into<InteractionTrackerClampingOption>, Param2: ::std::convert::Into<InteractionTrackerPositionUpdateOption>>(&self, value: super::super::super::Foundation::Numerics::Vector3, option: Param1, posupdateoption: Param2) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value.into_param().abi(), option, posupdateoption, result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option.into(), posupdateoption.into(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<InteractionTracker> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<InteractionTracker> {
         Self::IInteractionTrackerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionTracker>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<InteractionTracker>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn CreateWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>, Param1: ::windows::core::IntoParam<'a, IInteractionTrackerOwner>>(compositor: Param0, owner: Param1) -> ::windows::core::Result<InteractionTracker> {
+    pub fn CreateWithOwner<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IInteractionTrackerOwner>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(compositor: Param0, owner: Param1) -> ::windows::core::Result<InteractionTracker> {
         Self::IInteractionTrackerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithOwner)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), owner.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionTracker>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithOwner)(::windows::core::Interface::as_raw(this), compositor.into().abi(), owner.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<InteractionTracker>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetBindingMode<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTracker>>(boundtracker1: Param0, boundtracker2: Param1, axismode: InteractionBindingAxisModes) -> ::windows::core::Result<()> {
-        Self::IInteractionTrackerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetBindingMode)(::windows::core::Interface::as_raw(this), boundtracker1.into_param().abi(), boundtracker2.into_param().abi(), axismode).ok() })
+    pub fn SetBindingMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param2: ::std::convert::Into<InteractionBindingAxisModes>>(boundtracker1: Param0, boundtracker2: Param1, axismode: Param2) -> ::windows::core::Result<()> {
+        Self::IInteractionTrackerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetBindingMode)(::windows::core::Interface::as_raw(this), boundtracker1.into().abi(), boundtracker2.into().abi(), axismode.into()).ok() })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn GetBindingMode<'a, Param0: ::windows::core::IntoParam<'a, InteractionTracker>, Param1: ::windows::core::IntoParam<'a, InteractionTracker>>(boundtracker1: Param0, boundtracker2: Param1) -> ::windows::core::Result<InteractionBindingAxisModes> {
+    pub fn GetBindingMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, InteractionTracker>>>(boundtracker1: Param0, boundtracker2: Param1) -> ::windows::core::Result<InteractionBindingAxisModes> {
         Self::IInteractionTrackerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<InteractionBindingAxisModes>::zeroed();
-            (::windows::core::Interface::vtable(this).GetBindingMode)(::windows::core::Interface::as_raw(this), boundtracker1.into_param().abi(), boundtracker2.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionBindingAxisModes>(result__)
+            (::windows::core::Interface::vtable(this).GetBindingMode)(::windows::core::Interface::as_raw(this), boundtracker1.into().abi(), boundtracker2.into().abi(), result__.as_mut_ptr()).from_abi::<InteractionBindingAxisModes>(result__)
         })
     }
     #[doc(hidden)]
@@ -2453,14 +2363,9 @@ impl ::core::convert::From<&InteractionTracker> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTracker> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTracker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTracker> for ::windows::core::IInspectable {
@@ -2473,14 +2378,9 @@ impl ::core::convert::From<&InteractionTracker> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTracker> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTracker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTracker> for super::IAnimationObject {
@@ -2495,14 +2395,11 @@ impl ::core::convert::TryFrom<&InteractionTracker> for super::IAnimationObject {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTracker) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2520,15 +2417,11 @@ impl ::core::convert::TryFrom<&InteractionTracker> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTracker> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTracker) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTracker> for super::CompositionObject {
@@ -2541,14 +2434,9 @@ impl ::core::convert::From<&InteractionTracker> for super::CompositionObject {
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTracker {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTracker> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTracker) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTracker {}
@@ -2648,14 +2536,9 @@ impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerCustomAnimationStateEnteredArgs> for ::windows::core::IInspectable {
@@ -2668,14 +2551,9 @@ impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerCustomAnimationStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerCustomAnimationStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
@@ -2741,14 +2619,9 @@ impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerIdleStateEnteredArgs> for ::windows::core::IInspectable {
@@ -2761,14 +2634,9 @@ impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerIdleStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerIdleStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
@@ -2778,9 +2646,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
 pub struct InteractionTrackerInertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerInertiaModifier {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2814,14 +2682,14 @@ impl InteractionTrackerInertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2832,9 +2700,9 @@ impl InteractionTrackerInertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -2845,19 +2713,19 @@ impl InteractionTrackerInertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -2869,11 +2737,11 @@ impl InteractionTrackerInertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
 }
@@ -2917,14 +2785,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaModifier> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaModifier> for ::windows::core::IInspectable {
@@ -2937,14 +2800,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaModifier> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTrackerInertiaModifier> for super::IAnimationObject {
@@ -2959,14 +2817,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for super::IAn
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2984,15 +2839,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaModifier) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaModifier> for super::CompositionObject {
@@ -3005,14 +2856,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaModifier> for super::Compos
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTrackerInertiaModifier) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaModifier {}
@@ -3022,9 +2868,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerInertiaModifier {}
 pub struct InteractionTrackerInertiaMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaMotion {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3058,14 +2904,14 @@ impl InteractionTrackerInertiaMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3076,9 +2922,9 @@ impl InteractionTrackerInertiaMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -3089,19 +2935,19 @@ impl InteractionTrackerInertiaMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -3113,11 +2959,11 @@ impl InteractionTrackerInertiaMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3129,9 +2975,9 @@ impl InteractionTrackerInertiaMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetCondition<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Motion(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
@@ -3142,15 +2988,15 @@ impl InteractionTrackerInertiaMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetMotion<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMotion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMotion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMotion)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerInertiaMotion> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerInertiaMotion> {
         Self::IInteractionTrackerInertiaMotionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerInertiaMotion>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerInertiaMotion>(result__)
         })
     }
     #[doc(hidden)]
@@ -3199,14 +3045,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaMotion> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaMotion> for ::windows::core::IInspectable {
@@ -3219,14 +3060,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaMotion> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTrackerInertiaMotion> for super::IAnimationObject {
@@ -3241,14 +3077,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for super::IAnim
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3266,15 +3099,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for super::super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaMotion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaMotion> for InteractionTrackerInertiaModifier {
@@ -3287,14 +3116,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for InteractionTrac
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for &InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
-        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerInertiaModifier>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, InteractionTrackerInertiaModifier> {
+    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaMotion> for super::CompositionObject {
@@ -3307,14 +3131,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaMotion> for super::Composit
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTrackerInertiaMotion) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaMotion {}
@@ -3324,9 +3143,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerInertiaMotion {}
 pub struct InteractionTrackerInertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaNaturalMotion {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3360,14 +3179,14 @@ impl InteractionTrackerInertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3378,9 +3197,9 @@ impl InteractionTrackerInertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -3391,19 +3210,19 @@ impl InteractionTrackerInertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -3415,11 +3234,11 @@ impl InteractionTrackerInertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3431,9 +3250,9 @@ impl InteractionTrackerInertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetCondition<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn NaturalMotion(&self) -> ::windows::core::Result<super::ScalarNaturalMotionAnimation> {
@@ -3444,15 +3263,15 @@ impl InteractionTrackerInertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetNaturalMotion<'a, Param0: ::windows::core::IntoParam<'a, super::ScalarNaturalMotionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNaturalMotion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ScalarNaturalMotionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNaturalMotion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNaturalMotion)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerInertiaNaturalMotion> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerInertiaNaturalMotion> {
         Self::IInteractionTrackerInertiaNaturalMotionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerInertiaNaturalMotion>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerInertiaNaturalMotion>(result__)
         })
     }
     #[doc(hidden)]
@@ -3501,14 +3320,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for ::windows::core::IInspectable {
@@ -3521,14 +3335,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTrackerInertiaNaturalMotion> for super::IAnimationObject {
@@ -3543,14 +3352,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for super
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3568,15 +3374,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for super
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaNaturalMotion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for InteractionTrackerInertiaModifier {
@@ -3589,14 +3391,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for Interact
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for &InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
-        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerInertiaModifier>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, InteractionTrackerInertiaModifier> {
+    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaNaturalMotion> for super::CompositionObject {
@@ -3609,14 +3406,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for super::C
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTrackerInertiaNaturalMotion) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaNaturalMotion {}
@@ -3626,9 +3418,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerInertiaNaturalMotion {}
 pub struct InteractionTrackerInertiaRestingValue(::windows::core::IUnknown);
 impl InteractionTrackerInertiaRestingValue {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3662,14 +3454,14 @@ impl InteractionTrackerInertiaRestingValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3680,9 +3472,9 @@ impl InteractionTrackerInertiaRestingValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -3693,19 +3485,19 @@ impl InteractionTrackerInertiaRestingValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -3717,11 +3509,11 @@ impl InteractionTrackerInertiaRestingValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -3733,9 +3525,9 @@ impl InteractionTrackerInertiaRestingValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetCondition<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn RestingValue(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
@@ -3746,15 +3538,15 @@ impl InteractionTrackerInertiaRestingValue {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetRestingValue<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRestingValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRestingValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRestingValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerInertiaRestingValue> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerInertiaRestingValue> {
         Self::IInteractionTrackerInertiaRestingValueStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerInertiaRestingValue>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerInertiaRestingValue>(result__)
         })
     }
     #[doc(hidden)]
@@ -3803,14 +3595,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for ::windows::core::IInspectable {
@@ -3823,14 +3610,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTrackerInertiaRestingValue> for super::IAnimationObject {
@@ -3845,14 +3627,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for super:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3870,15 +3649,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerInertiaRestingValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for InteractionTrackerInertiaModifier {
@@ -3891,14 +3666,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for Interacti
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerInertiaModifier> for &InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerInertiaModifier> {
-        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerInertiaModifier>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, InteractionTrackerInertiaModifier> {
+    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaRestingValue> for super::CompositionObject {
@@ -3911,14 +3681,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaRestingValue> for super::Co
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerInertiaRestingValue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTrackerInertiaRestingValue) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaRestingValue {}
@@ -4044,14 +3809,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerInertiaStateEnteredArgs> for ::windows::core::IInspectable {
@@ -4064,14 +3824,9 @@ impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInertiaStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerInertiaStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
@@ -4137,14 +3892,9 @@ impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerInteractingStateEnteredArgs> for ::windows::core::IInspectable {
@@ -4157,14 +3907,9 @@ impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerInteractingStateEnteredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerInteractingStateEnteredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
@@ -4256,14 +4001,9 @@ impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerRequestIgnoredArgs> for ::windows::core::IInspectable {
@@ -4276,14 +4016,9 @@ impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerRequestIgnoredArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerRequestIgnoredArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerRequestIgnoredArgs {}
@@ -4358,14 +4093,9 @@ impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerValuesChangedArgs> for ::windows::core::IInspectable {
@@ -4378,14 +4108,9 @@ impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerValuesChangedArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerValuesChangedArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerValuesChangedArgs {}
@@ -4395,9 +4120,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerValuesChangedArgs {}
 pub struct InteractionTrackerVector2InertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaModifier {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4431,14 +4156,14 @@ impl InteractionTrackerVector2InertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4449,9 +4174,9 @@ impl InteractionTrackerVector2InertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -4462,19 +4187,19 @@ impl InteractionTrackerVector2InertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4486,11 +4211,11 @@ impl InteractionTrackerVector2InertiaModifier {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
 }
@@ -4534,14 +4259,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaModifier> for ::windows::core::IInspectable {
@@ -4554,14 +4274,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTrackerVector2InertiaModifier> for super::IAnimationObject {
@@ -4576,14 +4291,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for sup
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4601,15 +4313,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for sup
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerVector2InertiaModifier) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaModifier> for super::CompositionObject {
@@ -4622,14 +4330,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for super:
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerVector2InertiaModifier {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTrackerVector2InertiaModifier) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaModifier {}
@@ -4639,9 +4342,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaModifier {}
 pub struct InteractionTrackerVector2InertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaNaturalMotion {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4675,14 +4378,14 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4693,9 +4396,9 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -4706,19 +4409,19 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -4730,11 +4433,11 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -4746,9 +4449,9 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetCondition<'a, Param0: ::windows::core::IntoParam<'a, super::ExpressionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCondition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn NaturalMotion(&self) -> ::windows::core::Result<super::Vector2NaturalMotionAnimation> {
@@ -4759,15 +4462,15 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetNaturalMotion<'a, Param0: ::windows::core::IntoParam<'a, super::Vector2NaturalMotionAnimation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNaturalMotion<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Vector2NaturalMotionAnimation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNaturalMotion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNaturalMotion)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Compositor>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerVector2InertiaNaturalMotion> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>>(compositor: Param0) -> ::windows::core::Result<InteractionTrackerVector2InertiaNaturalMotion> {
         Self::IInteractionTrackerVector2InertiaNaturalMotionStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerVector2InertiaNaturalMotion>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<InteractionTrackerVector2InertiaNaturalMotion>(result__)
         })
     }
     #[doc(hidden)]
@@ -4816,14 +4519,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for &::windows::core::IUnknown {
+    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::IInspectable {
@@ -4836,14 +4534,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for &::windows::core::IInspectable {
+    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InteractionTrackerVector2InertiaNaturalMotion> for super::IAnimationObject {
@@ -4858,14 +4551,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> fo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4883,15 +4573,11 @@ impl ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> fo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for InteractionTrackerVector2InertiaModifier {
@@ -4904,14 +4590,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for I
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerVector2InertiaModifier> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerVector2InertiaModifier> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, InteractionTrackerVector2InertiaModifier> for &InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, InteractionTrackerVector2InertiaModifier> {
-        ::windows::core::Param::Owned(::core::convert::Into::<InteractionTrackerVector2InertiaModifier>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, InteractionTrackerVector2InertiaModifier> {
+    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 impl ::core::convert::From<InteractionTrackerVector2InertiaNaturalMotion> for super::CompositionObject {
@@ -4924,14 +4605,9 @@ impl ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for s
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &InteractionTrackerVector2InertiaNaturalMotion {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &InteractionTrackerVector2InertiaNaturalMotion) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaNaturalMotion {}
@@ -4941,9 +4617,9 @@ unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaNaturalMoti
 pub struct VisualInteractionSource(::windows::core::IUnknown);
 impl VisualInteractionSource {
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn PopulatePropertyInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::AnimationPropertyInfo>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
+    pub fn PopulatePropertyInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>>(&self, propertyname: Param0, propertyinfo: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), propertyinfo.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4977,14 +4653,14 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::CompositionAnimation>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
+    pub fn StartAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>>(&self, propertyname: Param0, animation: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), animation.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), animation.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), propertyname.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4995,9 +4671,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetComment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
@@ -5008,19 +4684,19 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetImplicitAnimations<'a, Param0: ::windows::core::IntoParam<'a, super::ImplicitAnimationCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetImplicitAnimations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StartAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StartAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn StopAnimationGroup<'a, Param0: ::windows::core::IntoParam<'a, super::ICompositionAnimationBase>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn StopAnimationGroup<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -5032,11 +4708,11 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn TryGetAnimationController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
+    pub fn TryGetAnimationController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyname: Param0) -> ::windows::core::Result<super::AnimationController> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
@@ -5074,9 +4750,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetManipulationRedirectionMode(&self, value: VisualInteractionSourceRedirectionMode) -> ::windows::core::Result<()> {
+    pub fn SetManipulationRedirectionMode<'a, Param0: ::std::convert::Into<VisualInteractionSourceRedirectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetManipulationRedirectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetManipulationRedirectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionXChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
@@ -5087,9 +4763,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionXChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
+    pub fn SetPositionXChainingMode<'a, Param0: ::std::convert::Into<InteractionChainingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionXChainingMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionXChainingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionXSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
@@ -5100,9 +4776,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionXSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
+    pub fn SetPositionXSourceMode<'a, Param0: ::std::convert::Into<InteractionSourceMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionXSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionYChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
@@ -5113,9 +4789,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionYChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
+    pub fn SetPositionYChainingMode<'a, Param0: ::std::convert::Into<InteractionChainingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionYChainingMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionYChainingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PositionYSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
@@ -5126,9 +4802,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetPositionYSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
+    pub fn SetPositionYSourceMode<'a, Param0: ::std::convert::Into<InteractionSourceMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPositionYSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleChainingMode(&self) -> ::windows::core::Result<InteractionChainingMode> {
@@ -5139,9 +4815,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetScaleChainingMode(&self, value: InteractionChainingMode) -> ::windows::core::Result<()> {
+    pub fn SetScaleChainingMode<'a, Param0: ::std::convert::Into<InteractionChainingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleChainingMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleChainingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn ScaleSourceMode(&self) -> ::windows::core::Result<InteractionSourceMode> {
@@ -5152,9 +4828,9 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn SetScaleSourceMode(&self, value: InteractionSourceMode) -> ::windows::core::Result<()> {
+    pub fn SetScaleSourceMode<'a, Param0: ::std::convert::Into<InteractionSourceMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScaleSourceMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<super::Visual> {
@@ -5166,9 +4842,9 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"UI_Input\"`*"]
     #[cfg(feature = "UI_Input")]
-    pub fn TryRedirectForManipulation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Input::PointerPoint>>(&self, pointerpoint: Param0) -> ::windows::core::Result<()> {
+    pub fn TryRedirectForManipulation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Input::PointerPoint>>>(&self, pointerpoint: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).TryRedirectForManipulation)(::windows::core::Interface::as_raw(this), pointerpoint.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).TryRedirectForManipulation)(::windows::core::Interface::as_raw(this), pointerpoint.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -5223,33 +4899,33 @@ impl VisualInteractionSource {
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointXModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureCenterPointXModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointXModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointXModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureCenterPointYModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureCenterPointYModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointYModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointYModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureDeltaPositionXModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureDeltaPositionXModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaPositionXModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaPositionXModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureDeltaPositionYModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureDeltaPositionYModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaPositionYModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaPositionYModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ConfigureDeltaScaleModifiers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
+    pub fn ConfigureDeltaScaleModifiers<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, conditionalvalues: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaScaleModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaScaleModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
     pub fn PointerWheelConfig(&self) -> ::windows::core::Result<InteractionSourceConfiguration> {
@@ -5260,17 +4936,17 @@ impl VisualInteractionSource {
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Visual>>(source: Param0) -> ::windows::core::Result<VisualInteractionSource> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Visual>>>(source: Param0) -> ::windows::core::Result<VisualInteractionSource> {
         Self::IVisualInteractionSourceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<VisualInteractionSource>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<VisualInteractionSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-    pub fn CreateFromIVisualElement<'a, Param0: ::windows::core::IntoParam<'a, super::IVisualElement>>(source: Param0) -> ::windows::core::Result<VisualInteractionSource> {
+    pub fn CreateFromIVisualElement<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IVisualElement>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(source: Param0) -> ::windows::core::Result<VisualInteractionSource> {
         Self::IVisualInteractionSourceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIVisualElement)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<VisualInteractionSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIVisualElement)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VisualInteractionSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -5324,14 +5000,9 @@ impl ::core::convert::From<&VisualInteractionSource> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualInteractionSource> for &::windows::core::IUnknown {
+    fn from(value: &VisualInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VisualInteractionSource> for ::windows::core::IInspectable {
@@ -5344,14 +5015,9 @@ impl ::core::convert::From<&VisualInteractionSource> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VisualInteractionSource> for &::windows::core::IInspectable {
+    fn from(value: &VisualInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VisualInteractionSource> for super::IAnimationObject {
@@ -5366,14 +5032,11 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for super::IAnimationObj
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IAnimationObject> {
-        ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -5391,15 +5054,11 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<VisualInteractionSource> for ICompositionInteractionSource {
@@ -5414,14 +5073,11 @@ impl ::core::convert::TryFrom<&VisualInteractionSource> for ICompositionInteract
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ICompositionInteractionSource> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ICompositionInteractionSource> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICompositionInteractionSource> for &VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ICompositionInteractionSource> {
-        ::core::convert::TryInto::<ICompositionInteractionSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VisualInteractionSource> for ::windows::core::InParam<'a, ICompositionInteractionSource> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VisualInteractionSource) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::From<VisualInteractionSource> for super::CompositionObject {
@@ -5434,14 +5090,9 @@ impl ::core::convert::From<&VisualInteractionSource> for super::CompositionObjec
         ::windows::core::Interface::cast(value).unwrap()
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::CompositionObject> for &VisualInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, super::CompositionObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::CompositionObject>::into(self))
+impl<'a> ::core::convert::From<&VisualInteractionSource> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &VisualInteractionSource) -> Self {
+        ::windows::core::InParam::owned(value.into())
     }
 }
 unsafe impl ::core::marker::Send for VisualInteractionSource {}

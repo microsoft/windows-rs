@@ -10,9 +10,9 @@ impl HostMessageReceivedCallback {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>>(&self, receiverid: Param0, message: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), message.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -575,56 +575,56 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, hostexepath: Param0, arguments: Param1, activator: IsolatedWindowsEnvironmentActivator) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
+    pub fn StartProcessSilentlyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>>(&self, hostexepath: Param0, arguments: Param1, activator: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows::core::Interface::as_raw(this), hostexepath.into_param().abi(), arguments.into_param().abi(), activator, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartProcessSilentlyAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StartProcessSilentlyWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, hostexepath: Param0, arguments: Param1, activator: IsolatedWindowsEnvironmentActivator, telemetryparameters: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
+    pub fn StartProcessSilentlyWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<IsolatedWindowsEnvironmentActivator>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, hostexepath: Param0, arguments: Param1, activator: Param2, telemetryparameters: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostexepath.into_param().abi(), arguments.into_param().abi(), activator, telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
+            (::windows::core::Interface::vtable(this).StartProcessSilentlyWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostexepath.into().abi(), arguments.into().abi(), activator.into(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentStartProcessResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFolderAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>(&self, hostfolder: Param0, requestoptions: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
+    pub fn ShareFolderAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>>(&self, hostfolder: Param0, requestoptions: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShareFolderAsync)(::windows::core::Interface::as_raw(this), hostfolder.into_param().abi(), requestoptions.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>(result__)
+            (::windows::core::Interface::vtable(this).ShareFolderAsync)(::windows::core::Interface::as_raw(this), hostfolder.into().abi(), requestoptions.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFolderWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>, Param2: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, hostfolder: Param0, requestoptions: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
+    pub fn ShareFolderWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFolderRequestOptions>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, hostfolder: Param0, requestoptions: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostfolder.into_param().abi(), requestoptions.into_param().abi(), telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>(result__)
+            (::windows::core::Interface::vtable(this).ShareFolderWithTelemetryAsync)(::windows::core::Interface::as_raw(this), hostfolder.into().abi(), requestoptions.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFolderResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFileWithUIAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, appexepath: Param0, argumentstemplate: Param1, filepath: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
+    pub fn LaunchFileWithUIAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, appexepath: Param0, argumentstemplate: Param1, filepath: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFileWithUIAsync)(::windows::core::Interface::as_raw(this), appexepath.into_param().abi(), argumentstemplate.into_param().abi(), filepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFileWithUIAsync)(::windows::core::Interface::as_raw(this), appexepath.into().abi(), argumentstemplate.into().abi(), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFileWithUIAndTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, appexepath: Param0, argumentstemplate: Param1, filepath: Param2, telemetryparameters: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
+    pub fn LaunchFileWithUIAndTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, appexepath: Param0, argumentstemplate: Param1, filepath: Param2, telemetryparameters: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows::core::Interface::as_raw(this), appexepath.into_param().abi(), argumentstemplate.into_param().abi(), filepath.into_param().abi(), telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFileWithUIAndTelemetryAsync)(::windows::core::Interface::as_raw(this), appexepath.into().abi(), argumentstemplate.into().abi(), filepath.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentLaunchFileResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
@@ -638,40 +638,40 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TerminateWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, telemetryparameters: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn TerminateWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, telemetryparameters: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).TerminateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterMessageReceiver<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, MessageReceivedCallback>>(&self, receiverid: Param0, messagereceivedcallback: Param1) -> ::windows::core::Result<()> {
+    pub fn RegisterMessageReceiver<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, MessageReceivedCallback>>>(&self, receiverid: ::windows::core::GUID, messagereceivedcallback: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), messagereceivedcallback.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid, messagereceivedcallback.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn UnregisterMessageReceiver<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, receiverid: Param0) -> ::windows::core::Result<()> {
+    pub fn UnregisterMessageReceiver(&self, receiverid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UnregisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UnregisterMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>>(&self, receiverid: Param0, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
+    pub fn PostMessageToReceiverAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
+            (::windows::core::Interface::vtable(this).PostMessageToReceiverAsync)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiverWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Param2: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, receiverid: Param0, message: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
+    pub fn PostMessageToReceiverWithTelemetryAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, receiverid: ::windows::core::GUID, message: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), message.into_param().abi(), telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
+            (::windows::core::Interface::vtable(this).PostMessageToReceiverWithTelemetryAsync)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentPostMessageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
@@ -684,51 +684,51 @@ impl IsolatedWindowsEnvironment {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>(&self, filepath: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
+    pub fn ShareFileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>>(&self, filepath: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShareFileAsync)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>(result__)
+            (::windows::core::Interface::vtable(this).ShareFileAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShareFileWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>, Param2: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(&self, filepath: Param0, options: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
+    pub fn ShareFileWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentShareFileRequestOptions>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(&self, filepath: Param0, options: Param1, telemetryparameters: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironment3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), options.into_param().abi(), telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>(result__)
+            (::windows::core::Interface::vtable(this).ShareFileWithTelemetryAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), options.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IsolatedWindowsEnvironmentShareFileResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateAsync<'a, Param0: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentOptions>>(options: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
+    pub fn CreateAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOptions>>>(options: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithTelemetryAsync<'a, Param0: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentOptions>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>(options: Param0, telemetryparameters: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
+    pub fn CreateWithTelemetryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOptions>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentTelemetryParameters>>>(options: Param0, telemetryparameters: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), options.into_param().abi(), telemetryparameters.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithTelemetryAsync)(::windows::core::Interface::as_raw(this), options.into().abi(), telemetryparameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IsolatedWindowsEnvironmentCreateResult, IsolatedWindowsEnvironmentCreateProgress>>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn GetById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(environmentid: Param0) -> ::windows::core::Result<IsolatedWindowsEnvironment> {
+    pub fn GetById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(environmentid: Param0) -> ::windows::core::Result<IsolatedWindowsEnvironment> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetById)(::windows::core::Interface::as_raw(this), environmentid.into_param().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironment>(result__)
+            (::windows::core::Interface::vtable(this).GetById)(::windows::core::Interface::as_raw(this), environmentid.into().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironment>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindByOwnerId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(environmentownerid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
+    pub fn FindByOwnerId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(environmentownerid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>> {
         Self::IIsolatedWindowsEnvironmentFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindByOwnerId)(::windows::core::Interface::as_raw(this), environmentownerid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>(result__)
+            (::windows::core::Interface::vtable(this).FindByOwnerId)(::windows::core::Interface::as_raw(this), environmentownerid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<IsolatedWindowsEnvironment>>(result__)
         })
     }
     #[doc(hidden)]
@@ -777,14 +777,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironment> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironment> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironment> for ::windows::core::IInspectable {
@@ -797,14 +792,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironment> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironment> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
@@ -1141,14 +1131,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentCreateResult> for ::windows::core::IInspectable {
@@ -1161,14 +1146,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentCreateResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentCreateResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
@@ -1290,14 +1270,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentFile> for ::windows::core::IInspectable {
@@ -1310,14 +1285,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentFile> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentFile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentFile {}
@@ -1455,14 +1425,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentLaunchFileResult> for ::windows::core::IInspectable {
@@ -1475,14 +1440,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentLaunchFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentLaunchFileResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
@@ -1545,9 +1505,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetEnvironmentOwnerId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEnvironmentOwnerId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnvironmentOwnerId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnvironmentOwnerId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AllowedClipboardFormats(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAllowedClipboardFormats> {
@@ -1558,9 +1518,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetAllowedClipboardFormats(&self, value: IsolatedWindowsEnvironmentAllowedClipboardFormats) -> ::windows::core::Result<()> {
+    pub fn SetAllowedClipboardFormats<'a, Param0: ::std::convert::Into<IsolatedWindowsEnvironmentAllowedClipboardFormats>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowedClipboardFormats)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowedClipboardFormats)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn ClipboardCopyPasteDirections(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentClipboardCopyPasteDirections> {
@@ -1571,9 +1531,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetClipboardCopyPasteDirections(&self, value: IsolatedWindowsEnvironmentClipboardCopyPasteDirections) -> ::windows::core::Result<()> {
+    pub fn SetClipboardCopyPasteDirections<'a, Param0: ::std::convert::Into<IsolatedWindowsEnvironmentClipboardCopyPasteDirections>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClipboardCopyPasteDirections)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn AvailablePrinters(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentAvailablePrinters> {
@@ -1584,9 +1544,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetAvailablePrinters(&self, value: IsolatedWindowsEnvironmentAvailablePrinters) -> ::windows::core::Result<()> {
+    pub fn SetAvailablePrinters<'a, Param0: ::std::convert::Into<IsolatedWindowsEnvironmentAvailablePrinters>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAvailablePrinters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAvailablePrinters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn SharedHostFolderPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1605,9 +1565,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn ShareHostFolderForUntrustedItems<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, sharedhostfolderpath: Param0, sharefoldernameinenvironment: Param1) -> ::windows::core::Result<()> {
+    pub fn ShareHostFolderForUntrustedItems<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, sharedhostfolderpath: Param0, sharefoldernameinenvironment: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShareHostFolderForUntrustedItems)(::windows::core::Interface::as_raw(this), sharedhostfolderpath.into_param().abi(), sharefoldernameinenvironment.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShareHostFolderForUntrustedItems)(::windows::core::Interface::as_raw(this), sharedhostfolderpath.into().abi(), sharefoldernameinenvironment.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn PersistUserProfile(&self) -> ::windows::core::Result<bool> {
@@ -1657,9 +1617,9 @@ impl IsolatedWindowsEnvironmentOptions {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetWindowAnnotationOverride<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetWindowAnnotationOverride<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IIsolatedWindowsEnvironmentOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetWindowAnnotationOverride)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWindowAnnotationOverride)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentOptions {
@@ -1702,14 +1662,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentOptions> for ::windows::core::IInspectable {
@@ -1722,14 +1677,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentOptions> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOptions {}
@@ -1738,15 +1688,15 @@ unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentOwnerRegistrationData>>(ownername: Param0, ownerregistrationdata: Param1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
+    pub fn Register<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IsolatedWindowsEnvironmentOwnerRegistrationData>>>(ownername: Param0, ownerregistrationdata: Param1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
         Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), ownername.into_param().abi(), ownerregistrationdata.into_param().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentOwnerRegistrationResult>(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), ownername.into().abi(), ownerregistrationdata.into().abi(), result__.as_mut_ptr()).from_abi::<IsolatedWindowsEnvironmentOwnerRegistrationResult>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn Unregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(ownername: Param0) -> ::windows::core::Result<()> {
-        Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), ownername.into_param().abi()).ok() })
+    pub fn Unregister<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(ownername: Param0) -> ::windows::core::Result<()> {
+        Self::IIsolatedWindowsEnvironmentOwnerRegistrationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), ownername.into().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn IIsolatedWindowsEnvironmentOwnerRegistrationStatics<R, F: FnOnce(&IIsolatedWindowsEnvironmentOwnerRegistrationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1845,14 +1795,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationData> for ::windows::core::IInspectable {
@@ -1865,14 +1810,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentOwnerRegistrationData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationData> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationData {}
@@ -1938,14 +1878,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentOwnerRegistrationResult> for ::windows::core::IInspectable {
@@ -1958,14 +1893,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentOwnerRegistrationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentOwnerRegistrationResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentOwnerRegistrationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
@@ -2068,14 +1998,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentPostMessageResult> for ::windows::core::IInspectable {
@@ -2088,14 +2013,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentPostMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentPostMessageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
@@ -2215,14 +2135,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentProcess> for ::windows::core::IInspectable {
@@ -2235,14 +2150,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentProcess {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentProcess) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
@@ -2382,14 +2292,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentShareFileRequestOptions> for ::windows::core::IInspectable {
@@ -2402,14 +2307,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFileRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileRequestOptions> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentShareFileRequestOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileRequestOptions {}
@@ -2483,14 +2383,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentShareFileResult> for ::windows::core::IInspectable {
@@ -2503,14 +2398,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFileResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFileResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentShareFileResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {}
@@ -2618,14 +2508,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentShareFolderRequestOptions> for ::windows::core::IInspectable {
@@ -2638,14 +2523,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFolderRequestOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderRequestOptions> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentShareFolderRequestOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderRequestOptions {}
@@ -2711,14 +2591,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentShareFolderResult> for ::windows::core::IInspectable {
@@ -2731,14 +2606,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for ::w
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentShareFolderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentShareFolderResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentShareFolderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult {}
@@ -2849,14 +2719,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentStartProcessResult> for ::windows::core::IInspectable {
@@ -2869,14 +2734,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentStartProcessResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentStartProcessResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
@@ -2938,9 +2798,9 @@ impl IsolatedWindowsEnvironmentTelemetryParameters {
         }
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCorrelationId(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for IsolatedWindowsEnvironmentTelemetryParameters {
@@ -2983,14 +2843,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentTelemetryParameters> for ::windows::core::IInspectable {
@@ -3003,14 +2858,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentTelemetryParameters {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentTelemetryParameters> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentTelemetryParameters) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentTelemetryParameters {}
@@ -3085,14 +2935,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for &::windows::core::IUnknown {
+    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsolatedWindowsEnvironmentUserInfo> for ::windows::core::IInspectable {
@@ -3105,14 +2950,9 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsolatedWindowsEnvironmentUserInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsolatedWindowsEnvironmentUserInfo> for &::windows::core::IInspectable {
+    fn from(value: &IsolatedWindowsEnvironmentUserInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
@@ -3122,24 +2962,24 @@ pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PostMessageToReceiver<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>>(receiverid: Param0, message: Param1) -> ::windows::core::Result<()> {
-        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).PostMessageToReceiver)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), message.into_param().abi()).ok() })
+    pub fn PostMessageToReceiver<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<()> {
+        Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).PostMessageToReceiver)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn GetFileId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0) -> ::windows::core::Result<::windows::core::GUID> {
+    pub fn GetFileId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(filepath: Param0) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IIsolatedWindowsHostMessengerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFileId)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).GetFileId)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RegisterHostMessageReceiver<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, HostMessageReceivedCallback>>(receiverid: Param0, hostmessagereceivedcallback: Param1) -> ::windows::core::Result<()> {
-        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), hostmessagereceivedcallback.into_param().abi()).ok() })
+    pub fn RegisterHostMessageReceiver<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, HostMessageReceivedCallback>>>(receiverid: ::windows::core::GUID, hostmessagereceivedcallback: Param1) -> ::windows::core::Result<()> {
+        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RegisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid, hostmessagereceivedcallback.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
-    pub fn UnregisterHostMessageReceiver<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(receiverid: Param0) -> ::windows::core::Result<()> {
-        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi()).ok() })
+    pub fn UnregisterHostMessageReceiver(receiverid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        Self::IIsolatedWindowsHostMessengerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterHostMessageReceiver)(::windows::core::Interface::as_raw(this), receiverid).ok() })
     }
     #[doc(hidden)]
     pub fn IIsolatedWindowsHostMessengerStatics<R, F: FnOnce(&IIsolatedWindowsHostMessengerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3167,9 +3007,9 @@ impl MessageReceivedCallback {
     }
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>>(&self, receiverid: Param0, message: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, receiverid: ::windows::core::GUID, message: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid.into_param().abi(), message.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]

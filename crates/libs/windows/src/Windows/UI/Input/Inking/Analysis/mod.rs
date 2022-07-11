@@ -146,19 +146,14 @@ impl ::core::convert::From<IInkAnalysisNode> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInkAnalysisNode> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkAnalysisNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInkAnalysisNode> for ::windows::core::IUnknown {
     fn from(value: &IInkAnalysisNode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInkAnalysisNode> for ::windows::core::IInspectable {
@@ -166,19 +161,14 @@ impl ::core::convert::From<IInkAnalysisNode> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInkAnalysisNode> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IInkAnalysisNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInkAnalysisNode> for ::windows::core::IInspectable {
     fn from(value: &IInkAnalysisNode) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInkAnalysisNode {
@@ -337,19 +327,14 @@ impl ::core::convert::From<IInkAnalyzerFactory> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInkAnalyzerFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkAnalyzerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInkAnalyzerFactory> for ::windows::core::IUnknown {
     fn from(value: &IInkAnalyzerFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkAnalyzerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkAnalyzerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInkAnalyzerFactory> for ::windows::core::IInspectable {
@@ -357,19 +342,14 @@ impl ::core::convert::From<IInkAnalyzerFactory> for ::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInkAnalyzerFactory> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IInkAnalyzerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInkAnalyzerFactory> for ::windows::core::IInspectable {
     fn from(value: &IInkAnalyzerFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkAnalyzerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInkAnalyzerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInkAnalyzerFactory {
@@ -565,14 +545,9 @@ impl ::core::convert::From<&InkAnalysisInkBullet> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisInkBullet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisInkBullet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisInkBullet> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisInkBullet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisInkBullet> for ::windows::core::IInspectable {
@@ -585,14 +560,9 @@ impl ::core::convert::From<&InkAnalysisInkBullet> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisInkBullet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisInkBullet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisInkBullet> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisInkBullet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisInkBullet> for IInkAnalysisNode {
@@ -607,14 +577,11 @@ impl ::core::convert::TryFrom<&InkAnalysisInkBullet> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisInkBullet {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkBullet {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisInkBullet> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisInkBullet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisInkBullet {}
@@ -750,14 +717,9 @@ impl ::core::convert::From<&InkAnalysisInkDrawing> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisInkDrawing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisInkDrawing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisInkDrawing> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisInkDrawing) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisInkDrawing> for ::windows::core::IInspectable {
@@ -770,14 +732,9 @@ impl ::core::convert::From<&InkAnalysisInkDrawing> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisInkDrawing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisInkDrawing {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisInkDrawing> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisInkDrawing) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisInkDrawing> for IInkAnalysisNode {
@@ -792,14 +749,11 @@ impl ::core::convert::TryFrom<&InkAnalysisInkDrawing> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisInkDrawing {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkDrawing {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisInkDrawing> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisInkDrawing) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisInkDrawing {}
@@ -926,14 +880,9 @@ impl ::core::convert::From<&InkAnalysisInkWord> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisInkWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisInkWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisInkWord> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisInkWord) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisInkWord> for ::windows::core::IInspectable {
@@ -946,14 +895,9 @@ impl ::core::convert::From<&InkAnalysisInkWord> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisInkWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisInkWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisInkWord> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisInkWord) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisInkWord> for IInkAnalysisNode {
@@ -968,14 +912,11 @@ impl ::core::convert::TryFrom<&InkAnalysisInkWord> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisInkWord {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisInkWord {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisInkWord> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisInkWord) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisInkWord {}
@@ -1101,14 +1042,9 @@ impl ::core::convert::From<&InkAnalysisLine> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisLine> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisLine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisLine> for ::windows::core::IInspectable {
@@ -1121,14 +1057,9 @@ impl ::core::convert::From<&InkAnalysisLine> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisLine> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisLine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisLine> for IInkAnalysisNode {
@@ -1143,14 +1074,11 @@ impl ::core::convert::TryFrom<&InkAnalysisLine> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisLine {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisLine {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisLine> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisLine) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisLine {}
@@ -1268,14 +1196,9 @@ impl ::core::convert::From<&InkAnalysisListItem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisListItem> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisListItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisListItem> for ::windows::core::IInspectable {
@@ -1288,14 +1211,9 @@ impl ::core::convert::From<&InkAnalysisListItem> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisListItem> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisListItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisListItem> for IInkAnalysisNode {
@@ -1310,14 +1228,11 @@ impl ::core::convert::TryFrom<&InkAnalysisListItem> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisListItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisListItem> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisListItem) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisListItem {}
@@ -1427,14 +1342,9 @@ impl ::core::convert::From<&InkAnalysisNode> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisNode> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisNode> for ::windows::core::IInspectable {
@@ -1447,14 +1357,9 @@ impl ::core::convert::From<&InkAnalysisNode> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisNode> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisNode> for IInkAnalysisNode {
@@ -1469,14 +1374,11 @@ impl ::core::convert::TryFrom<&InkAnalysisNode> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisNode {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisNode> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisNode) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisNode {}
@@ -1635,14 +1537,9 @@ impl ::core::convert::From<&InkAnalysisParagraph> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisParagraph {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisParagraph {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisParagraph> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisParagraph) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisParagraph> for ::windows::core::IInspectable {
@@ -1655,14 +1552,9 @@ impl ::core::convert::From<&InkAnalysisParagraph> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisParagraph {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisParagraph {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisParagraph> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisParagraph) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisParagraph> for IInkAnalysisNode {
@@ -1677,14 +1569,11 @@ impl ::core::convert::TryFrom<&InkAnalysisParagraph> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisParagraph {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisParagraph {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisParagraph> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisParagraph) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisParagraph {}
@@ -1742,14 +1631,9 @@ impl ::core::convert::From<&InkAnalysisResult> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisResult> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisResult> for ::windows::core::IInspectable {
@@ -1762,14 +1646,9 @@ impl ::core::convert::From<&InkAnalysisResult> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisResult> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisResult {}
@@ -1848,11 +1727,11 @@ impl InkAnalysisRoot {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindNodes(&self, nodekind: InkAnalysisNodeKind) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
+    pub fn FindNodes<'a, Param0: ::std::convert::Into<InkAnalysisNodeKind>>(&self, nodekind: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindNodes)(::windows::core::Interface::as_raw(this), nodekind, result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
+            (::windows::core::Interface::vtable(this).FindNodes)(::windows::core::Interface::as_raw(this), nodekind.into(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<IInkAnalysisNode>>(result__)
         }
     }
 }
@@ -1896,14 +1775,9 @@ impl ::core::convert::From<&InkAnalysisRoot> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisRoot {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisRoot {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisRoot> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisRoot) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisRoot> for ::windows::core::IInspectable {
@@ -1916,14 +1790,9 @@ impl ::core::convert::From<&InkAnalysisRoot> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisRoot {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisRoot {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisRoot> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisRoot) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisRoot> for IInkAnalysisNode {
@@ -1938,14 +1807,11 @@ impl ::core::convert::TryFrom<&InkAnalysisRoot> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisRoot {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisRoot {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisRoot> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisRoot) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisRoot {}
@@ -2132,14 +1998,9 @@ impl ::core::convert::From<&InkAnalysisWritingRegion> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalysisWritingRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalysisWritingRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisWritingRegion> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalysisWritingRegion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalysisWritingRegion> for ::windows::core::IInspectable {
@@ -2152,14 +2013,9 @@ impl ::core::convert::From<&InkAnalysisWritingRegion> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalysisWritingRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalysisWritingRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalysisWritingRegion> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalysisWritingRegion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<InkAnalysisWritingRegion> for IInkAnalysisNode {
@@ -2174,14 +2030,11 @@ impl ::core::convert::TryFrom<&InkAnalysisWritingRegion> for IInkAnalysisNode {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for InkAnalysisWritingRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInkAnalysisNode> for &InkAnalysisWritingRegion {
-    fn into_param(self) -> ::windows::core::Param<'a, IInkAnalysisNode> {
-        ::core::convert::TryInto::<IInkAnalysisNode>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InkAnalysisWritingRegion> for ::windows::core::InParam<'a, IInkAnalysisNode> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InkAnalysisWritingRegion) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InkAnalysisWritingRegion {}
@@ -2214,15 +2067,15 @@ impl InkAnalyzer {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn AddDataForStroke<'a, Param0: ::windows::core::IntoParam<'a, super::InkStroke>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
+    pub fn AddDataForStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddDataForStrokes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
+    pub fn AddDataForStrokes<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::InkStroke>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddDataForStrokes)(::windows::core::Interface::as_raw(this), strokes.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddDataForStrokes)(::windows::core::Interface::as_raw(this), strokes.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
     pub fn ClearDataForAllStrokes(&self) -> ::windows::core::Result<()> {
@@ -2236,19 +2089,19 @@ impl InkAnalyzer {
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveDataForStrokes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>>(&self, strokeids: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDataForStrokes<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, strokeids: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataForStrokes)(::windows::core::Interface::as_raw(this), strokeids.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataForStrokes)(::windows::core::Interface::as_raw(this), strokeids.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn ReplaceDataForStroke<'a, Param0: ::windows::core::IntoParam<'a, super::InkStroke>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
+    pub fn ReplaceDataForStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::InkStroke>>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReplaceDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReplaceDataForStroke)(::windows::core::Interface::as_raw(this), stroke.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`*"]
-    pub fn SetStrokeDataKind(&self, strokeid: u32, strokekind: InkAnalysisStrokeKind) -> ::windows::core::Result<()> {
+    pub fn SetStrokeDataKind<'a, Param1: ::std::convert::Into<InkAnalysisStrokeKind>>(&self, strokeid: u32, strokekind: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDataKind)(::windows::core::Interface::as_raw(this), strokeid, strokekind).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDataKind)(::windows::core::Interface::as_raw(this), strokeid, strokekind.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Inking_Analysis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2300,14 +2153,9 @@ impl ::core::convert::From<&InkAnalyzer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InkAnalyzer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InkAnalyzer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalyzer> for &::windows::core::IUnknown {
+    fn from(value: &InkAnalyzer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InkAnalyzer> for ::windows::core::IInspectable {
@@ -2320,14 +2168,9 @@ impl ::core::convert::From<&InkAnalyzer> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InkAnalyzer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InkAnalyzer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InkAnalyzer> for &::windows::core::IInspectable {
+    fn from(value: &InkAnalyzer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InkAnalyzer {}

@@ -44,7 +44,7 @@ fn run_sample<S>() -> Result<()>
 where
     S: DXSample,
 {
-    let instance = unsafe { GetModuleHandleA(None)? };
+    let instance = unsafe { GetModuleHandleA(PCSTR::default())? };
 
     let wc = WNDCLASSEXA {
         cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
@@ -73,11 +73,13 @@ where
         title.push_str(" (WARP)");
     }
 
+    title.push('\0');
+
     let hwnd = unsafe {
         CreateWindowExA(
-            Default::default(),
-            "RustWindowClass",
-            title,
+            WINDOW_EX_STYLE::default(),
+            PCSTR(b"RustWindowClass\0".as_ptr()),
+            PCSTR(title.as_ptr()),
             WS_OVERLAPPEDWINDOW,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
@@ -262,11 +264,11 @@ mod d3d12_hello_triangle {
                 ..Default::default()
             };
 
-            let swap_chain: IDXGISwapChain3 = unsafe { self.dxgi_factory.CreateSwapChainForHwnd(&command_queue, hwnd, &swap_chain_desc, std::ptr::null(), None)? }.cast()?;
+            let swap_chain: IDXGISwapChain3 = unsafe { self.dxgi_factory.CreateSwapChainForHwnd(&command_queue, *hwnd, &swap_chain_desc, std::ptr::null(), None)? }.cast()?;
 
             // This sample does not support fullscreen transitions
             unsafe {
-                self.dxgi_factory.MakeWindowAssociation(hwnd, DXGI_MWA_NO_ALT_ENTER)?;
+                self.dxgi_factory.MakeWindowAssociation(*hwnd, DXGI_MWA_NO_ALT_ENTER)?;
             }
 
             let frame_index = unsafe { swap_chain.GetCurrentBackBufferIndex() };
@@ -278,7 +280,7 @@ mod d3d12_hello_triangle {
 
             let render_targets: [ID3D12Resource; FRAME_COUNT as usize] = array_init::try_array_init(|i: usize| -> Result<ID3D12Resource> {
                 let render_target: ID3D12Resource = unsafe { swap_chain.GetBuffer(i as u32) }?;
-                unsafe { self.device.CreateRenderTargetView(&render_target, std::ptr::null(), &D3D12_CPU_DESCRIPTOR_HANDLE { ptr: rtv_handle.ptr + i * rtv_descriptor_size }) };
+                unsafe { self.device.CreateRenderTargetView(&render_target, std::ptr::null(), D3D12_CPU_DESCRIPTOR_HANDLE { ptr: rtv_handle.ptr + i * rtv_descriptor_size }) };
                 Ok(render_target)
             })?;
 
@@ -304,7 +306,7 @@ mod d3d12_hello_triangle {
 
             let fence_value = 1;
 
-            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, None)? };
+            let fence_event = unsafe { CreateEventA(std::ptr::null(), false, false, PCSTR::default())? };
 
             self.resources = Some(Resources {
                 command_queue,
@@ -426,7 +428,7 @@ mod d3d12_hello_triangle {
         let adapter = if command_line.use_warp_device { unsafe { dxgi_factory.EnumWarpAdapter() } } else { get_hardware_adapter(&dxgi_factory) }?;
 
         let mut device: Option<ID3D12Device> = None;
-        unsafe { D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_11_0, &mut device) }?;
+        unsafe { D3D12CreateDevice(&adapter, D3D_FEATURE_LEVEL_11_0, &mut device) }?;
         Ok((dxgi_factory, device.unwrap()))
     }
 
@@ -447,12 +449,13 @@ mod d3d12_hello_triangle {
         let asset_path = exe_path.parent().unwrap();
         let shaders_hlsl_path = asset_path.join("shaders.hlsl");
         let shaders_hlsl = shaders_hlsl_path.to_str().unwrap();
+        let shaders_hlsl = PCWSTR::from(&shaders_hlsl.into());
 
         let mut vertex_shader = None;
-        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, "VSMain", "vs_5_0", compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
+        let vertex_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, PCSTR(b"VSMain\0".as_ptr()), PCSTR(b"vs_5_0\0".as_ptr()), compile_flags, 0, &mut vertex_shader, std::ptr::null_mut()) }.map(|()| vertex_shader.unwrap())?;
 
         let mut pixel_shader = None;
-        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, "PSMain", "ps_5_0", compile_flags, 0, &mut pixel_shader, std::ptr::null_mut()) }.map(|()| pixel_shader.unwrap())?;
+        let pixel_shader = unsafe { D3DCompileFromFile(shaders_hlsl, std::ptr::null(), None, PCSTR(b"PSMain\0".as_ptr()), PCSTR(b"ps_5_0\0".as_ptr()), compile_flags, 0, &mut pixel_shader, std::ptr::null_mut()) }.map(|()| pixel_shader.unwrap())?;
 
         let mut input_element_descs: [D3D12_INPUT_ELEMENT_DESC; 2] = [
             D3D12_INPUT_ELEMENT_DESC {

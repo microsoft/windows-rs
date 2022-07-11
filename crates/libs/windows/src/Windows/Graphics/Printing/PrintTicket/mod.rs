@@ -357,19 +357,19 @@ impl PrintTicketCapabilities {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketFeature> {
+    pub fn GetFeature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFeature)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
+            (::windows::core::Interface::vtable(this).GetFeature)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetParameterDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketParameterDefinition> {
+    pub fn GetParameterDefinition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketParameterDefinition> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetParameterDefinition)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterDefinition>(result__)
+            (::windows::core::Interface::vtable(this).GetParameterDefinition)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterDefinition>(result__)
         }
     }
 }
@@ -413,14 +413,9 @@ impl ::core::convert::From<&PrintTicketCapabilities> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &PrintTicketCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTicketCapabilities> for ::windows::core::IInspectable {
@@ -433,14 +428,9 @@ impl ::core::convert::From<&PrintTicketCapabilities> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTicketCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &PrintTicketCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTicketCapabilities {}
@@ -483,11 +473,11 @@ impl PrintTicketFeature {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetOption<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketOption> {
+    pub fn GetOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketOption> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetOption)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketOption>(result__)
+            (::windows::core::Interface::vtable(this).GetOption)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketOption>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Foundation_Collections\"`*"]
@@ -508,9 +498,9 @@ impl PrintTicketFeature {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetSelectedOption<'a, Param0: ::windows::core::IntoParam<'a, PrintTicketOption>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSelectedOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketOption>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSelectedOption)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSelectedOption)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn SelectionType(&self) -> ::windows::core::Result<PrintTicketFeatureSelectionType> {
@@ -561,14 +551,9 @@ impl ::core::convert::From<&PrintTicketFeature> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTicketFeature {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTicketFeature {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketFeature> for &::windows::core::IUnknown {
+    fn from(value: &PrintTicketFeature) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTicketFeature> for ::windows::core::IInspectable {
@@ -581,14 +566,9 @@ impl ::core::convert::From<&PrintTicketFeature> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTicketFeature {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTicketFeature {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketFeature> for &::windows::core::IInspectable {
+    fn from(value: &PrintTicketFeature) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTicketFeature {}
@@ -666,36 +646,36 @@ impl PrintTicketOption {
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetPropertyNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
+    pub fn GetPropertyNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPropertyNode)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).GetPropertyNode)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetScoredPropertyNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
+    pub fn GetScoredPropertyNode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<super::super::super::Data::Xml::Dom::IXmlNode> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScoredPropertyNode)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
+            (::windows::core::Interface::vtable(this).GetScoredPropertyNode)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Data::Xml::Dom::IXmlNode>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketValue> {
+    pub fn GetPropertyValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketValue> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPropertyValue)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketValue>(result__)
+            (::windows::core::Interface::vtable(this).GetPropertyValue)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketValue>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetScoredPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketValue> {
+    pub fn GetScoredPropertyValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketValue> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetScoredPropertyValue)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketValue>(result__)
+            (::windows::core::Interface::vtable(this).GetScoredPropertyValue)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketValue>(result__)
         }
     }
 }
@@ -739,14 +719,9 @@ impl ::core::convert::From<&PrintTicketOption> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTicketOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTicketOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketOption> for &::windows::core::IUnknown {
+    fn from(value: &PrintTicketOption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTicketOption> for ::windows::core::IInspectable {
@@ -759,14 +734,9 @@ impl ::core::convert::From<&PrintTicketOption> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTicketOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTicketOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketOption> for &::windows::core::IInspectable {
+    fn from(value: &PrintTicketOption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTicketOption {}
@@ -908,14 +878,9 @@ impl ::core::convert::From<&PrintTicketParameterDefinition> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketParameterDefinition> for &::windows::core::IUnknown {
+    fn from(value: &PrintTicketParameterDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTicketParameterDefinition> for ::windows::core::IInspectable {
@@ -928,14 +893,9 @@ impl ::core::convert::From<&PrintTicketParameterDefinition> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTicketParameterDefinition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketParameterDefinition> for &::windows::core::IInspectable {
+    fn from(value: &PrintTicketParameterDefinition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTicketParameterDefinition {}
@@ -970,9 +930,9 @@ impl PrintTicketParameterInitializer {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, PrintTicketValue>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PrintTicketValue>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<PrintTicketValue> {
@@ -1023,14 +983,9 @@ impl ::core::convert::From<&PrintTicketParameterInitializer> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketParameterInitializer> for &::windows::core::IUnknown {
+    fn from(value: &PrintTicketParameterInitializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTicketParameterInitializer> for ::windows::core::IInspectable {
@@ -1043,14 +998,9 @@ impl ::core::convert::From<&PrintTicketParameterInitializer> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTicketParameterInitializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketParameterInitializer> for &::windows::core::IInspectable {
+    fn from(value: &PrintTicketParameterInitializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTicketParameterInitializer {}
@@ -1124,14 +1074,9 @@ impl ::core::convert::From<&PrintTicketValue> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrintTicketValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrintTicketValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketValue> for &::windows::core::IUnknown {
+    fn from(value: &PrintTicketValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrintTicketValue> for ::windows::core::IInspectable {
@@ -1144,14 +1089,9 @@ impl ::core::convert::From<&PrintTicketValue> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrintTicketValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrintTicketValue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrintTicketValue> for &::windows::core::IInspectable {
+    fn from(value: &PrintTicketValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrintTicketValue {}
@@ -1349,11 +1289,11 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketFeature> {
+    pub fn GetFeature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketFeature> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFeature)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
+            (::windows::core::Interface::vtable(this).GetFeature)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketFeature>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`, `\"Foundation\"`*"]
@@ -1375,35 +1315,35 @@ impl WorkflowPrintTicket {
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn GetParameterInitializer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketParameterInitializer> {
+    pub fn GetParameterInitializer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1) -> ::windows::core::Result<PrintTicketParameterInitializer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetParameterInitializer)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
+            (::windows::core::Interface::vtable(this).GetParameterInitializer)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetParameterInitializerAsInteger<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer> {
+    pub fn SetParameterInitializerAsInteger<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1, integervalue: i32) -> ::windows::core::Result<PrintTicketParameterInitializer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetParameterInitializerAsInteger)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), integervalue, result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
+            (::windows::core::Interface::vtable(this).SetParameterInitializerAsInteger)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), integervalue, result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn SetParameterInitializerAsString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, xmlnamespace: Param1, stringvalue: Param2) -> ::windows::core::Result<PrintTicketParameterInitializer> {
+    pub fn SetParameterInitializerAsString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0, xmlnamespace: Param1, stringvalue: Param2) -> ::windows::core::Result<PrintTicketParameterInitializer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetParameterInitializerAsString)(::windows::core::Interface::as_raw(this), name.into_param().abi(), xmlnamespace.into_param().abi(), stringvalue.into_param().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
+            (::windows::core::Interface::vtable(this).SetParameterInitializerAsString)(::windows::core::Interface::as_raw(this), name.into().abi(), xmlnamespace.into().abi(), stringvalue.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTicketParameterInitializer>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
-    pub fn MergeAndValidateTicket<'a, Param0: ::windows::core::IntoParam<'a, WorkflowPrintTicket>>(&self, deltashematicket: Param0) -> ::windows::core::Result<WorkflowPrintTicket> {
+    pub fn MergeAndValidateTicket<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, WorkflowPrintTicket>>>(&self, deltashematicket: Param0) -> ::windows::core::Result<WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).MergeAndValidateTicket)(::windows::core::Interface::as_raw(this), deltashematicket.into_param().abi(), result__.as_mut_ptr()).from_abi::<WorkflowPrintTicket>(result__)
+            (::windows::core::Interface::vtable(this).MergeAndValidateTicket)(::windows::core::Interface::as_raw(this), deltashematicket.into().abi(), result__.as_mut_ptr()).from_abi::<WorkflowPrintTicket>(result__)
         }
     }
 }
@@ -1447,14 +1387,9 @@ impl ::core::convert::From<&WorkflowPrintTicket> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WorkflowPrintTicket> for &::windows::core::IUnknown {
+    fn from(value: &WorkflowPrintTicket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WorkflowPrintTicket> for ::windows::core::IInspectable {
@@ -1467,14 +1402,9 @@ impl ::core::convert::From<&WorkflowPrintTicket> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WorkflowPrintTicket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WorkflowPrintTicket> for &::windows::core::IInspectable {
+    fn from(value: &WorkflowPrintTicket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WorkflowPrintTicket {}
@@ -1540,14 +1470,9 @@ impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for &::windows::core::IUnknown {
+    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WorkflowPrintTicketValidationResult> for ::windows::core::IInspectable {
@@ -1560,14 +1485,9 @@ impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WorkflowPrintTicketValidationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WorkflowPrintTicketValidationResult> for &::windows::core::IInspectable {
+    fn from(value: &WorkflowPrintTicketValidationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WorkflowPrintTicketValidationResult {}

@@ -37,7 +37,7 @@ fn generic() -> windows::core::Result<()> {
 
     assert_eq!(Handler::IID, windows::core::GUID::from("DAE18EA9-FCF3-5ACF-BCDD-8C354CBA6D23"));
 
-    let uri = Uri::CreateUri("http://kennykerr.ca")?;
+    let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let (tx, rx) = std::sync::mpsc::channel();
 
     let d = Handler::new(move |_, port| {
@@ -49,7 +49,7 @@ fn generic() -> windows::core::Result<()> {
     });
 
     let port = uri.Port()?;
-    d.Invoke(uri, port)?;
+    d.Invoke(&uri, &port)?;
 
     assert!(rx.recv().unwrap());
 
@@ -64,7 +64,7 @@ fn event() -> windows::core::Result<()> {
     let set_clone = set.clone();
     // TODO: Should be able to elide the delegate construction and simply say:
     // set.MapChanged(|sender, args| {...})?;
-    set.MapChanged(MapChangedEventHandler::<windows::core::HSTRING, windows::core::IInspectable>::new(move |_, args| {
+    set.MapChanged(&MapChangedEventHandler::<windows::core::HSTRING, windows::core::IInspectable>::new(move |_, args| {
         let args = args.as_ref().unwrap();
         tx.send(true).unwrap();
         let set = set_clone.clone();
@@ -74,7 +74,7 @@ fn event() -> windows::core::Result<()> {
         Ok(())
     }))?;
 
-    set.Insert("A", windows::core::IInspectable::try_from(1_u32)?)?;
+    set.Insert(&windows::core::HSTRING::from("A"), &windows::core::IInspectable::try_from(1_u32)?)?;
 
     assert!(rx.recv().unwrap());
 

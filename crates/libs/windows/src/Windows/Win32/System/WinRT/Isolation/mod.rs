@@ -4,9 +4,9 @@ pub struct IIsolatedEnvironmentInterop(::windows::core::IUnknown);
 impl IIsolatedEnvironmentInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Isolation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHostHwndInterop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, containerhwnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
+    pub unsafe fn GetHostHwndInterop<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(&self, containerhwnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::HWND>::zeroed();
-        (::windows::core::Interface::vtable(self).GetHostHwndInterop)(::windows::core::Interface::as_raw(self), containerhwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
+        (::windows::core::Interface::vtable(self).GetHostHwndInterop)(::windows::core::Interface::as_raw(self), containerhwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<IIsolatedEnvironmentInterop> for ::windows::core::IUnknown {
@@ -14,19 +14,14 @@ impl ::core::convert::From<IIsolatedEnvironmentInterop> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IIsolatedEnvironmentInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IIsolatedEnvironmentInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IIsolatedEnvironmentInterop> for ::windows::core::IUnknown {
     fn from(value: &IIsolatedEnvironmentInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIsolatedEnvironmentInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIsolatedEnvironmentInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IIsolatedEnvironmentInterop {

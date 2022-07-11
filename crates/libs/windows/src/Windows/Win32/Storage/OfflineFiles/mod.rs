@@ -25,19 +25,14 @@ impl ::core::convert::From<IEnumOfflineFilesItems> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumOfflineFilesItems> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumOfflineFilesItems) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumOfflineFilesItems> for ::windows::core::IUnknown {
     fn from(value: &IEnumOfflineFilesItems) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumOfflineFilesItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumOfflineFilesItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumOfflineFilesItems {
@@ -96,19 +91,14 @@ impl ::core::convert::From<IEnumOfflineFilesSettings> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnumOfflineFilesSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnumOfflineFilesSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnumOfflineFilesSettings> for ::windows::core::IUnknown {
     fn from(value: &IEnumOfflineFilesSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnumOfflineFilesSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnumOfflineFilesSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnumOfflineFilesSettings {
@@ -146,28 +136,28 @@ pub struct IOfflineFilesCache(::windows::core::IUnknown);
 impl IOfflineFilesCache {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Synchronize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSyncConflictHandler>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], basync: Param3, dwsynccontrol: u32, pisyncconflicthandler: Param5, piprogress: Param6, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Synchronize)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, basync.into_param().abi(), ::core::mem::transmute(dwsynccontrol), pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid)).ok()
+    pub unsafe fn Synchronize<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncConflictHandler>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], basync: Param3, dwsynccontrol: u32, pisyncconflicthandler: Param5, piprogress: Param6, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Synchronize)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, basync.into(), ::core::mem::transmute(dwsynccontrol), pisyncconflicthandler.into().abi(), piprogress.into().abi(), ::core::mem::transmute(psyncid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteItems<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesSimpleProgress>>(&self, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
+    pub unsafe fn DeleteItems<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSimpleProgress>>>(&self, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteItemsForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSimpleProgress>>(&self, pszuser: Param0, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param4, piprogress: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteItemsForUser)(::windows::core::Interface::as_raw(self), pszuser.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
+    pub unsafe fn DeleteItemsForUser<'a, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSimpleProgress>>>(&self, pszuser: ::windows::core::PCWSTR, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param4, piprogress: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteItemsForUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszuser), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Pin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pin)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
+    pub unsafe fn Pin<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Pin)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into(), basync.into(), ::core::mem::transmute(dwpincontrolflags), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unpin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unpin)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
+    pub unsafe fn Unpin<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unpin)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into(), basync.into(), ::core::mem::transmute(dwpincontrolflags), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -176,23 +166,23 @@ impl IOfflineFilesCache {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Encrypt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, bencrypt: Param1, dwencryptioncontrolflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Encrypt)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), bencrypt.into_param().abi(), ::core::mem::transmute(dwencryptioncontrolflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
+    pub unsafe fn Encrypt<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, bencrypt: Param1, dwencryptioncontrolflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Encrypt)(::windows::core::Interface::as_raw(self), hwndparent.into(), bencrypt.into(), ::core::mem::transmute(dwencryptioncontrolflags), basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn FindItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
+    pub unsafe fn FindItem(&self, pszpath: ::windows::core::PCWSTR, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindItem)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
+        (::windows::core::Interface::vtable(self).FindItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn FindItemEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(&self, pszpath: Param0, pincludefilefilter: Param1, pincludedirfilter: Param2, pexcludefilefilter: Param3, pexcludedirfilter: Param4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
+    pub unsafe fn FindItemEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>>(&self, pszpath: ::windows::core::PCWSTR, pincludefilefilter: Param1, pincludedirfilter: Param2, pexcludefilefilter: Param3, pexcludedirfilter: Param4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).FindItemEx)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
+        (::windows::core::Interface::vtable(self).FindItemEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RenameItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpathoriginal: Param0, pszpathnew: Param1, breplaceifexists: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenameItem)(::windows::core::Interface::as_raw(self), pszpathoriginal.into_param().abi(), pszpathnew.into_param().abi(), breplaceifexists.into_param().abi()).ok()
+    pub unsafe fn RenameItem<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpathoriginal: ::windows::core::PCWSTR, pszpathnew: ::windows::core::PCWSTR, breplaceifexists: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RenameItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpathoriginal), ::core::mem::transmute(pszpathnew), breplaceifexists.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn GetLocation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -208,13 +198,13 @@ impl IOfflineFilesCache {
         (::windows::core::Interface::vtable(self).SetDiskSpaceLimits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cblimit), ::core::mem::transmute(cbunpinnedlimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ProcessAdminPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, ppinprogress: Param0, punpinprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessAdminPinPolicy)(::windows::core::Interface::as_raw(self), ppinprogress.into_param().abi(), punpinprogress.into_param().abi()).ok()
+    pub unsafe fn ProcessAdminPinPolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, ppinprogress: Param0, punpinprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessAdminPinPolicy)(::windows::core::Interface::as_raw(self), ppinprogress.into().abi(), punpinprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn GetSettingObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsettingname: Param0) -> ::windows::core::Result<IOfflineFilesSetting> {
+    pub unsafe fn GetSettingObject(&self, pszsettingname: ::windows::core::PCWSTR) -> ::windows::core::Result<IOfflineFilesSetting> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSettingObject)(::windows::core::Interface::as_raw(self), pszsettingname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesSetting>(result__)
+        (::windows::core::Interface::vtable(self).GetSettingObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsettingname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesSetting>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
@@ -223,8 +213,8 @@ impl IOfflineFilesCache {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsPathCacheable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsPathCacheable)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(pbcacheable), ::core::mem::transmute(psharecachingmode)).ok()
+    pub unsafe fn IsPathCacheable(&self, pszpath: ::windows::core::PCWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).IsPathCacheable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pbcacheable), ::core::mem::transmute(psharecachingmode)).ok()
     }
 }
 impl ::core::convert::From<IOfflineFilesCache> for ::windows::core::IUnknown {
@@ -232,19 +222,14 @@ impl ::core::convert::From<IOfflineFilesCache> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesCache> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesCache) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesCache> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesCache) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesCache {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesCache {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesCache {
@@ -322,28 +307,28 @@ pub struct IOfflineFilesCache2(::windows::core::IUnknown);
 impl IOfflineFilesCache2 {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Synchronize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSyncConflictHandler>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], basync: Param3, dwsynccontrol: u32, pisyncconflicthandler: Param5, piprogress: Param6, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Synchronize)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, basync.into_param().abi(), ::core::mem::transmute(dwsynccontrol), pisyncconflicthandler.into_param().abi(), piprogress.into_param().abi(), ::core::mem::transmute(psyncid)).ok()
+    pub unsafe fn Synchronize<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncConflictHandler>>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], basync: Param3, dwsynccontrol: u32, pisyncconflicthandler: Param5, piprogress: Param6, psyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Synchronize)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, basync.into(), ::core::mem::transmute(dwsynccontrol), pisyncconflicthandler.into().abi(), piprogress.into().abi(), ::core::mem::transmute(psyncid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteItems<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesSimpleProgress>>(&self, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
+    pub unsafe fn DeleteItems<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSimpleProgress>>>(&self, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteItemsForUser<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, IOfflineFilesSimpleProgress>>(&self, pszuser: Param0, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param4, piprogress: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteItemsForUser)(::windows::core::Interface::as_raw(self), pszuser.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
+    pub unsafe fn DeleteItemsForUser<'a, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param5: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSimpleProgress>>>(&self, pszuser: ::windows::core::PCWSTR, rgpszpaths: &[::windows::core::PWSTR], dwflags: u32, basync: Param4, piprogress: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.DeleteItemsForUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszuser), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, ::core::mem::transmute(dwflags), basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Pin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Pin)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
+    pub unsafe fn Pin<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Pin)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into(), basync.into(), ::core::mem::transmute(dwpincontrolflags), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unpin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Unpin)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into_param().abi(), basync.into_param().abi(), ::core::mem::transmute(dwpincontrolflags), piprogress.into_param().abi()).ok()
+    pub unsafe fn Unpin<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>, Param6: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, rgpszpaths: &[::windows::core::PWSTR], bdeep: Param3, basync: Param4, dwpincontrolflags: u32, piprogress: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Unpin)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(::windows::core::as_ptr_or_null(rgpszpaths)), rgpszpaths.len() as _, bdeep.into(), basync.into(), ::core::mem::transmute(dwpincontrolflags), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -352,23 +337,23 @@ impl IOfflineFilesCache2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Encrypt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, hwndparent: Param0, bencrypt: Param1, dwencryptioncontrolflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Encrypt)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), bencrypt.into_param().abi(), ::core::mem::transmute(dwencryptioncontrolflags), basync.into_param().abi(), piprogress.into_param().abi()).ok()
+    pub unsafe fn Encrypt<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, hwndparent: Param0, bencrypt: Param1, dwencryptioncontrolflags: u32, basync: Param3, piprogress: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Encrypt)(::windows::core::Interface::as_raw(self), hwndparent.into(), bencrypt.into(), ::core::mem::transmute(dwencryptioncontrolflags), basync.into(), piprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn FindItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
+    pub unsafe fn FindItem(&self, pszpath: ::windows::core::PCWSTR, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FindItem)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
+        (::windows::core::Interface::vtable(self).base__.FindItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn FindItemEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param4: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(&self, pszpath: Param0, pincludefilefilter: Param1, pincludedirfilter: Param2, pexcludefilefilter: Param3, pexcludedirfilter: Param4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
+    pub unsafe fn FindItemEx<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>>(&self, pszpath: ::windows::core::PCWSTR, pincludefilefilter: Param1, pincludedirfilter: Param2, pexcludefilefilter: Param3, pexcludedirfilter: Param4, dwqueryflags: u32) -> ::windows::core::Result<IOfflineFilesItem> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FindItemEx)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
+        (::windows::core::Interface::vtable(self).base__.FindItemEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RenameItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpathoriginal: Param0, pszpathnew: Param1, breplaceifexists: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RenameItem)(::windows::core::Interface::as_raw(self), pszpathoriginal.into_param().abi(), pszpathnew.into_param().abi(), breplaceifexists.into_param().abi()).ok()
+    pub unsafe fn RenameItem<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpathoriginal: ::windows::core::PCWSTR, pszpathnew: ::windows::core::PCWSTR, breplaceifexists: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RenameItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpathoriginal), ::core::mem::transmute(pszpathnew), breplaceifexists.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn GetLocation(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -384,13 +369,13 @@ impl IOfflineFilesCache2 {
         (::windows::core::Interface::vtable(self).base__.SetDiskSpaceLimits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cblimit), ::core::mem::transmute(cbunpinnedlimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ProcessAdminPinPolicy<'a, Param0: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesSyncProgress>>(&self, ppinprogress: Param0, punpinprogress: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ProcessAdminPinPolicy)(::windows::core::Interface::as_raw(self), ppinprogress.into_param().abi(), punpinprogress.into_param().abi()).ok()
+    pub unsafe fn ProcessAdminPinPolicy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncProgress>>>(&self, ppinprogress: Param0, punpinprogress: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ProcessAdminPinPolicy)(::windows::core::Interface::as_raw(self), ppinprogress.into().abi(), punpinprogress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn GetSettingObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsettingname: Param0) -> ::windows::core::Result<IOfflineFilesSetting> {
+    pub unsafe fn GetSettingObject(&self, pszsettingname: ::windows::core::PCWSTR) -> ::windows::core::Result<IOfflineFilesSetting> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetSettingObject)(::windows::core::Interface::as_raw(self), pszsettingname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesSetting>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetSettingObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszsettingname), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IOfflineFilesSetting>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn EnumSettingObjects(&self) -> ::windows::core::Result<IEnumOfflineFilesSettings> {
@@ -399,17 +384,22 @@ impl IOfflineFilesCache2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsPathCacheable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.IsPathCacheable)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(pbcacheable), ::core::mem::transmute(psharecachingmode)).ok()
+    pub unsafe fn IsPathCacheable(&self, pszpath: ::windows::core::PCWSTR, pbcacheable: *mut super::super::Foundation::BOOL, psharecachingmode: *mut OFFLINEFILES_CACHING_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.IsPathCacheable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(pbcacheable), ::core::mem::transmute(psharecachingmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RenameItemEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpathoriginal: Param0, pszpathnew: Param1, breplaceifexists: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenameItemEx)(::windows::core::Interface::as_raw(self), pszpathoriginal.into_param().abi(), pszpathnew.into_param().abi(), breplaceifexists.into_param().abi()).ok()
+    pub unsafe fn RenameItemEx<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpathoriginal: ::windows::core::PCWSTR, pszpathnew: ::windows::core::PCWSTR, breplaceifexists: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RenameItemEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpathoriginal), ::core::mem::transmute(pszpathnew), breplaceifexists.into()).ok()
     }
 }
 impl ::core::convert::From<IOfflineFilesCache2> for ::windows::core::IUnknown {
     fn from(value: IOfflineFilesCache2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesCache2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesCache2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -418,34 +408,19 @@ impl ::core::convert::From<&IOfflineFilesCache2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesCache2> for IOfflineFilesCache {
     fn from(value: IOfflineFilesCache2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesCache2> for &'a IOfflineFilesCache {
+    fn from(value: &'a IOfflineFilesCache2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IOfflineFilesCache2> for IOfflineFilesCache {
     fn from(value: &IOfflineFilesCache2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesCache> for IOfflineFilesCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesCache> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesCache> for &'a IOfflineFilesCache2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesCache> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesCache2 {
@@ -522,19 +497,14 @@ impl ::core::convert::From<IOfflineFilesChangeInfo> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesChangeInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesChangeInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesChangeInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesChangeInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesChangeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesChangeInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesChangeInfo {
@@ -596,19 +566,19 @@ impl IOfflineFilesConnectionInfo {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConnectState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, dwflags: u32, connectstate: OFFLINEFILES_CONNECT_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectState)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(connectstate)).ok()
+    pub unsafe fn SetConnectState<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<OFFLINEFILES_CONNECT_STATE>>(&self, hwndparent: Param0, dwflags: u32, connectstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConnectState)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwflags), connectstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransitionOnline<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransitionOnline)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn TransitionOnline<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndparent: Param0, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransitionOnline)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransitionOffline<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwndparent: Param0, dwflags: u32, bforceopenfilesclosed: Param2) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn TransitionOffline<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, hwndparent: Param0, dwflags: u32, bforceopenfilesclosed: Param2) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).TransitionOffline)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), bforceopenfilesclosed.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).TransitionOffline)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(dwflags), bforceopenfilesclosed.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IOfflineFilesConnectionInfo> for ::windows::core::IUnknown {
@@ -616,19 +586,14 @@ impl ::core::convert::From<IOfflineFilesConnectionInfo> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesConnectionInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesConnectionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesConnectionInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesConnectionInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesConnectionInfo {
@@ -704,19 +669,14 @@ impl ::core::convert::From<IOfflineFilesDirectoryItem> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesDirectoryItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesDirectoryItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesDirectoryItem> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesDirectoryItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesDirectoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesDirectoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesDirectoryItem> for IOfflineFilesItem {
@@ -724,19 +684,14 @@ impl ::core::convert::From<IOfflineFilesDirectoryItem> for IOfflineFilesItem {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesDirectoryItem> for &'a IOfflineFilesItem {
+    fn from(value: &'a IOfflineFilesDirectoryItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesDirectoryItem> for IOfflineFilesItem {
     fn from(value: &IOfflineFilesDirectoryItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesDirectoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesDirectoryItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesDirectoryItem {
@@ -784,19 +739,14 @@ impl ::core::convert::From<IOfflineFilesDirtyInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesDirtyInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesDirtyInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesDirtyInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesDirtyInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesDirtyInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesDirtyInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesDirtyInfo {
@@ -847,19 +797,14 @@ impl ::core::convert::From<IOfflineFilesErrorInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesErrorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesErrorInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesErrorInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesErrorInfo {
@@ -897,8 +842,8 @@ pub struct IOfflineFilesErrorInfo_Vtbl {
 pub struct IOfflineFilesEvents(::windows::core::IUnknown);
 impl IOfflineFilesEvents {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn CacheMoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CacheMoved)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+    pub unsafe fn CacheMoved(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CacheMoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
@@ -910,36 +855,36 @@ impl IOfflineFilesEvents {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+    pub unsafe fn Enabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EncryptionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+    pub unsafe fn EncryptionChanged<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into(), bwaspartial.into(), bisencrypted.into(), bispartial.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncBegin(&self, rsyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SyncBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn SyncFileResult<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, rsyncid: *const ::windows::core::GUID, pszfile: Param1, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), pszfile.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+    pub unsafe fn SyncFileResult(&self, rsyncid: *const ::windows::core::GUID, pszfile: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), ::core::mem::transmute(pszfile), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecAdded<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecUpdated<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecRemoved<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -954,45 +899,45 @@ impl IOfflineFilesEvents {
         (::windows::core::Interface::vtable(self).NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDisconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemDisconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemReconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemReconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemNotPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+    pub unsafe fn ItemModified<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAddedToCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemAddedToCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDeletedFromCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemRenamed<'a, Param2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR, itemtype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ItemRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1008,19 +953,14 @@ impl ::core::convert::From<IOfflineFilesEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesEvents> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesEvents {
@@ -1096,8 +1036,8 @@ pub struct IOfflineFilesEvents_Vtbl {
 pub struct IOfflineFilesEvents2(::windows::core::IUnknown);
 impl IOfflineFilesEvents2 {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn CacheMoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CacheMoved)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+    pub unsafe fn CacheMoved(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CacheMoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
@@ -1109,36 +1049,36 @@ impl IOfflineFilesEvents2 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Enabled)(::windows::core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+    pub unsafe fn Enabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Enabled)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EncryptionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+    pub unsafe fn EncryptionChanged<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into(), bwaspartial.into(), bisencrypted.into(), bispartial.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncBegin(&self, rsyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SyncBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn SyncFileResult<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, rsyncid: *const ::windows::core::GUID, pszfile: Param1, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), pszfile.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+    pub unsafe fn SyncFileResult(&self, rsyncid: *const ::windows::core::GUID, pszfile: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), ::core::mem::transmute(pszfile), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecAdded<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecUpdated<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecRemoved<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1153,45 +1093,45 @@ impl IOfflineFilesEvents2 {
         (::windows::core::Interface::vtable(self).base__.NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDisconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemReconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemReconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+    pub unsafe fn ItemModified<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAddedToCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDeletedFromCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemRenamed<'a, Param2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR, itemtype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.ItemRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1243,19 +1183,14 @@ impl ::core::convert::From<IOfflineFilesEvents2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesEvents2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesEvents2> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesEvents2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesEvents2> for IOfflineFilesEvents {
@@ -1263,19 +1198,14 @@ impl ::core::convert::From<IOfflineFilesEvents2> for IOfflineFilesEvents {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents2> for &'a IOfflineFilesEvents {
+    fn from(value: &'a IOfflineFilesEvents2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesEvents2> for IOfflineFilesEvents {
     fn from(value: &IOfflineFilesEvents2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &'a IOfflineFilesEvents2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesEvents2 {
@@ -1317,8 +1247,8 @@ pub struct IOfflineFilesEvents2_Vtbl {
 pub struct IOfflineFilesEvents3(::windows::core::IUnknown);
 impl IOfflineFilesEvents3 {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn CacheMoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CacheMoved)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+    pub unsafe fn CacheMoved(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CacheMoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
@@ -1330,36 +1260,36 @@ impl IOfflineFilesEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Enabled)(::windows::core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+    pub unsafe fn Enabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Enabled)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EncryptionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+    pub unsafe fn EncryptionChanged<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into(), bwaspartial.into(), bisencrypted.into(), bispartial.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncBegin(&self, rsyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SyncBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn SyncFileResult<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, rsyncid: *const ::windows::core::GUID, pszfile: Param1, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), pszfile.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+    pub unsafe fn SyncFileResult(&self, rsyncid: *const ::windows::core::GUID, pszfile: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), ::core::mem::transmute(pszfile), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecAdded<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecUpdated<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecRemoved<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1374,45 +1304,45 @@ impl IOfflineFilesEvents3 {
         (::windows::core::Interface::vtable(self).base__.base__.NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDisconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemReconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+    pub unsafe fn ItemModified<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAddedToCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDeletedFromCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemRenamed<'a, Param2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR, itemtype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1460,20 +1390,25 @@ impl IOfflineFilesEvents3 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransparentCacheItemNotify<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param3, bmodifiedattributes: Param4, pzsoldpath: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(eventtype), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi(), pzsoldpath.into_param().abi()).ok()
+    pub unsafe fn TransparentCacheItemNotify<'a, Param1: ::std::convert::Into<OFFLINEFILES_EVENTS>, Param2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpath: ::windows::core::PCWSTR, eventtype: Param1, itemtype: Param2, bmodifieddata: Param3, bmodifiedattributes: Param4, pzsoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), eventtype.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into(), ::core::mem::transmute(pzsoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn PrefetchFileBegin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrefetchFileBegin)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn PrefetchFileBegin(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PrefetchFileBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn PrefetchFileEnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrefetchFileEnd)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+    pub unsafe fn PrefetchFileEnd(&self, pszpath: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PrefetchFileEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(hrresult)).ok()
     }
 }
 impl ::core::convert::From<IOfflineFilesEvents3> for ::windows::core::IUnknown {
     fn from(value: IOfflineFilesEvents3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesEvents3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1482,18 +1417,13 @@ impl ::core::convert::From<&IOfflineFilesEvents3> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesEvents3> for IOfflineFilesEvents {
     fn from(value: IOfflineFilesEvents3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents3> for &'a IOfflineFilesEvents {
+    fn from(value: &'a IOfflineFilesEvents3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1502,34 +1432,19 @@ impl ::core::convert::From<&IOfflineFilesEvents3> for IOfflineFilesEvents {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &'a IOfflineFilesEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesEvents3> for IOfflineFilesEvents2 {
     fn from(value: IOfflineFilesEvents3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents3> for &'a IOfflineFilesEvents2 {
+    fn from(value: &'a IOfflineFilesEvents3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IOfflineFilesEvents3> for IOfflineFilesEvents2 {
     fn from(value: &IOfflineFilesEvents3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for IOfflineFilesEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for &'a IOfflineFilesEvents3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesEvents3 {
@@ -1568,8 +1483,8 @@ pub struct IOfflineFilesEvents3_Vtbl {
 pub struct IOfflineFilesEvents4(::windows::core::IUnknown);
 impl IOfflineFilesEvents4 {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn CacheMoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CacheMoved)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi()).ok()
+    pub unsafe fn CacheMoved(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CacheMoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn CacheIsFull(&self) -> ::windows::core::Result<()> {
@@ -1581,36 +1496,36 @@ impl IOfflineFilesEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Enabled)(::windows::core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+    pub unsafe fn Enabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Enabled)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EncryptionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into_param().abi(), bwaspartial.into_param().abi(), bisencrypted.into_param().abi(), bispartial.into_param().abi()).ok()
+    pub unsafe fn EncryptionChanged<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bwasencrypted: Param0, bwaspartial: Param1, bisencrypted: Param2, bispartial: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.EncryptionChanged)(::windows::core::Interface::as_raw(self), bwasencrypted.into(), bwaspartial.into(), bisencrypted.into(), bispartial.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncBegin(&self, rsyncid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SyncBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn SyncFileResult<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, rsyncid: *const ::windows::core::GUID, pszfile: Param1, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), pszfile.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+    pub unsafe fn SyncFileResult(&self, rsyncid: *const ::windows::core::GUID, pszfile: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncFileResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rsyncid), ::core::mem::transmute(pszfile), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecAdded<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecUpdated<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecUpdated<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConflictRecRemoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszconflictpath: Param0, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: OFFLINEFILES_SYNC_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), pszconflictpath.into_param().abi(), ::core::mem::transmute(pftconflictdatetime), ::core::mem::transmute(conflictsyncstate)).ok()
+    pub unsafe fn SyncConflictRecRemoved<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszconflictpath: ::windows::core::PCWSTR, pftconflictdatetime: *const super::super::Foundation::FILETIME, conflictsyncstate: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SyncConflictRecRemoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszconflictpath), ::core::mem::transmute(pftconflictdatetime), conflictsyncstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn SyncEnd(&self, rsyncid: *const ::windows::core::GUID, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -1625,45 +1540,45 @@ impl IOfflineFilesEvents4 {
         (::windows::core::Interface::vtable(self).base__.base__.base__.NoNetTransports)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDisconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDisconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDisconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemReconnected<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemReconnected<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemReconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotAvailableOffline<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotAvailableOffline<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotAvailableOffline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemNotPinned<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemNotPinned<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemNotPinned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ItemModified<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi()).ok()
+    pub unsafe fn ItemModified<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1, bmodifieddata: Param2, bmodifiedattributes: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemAddedToCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemAddedToCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemAddedToCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemDeletedFromCache<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemDeletedFromCache<'a, Param1: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszpath: ::windows::core::PCWSTR, itemtype: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemDeletedFromCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszoldpath: Param0, psznewpath: Param1, itemtype: OFFLINEFILES_ITEM_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), pszoldpath.into_param().abi(), psznewpath.into_param().abi(), ::core::mem::transmute(itemtype)).ok()
+    pub unsafe fn ItemRenamed<'a, Param2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>>(&self, pszoldpath: ::windows::core::PCWSTR, psznewpath: ::windows::core::PCWSTR, itemtype: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ItemRenamed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszoldpath), ::core::mem::transmute(psznewpath), itemtype.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn DataLost(&self) -> ::windows::core::Result<()> {
@@ -1711,16 +1626,16 @@ impl IOfflineFilesEvents4 {
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransparentCacheItemNotify<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, eventtype: OFFLINEFILES_EVENTS, itemtype: OFFLINEFILES_ITEM_TYPE, bmodifieddata: Param3, bmodifiedattributes: Param4, pzsoldpath: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(eventtype), ::core::mem::transmute(itemtype), bmodifieddata.into_param().abi(), bmodifiedattributes.into_param().abi(), pzsoldpath.into_param().abi()).ok()
+    pub unsafe fn TransparentCacheItemNotify<'a, Param1: ::std::convert::Into<OFFLINEFILES_EVENTS>, Param2: ::std::convert::Into<OFFLINEFILES_ITEM_TYPE>, Param3: ::std::convert::Into<super::super::Foundation::BOOL>, Param4: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pszpath: ::windows::core::PCWSTR, eventtype: Param1, itemtype: Param2, bmodifieddata: Param3, bmodifiedattributes: Param4, pzsoldpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TransparentCacheItemNotify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), eventtype.into(), itemtype.into(), bmodifieddata.into(), bmodifiedattributes.into(), ::core::mem::transmute(pzsoldpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn PrefetchFileBegin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PrefetchFileBegin)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
+    pub unsafe fn PrefetchFileBegin(&self, pszpath: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PrefetchFileBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn PrefetchFileEnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PrefetchFileEnd)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(hrresult)).ok()
+    pub unsafe fn PrefetchFileEnd(&self, pszpath: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.PrefetchFileEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
     pub unsafe fn PrefetchCloseHandleBegin(&self) -> ::windows::core::Result<()> {
@@ -1736,23 +1651,23 @@ impl ::core::convert::From<IOfflineFilesEvents4> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesEvents4> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesEvents4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents {
     fn from(value: IOfflineFilesEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a IOfflineFilesEvents {
+    fn from(value: &'a IOfflineFilesEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1761,18 +1676,13 @@ impl ::core::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents> for &'a IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents2 {
     fn from(value: IOfflineFilesEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a IOfflineFilesEvents2 {
+    fn from(value: &'a IOfflineFilesEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1781,34 +1691,19 @@ impl ::core::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents2 {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents2> for &'a IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesEvents4> for IOfflineFilesEvents3 {
     fn from(value: IOfflineFilesEvents4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesEvents4> for &'a IOfflineFilesEvents3 {
+    fn from(value: &'a IOfflineFilesEvents4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IOfflineFilesEvents4> for IOfflineFilesEvents3 {
     fn from(value: &IOfflineFilesEvents4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents3> for IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesEvents3> for &'a IOfflineFilesEvents4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesEvents3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesEvents4 {
@@ -1860,19 +1755,14 @@ impl ::core::convert::From<IOfflineFilesEventsFilter> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesEventsFilter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesEventsFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesEventsFilter> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesEventsFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesEventsFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesEventsFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesEventsFilter {
@@ -1950,19 +1840,14 @@ impl ::core::convert::From<IOfflineFilesFileItem> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesFileItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesFileItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesFileItem> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesFileItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesFileItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesFileItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesFileItem> for IOfflineFilesItem {
@@ -1970,19 +1855,14 @@ impl ::core::convert::From<IOfflineFilesFileItem> for IOfflineFilesItem {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesFileItem> for &'a IOfflineFilesItem {
+    fn from(value: &'a IOfflineFilesFileItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesFileItem> for IOfflineFilesItem {
     fn from(value: &IOfflineFilesFileItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesFileItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesFileItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesFileItem {
@@ -2023,19 +1903,19 @@ pub struct IOfflineFilesFileItem_Vtbl {
 pub struct IOfflineFilesFileSysInfo(::windows::core::IUnknown);
 impl IOfflineFilesFileSysInfo {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn GetAttributes(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetAttributes<'a, Param0: ::std::convert::Into<OFFLINEFILES_ITEM_COPY>>(&self, copy: Param0) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributes)(::windows::core::Interface::as_raw(self), copy.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTimes(&self, copy: OFFLINEFILES_ITEM_COPY, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTimes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copy), ::core::mem::transmute(pftcreationtime), ::core::mem::transmute(pftlastwritetime), ::core::mem::transmute(pftchangetime), ::core::mem::transmute(pftlastaccesstime)).ok()
+    pub unsafe fn GetTimes<'a, Param0: ::std::convert::Into<OFFLINEFILES_ITEM_COPY>>(&self, copy: Param0, pftcreationtime: *mut super::super::Foundation::FILETIME, pftlastwritetime: *mut super::super::Foundation::FILETIME, pftchangetime: *mut super::super::Foundation::FILETIME, pftlastaccesstime: *mut super::super::Foundation::FILETIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTimes)(::windows::core::Interface::as_raw(self), copy.into(), ::core::mem::transmute(pftcreationtime), ::core::mem::transmute(pftlastwritetime), ::core::mem::transmute(pftchangetime), ::core::mem::transmute(pftlastaccesstime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn GetFileSize(&self, copy: OFFLINEFILES_ITEM_COPY) -> ::windows::core::Result<i64> {
+    pub unsafe fn GetFileSize<'a, Param0: ::std::convert::Into<OFFLINEFILES_ITEM_COPY>>(&self, copy: Param0) -> ::windows::core::Result<i64> {
         let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copy), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
+        (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), copy.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
 }
 impl ::core::convert::From<IOfflineFilesFileSysInfo> for ::windows::core::IUnknown {
@@ -2043,19 +1923,14 @@ impl ::core::convert::From<IOfflineFilesFileSysInfo> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesFileSysInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesFileSysInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesFileSysInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesFileSysInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesFileSysInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesFileSysInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesFileSysInfo {
@@ -2105,19 +1980,14 @@ impl ::core::convert::From<IOfflineFilesGhostInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesGhostInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesGhostInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesGhostInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesGhostInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesGhostInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesGhostInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesGhostInfo {
@@ -2184,19 +2054,14 @@ impl ::core::convert::From<IOfflineFilesItem> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesItem> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesItem {
@@ -2242,9 +2107,9 @@ impl IOfflineFilesItemContainer {
         (::windows::core::Interface::vtable(self).EnumItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOfflineFilesItems>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn EnumItemsEx<'a, Param0: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param1: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>, Param3: ::windows::core::IntoParam<'a, IOfflineFilesItemFilter>>(&self, pincludefilefilter: Param0, pincludedirfilter: Param1, pexcludefilefilter: Param2, pexcludedirfilter: Param3, dwenumflags: u32, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems> {
+    pub unsafe fn EnumItemsEx<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesItemFilter>>>(&self, pincludefilefilter: Param0, pincludedirfilter: Param1, pexcludefilefilter: Param2, pexcludedirfilter: Param3, dwenumflags: u32, dwqueryflags: u32) -> ::windows::core::Result<IEnumOfflineFilesItems> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumItemsEx)(::windows::core::Interface::as_raw(self), pincludefilefilter.into_param().abi(), pincludedirfilter.into_param().abi(), pexcludefilefilter.into_param().abi(), pexcludedirfilter.into_param().abi(), ::core::mem::transmute(dwenumflags), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOfflineFilesItems>(result__)
+        (::windows::core::Interface::vtable(self).EnumItemsEx)(::windows::core::Interface::as_raw(self), pincludefilefilter.into().abi(), pincludedirfilter.into().abi(), pexcludefilefilter.into().abi(), pexcludedirfilter.into().abi(), ::core::mem::transmute(dwenumflags), ::core::mem::transmute(dwqueryflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumOfflineFilesItems>(result__)
     }
 }
 impl ::core::convert::From<IOfflineFilesItemContainer> for ::windows::core::IUnknown {
@@ -2252,19 +2117,14 @@ impl ::core::convert::From<IOfflineFilesItemContainer> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesItemContainer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesItemContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesItemContainer> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesItemContainer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesItemContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesItemContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesItemContainer {
@@ -2317,19 +2177,14 @@ impl ::core::convert::From<IOfflineFilesItemFilter> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesItemFilter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesItemFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesItemFilter> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesItemFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesItemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesItemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesItemFilter {
@@ -2399,19 +2254,14 @@ impl ::core::convert::From<IOfflineFilesPinInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesPinInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesPinInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesPinInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesPinInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesPinInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesPinInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesPinInfo {
@@ -2501,19 +2351,14 @@ impl ::core::convert::From<IOfflineFilesPinInfo2> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesPinInfo2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesPinInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesPinInfo2> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesPinInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesPinInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesPinInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
@@ -2521,19 +2366,14 @@ impl ::core::convert::From<IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesPinInfo2> for &'a IOfflineFilesPinInfo {
+    fn from(value: &'a IOfflineFilesPinInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesPinInfo2> for IOfflineFilesPinInfo {
     fn from(value: &IOfflineFilesPinInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesPinInfo> for IOfflineFilesPinInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesPinInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesPinInfo> for &'a IOfflineFilesPinInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesPinInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesPinInfo2 {
@@ -2591,19 +2431,14 @@ impl ::core::convert::From<IOfflineFilesProgress> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesProgress> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesProgress {
@@ -2675,19 +2510,14 @@ impl ::core::convert::From<IOfflineFilesServerItem> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesServerItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesServerItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesServerItem> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesServerItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesServerItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesServerItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesServerItem> for IOfflineFilesItem {
@@ -2695,19 +2525,14 @@ impl ::core::convert::From<IOfflineFilesServerItem> for IOfflineFilesItem {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesServerItem> for &'a IOfflineFilesItem {
+    fn from(value: &'a IOfflineFilesServerItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesServerItem> for IOfflineFilesItem {
     fn from(value: &IOfflineFilesServerItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesServerItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesServerItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesServerItem {
@@ -2789,19 +2614,14 @@ impl ::core::convert::From<IOfflineFilesSetting> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSetting> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSetting) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSetting> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesSetting) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSetting {
@@ -2876,19 +2696,14 @@ impl ::core::convert::From<IOfflineFilesShareInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesShareInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesShareInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesShareInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesShareInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesShareInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesShareInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesShareInfo {
@@ -2957,19 +2772,14 @@ impl ::core::convert::From<IOfflineFilesShareItem> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesShareItem> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesShareItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesShareItem> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesShareItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesShareItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesShareItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesShareItem> for IOfflineFilesItem {
@@ -2977,19 +2787,14 @@ impl ::core::convert::From<IOfflineFilesShareItem> for IOfflineFilesItem {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesShareItem> for &'a IOfflineFilesItem {
+    fn from(value: &'a IOfflineFilesShareItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesShareItem> for IOfflineFilesItem {
     fn from(value: &IOfflineFilesShareItem) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for IOfflineFilesShareItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesItem> for &'a IOfflineFilesShareItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesItem> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesShareItem {
@@ -3038,18 +2843,23 @@ impl IOfflineFilesSimpleProgress {
         (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemBegin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfile: Param0) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
+    pub unsafe fn ItemBegin(&self, pszfile: ::windows::core::PCWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
         let mut result__ = ::core::mem::MaybeUninit::<OFFLINEFILES_OP_RESPONSE>::zeroed();
-        (::windows::core::Interface::vtable(self).ItemBegin)(::windows::core::Interface::as_raw(self), pszfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
+        (::windows::core::Interface::vtable(self).ItemBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfile), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ItemResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfile: Param0, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
+    pub unsafe fn ItemResult(&self, pszfile: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
         let mut result__ = ::core::mem::MaybeUninit::<OFFLINEFILES_OP_RESPONSE>::zeroed();
-        (::windows::core::Interface::vtable(self).ItemResult)(::windows::core::Interface::as_raw(self), pszfile.into_param().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
+        (::windows::core::Interface::vtable(self).ItemResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfile), ::core::mem::transmute(hrresult), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
     }
 }
 impl ::core::convert::From<IOfflineFilesSimpleProgress> for ::windows::core::IUnknown {
     fn from(value: IOfflineFilesSimpleProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesSimpleProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSimpleProgress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3058,34 +2868,19 @@ impl ::core::convert::From<&IOfflineFilesSimpleProgress> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSimpleProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSimpleProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesSimpleProgress> for IOfflineFilesProgress {
     fn from(value: IOfflineFilesSimpleProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesSimpleProgress> for &'a IOfflineFilesProgress {
+    fn from(value: &'a IOfflineFilesSimpleProgress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IOfflineFilesSimpleProgress> for IOfflineFilesProgress {
     fn from(value: &IOfflineFilesSimpleProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for IOfflineFilesSimpleProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesProgress> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for &'a IOfflineFilesSimpleProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesProgress> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSimpleProgress {
@@ -3121,8 +2916,8 @@ pub struct IOfflineFilesSuspend(::windows::core::IUnknown);
 impl IOfflineFilesSuspend {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SuspendRoot<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bsuspend: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SuspendRoot)(::windows::core::Interface::as_raw(self), bsuspend.into_param().abi()).ok()
+    pub unsafe fn SuspendRoot<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bsuspend: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SuspendRoot)(::windows::core::Interface::as_raw(self), bsuspend.into()).ok()
     }
 }
 impl ::core::convert::From<IOfflineFilesSuspend> for ::windows::core::IUnknown {
@@ -3130,19 +2925,14 @@ impl ::core::convert::From<IOfflineFilesSuspend> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSuspend> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSuspend) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSuspend> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesSuspend) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSuspend {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSuspend {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSuspend {
@@ -3189,19 +2979,14 @@ impl ::core::convert::From<IOfflineFilesSuspendInfo> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSuspendInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSuspendInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSuspendInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesSuspendInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSuspendInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSuspendInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSuspendInfo {
@@ -3238,8 +3023,8 @@ pub struct IOfflineFilesSuspendInfo_Vtbl {
 pub struct IOfflineFilesSyncConflictHandler(::windows::core::IUnknown);
 impl IOfflineFilesSyncConflictHandler {
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn ResolveConflict<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, fstateknown: u32, state: OFFLINEFILES_SYNC_STATE, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResolveConflict)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(fstateknown), ::core::mem::transmute(state), ::core::mem::transmute(fchangedetails), ::core::mem::transmute(pconflictresolution), ::core::mem::transmute(ppsznewname)).ok()
+    pub unsafe fn ResolveConflict<'a, Param2: ::std::convert::Into<OFFLINEFILES_SYNC_STATE>>(&self, pszpath: ::windows::core::PCWSTR, fstateknown: u32, state: Param2, fchangedetails: u32, pconflictresolution: *mut OFFLINEFILES_SYNC_CONFLICT_RESOLVE, ppsznewname: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResolveConflict)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszpath), ::core::mem::transmute(fstateknown), state.into(), ::core::mem::transmute(fchangedetails), ::core::mem::transmute(pconflictresolution), ::core::mem::transmute(ppsznewname)).ok()
     }
 }
 impl ::core::convert::From<IOfflineFilesSyncConflictHandler> for ::windows::core::IUnknown {
@@ -3247,19 +3032,14 @@ impl ::core::convert::From<IOfflineFilesSyncConflictHandler> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSyncConflictHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSyncConflictHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSyncConflictHandler> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesSyncConflictHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSyncConflictHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncConflictHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSyncConflictHandler {
@@ -3344,19 +3124,14 @@ impl ::core::convert::From<IOfflineFilesSyncErrorInfo> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSyncErrorInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSyncErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSyncErrorInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesSyncErrorInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSyncErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInfo {
@@ -3364,19 +3139,14 @@ impl ::core::convert::From<IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInf
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSyncErrorInfo> for &'a IOfflineFilesErrorInfo {
+    fn from(value: &'a IOfflineFilesSyncErrorInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSyncErrorInfo> for IOfflineFilesErrorInfo {
     fn from(value: &IOfflineFilesSyncErrorInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesErrorInfo> for IOfflineFilesSyncErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesErrorInfo> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesErrorInfo> for &'a IOfflineFilesSyncErrorInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesErrorInfo> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSyncErrorInfo {
@@ -3442,19 +3212,14 @@ impl ::core::convert::From<IOfflineFilesSyncErrorItemInfo> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesSyncErrorItemInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSyncErrorItemInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesSyncErrorItemInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesSyncErrorItemInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSyncErrorItemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncErrorItemInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSyncErrorItemInfo {
@@ -3509,18 +3274,23 @@ impl IOfflineFilesSyncProgress {
         (::windows::core::Interface::vtable(self).base__.End)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn SyncItemBegin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszfile: Param0) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
+    pub unsafe fn SyncItemBegin(&self, pszfile: ::windows::core::PCWSTR) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
         let mut result__ = ::core::mem::MaybeUninit::<OFFLINEFILES_OP_RESPONSE>::zeroed();
-        (::windows::core::Interface::vtable(self).SyncItemBegin)(::windows::core::Interface::as_raw(self), pszfile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
+        (::windows::core::Interface::vtable(self).SyncItemBegin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfile), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
     }
     #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-    pub unsafe fn SyncItemResult<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, IOfflineFilesSyncErrorInfo>>(&self, pszfile: Param0, hrresult: ::windows::core::HRESULT, perrorinfo: Param2) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
+    pub unsafe fn SyncItemResult<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, IOfflineFilesSyncErrorInfo>>>(&self, pszfile: ::windows::core::PCWSTR, hrresult: ::windows::core::HRESULT, perrorinfo: Param2) -> ::windows::core::Result<OFFLINEFILES_OP_RESPONSE> {
         let mut result__ = ::core::mem::MaybeUninit::<OFFLINEFILES_OP_RESPONSE>::zeroed();
-        (::windows::core::Interface::vtable(self).SyncItemResult)(::windows::core::Interface::as_raw(self), pszfile.into_param().abi(), ::core::mem::transmute(hrresult), perrorinfo.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
+        (::windows::core::Interface::vtable(self).SyncItemResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszfile), ::core::mem::transmute(hrresult), perrorinfo.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OFFLINEFILES_OP_RESPONSE>(result__)
     }
 }
 impl ::core::convert::From<IOfflineFilesSyncProgress> for ::windows::core::IUnknown {
     fn from(value: IOfflineFilesSyncProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesSyncProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesSyncProgress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3529,34 +3299,19 @@ impl ::core::convert::From<&IOfflineFilesSyncProgress> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesSyncProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesSyncProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IOfflineFilesSyncProgress> for IOfflineFilesProgress {
     fn from(value: IOfflineFilesSyncProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IOfflineFilesSyncProgress> for &'a IOfflineFilesProgress {
+    fn from(value: &'a IOfflineFilesSyncProgress) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IOfflineFilesSyncProgress> for IOfflineFilesProgress {
     fn from(value: &IOfflineFilesSyncProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for IOfflineFilesSyncProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesProgress> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOfflineFilesProgress> for &'a IOfflineFilesSyncProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, IOfflineFilesProgress> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesSyncProgress {
@@ -3602,19 +3357,14 @@ impl ::core::convert::From<IOfflineFilesTransparentCacheInfo> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOfflineFilesTransparentCacheInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOfflineFilesTransparentCacheInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOfflineFilesTransparentCacheInfo> for ::windows::core::IUnknown {
     fn from(value: &IOfflineFilesTransparentCacheInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOfflineFilesTransparentCacheInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOfflineFilesTransparentCacheInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IOfflineFilesTransparentCacheInfo {
@@ -4484,12 +4234,12 @@ pub const OfflineFilesCache: ::windows::core::GUID = ::windows::core::GUID::from
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OfflineFilesEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(benable: Param0, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32 {
+pub unsafe fn OfflineFilesEnable<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(benable: Param0, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
     }
-    ::core::mem::transmute(OfflineFilesEnable(benable.into_param().abi(), ::core::mem::transmute(pbrebootrequired)))
+    ::core::mem::transmute(OfflineFilesEnable(benable.into(), ::core::mem::transmute(pbrebootrequired)))
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

@@ -238,20 +238,20 @@ impl SpeechSynthesisStream {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::super::Storage::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<super::super::Storage::Streams::InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -397,14 +397,9 @@ impl ::core::convert::From<&SpeechSynthesisStream> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechSynthesisStream> for &::windows::core::IUnknown {
+    fn from(value: &SpeechSynthesisStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechSynthesisStream> for ::windows::core::IInspectable {
@@ -417,14 +412,9 @@ impl ::core::convert::From<&SpeechSynthesisStream> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechSynthesisStream> for &::windows::core::IInspectable {
+    fn from(value: &SpeechSynthesisStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -442,15 +432,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -468,15 +454,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IContentTypeProvider> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IContentTypeProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IContentTypeProvider> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IContentTypeProvider> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IContentTypeProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IContentTypeProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -494,15 +476,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IInputStream> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -520,15 +498,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IOutputStream> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -546,15 +520,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStream> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Storage_Streams")]
@@ -572,15 +542,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::super::Storage:
     }
 }
 #[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Storage_Streams")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
-        ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Media_Core")]
@@ -598,15 +564,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesisStream> for super::Core::ITimedMet
     }
 }
 #[cfg(feature = "Media_Core")]
-impl<'a> ::windows::core::IntoParam<'a, super::Core::ITimedMetadataTrackProvider> for SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Core::ITimedMetadataTrackProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Media_Core")]
-impl<'a> ::windows::core::IntoParam<'a, super::Core::ITimedMetadataTrackProvider> for &SpeechSynthesisStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Core::ITimedMetadataTrackProvider> {
-        ::core::convert::TryInto::<super::Core::ITimedMetadataTrackProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesisStream> for ::windows::core::InParam<'a, super::Core::ITimedMetadataTrackProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesisStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechSynthesisStream {}
@@ -645,34 +607,34 @@ impl SpeechSynthesizer {
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TrySetDefaultVoiceAsync<'a, Param0: ::windows::core::IntoParam<'a, VoiceInformation>>(voice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TrySetDefaultVoiceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>>(voice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IInstalledVoicesStatic2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetDefaultVoiceAsync)(::windows::core::Interface::as_raw(this), voice.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetDefaultVoiceAsync)(::windows::core::Interface::as_raw(this), voice.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SynthesizeTextToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
+    pub fn SynthesizeTextToStreamAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SynthesizeTextToStreamAsync)(::windows::core::Interface::as_raw(this), text.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
+            (::windows::core::Interface::vtable(this).SynthesizeTextToStreamAsync)(::windows::core::Interface::as_raw(this), text.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SynthesizeSsmlToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, ssml: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
+    pub fn SynthesizeSsmlToStreamAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, ssml: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SynthesizeSsmlToStreamAsync)(::windows::core::Interface::as_raw(this), ssml.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
+            (::windows::core::Interface::vtable(this).SynthesizeSsmlToStreamAsync)(::windows::core::Interface::as_raw(this), ssml.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-    pub fn SetVoice<'a, Param0: ::windows::core::IntoParam<'a, VoiceInformation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVoice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VoiceInformation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVoice)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVoice)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn Voice(&self) -> ::windows::core::Result<VoiceInformation> {
@@ -741,14 +703,9 @@ impl ::core::convert::From<&SpeechSynthesizer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechSynthesizer> for &::windows::core::IUnknown {
+    fn from(value: &SpeechSynthesizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechSynthesizer> for ::windows::core::IInspectable {
@@ -761,14 +718,9 @@ impl ::core::convert::From<&SpeechSynthesizer> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechSynthesizer> for &::windows::core::IInspectable {
+    fn from(value: &SpeechSynthesizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -786,15 +738,11 @@ impl ::core::convert::TryFrom<&SpeechSynthesizer> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for SpeechSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &SpeechSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SpeechSynthesizer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SpeechSynthesizer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SpeechSynthesizer {}
@@ -877,9 +825,9 @@ impl SpeechSynthesizerOptions {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-    pub fn SetAppendedSilence(&self, value: SpeechAppendedSilence) -> ::windows::core::Result<()> {
+    pub fn SetAppendedSilence<'a, Param0: ::std::convert::Into<SpeechAppendedSilence>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppendedSilence)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppendedSilence)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn PunctuationSilence(&self) -> ::windows::core::Result<SpeechPunctuationSilence> {
@@ -890,9 +838,9 @@ impl SpeechSynthesizerOptions {
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-    pub fn SetPunctuationSilence(&self, value: SpeechPunctuationSilence) -> ::windows::core::Result<()> {
+    pub fn SetPunctuationSilence<'a, Param0: ::std::convert::Into<SpeechPunctuationSilence>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPunctuationSilence)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPunctuationSilence)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for SpeechSynthesizerOptions {
@@ -935,14 +883,9 @@ impl ::core::convert::From<&SpeechSynthesizerOptions> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechSynthesizerOptions> for &::windows::core::IUnknown {
+    fn from(value: &SpeechSynthesizerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SpeechSynthesizerOptions> for ::windows::core::IInspectable {
@@ -955,14 +898,9 @@ impl ::core::convert::From<&SpeechSynthesizerOptions> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SpeechSynthesizerOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SpeechSynthesizerOptions> for &::windows::core::IInspectable {
+    fn from(value: &SpeechSynthesizerOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
@@ -1086,14 +1024,9 @@ impl ::core::convert::From<&VoiceInformation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VoiceInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VoiceInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VoiceInformation> for &::windows::core::IUnknown {
+    fn from(value: &VoiceInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VoiceInformation> for ::windows::core::IInspectable {
@@ -1106,14 +1039,9 @@ impl ::core::convert::From<&VoiceInformation> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VoiceInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VoiceInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VoiceInformation> for &::windows::core::IInspectable {
+    fn from(value: &VoiceInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VoiceInformation {}

@@ -117,35 +117,35 @@ impl ResourceLoader {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
-    pub fn GetString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, resource: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, resource: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), resource.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), resource.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetStringForUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetStringForUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, uri: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IResourceLoader2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStringForUri)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetStringForUri)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
-    pub fn CreateResourceLoaderByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<ResourceLoader> {
+    pub fn CreateResourceLoaderByName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<ResourceLoader> {
         Self::IResourceLoaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateResourceLoaderByName)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
+            (::windows::core::Interface::vtable(this).CreateResourceLoaderByName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetStringForReference<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetStringForReference<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(uri: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IResourceLoaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetStringForReference)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetStringForReference)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
@@ -156,10 +156,10 @@ impl ResourceLoader {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
-    pub fn GetForCurrentViewWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<ResourceLoader> {
+    pub fn GetForCurrentViewWithName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentViewWithName)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentViewWithName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
@@ -170,25 +170,25 @@ impl ResourceLoader {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
-    pub fn GetForViewIndependentUseWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<ResourceLoader> {
+    pub fn GetForViewIndependentUseWithName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForViewIndependentUseWithName)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
+            (::windows::core::Interface::vtable(this).GetForViewIndependentUseWithName)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn GetForUIContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::UIContext>>(context: Param0) -> ::windows::core::Result<ResourceLoader> {
+    pub fn GetForUIContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::UIContext>>>(context: Param0) -> ::windows::core::Result<ResourceLoader> {
         Self::IResourceLoaderStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUIContext)(::windows::core::Interface::as_raw(this), context.into_param().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
+            (::windows::core::Interface::vtable(this).GetForUIContext)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
-    pub fn GetDefaultPriPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefullname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDefaultPriPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(packagefullname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IResourceLoaderStatics4(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultPriPath)(::windows::core::Interface::as_raw(this), packagefullname.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultPriPath)(::windows::core::Interface::as_raw(this), packagefullname.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -257,14 +257,9 @@ impl ::core::convert::From<&ResourceLoader> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ResourceLoader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ResourceLoader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ResourceLoader> for &::windows::core::IUnknown {
+    fn from(value: &ResourceLoader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ResourceLoader> for ::windows::core::IInspectable {
@@ -277,14 +272,9 @@ impl ::core::convert::From<&ResourceLoader> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ResourceLoader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ResourceLoader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ResourceLoader> for &::windows::core::IInspectable {
+    fn from(value: &ResourceLoader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ResourceLoader {}

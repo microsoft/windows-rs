@@ -4,15 +4,15 @@ pub struct IGraphicsCaptureItemInterop(::windows::core::IUnknown);
 impl IGraphicsCaptureItemInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Capture\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, window: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateForWindow<'a, Param0: ::std::convert::Into<super::super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, window: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), window.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Capture\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateForMonitor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Gdi::HMONITOR>, T: ::windows::core::Interface>(&self, monitor: Param0) -> ::windows::core::Result<T> {
+    pub unsafe fn CreateForMonitor<'a, Param0: ::std::convert::Into<super::super::super::super::Graphics::Gdi::HMONITOR>, T: ::windows::core::Interface>(&self, monitor: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateForMonitor)(::windows::core::Interface::as_raw(self), monitor.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateForMonitor)(::windows::core::Interface::as_raw(self), monitor.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IGraphicsCaptureItemInterop> for ::windows::core::IUnknown {
@@ -20,19 +20,14 @@ impl ::core::convert::From<IGraphicsCaptureItemInterop> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IGraphicsCaptureItemInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGraphicsCaptureItemInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IGraphicsCaptureItemInterop> for ::windows::core::IUnknown {
     fn from(value: &IGraphicsCaptureItemInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGraphicsCaptureItemInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGraphicsCaptureItemInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IGraphicsCaptureItemInterop {

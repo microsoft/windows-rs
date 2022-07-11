@@ -54,32 +54,32 @@ pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeh
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 #[inline]
-pub unsafe fn GetRawInputData<'a, Param0: ::windows::core::IntoParam<'a, HRAWINPUT>>(hrawinput: Param0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
+pub unsafe fn GetRawInputData<'a, Param0: ::std::convert::Into<HRAWINPUT>, Param1: ::std::convert::Into<RAW_INPUT_DATA_COMMAND_FLAGS>>(hrawinput: Param0, uicommand: Param1, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputData(hrawinput.into_param().abi(), ::core::mem::transmute(uicommand), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), ::core::mem::transmute(cbsizeheader)))
+    ::core::mem::transmute(GetRawInputData(hrawinput.into(), uicommand.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize), ::core::mem::transmute(cbsizeheader)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
+pub unsafe fn GetRawInputDeviceInfoA<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<RAW_INPUT_DEVICE_INFO_COMMAND>>(hdevice: Param0, uicommand: Param1, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRawInputDeviceInfoA(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceInfoA(hdevice.into_param().abi(), ::core::mem::transmute(uicommand), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
+    ::core::mem::transmute(GetRawInputDeviceInfoA(hdevice.into(), uicommand.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
+pub unsafe fn GetRawInputDeviceInfoW<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>, Param1: ::std::convert::Into<RAW_INPUT_DEVICE_INFO_COMMAND>>(hdevice: Param0, uicommand: Param1, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRawInputDeviceInfoW(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
     }
-    ::core::mem::transmute(GetRawInputDeviceInfoW(hdevice.into_param().abi(), ::core::mem::transmute(uicommand), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
+    ::core::mem::transmute(GetRawInputDeviceInfoW(hdevice.into(), uicommand.into(), ::core::mem::transmute(pdata), ::core::mem::transmute(pcbsize)))
 }
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -123,6 +123,11 @@ impl ::core::marker::Copy for HRAWINPUT {}
 impl ::core::fmt::Debug for HRAWINPUT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HRAWINPUT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HRAWINPUT>> for HRAWINPUT {
+    fn from(optional: ::core::option::Option<HRAWINPUT>) -> HRAWINPUT {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HRAWINPUT {

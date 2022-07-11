@@ -51,14 +51,9 @@ impl ::core::convert::From<&ConnectionRequestedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ConnectionRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ConnectionRequestedEventArgs> for ::windows::core::IInspectable {
@@ -71,14 +66,9 @@ impl ::core::convert::From<&ConnectionRequestedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ConnectionRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ConnectionRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ConnectionRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ConnectionRequestedEventArgs {}
@@ -92,9 +82,9 @@ impl DeviceArrivedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -177,9 +167,9 @@ impl DeviceDepartedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ProximityDevice>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -553,9 +543,9 @@ impl MessageReceivedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ProximityDevice>, Param1: ::windows::core::IntoParam<'a, ProximityMessage>>(&self, sender: Param0, message: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ProximityMessage>>>(&self, sender: Param0, message: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), message.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), message.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -638,9 +628,9 @@ impl MessageTransmittedHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ProximityDevice>>(&self, sender: Param0, messageid: i64) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ProximityDevice>>>(&self, sender: Param0, messageid: i64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), messageid).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), messageid).ok() }
     }
 }
 #[repr(C)]
@@ -821,8 +811,8 @@ impl PeerFinder {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
     pub fn SupportedDiscoveryTypes() -> ::windows::core::Result<PeerDiscoveryTypes> {
@@ -844,8 +834,8 @@ impl PeerFinder {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn StartWithMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(peermessage: Param0) -> ::windows::core::Result<()> {
-        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartWithMessage)(::windows::core::Interface::as_raw(this), peermessage.into_param().abi()).ok() })
+    pub fn StartWithMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(peermessage: Param0) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).StartWithMessage)(::windows::core::Interface::as_raw(this), peermessage.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
     pub fn Stop() -> ::windows::core::Result<()> {
@@ -853,29 +843,29 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TriggeredConnectionStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TriggeredConnectionStateChangedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TriggeredConnectionStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, TriggeredConnectionStateChangedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTriggeredConnectionStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveTriggeredConnectionStateChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConnectionRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ConnectionRequestedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ConnectionRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ConnectionRequestedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveConnectionRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionRequested)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveConnectionRequested(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionRequested)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -887,10 +877,10 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
-    pub fn ConnectAsync<'a, Param0: ::windows::core::IntoParam<'a, PeerInformation>>(peerinformation: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>> {
+    pub fn ConnectAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PeerInformation>>>(peerinformation: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), peerinformation.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), peerinformation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -901,8 +891,8 @@ impl PeerFinder {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SetRole(value: PeerRole) -> ::windows::core::Result<()> {
-        Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetRole)(::windows::core::Interface::as_raw(this), value).ok() })
+    pub fn SetRole<'a, Param0: ::std::convert::Into<PeerRole>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetRole)(::windows::core::Interface::as_raw(this), value.into()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -914,8 +904,8 @@ impl PeerFinder {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDiscoveryData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetDiscoveryData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetDiscoveryData<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetDiscoveryData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
     pub fn CreateWatcher() -> ::windows::core::Result<PeerWatcher> {
@@ -1024,14 +1014,9 @@ impl ::core::convert::From<&PeerInformation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PeerInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PeerInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PeerInformation> for &::windows::core::IUnknown {
+    fn from(value: &PeerInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PeerInformation> for ::windows::core::IInspectable {
@@ -1044,14 +1029,9 @@ impl ::core::convert::From<&PeerInformation> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PeerInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PeerInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PeerInformation> for &::windows::core::IInspectable {
+    fn from(value: &PeerInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PeerInformation {}
@@ -1097,78 +1077,78 @@ pub struct PeerWatcher(::windows::core::IUnknown);
 impl PeerWatcher {
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Stopped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<PeerWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<PeerWatcherStatus> {
@@ -1229,14 +1209,9 @@ impl ::core::convert::From<&PeerWatcher> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PeerWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PeerWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PeerWatcher> for &::windows::core::IUnknown {
+    fn from(value: &PeerWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PeerWatcher> for ::windows::core::IInspectable {
@@ -1249,14 +1224,9 @@ impl ::core::convert::From<&PeerWatcher> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PeerWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PeerWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PeerWatcher> for &::windows::core::IInspectable {
+    fn from(value: &PeerWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PeerWatcher {}
@@ -1304,63 +1274,63 @@ unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
 pub struct ProximityDevice(::windows::core::IUnknown);
 impl ProximityDevice {
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn SubscribeForMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, MessageReceivedHandler>>(&self, messagetype: Param0, messagereceivedhandler: Param1) -> ::windows::core::Result<i64> {
+    pub fn SubscribeForMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, MessageReceivedHandler>>>(&self, messagetype: Param0, messagereceivedhandler: Param1) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).SubscribeForMessage)(::windows::core::Interface::as_raw(this), messagetype.into_param().abi(), messagereceivedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).SubscribeForMessage)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), messagereceivedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn PublishMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, messagetype: Param0, message: Param1) -> ::windows::core::Result<i64> {
+    pub fn PublishMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, messagetype: Param0, message: Param1) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).PublishMessage)(::windows::core::Interface::as_raw(this), messagetype.into_param().abi(), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).PublishMessage)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn PublishMessageWithCallback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, MessageTransmittedHandler>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::core::Result<i64> {
+    pub fn PublishMessageWithCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).PublishMessageWithCallback)(::windows::core::Interface::as_raw(this), messagetype.into_param().abi(), message.into_param().abi(), messagetransmittedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).PublishMessageWithCallback)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.into().abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, messagetype: Param0, message: Param1) -> ::windows::core::Result<i64> {
+    pub fn PublishBinaryMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, messagetype: Param0, message: Param1) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).PublishBinaryMessage)(::windows::core::Interface::as_raw(this), messagetype.into_param().abi(), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).PublishBinaryMessage)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessageWithCallback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, MessageTransmittedHandler>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::core::Result<i64> {
+    pub fn PublishBinaryMessageWithCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>>(&self, messagetype: Param0, message: Param1, messagetransmittedhandler: Param2) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).PublishBinaryMessageWithCallback)(::windows::core::Interface::as_raw(this), messagetype.into_param().abi(), message.into_param().abi(), messagetransmittedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).PublishBinaryMessageWithCallback)(::windows::core::Interface::as_raw(this), messagetype.into().abi(), message.try_into().map_err(|e| e.into())?.abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PublishUriMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, message: Param0) -> ::windows::core::Result<i64> {
+    pub fn PublishUriMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, message: Param0) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).PublishUriMessage)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).PublishUriMessage)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PublishUriMessageWithCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, MessageTransmittedHandler>>(&self, message: Param0, messagetransmittedhandler: Param1) -> ::windows::core::Result<i64> {
+    pub fn PublishUriMessageWithCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, MessageTransmittedHandler>>>(&self, message: Param0, messagetransmittedhandler: Param1) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
-            (::windows::core::Interface::vtable(this).PublishUriMessageWithCallback)(::windows::core::Interface::as_raw(this), message.into_param().abi(), messagetransmittedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).PublishUriMessageWithCallback)(::windows::core::Interface::as_raw(this), message.into().abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
@@ -1375,33 +1345,33 @@ impl ProximityDevice {
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceArrived<'a, Param0: ::windows::core::IntoParam<'a, DeviceArrivedEventHandler>>(&self, arrivedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceArrived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DeviceArrivedEventHandler>>>(&self, arrivedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceArrived)(::windows::core::Interface::as_raw(this), arrivedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DeviceArrived)(::windows::core::Interface::as_raw(this), arrivedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDeviceArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDeviceArrived(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceArrived)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceArrived)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceDeparted<'a, Param0: ::windows::core::IntoParam<'a, DeviceDepartedEventHandler>>(&self, departedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceDeparted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DeviceDepartedEventHandler>>>(&self, departedhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceDeparted)(::windows::core::Interface::as_raw(this), departedhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DeviceDeparted)(::windows::core::Interface::as_raw(this), departedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDeviceDeparted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDeviceDeparted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceDeparted)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceDeparted)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
     pub fn MaxMessageBytes(&self) -> ::windows::core::Result<u32> {
@@ -1442,10 +1412,10 @@ impl ProximityDevice {
         })
     }
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-    pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<ProximityDevice> {
+    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<ProximityDevice> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<ProximityDevice>(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<ProximityDevice>(result__)
         })
     }
     #[doc(hidden)]
@@ -1494,14 +1464,9 @@ impl ::core::convert::From<&ProximityDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProximityDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximityDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProximityDevice> for &::windows::core::IUnknown {
+    fn from(value: &ProximityDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProximityDevice> for ::windows::core::IInspectable {
@@ -1514,14 +1479,9 @@ impl ::core::convert::From<&ProximityDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProximityDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximityDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProximityDevice> for &::windows::core::IInspectable {
+    fn from(value: &ProximityDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProximityDevice {}
@@ -1604,14 +1564,9 @@ impl ::core::convert::From<&ProximityMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ProximityMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ProximityMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProximityMessage> for &::windows::core::IUnknown {
+    fn from(value: &ProximityMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ProximityMessage> for ::windows::core::IInspectable {
@@ -1624,14 +1579,9 @@ impl ::core::convert::From<&ProximityMessage> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ProximityMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ProximityMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ProximityMessage> for &::windows::core::IInspectable {
+    fn from(value: &ProximityMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ProximityMessage {}
@@ -1744,14 +1694,9 @@ impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TriggeredConnectionStateChangedEventArgs> for ::windows::core::IInspectable {
@@ -1764,14 +1709,9 @@ impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TriggeredConnectionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TriggeredConnectionStateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &TriggeredConnectionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TriggeredConnectionStateChangedEventArgs {}

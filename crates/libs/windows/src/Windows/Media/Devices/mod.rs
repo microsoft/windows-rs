@@ -20,9 +20,9 @@ impl AdvancedPhotoCaptureSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode(&self, value: AdvancedPhotoMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<AdvancedPhotoMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for AdvancedPhotoCaptureSettings {
@@ -65,14 +65,9 @@ impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AdvancedPhotoCaptureSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AdvancedPhotoCaptureSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for &::windows::core::IUnknown {
+    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AdvancedPhotoCaptureSettings> for ::windows::core::IInspectable {
@@ -85,14 +80,9 @@ impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AdvancedPhotoCaptureSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AdvancedPhotoCaptureSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for &::windows::core::IInspectable {
+    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
@@ -127,9 +117,9 @@ impl AdvancedPhotoControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Configure<'a, Param0: ::windows::core::IntoParam<'a, AdvancedPhotoCaptureSettings>>(&self, settings: Param0) -> ::windows::core::Result<()> {
+    pub fn Configure<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AdvancedPhotoCaptureSettings>>>(&self, settings: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AdvancedPhotoControl {
@@ -172,14 +162,9 @@ impl ::core::convert::From<&AdvancedPhotoControl> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AdvancedPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AdvancedPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AdvancedPhotoControl> for &::windows::core::IUnknown {
+    fn from(value: &AdvancedPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AdvancedPhotoControl> for ::windows::core::IInspectable {
@@ -192,14 +177,9 @@ impl ::core::convert::From<&AdvancedPhotoControl> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AdvancedPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AdvancedPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AdvancedPhotoControl> for &::windows::core::IInspectable {
+    fn from(value: &AdvancedPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
@@ -272,29 +252,29 @@ impl AudioDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    pub fn GetAvailableMediaStreamProperties<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>>(&self, mediastreamtype: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
+    pub fn GetMediaStreamProperties<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>>(&self, mediastreamtype: Param0) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, Param1: ::windows::core::IntoParam<'a, super::MediaProperties::IMediaEncodingProperties>>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetMediaStreamPropertiesAsync<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, mediastreamtype: Param0, mediaencodingproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -338,14 +318,9 @@ impl ::core::convert::From<&AudioDeviceController> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceController> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioDeviceController> for ::windows::core::IInspectable {
@@ -358,14 +333,9 @@ impl ::core::convert::From<&AudioDeviceController> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceController> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AudioDeviceController> for IMediaDeviceController {
@@ -380,14 +350,11 @@ impl ::core::convert::TryFrom<&AudioDeviceController> for IMediaDeviceController
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaDeviceController> for AudioDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaDeviceController> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaDeviceController> for &AudioDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaDeviceController> {
-        ::core::convert::TryInto::<IMediaDeviceController>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioDeviceController> for ::windows::core::InParam<'a, IMediaDeviceController> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioDeviceController) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -436,11 +403,11 @@ impl AudioDeviceModule {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendCommandAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, command: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>> {
+    pub fn SendCommandAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, command: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendCommandAsync)(::windows::core::Interface::as_raw(this), command.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendCommandAsync)(::windows::core::Interface::as_raw(this), command.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>(result__)
         }
     }
 }
@@ -484,14 +451,9 @@ impl ::core::convert::From<&AudioDeviceModule> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioDeviceModule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioDeviceModule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceModule> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioDeviceModule> for ::windows::core::IInspectable {
@@ -504,14 +466,9 @@ impl ::core::convert::From<&AudioDeviceModule> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioDeviceModule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioDeviceModule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceModule> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -576,14 +533,9 @@ impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioDeviceModuleNotificationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioDeviceModuleNotificationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioDeviceModuleNotificationEventArgs> for ::windows::core::IInspectable {
@@ -596,14 +548,9 @@ impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioDeviceModuleNotificationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioDeviceModuleNotificationEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
@@ -614,26 +561,26 @@ pub struct AudioDeviceModulesManager(::windows::core::IUnknown);
 impl AudioDeviceModulesManager {
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ModuleNotificationReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ModuleNotificationReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ModuleNotificationReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ModuleNotificationReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveModuleNotificationReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveModuleNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveModuleNotificationReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveModuleNotificationReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, moduleid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
+    pub fn FindAllById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, moduleid: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllById)(::windows::core::Interface::as_raw(this), moduleid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllById)(::windows::core::Interface::as_raw(this), moduleid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`*"]
@@ -646,10 +593,10 @@ impl AudioDeviceModulesManager {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<AudioDeviceModulesManager> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<AudioDeviceModulesManager> {
         Self::IAudioDeviceModulesManagerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<AudioDeviceModulesManager>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<AudioDeviceModulesManager>(result__)
         })
     }
     #[doc(hidden)]
@@ -698,14 +645,9 @@ impl ::core::convert::From<&AudioDeviceModulesManager> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioDeviceModulesManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioDeviceModulesManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceModulesManager> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModulesManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioDeviceModulesManager> for ::windows::core::IInspectable {
@@ -718,14 +660,9 @@ impl ::core::convert::From<&AudioDeviceModulesManager> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioDeviceModulesManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioDeviceModulesManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioDeviceModulesManager> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModulesManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
@@ -804,11 +741,11 @@ unsafe impl ::windows::core::RuntimeType for AutoFocusRange {
 pub struct CallControl(::windows::core::IUnknown);
 impl CallControl {
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn IndicateNewIncomingCall<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, enableringer: bool, callerid: Param1) -> ::windows::core::Result<u64> {
+    pub fn IndicateNewIncomingCall<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, enableringer: bool, callerid: Param1) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
-            (::windows::core::Interface::vtable(this).IndicateNewIncomingCall)(::windows::core::Interface::as_raw(this), enableringer, callerid.into_param().abi(), result__.as_mut_ptr()).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).IndicateNewIncomingCall)(::windows::core::Interface::as_raw(this), enableringer, callerid.into().abi(), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -839,93 +776,93 @@ impl CallControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AnswerRequested<'a, Param0: ::windows::core::IntoParam<'a, CallControlEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AnswerRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AnswerRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AnswerRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAnswerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAnswerRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAnswerRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn HangUpRequested<'a, Param0: ::windows::core::IntoParam<'a, CallControlEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn HangUpRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).HangUpRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HangUpRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveHangUpRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveHangUpRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHangUpRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHangUpRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DialRequested<'a, Param0: ::windows::core::IntoParam<'a, DialRequestedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DialRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DialRequestedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DialRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DialRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDialRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDialRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDialRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RedialRequested<'a, Param0: ::windows::core::IntoParam<'a, RedialRequestedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RedialRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RedialRequestedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RedialRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RedialRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRedialRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRedialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRedialRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRedialRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn KeypadPressed<'a, Param0: ::windows::core::IntoParam<'a, KeypadPressedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn KeypadPressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, KeypadPressedEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).KeypadPressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).KeypadPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveKeypadPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveKeypadPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveKeypadPressed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveKeypadPressed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AudioTransferRequested<'a, Param0: ::windows::core::IntoParam<'a, CallControlEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioTransferRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AudioTransferRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AudioTransferRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioTransferRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAudioTransferRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioTransferRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioTransferRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<CallControl> {
@@ -935,10 +872,10 @@ impl CallControl {
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<CallControl> {
+    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<CallControl> {
         Self::ICallControlStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<CallControl>(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<CallControl>(result__)
         })
     }
     #[doc(hidden)]
@@ -987,14 +924,9 @@ impl ::core::convert::From<&CallControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CallControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CallControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CallControl> for &::windows::core::IUnknown {
+    fn from(value: &CallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CallControl> for ::windows::core::IInspectable {
@@ -1007,14 +939,9 @@ impl ::core::convert::From<&CallControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CallControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CallControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CallControl> for &::windows::core::IInspectable {
+    fn from(value: &CallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CallControl {}
@@ -1028,9 +955,9 @@ impl CallControlEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -1117,27 +1044,27 @@ impl CameraOcclusionInfo {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
+    pub fn IsOcclusionKindSupported<'a, Param0: ::std::convert::Into<CameraOcclusionKind>>(&self, occlusionkind: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOcclusionKindSupported)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOcclusionKindSupported)(::windows::core::Interface::as_raw(this), occlusionkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn StateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for CameraOcclusionInfo {
@@ -1180,14 +1107,9 @@ impl ::core::convert::From<&CameraOcclusionInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CameraOcclusionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CameraOcclusionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraOcclusionInfo> for &::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CameraOcclusionInfo> for ::windows::core::IInspectable {
@@ -1200,14 +1122,9 @@ impl ::core::convert::From<&CameraOcclusionInfo> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CameraOcclusionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CameraOcclusionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraOcclusionInfo> for &::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
@@ -1259,11 +1176,11 @@ impl CameraOcclusionState {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
+    pub fn IsOcclusionKind<'a, Param0: ::std::convert::Into<CameraOcclusionKind>>(&self, occlusionkind: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsOcclusionKind)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOcclusionKind)(::windows::core::Interface::as_raw(this), occlusionkind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1307,14 +1224,9 @@ impl ::core::convert::From<&CameraOcclusionState> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CameraOcclusionState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CameraOcclusionState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraOcclusionState> for &::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CameraOcclusionState> for ::windows::core::IInspectable {
@@ -1327,14 +1239,9 @@ impl ::core::convert::From<&CameraOcclusionState> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CameraOcclusionState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CameraOcclusionState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraOcclusionState> for &::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CameraOcclusionState {}
@@ -1392,14 +1299,9 @@ impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CameraOcclusionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CameraOcclusionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CameraOcclusionStateChangedEventArgs> for ::windows::core::IInspectable {
@@ -1412,14 +1314,9 @@ impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for ::windows:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CameraOcclusionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CameraOcclusionStateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
@@ -1641,14 +1538,9 @@ impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DefaultAudioCaptureDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DefaultAudioCaptureDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IInspectable {
@@ -1661,14 +1553,9 @@ impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DefaultAudioCaptureDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DefaultAudioCaptureDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DefaultAudioCaptureDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
@@ -1683,14 +1570,11 @@ impl ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ID
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for DefaultAudioCaptureDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for &DefaultAudioCaptureDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::core::convert::TryInto::<IDefaultAudioDeviceChangedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
@@ -1756,14 +1640,9 @@ impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DefaultAudioRenderDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DefaultAudioRenderDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IInspectable {
@@ -1776,14 +1655,9 @@ impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DefaultAudioRenderDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DefaultAudioRenderDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<DefaultAudioRenderDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
@@ -1798,14 +1672,11 @@ impl ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for IDe
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for DefaultAudioRenderDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDefaultAudioDeviceChangedEventArgs> for &DefaultAudioRenderDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IDefaultAudioDeviceChangedEventArgs> {
-        ::core::convert::TryInto::<IDefaultAudioDeviceChangedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
@@ -1868,14 +1739,9 @@ impl ::core::convert::From<&DialRequestedEventArgs> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DialRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DialRequestedEventArgs> for ::windows::core::IInspectable {
@@ -1888,14 +1754,9 @@ impl ::core::convert::From<&DialRequestedEventArgs> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DialRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
@@ -1909,9 +1770,9 @@ impl DialRequestedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>, Param1: ::windows::core::IntoParam<'a, DialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DialRequestedEventArgs>>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -2076,14 +1937,9 @@ impl ::core::convert::From<&DigitalWindowBounds> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DigitalWindowBounds {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DigitalWindowBounds {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DigitalWindowBounds> for &::windows::core::IUnknown {
+    fn from(value: &DigitalWindowBounds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DigitalWindowBounds> for ::windows::core::IInspectable {
@@ -2096,14 +1952,9 @@ impl ::core::convert::From<&DigitalWindowBounds> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DigitalWindowBounds {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DigitalWindowBounds {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DigitalWindowBounds> for &::windows::core::IInspectable {
+    fn from(value: &DigitalWindowBounds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DigitalWindowBounds {}
@@ -2202,14 +2053,9 @@ impl ::core::convert::From<&DigitalWindowCapability> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DigitalWindowCapability {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DigitalWindowCapability {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DigitalWindowCapability> for &::windows::core::IUnknown {
+    fn from(value: &DigitalWindowCapability) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DigitalWindowCapability> for ::windows::core::IInspectable {
@@ -2222,14 +2068,9 @@ impl ::core::convert::From<&DigitalWindowCapability> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DigitalWindowCapability {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DigitalWindowCapability {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DigitalWindowCapability> for &::windows::core::IInspectable {
+    fn from(value: &DigitalWindowCapability) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DigitalWindowCapability {}
@@ -2271,14 +2112,14 @@ impl DigitalWindowControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> ::windows::core::Result<()> {
+    pub fn Configure<'a, Param0: ::std::convert::Into<DigitalWindowMode>>(&self, digitalwindowmode: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), digitalwindowmode).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), digitalwindowmode.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn ConfigureWithBounds<'a, Param1: ::windows::core::IntoParam<'a, DigitalWindowBounds>>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: Param1) -> ::windows::core::Result<()> {
+    pub fn ConfigureWithBounds<'a, Param0: ::std::convert::Into<DigitalWindowMode>, Param1: ::std::convert::Into<::windows::core::InParam<'a, DigitalWindowBounds>>>(&self, digitalwindowmode: Param0, digitalwindowbounds: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureWithBounds)(::windows::core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureWithBounds)(::windows::core::Interface::as_raw(this), digitalwindowmode.into(), digitalwindowbounds.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2338,14 +2179,9 @@ impl ::core::convert::From<&DigitalWindowControl> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DigitalWindowControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DigitalWindowControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DigitalWindowControl> for &::windows::core::IUnknown {
+    fn from(value: &DigitalWindowControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DigitalWindowControl> for ::windows::core::IInspectable {
@@ -2358,14 +2194,9 @@ impl ::core::convert::From<&DigitalWindowControl> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DigitalWindowControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DigitalWindowControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DigitalWindowControl> for &::windows::core::IInspectable {
+    fn from(value: &DigitalWindowControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DigitalWindowControl {}
@@ -2499,14 +2330,9 @@ impl ::core::convert::From<&ExposureCompensationControl> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ExposureCompensationControl> for &::windows::core::IUnknown {
+    fn from(value: &ExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ExposureCompensationControl> for ::windows::core::IInspectable {
@@ -2519,14 +2345,9 @@ impl ::core::convert::From<&ExposureCompensationControl> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ExposureCompensationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ExposureCompensationControl> for &::windows::core::IInspectable {
+    fn from(value: &ExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -2596,11 +2417,11 @@ impl ExposureControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValueAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, shutterduration: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), shutterduration.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), shutterduration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -2644,14 +2465,9 @@ impl ::core::convert::From<&ExposureControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ExposureControl> for &::windows::core::IUnknown {
+    fn from(value: &ExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ExposureControl> for ::windows::core::IInspectable {
@@ -2664,14 +2480,9 @@ impl ::core::convert::From<&ExposureControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ExposureControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ExposureControl> for &::windows::core::IInspectable {
+    fn from(value: &ExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -2740,14 +2551,9 @@ impl ::core::convert::From<&ExposurePriorityVideoControl> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ExposurePriorityVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ExposurePriorityVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ExposurePriorityVideoControl> for &::windows::core::IUnknown {
+    fn from(value: &ExposurePriorityVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ExposurePriorityVideoControl> for ::windows::core::IInspectable {
@@ -2760,14 +2566,9 @@ impl ::core::convert::From<&ExposurePriorityVideoControl> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ExposurePriorityVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ExposurePriorityVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ExposurePriorityVideoControl> for &::windows::core::IInspectable {
+    fn from(value: &ExposurePriorityVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
@@ -2914,14 +2715,9 @@ impl ::core::convert::From<&FlashControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FlashControl> for &::windows::core::IUnknown {
+    fn from(value: &FlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FlashControl> for ::windows::core::IInspectable {
@@ -2934,14 +2730,9 @@ impl ::core::convert::From<&FlashControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FlashControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FlashControl> for &::windows::core::IInspectable {
+    fn from(value: &FlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -2975,20 +2766,20 @@ impl FocusControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPresetAsync(&self, preset: FocusPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetAsync<'a, Param0: ::std::convert::Into<FocusPreset>>(&self, preset: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetWithCompletionOptionAsync<'a, Param0: ::std::convert::Into<FocusPreset>>(&self, preset: Param0, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(::windows::core::Interface::as_raw(this), preset, completebeforefocus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(::windows::core::Interface::as_raw(this), preset.into(), completebeforefocus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -3119,9 +2910,9 @@ impl FocusControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Configure<'a, Param0: ::windows::core::IntoParam<'a, FocusSettings>>(&self, settings: Param0) -> ::windows::core::Result<()> {
+    pub fn Configure<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, FocusSettings>>>(&self, settings: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for FocusControl {
@@ -3164,14 +2955,9 @@ impl ::core::convert::From<&FocusControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FocusControl> for &::windows::core::IUnknown {
+    fn from(value: &FocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FocusControl> for ::windows::core::IInspectable {
@@ -3184,14 +2970,9 @@ impl ::core::convert::From<&FocusControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FocusControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FocusControl> for &::windows::core::IInspectable {
+    fn from(value: &FocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -3288,9 +3069,9 @@ impl FocusSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode(&self, value: FocusMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<FocusMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn AutoFocusRange(&self) -> ::windows::core::Result<AutoFocusRange> {
@@ -3301,9 +3082,9 @@ impl FocusSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> ::windows::core::Result<()> {
+    pub fn SetAutoFocusRange<'a, Param0: ::std::convert::Into<AutoFocusRange>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoFocusRange)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoFocusRange)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3316,9 +3097,9 @@ impl FocusSettings {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetValue<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3331,9 +3112,9 @@ impl FocusSettings {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDistance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<ManualFocusDistance>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDistance<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<ManualFocusDistance>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDistance)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDistance)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn WaitForFocus(&self) -> ::windows::core::Result<bool> {
@@ -3402,14 +3183,9 @@ impl ::core::convert::From<&FocusSettings> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FocusSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FocusSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FocusSettings> for &::windows::core::IUnknown {
+    fn from(value: &FocusSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FocusSettings> for ::windows::core::IInspectable {
@@ -3422,14 +3198,9 @@ impl ::core::convert::From<&FocusSettings> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FocusSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FocusSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FocusSettings> for &::windows::core::IInspectable {
+    fn from(value: &FocusSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FocusSettings {}
@@ -3464,9 +3235,9 @@ impl HdrVideoControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode(&self, value: HdrVideoMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<HdrVideoMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for HdrVideoControl {
@@ -3509,14 +3280,9 @@ impl ::core::convert::From<&HdrVideoControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HdrVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HdrVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HdrVideoControl> for &::windows::core::IUnknown {
+    fn from(value: &HdrVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HdrVideoControl> for ::windows::core::IInspectable {
@@ -3529,14 +3295,9 @@ impl ::core::convert::From<&HdrVideoControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HdrVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HdrVideoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HdrVideoControl> for &::windows::core::IInspectable {
+    fn from(value: &HdrVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HdrVideoControl {}
@@ -4021,19 +3782,14 @@ impl ::core::convert::From<IDefaultAudioDeviceChangedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDefaultAudioDeviceChangedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDefaultAudioDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDefaultAudioDeviceChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IDefaultAudioDeviceChangedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDefaultAudioDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDefaultAudioDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDefaultAudioDeviceChangedEventArgs> for ::windows::core::IInspectable {
@@ -4041,19 +3797,14 @@ impl ::core::convert::From<IDefaultAudioDeviceChangedEventArgs> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDefaultAudioDeviceChangedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDefaultAudioDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDefaultAudioDeviceChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IDefaultAudioDeviceChangedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDefaultAudioDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDefaultAudioDeviceChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDefaultAudioDeviceChangedEventArgs {
@@ -4609,29 +4360,29 @@ pub struct IMediaDeviceController(::windows::core::IUnknown);
 impl IMediaDeviceController {
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    pub fn GetAvailableMediaStreamProperties<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>>(&self, mediastreamtype: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
+    pub fn GetMediaStreamProperties<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>>(&self, mediastreamtype: Param0) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, Param1: ::windows::core::IntoParam<'a, super::MediaProperties::IMediaEncodingProperties>>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetMediaStreamPropertiesAsync<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, mediastreamtype: Param0, mediaencodingproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -4640,19 +4391,14 @@ impl ::core::convert::From<IMediaDeviceController> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaDeviceController> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaDeviceController> for ::windows::core::IUnknown {
     fn from(value: &IMediaDeviceController) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMediaDeviceController> for ::windows::core::IInspectable {
@@ -4660,19 +4406,14 @@ impl ::core::convert::From<IMediaDeviceController> for ::windows::core::IInspect
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaDeviceController> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaDeviceController> for ::windows::core::IInspectable {
     fn from(value: &IMediaDeviceController) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaDeviceController {
@@ -5128,9 +4869,9 @@ impl InfraredTorchControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetCurrentMode(&self, value: InfraredTorchMode) -> ::windows::core::Result<()> {
+    pub fn SetCurrentMode<'a, Param0: ::std::convert::Into<InfraredTorchMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCurrentMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCurrentMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn MinPower(&self) -> ::windows::core::Result<i32> {
@@ -5210,14 +4951,9 @@ impl ::core::convert::From<&InfraredTorchControl> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InfraredTorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InfraredTorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InfraredTorchControl> for &::windows::core::IUnknown {
+    fn from(value: &InfraredTorchControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InfraredTorchControl> for ::windows::core::IInspectable {
@@ -5230,14 +4966,9 @@ impl ::core::convert::From<&InfraredTorchControl> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InfraredTorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InfraredTorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InfraredTorchControl> for &::windows::core::IInspectable {
+    fn from(value: &InfraredTorchControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for InfraredTorchControl {}
@@ -5309,11 +5040,11 @@ impl IsoSpeedControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetPresetAsync(&self, preset: IsoSpeedPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetAsync<'a, Param0: ::std::convert::Into<IsoSpeedPreset>>(&self, preset: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -5415,14 +5146,9 @@ impl ::core::convert::From<&IsoSpeedControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsoSpeedControl> for &::windows::core::IUnknown {
+    fn from(value: &IsoSpeedControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<IsoSpeedControl> for ::windows::core::IInspectable {
@@ -5435,14 +5161,9 @@ impl ::core::convert::From<&IsoSpeedControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IsoSpeedControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&IsoSpeedControl> for &::windows::core::IInspectable {
+    fn from(value: &IsoSpeedControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`, `\"deprecated\"`*"]
@@ -5550,14 +5271,9 @@ impl ::core::convert::From<&KeypadPressedEventArgs> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for KeypadPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a KeypadPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&KeypadPressedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &KeypadPressedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<KeypadPressedEventArgs> for ::windows::core::IInspectable {
@@ -5570,14 +5286,9 @@ impl ::core::convert::From<&KeypadPressedEventArgs> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for KeypadPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a KeypadPressedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&KeypadPressedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &KeypadPressedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for KeypadPressedEventArgs {}
@@ -5591,9 +5302,9 @@ impl KeypadPressedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>, Param1: ::windows::core::IntoParam<'a, KeypadPressedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, KeypadPressedEventArgs>>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -5673,11 +5384,11 @@ pub struct LowLagPhotoControl(::windows::core::IUnknown);
 impl LowLagPhotoControl {
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::IMediaEncodingProperties>>(&self, captureproperties: Param0) -> ::windows::core::Result<super::MediaProperties::MediaRatio> {
+    pub fn GetHighestConcurrentFrameRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, captureproperties: Param0) -> ::windows::core::Result<super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows::core::Interface::as_raw(this), captureproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaRatio>(result__)
+            (::windows::core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows::core::Interface::as_raw(this), captureproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaRatio>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
@@ -5713,9 +5424,9 @@ impl LowLagPhotoControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()> {
+    pub fn SetThumbnailFormat<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaThumbnailFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn DesiredThumbnailSize(&self) -> ::windows::core::Result<u32> {
@@ -5779,14 +5490,9 @@ impl ::core::convert::From<&LowLagPhotoControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LowLagPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LowLagPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLagPhotoControl> for &::windows::core::IUnknown {
+    fn from(value: &LowLagPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LowLagPhotoControl> for ::windows::core::IInspectable {
@@ -5799,14 +5505,9 @@ impl ::core::convert::From<&LowLagPhotoControl> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LowLagPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LowLagPhotoControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLagPhotoControl> for &::windows::core::IInspectable {
+    fn from(value: &LowLagPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -5865,11 +5566,11 @@ impl LowLagPhotoSequenceControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetHighestConcurrentFrameRate<'a, Param0: ::windows::core::IntoParam<'a, super::MediaProperties::IMediaEncodingProperties>>(&self, captureproperties: Param0) -> ::windows::core::Result<super::MediaProperties::MediaRatio> {
+    pub fn GetHighestConcurrentFrameRate<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, captureproperties: Param0) -> ::windows::core::Result<super::MediaProperties::MediaRatio> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows::core::Interface::as_raw(this), captureproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaRatio>(result__)
+            (::windows::core::Interface::vtable(this).GetHighestConcurrentFrameRate)(::windows::core::Interface::as_raw(this), captureproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::MediaRatio>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
@@ -5905,9 +5606,9 @@ impl LowLagPhotoSequenceControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetThumbnailFormat(&self, value: super::MediaProperties::MediaThumbnailFormat) -> ::windows::core::Result<()> {
+    pub fn SetThumbnailFormat<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaThumbnailFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnailFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn DesiredThumbnailSize(&self) -> ::windows::core::Result<u32> {
@@ -5971,14 +5672,9 @@ impl ::core::convert::From<&LowLagPhotoSequenceControl> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LowLagPhotoSequenceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LowLagPhotoSequenceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLagPhotoSequenceControl> for &::windows::core::IUnknown {
+    fn from(value: &LowLagPhotoSequenceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LowLagPhotoSequenceControl> for ::windows::core::IInspectable {
@@ -5991,14 +5687,9 @@ impl ::core::convert::From<&LowLagPhotoSequenceControl> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LowLagPhotoSequenceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LowLagPhotoSequenceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LowLagPhotoSequenceControl> for &::windows::core::IInspectable {
+    fn from(value: &LowLagPhotoSequenceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -6171,44 +5862,44 @@ impl MediaDevice {
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn GetDefaultAudioCaptureId(role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDefaultAudioCaptureId<'a, Param0: ::std::convert::Into<AudioDeviceRole>>(role: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAudioCaptureId)(::windows::core::Interface::as_raw(this), role, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAudioCaptureId)(::windows::core::Interface::as_raw(this), role.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn GetDefaultAudioRenderId(role: AudioDeviceRole) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDefaultAudioRenderId<'a, Param0: ::std::convert::Into<AudioDeviceRole>>(role: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAudioRenderId)(::windows::core::Interface::as_raw(this), role, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAudioRenderId)(::windows::core::Interface::as_raw(this), role.into(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DefaultAudioCaptureDeviceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DefaultAudioCaptureDeviceChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioCaptureDeviceChangedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DefaultAudioCaptureDeviceChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDefaultAudioCaptureDeviceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaDeviceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultAudioCaptureDeviceChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveDefaultAudioCaptureDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaDeviceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultAudioCaptureDeviceChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DefaultAudioRenderDeviceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DefaultAudioRenderDeviceChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, DefaultAudioRenderDeviceChangedEventArgs>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IMediaDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DefaultAudioRenderDeviceChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDefaultAudioRenderDeviceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
-        Self::IMediaDeviceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() })
+    pub fn RemoveDefaultAudioRenderDeviceChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IMediaDeviceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultAudioRenderDeviceChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
     #[doc(hidden)]
     pub fn IMediaDeviceStatics<R, F: FnOnce(&IMediaDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6304,14 +5995,9 @@ impl ::core::convert::From<&MediaDeviceControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaDeviceControl> for &::windows::core::IUnknown {
+    fn from(value: &MediaDeviceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaDeviceControl> for ::windows::core::IInspectable {
@@ -6324,14 +6010,9 @@ impl ::core::convert::From<&MediaDeviceControl> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaDeviceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaDeviceControl> for &::windows::core::IInspectable {
+    fn from(value: &MediaDeviceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -6427,14 +6108,9 @@ impl ::core::convert::From<&MediaDeviceControlCapabilities> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaDeviceControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaDeviceControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaDeviceControlCapabilities> for &::windows::core::IUnknown {
+    fn from(value: &MediaDeviceControlCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaDeviceControlCapabilities> for ::windows::core::IInspectable {
@@ -6447,14 +6123,9 @@ impl ::core::convert::From<&MediaDeviceControlCapabilities> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaDeviceControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaDeviceControlCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaDeviceControlCapabilities> for &::windows::core::IInspectable {
+    fn from(value: &MediaDeviceControlCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -6519,14 +6190,9 @@ impl ::core::convert::From<&ModuleCommandResult> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ModuleCommandResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ModuleCommandResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ModuleCommandResult> for &::windows::core::IUnknown {
+    fn from(value: &ModuleCommandResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ModuleCommandResult> for ::windows::core::IInspectable {
@@ -6539,14 +6205,9 @@ impl ::core::convert::From<&ModuleCommandResult> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ModuleCommandResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ModuleCommandResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ModuleCommandResult> for &::windows::core::IInspectable {
+    fn from(value: &ModuleCommandResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -6579,9 +6240,9 @@ impl OpticalImageStabilizationControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode(&self, value: OpticalImageStabilizationMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<OpticalImageStabilizationMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for OpticalImageStabilizationControl {
@@ -6624,14 +6285,9 @@ impl ::core::convert::From<&OpticalImageStabilizationControl> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OpticalImageStabilizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OpticalImageStabilizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OpticalImageStabilizationControl> for &::windows::core::IUnknown {
+    fn from(value: &OpticalImageStabilizationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OpticalImageStabilizationControl> for ::windows::core::IInspectable {
@@ -6644,14 +6300,9 @@ impl ::core::convert::From<&OpticalImageStabilizationControl> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OpticalImageStabilizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OpticalImageStabilizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OpticalImageStabilizationControl> for &::windows::core::IInspectable {
+    fn from(value: &OpticalImageStabilizationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
@@ -6714,9 +6365,9 @@ impl PanelBasedOptimizationControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn SetPanel(&self, value: super::super::Devices::Enumeration::Panel) -> ::windows::core::Result<()> {
+    pub fn SetPanel<'a, Param0: ::std::convert::Into<super::super::Devices::Enumeration::Panel>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPanel)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPanel)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for PanelBasedOptimizationControl {
@@ -6759,14 +6410,9 @@ impl ::core::convert::From<&PanelBasedOptimizationControl> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PanelBasedOptimizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PanelBasedOptimizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PanelBasedOptimizationControl> for &::windows::core::IUnknown {
+    fn from(value: &PanelBasedOptimizationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PanelBasedOptimizationControl> for ::windows::core::IInspectable {
@@ -6779,14 +6425,9 @@ impl ::core::convert::From<&PanelBasedOptimizationControl> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PanelBasedOptimizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PanelBasedOptimizationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PanelBasedOptimizationControl> for &::windows::core::IInspectable {
+    fn from(value: &PanelBasedOptimizationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PanelBasedOptimizationControl {}
@@ -6827,9 +6468,9 @@ impl PhotoConfirmationControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> ::windows::core::Result<()> {
+    pub fn SetPixelFormat<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaPixelFormat>>(&self, format: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPixelFormat)(::windows::core::Interface::as_raw(this), format).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPixelFormat)(::windows::core::Interface::as_raw(this), format.into()).ok() }
     }
 }
 impl ::core::clone::Clone for PhotoConfirmationControl {
@@ -6872,14 +6513,9 @@ impl ::core::convert::From<&PhotoConfirmationControl> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PhotoConfirmationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PhotoConfirmationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhotoConfirmationControl> for &::windows::core::IUnknown {
+    fn from(value: &PhotoConfirmationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PhotoConfirmationControl> for ::windows::core::IInspectable {
@@ -6892,14 +6528,9 @@ impl ::core::convert::From<&PhotoConfirmationControl> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PhotoConfirmationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PhotoConfirmationControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PhotoConfirmationControl> for &::windows::core::IInspectable {
+    fn from(value: &PhotoConfirmationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -6952,14 +6583,9 @@ impl ::core::convert::From<&RedialRequestedEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RedialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RedialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RedialRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RedialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RedialRequestedEventArgs> for ::windows::core::IInspectable {
@@ -6972,14 +6598,9 @@ impl ::core::convert::From<&RedialRequestedEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RedialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RedialRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RedialRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RedialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RedialRequestedEventArgs {}
@@ -6993,9 +6614,9 @@ impl RedialRequestedEventHandler {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, CallControl>, Param1: ::windows::core::IntoParam<'a, RedialRequestedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RedialRequestedEventArgs>>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
     }
 }
 #[repr(C)]
@@ -7130,9 +6751,9 @@ impl RegionOfInterest {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBounds(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBounds)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBounds)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<RegionOfInterestType> {
@@ -7143,9 +6764,9 @@ impl RegionOfInterest {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetType(&self, value: RegionOfInterestType) -> ::windows::core::Result<()> {
+    pub fn SetType<'a, Param0: ::std::convert::Into<RegionOfInterestType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRegionOfInterest2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn BoundsNormalized(&self) -> ::windows::core::Result<bool> {
@@ -7214,14 +6835,9 @@ impl ::core::convert::From<&RegionOfInterest> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RegionOfInterest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RegionOfInterest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RegionOfInterest> for &::windows::core::IUnknown {
+    fn from(value: &RegionOfInterest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RegionOfInterest> for ::windows::core::IInspectable {
@@ -7234,14 +6850,9 @@ impl ::core::convert::From<&RegionOfInterest> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RegionOfInterest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RegionOfInterest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RegionOfInterest> for &::windows::core::IInspectable {
+    fn from(value: &RegionOfInterest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RegionOfInterest {}
@@ -7294,20 +6905,20 @@ impl RegionsOfInterestControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRegionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<RegionOfInterest>>>(&self, regions: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetRegionsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RegionOfInterest>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, regions: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetRegionsAsync)(::windows::core::Interface::as_raw(this), regions.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetRegionsAsync)(::windows::core::Interface::as_raw(this), regions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetRegionsWithLockAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<RegionOfInterest>>>(&self, regions: Param0, lockvalues: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetRegionsWithLockAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RegionOfInterest>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, regions: Param0, lockvalues: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetRegionsWithLockAsync)(::windows::core::Interface::as_raw(this), regions.into_param().abi(), lockvalues, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetRegionsWithLockAsync)(::windows::core::Interface::as_raw(this), regions.try_into().map_err(|e| e.into())?.abi(), lockvalues, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
@@ -7384,14 +6995,9 @@ impl ::core::convert::From<&RegionsOfInterestControl> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RegionsOfInterestControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RegionsOfInterestControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RegionsOfInterestControl> for &::windows::core::IUnknown {
+    fn from(value: &RegionsOfInterestControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RegionsOfInterestControl> for ::windows::core::IInspectable {
@@ -7404,14 +7010,9 @@ impl ::core::convert::From<&RegionsOfInterestControl> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RegionsOfInterestControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RegionsOfInterestControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RegionsOfInterestControl> for &::windows::core::IInspectable {
+    fn from(value: &RegionsOfInterestControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7437,11 +7038,11 @@ impl SceneModeControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetValueAsync(&self, scenemode: CaptureSceneMode) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetValueAsync<'a, Param0: ::std::convert::Into<CaptureSceneMode>>(&self, scenemode: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), scenemode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), scenemode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -7485,14 +7086,9 @@ impl ::core::convert::From<&SceneModeControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SceneModeControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SceneModeControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SceneModeControl> for &::windows::core::IUnknown {
+    fn from(value: &SceneModeControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SceneModeControl> for ::windows::core::IInspectable {
@@ -7505,14 +7101,9 @@ impl ::core::convert::From<&SceneModeControl> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SceneModeControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SceneModeControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SceneModeControl> for &::windows::core::IInspectable {
+    fn from(value: &SceneModeControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7684,14 +7275,9 @@ impl ::core::convert::From<&TorchControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TorchControl> for &::windows::core::IUnknown {
+    fn from(value: &TorchControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TorchControl> for ::windows::core::IInspectable {
@@ -7704,14 +7290,9 @@ impl ::core::convert::From<&TorchControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TorchControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TorchControl> for &::windows::core::IInspectable {
+    fn from(value: &TorchControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7719,16 +7300,16 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
 pub struct VideoDeviceController(::windows::core::IUnknown);
 impl VideoDeviceController {
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetDeviceProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, propertyid: Param0, propertyvalue: Param1) -> ::windows::core::Result<()> {
+    pub fn SetDeviceProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, propertyid: Param0, propertyvalue: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeviceProperty)(::windows::core::Interface::as_raw(this), propertyid.into_param().abi(), propertyvalue.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeviceProperty)(::windows::core::Interface::as_raw(this), propertyid.into().abi(), propertyvalue.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn GetDeviceProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertyid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn GetDeviceProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertyid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceProperty)(::windows::core::Interface::as_raw(this), propertyid.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceProperty)(::windows::core::Interface::as_raw(this), propertyid.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7836,9 +7417,9 @@ impl VideoDeviceController {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetPrimaryUse(&self, value: CaptureUse) -> ::windows::core::Result<()> {
+    pub fn SetPrimaryUse<'a, Param0: ::std::convert::Into<CaptureUse>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryUse)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrimaryUse)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Devices_Core\"`*"]
     #[cfg(feature = "Media_Devices_Core")]
@@ -7882,9 +7463,9 @@ impl VideoDeviceController {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetDesiredOptimization(&self, value: MediaCaptureOptimization) -> ::windows::core::Result<()> {
+    pub fn SetDesiredOptimization<'a, Param0: ::std::convert::Into<MediaCaptureOptimization>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredOptimization)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredOptimization)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn HdrVideoControl(&self) -> ::windows::core::Result<HdrVideoControl> {
@@ -7920,28 +7501,28 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDevicePropertyById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, propertyid: Param0, maxpropertyvaluesize: Param1) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult> {
+    pub fn GetDevicePropertyById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, propertyid: Param0, maxpropertyvaluesize: Param1) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDevicePropertyById)(::windows::core::Interface::as_raw(this), propertyid.into_param().abi(), maxpropertyvaluesize.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoDeviceControllerGetDevicePropertyResult>(result__)
+            (::windows::core::Interface::vtable(this).GetDevicePropertyById)(::windows::core::Interface::as_raw(this), propertyid.into().abi(), maxpropertyvaluesize.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoDeviceControllerGetDevicePropertyResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetDevicePropertyById<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, propertyid: Param0, propertyvalue: Param1) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
+    pub fn SetDevicePropertyById<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, propertyid: Param0, propertyvalue: Param1) -> ::windows::core::Result<VideoDeviceControllerSetDevicePropertyStatus> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<VideoDeviceControllerSetDevicePropertyStatus>::zeroed();
-            (::windows::core::Interface::vtable(this).SetDevicePropertyById)(::windows::core::Interface::as_raw(this), propertyid.into_param().abi(), propertyvalue.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoDeviceControllerSetDevicePropertyStatus>(result__)
+            (::windows::core::Interface::vtable(this).SetDevicePropertyById)(::windows::core::Interface::as_raw(this), propertyid.into().abi(), propertyvalue.into().abi(), result__.as_mut_ptr()).from_abi::<VideoDeviceControllerSetDevicePropertyStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDevicePropertyByExtendedId<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Param1) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult> {
+    pub fn GetDevicePropertyByExtendedId<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, extendedpropertyid: &[u8], maxpropertyvaluesize: Param1) -> ::windows::core::Result<VideoDeviceControllerGetDevicePropertyResult> {
         let this = &::windows::core::Interface::cast::<IAdvancedVideoCaptureDeviceController5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDevicePropertyByExtendedId)(::windows::core::Interface::as_raw(this), extendedpropertyid.len() as u32, ::core::mem::transmute(extendedpropertyid.as_ptr()), maxpropertyvaluesize.into_param().abi(), result__.as_mut_ptr()).from_abi::<VideoDeviceControllerGetDevicePropertyResult>(result__)
+            (::windows::core::Interface::vtable(this).GetDevicePropertyByExtendedId)(::windows::core::Interface::as_raw(this), extendedpropertyid.len() as u32, ::core::mem::transmute(extendedpropertyid.as_ptr()), maxpropertyvaluesize.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<VideoDeviceControllerGetDevicePropertyResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7986,29 +7567,29 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+    pub fn GetAvailableMediaStreamProperties<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>>(&self, mediastreamtype: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
+    pub fn GetMediaStreamProperties<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>>(&self, mediastreamtype: Param0) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, Param1: ::windows::core::IntoParam<'a, super::MediaProperties::IMediaEncodingProperties>>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetMediaStreamPropertiesAsync<'a, Param0: ::std::convert::Into<super::Capture::MediaStreamType>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, mediastreamtype: Param0, mediaencodingproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype.into(), mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8101,11 +7682,11 @@ impl VideoDeviceController {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`*"]
     #[cfg(feature = "Media_Capture")]
-    pub fn TrySetPowerlineFrequency(&self, value: super::Capture::PowerlineFrequency) -> ::windows::core::Result<bool> {
+    pub fn TrySetPowerlineFrequency<'a, Param0: ::std::convert::Into<super::Capture::PowerlineFrequency>>(&self, value: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetPowerlineFrequency)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetPowerlineFrequency)(::windows::core::Interface::as_raw(this), value.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Media_Capture\"`*"]
@@ -8158,14 +7739,9 @@ impl ::core::convert::From<&VideoDeviceController> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoDeviceController> for &::windows::core::IUnknown {
+    fn from(value: &VideoDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoDeviceController> for ::windows::core::IInspectable {
@@ -8178,14 +7754,9 @@ impl ::core::convert::From<&VideoDeviceController> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoDeviceController> for &::windows::core::IInspectable {
+    fn from(value: &VideoDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VideoDeviceController> for IMediaDeviceController {
@@ -8200,14 +7771,11 @@ impl ::core::convert::TryFrom<&VideoDeviceController> for IMediaDeviceController
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaDeviceController> for VideoDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaDeviceController> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaDeviceController> for &VideoDeviceController {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaDeviceController> {
-        ::core::convert::TryInto::<IMediaDeviceController>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoDeviceController> for ::windows::core::InParam<'a, IMediaDeviceController> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoDeviceController) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8271,14 +7839,9 @@ impl ::core::convert::From<&VideoDeviceControllerGetDevicePropertyResult> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoDeviceControllerGetDevicePropertyResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoDeviceControllerGetDevicePropertyResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoDeviceControllerGetDevicePropertyResult> for &::windows::core::IUnknown {
+    fn from(value: &VideoDeviceControllerGetDevicePropertyResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoDeviceControllerGetDevicePropertyResult> for ::windows::core::IInspectable {
@@ -8291,14 +7854,9 @@ impl ::core::convert::From<&VideoDeviceControllerGetDevicePropertyResult> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoDeviceControllerGetDevicePropertyResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoDeviceControllerGetDevicePropertyResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoDeviceControllerGetDevicePropertyResult> for &::windows::core::IInspectable {
+    fn from(value: &VideoDeviceControllerGetDevicePropertyResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResult {}
@@ -8410,9 +7968,9 @@ impl VideoTemporalDenoisingControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode(&self, value: VideoTemporalDenoisingMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<VideoTemporalDenoisingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for VideoTemporalDenoisingControl {
@@ -8455,14 +8013,9 @@ impl ::core::convert::From<&VideoTemporalDenoisingControl> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoTemporalDenoisingControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoTemporalDenoisingControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoTemporalDenoisingControl> for &::windows::core::IUnknown {
+    fn from(value: &VideoTemporalDenoisingControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoTemporalDenoisingControl> for ::windows::core::IInspectable {
@@ -8475,14 +8028,9 @@ impl ::core::convert::From<&VideoTemporalDenoisingControl> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoTemporalDenoisingControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoTemporalDenoisingControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoTemporalDenoisingControl> for &::windows::core::IInspectable {
+    fn from(value: &VideoTemporalDenoisingControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
@@ -8544,11 +8092,11 @@ impl WhiteBalanceControl {
     }
     #[doc = "*Required features: `\"Media_Devices\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPresetAsync(&self, preset: ColorTemperaturePreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SetPresetAsync<'a, Param0: ::std::convert::Into<ColorTemperaturePreset>>(&self, preset: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8633,14 +8181,9 @@ impl ::core::convert::From<&WhiteBalanceControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WhiteBalanceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WhiteBalanceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WhiteBalanceControl> for &::windows::core::IUnknown {
+    fn from(value: &WhiteBalanceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WhiteBalanceControl> for ::windows::core::IInspectable {
@@ -8653,14 +8196,9 @@ impl ::core::convert::From<&WhiteBalanceControl> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WhiteBalanceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WhiteBalanceControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WhiteBalanceControl> for &::windows::core::IInspectable {
+    fn from(value: &WhiteBalanceControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8730,9 +8268,9 @@ impl ZoomControl {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn Configure<'a, Param0: ::windows::core::IntoParam<'a, ZoomSettings>>(&self, settings: Param0) -> ::windows::core::Result<()> {
+    pub fn Configure<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ZoomSettings>>>(&self, settings: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IZoomControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for ZoomControl {
@@ -8775,14 +8313,9 @@ impl ::core::convert::From<&ZoomControl> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ZoomControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ZoomControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ZoomControl> for &::windows::core::IUnknown {
+    fn from(value: &ZoomControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ZoomControl> for ::windows::core::IInspectable {
@@ -8795,14 +8328,9 @@ impl ::core::convert::From<&ZoomControl> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ZoomControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ZoomControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ZoomControl> for &::windows::core::IInspectable {
+    fn from(value: &ZoomControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -8825,9 +8353,9 @@ impl ZoomSettings {
         }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
-    pub fn SetMode(&self, value: ZoomTransitionMode) -> ::windows::core::Result<()> {
+    pub fn SetMode<'a, Param0: ::std::convert::Into<ZoomTransitionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<f32> {
@@ -8883,14 +8411,9 @@ impl ::core::convert::From<&ZoomSettings> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ZoomSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ZoomSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ZoomSettings> for &::windows::core::IUnknown {
+    fn from(value: &ZoomSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ZoomSettings> for ::windows::core::IInspectable {
@@ -8903,14 +8426,9 @@ impl ::core::convert::From<&ZoomSettings> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ZoomSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ZoomSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ZoomSettings> for &::windows::core::IInspectable {
+    fn from(value: &ZoomSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ZoomSettings {}

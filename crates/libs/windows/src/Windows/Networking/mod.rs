@@ -63,9 +63,9 @@ impl EndpointPair {
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn SetLocalHostName<'a, Param0: ::windows::core::IntoParam<'a, HostName>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocalHostName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocalHostName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocalHostName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
     pub fn LocalServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -76,9 +76,9 @@ impl EndpointPair {
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn SetLocalServiceName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetLocalServiceName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocalServiceName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocalServiceName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
     pub fn RemoteHostName(&self) -> ::windows::core::Result<HostName> {
@@ -89,9 +89,9 @@ impl EndpointPair {
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn SetRemoteHostName<'a, Param0: ::windows::core::IntoParam<'a, HostName>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteHostName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteHostName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteHostName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
     pub fn RemoteServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -102,15 +102,15 @@ impl EndpointPair {
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn SetRemoteServiceName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRemoteServiceName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRemoteServiceName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRemoteServiceName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn CreateEndpointPair<'a, Param0: ::windows::core::IntoParam<'a, HostName>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, HostName>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(localhostname: Param0, localservicename: Param1, remotehostname: Param2, remoteservicename: Param3) -> ::windows::core::Result<EndpointPair> {
+    pub fn CreateEndpointPair<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, HostName>>, Param3: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(localhostname: Param0, localservicename: Param1, remotehostname: Param2, remoteservicename: Param3) -> ::windows::core::Result<EndpointPair> {
         Self::IEndpointPairFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEndpointPair)(::windows::core::Interface::as_raw(this), localhostname.into_param().abi(), localservicename.into_param().abi(), remotehostname.into_param().abi(), remoteservicename.into_param().abi(), result__.as_mut_ptr()).from_abi::<EndpointPair>(result__)
+            (::windows::core::Interface::vtable(this).CreateEndpointPair)(::windows::core::Interface::as_raw(this), localhostname.into().abi(), localservicename.into().abi(), remotehostname.into().abi(), remoteservicename.into().abi(), result__.as_mut_ptr()).from_abi::<EndpointPair>(result__)
         })
     }
     #[doc(hidden)]
@@ -159,14 +159,9 @@ impl ::core::convert::From<&EndpointPair> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EndpointPair> for &::windows::core::IUnknown {
+    fn from(value: &EndpointPair) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EndpointPair> for ::windows::core::IInspectable {
@@ -179,14 +174,9 @@ impl ::core::convert::From<&EndpointPair> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EndpointPair {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EndpointPair> for &::windows::core::IInspectable {
+    fn from(value: &EndpointPair) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EndpointPair {}
@@ -237,25 +227,25 @@ impl HostName {
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, HostName>>(&self, hostname: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsEqual<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, HostName>>>(&self, hostname: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEqual)(::windows::core::Interface::as_raw(this), hostname.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEqual)(::windows::core::Interface::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn CreateHostName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(hostname: Param0) -> ::windows::core::Result<HostName> {
+    pub fn CreateHostName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(hostname: Param0) -> ::windows::core::Result<HostName> {
         Self::IHostNameFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateHostName)(::windows::core::Interface::as_raw(this), hostname.into_param().abi(), result__.as_mut_ptr()).from_abi::<HostName>(result__)
+            (::windows::core::Interface::vtable(this).CreateHostName)(::windows::core::Interface::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<HostName>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking\"`*"]
-    pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value1: Param0, value2: Param1) -> ::windows::core::Result<i32> {
+    pub fn Compare<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value1: Param0, value2: Param1) -> ::windows::core::Result<i32> {
         Self::IHostNameStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), value1.into_param().abi(), value2.into_param().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), value1.into().abi(), value2.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
     #[doc = "*Required features: `\"Networking\"`, `\"Foundation\"`*"]
@@ -318,14 +308,9 @@ impl ::core::convert::From<&HostName> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HostName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HostName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HostName> for &::windows::core::IUnknown {
+    fn from(value: &HostName) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HostName> for ::windows::core::IInspectable {
@@ -338,14 +323,9 @@ impl ::core::convert::From<&HostName> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HostName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HostName {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HostName> for &::windows::core::IInspectable {
+    fn from(value: &HostName) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -363,15 +343,11 @@ impl ::core::convert::TryFrom<&HostName> for super::Foundation::IStringable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IStringable> for HostName {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IStringable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::Foundation::IStringable> for &HostName {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Foundation::IStringable> {
-        ::core::convert::TryInto::<super::Foundation::IStringable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&HostName> for ::windows::core::InParam<'a, super::Foundation::IStringable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &HostName) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for HostName {}

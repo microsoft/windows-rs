@@ -645,14 +645,9 @@ impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbBulkInEndpointDescriptor> for ::windows::core::IInspectable {
@@ -665,14 +660,9 @@ impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBulkInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkInEndpointDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbBulkInEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbBulkInEndpointDescriptor {}
@@ -707,9 +697,9 @@ impl UsbBulkInPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetReadOptions(&self, value: UsbReadOptions) -> ::windows::core::Result<()> {
+    pub fn SetReadOptions<'a, Param0: ::std::convert::Into<UsbReadOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ReadOptions(&self) -> ::windows::core::Result<UsbReadOptions> {
@@ -774,14 +764,9 @@ impl ::core::convert::From<&UsbBulkInPipe> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkInPipe> for &::windows::core::IUnknown {
+    fn from(value: &UsbBulkInPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbBulkInPipe> for ::windows::core::IInspectable {
@@ -794,14 +779,9 @@ impl ::core::convert::From<&UsbBulkInPipe> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBulkInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkInPipe> for &::windows::core::IInspectable {
+    fn from(value: &UsbBulkInPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbBulkInPipe {}
@@ -875,14 +855,9 @@ impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbBulkOutEndpointDescriptor> for ::windows::core::IInspectable {
@@ -895,14 +870,9 @@ impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBulkOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkOutEndpointDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbBulkOutEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbBulkOutEndpointDescriptor {}
@@ -929,9 +899,9 @@ impl UsbBulkOutPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
+    pub fn SetWriteOptions<'a, Param0: ::std::convert::Into<UsbWriteOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
@@ -991,14 +961,9 @@ impl ::core::convert::From<&UsbBulkOutPipe> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbBulkOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbBulkOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkOutPipe> for &::windows::core::IUnknown {
+    fn from(value: &UsbBulkOutPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbBulkOutPipe> for ::windows::core::IInspectable {
@@ -1011,14 +976,9 @@ impl ::core::convert::From<&UsbBulkOutPipe> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbBulkOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbBulkOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbBulkOutPipe> for &::windows::core::IInspectable {
+    fn from(value: &UsbBulkOutPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbBulkOutPipe {}
@@ -1094,14 +1054,9 @@ impl ::core::convert::From<&UsbConfiguration> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &UsbConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbConfiguration> for ::windows::core::IInspectable {
@@ -1114,14 +1069,9 @@ impl ::core::convert::From<&UsbConfiguration> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &UsbConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbConfiguration {}
@@ -1163,17 +1113,17 @@ impl UsbConfigurationDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0) -> ::windows::core::Result<UsbConfigurationDescriptor> {
+    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0) -> ::windows::core::Result<UsbConfigurationDescriptor> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), result__.as_mut_ptr()).from_abi::<UsbConfigurationDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), result__.as_mut_ptr()).from_abi::<UsbConfigurationDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -1222,14 +1172,9 @@ impl ::core::convert::From<&UsbConfigurationDescriptor> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbConfigurationDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbConfigurationDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbConfigurationDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbConfigurationDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbConfigurationDescriptor> for ::windows::core::IInspectable {
@@ -1242,14 +1187,9 @@ impl ::core::convert::From<&UsbConfigurationDescriptor> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbConfigurationDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbConfigurationDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbConfigurationDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbConfigurationDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
@@ -1311,9 +1251,9 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetDirection(&self, value: UsbTransferDirection) -> ::windows::core::Result<()> {
+    pub fn SetDirection<'a, Param0: ::std::convert::Into<UsbTransferDirection>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ControlTransferType(&self) -> ::windows::core::Result<UsbControlTransferType> {
@@ -1324,9 +1264,9 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetControlTransferType(&self, value: UsbControlTransferType) -> ::windows::core::Result<()> {
+    pub fn SetControlTransferType<'a, Param0: ::std::convert::Into<UsbControlTransferType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Recipient(&self) -> ::windows::core::Result<UsbControlRecipient> {
@@ -1337,9 +1277,9 @@ impl UsbControlRequestType {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetRecipient(&self, value: UsbControlRecipient) -> ::windows::core::Result<()> {
+    pub fn SetRecipient<'a, Param0: ::std::convert::Into<UsbControlRecipient>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn AsByte(&self) -> ::windows::core::Result<u8> {
@@ -1395,14 +1335,9 @@ impl ::core::convert::From<&UsbControlRequestType> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbControlRequestType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbControlRequestType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbControlRequestType> for &::windows::core::IUnknown {
+    fn from(value: &UsbControlRequestType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbControlRequestType> for ::windows::core::IInspectable {
@@ -1415,14 +1350,9 @@ impl ::core::convert::From<&UsbControlRequestType> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbControlRequestType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbControlRequestType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbControlRequestType> for &::windows::core::IInspectable {
+    fn from(value: &UsbControlRequestType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbControlRequestType {}
@@ -1484,9 +1414,9 @@ impl UsbDescriptor {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn ReadDescriptorBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
+    pub fn ReadDescriptorBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReadDescriptorBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReadDescriptorBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UsbDescriptor {
@@ -1529,14 +1459,9 @@ impl ::core::convert::From<&UsbDescriptor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbDescriptor> for ::windows::core::IInspectable {
@@ -1549,14 +1474,9 @@ impl ::core::convert::From<&UsbDescriptor> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbDescriptor {}
@@ -1573,38 +1493,38 @@ impl UsbDevice {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlOutTransferAsync<'a, Param0: ::windows::core::IntoParam<'a, UsbSetupPacket>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, setuppacket: Param0, buffer: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendControlOutTransferAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, setuppacket: Param0, buffer: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlOutTransferAsync)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlOutTransferAsync)(::windows::core::Interface::as_raw(this), setuppacket.into().abi(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendControlOutTransferAsyncNoBuffer<'a, Param0: ::windows::core::IntoParam<'a, UsbSetupPacket>>(&self, setuppacket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+    pub fn SendControlOutTransferAsyncNoBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>>(&self, setuppacket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), setuppacket.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlInTransferAsync<'a, Param0: ::windows::core::IntoParam<'a, UsbSetupPacket>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, setuppacket: Param0, buffer: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn SendControlInTransferAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, setuppacket: Param0, buffer: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlInTransferAsync)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlInTransferAsync)(::windows::core::Interface::as_raw(this), setuppacket.into().abi(), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendControlInTransferAsyncNoBuffer<'a, Param0: ::windows::core::IntoParam<'a, UsbSetupPacket>>(&self, setuppacket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
+    pub fn SendControlInTransferAsyncNoBuffer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbSetupPacket>>>(&self, setuppacket: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlInTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlInTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), setuppacket.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1632,17 +1552,17 @@ impl UsbDevice {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn GetDeviceSelector<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(vendorid: u32, productid: u32, winusbinterfaceclass: Param2) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelector(vendorid: u32, productid: u32, winusbinterfaceclass: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), vendorid, productid, winusbinterfaceclass.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), vendorid, productid, winusbinterfaceclass, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn GetDeviceSelectorGuidOnly<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(winusbinterfaceclass: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceSelectorGuidOnly(winusbinterfaceclass: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorGuidOnly)(::windows::core::Interface::as_raw(this), winusbinterfaceclass.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorGuidOnly)(::windows::core::Interface::as_raw(this), winusbinterfaceclass, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1653,18 +1573,18 @@ impl UsbDevice {
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn GetDeviceClassSelector<'a, Param0: ::windows::core::IntoParam<'a, UsbDeviceClass>>(usbclass: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn GetDeviceClassSelector<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDeviceClass>>>(usbclass: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceClassSelector)(::windows::core::Interface::as_raw(this), usbclass.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceClassSelector)(::windows::core::Interface::as_raw(this), usbclass.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UsbDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UsbDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1713,14 +1633,9 @@ impl ::core::convert::From<&UsbDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDevice> for &::windows::core::IUnknown {
+    fn from(value: &UsbDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbDevice> for ::windows::core::IInspectable {
@@ -1733,14 +1648,9 @@ impl ::core::convert::From<&UsbDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDevice> for &::windows::core::IInspectable {
+    fn from(value: &UsbDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1758,15 +1668,11 @@ impl ::core::convert::TryFrom<&UsbDevice> for super::super::Foundation::IClosabl
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for UsbDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &UsbDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&UsbDevice> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &UsbDevice) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for UsbDevice {}
@@ -1806,9 +1712,9 @@ impl UsbDeviceClass {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSubclassCode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u8>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubclassCode<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u8>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubclassCode)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubclassCode)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1821,9 +1727,9 @@ impl UsbDeviceClass {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetProtocolCode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u8>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProtocolCode<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u8>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtocolCode)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtocolCode)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UsbDeviceClass {
@@ -1866,14 +1772,9 @@ impl ::core::convert::From<&UsbDeviceClass> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDeviceClass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDeviceClass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDeviceClass> for &::windows::core::IUnknown {
+    fn from(value: &UsbDeviceClass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbDeviceClass> for ::windows::core::IInspectable {
@@ -1886,14 +1787,9 @@ impl ::core::convert::From<&UsbDeviceClass> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDeviceClass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDeviceClass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDeviceClass> for &::windows::core::IInspectable {
+    fn from(value: &UsbDeviceClass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbDeviceClass {}
@@ -2011,14 +1907,9 @@ impl ::core::convert::From<&UsbDeviceClasses> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDeviceClasses {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDeviceClasses {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDeviceClasses> for &::windows::core::IUnknown {
+    fn from(value: &UsbDeviceClasses) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbDeviceClasses> for ::windows::core::IInspectable {
@@ -2031,14 +1922,9 @@ impl ::core::convert::From<&UsbDeviceClasses> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDeviceClasses {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDeviceClasses {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDeviceClasses> for &::windows::core::IInspectable {
+    fn from(value: &UsbDeviceClasses) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbDeviceClasses {}
@@ -2136,14 +2022,9 @@ impl ::core::convert::From<&UsbDeviceDescriptor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbDeviceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbDeviceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDeviceDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbDeviceDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbDeviceDescriptor> for ::windows::core::IInspectable {
@@ -2156,14 +2037,9 @@ impl ::core::convert::From<&UsbDeviceDescriptor> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbDeviceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbDeviceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbDeviceDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbDeviceDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbDeviceDescriptor {}
@@ -2229,17 +2105,17 @@ impl UsbEndpointDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0) -> ::windows::core::Result<UsbEndpointDescriptor> {
+    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0) -> ::windows::core::Result<UsbEndpointDescriptor> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), result__.as_mut_ptr()).from_abi::<UsbEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), result__.as_mut_ptr()).from_abi::<UsbEndpointDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -2288,14 +2164,9 @@ impl ::core::convert::From<&UsbEndpointDescriptor> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbEndpointDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbEndpointDescriptor> for ::windows::core::IInspectable {
@@ -2308,14 +2179,9 @@ impl ::core::convert::From<&UsbEndpointDescriptor> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbEndpointDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
@@ -2463,14 +2329,9 @@ impl ::core::convert::From<&UsbInterface> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterface> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterface> for ::windows::core::IInspectable {
@@ -2483,14 +2344,9 @@ impl ::core::convert::From<&UsbInterface> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterface> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterface {}
@@ -2540,17 +2396,17 @@ impl UsbInterfaceDescriptor {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool> {
+    pub fn TryParse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), parsed as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0) -> ::windows::core::Result<UsbInterfaceDescriptor> {
+    pub fn Parse<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbDescriptor>>>(descriptor: Param0) -> ::windows::core::Result<UsbInterfaceDescriptor> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), result__.as_mut_ptr()).from_abi::<UsbInterfaceDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into().abi(), result__.as_mut_ptr()).from_abi::<UsbInterfaceDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -2599,14 +2455,9 @@ impl ::core::convert::From<&UsbInterfaceDescriptor> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterfaceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterfaceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterfaceDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterfaceDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterfaceDescriptor> for ::windows::core::IInspectable {
@@ -2619,14 +2470,9 @@ impl ::core::convert::From<&UsbInterfaceDescriptor> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterfaceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterfaceDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterfaceDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterfaceDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterfaceDescriptor {}
@@ -2746,14 +2592,9 @@ impl ::core::convert::From<&UsbInterfaceSetting> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterfaceSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterfaceSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterfaceSetting> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterfaceSetting) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterfaceSetting> for ::windows::core::IInspectable {
@@ -2766,14 +2607,9 @@ impl ::core::convert::From<&UsbInterfaceSetting> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterfaceSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterfaceSetting {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterfaceSetting> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterfaceSetting) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterfaceSetting {}
@@ -2856,14 +2692,9 @@ impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterruptInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterruptInEndpointDescriptor> for ::windows::core::IInspectable {
@@ -2876,14 +2707,9 @@ impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterruptInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptInEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptInEndpointDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterruptInEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterruptInEndpointDescriptor {}
@@ -2942,14 +2768,9 @@ impl ::core::convert::From<&UsbInterruptInEventArgs> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterruptInEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptInEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptInEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterruptInEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterruptInEventArgs> for ::windows::core::IInspectable {
@@ -2962,14 +2783,9 @@ impl ::core::convert::From<&UsbInterruptInEventArgs> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterruptInEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptInEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptInEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterruptInEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterruptInEventArgs {}
@@ -2997,18 +2813,18 @@ impl UsbInterruptInPipe {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DataReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for UsbInterruptInPipe {
@@ -3051,14 +2867,9 @@ impl ::core::convert::From<&UsbInterruptInPipe> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterruptInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptInPipe> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterruptInPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterruptInPipe> for ::windows::core::IInspectable {
@@ -3071,14 +2882,9 @@ impl ::core::convert::From<&UsbInterruptInPipe> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterruptInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptInPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptInPipe> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterruptInPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterruptInPipe {}
@@ -3161,14 +2967,9 @@ impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterruptOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterruptOutEndpointDescriptor> for ::windows::core::IInspectable {
@@ -3181,14 +2982,9 @@ impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterruptOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptOutEndpointDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptOutEndpointDescriptor> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterruptOutEndpointDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterruptOutEndpointDescriptor {}
@@ -3215,9 +3011,9 @@ impl UsbInterruptOutPipe {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
+    pub fn SetWriteOptions<'a, Param0: ::std::convert::Into<UsbWriteOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
@@ -3277,14 +3073,9 @@ impl ::core::convert::From<&UsbInterruptOutPipe> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbInterruptOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbInterruptOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptOutPipe> for &::windows::core::IUnknown {
+    fn from(value: &UsbInterruptOutPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbInterruptOutPipe> for ::windows::core::IInspectable {
@@ -3297,14 +3088,9 @@ impl ::core::convert::From<&UsbInterruptOutPipe> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbInterruptOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbInterruptOutPipe {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbInterruptOutPipe> for &::windows::core::IInspectable {
+    fn from(value: &UsbInterruptOutPipe) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
@@ -3394,9 +3180,9 @@ impl UsbSetupPacket {
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
-    pub fn SetRequestType<'a, Param0: ::windows::core::IntoParam<'a, UsbControlRequestType>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetRequestType<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, UsbControlRequestType>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestType)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<u8> {
@@ -3452,10 +3238,10 @@ impl UsbSetupPacket {
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateWithEightByteBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(eightbytebuffer: Param0) -> ::windows::core::Result<UsbSetupPacket> {
+    pub fn CreateWithEightByteBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(eightbytebuffer: Param0) -> ::windows::core::Result<UsbSetupPacket> {
         Self::IUsbSetupPacketFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithEightByteBuffer)(::windows::core::Interface::as_raw(this), eightbytebuffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<UsbSetupPacket>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithEightByteBuffer)(::windows::core::Interface::as_raw(this), eightbytebuffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<UsbSetupPacket>(result__)
         })
     }
     #[doc(hidden)]
@@ -3504,14 +3290,9 @@ impl ::core::convert::From<&UsbSetupPacket> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UsbSetupPacket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UsbSetupPacket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbSetupPacket> for &::windows::core::IUnknown {
+    fn from(value: &UsbSetupPacket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UsbSetupPacket> for ::windows::core::IInspectable {
@@ -3524,14 +3305,9 @@ impl ::core::convert::From<&UsbSetupPacket> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UsbSetupPacket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UsbSetupPacket {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UsbSetupPacket> for &::windows::core::IInspectable {
+    fn from(value: &UsbSetupPacket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UsbSetupPacket {}

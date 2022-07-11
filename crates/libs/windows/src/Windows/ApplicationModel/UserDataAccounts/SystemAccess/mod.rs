@@ -53,9 +53,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetAccountName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAccountName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAccountName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAccountName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn DeviceAccountTypeId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -66,9 +66,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetDeviceAccountTypeId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDeviceAccountTypeId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDeviceAccountTypeId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDeviceAccountTypeId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn ServerType(&self) -> ::windows::core::Result<DeviceAccountServerType> {
@@ -79,9 +79,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetServerType(&self, value: DeviceAccountServerType) -> ::windows::core::Result<()> {
+    pub fn SetServerType<'a, Param0: ::std::convert::Into<DeviceAccountServerType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServerType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn EmailAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -92,9 +92,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetEmailAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetEmailAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEmailAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEmailAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -105,9 +105,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetDomain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDomain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDomain)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDomain)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn EmailSyncEnabled(&self) -> ::windows::core::Result<bool> {
@@ -157,9 +157,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetIncomingServerAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIncomingServerAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IncomingServerPort(&self) -> ::windows::core::Result<i32> {
@@ -196,9 +196,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetIncomingServerUsername<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIncomingServerUsername<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerUsername)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerUsername)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn OutgoingServerAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -209,9 +209,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetOutgoingServerAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutgoingServerAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn OutgoingServerPort(&self) -> ::windows::core::Result<i32> {
@@ -248,9 +248,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetOutgoingServerUsername<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutgoingServerUsername<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerUsername)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerUsername)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -263,9 +263,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetIncomingServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIncomingServerCredential<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerCredential)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -278,9 +278,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn SetOutgoingServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutgoingServerCredential<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::PasswordCredential>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerCredential)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn OAuthRefreshToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -291,9 +291,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetOAuthRefreshToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOAuthRefreshToken<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOAuthRefreshToken)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOAuthRefreshToken)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsExternallyManaged(&self) -> ::windows::core::Result<bool> {
@@ -317,9 +317,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetAccountIconId(&self, value: DeviceAccountIconId) -> ::windows::core::Result<()> {
+    pub fn SetAccountIconId<'a, Param0: ::std::convert::Into<DeviceAccountIconId>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAccountIconId)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAccountIconId)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn AuthenticationType(&self) -> ::windows::core::Result<DeviceAccountAuthenticationType> {
@@ -330,9 +330,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetAuthenticationType(&self, value: DeviceAccountAuthenticationType) -> ::windows::core::Result<()> {
+    pub fn SetAuthenticationType<'a, Param0: ::std::convert::Into<DeviceAccountAuthenticationType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsSsoAuthenticationSupported(&self) -> ::windows::core::Result<bool> {
@@ -351,9 +351,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetSsoAccountId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSsoAccountId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSsoAccountId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSsoAccountId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn AlwaysDownloadFullMessage(&self) -> ::windows::core::Result<bool> {
@@ -385,9 +385,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind) -> ::windows::core::Result<()> {
+    pub fn SetSyncScheduleKind<'a, Param0: ::std::convert::Into<DeviceAccountSyncScheduleKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSyncScheduleKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSyncScheduleKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn MailAgeFilter(&self) -> ::windows::core::Result<DeviceAccountMailAgeFilter> {
@@ -398,9 +398,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetMailAgeFilter(&self, value: DeviceAccountMailAgeFilter) -> ::windows::core::Result<()> {
+    pub fn SetMailAgeFilter<'a, Param0: ::std::convert::Into<DeviceAccountMailAgeFilter>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMailAgeFilter)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMailAgeFilter)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsClientAuthenticationCertificateRequired(&self) -> ::windows::core::Result<bool> {
@@ -437,9 +437,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetAuthenticationCertificateId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAuthenticationCertificateId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationCertificateId)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAuthenticationCertificateId)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn CardDavSyncScheduleKind(&self) -> ::windows::core::Result<DeviceAccountSyncScheduleKind> {
@@ -450,9 +450,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetCardDavSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind) -> ::windows::core::Result<()> {
+    pub fn SetCardDavSyncScheduleKind<'a, Param0: ::std::convert::Into<DeviceAccountSyncScheduleKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCardDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCardDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn CalDavSyncScheduleKind(&self) -> ::windows::core::Result<DeviceAccountSyncScheduleKind> {
@@ -463,9 +463,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetCalDavSyncScheduleKind(&self, value: DeviceAccountSyncScheduleKind) -> ::windows::core::Result<()> {
+    pub fn SetCalDavSyncScheduleKind<'a, Param0: ::std::convert::Into<DeviceAccountSyncScheduleKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCalDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCalDavSyncScheduleKind)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -478,9 +478,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCardDavServerUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCardDavServerUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCardDavServerUrl)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCardDavServerUrl)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn CardDavRequiresSsl(&self) -> ::windows::core::Result<bool> {
@@ -506,9 +506,9 @@ impl DeviceAccountConfiguration {
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCalDavServerUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCalDavServerUrl<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCalDavServerUrl)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCalDavServerUrl)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn CalDavRequiresSsl(&self) -> ::windows::core::Result<bool> {
@@ -558,9 +558,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetIncomingServerCertificateHash<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetIncomingServerCertificateHash<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerCertificateHash)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncomingServerCertificateHash)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsOutgoingServerAuthenticationRequired(&self) -> ::windows::core::Result<bool> {
@@ -610,9 +610,9 @@ impl DeviceAccountConfiguration {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-    pub fn SetOutgoingServerCertificateHash<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetOutgoingServerCertificateHash<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDeviceAccountConfiguration2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerCertificateHash)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutgoingServerCertificateHash)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
     pub fn IsSyncScheduleManagedBySystem(&self) -> ::windows::core::Result<bool> {
@@ -668,14 +668,9 @@ impl ::core::convert::From<&DeviceAccountConfiguration> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceAccountConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeviceAccountConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceAccountConfiguration> for &::windows::core::IUnknown {
+    fn from(value: &DeviceAccountConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DeviceAccountConfiguration> for ::windows::core::IInspectable {
@@ -688,14 +683,9 @@ impl ::core::convert::From<&DeviceAccountConfiguration> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceAccountConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeviceAccountConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeviceAccountConfiguration> for &::windows::core::IInspectable {
+    fn from(value: &DeviceAccountConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
@@ -1034,42 +1024,42 @@ pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAndShowDeviceAccountsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>>(accounts: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn AddAndShowDeviceAccountsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(accounts: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         Self::IUserDataAccountSystemAccessManagerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(::windows::core::Interface::as_raw(this), accounts.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).AddAndShowDeviceAccountsAsync)(::windows::core::Interface::as_raw(this), accounts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SuppressLocalAccountWithAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(userdataaccountid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn SuppressLocalAccountWithAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(userdataaccountid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SuppressLocalAccountWithAccountAsync)(::windows::core::Interface::as_raw(this), userdataaccountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SuppressLocalAccountWithAccountAsync)(::windows::core::Interface::as_raw(this), userdataaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateDeviceAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, DeviceAccountConfiguration>>(account: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn CreateDeviceAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, DeviceAccountConfiguration>>>(account: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDeviceAccountAsync)(::windows::core::Interface::as_raw(this), account.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CreateDeviceAccountAsync)(::windows::core::Interface::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeleteDeviceAccountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(accountid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
+    pub fn DeleteDeviceAccountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(accountid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteDeviceAccountAsync)(::windows::core::Interface::as_raw(this), accountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteDeviceAccountAsync)(::windows::core::Interface::as_raw(this), accountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetDeviceAccountConfigurationAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(accountid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>> {
+    pub fn GetDeviceAccountConfigurationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(accountid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>> {
         Self::IUserDataAccountSystemAccessManagerStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceAccountConfigurationAsync)(::windows::core::Interface::as_raw(this), accountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceAccountConfigurationAsync)(::windows::core::Interface::as_raw(this), accountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>>(result__)
         })
     }
     #[doc(hidden)]

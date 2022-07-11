@@ -19,10 +19,10 @@ impl AnalyticsInfo {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemPropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(attributenames: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+    pub fn GetSystemPropertiesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(attributenames: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows::core::Interface::as_raw(this), attributenames.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetSystemPropertiesAsync)(::windows::core::Interface::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         })
     }
     #[doc(hidden)]
@@ -108,14 +108,9 @@ impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AnalyticsVersionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AnalyticsVersionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IUnknown {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AnalyticsVersionInfo> for ::windows::core::IInspectable {
@@ -128,14 +123,9 @@ impl ::core::convert::From<&AnalyticsVersionInfo> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AnalyticsVersionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AnalyticsVersionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IInspectable {
+    fn from(value: &AnalyticsVersionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
@@ -145,10 +135,10 @@ pub struct AppApplicability;
 impl AppApplicability {
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetUnsupportedAppRequirements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(capabilities: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>> {
+    pub fn GetUnsupportedAppRequirements<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(capabilities: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>> {
         Self::IAppApplicabilityStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Interface::as_raw(this), capabilities.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>(result__)
+            (::windows::core::Interface::vtable(this).GetUnsupportedAppRequirements)(::windows::core::Interface::as_raw(this), capabilities.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>(result__)
         })
     }
     #[doc(hidden)]
@@ -184,10 +174,10 @@ pub struct HardwareIdentification;
 impl HardwareIdentification {
     #[doc = "*Required features: `\"System_Profile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPackageSpecificToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(nonce: Param0) -> ::windows::core::Result<HardwareToken> {
+    pub fn GetPackageSpecificToken<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(nonce: Param0) -> ::windows::core::Result<HardwareToken> {
         Self::IHardwareIdentificationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPackageSpecificToken)(::windows::core::Interface::as_raw(this), nonce.into_param().abi(), result__.as_mut_ptr()).from_abi::<HardwareToken>(result__)
+            (::windows::core::Interface::vtable(this).GetPackageSpecificToken)(::windows::core::Interface::as_raw(this), nonce.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<HardwareToken>(result__)
         })
     }
     #[doc(hidden)]
@@ -271,14 +261,9 @@ impl ::core::convert::From<&HardwareToken> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HardwareToken {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HardwareToken {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HardwareToken> for &::windows::core::IUnknown {
+    fn from(value: &HardwareToken) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<HardwareToken> for ::windows::core::IInspectable {
@@ -291,14 +276,9 @@ impl ::core::convert::From<&HardwareToken> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HardwareToken {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HardwareToken {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HardwareToken> for &::windows::core::IInspectable {
+    fn from(value: &HardwareToken) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for HardwareToken {}
@@ -832,22 +812,22 @@ impl PlatformDiagnosticsAndUsageDataSettings {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CollectionLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CollectionLevelChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CollectionLevelChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CollectionLevelChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCollectionLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveCollectionLevelChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"System_Profile\"`*"]
-    pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> ::windows::core::Result<bool> {
+    pub fn CanCollectDiagnostics<'a, Param0: ::std::convert::Into<PlatformDataCollectionLevel>>(level: Param0) -> ::windows::core::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).CanCollectDiagnostics)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanCollectDiagnostics)(::windows::core::Interface::as_raw(this), level.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -928,10 +908,10 @@ impl SystemIdentification {
         })
     }
     #[doc = "*Required features: `\"System_Profile\"`*"]
-    pub fn GetSystemIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<SystemIdentificationInfo> {
+    pub fn GetSystemIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemIdForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<SystemIdentificationInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetSystemIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<SystemIdentificationInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -1005,14 +985,9 @@ impl ::core::convert::From<&SystemIdentificationInfo> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SystemIdentificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SystemIdentificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemIdentificationInfo> for &::windows::core::IUnknown {
+    fn from(value: &SystemIdentificationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SystemIdentificationInfo> for ::windows::core::IInspectable {
@@ -1025,14 +1000,9 @@ impl ::core::convert::From<&SystemIdentificationInfo> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SystemIdentificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SystemIdentificationInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SystemIdentificationInfo> for &::windows::core::IInspectable {
+    fn from(value: &SystemIdentificationInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
@@ -1120,16 +1090,16 @@ impl SystemSetupInfo {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OutOfBoxExperienceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn OutOfBoxExperienceStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveOutOfBoxExperienceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1201,14 +1171,9 @@ impl ::core::convert::From<&UnsupportedAppRequirement> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UnsupportedAppRequirement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a UnsupportedAppRequirement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UnsupportedAppRequirement> for &::windows::core::IUnknown {
+    fn from(value: &UnsupportedAppRequirement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<UnsupportedAppRequirement> for ::windows::core::IInspectable {
@@ -1221,14 +1186,9 @@ impl ::core::convert::From<&UnsupportedAppRequirement> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UnsupportedAppRequirement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a UnsupportedAppRequirement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&UnsupportedAppRequirement> for &::windows::core::IInspectable {
+    fn from(value: &UnsupportedAppRequirement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
@@ -1328,16 +1288,16 @@ impl WindowsIntegrityPolicy {
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PolicyChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePolicyChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePolicyChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc(hidden)]
     pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

@@ -4,9 +4,9 @@ pub struct ILearningModelDeviceFactoryNative(::windows::core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12CommandQueue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>(&self, value: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+    pub unsafe fn CreateFromD3D12CommandQueue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>>>(&self, value: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).CreateFromD3D12CommandQueue)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<ILearningModelDeviceFactoryNative> for ::windows::core::IUnknown {
@@ -14,19 +14,14 @@ impl ::core::convert::From<ILearningModelDeviceFactoryNative> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelDeviceFactoryNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelDeviceFactoryNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelDeviceFactoryNative> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelDeviceFactoryNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelDeviceFactoryNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelDeviceFactoryNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILearningModelDeviceFactoryNative {
@@ -74,19 +69,14 @@ impl ::core::convert::From<ILearningModelOperatorProviderNative> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelOperatorProviderNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelOperatorProviderNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelOperatorProviderNative> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelOperatorProviderNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelOperatorProviderNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelOperatorProviderNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILearningModelOperatorProviderNative {
@@ -132,19 +122,14 @@ impl ::core::convert::From<ILearningModelSessionOptionsNative> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILearningModelSessionOptionsNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILearningModelSessionOptionsNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILearningModelSessionOptionsNative> for ::windows::core::IUnknown {
     fn from(value: &ILearningModelSessionOptionsNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILearningModelSessionOptionsNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILearningModelSessionOptionsNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILearningModelSessionOptionsNative {
@@ -193,19 +178,14 @@ impl ::core::convert::From<ITensorNative> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITensorNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITensorNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITensorNative> for ::windows::core::IUnknown {
     fn from(value: &ITensorNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITensorNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITensorNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITensorNative {
@@ -244,8 +224,8 @@ pub struct ITensorStaticsNative(::windows::core::IUnknown);
 impl ITensorStaticsNative {
     #[doc = "*Required features: `\"Win32_System_WinRT_ML\"`, `\"Win32_Graphics_Direct3D12\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12Resource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>(&self, value: Param0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateFromD3D12Resource)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(shape), ::core::mem::transmute(shapecount), ::core::mem::transmute(result)).ok()
+    pub unsafe fn CreateFromD3D12Resource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Resource>>>(&self, value: Param0, shape: *mut i64, shapecount: i32, result: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateFromD3D12Resource)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(shape), ::core::mem::transmute(shapecount), ::core::mem::transmute(result)).ok()
     }
 }
 impl ::core::convert::From<ITensorStaticsNative> for ::windows::core::IUnknown {
@@ -253,19 +233,14 @@ impl ::core::convert::From<ITensorStaticsNative> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITensorStaticsNative> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITensorStaticsNative) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITensorStaticsNative> for ::windows::core::IUnknown {
     fn from(value: &ITensorStaticsNative) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITensorStaticsNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITensorStaticsNative {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITensorStaticsNative {

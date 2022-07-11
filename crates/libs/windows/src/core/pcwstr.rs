@@ -32,42 +32,10 @@ impl ::core::fmt::Debug for PCWSTR {
 }
 unsafe impl Abi for PCWSTR {
     type Abi = Self;
+}
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
-    }
-
-    #[cfg(feature = "alloc")]
-    unsafe fn drop_param(param: &mut Param<'_, Self>) {
-        if let Param::Boxed(value) = param {
-            if !value.is_null() {
-                heap_free(value.0 as _);
-            }
-        }
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, PCWSTR> for &str {
-    fn into_param(self) -> Param<'a, PCWSTR> {
-        Param::Boxed(PCWSTR(alloc_from_iter(self.encode_utf16().chain(core::iter::once(0)), self.len() + 1)))
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, PCWSTR> for alloc::string::String {
-    fn into_param(self) -> Param<'a, PCWSTR> {
-        IntoParam::into_param(self.as_str())
-    }
-}
-#[cfg(all(windows, feature = "alloc"))]
-impl<'a> IntoParam<'a, PCWSTR> for &::std::ffi::OsStr {
-    fn into_param(self) -> Param<'a, PCWSTR> {
-        use ::std::os::windows::ffi::OsStrExt;
-        Param::Boxed(PCWSTR(alloc_from_iter(self.encode_wide().chain(core::iter::once(0)), self.len() + 1)))
-    }
-}
-#[cfg(all(windows, feature = "alloc"))]
-impl<'a> IntoParam<'a, PCWSTR> for ::std::ffi::OsString {
-    fn into_param(self) -> Param<'a, PCWSTR> {
-        IntoParam::into_param(self.as_os_str())
+impl From<&HSTRING> for PCWSTR {
+    fn from(hstring: &HSTRING) -> Self {
+        Self(hstring.as_wide().as_ptr())
     }
 }

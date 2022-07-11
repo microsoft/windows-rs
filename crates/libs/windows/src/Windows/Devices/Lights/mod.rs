@@ -256,24 +256,24 @@ impl Lamp {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AvailabilityChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Lamp, LampAvailabilityChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAvailabilityChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -284,10 +284,10 @@ impl Lamp {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Lamp>> {
         Self::ILampStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Lamp>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Lamp>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
@@ -344,14 +344,9 @@ impl ::core::convert::From<&Lamp> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Lamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Lamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Lamp> for &::windows::core::IUnknown {
+    fn from(value: &Lamp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Lamp> for ::windows::core::IInspectable {
@@ -364,14 +359,9 @@ impl ::core::convert::From<&Lamp> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Lamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Lamp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Lamp> for &::windows::core::IInspectable {
+    fn from(value: &Lamp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -389,15 +379,11 @@ impl ::core::convert::TryFrom<&Lamp> for super::super::Foundation::IClosable {
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for Lamp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &Lamp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Lamp> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Lamp) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Lamp {}
@@ -524,38 +510,38 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetIndicesForKey(&self, key: super::super::System::VirtualKey) -> ::windows::core::Result<::windows::core::Array<i32>> {
+    pub fn GetIndicesForKey<'a, Param0: ::std::convert::Into<super::super::System::VirtualKey>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::Array<i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<i32>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetIndicesForKey)(::windows::core::Interface::as_raw(this), key, ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).GetIndicesForKey)(::windows::core::Interface::as_raw(this), key.into(), ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`*"]
-    pub fn GetIndicesForPurposes(&self, purposes: LampPurposes) -> ::windows::core::Result<::windows::core::Array<i32>> {
+    pub fn GetIndicesForPurposes<'a, Param0: ::std::convert::Into<LampPurposes>>(&self, purposes: Param0) -> ::windows::core::Result<::windows::core::Array<i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<i32>>::zeroed();
-            (::windows::core::Interface::vtable(this).GetIndicesForPurposes)(::windows::core::Interface::as_raw(this), purposes, ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+            (::windows::core::Interface::vtable(this).GetIndicesForPurposes)(::windows::core::Interface::as_raw(this), purposes.into(), ::windows::core::Array::<i32>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0) -> ::windows::core::Result<()> {
+    pub fn SetColor(&self, desiredcolor: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), desiredcolor.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColor)(::windows::core::Interface::as_raw(this), desiredcolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetColorForIndex<'a, Param1: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, lampindex: i32, desiredcolor: Param1) -> ::windows::core::Result<()> {
+    pub fn SetColorForIndex(&self, lampindex: i32, desiredcolor: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorForIndex)(::windows::core::Interface::as_raw(this), lampindex, desiredcolor.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorForIndex)(::windows::core::Interface::as_raw(this), lampindex, desiredcolor).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetSingleColorForIndices<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, lampindexes: &[i32]) -> ::windows::core::Result<()> {
+    pub fn SetSingleColorForIndices(&self, desiredcolor: super::super::UI::Color, lampindexes: &[i32]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSingleColorForIndices)(::windows::core::Interface::as_raw(this), desiredcolor.into_param().abi(), lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSingleColorForIndices)(::windows::core::Interface::as_raw(this), desiredcolor, lampindexes.len() as u32, ::core::mem::transmute(lampindexes.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
@@ -565,9 +551,9 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`, `\"UI\"`*"]
     #[cfg(all(feature = "System", feature = "UI"))]
-    pub fn SetColorsForKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, key: super::super::System::VirtualKey) -> ::windows::core::Result<()> {
+    pub fn SetColorsForKey<'a, Param1: ::std::convert::Into<super::super::System::VirtualKey>>(&self, desiredcolor: super::super::UI::Color, key: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorsForKey)(::windows::core::Interface::as_raw(this), desiredcolor.into_param().abi(), key).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorsForKey)(::windows::core::Interface::as_raw(this), desiredcolor, key.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"System\"`, `\"UI\"`*"]
     #[cfg(all(feature = "System", feature = "UI"))]
@@ -577,17 +563,17 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn SetColorsForPurposes<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0, purposes: LampPurposes) -> ::windows::core::Result<()> {
+    pub fn SetColorsForPurposes<'a, Param1: ::std::convert::Into<LampPurposes>>(&self, desiredcolor: super::super::UI::Color, purposes: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorsForPurposes)(::windows::core::Interface::as_raw(this), desiredcolor.into_param().abi(), purposes).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorsForPurposes)(::windows::core::Interface::as_raw(this), desiredcolor, purposes.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendMessageAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, messageid: i32, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn SendMessageAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, messageid: i32, message: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), messageid, message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), messageid, message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -608,10 +594,10 @@ impl LampArray {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LampArray>> {
         Self::ILampArrayStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LampArray>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LampArray>>(result__)
         })
     }
     #[doc(hidden)]
@@ -660,14 +646,9 @@ impl ::core::convert::From<&LampArray> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LampArray> for &::windows::core::IUnknown {
+    fn from(value: &LampArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LampArray> for ::windows::core::IInspectable {
@@ -680,14 +661,9 @@ impl ::core::convert::From<&LampArray> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampArray {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LampArray> for &::windows::core::IInspectable {
+    fn from(value: &LampArray) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LampArray {}
@@ -788,14 +764,9 @@ impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LampAvailabilityChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LampAvailabilityChangedEventArgs> for ::windows::core::IInspectable {
@@ -808,14 +779,9 @@ impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampAvailabilityChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LampAvailabilityChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LampAvailabilityChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LampAvailabilityChangedEventArgs {}
@@ -892,11 +858,11 @@ impl LampInfo {
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
-    pub fn GetNearestSupportedColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, desiredcolor: Param0) -> ::windows::core::Result<super::super::UI::Color> {
+    pub fn GetNearestSupportedColor(&self, desiredcolor: super::super::UI::Color) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Color>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNearestSupportedColor)(::windows::core::Interface::as_raw(this), desiredcolor.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
+            (::windows::core::Interface::vtable(this).GetNearestSupportedColor)(::windows::core::Interface::as_raw(this), desiredcolor, result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Lights\"`, `\"Foundation\"`*"]
@@ -949,14 +915,9 @@ impl ::core::convert::From<&LampInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LampInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LampInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LampInfo> for &::windows::core::IUnknown {
+    fn from(value: &LampInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LampInfo> for ::windows::core::IInspectable {
@@ -969,14 +930,9 @@ impl ::core::convert::From<&LampInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LampInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LampInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LampInfo> for &::windows::core::IInspectable {
+    fn from(value: &LampInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LampInfo {}

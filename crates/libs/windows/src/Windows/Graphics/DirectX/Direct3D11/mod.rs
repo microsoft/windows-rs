@@ -203,19 +203,14 @@ impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirect3DDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirect3DDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirect3DDevice> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IInspectable {
@@ -223,19 +218,14 @@ impl ::core::convert::From<IDirect3DDevice> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirect3DDevice> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDirect3DDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirect3DDevice> for ::windows::core::IInspectable {
     fn from(value: &IDirect3DDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDirect3DDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDirect3DDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -253,15 +243,11 @@ impl ::core::convert::TryFrom<&IDirect3DDevice> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for IDirect3DDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IDirect3DDevice> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDirect3DDevice) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IDirect3DDevice {
@@ -321,19 +307,14 @@ impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirect3DSurface> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirect3DSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirect3DSurface> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DSurface) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IInspectable {
@@ -341,19 +322,14 @@ impl ::core::convert::From<IDirect3DSurface> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirect3DSurface> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDirect3DSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirect3DSurface> for ::windows::core::IInspectable {
     fn from(value: &IDirect3DSurface) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDirect3DSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDirect3DSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -371,15 +347,11 @@ impl ::core::convert::TryFrom<&IDirect3DSurface> for super::super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for IDirect3DSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &IDirect3DSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IDirect3DSurface> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IDirect3DSurface) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IDirect3DSurface {

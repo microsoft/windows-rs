@@ -1,21 +1,21 @@
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn AddPointerInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
+pub unsafe fn AddPointerInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows::core::HRESULT;
     }
-    AddPointerInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerid)).ok()
+    AddPointerInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> ::windows::core::Result<()> {
+pub unsafe fn BufferPointerPacketsInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT;
     }
-    BufferPointerPacketsInteractionContext(interactioncontext.into_param().abi(), pointerinfo.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pointerinfo))).ok()
+    BufferPointerPacketsInteractionContext(interactioncontext.into(), pointerinfo.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pointerinfo))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]
@@ -156,102 +156,102 @@ pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTION
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn DestroyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn DestroyInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
     }
-    DestroyInteractionContext(interactioncontext.into_param().abi()).ok()
+    DestroyInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, threshold: CROSS_SLIDE_THRESHOLD) -> ::windows::core::Result<f32> {
+pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<CROSS_SLIDE_THRESHOLD>>(interactioncontext: Param0, threshold: Param1) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetCrossSlideParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetCrossSlideParameterInteractionContext(interactioncontext.into(), threshold.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER) -> ::windows::core::Result<f32> {
+pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<HOLD_PARAMETER>>(interactioncontext: Param0, parameter: Param1) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetHoldParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetHoldParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER) -> ::windows::core::Result<f32> {
+pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<INERTIA_PARAMETER>>(interactioncontext: Param0, inertiaparameter: Param1) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetInertiaParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(inertiaparameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()> {
+pub unsafe fn GetInteractionConfigurationInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *mut INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::core::HRESULT;
     }
-    GetInteractionConfigurationInteractionContext(interactioncontext.into_param().abi(), configuration.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(configuration))).ok()
+    GetInteractionConfigurationInteractionContext(interactioncontext.into(), configuration.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(configuration))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER) -> ::windows::core::Result<f32> {
+pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<MOUSE_WHEEL_PARAMETER>>(interactioncontext: Param0, parameter: Param1) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetMouseWheelParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> ::windows::core::Result<u32> {
+pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<INTERACTION_CONTEXT_PROPERTY>>(interactioncontext: Param0, contextproperty: Param1) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-    GetPropertyInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(contextproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetPropertyInteractionContext(interactioncontext.into(), contextproperty.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<INTERACTION_STATE> {
+pub unsafe fn GetStateInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<INTERACTION_STATE> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: *const super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<INTERACTION_STATE>::zeroed();
-    GetStateInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTERACTION_STATE>(result__)
+    GetStateInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTERACTION_STATE>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER) -> ::windows::core::Result<f32> {
+pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<TAP_PARAMETER>>(interactioncontext: Param0, parameter: Param1) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetTapParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetTapParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER) -> ::windows::core::Result<f32> {
+pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<TRANSLATION_PARAMETER>>(interactioncontext: Param0, parameter: Param1) -> ::windows::core::Result<f32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
-    GetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
+    GetTranslationParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -275,6 +275,11 @@ impl ::core::marker::Copy for HINTERACTIONCONTEXT {}
 impl ::core::fmt::Debug for HINTERACTIONCONTEXT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HINTERACTIONCONTEXT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HINTERACTIONCONTEXT>> for HINTERACTIONCONTEXT {
+    fn from(optional: ::core::option::Option<HINTERACTIONCONTEXT>) -> HINTERACTIONCONTEXT {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HINTERACTIONCONTEXT {
@@ -1032,159 +1037,159 @@ impl ::core::fmt::Debug for MOUSE_WHEEL_PARAMETER {
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn ProcessBufferedPacketsInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
     }
-    ProcessBufferedPacketsInteractionContext(interactioncontext.into_param().abi()).ok()
+    ProcessBufferedPacketsInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn ProcessInertiaInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
     }
-    ProcessInertiaInteractionContext(interactioncontext.into_param().abi()).ok()
+    ProcessInertiaInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Input_Pointer\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
+pub unsafe fn ProcessPointerFramesInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> ::windows::core::HRESULT;
     }
-    ProcessPointerFramesInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)).ok()
+    ProcessPointerFramesInteractionContext(interactioncontext.into(), ::core::mem::transmute(entriescount), ::core::mem::transmute(pointercount), ::core::mem::transmute(pointerinfo)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterOutputCallbackInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: *mut ::core::ffi::c_void, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    RegisterOutputCallbackInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
+    RegisterOutputCallbackInteractionContext(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn RegisterOutputCallbackInteractionContext2<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: *mut ::core::ffi::c_void, clientdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    RegisterOutputCallbackInteractionContext2(interactioncontext.into_param().abi(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
+    RegisterOutputCallbackInteractionContext2(interactioncontext.into(), ::core::mem::transmute(outputcallback), ::core::mem::transmute(clientdata)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
+pub unsafe fn RemovePointerInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, pointerid: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> ::windows::core::HRESULT;
     }
-    RemovePointerInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerid)).ok()
+    RemovePointerInteractionContext(interactioncontext.into(), ::core::mem::transmute(pointerid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn ResetInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn ResetInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
     }
-    ResetInteractionContext(interactioncontext.into_param().abi()).ok()
+    ResetInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, crossslideparameters: &[CROSS_SLIDE_PARAMETER]) -> ::windows::core::Result<()> {
+pub unsafe fn SetCrossSlideParametersInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, crossslideparameters: &[CROSS_SLIDE_PARAMETER]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parametercount: u32, crossslideparameters: *const CROSS_SLIDE_PARAMETER) -> ::windows::core::HRESULT;
     }
-    SetCrossSlideParametersInteractionContext(interactioncontext.into_param().abi(), crossslideparameters.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(crossslideparameters))).ok()
+    SetCrossSlideParametersInteractionContext(interactioncontext.into(), crossslideparameters.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(crossslideparameters))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::Result<()> {
+pub unsafe fn SetHoldParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<HOLD_PARAMETER>>(interactioncontext: Param0, parameter: Param1, value: f32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetHoldParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetHoldParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::Result<()> {
+pub unsafe fn SetInertiaParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<INERTIA_PARAMETER>>(interactioncontext: Param0, inertiaparameter: Param1, value: f32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetInertiaParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(inertiaparameter), ::core::mem::transmute(value)).ok()
+    SetInertiaParameterInteractionContext(interactioncontext.into(), inertiaparameter.into(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, configuration: &[INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()> {
+pub unsafe fn SetInteractionConfigurationInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, configuration: &[INTERACTION_CONTEXT_CONFIGURATION]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: u32, configuration: *const INTERACTION_CONTEXT_CONFIGURATION) -> ::windows::core::HRESULT;
     }
-    SetInteractionConfigurationInteractionContext(interactioncontext.into_param().abi(), configuration.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(configuration))).ok()
+    SetInteractionConfigurationInteractionContext(interactioncontext.into(), configuration.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(configuration))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::Result<()> {
+pub unsafe fn SetMouseWheelParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<MOUSE_WHEEL_PARAMETER>>(interactioncontext: Param0, parameter: Param1, value: f32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetMouseWheelParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetMouseWheelParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetPivotInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, x: f32, y: f32, radius: f32) -> ::windows::core::Result<()> {
+pub unsafe fn SetPivotInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0, x: f32, y: f32, radius: f32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> ::windows::core::HRESULT;
     }
-    SetPivotInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(radius)).ok()
+    SetPivotInteractionContext(interactioncontext.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(radius)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::Result<()> {
+pub unsafe fn SetPropertyInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<INTERACTION_CONTEXT_PROPERTY>>(interactioncontext: Param0, contextproperty: Param1, value: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> ::windows::core::HRESULT;
     }
-    SetPropertyInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(contextproperty), ::core::mem::transmute(value)).ok()
+    SetPropertyInteractionContext(interactioncontext.into(), contextproperty.into(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::Result<()> {
+pub unsafe fn SetTapParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<TAP_PARAMETER>>(interactioncontext: Param0, parameter: Param1, value: f32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetTapParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetTapParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::Result<()> {
+pub unsafe fn SetTranslationParameterInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>, Param1: ::std::convert::Into<TRANSLATION_PARAMETER>>(interactioncontext: Param0, parameter: Param1, value: f32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> ::windows::core::HRESULT;
     }
-    SetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(value)).ok()
+    SetTranslationParameterInteractionContext(interactioncontext.into(), parameter.into(), ::core::mem::transmute(value)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[inline]
-pub unsafe fn StopInteractionContext<'a, Param0: ::windows::core::IntoParam<'a, HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn StopInteractionContext<'a, Param0: ::std::convert::Into<HINTERACTIONCONTEXT>>(interactioncontext: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
     }
-    StopInteractionContext(interactioncontext.into_param().abi()).ok()
+    StopInteractionContext(interactioncontext.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_InteractionContext\"`*"]
 #[repr(transparent)]

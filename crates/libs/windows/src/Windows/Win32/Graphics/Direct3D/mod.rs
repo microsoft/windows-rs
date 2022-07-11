@@ -1919,19 +1919,14 @@ impl ::core::convert::From<ID3DBlob> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ID3DBlob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ID3DBlob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ID3DBlob> for ::windows::core::IUnknown {
     fn from(value: &ID3DBlob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3DBlob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3DBlob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ID3DBlob {
@@ -1982,19 +1977,14 @@ impl ::core::convert::From<ID3DDestructionNotifier> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ID3DDestructionNotifier> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ID3DDestructionNotifier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ID3DDestructionNotifier> for ::windows::core::IUnknown {
     fn from(value: &ID3DDestructionNotifier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3DDestructionNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ID3DDestructionNotifier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ID3DDestructionNotifier {
@@ -2031,8 +2021,8 @@ pub struct ID3DDestructionNotifier_Vtbl {
 pub struct ID3DInclude(::windows::core::IUnknown);
 impl ID3DInclude {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
-    pub unsafe fn Open<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: Param1, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includetype), pfilename.into_param().abi(), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<D3D_INCLUDE_TYPE>>(&self, includetype: Param0, pfilename: ::windows::core::PCSTR, pparentdata: *const ::core::ffi::c_void, ppdata: *mut *mut ::core::ffi::c_void, pbytes: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), includetype.into(), ::core::mem::transmute(pfilename), ::core::mem::transmute(pparentdata), ::core::mem::transmute(ppdata), ::core::mem::transmute(pbytes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D\"`*"]
     pub unsafe fn Close(&self, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {

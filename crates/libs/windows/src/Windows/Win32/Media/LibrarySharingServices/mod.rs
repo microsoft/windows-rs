@@ -16,8 +16,8 @@ impl IWindowsMediaLibrarySharingDevice {
         (::windows::core::Interface::vtable(self).Authorization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WindowsMediaLibrarySharingDeviceAuthorizationStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
-    pub unsafe fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(authorization)).ok()
+    pub unsafe fn SetAuthorization<'a, Param0: ::std::convert::Into<WindowsMediaLibrarySharingDeviceAuthorizationStatus>>(&self, authorization: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), authorization.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -33,21 +33,15 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingDevice> for ::windows::cor
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsMediaLibrarySharingDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsMediaLibrarySharingDevice> for ::windows::core::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsMediaLibrarySharingDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsMediaLibrarySharingDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -57,21 +51,15 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingDevice> for super::super::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevice> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWindowsMediaLibrarySharingDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsMediaLibrarySharingDevice> for super::super::System::Com::IDispatch {
     fn from(value: &IWindowsMediaLibrarySharingDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWindowsMediaLibrarySharingDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWindowsMediaLibrarySharingDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -134,14 +122,20 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
+    pub unsafe fn GetProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, name: Param0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), name.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDeviceProperty>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDeviceProperty>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for ::windows::core::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDeviceProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperties> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperties) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -152,20 +146,14 @@ impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperties> for ::w
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsMediaLibrarySharingDeviceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsMediaLibrarySharingDeviceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for super::super::System::Com::IDispatch {
     fn from(value: IWindowsMediaLibrarySharingDeviceProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperties> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperties) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -173,18 +161,6 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperties> for supe
 impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperties> for super::super::System::Com::IDispatch {
     fn from(value: &IWindowsMediaLibrarySharingDeviceProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWindowsMediaLibrarySharingDeviceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWindowsMediaLibrarySharingDeviceProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -253,21 +229,15 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperty> for ::wind
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperty> for ::windows::core::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingDeviceProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsMediaLibrarySharingDeviceProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsMediaLibrarySharingDeviceProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -277,21 +247,15 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingDeviceProperty> for super:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDeviceProperty> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWindowsMediaLibrarySharingDeviceProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsMediaLibrarySharingDeviceProperty> for super::super::System::Com::IDispatch {
     fn from(value: &IWindowsMediaLibrarySharingDeviceProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWindowsMediaLibrarySharingDeviceProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWindowsMediaLibrarySharingDeviceProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -352,14 +316,20 @@ impl IWindowsMediaLibrarySharingDevices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, deviceid: Param0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice> {
+    pub unsafe fn GetDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, deviceid: Param0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), deviceid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDevice>(result__)
+        (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), deviceid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWindowsMediaLibrarySharingDevice>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsMediaLibrarySharingDevices> for ::windows::core::IUnknown {
     fn from(value: IWindowsMediaLibrarySharingDevices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsMediaLibrarySharingDevices) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -370,20 +340,14 @@ impl ::core::convert::From<&IWindowsMediaLibrarySharingDevices> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsMediaLibrarySharingDevices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsMediaLibrarySharingDevices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsMediaLibrarySharingDevices> for super::super::System::Com::IDispatch {
     fn from(value: IWindowsMediaLibrarySharingDevices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingDevices> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWindowsMediaLibrarySharingDevices) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -391,18 +355,6 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingDevices> for super::super:
 impl ::core::convert::From<&IWindowsMediaLibrarySharingDevices> for super::super::System::Com::IDispatch {
     fn from(value: &IWindowsMediaLibrarySharingDevices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWindowsMediaLibrarySharingDevices {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWindowsMediaLibrarySharingDevices {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -453,8 +405,8 @@ pub struct IWindowsMediaLibrarySharingServices(::windows::core::IUnknown);
 impl IWindowsMediaLibrarySharingServices {
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn showShareMediaCPL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, device: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).showShareMediaCPL)(::windows::core::Interface::as_raw(self), device.into_param().abi()).ok()
+    pub unsafe fn showShareMediaCPL<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, device: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).showShareMediaCPL)(::windows::core::Interface::as_raw(self), device.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn userHomeMediaSharingState(&self) -> ::windows::core::Result<i16> {
@@ -473,8 +425,8 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetuserHomeMediaSharingLibraryName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, libraryname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuserHomeMediaSharingLibraryName)(::windows::core::Interface::as_raw(self), libraryname.into_param().abi()).ok()
+    pub unsafe fn SetuserHomeMediaSharingLibraryName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, libraryname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetuserHomeMediaSharingLibraryName)(::windows::core::Interface::as_raw(self), libraryname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn computerHomeMediaSharingAllowedState(&self) -> ::windows::core::Result<i16> {
@@ -511,8 +463,8 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetinternetMediaSharingSecurityGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, securitygroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetinternetMediaSharingSecurityGroup)(::windows::core::Interface::as_raw(self), securitygroup.into_param().abi()).ok()
+    pub unsafe fn SetinternetMediaSharingSecurityGroup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, securitygroup: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetinternetMediaSharingSecurityGroup)(::windows::core::Interface::as_raw(self), securitygroup.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
     pub unsafe fn allowSharingToAllDevices(&self) -> ::windows::core::Result<i16> {
@@ -525,13 +477,13 @@ impl IWindowsMediaLibrarySharingServices {
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setDefaultAuthorization<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, macaddresses: Param0, friendlyname: Param1, authorization: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setDefaultAuthorization)(::windows::core::Interface::as_raw(self), macaddresses.into_param().abi(), friendlyname.into_param().abi(), ::core::mem::transmute(authorization)).ok()
+    pub unsafe fn setDefaultAuthorization<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, macaddresses: Param0, friendlyname: Param1, authorization: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setDefaultAuthorization)(::windows::core::Interface::as_raw(self), macaddresses.into().abi(), friendlyname.into().abi(), ::core::mem::transmute(authorization)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn setAuthorizationState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, macaddress: Param0, authorizationstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setAuthorizationState)(::windows::core::Interface::as_raw(self), macaddress.into_param().abi(), ::core::mem::transmute(authorizationstate)).ok()
+    pub unsafe fn setAuthorizationState<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, macaddress: Param0, authorizationstate: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).setAuthorizationState)(::windows::core::Interface::as_raw(self), macaddress.into().abi(), ::core::mem::transmute(authorizationstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -552,21 +504,15 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingServices> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsMediaLibrarySharingServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsMediaLibrarySharingServices> for ::windows::core::IUnknown {
     fn from(value: &IWindowsMediaLibrarySharingServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsMediaLibrarySharingServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsMediaLibrarySharingServices {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -576,21 +522,15 @@ impl ::core::convert::From<IWindowsMediaLibrarySharingServices> for super::super
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsMediaLibrarySharingServices> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IWindowsMediaLibrarySharingServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsMediaLibrarySharingServices> for super::super::System::Com::IDispatch {
     fn from(value: &IWindowsMediaLibrarySharingServices) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IWindowsMediaLibrarySharingServices {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IWindowsMediaLibrarySharingServices {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

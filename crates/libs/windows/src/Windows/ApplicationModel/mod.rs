@@ -137,11 +137,11 @@ impl AppDisplayInfo {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetLogo<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Size>>(&self, size: Param0) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
+    pub fn GetLogo(&self, size: super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLogo)(::windows::core::Interface::as_raw(this), size.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Storage::Streams::RandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).GetLogo)(::windows::core::Interface::as_raw(this), size, result__.as_mut_ptr()).from_abi::<super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
 }
@@ -185,14 +185,9 @@ impl ::core::convert::From<&AppDisplayInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppDisplayInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppDisplayInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppDisplayInfo> for &::windows::core::IUnknown {
+    fn from(value: &AppDisplayInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppDisplayInfo> for ::windows::core::IInspectable {
@@ -205,14 +200,9 @@ impl ::core::convert::From<&AppDisplayInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppDisplayInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppDisplayInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppDisplayInfo> for &::windows::core::IInspectable {
+    fn from(value: &AppDisplayInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppDisplayInfo {}
@@ -320,18 +310,18 @@ impl AppInfo {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
-    pub fn GetFromAppUserModelId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appusermodelid: Param0) -> ::windows::core::Result<AppInfo> {
+    pub fn GetFromAppUserModelId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(appusermodelid: Param0) -> ::windows::core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFromAppUserModelId)(::windows::core::Interface::as_raw(this), appusermodelid.into_param().abi(), result__.as_mut_ptr()).from_abi::<AppInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetFromAppUserModelId)(::windows::core::Interface::as_raw(this), appusermodelid.into().abi(), result__.as_mut_ptr()).from_abi::<AppInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
-    pub fn GetFromAppUserModelIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, appusermodelid: Param1) -> ::windows::core::Result<AppInfo> {
+    pub fn GetFromAppUserModelIdForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, appusermodelid: Param1) -> ::windows::core::Result<AppInfo> {
         Self::IAppInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetFromAppUserModelIdForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), appusermodelid.into_param().abi(), result__.as_mut_ptr()).from_abi::<AppInfo>(result__)
+            (::windows::core::Interface::vtable(this).GetFromAppUserModelIdForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), appusermodelid.into().abi(), result__.as_mut_ptr()).from_abi::<AppInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -380,14 +370,9 @@ impl ::core::convert::From<&AppInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInfo> for &::windows::core::IUnknown {
+    fn from(value: &AppInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppInfo> for ::windows::core::IInspectable {
@@ -400,14 +385,9 @@ impl ::core::convert::From<&AppInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInfo> for &::windows::core::IInspectable {
+    fn from(value: &AppInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppInfo {}
@@ -592,14 +572,9 @@ impl ::core::convert::From<&AppInstallerInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppInstallerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppInstallerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInstallerInfo> for &::windows::core::IUnknown {
+    fn from(value: &AppInstallerInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppInstallerInfo> for ::windows::core::IInspectable {
@@ -612,14 +587,9 @@ impl ::core::convert::From<&AppInstallerInfo> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppInstallerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppInstallerInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInstallerInfo> for &::windows::core::IInspectable {
+    fn from(value: &AppInstallerInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppInstallerInfo {}
@@ -699,10 +669,10 @@ impl AppInstance {
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
-    pub fn FindOrRegisterInstanceForKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(key: Param0) -> ::windows::core::Result<AppInstance> {
+    pub fn FindOrRegisterInstanceForKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(key: Param0) -> ::windows::core::Result<AppInstance> {
         Self::IAppInstanceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindOrRegisterInstanceForKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<AppInstance>(result__)
+            (::windows::core::Interface::vtable(this).FindOrRegisterInstanceForKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<AppInstance>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -763,14 +733,9 @@ impl ::core::convert::From<&AppInstance> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AppInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AppInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInstance> for &::windows::core::IUnknown {
+    fn from(value: &AppInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AppInstance> for ::windows::core::IInspectable {
@@ -783,14 +748,9 @@ impl ::core::convert::From<&AppInstance> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AppInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AppInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AppInstance> for &::windows::core::IInspectable {
+    fn from(value: &AppInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AppInstance {}
@@ -896,14 +856,9 @@ impl ::core::convert::From<&EnteredBackgroundEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnteredBackgroundEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &EnteredBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EnteredBackgroundEventArgs> for ::windows::core::IInspectable {
@@ -916,14 +871,9 @@ impl ::core::convert::From<&EnteredBackgroundEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnteredBackgroundEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &EnteredBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<EnteredBackgroundEventArgs> for IEnteredBackgroundEventArgs {
@@ -938,14 +888,11 @@ impl ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for IEnteredBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IEnteredBackgroundEventArgs> for EnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IEnteredBackgroundEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IEnteredBackgroundEventArgs> for &EnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, IEnteredBackgroundEventArgs> {
-        ::core::convert::TryInto::<IEnteredBackgroundEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&EnteredBackgroundEventArgs> for ::windows::core::InParam<'a, IEnteredBackgroundEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &EnteredBackgroundEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
@@ -1047,14 +994,9 @@ impl ::core::convert::From<&FullTrustProcessLaunchResult> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FullTrustProcessLaunchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FullTrustProcessLaunchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FullTrustProcessLaunchResult> for &::windows::core::IUnknown {
+    fn from(value: &FullTrustProcessLaunchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FullTrustProcessLaunchResult> for ::windows::core::IInspectable {
@@ -1067,14 +1009,9 @@ impl ::core::convert::From<&FullTrustProcessLaunchResult> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FullTrustProcessLaunchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FullTrustProcessLaunchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FullTrustProcessLaunchResult> for &::windows::core::IInspectable {
+    fn from(value: &FullTrustProcessLaunchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for FullTrustProcessLaunchResult {}
@@ -1092,42 +1029,42 @@ impl FullTrustProcessLauncher {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFullTrustProcessForCurrentAppWithParametersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(parametergroupid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForCurrentAppWithParametersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(parametergroupid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithParametersAsync)(::windows::core::Interface::as_raw(this), parametergroupid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithParametersAsync)(::windows::core::Interface::as_raw(this), parametergroupid.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFullTrustProcessForAppAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fulltrustpackagerelativeappid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForAppAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(fulltrustpackagerelativeappid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForAppAsync)(::windows::core::Interface::as_raw(this), fulltrustpackagerelativeappid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForAppAsync)(::windows::core::Interface::as_raw(this), fulltrustpackagerelativeappid.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFullTrustProcessForAppWithParametersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fulltrustpackagerelativeappid: Param0, parametergroupid: Param1) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
+    pub fn LaunchFullTrustProcessForAppWithParametersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(fulltrustpackagerelativeappid: Param0, parametergroupid: Param1) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         Self::IFullTrustProcessLauncherStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForAppWithParametersAsync)(::windows::core::Interface::as_raw(this), fulltrustpackagerelativeappid.into_param().abi(), parametergroupid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForAppWithParametersAsync)(::windows::core::Interface::as_raw(this), fulltrustpackagerelativeappid.into().abi(), parametergroupid.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(commandline: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
+    pub fn LaunchFullTrustProcessForCurrentAppWithArgumentsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(commandline: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
         Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithArgumentsAsync)(::windows::core::Interface::as_raw(this), commandline.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForCurrentAppWithArgumentsAsync)(::windows::core::Interface::as_raw(this), commandline.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn LaunchFullTrustProcessForAppWithArgumentsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fulltrustpackagerelativeappid: Param0, commandline: Param1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
+    pub fn LaunchFullTrustProcessForAppWithArgumentsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(fulltrustpackagerelativeappid: Param0, commandline: Param1) -> ::windows::core::Result<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>> {
         Self::IFullTrustProcessLauncherStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForAppWithArgumentsAsync)(::windows::core::Interface::as_raw(this), fulltrustpackagerelativeappid.into_param().abi(), commandline.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>(result__)
+            (::windows::core::Interface::vtable(this).LaunchFullTrustProcessForAppWithArgumentsAsync)(::windows::core::Interface::as_raw(this), fulltrustpackagerelativeappid.into().abi(), commandline.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<FullTrustProcessLaunchResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1392,19 +1329,14 @@ impl ::core::convert::From<IEnteredBackgroundEventArgs> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnteredBackgroundEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IEnteredBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnteredBackgroundEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IEnteredBackgroundEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IEnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IEnteredBackgroundEventArgs> for ::windows::core::IInspectable {
@@ -1412,19 +1344,14 @@ impl ::core::convert::From<IEnteredBackgroundEventArgs> for ::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IEnteredBackgroundEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IEnteredBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IEnteredBackgroundEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IEnteredBackgroundEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IEnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IEnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IEnteredBackgroundEventArgs {
@@ -1544,19 +1471,14 @@ impl ::core::convert::From<ILeavingBackgroundEventArgs> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILeavingBackgroundEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ILeavingBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILeavingBackgroundEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ILeavingBackgroundEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ILeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ILeavingBackgroundEventArgs> for ::windows::core::IInspectable {
@@ -1564,19 +1486,14 @@ impl ::core::convert::From<ILeavingBackgroundEventArgs> for ::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ILeavingBackgroundEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ILeavingBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ILeavingBackgroundEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ILeavingBackgroundEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ILeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ILeavingBackgroundEventArgs {
@@ -2332,19 +2249,14 @@ impl ::core::convert::From<ISuspendingDeferral> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISuspendingDeferral> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISuspendingDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISuspendingDeferral> for ::windows::core::IUnknown {
     fn from(value: &ISuspendingDeferral) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISuspendingDeferral> for ::windows::core::IInspectable {
@@ -2352,19 +2264,14 @@ impl ::core::convert::From<ISuspendingDeferral> for ::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISuspendingDeferral> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISuspendingDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISuspendingDeferral> for ::windows::core::IInspectable {
     fn from(value: &ISuspendingDeferral) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISuspendingDeferral {
@@ -2418,19 +2325,14 @@ impl ::core::convert::From<ISuspendingEventArgs> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISuspendingEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISuspendingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISuspendingEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ISuspendingEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISuspendingEventArgs> for ::windows::core::IInspectable {
@@ -2438,19 +2340,14 @@ impl ::core::convert::From<ISuspendingEventArgs> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISuspendingEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISuspendingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISuspendingEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ISuspendingEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISuspendingEventArgs {
@@ -2513,19 +2410,14 @@ impl ::core::convert::From<ISuspendingOperation> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISuspendingOperation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISuspendingOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISuspendingOperation> for ::windows::core::IUnknown {
     fn from(value: &ISuspendingOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISuspendingOperation> for ::windows::core::IInspectable {
@@ -2533,19 +2425,14 @@ impl ::core::convert::From<ISuspendingOperation> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISuspendingOperation> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISuspendingOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISuspendingOperation> for ::windows::core::IInspectable {
     fn from(value: &ISuspendingOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISuspendingOperation {
@@ -2639,14 +2526,9 @@ impl ::core::convert::From<&LeavingBackgroundEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LeavingBackgroundEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &LeavingBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LeavingBackgroundEventArgs> for ::windows::core::IInspectable {
@@ -2659,14 +2541,9 @@ impl ::core::convert::From<&LeavingBackgroundEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LeavingBackgroundEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &LeavingBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<LeavingBackgroundEventArgs> for ILeavingBackgroundEventArgs {
@@ -2681,14 +2558,11 @@ impl ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ILeavingBackgroun
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ILeavingBackgroundEventArgs> for LeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILeavingBackgroundEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ILeavingBackgroundEventArgs> for &LeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ILeavingBackgroundEventArgs> {
-        ::core::convert::TryInto::<ILeavingBackgroundEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&LeavingBackgroundEventArgs> for ::windows::core::InParam<'a, ILeavingBackgroundEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &LeavingBackgroundEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for LeavingBackgroundEventArgs {}
@@ -2763,14 +2637,9 @@ impl ::core::convert::From<&LimitedAccessFeatureRequestResult> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for LimitedAccessFeatureRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a LimitedAccessFeatureRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LimitedAccessFeatureRequestResult> for &::windows::core::IUnknown {
+    fn from(value: &LimitedAccessFeatureRequestResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<LimitedAccessFeatureRequestResult> for ::windows::core::IInspectable {
@@ -2783,14 +2652,9 @@ impl ::core::convert::From<&LimitedAccessFeatureRequestResult> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for LimitedAccessFeatureRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a LimitedAccessFeatureRequestResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&LimitedAccessFeatureRequestResult> for &::windows::core::IInspectable {
+    fn from(value: &LimitedAccessFeatureRequestResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
@@ -2835,10 +2699,10 @@ unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
 pub struct LimitedAccessFeatures;
 impl LimitedAccessFeatures {
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
-    pub fn TryUnlockFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(featureid: Param0, token: Param1, attestation: Param2) -> ::windows::core::Result<LimitedAccessFeatureRequestResult> {
+    pub fn TryUnlockFeature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(featureid: Param0, token: Param1, attestation: Param2) -> ::windows::core::Result<LimitedAccessFeatureRequestResult> {
         Self::ILimitedAccessFeaturesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnlockFeature)(::windows::core::Interface::as_raw(this), featureid.into_param().abi(), token.into_param().abi(), attestation.into_param().abi(), result__.as_mut_ptr()).from_abi::<LimitedAccessFeatureRequestResult>(result__)
+            (::windows::core::Interface::vtable(this).TryUnlockFeature)(::windows::core::Interface::as_raw(this), featureid.into().abi(), token.into().abi(), attestation.into().abi(), result__.as_mut_ptr()).from_abi::<LimitedAccessFeatureRequestResult>(result__)
         })
     }
     #[doc(hidden)]
@@ -3007,29 +2871,29 @@ impl Package {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetContentGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageContentGroup>> {
+    pub fn GetContentGroupAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, name: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageContentGroup>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetContentGroupAsync)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageContentGroup>>(result__)
+            (::windows::core::Interface::vtable(this).GetContentGroupAsync)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageContentGroup>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StageContentGroupsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, names: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
+    pub fn StageContentGroupsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, names: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StageContentGroupsAsync)(::windows::core::Interface::as_raw(this), names.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>(result__)
+            (::windows::core::Interface::vtable(this).StageContentGroupsAsync)(::windows::core::Interface::as_raw(this), names.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn StageContentGroupsWithPriorityAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, names: Param0, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
+    pub fn StageContentGroupsWithPriorityAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, names: Param0, movetoheadofqueue: bool) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>> {
         let this = &::windows::core::Interface::cast::<IPackage5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(::windows::core::Interface::as_raw(this), names.into_param().abi(), movetoheadofqueue, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>(result__)
+            (::windows::core::Interface::vtable(this).StageContentGroupsWithPriorityAsync)(::windows::core::Interface::as_raw(this), names.try_into().map_err(|e| e.into())?.abi(), movetoheadofqueue, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<PackageContentGroup>>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
@@ -3153,11 +3017,11 @@ impl Package {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetLogoAsRandomAccessStreamReference<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Size>>(&self, size: Param0) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
+    pub fn GetLogoAsRandomAccessStreamReference(&self, size: super::Foundation::Size) -> ::windows::core::Result<super::Storage::Streams::RandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IPackage8>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetLogoAsRandomAccessStreamReference)(::windows::core::Interface::as_raw(this), size.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Storage::Streams::RandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).GetLogoAsRandomAccessStreamReference)(::windows::core::Interface::as_raw(this), size, result__.as_mut_ptr()).from_abi::<super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"ApplicationModel_Core\"`, `\"Foundation_Collections\"`*"]
@@ -3203,9 +3067,9 @@ impl Package {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Launch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, parameters: Param0) -> ::windows::core::Result<()> {
+    pub fn Launch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, parameters: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageWithMetadata>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Launch)(::windows::core::Interface::as_raw(this), parameters.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Launch)(::windows::core::Interface::as_raw(this), parameters.into().abi()).ok() }
     }
     #[doc(hidden)]
     pub fn IPackageStatics<R, F: FnOnce(&IPackageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3253,14 +3117,9 @@ impl ::core::convert::From<&Package> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Package {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Package {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Package> for &::windows::core::IUnknown {
+    fn from(value: &Package) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Package> for ::windows::core::IInspectable {
@@ -3273,14 +3132,9 @@ impl ::core::convert::From<&Package> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Package {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Package {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Package> for &::windows::core::IInspectable {
+    fn from(value: &Package) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for Package {}
@@ -3291,128 +3145,128 @@ pub struct PackageCatalog(::windows::core::IUnknown);
 impl PackageCatalog {
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PackageStaging<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStagingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PackageStaging)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PackageStaging)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePackageStaging(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePackageStaging)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePackageStaging)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageInstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PackageInstalling<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageInstallingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PackageInstalling)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PackageInstalling)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageInstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePackageInstalling(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePackageInstalling)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePackageInstalling)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PackageUpdating<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUpdatingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PackageUpdating)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PackageUpdating)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageUpdating<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePackageUpdating(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePackageUpdating)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePackageUpdating)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageUninstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PackageUninstalling<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageUninstallingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PackageUninstalling)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PackageUninstalling)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageUninstalling<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePackageUninstalling(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePackageUninstalling)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePackageUninstalling)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PackageStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageStatusChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PackageStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PackageStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePackageStatusChanged(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePackageStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePackageStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PackageContentGroupStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
+    pub fn PackageContentGroupStaging<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Foundation::TypedEventHandler<PackageCatalog, PackageContentGroupStagingEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PackageContentGroupStaging)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PackageContentGroupStaging)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePackageContentGroupStaging<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePackageContentGroupStaging(&self, token: super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePackageContentGroupStaging)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePackageContentGroupStaging)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddOptionalPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, optionalpackagefamilyname: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
+    pub fn AddOptionalPackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, optionalpackagefamilyname: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddOptionalPackageAsync)(::windows::core::Interface::as_raw(this), optionalpackagefamilyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>>(result__)
+            (::windows::core::Interface::vtable(this).AddOptionalPackageAsync)(::windows::core::Interface::as_raw(this), optionalpackagefamilyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageCatalogAddOptionalPackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveOptionalPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, optionalpackagefamilynames: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>> {
+    pub fn RemoveOptionalPackagesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, optionalpackagefamilynames: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), optionalpackagefamilynames.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveOptionalPackagesAsync)(::windows::core::Interface::as_raw(this), optionalpackagefamilynames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageCatalogRemoveOptionalPackagesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AddResourcePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, resourcepackagefamilyname: Param0, resourceid: Param1, options: AddResourcePackageOptions) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
+    pub fn AddResourcePackageAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<AddResourcePackageOptions>>(&self, resourcepackagefamilyname: Param0, resourceid: Param1, options: Param2) -> ::windows::core::Result<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).AddResourcePackageAsync)(::windows::core::Interface::as_raw(this), resourcepackagefamilyname.into_param().abi(), resourceid.into_param().abi(), options, result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>(result__)
+            (::windows::core::Interface::vtable(this).AddResourcePackageAsync)(::windows::core::Interface::as_raw(this), resourcepackagefamilyname.into().abi(), resourceid.into().abi(), options.into(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperationWithProgress<PackageCatalogAddResourcePackageResult, PackageInstallProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn RemoveResourcePackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Collections::IIterable<Package>>>(&self, resourcepackages: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>> {
+    pub fn RemoveResourcePackagesAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Foundation::Collections::IIterable<Package>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, resourcepackages: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>> {
         let this = &::windows::core::Interface::cast::<IPackageCatalog4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveResourcePackagesAsync)(::windows::core::Interface::as_raw(this), resourcepackages.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveResourcePackagesAsync)(::windows::core::Interface::as_raw(this), resourcepackages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<PackageCatalogRemoveResourcePackagesResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3475,14 +3329,9 @@ impl ::core::convert::From<&PackageCatalog> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageCatalog {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageCatalog {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalog> for &::windows::core::IUnknown {
+    fn from(value: &PackageCatalog) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageCatalog> for ::windows::core::IInspectable {
@@ -3495,14 +3344,9 @@ impl ::core::convert::From<&PackageCatalog> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageCatalog {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageCatalog {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalog> for &::windows::core::IInspectable {
+    fn from(value: &PackageCatalog) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3566,14 +3410,9 @@ impl ::core::convert::From<&PackageCatalogAddOptionalPackageResult> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageCatalogAddOptionalPackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageCatalogAddOptionalPackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogAddOptionalPackageResult> for &::windows::core::IUnknown {
+    fn from(value: &PackageCatalogAddOptionalPackageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageCatalogAddOptionalPackageResult> for ::windows::core::IInspectable {
@@ -3586,14 +3425,9 @@ impl ::core::convert::From<&PackageCatalogAddOptionalPackageResult> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageCatalogAddOptionalPackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageCatalogAddOptionalPackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogAddOptionalPackageResult> for &::windows::core::IInspectable {
+    fn from(value: &PackageCatalogAddOptionalPackageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3665,14 +3499,9 @@ impl ::core::convert::From<&PackageCatalogAddResourcePackageResult> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageCatalogAddResourcePackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageCatalogAddResourcePackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogAddResourcePackageResult> for &::windows::core::IUnknown {
+    fn from(value: &PackageCatalogAddResourcePackageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageCatalogAddResourcePackageResult> for ::windows::core::IInspectable {
@@ -3685,14 +3514,9 @@ impl ::core::convert::From<&PackageCatalogAddResourcePackageResult> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageCatalogAddResourcePackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageCatalogAddResourcePackageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogAddResourcePackageResult> for &::windows::core::IInspectable {
+    fn from(value: &PackageCatalogAddResourcePackageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageCatalogAddResourcePackageResult {}
@@ -3759,14 +3583,9 @@ impl ::core::convert::From<&PackageCatalogRemoveOptionalPackagesResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageCatalogRemoveOptionalPackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageCatalogRemoveOptionalPackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogRemoveOptionalPackagesResult> for &::windows::core::IUnknown {
+    fn from(value: &PackageCatalogRemoveOptionalPackagesResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageCatalogRemoveOptionalPackagesResult> for ::windows::core::IInspectable {
@@ -3779,14 +3598,9 @@ impl ::core::convert::From<&PackageCatalogRemoveOptionalPackagesResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageCatalogRemoveOptionalPackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageCatalogRemoveOptionalPackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogRemoveOptionalPackagesResult> for &::windows::core::IInspectable {
+    fn from(value: &PackageCatalogRemoveOptionalPackagesResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
@@ -3851,14 +3665,9 @@ impl ::core::convert::From<&PackageCatalogRemoveResourcePackagesResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageCatalogRemoveResourcePackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageCatalogRemoveResourcePackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogRemoveResourcePackagesResult> for &::windows::core::IUnknown {
+    fn from(value: &PackageCatalogRemoveResourcePackagesResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageCatalogRemoveResourcePackagesResult> for ::windows::core::IInspectable {
@@ -3871,14 +3680,9 @@ impl ::core::convert::From<&PackageCatalogRemoveResourcePackagesResult> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageCatalogRemoveResourcePackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageCatalogRemoveResourcePackagesResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageCatalogRemoveResourcePackagesResult> for &::windows::core::IInspectable {
+    fn from(value: &PackageCatalogRemoveResourcePackagesResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageCatalogRemoveResourcePackagesResult {}
@@ -3972,14 +3776,9 @@ impl ::core::convert::From<&PackageContentGroup> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageContentGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageContentGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageContentGroup> for &::windows::core::IUnknown {
+    fn from(value: &PackageContentGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageContentGroup> for ::windows::core::IInspectable {
@@ -3992,14 +3791,9 @@ impl ::core::convert::From<&PackageContentGroup> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageContentGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageContentGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageContentGroup> for &::windows::core::IInspectable {
+    fn from(value: &PackageContentGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageContentGroup {}
@@ -4105,14 +3899,9 @@ impl ::core::convert::From<&PackageContentGroupStagingEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageContentGroupStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageContentGroupStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageContentGroupStagingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PackageContentGroupStagingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageContentGroupStagingEventArgs> for ::windows::core::IInspectable {
@@ -4125,14 +3914,9 @@ impl ::core::convert::From<&PackageContentGroupStagingEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageContentGroupStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageContentGroupStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageContentGroupStagingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PackageContentGroupStagingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
@@ -4299,14 +4083,9 @@ impl ::core::convert::From<&PackageId> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageId> for &::windows::core::IUnknown {
+    fn from(value: &PackageId) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageId> for ::windows::core::IInspectable {
@@ -4319,14 +4098,9 @@ impl ::core::convert::From<&PackageId> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageId {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageId> for &::windows::core::IInspectable {
+    fn from(value: &PackageId) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageId {}
@@ -4453,14 +4227,9 @@ impl ::core::convert::From<&PackageInstallingEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageInstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageInstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageInstallingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PackageInstallingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageInstallingEventArgs> for ::windows::core::IInspectable {
@@ -4473,14 +4242,9 @@ impl ::core::convert::From<&PackageInstallingEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageInstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageInstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageInstallingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PackageInstallingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
@@ -4607,14 +4371,9 @@ impl ::core::convert::From<&PackageStagingEventArgs> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageStagingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PackageStagingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageStagingEventArgs> for ::windows::core::IInspectable {
@@ -4627,14 +4386,9 @@ impl ::core::convert::From<&PackageStagingEventArgs> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageStagingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageStagingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PackageStagingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageStagingEventArgs {}
@@ -4788,14 +4542,9 @@ impl ::core::convert::From<&PackageStatus> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageStatus> for &::windows::core::IUnknown {
+    fn from(value: &PackageStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageStatus> for ::windows::core::IInspectable {
@@ -4808,14 +4557,9 @@ impl ::core::convert::From<&PackageStatus> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageStatus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageStatus> for &::windows::core::IInspectable {
+    fn from(value: &PackageStatus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageStatus {}
@@ -4873,14 +4617,9 @@ impl ::core::convert::From<&PackageStatusChangedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageStatusChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PackageStatusChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageStatusChangedEventArgs> for ::windows::core::IInspectable {
@@ -4893,14 +4632,9 @@ impl ::core::convert::From<&PackageStatusChangedEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageStatusChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageStatusChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PackageStatusChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageStatusChangedEventArgs {}
@@ -4990,14 +4724,9 @@ impl ::core::convert::From<&PackageUninstallingEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageUninstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageUninstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUninstallingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PackageUninstallingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageUninstallingEventArgs> for ::windows::core::IInspectable {
@@ -5010,14 +4739,9 @@ impl ::core::convert::From<&PackageUninstallingEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageUninstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageUninstallingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUninstallingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PackageUninstallingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
@@ -5120,14 +4844,9 @@ impl ::core::convert::From<&PackageUpdateAvailabilityResult> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageUpdateAvailabilityResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageUpdateAvailabilityResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUpdateAvailabilityResult> for &::windows::core::IUnknown {
+    fn from(value: &PackageUpdateAvailabilityResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageUpdateAvailabilityResult> for ::windows::core::IInspectable {
@@ -5140,14 +4859,9 @@ impl ::core::convert::From<&PackageUpdateAvailabilityResult> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageUpdateAvailabilityResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageUpdateAvailabilityResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUpdateAvailabilityResult> for &::windows::core::IInspectable {
+    fn from(value: &PackageUpdateAvailabilityResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageUpdateAvailabilityResult {}
@@ -5245,14 +4959,9 @@ impl ::core::convert::From<&PackageUpdatingEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PackageUpdatingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PackageUpdatingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUpdatingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PackageUpdatingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PackageUpdatingEventArgs> for ::windows::core::IInspectable {
@@ -5265,14 +4974,9 @@ impl ::core::convert::From<&PackageUpdatingEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PackageUpdatingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PackageUpdatingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PackageUpdatingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PackageUpdatingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PackageUpdatingEventArgs {}
@@ -5361,10 +5065,10 @@ impl StartupTask {
     }
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(taskid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTask>> {
+    pub fn GetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(taskid: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StartupTask>> {
         Self::IStartupTaskStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), taskid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StartupTask>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), taskid.into().abi(), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncOperation<StartupTask>>(result__)
         })
     }
     #[doc(hidden)]
@@ -5413,14 +5117,9 @@ impl ::core::convert::From<&StartupTask> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StartupTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StartupTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StartupTask> for &::windows::core::IUnknown {
+    fn from(value: &StartupTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StartupTask> for ::windows::core::IInspectable {
@@ -5433,14 +5132,9 @@ impl ::core::convert::From<&StartupTask> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StartupTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StartupTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StartupTask> for &::windows::core::IInspectable {
+    fn from(value: &StartupTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for StartupTask {}
@@ -5532,14 +5226,9 @@ impl ::core::convert::From<&SuspendingDeferral> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SuspendingDeferral> for &::windows::core::IUnknown {
+    fn from(value: &SuspendingDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SuspendingDeferral> for ::windows::core::IInspectable {
@@ -5552,14 +5241,9 @@ impl ::core::convert::From<&SuspendingDeferral> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SuspendingDeferral> for &::windows::core::IInspectable {
+    fn from(value: &SuspendingDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SuspendingDeferral> for ISuspendingDeferral {
@@ -5574,14 +5258,11 @@ impl ::core::convert::TryFrom<&SuspendingDeferral> for ISuspendingDeferral {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISuspendingDeferral> for SuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ISuspendingDeferral> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISuspendingDeferral> for &SuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ISuspendingDeferral> {
-        ::core::convert::TryInto::<ISuspendingDeferral>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SuspendingDeferral> for ::windows::core::InParam<'a, ISuspendingDeferral> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SuspendingDeferral) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SuspendingDeferral {}
@@ -5639,14 +5320,9 @@ impl ::core::convert::From<&SuspendingEventArgs> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SuspendingEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SuspendingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SuspendingEventArgs> for ::windows::core::IInspectable {
@@ -5659,14 +5335,9 @@ impl ::core::convert::From<&SuspendingEventArgs> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SuspendingEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SuspendingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SuspendingEventArgs> for ISuspendingEventArgs {
@@ -5681,14 +5352,11 @@ impl ::core::convert::TryFrom<&SuspendingEventArgs> for ISuspendingEventArgs {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISuspendingEventArgs> for SuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ISuspendingEventArgs> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISuspendingEventArgs> for &SuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ISuspendingEventArgs> {
-        ::core::convert::TryInto::<ISuspendingEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SuspendingEventArgs> for ::windows::core::InParam<'a, ISuspendingEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SuspendingEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SuspendingEventArgs {}
@@ -5755,14 +5423,9 @@ impl ::core::convert::From<&SuspendingOperation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SuspendingOperation> for &::windows::core::IUnknown {
+    fn from(value: &SuspendingOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SuspendingOperation> for ::windows::core::IInspectable {
@@ -5775,14 +5438,9 @@ impl ::core::convert::From<&SuspendingOperation> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SuspendingOperation> for &::windows::core::IInspectable {
+    fn from(value: &SuspendingOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SuspendingOperation> for ISuspendingOperation {
@@ -5797,14 +5455,11 @@ impl ::core::convert::TryFrom<&SuspendingOperation> for ISuspendingOperation {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISuspendingOperation> for SuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ISuspendingOperation> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISuspendingOperation> for &SuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ISuspendingOperation> {
-        ::core::convert::TryInto::<ISuspendingOperation>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SuspendingOperation> for ::windows::core::InParam<'a, ISuspendingOperation> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SuspendingOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SuspendingOperation {}

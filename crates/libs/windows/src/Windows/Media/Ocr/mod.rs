@@ -105,11 +105,11 @@ pub struct OcrEngine(::windows::core::IUnknown);
 impl OcrEngine {
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Foundation\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
-    pub fn RecognizeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OcrResult>> {
+    pub fn RecognizeAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Imaging::SoftwareBitmap>>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OcrResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<OcrResult>>(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<OcrResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Globalization\"`*"]
@@ -138,18 +138,18 @@ impl OcrEngine {
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn IsLanguageSupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsLanguageSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Globalization::Language>>>(language: Param0) -> ::windows::core::Result<bool> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsLanguageSupported)(::windows::core::Interface::as_raw(this), language.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsLanguageSupported)(::windows::core::Interface::as_raw(this), language.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Globalization\"`*"]
     #[cfg(feature = "Globalization")]
-    pub fn TryCreateFromLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::core::Result<OcrEngine> {
+    pub fn TryCreateFromLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Globalization::Language>>>(language: Param0) -> ::windows::core::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromLanguage)(::windows::core::Interface::as_raw(this), language.into_param().abi(), result__.as_mut_ptr()).from_abi::<OcrEngine>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromLanguage)(::windows::core::Interface::as_raw(this), language.into().abi(), result__.as_mut_ptr()).from_abi::<OcrEngine>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -205,14 +205,9 @@ impl ::core::convert::From<&OcrEngine> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrEngine> for &::windows::core::IUnknown {
+    fn from(value: &OcrEngine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OcrEngine> for ::windows::core::IInspectable {
@@ -225,14 +220,9 @@ impl ::core::convert::From<&OcrEngine> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrEngine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrEngine> for &::windows::core::IInspectable {
+    fn from(value: &OcrEngine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OcrEngine {}
@@ -299,14 +289,9 @@ impl ::core::convert::From<&OcrLine> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrLine> for &::windows::core::IUnknown {
+    fn from(value: &OcrLine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OcrLine> for ::windows::core::IInspectable {
@@ -319,14 +304,9 @@ impl ::core::convert::From<&OcrLine> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrLine {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrLine> for &::windows::core::IInspectable {
+    fn from(value: &OcrLine) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OcrLine {}
@@ -402,14 +382,9 @@ impl ::core::convert::From<&OcrResult> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrResult> for &::windows::core::IUnknown {
+    fn from(value: &OcrResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OcrResult> for ::windows::core::IInspectable {
@@ -422,14 +397,9 @@ impl ::core::convert::From<&OcrResult> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrResult> for &::windows::core::IInspectable {
+    fn from(value: &OcrResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OcrResult {}
@@ -496,14 +466,9 @@ impl ::core::convert::From<&OcrWord> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OcrWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OcrWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrWord> for &::windows::core::IUnknown {
+    fn from(value: &OcrWord) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OcrWord> for ::windows::core::IInspectable {
@@ -516,14 +481,9 @@ impl ::core::convert::From<&OcrWord> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OcrWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OcrWord {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OcrWord> for &::windows::core::IInspectable {
+    fn from(value: &OcrWord) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for OcrWord {}

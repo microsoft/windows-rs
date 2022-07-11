@@ -154,9 +154,9 @@ impl AudioEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -217,14 +217,9 @@ impl ::core::convert::From<&AudioEncodingProperties> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AudioEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AudioEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AudioEncodingProperties> for ::windows::core::IInspectable {
@@ -237,14 +232,9 @@ impl ::core::convert::From<&AudioEncodingProperties> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AudioEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AudioEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AudioEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &AudioEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<AudioEncodingProperties> for IMediaEncodingProperties {
@@ -259,14 +249,11 @@ impl ::core::convert::TryFrom<&AudioEncodingProperties> for IMediaEncodingProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for AudioEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &AudioEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&AudioEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for AudioEncodingProperties {}
@@ -344,9 +331,9 @@ impl ContainerEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -397,14 +384,9 @@ impl ::core::convert::From<&ContainerEncodingProperties> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ContainerEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ContainerEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContainerEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ContainerEncodingProperties> for ::windows::core::IInspectable {
@@ -417,14 +399,9 @@ impl ::core::convert::From<&ContainerEncodingProperties> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ContainerEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ContainerEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ContainerEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &ContainerEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ContainerEncodingProperties> for IMediaEncodingProperties {
@@ -439,14 +416,11 @@ impl ::core::convert::TryFrom<&ContainerEncodingProperties> for IMediaEncodingPr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for ContainerEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &ContainerEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ContainerEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContainerEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ContainerEncodingProperties {}
@@ -884,9 +858,9 @@ impl IMediaEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -902,19 +876,14 @@ impl ::core::convert::From<IMediaEncodingProperties> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaEncodingProperties> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaEncodingProperties> for ::windows::core::IUnknown {
     fn from(value: &IMediaEncodingProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMediaEncodingProperties> for ::windows::core::IInspectable {
@@ -922,19 +891,14 @@ impl ::core::convert::From<IMediaEncodingProperties> for ::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaEncodingProperties> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaEncodingProperties> for ::windows::core::IInspectable {
     fn from(value: &IMediaEncodingProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaEncodingProperties {
@@ -1334,10 +1298,10 @@ impl ImageEncodingProperties {
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateUncompressed(format: MediaPixelFormat) -> ::windows::core::Result<ImageEncodingProperties> {
+    pub fn CreateUncompressed<'a, Param0: ::std::convert::Into<MediaPixelFormat>>(format: Param0) -> ::windows::core::Result<ImageEncodingProperties> {
         Self::IImageEncodingPropertiesStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUncompressed)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<ImageEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).CreateUncompressed)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<ImageEncodingProperties>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -1372,9 +1336,9 @@ impl ImageEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1440,14 +1404,9 @@ impl ::core::convert::From<&ImageEncodingProperties> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ImageEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ImageEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &ImageEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ImageEncodingProperties> for ::windows::core::IInspectable {
@@ -1460,14 +1419,9 @@ impl ::core::convert::From<&ImageEncodingProperties> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ImageEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ImageEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ImageEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &ImageEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ImageEncodingProperties> for IMediaEncodingProperties {
@@ -1482,14 +1436,11 @@ impl ::core::convert::TryFrom<&ImageEncodingProperties> for IMediaEncodingProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for ImageEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &ImageEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ImageEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ImageEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ImageEncodingProperties {}
@@ -1506,9 +1457,9 @@ impl MediaEncodingProfile {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetAudio<'a, Param0: ::windows::core::IntoParam<'a, AudioEncodingProperties>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudio<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, AudioEncodingProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudio)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudio)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Audio(&self) -> ::windows::core::Result<AudioEncodingProperties> {
@@ -1519,9 +1470,9 @@ impl MediaEncodingProfile {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetVideo<'a, Param0: ::windows::core::IntoParam<'a, VideoEncodingProperties>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVideo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VideoEncodingProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Video(&self) -> ::windows::core::Result<VideoEncodingProperties> {
@@ -1532,9 +1483,9 @@ impl MediaEncodingProfile {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetContainer<'a, Param0: ::windows::core::IntoParam<'a, ContainerEncodingProperties>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContainer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ContainerEncodingProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContainer)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContainer)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Container(&self) -> ::windows::core::Result<ContainerEncodingProperties> {
@@ -1546,9 +1497,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetAudioTracks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudioTracks<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioTracks)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioTracks)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -1561,9 +1512,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetVideoTracks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetVideoTracks<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoTracks)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoTracks)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -1576,9 +1527,9 @@ impl MediaEncodingProfile {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn SetTimedMetadataTracks<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTimedMetadataTracks<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataStreamDescriptor>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProfile3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimedMetadataTracks)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTimedMetadataTracks)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -1590,89 +1541,89 @@ impl MediaEncodingProfile {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateM4a(quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateM4a<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateM4a)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateM4a)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateMp3(quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateMp3<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMp3)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateMp3)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateWma(quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateWma<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWma)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateWma)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateMp4(quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateMp4<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMp4)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateMp4)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateWmv(quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateWmv<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWmv)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateWmv)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub fn CreateFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
+    pub fn CreateFromFileAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn CreateFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
+    pub fn CreateFromStreamAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(stream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>> {
         Self::IMediaEncodingProfileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStreamAsync)(::windows::core::Interface::as_raw(this), stream.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStreamAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MediaEncodingProfile>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateWav(quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateWav<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWav)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateWav)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateAvi(quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateAvi<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAvi)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateAvi)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateAlac(quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateAlac<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAlac)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateAlac)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateFlac(quality: AudioEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateFlac<'a, Param0: ::std::convert::Into<AudioEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFlac)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateFlac)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateHevc(quality: VideoEncodingQuality) -> ::windows::core::Result<MediaEncodingProfile> {
+    pub fn CreateHevc<'a, Param0: ::std::convert::Into<VideoEncodingQuality>>(quality: Param0) -> ::windows::core::Result<MediaEncodingProfile> {
         Self::IMediaEncodingProfileStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateHevc)(::windows::core::Interface::as_raw(this), quality, result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
+            (::windows::core::Interface::vtable(this).CreateHevc)(::windows::core::Interface::as_raw(this), quality.into(), result__.as_mut_ptr()).from_abi::<MediaEncodingProfile>(result__)
         })
     }
     #[doc(hidden)]
@@ -1731,14 +1682,9 @@ impl ::core::convert::From<&MediaEncodingProfile> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaEncodingProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaEncodingProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaEncodingProfile> for &::windows::core::IUnknown {
+    fn from(value: &MediaEncodingProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaEncodingProfile> for ::windows::core::IInspectable {
@@ -1751,14 +1697,9 @@ impl ::core::convert::From<&MediaEncodingProfile> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaEncodingProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaEncodingProfile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaEncodingProfile> for &::windows::core::IInspectable {
+    fn from(value: &MediaEncodingProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaEncodingProfile {}
@@ -2286,11 +2227,11 @@ impl MediaPropertySet {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup(&self, key: ::windows::core::GUID) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
@@ -2304,11 +2245,11 @@ impl MediaPropertySet {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey(&self, key: ::windows::core::GUID) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
@@ -2322,18 +2263,18 @@ impl MediaPropertySet {
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, key: ::windows::core::GUID, value: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key, value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove(&self, key: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2408,15 +2349,9 @@ impl ::core::convert::From<&MediaPropertySet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPropertySet> for &::windows::core::IUnknown {
+    fn from(value: &MediaPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2432,15 +2367,9 @@ impl ::core::convert::From<&MediaPropertySet> for ::windows::core::IInspectable 
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPropertySet> for &::windows::core::IInspectable {
+    fn from(value: &MediaPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2458,15 +2387,11 @@ impl ::core::convert::TryFrom<&MediaPropertySet> for super::super::Foundation::C
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> for MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> for &MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2484,15 +2409,11 @@ impl ::core::convert::TryFrom<&MediaPropertySet> for super::super::Foundation::C
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> for MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> for &MediaPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPropertySet> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -2570,14 +2491,9 @@ impl ::core::convert::From<&MediaRatio> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaRatio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaRatio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaRatio> for &::windows::core::IUnknown {
+    fn from(value: &MediaRatio) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaRatio> for ::windows::core::IInspectable {
@@ -2590,14 +2506,9 @@ impl ::core::convert::From<&MediaRatio> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaRatio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaRatio {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaRatio> for &::windows::core::IInspectable {
+    fn from(value: &MediaRatio) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaRatio {}
@@ -2818,9 +2729,9 @@ impl TimedMetadataEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2922,14 +2833,9 @@ impl ::core::convert::From<&TimedMetadataEncodingProperties> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimedMetadataEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimedMetadataEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TimedMetadataEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &TimedMetadataEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TimedMetadataEncodingProperties> for ::windows::core::IInspectable {
@@ -2942,14 +2848,9 @@ impl ::core::convert::From<&TimedMetadataEncodingProperties> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TimedMetadataEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimedMetadataEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TimedMetadataEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &TimedMetadataEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<TimedMetadataEncodingProperties> for IMediaEncodingProperties {
@@ -2964,14 +2865,11 @@ impl ::core::convert::TryFrom<&TimedMetadataEncodingProperties> for IMediaEncodi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for TimedMetadataEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &TimedMetadataEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&TimedMetadataEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &TimedMetadataEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for TimedMetadataEncodingProperties {}
@@ -3005,9 +2903,9 @@ impl VideoEncodingProperties {
         }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn SetSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSubtype<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaEncodingProperties>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubtype)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Subtype(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3134,10 +3032,10 @@ impl VideoEncodingProperties {
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    pub fn CreateUncompressed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subtype: Param0, width: u32, height: u32) -> ::windows::core::Result<VideoEncodingProperties> {
+    pub fn CreateUncompressed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(subtype: Param0, width: u32, height: u32) -> ::windows::core::Result<VideoEncodingProperties> {
         Self::IVideoEncodingPropertiesStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUncompressed)(::windows::core::Interface::as_raw(this), subtype.into_param().abi(), width, height, result__.as_mut_ptr()).from_abi::<VideoEncodingProperties>(result__)
+            (::windows::core::Interface::vtable(this).CreateUncompressed)(::windows::core::Interface::as_raw(this), subtype.into().abi(), width, height, result__.as_mut_ptr()).from_abi::<VideoEncodingProperties>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
@@ -3198,14 +3096,9 @@ impl ::core::convert::From<&VideoEncodingProperties> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VideoEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VideoEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoEncodingProperties> for &::windows::core::IUnknown {
+    fn from(value: &VideoEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VideoEncodingProperties> for ::windows::core::IInspectable {
@@ -3218,14 +3111,9 @@ impl ::core::convert::From<&VideoEncodingProperties> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VideoEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VideoEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VideoEncodingProperties> for &::windows::core::IInspectable {
+    fn from(value: &VideoEncodingProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<VideoEncodingProperties> for IMediaEncodingProperties {
@@ -3240,14 +3128,11 @@ impl ::core::convert::TryFrom<&VideoEncodingProperties> for IMediaEncodingProper
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for VideoEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &VideoEncodingProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaEncodingProperties> {
-        ::core::convert::TryInto::<IMediaEncodingProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&VideoEncodingProperties> for ::windows::core::InParam<'a, IMediaEncodingProperties> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &VideoEncodingProperties) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for VideoEncodingProperties {}

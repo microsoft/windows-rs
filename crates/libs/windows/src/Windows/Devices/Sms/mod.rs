@@ -41,9 +41,9 @@ pub struct DeleteSmsMessageOperation(::windows::core::IUnknown);
 impl DeleteSmsMessageOperation {
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -142,7 +142,7 @@ impl DeleteSmsMessageOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -158,7 +158,7 @@ impl ::std::future::Future for DeleteSmsMessageOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -181,15 +181,9 @@ impl ::core::convert::From<&DeleteSmsMessageOperation> for ::windows::core::IUnk
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSmsMessageOperation> for &::windows::core::IUnknown {
+    fn from(value: &DeleteSmsMessageOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -205,15 +199,9 @@ impl ::core::convert::From<&DeleteSmsMessageOperation> for ::windows::core::IIns
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSmsMessageOperation> for &::windows::core::IInspectable {
+    fn from(value: &DeleteSmsMessageOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -231,15 +219,11 @@ impl ::core::convert::TryFrom<&DeleteSmsMessageOperation> for super::super::Foun
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction> for DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction> for &DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncAction>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeleteSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncAction> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeleteSmsMessageOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -257,15 +241,11 @@ impl ::core::convert::TryFrom<&DeleteSmsMessageOperation> for super::super::Foun
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &DeleteSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeleteSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeleteSmsMessageOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -276,9 +256,9 @@ pub struct DeleteSmsMessagesOperation(::windows::core::IUnknown);
 impl DeleteSmsMessagesOperation {
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -377,7 +357,7 @@ impl DeleteSmsMessagesOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -393,7 +373,7 @@ impl ::std::future::Future for DeleteSmsMessagesOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -416,15 +396,9 @@ impl ::core::convert::From<&DeleteSmsMessagesOperation> for ::windows::core::IUn
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSmsMessagesOperation> for &::windows::core::IUnknown {
+    fn from(value: &DeleteSmsMessagesOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -440,15 +414,9 @@ impl ::core::convert::From<&DeleteSmsMessagesOperation> for ::windows::core::IIn
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DeleteSmsMessagesOperation> for &::windows::core::IInspectable {
+    fn from(value: &DeleteSmsMessagesOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -466,15 +434,11 @@ impl ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for super::super::Fou
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction> for DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction> for &DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncAction>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncAction> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeleteSmsMessagesOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -492,15 +456,11 @@ impl ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for super::super::Fou
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &DeleteSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DeleteSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeleteSmsMessagesOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -550,9 +510,9 @@ impl GetSmsDeviceOperation {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<SmsDevice>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -615,7 +575,7 @@ impl GetSmsDeviceOperation {
     pub fn get(&self) -> ::windows::core::Result<SmsDevice> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -631,7 +591,7 @@ impl ::std::future::Future for GetSmsDeviceOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -654,15 +614,9 @@ impl ::core::convert::From<&GetSmsDeviceOperation> for ::windows::core::IUnknown
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GetSmsDeviceOperation> for &::windows::core::IUnknown {
+    fn from(value: &GetSmsDeviceOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -678,15 +632,9 @@ impl ::core::convert::From<&GetSmsDeviceOperation> for ::windows::core::IInspect
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GetSmsDeviceOperation> for &::windows::core::IInspectable {
+    fn from(value: &GetSmsDeviceOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -704,15 +652,11 @@ impl ::core::convert::TryFrom<&GetSmsDeviceOperation> for super::super::Foundati
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GetSmsDeviceOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GetSmsDeviceOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -730,15 +674,11 @@ impl ::core::convert::TryFrom<&GetSmsDeviceOperation> for super::super::Foundati
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> for GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> for &GetSmsDeviceOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<SmsDevice>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GetSmsDeviceOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<SmsDevice>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GetSmsDeviceOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -788,9 +728,9 @@ impl GetSmsMessageOperation {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<ISmsMessage>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -853,7 +793,7 @@ impl GetSmsMessageOperation {
     pub fn get(&self) -> ::windows::core::Result<ISmsMessage> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -869,7 +809,7 @@ impl ::std::future::Future for GetSmsMessageOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -892,15 +832,9 @@ impl ::core::convert::From<&GetSmsMessageOperation> for ::windows::core::IUnknow
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GetSmsMessageOperation> for &::windows::core::IUnknown {
+    fn from(value: &GetSmsMessageOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -916,15 +850,9 @@ impl ::core::convert::From<&GetSmsMessageOperation> for ::windows::core::IInspec
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GetSmsMessageOperation> for &::windows::core::IInspectable {
+    fn from(value: &GetSmsMessageOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -942,15 +870,11 @@ impl ::core::convert::TryFrom<&GetSmsMessageOperation> for super::super::Foundat
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GetSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GetSmsMessageOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -968,15 +892,11 @@ impl ::core::convert::TryFrom<&GetSmsMessageOperation> for super::super::Foundat
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> for GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> for &GetSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<ISmsMessage>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GetSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<ISmsMessage>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GetSmsMessageOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
@@ -1026,9 +946,9 @@ impl GetSmsMessagesOperation {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProgress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationProgressHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProgress)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1041,9 +961,9 @@ impl GetSmsMessagesOperation {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationWithProgressCompletedHandler<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1106,7 +1026,7 @@ impl GetSmsMessagesOperation {
     pub fn get(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsMessage>> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -1122,7 +1042,7 @@ impl ::std::future::Future for GetSmsMessagesOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationWithProgressCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -1145,15 +1065,9 @@ impl ::core::convert::From<&GetSmsMessagesOperation> for ::windows::core::IUnkno
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GetSmsMessagesOperation> for &::windows::core::IUnknown {
+    fn from(value: &GetSmsMessagesOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1169,15 +1083,9 @@ impl ::core::convert::From<&GetSmsMessagesOperation> for ::windows::core::IInspe
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GetSmsMessagesOperation> for &::windows::core::IInspectable {
+    fn from(value: &GetSmsMessagesOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1195,15 +1103,11 @@ impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GetSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GetSmsMessagesOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
@@ -1221,15 +1125,11 @@ impl ::core::convert::TryFrom<&GetSmsMessagesOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> for GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> for &GetSmsMessagesOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&GetSmsMessagesOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &GetSmsMessagesOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc(hidden)]
@@ -1292,9 +1192,9 @@ impl ISmsBinaryMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetFormat(&self, value: SmsDataFormat) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, Param0: ::std::convert::Into<SmsDataFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -1335,21 +1235,15 @@ impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ISmsBinaryMessage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISmsBinaryMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ISmsBinaryMessage> for ::windows::core::IUnknown {
     fn from(value: &ISmsBinaryMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1359,21 +1253,15 @@ impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IInspectable 
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ISmsBinaryMessage> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISmsBinaryMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ISmsBinaryMessage> for ::windows::core::IInspectable {
     fn from(value: &ISmsBinaryMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1391,15 +1279,11 @@ impl ::core::convert::TryFrom<&ISmsBinaryMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for &ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::core::convert::TryInto::<ISmsMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ISmsBinaryMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ISmsBinaryMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1490,20 +1374,20 @@ pub struct ISmsDevice(::windows::core::IUnknown);
 impl ISmsDevice {
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ISmsMessage>>(&self, message: Param0) -> ::windows::core::Result<SendSmsMessageOperation> {
+    pub fn SendMessageAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, message: Param0) -> ::windows::core::Result<SendSmsMessageOperation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<SendSmsMessageOperation>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<SendSmsMessageOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CalculateLength<'a, Param0: ::windows::core::IntoParam<'a, SmsTextMessage>>(&self, message: Param0) -> ::windows::core::Result<SmsEncodedLength> {
+    pub fn CalculateLength<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsTextMessage>>>(&self, message: Param0) -> ::windows::core::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<SmsEncodedLength>::zeroed();
-            (::windows::core::Interface::vtable(this).CalculateLength)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
+            (::windows::core::Interface::vtable(this).CalculateLength)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -1544,38 +1428,44 @@ impl ISmsDevice {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, SmsMessageReceivedEventHandler>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsMessageReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsMessageReceivedEventHandler>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SmsMessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SmsMessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveSmsMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSmsMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsDeviceStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, SmsDeviceStatusChangedEventHandler>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsDeviceStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsDeviceStatusChangedEventHandler>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveSmsDeviceStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISmsDevice> for ::windows::core::IUnknown {
     fn from(value: ISmsDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ISmsDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISmsDevice) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1586,20 +1476,14 @@ impl ::core::convert::From<&ISmsDevice> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISmsDevice> for ::windows::core::IInspectable {
     fn from(value: ISmsDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ISmsDevice> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISmsDevice) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1607,18 +1491,6 @@ impl ::core::convert::From<ISmsDevice> for ::windows::core::IInspectable {
 impl ::core::convert::From<&ISmsDevice> for ::windows::core::IInspectable {
     fn from(value: &ISmsDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1957,19 +1829,14 @@ impl ::core::convert::From<ISmsMessage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISmsMessage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISmsMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISmsMessage> for ::windows::core::IUnknown {
     fn from(value: &ISmsMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISmsMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISmsMessage> for ::windows::core::IInspectable {
@@ -1977,19 +1844,14 @@ impl ::core::convert::From<ISmsMessage> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISmsMessage> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISmsMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISmsMessage> for ::windows::core::IInspectable {
     fn from(value: &ISmsMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISmsMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISmsMessage {
@@ -2076,19 +1938,14 @@ impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISmsMessageBase> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISmsMessageBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISmsMessageBase> for ::windows::core::IUnknown {
     fn from(value: &ISmsMessageBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsMessageBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISmsMessageBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IInspectable {
@@ -2096,19 +1953,14 @@ impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISmsMessageBase> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISmsMessageBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISmsMessageBase> for ::windows::core::IInspectable {
     fn from(value: &ISmsMessageBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsMessageBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISmsMessageBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISmsMessageBase {
@@ -2377,9 +2229,9 @@ impl ISmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2392,9 +2244,9 @@ impl ISmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2407,9 +2259,9 @@ impl ISmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -2422,17 +2274,17 @@ impl ISmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
+    pub fn SetEncoding<'a, Param0: ::std::convert::Into<SmsEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
+    pub fn ToBinaryMessages<'a, Param0: ::std::convert::Into<SmsDataFormat>>(&self, format: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
+            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -2459,21 +2311,15 @@ impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ISmsTextMessage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISmsTextMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ISmsTextMessage> for ::windows::core::IUnknown {
     fn from(value: &ISmsTextMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2483,21 +2329,15 @@ impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a ISmsTextMessage> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ISmsTextMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ISmsTextMessage> for ::windows::core::IInspectable {
     fn from(value: &ISmsTextMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2515,15 +2355,11 @@ impl ::core::convert::TryFrom<&ISmsTextMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for &ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::core::convert::TryInto::<ISmsMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ISmsTextMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ISmsTextMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -2729,9 +2565,9 @@ pub struct SendSmsMessageOperation(::windows::core::IUnknown);
 impl SendSmsMessageOperation {
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncActionCompletedHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2830,7 +2666,7 @@ impl SendSmsMessageOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -2846,7 +2682,7 @@ impl ::std::future::Future for SendSmsMessageOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncActionCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -2869,15 +2705,9 @@ impl ::core::convert::From<&SendSmsMessageOperation> for ::windows::core::IUnkno
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SendSmsMessageOperation> for &::windows::core::IUnknown {
+    fn from(value: &SendSmsMessageOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2893,15 +2723,9 @@ impl ::core::convert::From<&SendSmsMessageOperation> for ::windows::core::IInspe
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SendSmsMessageOperation> for &::windows::core::IInspectable {
+    fn from(value: &SendSmsMessageOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2919,15 +2743,11 @@ impl ::core::convert::TryFrom<&SendSmsMessageOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction> for SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncAction> for &SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncAction> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncAction>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SendSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncAction> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SendSmsMessageOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -2945,15 +2765,11 @@ impl ::core::convert::TryFrom<&SendSmsMessageOperation> for super::super::Founda
     }
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation", feature = "deprecated"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &SendSmsMessageOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SendSmsMessageOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SendSmsMessageOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -2985,9 +2801,9 @@ impl SmsAppMessage {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3006,9 +2822,9 @@ impl SmsAppMessage {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn CallbackNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3019,9 +2835,9 @@ impl SmsAppMessage {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetCallbackNumber<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCallbackNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCallbackNumber)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCallbackNumber)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn IsDeliveryNotificationEnabled(&self) -> ::windows::core::Result<bool> {
@@ -3058,9 +2874,9 @@ impl SmsAppMessage {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
+    pub fn SetEncoding<'a, Param0: ::std::convert::Into<SmsEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn PortNumber(&self) -> ::windows::core::Result<i32> {
@@ -3112,9 +2928,9 @@ impl SmsAppMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBinaryBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBinaryBody<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBinaryBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBinaryBody)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn MessageType(&self) -> ::windows::core::Result<SmsMessageType> {
@@ -3197,14 +3013,9 @@ impl ::core::convert::From<&SmsAppMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsAppMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsAppMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsAppMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsAppMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsAppMessage> for ::windows::core::IInspectable {
@@ -3217,14 +3028,9 @@ impl ::core::convert::From<&SmsAppMessage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsAppMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsAppMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsAppMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsAppMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsAppMessage> for ISmsMessageBase {
@@ -3239,14 +3045,11 @@ impl ::core::convert::TryFrom<&SmsAppMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for SmsAppMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsAppMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsAppMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsAppMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsAppMessage {}
@@ -3275,9 +3078,9 @@ impl SmsBinaryMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetFormat(&self, value: SmsDataFormat) -> ::windows::core::Result<()> {
+    pub fn SetFormat<'a, Param0: ::std::convert::Into<SmsDataFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -3361,15 +3164,9 @@ impl ::core::convert::From<&SmsBinaryMessage> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsBinaryMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsBinaryMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3385,15 +3182,9 @@ impl ::core::convert::From<&SmsBinaryMessage> for ::windows::core::IInspectable 
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsBinaryMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsBinaryMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3411,15 +3202,11 @@ impl ::core::convert::TryFrom<&SmsBinaryMessage> for ISmsBinaryMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsBinaryMessage> for SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsBinaryMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsBinaryMessage> for &SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsBinaryMessage> {
-        ::core::convert::TryInto::<ISmsBinaryMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsBinaryMessage> for ::windows::core::InParam<'a, ISmsBinaryMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsBinaryMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3437,15 +3224,11 @@ impl ::core::convert::TryFrom<&SmsBinaryMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for &SmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::core::convert::TryInto::<ISmsMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsBinaryMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsBinaryMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3618,14 +3401,9 @@ impl ::core::convert::From<&SmsBroadcastMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsBroadcastMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsBroadcastMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsBroadcastMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsBroadcastMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsBroadcastMessage> for ::windows::core::IInspectable {
@@ -3638,14 +3416,9 @@ impl ::core::convert::From<&SmsBroadcastMessage> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsBroadcastMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsBroadcastMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsBroadcastMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsBroadcastMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsBroadcastMessage> for ISmsMessageBase {
@@ -3660,14 +3433,11 @@ impl ::core::convert::TryFrom<&SmsBroadcastMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for SmsBroadcastMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsBroadcastMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsBroadcastMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsBroadcastMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsBroadcastMessage {}
@@ -3764,20 +3534,20 @@ pub struct SmsDevice(::windows::core::IUnknown);
 impl SmsDevice {
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SendMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ISmsMessage>>(&self, message: Param0) -> ::windows::core::Result<SendSmsMessageOperation> {
+    pub fn SendMessageAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, message: Param0) -> ::windows::core::Result<SendSmsMessageOperation> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<SendSmsMessageOperation>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAsync)(::windows::core::Interface::as_raw(this), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<SendSmsMessageOperation>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn CalculateLength<'a, Param0: ::windows::core::IntoParam<'a, SmsTextMessage>>(&self, message: Param0) -> ::windows::core::Result<SmsEncodedLength> {
+    pub fn CalculateLength<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsTextMessage>>>(&self, message: Param0) -> ::windows::core::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<SmsEncodedLength>::zeroed();
-            (::windows::core::Interface::vtable(this).CalculateLength)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
+            (::windows::core::Interface::vtable(this).CalculateLength)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -3818,33 +3588,33 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, SmsMessageReceivedEventHandler>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsMessageReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsMessageReceivedEventHandler>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SmsMessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SmsMessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveSmsMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSmsMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SmsDeviceStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, SmsDeviceStatusChangedEventHandler>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SmsDeviceStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsDeviceStatusChangedEventHandler>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveSmsDeviceStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSmsDeviceStatusChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSmsDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -3856,10 +3626,10 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmsDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmsDevice>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -3872,10 +3642,10 @@ impl SmsDevice {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn FromNetworkAccountIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(networkaccountid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
+    pub fn FromNetworkAccountIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(networkaccountid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsDevice>> {
         Self::ISmsDeviceStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromNetworkAccountIdAsync)(::windows::core::Interface::as_raw(this), networkaccountid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmsDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromNetworkAccountIdAsync)(::windows::core::Interface::as_raw(this), networkaccountid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmsDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -3941,15 +3711,9 @@ impl ::core::convert::From<&SmsDevice> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsDevice> for &::windows::core::IUnknown {
+    fn from(value: &SmsDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3965,15 +3729,9 @@ impl ::core::convert::From<&SmsDevice> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsDevice> for &::windows::core::IInspectable {
+    fn from(value: &SmsDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -3991,15 +3749,11 @@ impl ::core::convert::TryFrom<&SmsDevice> for ISmsDevice {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsDevice> for SmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsDevice> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsDevice> for &SmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsDevice> {
-        ::core::convert::TryInto::<ISmsDevice>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsDevice> for ::windows::core::InParam<'a, ISmsDevice> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsDevice) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -4015,9 +3769,9 @@ impl SmsDevice2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetSmscAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSmscAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSmscAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSmscAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4060,36 +3814,36 @@ impl SmsDevice2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn CalculateLength<'a, Param0: ::windows::core::IntoParam<'a, ISmsMessageBase>>(&self, message: Param0) -> ::windows::core::Result<SmsEncodedLength> {
+    pub fn CalculateLength<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessageBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, message: Param0) -> ::windows::core::Result<SmsEncodedLength> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<SmsEncodedLength>::zeroed();
-            (::windows::core::Interface::vtable(this).CalculateLength)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
+            (::windows::core::Interface::vtable(this).CalculateLength)(::windows::core::Interface::as_raw(this), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<SmsEncodedLength>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendMessageAndGetResultAsync<'a, Param0: ::windows::core::IntoParam<'a, ISmsMessageBase>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>> {
+    pub fn SendMessageAndGetResultAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, ISmsMessageBase>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, message: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAndGetResultAsync)(::windows::core::Interface::as_raw(this), message.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendMessageAndGetResultAsync)(::windows::core::Interface::as_raw(this), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<SmsSendMessageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DeviceStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DeviceStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmsDevice2, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDeviceStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDeviceStatusChanged(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceStatusChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4099,10 +3853,10 @@ impl SmsDevice2 {
         })
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<SmsDevice2> {
+    pub fn FromId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<SmsDevice2> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsDevice2>(result__)
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<SmsDevice2>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -4113,10 +3867,10 @@ impl SmsDevice2 {
         })
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn FromParentId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(parentdeviceid: Param0) -> ::windows::core::Result<SmsDevice2> {
+    pub fn FromParentId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(parentdeviceid: Param0) -> ::windows::core::Result<SmsDevice2> {
         Self::ISmsDevice2Statics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromParentId)(::windows::core::Interface::as_raw(this), parentdeviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsDevice2>(result__)
+            (::windows::core::Interface::vtable(this).FromParentId)(::windows::core::Interface::as_raw(this), parentdeviceid.into().abi(), result__.as_mut_ptr()).from_abi::<SmsDevice2>(result__)
         })
     }
     #[doc(hidden)]
@@ -4165,14 +3919,9 @@ impl ::core::convert::From<&SmsDevice2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsDevice2> for &::windows::core::IUnknown {
+    fn from(value: &SmsDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsDevice2> for ::windows::core::IInspectable {
@@ -4185,14 +3934,9 @@ impl ::core::convert::From<&SmsDevice2> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsDevice2> for &::windows::core::IInspectable {
+    fn from(value: &SmsDevice2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -4212,11 +3956,11 @@ impl SmsDeviceMessageStore {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn DeleteMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+    pub fn DeleteMessagesAsync<'a, Param0: ::std::convert::Into<SmsMessageFilter>>(&self, messagefilter: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).DeleteMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -4230,11 +3974,11 @@ impl SmsDeviceMessageStore {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn GetMessagesAsync(&self, messagefilter: SmsMessageFilter) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
+    pub fn GetMessagesAsync<'a, Param0: ::std::convert::Into<SmsMessageFilter>>(&self, messagefilter: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>(result__)
+            (::windows::core::Interface::vtable(this).GetMessagesAsync)(::windows::core::Interface::as_raw(this), messagefilter.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -4297,15 +4041,9 @@ impl ::core::convert::From<&SmsDeviceMessageStore> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsDeviceMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsDeviceMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsDeviceMessageStore> for &::windows::core::IUnknown {
+    fn from(value: &SmsDeviceMessageStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4321,15 +4059,9 @@ impl ::core::convert::From<&SmsDeviceMessageStore> for ::windows::core::IInspect
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsDeviceMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsDeviceMessageStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsDeviceMessageStore> for &::windows::core::IInspectable {
+    fn from(value: &SmsDeviceMessageStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -4384,9 +4116,9 @@ impl SmsDeviceStatusChangedEventHandler {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, SmsDevice>>(&self, sender: Param0) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsDevice>>>(&self, sender: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -4658,9 +4390,9 @@ impl SmsFilterRule {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetCellularClass(&self, value: CellularClass) -> ::windows::core::Result<()> {
+    pub fn SetCellularClass<'a, Param0: ::std::convert::Into<CellularClass>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCellularClass)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCellularClass)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4717,10 +4449,10 @@ impl SmsFilterRule {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn CreateFilterRule(messagetype: SmsMessageType) -> ::windows::core::Result<SmsFilterRule> {
+    pub fn CreateFilterRule<'a, Param0: ::std::convert::Into<SmsMessageType>>(messagetype: Param0) -> ::windows::core::Result<SmsFilterRule> {
         Self::ISmsFilterRuleFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFilterRule)(::windows::core::Interface::as_raw(this), messagetype, result__.as_mut_ptr()).from_abi::<SmsFilterRule>(result__)
+            (::windows::core::Interface::vtable(this).CreateFilterRule)(::windows::core::Interface::as_raw(this), messagetype.into(), result__.as_mut_ptr()).from_abi::<SmsFilterRule>(result__)
         })
     }
     #[doc(hidden)]
@@ -4769,14 +4501,9 @@ impl ::core::convert::From<&SmsFilterRule> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsFilterRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsFilterRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsFilterRule> for &::windows::core::IUnknown {
+    fn from(value: &SmsFilterRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsFilterRule> for ::windows::core::IInspectable {
@@ -4789,14 +4516,9 @@ impl ::core::convert::From<&SmsFilterRule> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsFilterRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsFilterRule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsFilterRule> for &::windows::core::IInspectable {
+    fn from(value: &SmsFilterRule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmsFilterRule {}
@@ -4823,10 +4545,10 @@ impl SmsFilterRules {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn CreateFilterRules(actiontype: SmsFilterActionType) -> ::windows::core::Result<SmsFilterRules> {
+    pub fn CreateFilterRules<'a, Param0: ::std::convert::Into<SmsFilterActionType>>(actiontype: Param0) -> ::windows::core::Result<SmsFilterRules> {
         Self::ISmsFilterRulesFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFilterRules)(::windows::core::Interface::as_raw(this), actiontype, result__.as_mut_ptr()).from_abi::<SmsFilterRules>(result__)
+            (::windows::core::Interface::vtable(this).CreateFilterRules)(::windows::core::Interface::as_raw(this), actiontype.into(), result__.as_mut_ptr()).from_abi::<SmsFilterRules>(result__)
         })
     }
     #[doc(hidden)]
@@ -4875,14 +4597,9 @@ impl ::core::convert::From<&SmsFilterRules> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsFilterRules {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsFilterRules {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsFilterRules> for &::windows::core::IUnknown {
+    fn from(value: &SmsFilterRules) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsFilterRules> for ::windows::core::IInspectable {
@@ -4895,14 +4612,9 @@ impl ::core::convert::From<&SmsFilterRules> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsFilterRules {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsFilterRules {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsFilterRules> for &::windows::core::IInspectable {
+    fn from(value: &SmsFilterRules) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmsFilterRules {}
@@ -5101,15 +4813,9 @@ impl ::core::convert::From<&SmsMessageReceivedEventArgs> for ::windows::core::IU
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5125,15 +4831,9 @@ impl ::core::convert::From<&SmsMessageReceivedEventArgs> for ::windows::core::II
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &SmsMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
@@ -5148,9 +4848,9 @@ impl SmsMessageReceivedEventHandler {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, SmsDevice>, Param1: ::windows::core::IntoParam<'a, SmsMessageReceivedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsDevice>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SmsMessageReceivedEventArgs>>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), e.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5347,14 +5047,9 @@ impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsMessageReceivedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsMessageReceivedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsMessageReceivedTriggerDetails> for ::windows::core::IInspectable {
@@ -5367,14 +5062,9 @@ impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsMessageReceivedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsMessageReceivedTriggerDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageReceivedTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &SmsMessageReceivedTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmsMessageReceivedTriggerDetails {}
@@ -5398,18 +5088,18 @@ impl SmsMessageRegistration {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<SmsMessageRegistration, SmsMessageReceivedTriggerDetails>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5420,10 +5110,10 @@ impl SmsMessageRegistration {
         })
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, SmsFilterRules>>(id: Param0, filterrules: Param1) -> ::windows::core::Result<SmsMessageRegistration> {
+    pub fn Register<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, SmsFilterRules>>>(id: Param0, filterrules: Param1) -> ::windows::core::Result<SmsMessageRegistration> {
         Self::ISmsMessageRegistrationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), id.into_param().abi(), filterrules.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsMessageRegistration>(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), id.into().abi(), filterrules.into().abi(), result__.as_mut_ptr()).from_abi::<SmsMessageRegistration>(result__)
         })
     }
     #[doc(hidden)]
@@ -5472,14 +5162,9 @@ impl ::core::convert::From<&SmsMessageRegistration> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsMessageRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsMessageRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageRegistration> for &::windows::core::IUnknown {
+    fn from(value: &SmsMessageRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsMessageRegistration> for ::windows::core::IInspectable {
@@ -5492,14 +5177,9 @@ impl ::core::convert::From<&SmsMessageRegistration> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsMessageRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsMessageRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsMessageRegistration> for &::windows::core::IInspectable {
+    fn from(value: &SmsMessageRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"Devices_Sms\"`*"]
@@ -5678,15 +5358,9 @@ impl ::core::convert::From<&SmsReceivedEventDetails> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsReceivedEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsReceivedEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsReceivedEventDetails> for &::windows::core::IUnknown {
+    fn from(value: &SmsReceivedEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5702,15 +5376,9 @@ impl ::core::convert::From<&SmsReceivedEventDetails> for ::windows::core::IInspe
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsReceivedEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsReceivedEventDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsReceivedEventDetails> for &::windows::core::IInspectable {
+    fn from(value: &SmsReceivedEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -5819,14 +5487,9 @@ impl ::core::convert::From<&SmsSendMessageResult> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsSendMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsSendMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsSendMessageResult> for &::windows::core::IUnknown {
+    fn from(value: &SmsSendMessageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsSendMessageResult> for ::windows::core::IInspectable {
@@ -5839,14 +5502,9 @@ impl ::core::convert::From<&SmsSendMessageResult> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsSendMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsSendMessageResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsSendMessageResult> for &::windows::core::IInspectable {
+    fn from(value: &SmsSendMessageResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SmsSendMessageResult {}
@@ -5994,14 +5652,9 @@ impl ::core::convert::From<&SmsStatusMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsStatusMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsStatusMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsStatusMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsStatusMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsStatusMessage> for ::windows::core::IInspectable {
@@ -6014,14 +5667,9 @@ impl ::core::convert::From<&SmsStatusMessage> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsStatusMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsStatusMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsStatusMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsStatusMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsStatusMessage> for ISmsMessageBase {
@@ -6036,14 +5684,11 @@ impl ::core::convert::TryFrom<&SmsStatusMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for SmsStatusMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsStatusMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsStatusMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsStatusMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsStatusMessage {}
@@ -6124,9 +5769,9 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -6139,9 +5784,9 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFrom<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrom)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -6154,9 +5799,9 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -6169,33 +5814,33 @@ impl SmsTextMessage {
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
+    pub fn SetEncoding<'a, Param0: ::std::convert::Into<SmsEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn ToBinaryMessages(&self, format: SmsDataFormat) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
+    pub fn ToBinaryMessages<'a, Param0: ::std::convert::Into<SmsDataFormat>>(&self, format: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
+            (::windows::core::Interface::vtable(this).ToBinaryMessages)(::windows::core::Interface::as_raw(this), format.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ISmsBinaryMessage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn FromBinaryMessage<'a, Param0: ::windows::core::IntoParam<'a, SmsBinaryMessage>>(binarymessage: Param0) -> ::windows::core::Result<SmsTextMessage> {
+    pub fn FromBinaryMessage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, SmsBinaryMessage>>>(binarymessage: Param0) -> ::windows::core::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromBinaryMessage)(::windows::core::Interface::as_raw(this), binarymessage.into_param().abi(), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
+            (::windows::core::Interface::vtable(this).FromBinaryMessage)(::windows::core::Interface::as_raw(this), binarymessage.into().abi(), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Sms\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn FromBinaryData(format: SmsDataFormat, value: &[u8]) -> ::windows::core::Result<SmsTextMessage> {
+    pub fn FromBinaryData<'a, Param0: ::std::convert::Into<SmsDataFormat>>(format: Param0, value: &[u8]) -> ::windows::core::Result<SmsTextMessage> {
         Self::ISmsTextMessageStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromBinaryData)(::windows::core::Interface::as_raw(this), format, value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
+            (::windows::core::Interface::vtable(this).FromBinaryData)(::windows::core::Interface::as_raw(this), format.into(), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<SmsTextMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -6255,15 +5900,9 @@ impl ::core::convert::From<&SmsTextMessage> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsTextMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsTextMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6279,15 +5918,9 @@ impl ::core::convert::From<&SmsTextMessage> for ::windows::core::IInspectable {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsTextMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsTextMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6305,15 +5938,11 @@ impl ::core::convert::TryFrom<&SmsTextMessage> for ISmsMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessage> for &SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessage> {
-        ::core::convert::TryInto::<ISmsMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsTextMessage> for ::windows::core::InParam<'a, ISmsMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsTextMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6331,15 +5960,11 @@ impl ::core::convert::TryFrom<&SmsTextMessage> for ISmsTextMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsTextMessage> for SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsTextMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ISmsTextMessage> for &SmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsTextMessage> {
-        ::core::convert::TryInto::<ISmsTextMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsTextMessage> for ::windows::core::InParam<'a, ISmsTextMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsTextMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "deprecated")]
@@ -6415,9 +6040,9 @@ impl SmsTextMessage2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTo)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn From(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6436,9 +6061,9 @@ impl SmsTextMessage2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBody)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn Encoding(&self) -> ::windows::core::Result<SmsEncoding> {
@@ -6449,9 +6074,9 @@ impl SmsTextMessage2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetEncoding(&self, value: SmsEncoding) -> ::windows::core::Result<()> {
+    pub fn SetEncoding<'a, Param0: ::std::convert::Into<SmsEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn CallbackNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -6462,9 +6087,9 @@ impl SmsTextMessage2 {
         }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
-    pub fn SetCallbackNumber<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCallbackNumber<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCallbackNumber)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCallbackNumber)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Sms\"`*"]
     pub fn IsDeliveryNotificationEnabled(&self) -> ::windows::core::Result<bool> {
@@ -6549,14 +6174,9 @@ impl ::core::convert::From<&SmsTextMessage2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsTextMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsTextMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsTextMessage2> for &::windows::core::IUnknown {
+    fn from(value: &SmsTextMessage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsTextMessage2> for ::windows::core::IInspectable {
@@ -6569,14 +6189,9 @@ impl ::core::convert::From<&SmsTextMessage2> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsTextMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsTextMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsTextMessage2> for &::windows::core::IInspectable {
+    fn from(value: &SmsTextMessage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsTextMessage2> for ISmsMessageBase {
@@ -6591,14 +6206,11 @@ impl ::core::convert::TryFrom<&SmsTextMessage2> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for SmsTextMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsTextMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsTextMessage2> for ::windows::core::InParam<'a, ISmsMessageBase> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsTextMessage2) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsTextMessage2 {}
@@ -6722,14 +6334,9 @@ impl ::core::convert::From<&SmsVoicemailMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsVoicemailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsVoicemailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsVoicemailMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsVoicemailMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsVoicemailMessage> for ::windows::core::IInspectable {
@@ -6742,14 +6349,9 @@ impl ::core::convert::From<&SmsVoicemailMessage> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsVoicemailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsVoicemailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsVoicemailMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsVoicemailMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsVoicemailMessage> for ISmsMessageBase {
@@ -6764,14 +6366,11 @@ impl ::core::convert::TryFrom<&SmsVoicemailMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for SmsVoicemailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsVoicemailMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsVoicemailMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsVoicemailMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsVoicemailMessage {}
@@ -6920,14 +6519,9 @@ impl ::core::convert::From<&SmsWapMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SmsWapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SmsWapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsWapMessage> for &::windows::core::IUnknown {
+    fn from(value: &SmsWapMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SmsWapMessage> for ::windows::core::IInspectable {
@@ -6940,14 +6534,9 @@ impl ::core::convert::From<&SmsWapMessage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SmsWapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SmsWapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SmsWapMessage> for &::windows::core::IInspectable {
+    fn from(value: &SmsWapMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<SmsWapMessage> for ISmsMessageBase {
@@ -6962,14 +6551,11 @@ impl ::core::convert::TryFrom<&SmsWapMessage> for ISmsMessageBase {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for SmsWapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISmsMessageBase> for &SmsWapMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ISmsMessageBase> {
-        ::core::convert::TryInto::<ISmsMessageBase>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&SmsWapMessage> for ::windows::core::InParam<'a, ISmsMessageBase> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &SmsWapMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for SmsWapMessage {}

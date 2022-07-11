@@ -358,21 +358,15 @@ impl ::core::convert::From<IAutomaticUpdates> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdates> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAutomaticUpdates) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdates> for ::windows::core::IUnknown {
     fn from(value: &IAutomaticUpdates) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAutomaticUpdates {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAutomaticUpdates {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -382,21 +376,15 @@ impl ::core::convert::From<IAutomaticUpdates> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdates> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAutomaticUpdates) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdates> for super::Com::IDispatch {
     fn from(value: &IAutomaticUpdates) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAutomaticUpdates {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAutomaticUpdates {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -491,26 +479,26 @@ impl ::core::convert::From<IAutomaticUpdates2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdates2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAutomaticUpdates2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdates2> for ::windows::core::IUnknown {
     fn from(value: &IAutomaticUpdates2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAutomaticUpdates2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAutomaticUpdates2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdates2> for super::Com::IDispatch {
     fn from(value: IAutomaticUpdates2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdates2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAutomaticUpdates2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -521,20 +509,14 @@ impl ::core::convert::From<&IAutomaticUpdates2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAutomaticUpdates2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAutomaticUpdates2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdates2> for IAutomaticUpdates {
     fn from(value: IAutomaticUpdates2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdates2> for &'a IAutomaticUpdates {
+    fn from(value: &'a IAutomaticUpdates2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -542,18 +524,6 @@ impl ::core::convert::From<IAutomaticUpdates2> for IAutomaticUpdates {
 impl ::core::convert::From<&IAutomaticUpdates2> for IAutomaticUpdates {
     fn from(value: &IAutomaticUpdates2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdates> for IAutomaticUpdates2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdates> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdates> for &'a IAutomaticUpdates2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdates> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -617,21 +587,15 @@ impl ::core::convert::From<IAutomaticUpdatesResults> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesResults> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAutomaticUpdatesResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdatesResults> for ::windows::core::IUnknown {
     fn from(value: &IAutomaticUpdatesResults) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAutomaticUpdatesResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAutomaticUpdatesResults {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -641,21 +605,15 @@ impl ::core::convert::From<IAutomaticUpdatesResults> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesResults> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAutomaticUpdatesResults) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdatesResults> for super::Com::IDispatch {
     fn from(value: &IAutomaticUpdatesResults) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAutomaticUpdatesResults {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAutomaticUpdatesResults {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -709,8 +667,8 @@ impl IAutomaticUpdatesSettings {
         (::windows::core::Interface::vtable(self).NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetNotificationLevel<'a, Param0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -728,8 +686,8 @@ impl IAutomaticUpdatesSettings {
         (::windows::core::Interface::vtable(self).ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetScheduledInstallationDay<'a, Param0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -756,21 +714,15 @@ impl ::core::convert::From<IAutomaticUpdatesSettings> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAutomaticUpdatesSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdatesSettings> for ::windows::core::IUnknown {
     fn from(value: &IAutomaticUpdatesSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAutomaticUpdatesSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAutomaticUpdatesSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -780,21 +732,15 @@ impl ::core::convert::From<IAutomaticUpdatesSettings> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAutomaticUpdatesSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdatesSettings> for super::Com::IDispatch {
     fn from(value: &IAutomaticUpdatesSettings) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAutomaticUpdatesSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAutomaticUpdatesSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -850,8 +796,8 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).base__.NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetNotificationLevel<'a, Param0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -869,8 +815,8 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).base__.ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetScheduledInstallationDay<'a, Param0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -899,14 +845,20 @@ impl IAutomaticUpdatesSettings2 {
         (::windows::core::Interface::vtable(self).SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16> {
+    pub unsafe fn CheckPermission<'a, Param0: ::std::convert::Into<AutomaticUpdatesUserType>, Param1: ::std::convert::Into<AutomaticUpdatesPermissionType>>(&self, usertype: Param0, permissiontype: Param1) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usertype), ::core::mem::transmute(permissiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).CheckPermission)(::windows::core::Interface::as_raw(self), usertype.into(), permissiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdatesSettings2> for ::windows::core::IUnknown {
     fn from(value: IAutomaticUpdatesSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAutomaticUpdatesSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -917,20 +869,14 @@ impl ::core::convert::From<&IAutomaticUpdatesSettings2> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAutomaticUpdatesSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAutomaticUpdatesSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdatesSettings2> for super::Com::IDispatch {
     fn from(value: IAutomaticUpdatesSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAutomaticUpdatesSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -941,20 +887,14 @@ impl ::core::convert::From<&IAutomaticUpdatesSettings2> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAutomaticUpdatesSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAutomaticUpdatesSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdatesSettings2> for IAutomaticUpdatesSettings {
     fn from(value: IAutomaticUpdatesSettings2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings2> for &'a IAutomaticUpdatesSettings {
+    fn from(value: &'a IAutomaticUpdatesSettings2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -962,18 +902,6 @@ impl ::core::convert::From<IAutomaticUpdatesSettings2> for IAutomaticUpdatesSett
 impl ::core::convert::From<&IAutomaticUpdatesSettings2> for IAutomaticUpdatesSettings {
     fn from(value: &IAutomaticUpdatesSettings2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdatesSettings> for IAutomaticUpdatesSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdatesSettings> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdatesSettings> for &'a IAutomaticUpdatesSettings2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdatesSettings> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1022,8 +950,8 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.base__.NotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesNotificationLevel>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetNotificationLevel<'a, Param0: ::std::convert::Into<AutomaticUpdatesNotificationLevel>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetNotificationLevel)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -1041,8 +969,8 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.base__.ScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AutomaticUpdatesScheduledInstallationDay>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetScheduledInstallationDay<'a, Param0: ::std::convert::Into<AutomaticUpdatesScheduledInstallationDay>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetScheduledInstallationDay)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ScheduledInstallationTime(&self) -> ::windows::core::Result<i32> {
@@ -1071,9 +999,9 @@ impl IAutomaticUpdatesSettings3 {
         (::windows::core::Interface::vtable(self).base__.SetIncludeRecommendedUpdates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> ::windows::core::Result<i16> {
+    pub unsafe fn CheckPermission<'a, Param0: ::std::convert::Into<AutomaticUpdatesUserType>, Param1: ::std::convert::Into<AutomaticUpdatesPermissionType>>(&self, usertype: Param0, permissiontype: Param1) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(usertype), ::core::mem::transmute(permissiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.CheckPermission)(::windows::core::Interface::as_raw(self), usertype.into(), permissiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn NonAdministratorsElevated(&self) -> ::windows::core::Result<i16> {
@@ -1101,26 +1029,26 @@ impl ::core::convert::From<IAutomaticUpdatesSettings3> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IAutomaticUpdatesSettings3> for ::windows::core::IUnknown {
     fn from(value: &IAutomaticUpdatesSettings3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdatesSettings3> for super::Com::IDispatch {
     fn from(value: IAutomaticUpdatesSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1131,20 +1059,14 @@ impl ::core::convert::From<&IAutomaticUpdatesSettings3> for super::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings {
     fn from(value: IAutomaticUpdatesSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a IAutomaticUpdatesSettings {
+    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1155,20 +1077,14 @@ impl ::core::convert::From<&IAutomaticUpdatesSettings3> for IAutomaticUpdatesSet
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdatesSettings> for IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdatesSettings> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdatesSettings> for &'a IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdatesSettings> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings2 {
     fn from(value: IAutomaticUpdatesSettings3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IAutomaticUpdatesSettings3> for &'a IAutomaticUpdatesSettings2 {
+    fn from(value: &'a IAutomaticUpdatesSettings3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1176,18 +1092,6 @@ impl ::core::convert::From<IAutomaticUpdatesSettings3> for IAutomaticUpdatesSett
 impl ::core::convert::From<&IAutomaticUpdatesSettings3> for IAutomaticUpdatesSettings2 {
     fn from(value: &IAutomaticUpdatesSettings3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdatesSettings2> for IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdatesSettings2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IAutomaticUpdatesSettings2> for &'a IAutomaticUpdatesSettings3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAutomaticUpdatesSettings2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1292,21 +1196,15 @@ impl ::core::convert::From<ICategory> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ICategory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICategory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ICategory> for ::windows::core::IUnknown {
     fn from(value: &ICategory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICategory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICategory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1316,21 +1214,15 @@ impl ::core::convert::From<ICategory> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ICategory> for &'a super::Com::IDispatch {
+    fn from(value: &'a ICategory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ICategory> for super::Com::IDispatch {
     fn from(value: &ICategory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ICategory {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ICategory {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1427,21 +1319,15 @@ impl ::core::convert::From<ICategoryCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ICategoryCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICategoryCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ICategoryCollection> for ::windows::core::IUnknown {
     fn from(value: &ICategoryCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICategoryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICategoryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1451,21 +1337,15 @@ impl ::core::convert::From<ICategoryCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ICategoryCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a ICategoryCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ICategoryCollection> for super::Com::IDispatch {
     fn from(value: &ICategoryCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ICategoryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ICategoryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1511,8 +1391,8 @@ pub struct IDownloadCompletedCallback(::windows::core::IUnknown);
 impl IDownloadCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IDownloadJob>, Param1: ::windows::core::IntoParam<'a, IDownloadCompletedCallbackArgs>>(&self, downloadjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), downloadjob.into_param().abi(), callbackargs.into_param().abi()).ok()
+    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDownloadCompletedCallbackArgs>>>(&self, downloadjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDownloadCompletedCallback> for ::windows::core::IUnknown {
@@ -1520,19 +1400,14 @@ impl ::core::convert::From<IDownloadCompletedCallback> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDownloadCompletedCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadCompletedCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDownloadCompletedCallback> for ::windows::core::IUnknown {
     fn from(value: &IDownloadCompletedCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadCompletedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadCompletedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDownloadCompletedCallback {
@@ -1577,21 +1452,15 @@ impl ::core::convert::From<IDownloadCompletedCallbackArgs> for ::windows::core::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadCompletedCallbackArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadCompletedCallbackArgs> for ::windows::core::IUnknown {
     fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1601,21 +1470,15 @@ impl ::core::convert::From<IDownloadCompletedCallbackArgs> for super::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadCompletedCallbackArgs> for &'a super::Com::IDispatch {
+    fn from(value: &'a IDownloadCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadCompletedCallbackArgs> for super::Com::IDispatch {
     fn from(value: &IDownloadCompletedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDownloadCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDownloadCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1694,21 +1557,15 @@ impl ::core::convert::From<IDownloadJob> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadJob> for ::windows::core::IUnknown {
     fn from(value: &IDownloadJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1718,21 +1575,15 @@ impl ::core::convert::From<IDownloadJob> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadJob> for &'a super::Com::IDispatch {
+    fn from(value: &'a IDownloadJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadJob> for super::Com::IDispatch {
     fn from(value: &IDownloadJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDownloadJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDownloadJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1845,21 +1696,15 @@ impl ::core::convert::From<IDownloadProgress> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadProgress> for ::windows::core::IUnknown {
     fn from(value: &IDownloadProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1869,21 +1714,15 @@ impl ::core::convert::From<IDownloadProgress> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadProgress> for &'a super::Com::IDispatch {
+    fn from(value: &'a IDownloadProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadProgress> for super::Com::IDispatch {
     fn from(value: &IDownloadProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDownloadProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDownloadProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1947,8 +1786,8 @@ pub struct IDownloadProgressChangedCallback(::windows::core::IUnknown);
 impl IDownloadProgressChangedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IDownloadJob>, Param1: ::windows::core::IntoParam<'a, IDownloadProgressChangedCallbackArgs>>(&self, downloadjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), downloadjob.into_param().abi(), callbackargs.into_param().abi()).ok()
+    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IDownloadProgressChangedCallbackArgs>>>(&self, downloadjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), downloadjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IDownloadProgressChangedCallback> for ::windows::core::IUnknown {
@@ -1956,19 +1795,14 @@ impl ::core::convert::From<IDownloadProgressChangedCallback> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDownloadProgressChangedCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadProgressChangedCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDownloadProgressChangedCallback> for ::windows::core::IUnknown {
     fn from(value: &IDownloadProgressChangedCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadProgressChangedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadProgressChangedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDownloadProgressChangedCallback {
@@ -2020,21 +1854,15 @@ impl ::core::convert::From<IDownloadProgressChangedCallbackArgs> for ::windows::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadProgressChangedCallbackArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadProgressChangedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadProgressChangedCallbackArgs> for ::windows::core::IUnknown {
     fn from(value: &IDownloadProgressChangedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2044,21 +1872,15 @@ impl ::core::convert::From<IDownloadProgressChangedCallbackArgs> for super::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadProgressChangedCallbackArgs> for &'a super::Com::IDispatch {
+    fn from(value: &'a IDownloadProgressChangedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadProgressChangedCallbackArgs> for super::Com::IDispatch {
     fn from(value: &IDownloadProgressChangedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDownloadProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDownloadProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2126,21 +1948,15 @@ impl ::core::convert::From<IDownloadResult> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDownloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadResult> for ::windows::core::IUnknown {
     fn from(value: &IDownloadResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2150,21 +1966,15 @@ impl ::core::convert::From<IDownloadResult> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IDownloadResult> for &'a super::Com::IDispatch {
+    fn from(value: &'a IDownloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IDownloadResult> for super::Com::IDispatch {
     fn from(value: &IDownloadResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2240,21 +2050,15 @@ impl ::core::convert::From<IImageInformation> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IImageInformation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IImageInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IImageInformation> for ::windows::core::IUnknown {
     fn from(value: &IImageInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImageInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IImageInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2264,21 +2068,15 @@ impl ::core::convert::From<IImageInformation> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IImageInformation> for &'a super::Com::IDispatch {
+    fn from(value: &'a IImageInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IImageInformation> for super::Com::IDispatch {
     fn from(value: &IImageInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IImageInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IImageInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2330,13 +2128,19 @@ pub struct IInstallationAgent(::windows::core::IUnknown);
 impl IInstallationAgent {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RecordInstallationResult<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IStringCollection>>(&self, installationresultcookie: Param0, hresult: i32, extendedreportingdata: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), installationresultcookie.into_param().abi(), ::core::mem::transmute(hresult), extendedreportingdata.into_param().abi()).ok()
+    pub unsafe fn RecordInstallationResult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, installationresultcookie: Param0, hresult: i32, extendedreportingdata: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RecordInstallationResult)(::windows::core::Interface::as_raw(self), installationresultcookie.into().abi(), ::core::mem::transmute(hresult), extendedreportingdata.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInstallationAgent> for ::windows::core::IUnknown {
     fn from(value: IInstallationAgent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationAgent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationAgent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2347,20 +2151,14 @@ impl ::core::convert::From<&IInstallationAgent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationAgent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationAgent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInstallationAgent> for super::Com::IDispatch {
     fn from(value: IInstallationAgent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationAgent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationAgent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -2368,18 +2166,6 @@ impl ::core::convert::From<IInstallationAgent> for super::Com::IDispatch {
 impl ::core::convert::From<&IInstallationAgent> for super::Com::IDispatch {
     fn from(value: &IInstallationAgent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationAgent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationAgent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2451,21 +2237,15 @@ impl ::core::convert::From<IInstallationBehavior> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationBehavior> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationBehavior) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationBehavior> for ::windows::core::IUnknown {
     fn from(value: &IInstallationBehavior) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2475,21 +2255,15 @@ impl ::core::convert::From<IInstallationBehavior> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationBehavior> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationBehavior) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationBehavior> for super::Com::IDispatch {
     fn from(value: &IInstallationBehavior) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2533,8 +2307,8 @@ pub struct IInstallationCompletedCallback(::windows::core::IUnknown);
 impl IInstallationCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>, Param1: ::windows::core::IntoParam<'a, IInstallationCompletedCallbackArgs>>(&self, installationjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), installationjob.into_param().abi(), callbackargs.into_param().abi()).ok()
+    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInstallationCompletedCallbackArgs>>>(&self, installationjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IInstallationCompletedCallback> for ::windows::core::IUnknown {
@@ -2542,19 +2316,14 @@ impl ::core::convert::From<IInstallationCompletedCallback> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInstallationCompletedCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationCompletedCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInstallationCompletedCallback> for ::windows::core::IUnknown {
     fn from(value: &IInstallationCompletedCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationCompletedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationCompletedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInstallationCompletedCallback {
@@ -2599,21 +2368,15 @@ impl ::core::convert::From<IInstallationCompletedCallbackArgs> for ::windows::co
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationCompletedCallbackArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationCompletedCallbackArgs> for ::windows::core::IUnknown {
     fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2623,21 +2386,15 @@ impl ::core::convert::From<IInstallationCompletedCallbackArgs> for super::Com::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationCompletedCallbackArgs> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationCompletedCallbackArgs> for super::Com::IDispatch {
     fn from(value: &IInstallationCompletedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2716,21 +2473,15 @@ impl ::core::convert::From<IInstallationJob> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationJob> for ::windows::core::IUnknown {
     fn from(value: &IInstallationJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2740,21 +2491,15 @@ impl ::core::convert::From<IInstallationJob> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationJob> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationJob> for super::Com::IDispatch {
     fn from(value: &IInstallationJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2838,21 +2583,15 @@ impl ::core::convert::From<IInstallationProgress> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationProgress> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationProgress> for ::windows::core::IUnknown {
     fn from(value: &IInstallationProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2862,21 +2601,15 @@ impl ::core::convert::From<IInstallationProgress> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationProgress> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationProgress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationProgress> for super::Com::IDispatch {
     fn from(value: &IInstallationProgress) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationProgress {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2923,8 +2656,8 @@ pub struct IInstallationProgressChangedCallback(::windows::core::IUnknown);
 impl IInstallationProgressChangedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>, Param1: ::windows::core::IntoParam<'a, IInstallationProgressChangedCallbackArgs>>(&self, installationjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), installationjob.into_param().abi(), callbackargs.into_param().abi()).ok()
+    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInstallationProgressChangedCallbackArgs>>>(&self, installationjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), installationjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IInstallationProgressChangedCallback> for ::windows::core::IUnknown {
@@ -2932,19 +2665,14 @@ impl ::core::convert::From<IInstallationProgressChangedCallback> for ::windows::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInstallationProgressChangedCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationProgressChangedCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInstallationProgressChangedCallback> for ::windows::core::IUnknown {
     fn from(value: &IInstallationProgressChangedCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationProgressChangedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationProgressChangedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInstallationProgressChangedCallback {
@@ -2996,21 +2724,15 @@ impl ::core::convert::From<IInstallationProgressChangedCallbackArgs> for ::windo
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationProgressChangedCallbackArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationProgressChangedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationProgressChangedCallbackArgs> for ::windows::core::IUnknown {
     fn from(value: &IInstallationProgressChangedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3020,21 +2742,15 @@ impl ::core::convert::From<IInstallationProgressChangedCallbackArgs> for super::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationProgressChangedCallbackArgs> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationProgressChangedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationProgressChangedCallbackArgs> for super::Com::IDispatch {
     fn from(value: &IInstallationProgressChangedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationProgressChangedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3107,21 +2823,15 @@ impl ::core::convert::From<IInstallationResult> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInstallationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationResult> for ::windows::core::IUnknown {
     fn from(value: &IInstallationResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3131,21 +2841,15 @@ impl ::core::convert::From<IInstallationResult> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInstallationResult> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInstallationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInstallationResult> for super::Com::IDispatch {
     fn from(value: &IInstallationResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3222,26 +2926,26 @@ impl ::core::convert::From<IInvalidProductLicenseException> for ::windows::core:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInvalidProductLicenseException> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInvalidProductLicenseException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInvalidProductLicenseException> for ::windows::core::IUnknown {
     fn from(value: &IInvalidProductLicenseException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInvalidProductLicenseException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInvalidProductLicenseException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInvalidProductLicenseException> for super::Com::IDispatch {
     fn from(value: IInvalidProductLicenseException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInvalidProductLicenseException> for &'a super::Com::IDispatch {
+    fn from(value: &'a IInvalidProductLicenseException) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3252,20 +2956,14 @@ impl ::core::convert::From<&IInvalidProductLicenseException> for super::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IInvalidProductLicenseException {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IInvalidProductLicenseException {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInvalidProductLicenseException> for IUpdateException {
     fn from(value: IInvalidProductLicenseException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInvalidProductLicenseException> for &'a IUpdateException {
+    fn from(value: &'a IInvalidProductLicenseException) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3273,18 +2971,6 @@ impl ::core::convert::From<IInvalidProductLicenseException> for IUpdateException
 impl ::core::convert::From<&IInvalidProductLicenseException> for IUpdateException {
     fn from(value: &IInvalidProductLicenseException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateException> for IInvalidProductLicenseException {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateException> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateException> for &'a IInvalidProductLicenseException {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateException> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3328,8 +3014,8 @@ pub struct ISearchCompletedCallback(::windows::core::IUnknown);
 impl ISearchCompletedCallback {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ISearchJob>, Param1: ::windows::core::IntoParam<'a, ISearchCompletedCallbackArgs>>(&self, searchjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), callbackargs.into_param().abi()).ok()
+    pub unsafe fn Invoke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ISearchCompletedCallbackArgs>>>(&self, searchjob: Param0, callbackargs: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Invoke)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), callbackargs.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISearchCompletedCallback> for ::windows::core::IUnknown {
@@ -3337,19 +3023,14 @@ impl ::core::convert::From<ISearchCompletedCallback> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISearchCompletedCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISearchCompletedCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISearchCompletedCallback> for ::windows::core::IUnknown {
     fn from(value: &ISearchCompletedCallback) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchCompletedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchCompletedCallback {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISearchCompletedCallback {
@@ -3394,21 +3075,15 @@ impl ::core::convert::From<ISearchCompletedCallbackArgs> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISearchCompletedCallbackArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISearchCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISearchCompletedCallbackArgs> for ::windows::core::IUnknown {
     fn from(value: &ISearchCompletedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3418,21 +3093,15 @@ impl ::core::convert::From<ISearchCompletedCallbackArgs> for super::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISearchCompletedCallbackArgs> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISearchCompletedCallbackArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISearchCompletedCallbackArgs> for super::Com::IDispatch {
     fn from(value: &ISearchCompletedCallbackArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISearchCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISearchCompletedCallbackArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3499,21 +3168,15 @@ impl ::core::convert::From<ISearchJob> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISearchJob> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISearchJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISearchJob> for ::windows::core::IUnknown {
     fn from(value: &ISearchJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3523,21 +3186,15 @@ impl ::core::convert::From<ISearchJob> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISearchJob> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISearchJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISearchJob> for super::Com::IDispatch {
     fn from(value: &ISearchJob) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISearchJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISearchJob {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3615,21 +3272,15 @@ impl ::core::convert::From<ISearchResult> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISearchResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISearchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISearchResult> for ::windows::core::IUnknown {
     fn from(value: &ISearchResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISearchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3639,21 +3290,15 @@ impl ::core::convert::From<ISearchResult> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISearchResult> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISearchResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISearchResult> for super::Com::IDispatch {
     fn from(value: &ISearchResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISearchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISearchResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3714,8 +3359,8 @@ impl IStringCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn put_Item<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into_param().abi()).ok()
+    pub unsafe fn put_Item<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -3734,9 +3379,9 @@ impl IStringCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -3750,8 +3395,8 @@ impl IStringCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into_param().abi()).ok()
+    pub unsafe fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RemoveAt(&self, index: i32) -> ::windows::core::Result<()> {
@@ -3765,21 +3410,15 @@ impl ::core::convert::From<IStringCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IStringCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStringCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IStringCollection> for ::windows::core::IUnknown {
     fn from(value: &IStringCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3789,21 +3428,15 @@ impl ::core::convert::From<IStringCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IStringCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IStringCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IStringCollection> for super::Com::IDispatch {
     fn from(value: &IStringCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IStringCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3887,21 +3520,15 @@ impl ::core::convert::From<ISystemInformation> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISystemInformation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISystemInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISystemInformation> for ::windows::core::IUnknown {
     fn from(value: &ISystemInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISystemInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISystemInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3911,21 +3538,15 @@ impl ::core::convert::From<ISystemInformation> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISystemInformation> for &'a super::Com::IDispatch {
+    fn from(value: &'a ISystemInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISystemInformation> for super::Com::IDispatch {
     fn from(value: &ISystemInformation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for ISystemInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a ISystemInformation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4203,8 +3824,8 @@ impl IUpdate {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -4225,21 +3846,15 @@ impl ::core::convert::From<IUpdate> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdate> for ::windows::core::IUnknown {
     fn from(value: &IUpdate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4249,21 +3864,15 @@ impl ::core::convert::From<IUpdate> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdate> for super::Com::IDispatch {
     fn from(value: &IUpdate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4656,8 +4265,8 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -4688,13 +4297,19 @@ impl IUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate2> for ::windows::core::IUnknown {
     fn from(value: IUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4705,20 +4320,14 @@ impl ::core::convert::From<&IUpdate2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate2> for super::Com::IDispatch {
     fn from(value: IUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4729,20 +4338,14 @@ impl ::core::convert::From<&IUpdate2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate2> for IUpdate {
     fn from(value: IUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate2> for &'a IUpdate {
+    fn from(value: &'a IUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4750,18 +4353,6 @@ impl ::core::convert::From<IUpdate2> for IUpdate {
 impl ::core::convert::From<&IUpdate2> for IUpdate {
     fn from(value: &IUpdate2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5044,8 +4635,8 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -5076,8 +4667,8 @@ impl IUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BrowseOnly(&self) -> ::windows::core::Result<i16> {
@@ -5092,26 +4683,26 @@ impl ::core::convert::From<IUpdate3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdate3> for ::windows::core::IUnknown {
     fn from(value: &IUpdate3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate3> for super::Com::IDispatch {
     fn from(value: IUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5122,20 +4713,14 @@ impl ::core::convert::From<&IUpdate3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate3> for IUpdate {
     fn from(value: IUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate3> for &'a IUpdate {
+    fn from(value: &'a IUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5146,20 +4731,14 @@ impl ::core::convert::From<&IUpdate3> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate3> for IUpdate2 {
     fn from(value: IUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate3> for &'a IUpdate2 {
+    fn from(value: &'a IUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5167,18 +4746,6 @@ impl ::core::convert::From<IUpdate3> for IUpdate2 {
 impl ::core::convert::From<&IUpdate3> for IUpdate2 {
     fn from(value: &IUpdate3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate2> for IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate2> for &'a IUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5452,8 +5019,8 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -5484,8 +5051,8 @@ impl IUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BrowseOnly(&self) -> ::windows::core::Result<i16> {
@@ -5505,26 +5072,26 @@ impl ::core::convert::From<IUpdate4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdate4> for ::windows::core::IUnknown {
     fn from(value: &IUpdate4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate4> for super::Com::IDispatch {
     fn from(value: IUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5535,20 +5102,14 @@ impl ::core::convert::From<&IUpdate4> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate4> for IUpdate {
     fn from(value: IUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate4> for &'a IUpdate {
+    fn from(value: &'a IUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5559,20 +5120,14 @@ impl ::core::convert::From<&IUpdate4> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate4> for IUpdate2 {
     fn from(value: IUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate4> for &'a IUpdate2 {
+    fn from(value: &'a IUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5583,20 +5138,14 @@ impl ::core::convert::From<&IUpdate4> for IUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate2> for IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate2> for &'a IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate4> for IUpdate3 {
     fn from(value: IUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate4> for &'a IUpdate3 {
+    fn from(value: &'a IUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5604,18 +5153,6 @@ impl ::core::convert::From<IUpdate4> for IUpdate3 {
 impl ::core::convert::From<&IUpdate4> for IUpdate3 {
     fn from(value: &IUpdate4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate3> for IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate3> for &'a IUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5889,8 +5426,8 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -5921,8 +5458,8 @@ impl IUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BrowseOnly(&self) -> ::windows::core::Result<i16> {
@@ -5952,26 +5489,26 @@ impl ::core::convert::From<IUpdate5> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate5> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdate5> for ::windows::core::IUnknown {
     fn from(value: &IUpdate5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate5> for super::Com::IDispatch {
     fn from(value: IUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate5> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5982,20 +5519,14 @@ impl ::core::convert::From<&IUpdate5> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate5> for IUpdate {
     fn from(value: IUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate {
+    fn from(value: &'a IUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6006,20 +5537,14 @@ impl ::core::convert::From<&IUpdate5> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate5> for IUpdate2 {
     fn from(value: IUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate2 {
+    fn from(value: &'a IUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6030,20 +5555,14 @@ impl ::core::convert::From<&IUpdate5> for IUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate2> for IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate2> for &'a IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate5> for IUpdate3 {
     fn from(value: IUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate3 {
+    fn from(value: &'a IUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6054,20 +5573,14 @@ impl ::core::convert::From<&IUpdate5> for IUpdate3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate3> for IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate3> for &'a IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdate5> for IUpdate4 {
     fn from(value: IUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdate5> for &'a IUpdate4 {
+    fn from(value: &'a IUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6075,18 +5588,6 @@ impl ::core::convert::From<IUpdate5> for IUpdate4 {
 impl ::core::convert::From<&IUpdate5> for IUpdate4 {
     fn from(value: &IUpdate5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate4> for IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate4> for &'a IUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6136,8 +5637,8 @@ impl IUpdateCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn put_Item<'a, Param1: ::windows::core::IntoParam<'a, IUpdate>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into_param().abi()).ok()
+    pub unsafe fn put_Item<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).put_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -6156,9 +5657,9 @@ impl IUpdateCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IUpdate>>(&self, value: Param0) -> ::windows::core::Result<i32> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>>(&self, value: Param0) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -6172,8 +5673,8 @@ impl IUpdateCollection {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Insert<'a, Param1: ::windows::core::IntoParam<'a, IUpdate>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into_param().abi()).ok()
+    pub unsafe fn Insert<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUpdate>>>(&self, index: i32, value: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn RemoveAt(&self, index: i32) -> ::windows::core::Result<()> {
@@ -6187,21 +5688,15 @@ impl ::core::convert::From<IUpdateCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateCollection> for ::windows::core::IUnknown {
     fn from(value: &IUpdateCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6211,21 +5706,15 @@ impl ::core::convert::From<IUpdateCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateCollection> for super::Com::IDispatch {
     fn from(value: &IUpdateCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6304,21 +5793,15 @@ impl ::core::convert::From<IUpdateDownloadContent> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateDownloadContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadContent> for ::windows::core::IUnknown {
     fn from(value: &IUpdateDownloadContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateDownloadContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateDownloadContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6328,21 +5811,15 @@ impl ::core::convert::From<IUpdateDownloadContent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateDownloadContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadContent> for super::Com::IDispatch {
     fn from(value: &IUpdateDownloadContent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateDownloadContent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateDownloadContent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6405,26 +5882,26 @@ impl ::core::convert::From<IUpdateDownloadContent2> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateDownloadContent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadContent2> for ::windows::core::IUnknown {
     fn from(value: &IUpdateDownloadContent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateDownloadContent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateDownloadContent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateDownloadContent2> for super::Com::IDispatch {
     fn from(value: IUpdateDownloadContent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateDownloadContent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6435,20 +5912,14 @@ impl ::core::convert::From<&IUpdateDownloadContent2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateDownloadContent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateDownloadContent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateDownloadContent2> for IUpdateDownloadContent {
     fn from(value: IUpdateDownloadContent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContent2> for &'a IUpdateDownloadContent {
+    fn from(value: &'a IUpdateDownloadContent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6456,18 +5927,6 @@ impl ::core::convert::From<IUpdateDownloadContent2> for IUpdateDownloadContent {
 impl ::core::convert::From<&IUpdateDownloadContent2> for IUpdateDownloadContent {
     fn from(value: &IUpdateDownloadContent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateDownloadContent> for IUpdateDownloadContent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateDownloadContent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateDownloadContent> for &'a IUpdateDownloadContent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateDownloadContent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6532,21 +5991,15 @@ impl ::core::convert::From<IUpdateDownloadContentCollection> for ::windows::core
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContentCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateDownloadContentCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadContentCollection> for ::windows::core::IUnknown {
     fn from(value: &IUpdateDownloadContentCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateDownloadContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateDownloadContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6556,21 +6009,15 @@ impl ::core::convert::From<IUpdateDownloadContentCollection> for super::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadContentCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateDownloadContentCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadContentCollection> for super::Com::IDispatch {
     fn from(value: &IUpdateDownloadContentCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateDownloadContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateDownloadContentCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6634,21 +6081,15 @@ impl ::core::convert::From<IUpdateDownloadResult> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateDownloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadResult> for ::windows::core::IUnknown {
     fn from(value: &IUpdateDownloadResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6658,21 +6099,15 @@ impl ::core::convert::From<IUpdateDownloadResult> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloadResult> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateDownloadResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateDownloadResult> for super::Com::IDispatch {
     fn from(value: &IUpdateDownloadResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateDownloadResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6722,8 +6157,8 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsForced(&self) -> ::windows::core::Result<i16> {
@@ -6740,8 +6175,8 @@ impl IUpdateDownloader {
         (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DownloadPriority>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetPriority(&self, value: DownloadPriority) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetPriority<'a, Param0: ::std::convert::Into<DownloadPriority>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6751,14 +6186,14 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::windows::core::IntoParam<'a, IUpdateCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdates)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginDownload<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IDownloadJob> {
+    pub unsafe fn BeginDownload<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IDownloadJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).BeginDownload)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDownloadJob>(result__)
+        (::windows::core::Interface::vtable(self).BeginDownload)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDownloadJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6768,14 +6203,20 @@ impl IUpdateDownloader {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndDownload<'a, Param0: ::windows::core::IntoParam<'a, IDownloadJob>>(&self, value: Param0) -> ::windows::core::Result<IDownloadResult> {
+    pub unsafe fn EndDownload<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IDownloadJob>>>(&self, value: Param0) -> ::windows::core::Result<IDownloadResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EndDownload)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDownloadResult>(result__)
+        (::windows::core::Interface::vtable(self).EndDownload)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDownloadResult>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateDownloader> for ::windows::core::IUnknown {
     fn from(value: IUpdateDownloader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateDownloader) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6786,20 +6227,14 @@ impl ::core::convert::From<&IUpdateDownloader> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateDownloader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateDownloader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateDownloader> for super::Com::IDispatch {
     fn from(value: IUpdateDownloader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateDownloader> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateDownloader) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6807,18 +6242,6 @@ impl ::core::convert::From<IUpdateDownloader> for super::Com::IDispatch {
 impl ::core::convert::From<&IUpdateDownloader> for super::Com::IDispatch {
     fn from(value: &IUpdateDownloader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateDownloader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateDownloader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6914,21 +6337,15 @@ impl ::core::convert::From<IUpdateException> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateException> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateException> for ::windows::core::IUnknown {
     fn from(value: &IUpdateException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateException {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6938,21 +6355,15 @@ impl ::core::convert::From<IUpdateException> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateException> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateException) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateException> for super::Com::IDispatch {
     fn from(value: &IUpdateException) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateException {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateException {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7022,21 +6433,15 @@ impl ::core::convert::From<IUpdateExceptionCollection> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateExceptionCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateExceptionCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateExceptionCollection> for ::windows::core::IUnknown {
     fn from(value: &IUpdateExceptionCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateExceptionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateExceptionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7046,21 +6451,15 @@ impl ::core::convert::From<IUpdateExceptionCollection> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateExceptionCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateExceptionCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateExceptionCollection> for super::Com::IDispatch {
     fn from(value: &IUpdateExceptionCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateExceptionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateExceptionCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7192,21 +6591,15 @@ impl ::core::convert::From<IUpdateHistoryEntry> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateHistoryEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateHistoryEntry> for ::windows::core::IUnknown {
     fn from(value: &IUpdateHistoryEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateHistoryEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateHistoryEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7216,21 +6609,15 @@ impl ::core::convert::From<IUpdateHistoryEntry> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateHistoryEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateHistoryEntry> for super::Com::IDispatch {
     fn from(value: &IUpdateHistoryEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateHistoryEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateHistoryEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7400,26 +6787,26 @@ impl ::core::convert::From<IUpdateHistoryEntry2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateHistoryEntry2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateHistoryEntry2> for ::windows::core::IUnknown {
     fn from(value: &IUpdateHistoryEntry2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateHistoryEntry2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateHistoryEntry2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateHistoryEntry2> for super::Com::IDispatch {
     fn from(value: IUpdateHistoryEntry2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateHistoryEntry2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7430,20 +6817,14 @@ impl ::core::convert::From<&IUpdateHistoryEntry2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateHistoryEntry2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateHistoryEntry2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateHistoryEntry2> for IUpdateHistoryEntry {
     fn from(value: IUpdateHistoryEntry2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntry2> for &'a IUpdateHistoryEntry {
+    fn from(value: &'a IUpdateHistoryEntry2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7451,18 +6832,6 @@ impl ::core::convert::From<IUpdateHistoryEntry2> for IUpdateHistoryEntry {
 impl ::core::convert::From<&IUpdateHistoryEntry2> for IUpdateHistoryEntry {
     fn from(value: &IUpdateHistoryEntry2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateHistoryEntry> for IUpdateHistoryEntry2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateHistoryEntry> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateHistoryEntry> for &'a IUpdateHistoryEntry2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateHistoryEntry> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7530,21 +6899,15 @@ impl ::core::convert::From<IUpdateHistoryEntryCollection> for ::windows::core::I
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntryCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateHistoryEntryCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateHistoryEntryCollection> for ::windows::core::IUnknown {
     fn from(value: &IUpdateHistoryEntryCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateHistoryEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateHistoryEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7554,21 +6917,15 @@ impl ::core::convert::From<IUpdateHistoryEntryCollection> for super::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateHistoryEntryCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateHistoryEntryCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateHistoryEntryCollection> for super::Com::IDispatch {
     fn from(value: &IUpdateHistoryEntryCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateHistoryEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateHistoryEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7633,21 +6990,15 @@ impl ::core::convert::From<IUpdateIdentity> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateIdentity> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateIdentity> for ::windows::core::IUnknown {
     fn from(value: &IUpdateIdentity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7657,21 +7008,15 @@ impl ::core::convert::From<IUpdateIdentity> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateIdentity> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateIdentity) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateIdentity> for super::Com::IDispatch {
     fn from(value: &IUpdateIdentity) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateIdentity {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7739,21 +7084,15 @@ impl ::core::convert::From<IUpdateInstallationResult> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstallationResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateInstallationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstallationResult> for ::windows::core::IUnknown {
     fn from(value: &IUpdateInstallationResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7763,21 +7102,15 @@ impl ::core::convert::From<IUpdateInstallationResult> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstallationResult> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateInstallationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstallationResult> for super::Com::IDispatch {
     fn from(value: &IUpdateInstallationResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateInstallationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7828,8 +7161,8 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsForced(&self) -> ::windows::core::Result<i16> {
@@ -7848,12 +7181,12 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -7868,32 +7201,32 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::windows::core::IntoParam<'a, IUpdateCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdates)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EndInstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EndUninstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7903,9 +7236,9 @@ impl IUpdateInstaller {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsBusy(&self) -> ::windows::core::Result<i16> {
@@ -7940,21 +7273,15 @@ impl ::core::convert::From<IUpdateInstaller> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateInstaller) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstaller> for ::windows::core::IUnknown {
     fn from(value: &IUpdateInstaller) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateInstaller {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateInstaller {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7964,21 +7291,15 @@ impl ::core::convert::From<IUpdateInstaller> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateInstaller) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstaller> for super::Com::IDispatch {
     fn from(value: &IUpdateInstaller) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateInstaller {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateInstaller {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8086,8 +7407,8 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsForced(&self) -> ::windows::core::Result<i16> {
@@ -8106,12 +7427,12 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -8126,32 +7447,32 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::windows::core::IntoParam<'a, IUpdateCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8161,9 +7482,9 @@ impl IUpdateInstaller2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsBusy(&self) -> ::windows::core::Result<i16> {
@@ -8207,26 +7528,26 @@ impl ::core::convert::From<IUpdateInstaller2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateInstaller2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstaller2> for ::windows::core::IUnknown {
     fn from(value: &IUpdateInstaller2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateInstaller2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateInstaller2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller2> for super::Com::IDispatch {
     fn from(value: IUpdateInstaller2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateInstaller2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8237,20 +7558,14 @@ impl ::core::convert::From<&IUpdateInstaller2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateInstaller2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateInstaller2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller2> for IUpdateInstaller {
     fn from(value: IUpdateInstaller2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller2> for &'a IUpdateInstaller {
+    fn from(value: &'a IUpdateInstaller2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8258,18 +7573,6 @@ impl ::core::convert::From<IUpdateInstaller2> for IUpdateInstaller {
 impl ::core::convert::From<&IUpdateInstaller2> for IUpdateInstaller {
     fn from(value: &IUpdateInstaller2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller> for IUpdateInstaller2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller> for &'a IUpdateInstaller2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8319,8 +7622,8 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsForced(&self) -> ::windows::core::Result<i16> {
@@ -8339,12 +7642,12 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -8359,32 +7662,32 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::windows::core::IntoParam<'a, IUpdateCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8394,9 +7697,9 @@ impl IUpdateInstaller3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsBusy(&self) -> ::windows::core::Result<i16> {
@@ -8449,26 +7752,26 @@ impl ::core::convert::From<IUpdateInstaller3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateInstaller3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstaller3> for ::windows::core::IUnknown {
     fn from(value: &IUpdateInstaller3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller3> for super::Com::IDispatch {
     fn from(value: IUpdateInstaller3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateInstaller3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8479,20 +7782,14 @@ impl ::core::convert::From<&IUpdateInstaller3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller3> for IUpdateInstaller {
     fn from(value: IUpdateInstaller3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a IUpdateInstaller {
+    fn from(value: &'a IUpdateInstaller3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8503,20 +7800,14 @@ impl ::core::convert::From<&IUpdateInstaller3> for IUpdateInstaller {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller> for IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller> for &'a IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller3> for IUpdateInstaller2 {
     fn from(value: IUpdateInstaller3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller3> for &'a IUpdateInstaller2 {
+    fn from(value: &'a IUpdateInstaller3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8524,18 +7815,6 @@ impl ::core::convert::From<IUpdateInstaller3> for IUpdateInstaller2 {
 impl ::core::convert::From<&IUpdateInstaller3> for IUpdateInstaller2 {
     fn from(value: &IUpdateInstaller3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller2> for IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller2> for &'a IUpdateInstaller3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8585,8 +7864,8 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsForced(&self) -> ::windows::core::Result<i16> {
@@ -8605,12 +7884,12 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetParentHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentHwnd)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetParentWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetParentWindow<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetParentWindow)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ParentWindow(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -8625,32 +7904,32 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetUpdates<'a, Param0: ::windows::core::IntoParam<'a, IUpdateCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetUpdates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUpdateCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetUpdates)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginInstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.BeginInstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginUninstall<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
+    pub unsafe fn BeginUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, onprogresschanged: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<IInstallationJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.BeginUninstall)(::windows::core::Interface::as_raw(self), onprogresschanged.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndInstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndInstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.EndInstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndUninstall<'a, Param0: ::windows::core::IntoParam<'a, IInstallationJob>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn EndUninstall<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInstallationJob>>>(&self, value: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.EndUninstall)(::windows::core::Interface::as_raw(self), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8660,9 +7939,9 @@ impl IUpdateInstaller4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn RunWizard<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, dialogtitle: Param0) -> ::windows::core::Result<IInstallationResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.RunWizard)(::windows::core::Interface::as_raw(self), dialogtitle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInstallationResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IsBusy(&self) -> ::windows::core::Result<i16> {
@@ -8719,26 +7998,26 @@ impl ::core::convert::From<IUpdateInstaller4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateInstaller4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateInstaller4> for ::windows::core::IUnknown {
     fn from(value: &IUpdateInstaller4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller4> for super::Com::IDispatch {
     fn from(value: IUpdateInstaller4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateInstaller4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8749,20 +8028,14 @@ impl ::core::convert::From<&IUpdateInstaller4> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller {
     fn from(value: IUpdateInstaller4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a IUpdateInstaller {
+    fn from(value: &'a IUpdateInstaller4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8773,20 +8046,14 @@ impl ::core::convert::From<&IUpdateInstaller4> for IUpdateInstaller {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller> for IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller> for &'a IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller2 {
     fn from(value: IUpdateInstaller4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a IUpdateInstaller2 {
+    fn from(value: &'a IUpdateInstaller4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8797,20 +8064,14 @@ impl ::core::convert::From<&IUpdateInstaller4> for IUpdateInstaller2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller2> for IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller2> for &'a IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller3 {
     fn from(value: IUpdateInstaller4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateInstaller4> for &'a IUpdateInstaller3 {
+    fn from(value: &'a IUpdateInstaller4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8818,18 +8079,6 @@ impl ::core::convert::From<IUpdateInstaller4> for IUpdateInstaller3 {
 impl ::core::convert::From<&IUpdateInstaller4> for IUpdateInstaller3 {
     fn from(value: &IUpdateInstaller4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller3> for IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateInstaller3> for &'a IUpdateInstaller4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateInstaller3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8878,19 +8127,14 @@ impl ::core::convert::From<IUpdateLockdown> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUpdateLockdown> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateLockdown) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUpdateLockdown> for ::windows::core::IUnknown {
     fn from(value: &IUpdateLockdown) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateLockdown {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateLockdown {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUpdateLockdown {
@@ -8942,8 +8186,8 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> ::windows::core::Result<i16> {
@@ -8960,26 +8204,26 @@ impl IUpdateSearcher {
         (::windows::core::Interface::vtable(self).ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetServerSelection<'a, Param0: ::std::convert::Into<ServerSelection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
+    pub unsafe fn BeginSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
+        (::windows::core::Interface::vtable(self).BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<'a, Param0: ::windows::core::IntoParam<'a, ISearchJob>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn EndSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
+        (::windows::core::Interface::vtable(self).EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EscapeString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn EscapeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8989,9 +8233,9 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Search<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Search)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
+        (::windows::core::Interface::vtable(self).Search)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Online(&self) -> ::windows::core::Result<i16> {
@@ -9015,13 +8259,19 @@ impl IUpdateSearcher {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetServiceID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher> for ::windows::core::IUnknown {
     fn from(value: IUpdateSearcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateSearcher) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9032,20 +8282,14 @@ impl ::core::convert::From<&IUpdateSearcher> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateSearcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateSearcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher> for super::Com::IDispatch {
     fn from(value: IUpdateSearcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateSearcher) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9053,18 +8297,6 @@ impl ::core::convert::From<IUpdateSearcher> for super::Com::IDispatch {
 impl ::core::convert::From<&IUpdateSearcher> for super::Com::IDispatch {
     fn from(value: &IUpdateSearcher) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateSearcher {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateSearcher {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9166,8 +8398,8 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> ::windows::core::Result<i16> {
@@ -9184,26 +8416,26 @@ impl IUpdateSearcher2 {
         (::windows::core::Interface::vtable(self).base__.ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetServerSelection<'a, Param0: ::std::convert::Into<ServerSelection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
+    pub unsafe fn BeginSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<'a, Param0: ::windows::core::IntoParam<'a, ISearchJob>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn EndSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EscapeString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn EscapeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9213,9 +8445,9 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Search<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Search)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.Search)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Online(&self) -> ::windows::core::Result<i16> {
@@ -9239,8 +8471,8 @@ impl IUpdateSearcher2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetServiceID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IgnoreDownloadPriority(&self) -> ::windows::core::Result<i16> {
@@ -9259,26 +8491,26 @@ impl ::core::convert::From<IUpdateSearcher2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateSearcher2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateSearcher2> for ::windows::core::IUnknown {
     fn from(value: &IUpdateSearcher2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateSearcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateSearcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher2> for super::Com::IDispatch {
     fn from(value: IUpdateSearcher2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateSearcher2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9289,20 +8521,14 @@ impl ::core::convert::From<&IUpdateSearcher2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateSearcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateSearcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher2> for IUpdateSearcher {
     fn from(value: IUpdateSearcher2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher2> for &'a IUpdateSearcher {
+    fn from(value: &'a IUpdateSearcher2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9310,18 +8536,6 @@ impl ::core::convert::From<IUpdateSearcher2> for IUpdateSearcher {
 impl ::core::convert::From<&IUpdateSearcher2> for IUpdateSearcher {
     fn from(value: &IUpdateSearcher2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSearcher> for IUpdateSearcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSearcher> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSearcher> for &'a IUpdateSearcher2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSearcher> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9380,8 +8594,8 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> ::windows::core::Result<i16> {
@@ -9398,26 +8612,26 @@ impl IUpdateSearcher3 {
         (::windows::core::Interface::vtable(self).base__.base__.ServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerSelection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetServerSelection<'a, Param0: ::std::convert::Into<ServerSelection>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetServerSelection)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BeginSearch<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
+    pub unsafe fn BeginSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, criteria: Param0, oncompleted: Param1, state: Param2) -> ::windows::core::Result<ISearchJob> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), oncompleted.into_param().abi(), state.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.BeginSearch)(::windows::core::Interface::as_raw(self), criteria.into().abi(), oncompleted.into().abi(), state.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndSearch<'a, Param0: ::windows::core::IntoParam<'a, ISearchJob>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn EndSearch<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISearchJob>>>(&self, searchjob: Param0) -> ::windows::core::Result<ISearchResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EndSearch)(::windows::core::Interface::as_raw(self), searchjob.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EscapeString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn EscapeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, unescaped: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.EscapeString)(::windows::core::Interface::as_raw(self), unescaped.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9427,9 +8641,9 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Search<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
+    pub unsafe fn Search<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0) -> ::windows::core::Result<ISearchResult> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Search)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Search)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISearchResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn Online(&self) -> ::windows::core::Result<i16> {
@@ -9453,8 +8667,8 @@ impl IUpdateSearcher3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetServiceID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetServiceID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn IgnoreDownloadPriority(&self) -> ::windows::core::Result<i16> {
@@ -9471,13 +8685,19 @@ impl IUpdateSearcher3 {
         (::windows::core::Interface::vtable(self).SearchScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SearchScope>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
-    pub unsafe fn SetSearchScope(&self, value: SearchScope) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
+    pub unsafe fn SetSearchScope<'a, Param0: ::std::convert::Into<SearchScope>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSearchScope)(::windows::core::Interface::as_raw(self), value.into()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher3> for ::windows::core::IUnknown {
     fn from(value: IUpdateSearcher3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateSearcher3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9488,20 +8708,14 @@ impl ::core::convert::From<&IUpdateSearcher3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher3> for super::Com::IDispatch {
     fn from(value: IUpdateSearcher3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateSearcher3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9512,20 +8726,14 @@ impl ::core::convert::From<&IUpdateSearcher3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher3> for IUpdateSearcher {
     fn from(value: IUpdateSearcher3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a IUpdateSearcher {
+    fn from(value: &'a IUpdateSearcher3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9536,20 +8744,14 @@ impl ::core::convert::From<&IUpdateSearcher3> for IUpdateSearcher {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSearcher> for IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSearcher> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSearcher> for &'a IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSearcher> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSearcher3> for IUpdateSearcher2 {
     fn from(value: IUpdateSearcher3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSearcher3> for &'a IUpdateSearcher2 {
+    fn from(value: &'a IUpdateSearcher3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9557,18 +8759,6 @@ impl ::core::convert::From<IUpdateSearcher3> for IUpdateSearcher2 {
 impl ::core::convert::From<&IUpdateSearcher3> for IUpdateSearcher2 {
     fn from(value: &IUpdateSearcher3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSearcher2> for IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSearcher2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSearcher2> for &'a IUpdateSearcher3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSearcher2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9689,21 +8879,15 @@ impl ::core::convert::From<IUpdateService> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateService> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateService> for ::windows::core::IUnknown {
     fn from(value: &IUpdateService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateService {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9713,21 +8897,15 @@ impl ::core::convert::From<IUpdateService> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateService> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateService) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateService> for super::Com::IDispatch {
     fn from(value: &IUpdateService) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateService {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9882,26 +9060,26 @@ impl ::core::convert::From<IUpdateService2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateService2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateService2> for ::windows::core::IUnknown {
     fn from(value: &IUpdateService2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateService2> for super::Com::IDispatch {
     fn from(value: IUpdateService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateService2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateService2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9912,20 +9090,14 @@ impl ::core::convert::From<&IUpdateService2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateService2> for IUpdateService {
     fn from(value: IUpdateService2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateService2> for &'a IUpdateService {
+    fn from(value: &'a IUpdateService2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -9933,18 +9105,6 @@ impl ::core::convert::From<IUpdateService2> for IUpdateService {
 impl ::core::convert::From<&IUpdateService2> for IUpdateService {
     fn from(value: &IUpdateService2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateService> for IUpdateService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateService> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateService> for &'a IUpdateService2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateService> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10009,21 +9169,15 @@ impl ::core::convert::From<IUpdateServiceCollection> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateServiceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateServiceCollection> for ::windows::core::IUnknown {
     fn from(value: &IUpdateServiceCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateServiceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateServiceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10033,21 +9187,15 @@ impl ::core::convert::From<IUpdateServiceCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateServiceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateServiceCollection> for super::Com::IDispatch {
     fn from(value: &IUpdateServiceCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateServiceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateServiceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10101,40 +9249,46 @@ impl IUpdateServiceManager {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0, authorizationcabpath: Param1) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0, authorizationcabpath: Param1) -> ::windows::core::Result<IUpdateService> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), authorizationcabpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).AddService)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterServiceWithAU<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
+    pub unsafe fn RegisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
+    pub unsafe fn RemoveService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnregisterServiceWithAU<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
+    pub unsafe fn UnregisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScanPackageService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, servicename: Param0, scanfilelocation: Param1, flags: i32) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, servicename: Param0, scanfilelocation: Param1, flags: i32) -> ::windows::core::Result<IUpdateService> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into_param().abi(), scanfilelocation.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, optionname: Param0, optionvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), optionname.into_param().abi(), optionvalue.into_param().abi()).ok()
+    pub unsafe fn SetOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, optionname: Param0, optionvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), optionname.into().abi(), optionvalue.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateServiceManager> for ::windows::core::IUnknown {
     fn from(value: IUpdateServiceManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateServiceManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10145,20 +9299,14 @@ impl ::core::convert::From<&IUpdateServiceManager> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateServiceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateServiceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateServiceManager> for super::Com::IDispatch {
     fn from(value: IUpdateServiceManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceManager> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateServiceManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10166,18 +9314,6 @@ impl ::core::convert::From<IUpdateServiceManager> for super::Com::IDispatch {
 impl ::core::convert::From<&IUpdateServiceManager> for super::Com::IDispatch {
     fn from(value: &IUpdateServiceManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateServiceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateServiceManager {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10253,35 +9389,35 @@ impl IUpdateServiceManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0, authorizationcabpath: Param1) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0, authorizationcabpath: Param1) -> ::windows::core::Result<IUpdateService> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), authorizationcabpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddService)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterServiceWithAU<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
+    pub unsafe fn RegisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RegisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
+    pub unsafe fn RemoveService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RemoveService)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnregisterServiceWithAU<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi()).ok()
+    pub unsafe fn UnregisterServiceWithAU<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UnregisterServiceWithAU)(::windows::core::Interface::as_raw(self), serviceid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddScanPackageService<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, servicename: Param0, scanfilelocation: Param1, flags: i32) -> ::windows::core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, servicename: Param0, scanfilelocation: Param1, flags: i32) -> ::windows::core::Result<IUpdateService> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into_param().abi(), scanfilelocation.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddScanPackageService)(::windows::core::Interface::as_raw(self), servicename.into().abi(), scanfilelocation.into().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateService>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetOption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, optionname: Param0, optionvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetOption)(::windows::core::Interface::as_raw(self), optionname.into_param().abi(), optionvalue.into_param().abi()).ok()
+    pub unsafe fn SetOption<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, optionname: Param0, optionvalue: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetOption)(::windows::core::Interface::as_raw(self), optionname.into().abi(), optionvalue.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -10291,25 +9427,31 @@ impl IUpdateServiceManager2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn QueryServiceRegistration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0) -> ::windows::core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn QueryServiceRegistration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0) -> ::windows::core::Result<IUpdateServiceRegistration> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryServiceRegistration)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
+        (::windows::core::Interface::vtable(self).QueryServiceRegistration)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AddService2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, serviceid: Param0, flags: i32, authorizationcabpath: Param2) -> ::windows::core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn AddService2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, serviceid: Param0, flags: i32, authorizationcabpath: Param2) -> ::windows::core::Result<IUpdateServiceRegistration> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), serviceid.into_param().abi(), ::core::mem::transmute(flags), authorizationcabpath.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
+        (::windows::core::Interface::vtable(self).AddService2)(::windows::core::Interface::as_raw(self), serviceid.into().abi(), ::core::mem::transmute(flags), authorizationcabpath.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateServiceRegistration>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateServiceManager2> for ::windows::core::IUnknown {
     fn from(value: IUpdateServiceManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateServiceManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10320,20 +9462,14 @@ impl ::core::convert::From<&IUpdateServiceManager2> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateServiceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateServiceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateServiceManager2> for super::Com::IDispatch {
     fn from(value: IUpdateServiceManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceManager2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateServiceManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10344,20 +9480,14 @@ impl ::core::convert::From<&IUpdateServiceManager2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateServiceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateServiceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateServiceManager2> for IUpdateServiceManager {
     fn from(value: IUpdateServiceManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceManager2> for &'a IUpdateServiceManager {
+    fn from(value: &'a IUpdateServiceManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10365,18 +9495,6 @@ impl ::core::convert::From<IUpdateServiceManager2> for IUpdateServiceManager {
 impl ::core::convert::From<&IUpdateServiceManager2> for IUpdateServiceManager {
     fn from(value: &IUpdateServiceManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateServiceManager> for IUpdateServiceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateServiceManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateServiceManager> for &'a IUpdateServiceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateServiceManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10462,21 +9580,15 @@ impl ::core::convert::From<IUpdateServiceRegistration> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceRegistration> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateServiceRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateServiceRegistration> for ::windows::core::IUnknown {
     fn from(value: &IUpdateServiceRegistration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateServiceRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateServiceRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10486,21 +9598,15 @@ impl ::core::convert::From<IUpdateServiceRegistration> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateServiceRegistration> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateServiceRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateServiceRegistration> for super::Com::IDispatch {
     fn from(value: &IUpdateServiceRegistration) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateServiceRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateServiceRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10558,8 +9664,8 @@ impl IUpdateSession {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -10574,8 +9680,8 @@ impl IUpdateSession {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<'a, Param0: ::windows::core::IntoParam<'a, IWebProxy>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWebProxy)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetWebProxy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWebProxy)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10603,21 +9709,15 @@ impl ::core::convert::From<IUpdateSession> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateSession> for ::windows::core::IUnknown {
     fn from(value: &IUpdateSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10627,21 +9727,15 @@ impl ::core::convert::From<IUpdateSession> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateSession> for super::Com::IDispatch {
     fn from(value: &IUpdateSession) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10718,8 +9812,8 @@ impl IUpdateSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -10734,8 +9828,8 @@ impl IUpdateSession2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<'a, Param0: ::windows::core::IntoParam<'a, IWebProxy>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWebProxy)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetWebProxy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetWebProxy)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10772,26 +9866,26 @@ impl ::core::convert::From<IUpdateSession2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IUpdateSession2> for ::windows::core::IUnknown {
     fn from(value: &IUpdateSession2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSession2> for super::Com::IDispatch {
     fn from(value: IUpdateSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10802,20 +9896,14 @@ impl ::core::convert::From<&IUpdateSession2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSession2> for IUpdateSession {
     fn from(value: IUpdateSession2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession2> for &'a IUpdateSession {
+    fn from(value: &'a IUpdateSession2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10823,18 +9911,6 @@ impl ::core::convert::From<IUpdateSession2> for IUpdateSession {
 impl ::core::convert::From<&IUpdateSession2> for IUpdateSession {
     fn from(value: &IUpdateSession2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSession> for IUpdateSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSession> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSession> for &'a IUpdateSession2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSession> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10884,8 +9960,8 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClientApplicationID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetClientApplicationID<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetClientApplicationID)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
@@ -10900,8 +9976,8 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWebProxy<'a, Param0: ::windows::core::IntoParam<'a, IWebProxy>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetWebProxy)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetWebProxy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IWebProxy>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetWebProxy)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -10938,14 +10014,20 @@ impl IUpdateSession3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn QueryHistory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, criteria: Param0, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
+    pub unsafe fn QueryHistory<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, criteria: Param0, startindex: i32, count: i32) -> ::windows::core::Result<IUpdateHistoryEntryCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), criteria.into_param().abi(), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
+        (::windows::core::Interface::vtable(self).QueryHistory)(::windows::core::Interface::as_raw(self), criteria.into().abi(), ::core::mem::transmute(startindex), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUpdateHistoryEntryCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSession3> for ::windows::core::IUnknown {
     fn from(value: IUpdateSession3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUpdateSession3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10956,20 +10038,14 @@ impl ::core::convert::From<&IUpdateSession3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSession3> for super::Com::IDispatch {
     fn from(value: IUpdateSession3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IUpdateSession3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10980,20 +10056,14 @@ impl ::core::convert::From<&IUpdateSession3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSession3> for IUpdateSession {
     fn from(value: IUpdateSession3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a IUpdateSession {
+    fn from(value: &'a IUpdateSession3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11004,20 +10074,14 @@ impl ::core::convert::From<&IUpdateSession3> for IUpdateSession {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSession> for IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSession> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSession> for &'a IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSession> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IUpdateSession3> for IUpdateSession2 {
     fn from(value: IUpdateSession3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IUpdateSession3> for &'a IUpdateSession2 {
+    fn from(value: &'a IUpdateSession3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11025,18 +10089,6 @@ impl ::core::convert::From<IUpdateSession3> for IUpdateSession2 {
 impl ::core::convert::From<&IUpdateSession3> for IUpdateSession2 {
     fn from(value: &IUpdateSession3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSession2> for IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSession2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdateSession2> for &'a IUpdateSession3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdateSession2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11092,8 +10144,8 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11103,8 +10155,8 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetBypassList<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBypassList)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetBypassList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBypassList)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BypassProxyOnLocal(&self) -> ::windows::core::Result<i16> {
@@ -11128,23 +10180,23 @@ impl IWebProxy {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetUserName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUserName)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetPassword<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptForCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, parentwindow: Param0, title: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PromptForCredentials)(::windows::core::Interface::as_raw(self), parentwindow.into_param().abi(), title.into_param().abi()).ok()
+    pub unsafe fn PromptForCredentials<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, parentwindow: Param0, title: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PromptForCredentials)(::windows::core::Interface::as_raw(self), parentwindow.into().abi(), title.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptForCredentialsFromHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, parentwindow: Param0, title: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PromptForCredentialsFromHwnd)(::windows::core::Interface::as_raw(self), parentwindow.into_param().abi(), title.into_param().abi()).ok()
+    pub unsafe fn PromptForCredentialsFromHwnd<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, parentwindow: Param0, title: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PromptForCredentialsFromHwnd)(::windows::core::Interface::as_raw(self), parentwindow.into(), title.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn AutoDetect(&self) -> ::windows::core::Result<i16> {
@@ -11163,21 +10215,15 @@ impl ::core::convert::From<IWebProxy> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWebProxy> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWebProxy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWebProxy> for ::windows::core::IUnknown {
     fn from(value: &IWebProxy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebProxy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWebProxy {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11187,21 +10233,15 @@ impl ::core::convert::From<IWebProxy> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWebProxy> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWebProxy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWebProxy> for super::Com::IDispatch {
     fn from(value: &IWebProxy) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWebProxy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWebProxy {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11515,8 +10555,8 @@ impl IWindowsDriverUpdate {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -11582,26 +10622,26 @@ impl ::core::convert::From<IWindowsDriverUpdate> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdate> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDriverUpdate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate> for super::Com::IDispatch {
     fn from(value: IWindowsDriverUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11612,20 +10652,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate> for IUpdate {
     fn from(value: IWindowsDriverUpdate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate> for &'a IUpdate {
+    fn from(value: &'a IWindowsDriverUpdate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -11633,18 +10667,6 @@ impl ::core::convert::From<IWindowsDriverUpdate> for IUpdate {
 impl ::core::convert::From<&IWindowsDriverUpdate> for IUpdate {
     fn from(value: &IWindowsDriverUpdate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IWindowsDriverUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IWindowsDriverUpdate {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11940,8 +10962,8 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -12017,13 +11039,19 @@ impl IWindowsDriverUpdate2 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate2> for ::windows::core::IUnknown {
     fn from(value: IWindowsDriverUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12034,20 +11062,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate2> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate2> for super::Com::IDispatch {
     fn from(value: IWindowsDriverUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12058,20 +11080,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate2> for IUpdate {
     fn from(value: IWindowsDriverUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a IUpdate {
+    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12082,20 +11098,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate2> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate2> for IWindowsDriverUpdate {
     fn from(value: IWindowsDriverUpdate2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate2> for &'a IWindowsDriverUpdate {
+    fn from(value: &'a IWindowsDriverUpdate2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12103,18 +11113,6 @@ impl ::core::convert::From<IWindowsDriverUpdate2> for IWindowsDriverUpdate {
 impl ::core::convert::From<&IWindowsDriverUpdate2> for IWindowsDriverUpdate {
     fn from(value: &IWindowsDriverUpdate2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for &'a IWindowsDriverUpdate2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12397,8 +11395,8 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -12474,8 +11472,8 @@ impl IWindowsDriverUpdate3 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BrowseOnly(&self) -> ::windows::core::Result<i16> {
@@ -12490,26 +11488,26 @@ impl ::core::convert::From<IWindowsDriverUpdate3> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdate3> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDriverUpdate3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate3> for super::Com::IDispatch {
     fn from(value: IWindowsDriverUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12520,20 +11518,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate3> for IUpdate {
     fn from(value: IWindowsDriverUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a IUpdate {
+    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12544,20 +11536,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate3> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate3> for IWindowsDriverUpdate {
     fn from(value: IWindowsDriverUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a IWindowsDriverUpdate {
+    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12568,20 +11554,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate3> for IWindowsDriverUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for &'a IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate3> for IWindowsDriverUpdate2 {
     fn from(value: IWindowsDriverUpdate3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate3> for &'a IWindowsDriverUpdate2 {
+    fn from(value: &'a IWindowsDriverUpdate3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -12589,18 +11569,6 @@ impl ::core::convert::From<IWindowsDriverUpdate3> for IWindowsDriverUpdate2 {
 impl ::core::convert::From<&IWindowsDriverUpdate3> for IWindowsDriverUpdate2 {
     fn from(value: &IWindowsDriverUpdate3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate2> for IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate2> for &'a IWindowsDriverUpdate3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12874,8 +11842,8 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -12951,8 +11919,8 @@ impl IWindowsDriverUpdate4 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BrowseOnly(&self) -> ::windows::core::Result<i16> {
@@ -12978,26 +11946,26 @@ impl ::core::convert::From<IWindowsDriverUpdate4> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdate4> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDriverUpdate4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate4> for super::Com::IDispatch {
     fn from(value: IWindowsDriverUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13008,20 +11976,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate4> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate4> for IUpdate {
     fn from(value: IWindowsDriverUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IUpdate {
+    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13032,20 +11994,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate4> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate {
     fn from(value: IWindowsDriverUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate {
+    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13056,20 +12012,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate4> for IWindowsDriverUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for &'a IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate2 {
     fn from(value: IWindowsDriverUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate2 {
+    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13080,20 +12030,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate4> for IWindowsDriverUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate2> for IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate2> for &'a IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate3 {
     fn from(value: IWindowsDriverUpdate4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate3 {
+    fn from(value: &'a IWindowsDriverUpdate4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13101,18 +12045,6 @@ impl ::core::convert::From<IWindowsDriverUpdate4> for IWindowsDriverUpdate3 {
 impl ::core::convert::From<&IWindowsDriverUpdate4> for IWindowsDriverUpdate3 {
     fn from(value: &IWindowsDriverUpdate4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate3> for IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate3> for &'a IWindowsDriverUpdate4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13390,8 +12322,8 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyFromCache<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
+    pub unsafe fn CopyFromCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, path: Param0, toextractcabfiles: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.CopyFromCache)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(toextractcabfiles)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn DownloadPriority(&self) -> ::windows::core::Result<DownloadPriority> {
@@ -13467,8 +12399,8 @@ impl IWindowsDriverUpdate5 {
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyToCache<'a, Param0: ::windows::core::IntoParam<'a, IStringCollection>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into_param().abi()).ok()
+    pub unsafe fn CopyToCache<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IStringCollection>>>(&self, pfiles: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CopyToCache)(::windows::core::Interface::as_raw(self), pfiles.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`*"]
     pub unsafe fn BrowseOnly(&self) -> ::windows::core::Result<i16> {
@@ -13504,26 +12436,26 @@ impl ::core::convert::From<IWindowsDriverUpdate5> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdate5> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDriverUpdate5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate5> for super::Com::IDispatch {
     fn from(value: IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13534,20 +12466,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate5> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate5> for IUpdate {
     fn from(value: IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IUpdate {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13558,20 +12484,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate5> for IUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IUpdate> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate {
     fn from(value: IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13582,20 +12502,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate2 {
     fn from(value: IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate2 {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13606,20 +12520,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate2 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate2> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate2> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate3 {
     fn from(value: IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate3 {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13630,20 +12538,14 @@ impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate3 {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate3> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate3> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate4 {
     fn from(value: IWindowsDriverUpdate5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdate5> for &'a IWindowsDriverUpdate4 {
+    fn from(value: &'a IWindowsDriverUpdate5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13651,18 +12553,6 @@ impl ::core::convert::From<IWindowsDriverUpdate5> for IWindowsDriverUpdate4 {
 impl ::core::convert::From<&IWindowsDriverUpdate5> for IWindowsDriverUpdate4 {
     fn from(value: &IWindowsDriverUpdate5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate4> for IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IWindowsDriverUpdate4> for &'a IWindowsDriverUpdate5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IWindowsDriverUpdate4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13757,21 +12647,15 @@ impl ::core::convert::From<IWindowsDriverUpdateEntry> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntry> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdateEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdateEntry> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDriverUpdateEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdateEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdateEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13781,21 +12665,15 @@ impl ::core::convert::From<IWindowsDriverUpdateEntry> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntry> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdateEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdateEntry> for super::Com::IDispatch {
     fn from(value: &IWindowsDriverUpdateEntry) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdateEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdateEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13882,21 +12760,15 @@ impl ::core::convert::From<IWindowsDriverUpdateEntryCollection> for ::windows::c
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntryCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsDriverUpdateEntryCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdateEntryCollection> for ::windows::core::IUnknown {
     fn from(value: &IWindowsDriverUpdateEntryCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsDriverUpdateEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsDriverUpdateEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13906,21 +12778,15 @@ impl ::core::convert::From<IWindowsDriverUpdateEntryCollection> for super::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsDriverUpdateEntryCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsDriverUpdateEntryCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IWindowsDriverUpdateEntryCollection> for super::Com::IDispatch {
     fn from(value: &IWindowsDriverUpdateEntryCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsDriverUpdateEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsDriverUpdateEntryCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13968,14 +12834,20 @@ pub struct IWindowsUpdateAgentInfo(::windows::core::IUnknown);
 impl IWindowsUpdateAgentInfo {
     #[doc = "*Required features: `\"Win32_System_UpdateAgent\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varinfoidentifier: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
+    pub unsafe fn GetInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varinfoidentifier: Param0) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), varinfoidentifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self), varinfoidentifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsUpdateAgentInfo> for ::windows::core::IUnknown {
     fn from(value: IWindowsUpdateAgentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsUpdateAgentInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsUpdateAgentInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -13986,20 +12858,14 @@ impl ::core::convert::From<&IWindowsUpdateAgentInfo> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWindowsUpdateAgentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IWindowsUpdateAgentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IWindowsUpdateAgentInfo> for super::Com::IDispatch {
     fn from(value: IWindowsUpdateAgentInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IWindowsUpdateAgentInfo> for &'a super::Com::IDispatch {
+    fn from(value: &'a IWindowsUpdateAgentInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -14007,18 +12873,6 @@ impl ::core::convert::From<IWindowsUpdateAgentInfo> for super::Com::IDispatch {
 impl ::core::convert::From<&IWindowsUpdateAgentInfo> for super::Com::IDispatch {
     fn from(value: &IWindowsUpdateAgentInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IWindowsUpdateAgentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IWindowsUpdateAgentInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

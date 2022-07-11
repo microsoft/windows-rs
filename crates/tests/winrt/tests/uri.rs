@@ -11,7 +11,7 @@ fn uri() -> windows::core::Result<()> {
         windows::core::GUID::from("9E365E57-48B2-4160-956F-C7385120BBFC") // IUriRuntimeClass
     );
 
-    let uri = &Uri::CreateUri("http://kennykerr.ca")?;
+    let uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
 
     assert!(uri.cast::<IAgileObject>().is_ok());
     assert!(uri.Domain()? == "kennykerr.ca");
@@ -31,20 +31,20 @@ fn interface_conversion() -> windows::core::Result<()> {
     // TODO: Find an example where the default constructor is not exclusive.
 
     // TODO: Convert from ??? class to (non-exclusive) default interface by value (dropping the class).
-    let uri: Uri = Uri::CreateUri("http://kennykerr.ca")?;
+    let uri: Uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
     // TODO: Convert from ??? class to (non-exclusive) default interface by reference (retaining the class).
-    let uri: &Uri = &Uri::CreateUri("http://kennykerr.ca")?;
+    let uri: &Uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let _default: IUriRuntimeClass = uri.cast()?;
 
     // Convert from Uri class to non-default non-generic interface by value.
-    let uri: Uri = Uri::CreateUri("http://kennykerr.ca")?;
+    let uri: Uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let default: IStringable = uri.try_into().unwrap();
     assert!(default.ToString()? == "http://kennykerr.ca/");
 
     // Convert from Uri class to non-default non-generic interface by reference.
-    let uri: &Uri = &Uri::CreateUri("http://kennykerr.ca")?;
+    let uri: &Uri = &Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let default: IStringable = uri.try_into().unwrap();
     assert!(default.ToString()? == uri.ToString()?);
 

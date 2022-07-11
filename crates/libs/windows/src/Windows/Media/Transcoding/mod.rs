@@ -98,9 +98,9 @@ impl MediaTranscoder {
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrimStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrimStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimStartTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimStartTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -113,9 +113,9 @@ impl MediaTranscoder {
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTrimStopTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTrimStopTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrimStopTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrimStopTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -153,26 +153,26 @@ impl MediaTranscoder {
         }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
-    pub fn AddAudioEffect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0) -> ::windows::core::Result<()> {
+    pub fn AddAudioEffect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAudioEffectWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, effectrequired: bool, configuration: Param2) -> ::windows::core::Result<()> {
+    pub fn AddAudioEffectWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, effectrequired: bool, configuration: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffectWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), effectrequired, configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffectWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), effectrequired, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
-    pub fn AddVideoEffect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0) -> ::windows::core::Result<()> {
+    pub fn AddVideoEffect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, activatableclassid: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddVideoEffectWithSettings<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, effectrequired: bool, configuration: Param2) -> ::windows::core::Result<()> {
+    pub fn AddVideoEffectWithSettings<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, effectrequired: bool, configuration: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffectWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), effectrequired, configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffectWithSettings)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), effectrequired, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
     pub fn ClearEffects(&self) -> ::windows::core::Result<()> {
@@ -181,35 +181,35 @@ impl MediaTranscoder {
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
-    pub fn PrepareFileTranscodeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
+    pub fn PrepareFileTranscodeAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareFileTranscodeAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareFileTranscodeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareStreamTranscodeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
+    pub fn PrepareStreamTranscodeAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareStreamTranscodeAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareStreamTranscodeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`, `\"Foundation\"`, `\"Media_Core\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareMediaStreamSourceTranscodeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Core::IMediaSource>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param2: ::windows::core::IntoParam<'a, super::MediaProperties::MediaEncodingProfile>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
+    pub fn PrepareMediaStreamSourceTranscodeAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::IMediaSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::MediaProperties::MediaEncodingProfile>>>(&self, source: Param0, destination: Param1, profile: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>> {
         let this = &::windows::core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), profile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
+            (::windows::core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
-    pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> ::windows::core::Result<()> {
+    pub fn SetVideoProcessingAlgorithm<'a, Param0: ::std::convert::Into<MediaVideoProcessingAlgorithm>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaTranscoder2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetVideoProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVideoProcessingAlgorithm)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Transcoding\"`*"]
     pub fn VideoProcessingAlgorithm(&self) -> ::windows::core::Result<MediaVideoProcessingAlgorithm> {
@@ -260,14 +260,9 @@ impl ::core::convert::From<&MediaTranscoder> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaTranscoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaTranscoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaTranscoder> for &::windows::core::IUnknown {
+    fn from(value: &MediaTranscoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaTranscoder> for ::windows::core::IInspectable {
@@ -280,14 +275,9 @@ impl ::core::convert::From<&MediaTranscoder> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaTranscoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaTranscoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaTranscoder> for &::windows::core::IInspectable {
+    fn from(value: &MediaTranscoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaTranscoder {}
@@ -396,14 +386,9 @@ impl ::core::convert::From<&PrepareTranscodeResult> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PrepareTranscodeResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PrepareTranscodeResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrepareTranscodeResult> for &::windows::core::IUnknown {
+    fn from(value: &PrepareTranscodeResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PrepareTranscodeResult> for ::windows::core::IInspectable {
@@ -416,14 +401,9 @@ impl ::core::convert::From<&PrepareTranscodeResult> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PrepareTranscodeResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PrepareTranscodeResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PrepareTranscodeResult> for &::windows::core::IInspectable {
+    fn from(value: &PrepareTranscodeResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}

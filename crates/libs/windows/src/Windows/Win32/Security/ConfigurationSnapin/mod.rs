@@ -7,12 +7,12 @@ pub const CCF_SCESVC_ATTACHMENT_DATA: &str = "CCF_SCESVC_ATTACHMENT_DATA";
 pub struct ISceSvcAttachmentData(::windows::core::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-    pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(scetype), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
+    pub unsafe fn GetData<'a, Param1: ::std::convert::Into<SCESVC_INFO_TYPE>>(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: Param1, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scesvchandle), scetype.into(), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
-    pub unsafe fn Initialize<'a, Param2: ::windows::core::IntoParam<'a, ISceSvcAttachmentPersistInfo>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::core::mem::transmute(pscesvchandle)).ok()
+    pub unsafe fn Initialize<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, ISceSvcAttachmentPersistInfo>>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into().abi(), ::core::mem::transmute(pscesvchandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -28,19 +28,14 @@ impl ::core::convert::From<ISceSvcAttachmentData> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISceSvcAttachmentData> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISceSvcAttachmentData) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISceSvcAttachmentData> for ::windows::core::IUnknown {
     fn from(value: &ISceSvcAttachmentData) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISceSvcAttachmentData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISceSvcAttachmentData {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISceSvcAttachmentData {
@@ -95,19 +90,14 @@ impl ::core::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISceSvcAttachmentPersistInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISceSvcAttachmentPersistInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISceSvcAttachmentPersistInfo> for ::windows::core::IUnknown {
     fn from(value: &ISceSvcAttachmentPersistInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISceSvcAttachmentPersistInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISceSvcAttachmentPersistInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISceSvcAttachmentPersistInfo {

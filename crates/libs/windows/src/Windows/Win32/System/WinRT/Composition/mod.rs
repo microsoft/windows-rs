@@ -4,13 +4,18 @@ pub struct ICompositionCapabilitiesInteropFactory(::windows::core::IUnknown);
 impl ICompositionCapabilitiesInteropFactory {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-    pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities> {
+    pub unsafe fn GetForWindow<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionCapabilities> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionCapabilities>(result__)
+        (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionCapabilities>(result__)
     }
 }
 impl ::core::convert::From<ICompositionCapabilitiesInteropFactory> for ::windows::core::IUnknown {
     fn from(value: ICompositionCapabilitiesInteropFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICompositionCapabilitiesInteropFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositionCapabilitiesInteropFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -19,34 +24,19 @@ impl ::core::convert::From<&ICompositionCapabilitiesInteropFactory> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositionCapabilitiesInteropFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionCapabilitiesInteropFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionCapabilitiesInteropFactory> for ::windows::core::IInspectable {
     fn from(value: ICompositionCapabilitiesInteropFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICompositionCapabilitiesInteropFactory> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a ICompositionCapabilitiesInteropFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ICompositionCapabilitiesInteropFactory> for ::windows::core::IInspectable {
     fn from(value: &ICompositionCapabilitiesInteropFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionCapabilitiesInteropFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ICompositionCapabilitiesInteropFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositionCapabilitiesInteropFactory {
@@ -94,8 +84,8 @@ impl ICompositionDrawingSurfaceInterop {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Resize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::SIZE>>(&self, sizepixels: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), sizepixels.into_param().abi()).ok()
+    pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Resize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sizepixels)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -116,19 +106,14 @@ impl ::core::convert::From<ICompositionDrawingSurfaceInterop> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositionDrawingSurfaceInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositionDrawingSurfaceInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositionDrawingSurfaceInterop> for ::windows::core::IUnknown {
     fn from(value: &ICompositionDrawingSurfaceInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositionDrawingSurfaceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionDrawingSurfaceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositionDrawingSurfaceInterop {
@@ -187,8 +172,8 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Resize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::SIZE>>(&self, sizepixels: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Resize)(::windows::core::Interface::as_raw(self), sizepixels.into_param().abi()).ok()
+    pub unsafe fn Resize(&self, sizepixels: super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Resize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sizepixels)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -205,12 +190,17 @@ impl ICompositionDrawingSurfaceInterop2 {
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopySurface<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, destinationresource: Param0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopySurface)(::windows::core::Interface::as_raw(self), destinationresource.into_param().abi(), ::core::mem::transmute(destinationoffsetx), ::core::mem::transmute(destinationoffsety), ::core::mem::transmute(sourcerectangle)).ok()
+    pub unsafe fn CopySurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, destinationresource: Param0, destinationoffsetx: i32, destinationoffsety: i32, sourcerectangle: *const super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopySurface)(::windows::core::Interface::as_raw(self), destinationresource.into().abi(), ::core::mem::transmute(destinationoffsetx), ::core::mem::transmute(destinationoffsety), ::core::mem::transmute(sourcerectangle)).ok()
     }
 }
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ::windows::core::IUnknown {
     fn from(value: ICompositionDrawingSurfaceInterop2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICompositionDrawingSurfaceInterop2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositionDrawingSurfaceInterop2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -219,34 +209,19 @@ impl ::core::convert::From<&ICompositionDrawingSurfaceInterop2> for ::windows::c
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositionDrawingSurfaceInterop2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionDrawingSurfaceInterop2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionDrawingSurfaceInterop2> for ICompositionDrawingSurfaceInterop {
     fn from(value: ICompositionDrawingSurfaceInterop2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ICompositionDrawingSurfaceInterop2> for &'a ICompositionDrawingSurfaceInterop {
+    fn from(value: &'a ICompositionDrawingSurfaceInterop2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ICompositionDrawingSurfaceInterop2> for ICompositionDrawingSurfaceInterop {
     fn from(value: &ICompositionDrawingSurfaceInterop2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICompositionDrawingSurfaceInterop> for ICompositionDrawingSurfaceInterop2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ICompositionDrawingSurfaceInterop> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ICompositionDrawingSurfaceInterop> for &'a ICompositionDrawingSurfaceInterop2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ICompositionDrawingSurfaceInterop> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositionDrawingSurfaceInterop2 {
@@ -288,8 +263,8 @@ impl ICompositionGraphicsDeviceInterop {
         (::windows::core::Interface::vtable(self).GetRenderingDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
-    pub unsafe fn SetRenderingDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRenderingDevice)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
+    pub unsafe fn SetRenderingDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRenderingDevice)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ICompositionGraphicsDeviceInterop> for ::windows::core::IUnknown {
@@ -297,19 +272,14 @@ impl ::core::convert::From<ICompositionGraphicsDeviceInterop> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositionGraphicsDeviceInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositionGraphicsDeviceInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositionGraphicsDeviceInterop> for ::windows::core::IUnknown {
     fn from(value: &ICompositionGraphicsDeviceInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositionGraphicsDeviceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositionGraphicsDeviceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositionGraphicsDeviceInterop {
@@ -345,9 +315,9 @@ pub struct ICompositorDesktopInterop(::windows::core::IUnknown);
 impl ICompositorDesktopInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition_Desktop\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition_Desktop", feature = "Win32_Foundation"))]
-    pub unsafe fn CreateDesktopWindowTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, hwndtarget: Param0, istopmost: Param1) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
+    pub unsafe fn CreateDesktopWindowTarget<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HWND>, Param1: ::std::convert::Into<super::super::super::Foundation::BOOL>>(&self, hwndtarget: Param0, istopmost: Param1) -> ::windows::core::Result<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDesktopWindowTarget)(::windows::core::Interface::as_raw(self), hwndtarget.into_param().abi(), istopmost.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>(result__)
+        (::windows::core::Interface::vtable(self).CreateDesktopWindowTarget)(::windows::core::Interface::as_raw(self), hwndtarget.into(), istopmost.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::Desktop::DesktopWindowTarget>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
     pub unsafe fn EnsureOnThread(&self, threadid: u32) -> ::windows::core::Result<()> {
@@ -359,19 +329,14 @@ impl ::core::convert::From<ICompositorDesktopInterop> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositorDesktopInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositorDesktopInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositorDesktopInterop> for ::windows::core::IUnknown {
     fn from(value: &ICompositorDesktopInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositorDesktopInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositorDesktopInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositorDesktopInterop {
@@ -410,21 +375,21 @@ pub struct ICompositorInterop(::windows::core::IUnknown);
 impl ICompositorInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`, `\"Win32_Foundation\"`*"]
     #[cfg(all(feature = "UI_Composition", feature = "Win32_Foundation"))]
-    pub unsafe fn CreateCompositionSurfaceForHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, swapchain: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
+    pub unsafe fn CreateCompositionSurfaceForHandle<'a, Param0: ::std::convert::Into<super::super::super::Foundation::HANDLE>>(&self, swapchain: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(::windows::core::Interface::as_raw(self), swapchain.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForHandle)(::windows::core::Interface::as_raw(self), swapchain.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateCompositionSurfaceForSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, swapchain: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
+    pub unsafe fn CreateCompositionSurfaceForSwapChain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, swapchain: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::ICompositionSurface> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
+        (::windows::core::Interface::vtable(self).CreateCompositionSurfaceForSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::ICompositionSurface>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub unsafe fn CreateGraphicsDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, renderingdevice: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice> {
+    pub unsafe fn CreateGraphicsDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, renderingdevice: Param0) -> ::windows::core::Result<super::super::super::super::UI::Composition::CompositionGraphicsDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGraphicsDevice)(::windows::core::Interface::as_raw(self), renderingdevice.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
+        (::windows::core::Interface::vtable(self).CreateGraphicsDevice)(::windows::core::Interface::as_raw(self), renderingdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Composition::CompositionGraphicsDevice>(result__)
     }
 }
 impl ::core::convert::From<ICompositorInterop> for ::windows::core::IUnknown {
@@ -432,19 +397,14 @@ impl ::core::convert::From<ICompositorInterop> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ICompositorInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ICompositorInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ICompositorInterop> for ::windows::core::IUnknown {
     fn from(value: &ICompositorInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICompositorInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ICompositorInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ICompositorInterop {
@@ -500,19 +460,14 @@ impl ::core::convert::From<IDesktopWindowTargetInterop> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDesktopWindowTargetInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDesktopWindowTargetInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDesktopWindowTargetInterop> for ::windows::core::IUnknown {
     fn from(value: &IDesktopWindowTargetInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDesktopWindowTargetInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDesktopWindowTargetInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDesktopWindowTargetInterop {
@@ -549,8 +504,8 @@ pub struct IDesktopWindowTargetInterop_Vtbl {
 pub struct ISwapChainInterop(::windows::core::IUnknown);
 impl ISwapChainInterop {
     #[doc = "*Required features: `\"Win32_System_WinRT_Composition\"`*"]
-    pub unsafe fn SetSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into_param().abi()).ok()
+    pub unsafe fn SetSwapChain<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ISwapChainInterop> for ::windows::core::IUnknown {
@@ -558,19 +513,14 @@ impl ::core::convert::From<ISwapChainInterop> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISwapChainInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISwapChainInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISwapChainInterop> for ::windows::core::IUnknown {
     fn from(value: &ISwapChainInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISwapChainInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISwapChainInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISwapChainInterop {
@@ -614,19 +564,14 @@ impl ::core::convert::From<IVisualInteractionSourceInterop> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVisualInteractionSourceInterop> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVisualInteractionSourceInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVisualInteractionSourceInterop> for ::windows::core::IUnknown {
     fn from(value: &IVisualInteractionSourceInterop) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualInteractionSourceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVisualInteractionSourceInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVisualInteractionSourceInterop {

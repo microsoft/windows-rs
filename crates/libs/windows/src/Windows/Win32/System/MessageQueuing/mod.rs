@@ -35,14 +35,20 @@ pub struct IMSMQApplication(::windows::core::IUnknown);
 impl IMSMQApplication {
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MachineIdOfMachineName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn MachineIdOfMachineName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication> for ::windows::core::IUnknown {
     fn from(value: IMSMQApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQApplication) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -53,20 +59,14 @@ impl ::core::convert::From<&IMSMQApplication> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication> for super::Com::IDispatch {
     fn from(value: IMSMQApplication) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQApplication) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -74,18 +74,6 @@ impl ::core::convert::From<IMSMQApplication> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQApplication> for super::Com::IDispatch {
     fn from(value: &IMSMQApplication) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQApplication {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -131,9 +119,9 @@ pub struct IMSMQApplication2(::windows::core::IUnknown);
 impl IMSMQApplication2 {
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MachineIdOfMachineName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn MachineIdOfMachineName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -142,9 +130,9 @@ impl IMSMQApplication2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MachineNameOfMachineId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn MachineNameOfMachineId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
@@ -180,26 +168,26 @@ impl ::core::convert::From<IMSMQApplication2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQApplication2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQApplication2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQApplication2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQApplication2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQApplication2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication2> for super::Com::IDispatch {
     fn from(value: IMSMQApplication2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQApplication2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -210,20 +198,14 @@ impl ::core::convert::From<&IMSMQApplication2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQApplication2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQApplication2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication2> for IMSMQApplication {
     fn from(value: IMSMQApplication2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication2> for &'a IMSMQApplication {
+    fn from(value: &'a IMSMQApplication2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -231,18 +213,6 @@ impl ::core::convert::From<IMSMQApplication2> for IMSMQApplication {
 impl ::core::convert::From<&IMSMQApplication2> for IMSMQApplication {
     fn from(value: &IMSMQApplication2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for IMSMQApplication2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for &'a IMSMQApplication2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -300,9 +270,9 @@ pub struct IMSMQApplication3(::windows::core::IUnknown);
 impl IMSMQApplication3 {
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MachineIdOfMachineName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn MachineIdOfMachineName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, machinename: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.MachineIdOfMachineName)(::windows::core::Interface::as_raw(self), machinename.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -311,9 +281,9 @@ impl IMSMQApplication3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MachineNameOfMachineId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+    pub unsafe fn MachineNameOfMachineId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::Foundation::BSTR>>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.MachineNameOfMachineId)(::windows::core::Interface::as_raw(self), bstrguid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MSMQVersionMajor(&self) -> ::windows::core::Result<i16> {
@@ -372,8 +342,8 @@ impl IMSMQApplication3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMachine<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmachine: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMachine)(::windows::core::Interface::as_raw(self), bstrmachine.into_param().abi()).ok()
+    pub unsafe fn SetMachine<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmachine: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMachine)(::windows::core::Interface::as_raw(self), bstrmachine.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -401,26 +371,26 @@ impl ::core::convert::From<IMSMQApplication3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQApplication3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQApplication3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQApplication3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication3> for super::Com::IDispatch {
     fn from(value: IMSMQApplication3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQApplication3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -431,20 +401,14 @@ impl ::core::convert::From<&IMSMQApplication3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication3> for IMSMQApplication {
     fn from(value: IMSMQApplication3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication3> for &'a IMSMQApplication {
+    fn from(value: &'a IMSMQApplication3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -455,20 +419,14 @@ impl ::core::convert::From<&IMSMQApplication3> for IMSMQApplication {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication> for &'a IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQApplication3> for IMSMQApplication2 {
     fn from(value: IMSMQApplication3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQApplication3> for &'a IMSMQApplication2 {
+    fn from(value: &'a IMSMQApplication3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -476,18 +434,6 @@ impl ::core::convert::From<IMSMQApplication3> for IMSMQApplication2 {
 impl ::core::convert::From<&IMSMQApplication3> for IMSMQApplication2 {
     fn from(value: &IMSMQApplication3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication2> for IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQApplication2> for &'a IMSMQApplication3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQApplication2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -579,21 +525,15 @@ impl ::core::convert::From<IMSMQCollection> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCollection> for ::windows::core::IUnknown {
     fn from(value: &IMSMQCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -603,21 +543,15 @@ impl ::core::convert::From<IMSMQCollection> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCollection> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCollection> for super::Com::IDispatch {
     fn from(value: &IMSMQCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -677,21 +611,15 @@ impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser> for ::windows::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCoordinatedTransactionDispenser> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQCoordinatedTransactionDispenser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCoordinatedTransactionDispenser> for ::windows::core::IUnknown {
     fn from(value: &IMSMQCoordinatedTransactionDispenser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCoordinatedTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -701,21 +629,15 @@ impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser> for super::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCoordinatedTransactionDispenser> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQCoordinatedTransactionDispenser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCoordinatedTransactionDispenser> for super::Com::IDispatch {
     fn from(value: &IMSMQCoordinatedTransactionDispenser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCoordinatedTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCoordinatedTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -779,21 +701,15 @@ impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser2> for ::windows:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCoordinatedTransactionDispenser2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQCoordinatedTransactionDispenser2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCoordinatedTransactionDispenser2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQCoordinatedTransactionDispenser2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCoordinatedTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -803,21 +719,15 @@ impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser2> for super::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCoordinatedTransactionDispenser2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQCoordinatedTransactionDispenser2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCoordinatedTransactionDispenser2> for super::Com::IDispatch {
     fn from(value: &IMSMQCoordinatedTransactionDispenser2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCoordinatedTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCoordinatedTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -885,21 +795,15 @@ impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser3> for ::windows:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCoordinatedTransactionDispenser3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQCoordinatedTransactionDispenser3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCoordinatedTransactionDispenser3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQCoordinatedTransactionDispenser3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQCoordinatedTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQCoordinatedTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -909,21 +813,15 @@ impl ::core::convert::From<IMSMQCoordinatedTransactionDispenser3> for super::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQCoordinatedTransactionDispenser3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQCoordinatedTransactionDispenser3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQCoordinatedTransactionDispenser3> for super::Com::IDispatch {
     fn from(value: &IMSMQCoordinatedTransactionDispenser3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQCoordinatedTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQCoordinatedTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -992,8 +890,8 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_IADs<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, piads: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_IADs)(::windows::core::Interface::as_raw(self), piads.into_param().abi()).ok()
+    pub unsafe fn putref_IADs<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, piads: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_IADs)(::windows::core::Interface::as_raw(self), piads.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1003,8 +901,8 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetADsPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradspath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetADsPath)(::windows::core::Interface::as_raw(self), bstradspath.into_param().abi()).ok()
+    pub unsafe fn SetADsPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstradspath: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetADsPath)(::windows::core::Interface::as_raw(self), bstradspath.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1014,8 +912,8 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+    pub unsafe fn SetPathName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -1025,8 +923,8 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+    pub unsafe fn SetFormatName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1036,8 +934,8 @@ impl IMSMQDestination {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Destinations<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pdestinations: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Destinations)(::windows::core::Interface::as_raw(self), pdestinations.into_param().abi()).ok()
+    pub unsafe fn putref_Destinations<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, pdestinations: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Destinations)(::windows::core::Interface::as_raw(self), pdestinations.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1053,21 +951,15 @@ impl ::core::convert::From<IMSMQDestination> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQDestination> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQDestination) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQDestination> for ::windows::core::IUnknown {
     fn from(value: &IMSMQDestination) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1077,21 +969,15 @@ impl ::core::convert::From<IMSMQDestination> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQDestination> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQDestination) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQDestination> for super::Com::IDispatch {
     fn from(value: &IMSMQDestination) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1185,21 +1071,15 @@ impl ::core::convert::From<IMSMQEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQEvent> for ::windows::core::IUnknown {
     fn from(value: &IMSMQEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1209,21 +1089,15 @@ impl ::core::convert::From<IMSMQEvent> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQEvent> for super::Com::IDispatch {
     fn from(value: &IMSMQEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1277,26 +1151,26 @@ impl ::core::convert::From<IMSMQEvent2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQEvent2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQEvent2> for super::Com::IDispatch {
     fn from(value: IMSMQEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1307,20 +1181,14 @@ impl ::core::convert::From<&IMSMQEvent2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQEvent2> for IMSMQEvent {
     fn from(value: IMSMQEvent2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent2> for &'a IMSMQEvent {
+    fn from(value: &'a IMSMQEvent2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1328,18 +1196,6 @@ impl ::core::convert::From<IMSMQEvent2> for IMSMQEvent {
 impl ::core::convert::From<&IMSMQEvent2> for IMSMQEvent {
     fn from(value: &IMSMQEvent2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for IMSMQEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for &'a IMSMQEvent2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1397,26 +1253,26 @@ impl ::core::convert::From<IMSMQEvent3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQEvent3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQEvent3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQEvent3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQEvent3> for super::Com::IDispatch {
     fn from(value: IMSMQEvent3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQEvent3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1427,20 +1283,14 @@ impl ::core::convert::From<&IMSMQEvent3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQEvent3> for IMSMQEvent {
     fn from(value: IMSMQEvent3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent3> for &'a IMSMQEvent {
+    fn from(value: &'a IMSMQEvent3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1451,20 +1301,14 @@ impl ::core::convert::From<&IMSMQEvent3> for IMSMQEvent {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent> for &'a IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQEvent3> for IMSMQEvent2 {
     fn from(value: IMSMQEvent3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQEvent3> for &'a IMSMQEvent2 {
+    fn from(value: &'a IMSMQEvent3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1472,18 +1316,6 @@ impl ::core::convert::From<IMSMQEvent3> for IMSMQEvent2 {
 impl ::core::convert::From<&IMSMQEvent3> for IMSMQEvent2 {
     fn from(value: &IMSMQEvent3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent2> for IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQEvent2> for &'a IMSMQEvent3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQEvent2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1579,21 +1411,15 @@ impl ::core::convert::From<IMSMQManagement> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQManagement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQManagement> for ::windows::core::IUnknown {
     fn from(value: &IMSMQManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1603,21 +1429,15 @@ impl ::core::convert::From<IMSMQManagement> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQManagement> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQManagement> for super::Com::IDispatch {
     fn from(value: &IMSMQManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1750,8 +1570,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
@@ -1781,8 +1601,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+    pub unsafe fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -1792,8 +1612,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1809,8 +1629,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+    pub unsafe fn SetCorrelationId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
@@ -1829,8 +1649,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
@@ -1894,8 +1714,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+    pub unsafe fn SetSenderCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -1914,8 +1734,8 @@ impl IMSMQMessage {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
+    pub unsafe fn Send<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into().abi(), ::core::mem::transmute(transaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
@@ -1929,21 +1749,15 @@ impl ::core::convert::From<IMSMQMessage> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQMessage> for ::windows::core::IUnknown {
     fn from(value: &IMSMQMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1953,21 +1767,15 @@ impl ::core::convert::From<IMSMQMessage> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQMessage> for super::Com::IDispatch {
     fn from(value: &IMSMQMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2185,8 +1993,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
@@ -2216,8 +2024,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+    pub unsafe fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2227,8 +2035,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2244,8 +2052,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+    pub unsafe fn SetCorrelationId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
@@ -2264,8 +2072,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
@@ -2329,8 +2137,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+    pub unsafe fn SetSenderCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2349,8 +2157,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue2>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
+    pub unsafe fn Send<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue2>>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into().abi(), ::core::mem::transmute(transaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
@@ -2369,8 +2177,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtension<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), varextension.into_param().abi()).ok()
+    pub unsafe fn SetExtension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), varextension.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -2380,8 +2188,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+    pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2397,8 +2205,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), vardestsymmkey.into_param().abi()).ok()
+    pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), vardestsymmkey.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2408,8 +2216,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), varsignature.into_param().abi()).ok()
+    pub unsafe fn SetSignature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), varsignature.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
@@ -2428,13 +2236,13 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+    pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), varsenderid.into_param().abi()).ok()
+    pub unsafe fn SetSenderId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), varsenderid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
@@ -2475,8 +2283,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2486,8 +2294,8 @@ impl IMSMQMessage2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
@@ -2502,21 +2310,15 @@ impl ::core::convert::From<IMSMQMessage2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQMessage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQMessage2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQMessage2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2526,21 +2328,15 @@ impl ::core::convert::From<IMSMQMessage2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQMessage2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQMessage2> for super::Com::IDispatch {
     fn from(value: &IMSMQMessage2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2838,8 +2634,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
@@ -2869,8 +2665,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+    pub unsafe fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -2880,8 +2676,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -2897,8 +2693,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+    pub unsafe fn SetCorrelationId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
@@ -2917,8 +2713,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
@@ -2982,8 +2778,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+    pub unsafe fn SetSenderCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3002,8 +2798,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
+    pub unsafe fn Send<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into().abi(), ::core::mem::transmute(transaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
@@ -3022,8 +2818,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtension<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), varextension.into_param().abi()).ok()
+    pub unsafe fn SetExtension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), varextension.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3033,8 +2829,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+    pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3050,8 +2846,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), vardestsymmkey.into_param().abi()).ok()
+    pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), vardestsymmkey.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3061,8 +2857,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), varsignature.into_param().abi()).ok()
+    pub unsafe fn SetSignature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), varsignature.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
@@ -3081,13 +2877,13 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+    pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), varsenderid.into_param().abi()).ok()
+    pub unsafe fn SetSenderId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), varsenderid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
@@ -3128,8 +2924,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo_v2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3139,8 +2935,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo_v2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
@@ -3155,8 +2951,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo3>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo3>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3166,8 +2962,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo3>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo3>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3177,8 +2973,8 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseDestination<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pdestresponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseDestination)(::windows::core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseDestination<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, pdestresponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseDestination)(::windows::core::Interface::as_raw(self), pdestresponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3225,18 +3021,24 @@ impl IMSMQMessage3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSoapHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapheader: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
+    pub unsafe fn SetSoapHeader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsoapheader: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSoapBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
+    pub unsafe fn SetSoapBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsoapbody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQMessage3> for ::windows::core::IUnknown {
     fn from(value: IMSMQMessage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQMessage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3247,20 +3049,14 @@ impl ::core::convert::From<&IMSMQMessage3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMessage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQMessage3> for super::Com::IDispatch {
     fn from(value: IMSMQMessage3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQMessage3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3268,18 +3064,6 @@ impl ::core::convert::From<IMSMQMessage3> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQMessage3> for super::Com::IDispatch {
     fn from(value: &IMSMQMessage3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3629,8 +3413,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo_v1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AppSpecific(&self) -> ::windows::core::Result<i32> {
@@ -3660,8 +3444,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into_param().abi()).ok()
+    pub unsafe fn SetBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varbody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), varbody.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3671,8 +3455,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo_v1<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v1)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3688,8 +3472,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetCorrelationId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into_param().abi()).ok()
+    pub unsafe fn SetCorrelationId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varmsgid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCorrelationId)(::windows::core::Interface::as_raw(self), varmsgid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Ack(&self) -> ::windows::core::Result<i32> {
@@ -3708,8 +3492,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MaxTimeToReachQueue(&self) -> ::windows::core::Result<i32> {
@@ -3773,8 +3557,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into_param().abi()).ok()
+    pub unsafe fn SetSenderCertificate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsendercert: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderCertificate)(::windows::core::Interface::as_raw(self), varsendercert.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3793,8 +3577,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Send<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into_param().abi(), ::core::mem::transmute(transaction)).ok()
+    pub unsafe fn Send<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, destinationqueue: Param0, transaction: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Send)(::windows::core::Interface::as_raw(self), destinationqueue.into().abi(), ::core::mem::transmute(transaction)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AttachCurrentSecurityContext(&self) -> ::windows::core::Result<()> {
@@ -3813,8 +3597,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetExtension<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), varextension.into_param().abi()).ok()
+    pub unsafe fn SetExtension<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varextension: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExtension)(::windows::core::Interface::as_raw(self), varextension.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3824,8 +3608,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into_param().abi()).ok()
+    pub unsafe fn SetConnectorTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidconnectortype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConnectorTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidconnectortype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3841,8 +3625,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), vardestsymmkey.into_param().abi()).ok()
+    pub unsafe fn SetDestinationSymmetricKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, vardestsymmkey: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDestinationSymmetricKey)(::windows::core::Interface::as_raw(self), vardestsymmkey.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3852,8 +3636,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSignature<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), varsignature.into_param().abi()).ok()
+    pub unsafe fn SetSignature<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsignature: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSignature)(::windows::core::Interface::as_raw(self), varsignature.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn AuthenticationProviderType(&self) -> ::windows::core::Result<i32> {
@@ -3872,13 +3656,13 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into_param().abi()).ok()
+    pub unsafe fn SetAuthenticationProviderName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrauthprovname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationProviderName)(::windows::core::Interface::as_raw(self), bstrauthprovname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSenderId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), varsenderid.into_param().abi()).ok()
+    pub unsafe fn SetSenderId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsenderid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSenderId)(::windows::core::Interface::as_raw(self), varsenderid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn MsgClass(&self) -> ::windows::core::Result<i32> {
@@ -3919,8 +3703,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo_v2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3930,8 +3714,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo_v2<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo2>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo_v2<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo2>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo_v2)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn ReceivedAuthenticationLevel(&self) -> ::windows::core::Result<i16> {
@@ -3946,8 +3730,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo4>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo4>>>(&self, pqinforesponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseQueueInfo)(::windows::core::Interface::as_raw(self), pqinforesponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3957,8 +3741,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueueInfo4>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into_param().abi()).ok()
+    pub unsafe fn putref_AdminQueueInfo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueueInfo4>>>(&self, pqinfoadmin: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_AdminQueueInfo)(::windows::core::Interface::as_raw(self), pqinfoadmin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3968,8 +3752,8 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_ResponseDestination<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pdestresponse: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ResponseDestination)(::windows::core::Interface::as_raw(self), pdestresponse.into_param().abi()).ok()
+    pub unsafe fn putref_ResponseDestination<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::IDispatch>>>(&self, pdestresponse: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ResponseDestination)(::windows::core::Interface::as_raw(self), pdestresponse.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4016,18 +3800,24 @@ impl IMSMQMessage4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSoapHeader<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapheader: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into_param().abi()).ok()
+    pub unsafe fn SetSoapHeader<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsoapheader: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSoapHeader)(::windows::core::Interface::as_raw(self), bstrsoapheader.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSoapBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsoapbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into_param().abi()).ok()
+    pub unsafe fn SetSoapBody<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrsoapbody: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSoapBody)(::windows::core::Interface::as_raw(self), bstrsoapbody.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQMessage4> for ::windows::core::IUnknown {
     fn from(value: IMSMQMessage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQMessage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4038,20 +3828,14 @@ impl ::core::convert::From<&IMSMQMessage4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQMessage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQMessage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQMessage4> for super::Com::IDispatch {
     fn from(value: IMSMQMessage4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQMessage4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQMessage4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4059,18 +3843,6 @@ impl ::core::convert::From<IMSMQMessage4> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQMessage4> for super::Com::IDispatch {
     fn from(value: &IMSMQMessage4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQMessage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQMessage4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4433,26 +4205,26 @@ impl ::core::convert::From<IMSMQOutgoingQueueManagement> for ::windows::core::IU
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQOutgoingQueueManagement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQOutgoingQueueManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQOutgoingQueueManagement> for ::windows::core::IUnknown {
     fn from(value: &IMSMQOutgoingQueueManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQOutgoingQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQOutgoingQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQOutgoingQueueManagement> for super::Com::IDispatch {
     fn from(value: IMSMQOutgoingQueueManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQOutgoingQueueManagement> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQOutgoingQueueManagement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4463,20 +4235,14 @@ impl ::core::convert::From<&IMSMQOutgoingQueueManagement> for super::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQOutgoingQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQOutgoingQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQOutgoingQueueManagement> for IMSMQManagement {
     fn from(value: IMSMQOutgoingQueueManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQOutgoingQueueManagement> for &'a IMSMQManagement {
+    fn from(value: &'a IMSMQOutgoingQueueManagement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4484,18 +4250,6 @@ impl ::core::convert::From<IMSMQOutgoingQueueManagement> for IMSMQManagement {
 impl ::core::convert::From<&IMSMQOutgoingQueueManagement> for IMSMQManagement {
     fn from(value: &IMSMQOutgoingQueueManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for IMSMQOutgoingQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQManagement> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for &'a IMSMQOutgoingQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQManagement> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4555,13 +4309,19 @@ impl IMSMQPrivateDestination {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetHandle<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varhandle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHandle)(::windows::core::Interface::as_raw(self), varhandle.into_param().abi()).ok()
+    pub unsafe fn SetHandle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varhandle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHandle)(::windows::core::Interface::as_raw(self), varhandle.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQPrivateDestination> for ::windows::core::IUnknown {
     fn from(value: IMSMQPrivateDestination) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQPrivateDestination> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQPrivateDestination) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4572,20 +4332,14 @@ impl ::core::convert::From<&IMSMQPrivateDestination> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQPrivateDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQPrivateDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQPrivateDestination> for super::Com::IDispatch {
     fn from(value: IMSMQPrivateDestination) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQPrivateDestination> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQPrivateDestination) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4593,18 +4347,6 @@ impl ::core::convert::From<IMSMQPrivateDestination> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQPrivateDestination> for super::Com::IDispatch {
     fn from(value: &IMSMQPrivateDestination) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQPrivateDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQPrivateDestination {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4659,18 +4401,24 @@ impl IMSMQPrivateEvent {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireArrivedEvent<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue>>(&self, pq: Param0, msgcursor: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FireArrivedEvent)(::windows::core::Interface::as_raw(self), pq.into_param().abi(), ::core::mem::transmute(msgcursor)).ok()
+    pub unsafe fn FireArrivedEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>>(&self, pq: Param0, msgcursor: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FireArrivedEvent)(::windows::core::Interface::as_raw(self), pq.into().abi(), ::core::mem::transmute(msgcursor)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FireArrivedErrorEvent<'a, Param0: ::windows::core::IntoParam<'a, IMSMQQueue>>(&self, pq: Param0, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FireArrivedErrorEvent)(::windows::core::Interface::as_raw(self), pq.into_param().abi(), ::core::mem::transmute(hrstatus), ::core::mem::transmute(msgcursor)).ok()
+    pub unsafe fn FireArrivedErrorEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQQueue>>>(&self, pq: Param0, hrstatus: ::windows::core::HRESULT, msgcursor: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FireArrivedErrorEvent)(::windows::core::Interface::as_raw(self), pq.into().abi(), ::core::mem::transmute(hrstatus), ::core::mem::transmute(msgcursor)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQPrivateEvent> for ::windows::core::IUnknown {
     fn from(value: IMSMQPrivateEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQPrivateEvent> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQPrivateEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4681,20 +4429,14 @@ impl ::core::convert::From<&IMSMQPrivateEvent> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQPrivateEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQPrivateEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQPrivateEvent> for super::Com::IDispatch {
     fn from(value: IMSMQPrivateEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQPrivateEvent> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQPrivateEvent) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4702,18 +4444,6 @@ impl ::core::convert::From<IMSMQPrivateEvent> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQPrivateEvent> for super::Com::IDispatch {
     fn from(value: &IMSMQPrivateEvent) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQPrivateEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQPrivateEvent {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4776,21 +4506,15 @@ impl ::core::convert::From<IMSMQQuery> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4800,21 +4524,15 @@ impl ::core::convert::From<IMSMQQuery> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery> for super::Com::IDispatch {
     fn from(value: &IMSMQQuery) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4878,21 +4596,15 @@ impl ::core::convert::From<IMSMQQuery2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQuery2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQuery2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4902,21 +4614,15 @@ impl ::core::convert::From<IMSMQQuery2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQuery2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery2> for super::Com::IDispatch {
     fn from(value: &IMSMQQuery2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5005,21 +4711,15 @@ impl ::core::convert::From<IMSMQQuery3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQuery3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQuery3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5029,21 +4729,15 @@ impl ::core::convert::From<IMSMQQuery3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQuery3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery3> for super::Com::IDispatch {
     fn from(value: &IMSMQQuery3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5136,21 +4830,15 @@ impl ::core::convert::From<IMSMQQuery4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQuery4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery4> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQuery4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQuery4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQuery4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5160,21 +4848,15 @@ impl ::core::convert::From<IMSMQQuery4> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQuery4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQuery4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQuery4> for super::Com::IDispatch {
     fn from(value: &IMSMQQuery4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQuery4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQuery4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5270,8 +4952,8 @@ impl IMSMQQueue {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
+    pub unsafe fn EnableNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent>>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -5303,21 +4985,15 @@ impl ::core::convert::From<IMSMQQueue> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueue> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5327,21 +5003,15 @@ impl ::core::convert::From<IMSMQQueue> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueue> for super::Com::IDispatch {
     fn from(value: &IMSMQQueue) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5459,8 +5129,8 @@ impl IMSMQQueue2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent2>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
+    pub unsafe fn EnableNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent2>>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -5528,21 +5198,15 @@ impl ::core::convert::From<IMSMQQueue2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueue2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueue2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueue2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5552,21 +5216,15 @@ impl ::core::convert::From<IMSMQQueue2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueue2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueue2> for super::Com::IDispatch {
     fn from(value: &IMSMQQueue2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5708,8 +5366,8 @@ impl IMSMQQueue3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent3>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
+    pub unsafe fn EnableNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent3>>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -5777,21 +5435,21 @@ impl IMSMQQueue3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
+    pub unsafe fn ReceiveByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiveByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
+        (::windows::core::Interface::vtable(self).ReceiveByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
+    pub unsafe fn ReceiveNextByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiveNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
+        (::windows::core::Interface::vtable(self).ReceiveNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceivePreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
+    pub unsafe fn ReceivePreviousByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
+        (::windows::core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5807,21 +5465,21 @@ impl IMSMQQueue3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
+    pub unsafe fn PeekByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).PeekByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
+        (::windows::core::Interface::vtable(self).PeekByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
+    pub unsafe fn PeekNextByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).PeekNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
+        (::windows::core::Interface::vtable(self).PeekNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekPreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
+    pub unsafe fn PeekPreviousByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage3> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).PeekPreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
+        (::windows::core::Interface::vtable(self).PeekPreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage3>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5852,21 +5510,15 @@ impl ::core::convert::From<IMSMQQueue3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueue3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueue3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueue3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueue3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5876,21 +5528,15 @@ impl ::core::convert::From<IMSMQQueue3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueue3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueue3> for super::Com::IDispatch {
     fn from(value: &IMSMQQueue3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6078,8 +5724,8 @@ impl IMSMQQueue4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn EnableNotification<'a, Param0: ::windows::core::IntoParam<'a, IMSMQEvent3>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into_param().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
+    pub unsafe fn EnableNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMSMQEvent3>>>(&self, event: Param0, cursor: *const super::Com::VARIANT, receivetimeout: *const super::Com::VARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableNotification)(::windows::core::Interface::as_raw(self), event.into().abi(), ::core::mem::transmute(cursor), ::core::mem::transmute(receivetimeout)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -6147,21 +5793,21 @@ impl IMSMQQueue4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn ReceiveByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiveByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).ReceiveByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn ReceiveNextByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiveNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).ReceiveNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceivePreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn ReceivePreviousByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).ReceivePreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6177,21 +5823,21 @@ impl IMSMQQueue4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn PeekByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).PeekByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).PeekByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekNextByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn PeekNextByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).PeekNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).PeekNextByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn PeekPreviousByLookupId<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn PeekPreviousByLookupId<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).PeekPreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).PeekPreviousByLookupId)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6216,14 +5862,20 @@ impl IMSMQQueue4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn ReceiveByLookupIdAllowPeek<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
+    pub unsafe fn ReceiveByLookupIdAllowPeek<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, lookupid: Param0, transaction: *const super::Com::VARIANT, wantdestinationqueue: *const super::Com::VARIANT, wantbody: *const super::Com::VARIANT, wantconnectortype: *const super::Com::VARIANT) -> ::windows::core::Result<IMSMQMessage4> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiveByLookupIdAllowPeek)(::windows::core::Interface::as_raw(self), lookupid.into_param().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
+        (::windows::core::Interface::vtable(self).ReceiveByLookupIdAllowPeek)(::windows::core::Interface::as_raw(self), lookupid.into().abi(), ::core::mem::transmute(transaction), ::core::mem::transmute(wantdestinationqueue), ::core::mem::transmute(wantbody), ::core::mem::transmute(wantconnectortype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMSMQMessage4>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQQueue4> for ::windows::core::IUnknown {
     fn from(value: IMSMQQueue4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueue4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6234,20 +5886,14 @@ impl ::core::convert::From<&IMSMQQueue4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueue4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueue4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQQueue4> for super::Com::IDispatch {
     fn from(value: IMSMQQueue4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueue4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueue4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6255,18 +5901,6 @@ impl ::core::convert::From<IMSMQQueue4> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQQueue4> for super::Com::IDispatch {
     fn from(value: &IMSMQQueue4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueue4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueue4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6428,8 +6062,8 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6439,8 +6073,8 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6450,8 +6084,8 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+    pub unsafe fn SetPathName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6461,8 +6095,8 @@ impl IMSMQQueueInfo {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+    pub unsafe fn SetFormatName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
@@ -6571,21 +6205,15 @@ impl ::core::convert::From<IMSMQQueueInfo> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfo> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6595,21 +6223,15 @@ impl ::core::convert::From<IMSMQQueueInfo> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfo> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6732,8 +6354,8 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6743,8 +6365,8 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6754,8 +6376,8 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+    pub unsafe fn SetPathName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -6765,8 +6387,8 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+    pub unsafe fn SetFormatName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
@@ -6887,13 +6509,19 @@ impl IMSMQQueueInfo2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), varsecurity.into_param().abi()).ok()
+    pub unsafe fn SetSecurity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), varsecurity.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQQueueInfo2> for ::windows::core::IUnknown {
     fn from(value: IMSMQQueueInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6904,20 +6532,14 @@ impl ::core::convert::From<&IMSMQQueueInfo2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQQueueInfo2> for super::Com::IDispatch {
     fn from(value: IMSMQQueueInfo2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfo2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6925,18 +6547,6 @@ impl ::core::convert::From<IMSMQQueueInfo2> for super::Com::IDispatch {
 impl ::core::convert::From<&IMSMQQueueInfo2> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfo2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7075,8 +6685,8 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7086,8 +6696,8 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7097,8 +6707,8 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+    pub unsafe fn SetPathName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7108,8 +6718,8 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+    pub unsafe fn SetFormatName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
@@ -7230,8 +6840,8 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), varsecurity.into_param().abi()).ok()
+    pub unsafe fn SetSecurity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), varsecurity.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsTransactional2(&self) -> ::windows::core::Result<i16> {
@@ -7251,8 +6861,8 @@ impl IMSMQQueueInfo3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMulticastAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmulticastaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
+    pub unsafe fn SetMulticastAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmulticastaddress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7268,21 +6878,15 @@ impl ::core::convert::From<IMSMQQueueInfo3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfo3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfo3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfo3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfo3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7292,21 +6896,15 @@ impl ::core::convert::From<IMSMQQueueInfo3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfo3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfo3> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfo3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfo3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7459,8 +7057,8 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into_param().abi()).ok()
+    pub unsafe fn SetServiceTypeGuid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrguidservicetype: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetServiceTypeGuid)(::windows::core::Interface::as_raw(self), bstrguidservicetype.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7470,8 +7068,8 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
+    pub unsafe fn SetLabel<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLabel)(::windows::core::Interface::as_raw(self), bstrlabel.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7481,8 +7079,8 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPathName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into_param().abi()).ok()
+    pub unsafe fn SetPathName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpathname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPathName)(::windows::core::Interface::as_raw(self), bstrpathname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7492,8 +7090,8 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFormatName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into_param().abi()).ok()
+    pub unsafe fn SetFormatName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrformatname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFormatName)(::windows::core::Interface::as_raw(self), bstrformatname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsTransactional(&self) -> ::windows::core::Result<i16> {
@@ -7614,8 +7212,8 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), varsecurity.into_param().abi()).ok()
+    pub unsafe fn SetSecurity<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, varsecurity: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), varsecurity.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
     pub unsafe fn IsTransactional2(&self) -> ::windows::core::Result<i16> {
@@ -7635,8 +7233,8 @@ impl IMSMQQueueInfo4 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMulticastAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmulticastaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into_param().abi()).ok()
+    pub unsafe fn SetMulticastAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrmulticastaddress: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMulticastAddress)(::windows::core::Interface::as_raw(self), bstrmulticastaddress.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7652,21 +7250,15 @@ impl ::core::convert::From<IMSMQQueueInfo4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfo4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfo4> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfo4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfo4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfo4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7676,21 +7268,15 @@ impl ::core::convert::From<IMSMQQueueInfo4> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfo4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfo4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfo4> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfo4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfo4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfo4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7847,21 +7433,15 @@ impl ::core::convert::From<IMSMQQueueInfos> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfos) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfos) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7871,21 +7451,15 @@ impl ::core::convert::From<IMSMQQueueInfos> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfos) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfos) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7954,21 +7528,15 @@ impl ::core::convert::From<IMSMQQueueInfos2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfos2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfos2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfos2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7978,21 +7546,15 @@ impl ::core::convert::From<IMSMQQueueInfos2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfos2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos2> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfos2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfos2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8065,21 +7627,15 @@ impl ::core::convert::From<IMSMQQueueInfos3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfos3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfos3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfos3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8089,21 +7645,15 @@ impl ::core::convert::From<IMSMQQueueInfos3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfos3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos3> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfos3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfos3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8176,21 +7726,15 @@ impl ::core::convert::From<IMSMQQueueInfos4> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos4> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueInfos4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos4> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueInfos4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueInfos4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueInfos4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8200,21 +7744,15 @@ impl ::core::convert::From<IMSMQQueueInfos4> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueInfos4> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueInfos4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueInfos4> for super::Com::IDispatch {
     fn from(value: &IMSMQQueueInfos4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueInfos4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueInfos4 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8336,26 +7874,26 @@ impl ::core::convert::From<IMSMQQueueManagement> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueManagement> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQQueueManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQQueueManagement> for ::windows::core::IUnknown {
     fn from(value: &IMSMQQueueManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQQueueManagement> for super::Com::IDispatch {
     fn from(value: IMSMQQueueManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueManagement> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQQueueManagement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8366,20 +7904,14 @@ impl ::core::convert::From<&IMSMQQueueManagement> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQQueueManagement> for IMSMQManagement {
     fn from(value: IMSMQQueueManagement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQQueueManagement> for &'a IMSMQManagement {
+    fn from(value: &'a IMSMQQueueManagement) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8387,18 +7919,6 @@ impl ::core::convert::From<IMSMQQueueManagement> for IMSMQManagement {
 impl ::core::convert::From<&IMSMQQueueManagement> for IMSMQManagement {
     fn from(value: &IMSMQQueueManagement) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for IMSMQQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQManagement> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQManagement> for &'a IMSMQQueueManagement {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQManagement> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8470,21 +7990,15 @@ impl ::core::convert::From<IMSMQTransaction> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQTransaction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransaction> for ::windows::core::IUnknown {
     fn from(value: &IMSMQTransaction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTransaction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransaction {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8494,21 +8008,15 @@ impl ::core::convert::From<IMSMQTransaction> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQTransaction) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransaction> for super::Com::IDispatch {
     fn from(value: &IMSMQTransaction) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransaction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransaction {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8574,8 +8082,8 @@ impl IMSMQTransaction2 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InitNew<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vartransaction: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitNew)(::windows::core::Interface::as_raw(self), vartransaction.into_param().abi()).ok()
+    pub unsafe fn InitNew<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, vartransaction: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitNew)(::windows::core::Interface::as_raw(self), vartransaction.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8591,26 +8099,26 @@ impl ::core::convert::From<IMSMQTransaction2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQTransaction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransaction2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQTransaction2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQTransaction2> for super::Com::IDispatch {
     fn from(value: IMSMQTransaction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQTransaction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8621,20 +8129,14 @@ impl ::core::convert::From<&IMSMQTransaction2> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQTransaction2> for IMSMQTransaction {
     fn from(value: IMSMQTransaction2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction2> for &'a IMSMQTransaction {
+    fn from(value: &'a IMSMQTransaction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8642,18 +8144,6 @@ impl ::core::convert::From<IMSMQTransaction2> for IMSMQTransaction {
 impl ::core::convert::From<&IMSMQTransaction2> for IMSMQTransaction {
     fn from(value: &IMSMQTransaction2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for IMSMQTransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for &'a IMSMQTransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8718,8 +8208,8 @@ impl IMSMQTransaction3 {
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn InitNew<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vartransaction: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InitNew)(::windows::core::Interface::as_raw(self), vartransaction.into_param().abi()).ok()
+    pub unsafe fn InitNew<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Com::VARIANT>>>(&self, vartransaction: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InitNew)(::windows::core::Interface::as_raw(self), vartransaction.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8741,26 +8231,26 @@ impl ::core::convert::From<IMSMQTransaction3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQTransaction3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransaction3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQTransaction3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQTransaction3> for super::Com::IDispatch {
     fn from(value: IMSMQTransaction3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQTransaction3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8771,20 +8261,14 @@ impl ::core::convert::From<&IMSMQTransaction3> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQTransaction3> for IMSMQTransaction {
     fn from(value: IMSMQTransaction3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction3> for &'a IMSMQTransaction {
+    fn from(value: &'a IMSMQTransaction3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8795,20 +8279,14 @@ impl ::core::convert::From<&IMSMQTransaction3> for IMSMQTransaction {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction> for &'a IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IMSMQTransaction3> for IMSMQTransaction2 {
     fn from(value: IMSMQTransaction3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransaction3> for &'a IMSMQTransaction2 {
+    fn from(value: &'a IMSMQTransaction3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8816,18 +8294,6 @@ impl ::core::convert::From<IMSMQTransaction3> for IMSMQTransaction2 {
 impl ::core::convert::From<&IMSMQTransaction3> for IMSMQTransaction2 {
     fn from(value: &IMSMQTransaction3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction2> for IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, IMSMQTransaction2> for &'a IMSMQTransaction3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMSMQTransaction2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8885,21 +8351,15 @@ impl ::core::convert::From<IMSMQTransactionDispenser> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransactionDispenser> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQTransactionDispenser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransactionDispenser> for ::windows::core::IUnknown {
     fn from(value: &IMSMQTransactionDispenser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8909,21 +8369,15 @@ impl ::core::convert::From<IMSMQTransactionDispenser> for super::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransactionDispenser> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQTransactionDispenser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransactionDispenser> for super::Com::IDispatch {
     fn from(value: &IMSMQTransactionDispenser) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransactionDispenser {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8987,21 +8441,15 @@ impl ::core::convert::From<IMSMQTransactionDispenser2> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransactionDispenser2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQTransactionDispenser2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransactionDispenser2> for ::windows::core::IUnknown {
     fn from(value: &IMSMQTransactionDispenser2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9011,21 +8459,15 @@ impl ::core::convert::From<IMSMQTransactionDispenser2> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransactionDispenser2> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQTransactionDispenser2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransactionDispenser2> for super::Com::IDispatch {
     fn from(value: &IMSMQTransactionDispenser2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransactionDispenser2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9093,21 +8535,15 @@ impl ::core::convert::From<IMSMQTransactionDispenser3> for ::windows::core::IUnk
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransactionDispenser3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMSMQTransactionDispenser3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransactionDispenser3> for ::windows::core::IUnknown {
     fn from(value: &IMSMQTransactionDispenser3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMSMQTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMSMQTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9117,21 +8553,15 @@ impl ::core::convert::From<IMSMQTransactionDispenser3> for super::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMSMQTransactionDispenser3> for &'a super::Com::IDispatch {
+    fn from(value: &'a IMSMQTransactionDispenser3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMSMQTransactionDispenser3> for super::Com::IDispatch {
     fn from(value: &IMSMQTransactionDispenser3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for IMSMQTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a IMSMQTransactionDispenser3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10893,21 +10323,15 @@ impl ::core::convert::From<_DMSMQEventEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _DMSMQEventEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_DMSMQEventEvents> for ::windows::core::IUnknown {
     fn from(value: &_DMSMQEventEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _DMSMQEventEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _DMSMQEventEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10917,21 +10341,15 @@ impl ::core::convert::From<_DMSMQEventEvents> for super::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _DMSMQEventEvents> for &'a super::Com::IDispatch {
+    fn from(value: &'a _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_DMSMQEventEvents> for super::Com::IDispatch {
     fn from(value: &_DMSMQEventEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for _DMSMQEventEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::Com::IDispatch> for &'a _DMSMQEventEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -54,19 +54,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IIterable<
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IIterable<T>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IIterable<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IIterable<T>> for ::windows::core::IUnknown {
     fn from(value: &IIterable<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIterable<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIterable<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IIterable<T>> for ::windows::core::IInspectable {
@@ -74,19 +69,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IIterable<
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IIterable<T>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IIterable<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IIterable<T>> for ::windows::core::IInspectable {
     fn from(value: &IIterable<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IIterable<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IIterable<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IIterable<T> {
@@ -184,19 +174,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IIterator<
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IIterator<T>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IIterator<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IIterator<T>> for ::windows::core::IUnknown {
     fn from(value: &IIterator<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIterator<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IIterator<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IIterator<T>> for ::windows::core::IInspectable {
@@ -204,19 +189,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IIterator<
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IIterator<T>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IIterator<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IIterator<T>> for ::windows::core::IInspectable {
     fn from(value: &IIterator<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IIterator<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IIterator<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IIterator<T> {
@@ -298,19 +278,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IKeyValuePair<K, V>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IKeyValuePair<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IKeyValuePair<K, V>> for ::windows::core::IUnknown {
     fn from(value: &IKeyValuePair<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<IKeyValuePair<K, V>> for ::windows::core::IInspectable {
@@ -318,19 +293,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IKeyValuePair<K, V>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IKeyValuePair<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IKeyValuePair<K, V>> for ::windows::core::IInspectable {
     fn from(value: &IKeyValuePair<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IKeyValuePair<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IKeyValuePair<K, V> {
@@ -381,11 +351,11 @@ where
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMap<K, V> {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<V> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<V> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -397,11 +367,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -413,17 +383,17 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, K>, Param1: ::windows::core::IntoParam<'a, V>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, V>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -444,19 +414,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IMap<K, V>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMap<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IMap<K, V>> for ::windows::core::IUnknown {
     fn from(value: &IMap<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<IMap<K, V>> for ::windows::core::IInspectable {
@@ -464,19 +429,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IMap<K, V>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMap<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IMap<K, V>> for ::windows::core::IInspectable {
     fn from(value: &IMap<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IMap<K, V>> for IIterable<IKeyValuePair<K, V>> {
@@ -491,14 +451,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<K, V>>> for IMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<K, V>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<K, V>>> for &IMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<K, V>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<K, V>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IMap<K, V>> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<K, V>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IMap<K, V>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IMap<K, V> {
@@ -588,19 +545,14 @@ impl<K: ::windows::core::RuntimeType + 'static> ::core::convert::From<IMapChange
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IMapChangedEventArgs<K>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMapChangedEventArgs<K>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IMapChangedEventArgs<K>> for ::windows::core::IUnknown {
     fn from(value: &IMapChangedEventArgs<K>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static> ::core::convert::From<IMapChangedEventArgs<K>> for ::windows::core::IInspectable {
@@ -608,19 +560,14 @@ impl<K: ::windows::core::RuntimeType + 'static> ::core::convert::From<IMapChange
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IMapChangedEventArgs<K>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMapChangedEventArgs<K>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IMapChangedEventArgs<K>> for ::windows::core::IInspectable {
     fn from(value: &IMapChangedEventArgs<K>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMapChangedEventArgs<K> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IMapChangedEventArgs<K> {
@@ -669,11 +616,11 @@ where
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IMapView<K, V> {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<V> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<V> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -685,11 +632,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -711,19 +658,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IMapView<K, V>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMapView<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IMapView<K, V>> for ::windows::core::IUnknown {
     fn from(value: &IMapView<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMapView<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMapView<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<IMapView<K, V>> for ::windows::core::IInspectable {
@@ -731,19 +673,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IMapView<K, V>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMapView<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IMapView<K, V>> for ::windows::core::IInspectable {
     fn from(value: &IMapView<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMapView<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMapView<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IMapView<K, V>> for IIterable<IKeyValuePair<K, V>> {
@@ -758,14 +695,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<K, V>>> for IMapView<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<K, V>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<K, V>>> for &IMapView<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<K, V>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<K, V>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IMapView<K, V>> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<K, V>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IMapView<K, V>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IMapView<K, V> {
@@ -832,17 +766,17 @@ where
     V: ::windows::core::RuntimeType + 'static;
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> IObservableMap<K, V> {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn MapChanged<'a, Param0: ::windows::core::IntoParam<'a, MapChangedEventHandler<K, V>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn MapChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<K, V>>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn RemoveMapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<IKeyValuePair<K, V>>> {
@@ -853,11 +787,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<V> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<V> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<<V as ::windows::core::Abi>::Abi>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<V>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -869,11 +803,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -885,17 +819,17 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, K>, Param1: ::windows::core::IntoParam<'a, V>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, V>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, K>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, K>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<K, V>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -908,19 +842,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IObservableMap<K, V>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IObservableMap<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IObservableMap<K, V>> for ::windows::core::IUnknown {
     fn from(value: &IObservableMap<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<IObservableMap<K, V>> for ::windows::core::IInspectable {
@@ -928,19 +857,14 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IObservableMap<K, V>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IObservableMap<K, V>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IObservableMap<K, V>> for ::windows::core::IInspectable {
     fn from(value: &IObservableMap<K, V>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IObservableMap<K, V>> for IIterable<IKeyValuePair<K, V>> {
@@ -955,14 +879,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<K, V>>> for IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<K, V>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<K, V>>> for &IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<K, V>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<K, V>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableMap<K, V>> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<K, V>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IObservableMap<K, V>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IObservableMap<K, V>> for IMap<K, V> {
@@ -977,14 +898,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IMap<K, V>> for IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<K, V>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IMap<K, V>> for &IObservableMap<K, V> {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<K, V>> {
-        ::core::convert::TryInto::<IMap<K, V>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableMap<K, V>> for ::windows::core::InParam<'a, IMap<K, V>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IObservableMap<K, V>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IObservableMap<K, V> {
@@ -1048,17 +966,17 @@ where
     T: ::windows::core::RuntimeType + 'static;
 impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn VectorChanged<'a, Param0: ::windows::core::IntoParam<'a, VectorChangedEventHandler<T>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn VectorChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, VectorChangedEventHandler<T>>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).VectorChanged)(::windows::core::Interface::as_raw(this), vhnd.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VectorChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn RemoveVectorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveVectorChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVectorChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVectorChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn First(&self) -> ::windows::core::Result<IIterator<T>> {
@@ -1093,22 +1011,22 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, T>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetAt<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertAt<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
@@ -1116,9 +1034,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVector<T> {
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, T>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Append<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector<T>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
@@ -1149,19 +1067,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IObservabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IObservableVector<T>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IObservableVector<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IObservableVector<T>> for ::windows::core::IUnknown {
     fn from(value: &IObservableVector<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IObservableVector<T>> for ::windows::core::IInspectable {
@@ -1169,19 +1082,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IObservabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IObservableVector<T>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IObservableVector<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IObservableVector<T>> for ::windows::core::IInspectable {
     fn from(value: &IObservableVector<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IObservableVector<T>> for IIterable<T> {
@@ -1196,14 +1104,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObser
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<T>> for IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<T>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<T>> for &IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<T>> {
-        ::core::convert::TryInto::<IIterable<T>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableVector<T>> for ::windows::core::InParam<'a, IIterable<T>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IObservableVector<T>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IObservableVector<T>> for IVector<T> {
@@ -1218,14 +1123,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObser
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IVector<T>> for IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IVector<T>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IVector<T>> for &IObservableVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IVector<T>> {
-        ::core::convert::TryInto::<IVector<T>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IObservableVector<T>> for ::windows::core::InParam<'a, IVector<T>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IObservableVector<T>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IObservableVector<T> {
@@ -1293,11 +1195,11 @@ impl IPropertySet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1309,11 +1211,11 @@ impl IPropertySet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1325,17 +1227,17 @@ impl IPropertySet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -1343,21 +1245,26 @@ impl IPropertySet {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn MapChanged<'a, Param0: ::windows::core::IntoParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn MapChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn RemoveMapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::convert::From<IPropertySet> for ::windows::core::IUnknown {
     fn from(value: IPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPropertySet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -1366,34 +1273,19 @@ impl ::core::convert::From<&IPropertySet> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPropertySet> for ::windows::core::IInspectable {
     fn from(value: IPropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPropertySet> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPropertySet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IPropertySet> for ::windows::core::IInspectable {
     fn from(value: &IPropertySet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::TryFrom<IPropertySet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
@@ -1408,14 +1300,11 @@ impl ::core::convert::TryFrom<&IPropertySet> for IIterable<IKeyValuePair<::windo
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IPropertySet> for IMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
@@ -1430,14 +1319,11 @@ impl ::core::convert::TryFrom<&IPropertySet> for IMap<::windows::core::HSTRING, 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IPropertySet> for IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
@@ -1452,14 +1338,11 @@ impl ::core::convert::TryFrom<&IPropertySet> for IObservableMap<::windows::core:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &IPropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IPropertySet> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IPropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IPropertySet {
@@ -1539,22 +1422,22 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, T>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn SetAt<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, T>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
+    pub fn InsertAt<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
@@ -1562,9 +1445,9 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector<T> {
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, T>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Append<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
@@ -1603,19 +1486,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IVector<T>
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IVector<T>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVector<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IVector<T>> for ::windows::core::IUnknown {
     fn from(value: &IVector<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IVector<T>> for ::windows::core::IInspectable {
@@ -1623,19 +1501,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IVector<T>
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IVector<T>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVector<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IVector<T>> for ::windows::core::IInspectable {
     fn from(value: &IVector<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IVector<T>> for IIterable<T> {
@@ -1650,14 +1523,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVecto
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<T>> for IVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<T>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<T>> for &IVector<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<T>> {
-        ::core::convert::TryInto::<IIterable<T>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVector<T>> for ::windows::core::InParam<'a, IIterable<T>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IVector<T>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IVector<T> {
@@ -1766,19 +1636,14 @@ impl ::core::convert::From<IVectorChangedEventArgs> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVectorChangedEventArgs> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVectorChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVectorChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &IVectorChangedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IVectorChangedEventArgs> for ::windows::core::IInspectable {
@@ -1786,19 +1651,14 @@ impl ::core::convert::From<IVectorChangedEventArgs> for ::windows::core::IInspec
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IVectorChangedEventArgs> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVectorChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IVectorChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &IVectorChangedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVectorChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IVectorChangedEventArgs {
@@ -1858,11 +1718,11 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorView<T> {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, T>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, T>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1887,19 +1747,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IVectorVie
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IVectorView<T>> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IVectorView<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IVectorView<T>> for ::windows::core::IUnknown {
     fn from(value: &IVectorView<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVectorView<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IVectorView<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IVectorView<T>> for ::windows::core::IInspectable {
@@ -1907,19 +1762,14 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IVectorVie
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&'a IVectorView<T>> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IVectorView<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IVectorView<T>> for ::windows::core::IInspectable {
     fn from(value: &IVectorView<T>) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVectorView<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IVectorView<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IVectorView<T>> for IIterable<T> {
@@ -1934,14 +1784,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVecto
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<T>> for IVectorView<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<T>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IIterable<T>> for &IVectorView<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<T>> {
-        ::core::convert::TryInto::<IIterable<T>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IVectorView<T>> for ::windows::core::InParam<'a, IIterable<T>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IVectorView<T>) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IVectorView<T> {
@@ -2028,9 +1875,9 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IObservableMap<K, V>>, Param1: ::windows::core::IntoParam<'a, IMapChangedEventArgs<K>>>(&self, sender: Param0, event: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableMap<K, V>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IMapChangedEventArgs<K>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, sender: Param0, event: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), event.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), event.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[repr(C)]
@@ -2136,11 +1983,11 @@ impl PropertySet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2152,11 +1999,11 @@ impl PropertySet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2168,17 +2015,17 @@ impl PropertySet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -2186,17 +2033,17 @@ impl PropertySet {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn MapChanged<'a, Param0: ::windows::core::IntoParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn MapChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn RemoveMapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for PropertySet {
@@ -2253,14 +2100,9 @@ impl ::core::convert::From<&PropertySet> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PropertySet> for &::windows::core::IUnknown {
+    fn from(value: &PropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PropertySet> for ::windows::core::IInspectable {
@@ -2273,14 +2115,9 @@ impl ::core::convert::From<&PropertySet> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PropertySet> for &::windows::core::IInspectable {
+    fn from(value: &PropertySet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<PropertySet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
@@ -2295,14 +2132,11 @@ impl ::core::convert::TryFrom<&PropertySet> for IIterable<IKeyValuePair<::window
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PropertySet> for IMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
@@ -2317,14 +2151,11 @@ impl ::core::convert::TryFrom<&PropertySet> for IMap<::windows::core::HSTRING, :
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PropertySet> for IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
@@ -2339,14 +2170,11 @@ impl ::core::convert::TryFrom<&PropertySet> for IObservableMap<::windows::core::
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<PropertySet> for IPropertySet {
@@ -2361,14 +2189,11 @@ impl ::core::convert::TryFrom<&PropertySet> for IPropertySet {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertySet> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for &PropertySet {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertySet> {
-        ::core::convert::TryInto::<IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a, IPropertySet> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PropertySet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PropertySet {}
@@ -2393,11 +2218,11 @@ impl StringMap {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2409,11 +2234,11 @@ impl StringMap {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2425,17 +2250,17 @@ impl StringMap {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -2443,17 +2268,17 @@ impl StringMap {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn MapChanged<'a, Param0: ::windows::core::IntoParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::HSTRING>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn MapChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn RemoveMapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for StringMap {
@@ -2510,14 +2335,9 @@ impl ::core::convert::From<&StringMap> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StringMap> for &::windows::core::IUnknown {
+    fn from(value: &StringMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<StringMap> for ::windows::core::IInspectable {
@@ -2530,14 +2350,9 @@ impl ::core::convert::From<&StringMap> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&StringMap> for &::windows::core::IInspectable {
+    fn from(value: &StringMap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<StringMap> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
@@ -2552,14 +2367,11 @@ impl ::core::convert::TryFrom<&StringMap> for IIterable<IKeyValuePair<::windows:
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> for StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> for &StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StringMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<StringMap> for IMap<::windows::core::HSTRING, ::windows::core::HSTRING> {
@@ -2574,14 +2386,11 @@ impl ::core::convert::TryFrom<&StringMap> for IMap<::windows::core::HSTRING, ::w
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for &StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
-        ::core::convert::TryInto::<IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StringMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<StringMap> for IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING> {
@@ -2596,14 +2405,11 @@ impl ::core::convert::TryFrom<&StringMap> for IObservableMap<::windows::core::HS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for &StringMap {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
-        ::core::convert::TryInto::<IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &StringMap) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for StringMap {}
@@ -2628,11 +2434,11 @@ impl ValueSet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Lookup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+    pub fn Lookup<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2644,11 +2450,11 @@ impl ValueSet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn HasKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<bool> {
+    pub fn HasKey<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), key.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2660,17 +2466,17 @@ impl ValueSet {
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into_param().abi(), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), key.into().abi(), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Remove<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0) -> ::windows::core::Result<()> {
+    pub fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, key: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), key.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -2678,17 +2484,17 @@ impl ValueSet {
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn MapChanged<'a, Param0: ::windows::core::IntoParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
+    pub fn MapChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MapChangedEventHandler<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, vhnd: Param0) -> ::windows::core::Result<super::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapChanged)(::windows::core::Interface::as_raw(this), vhnd.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn RemoveMapChanged<'a, Param0: ::windows::core::IntoParam<'a, super::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for ValueSet {
@@ -2745,14 +2551,9 @@ impl ::core::convert::From<&ValueSet> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ValueSet> for &::windows::core::IUnknown {
+    fn from(value: &ValueSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ValueSet> for ::windows::core::IInspectable {
@@ -2765,14 +2566,9 @@ impl ::core::convert::From<&ValueSet> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ValueSet> for &::windows::core::IInspectable {
+    fn from(value: &ValueSet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<ValueSet> for IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>> {
@@ -2787,14 +2583,11 @@ impl ::core::convert::TryFrom<&ValueSet> for IIterable<IKeyValuePair<::windows::
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> for &ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
-        ::core::convert::TryInto::<IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IIterable<IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ValueSet> for IMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
@@ -2809,14 +2602,11 @@ impl ::core::convert::TryFrom<&ValueSet> for IMap<::windows::core::HSTRING, ::wi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ValueSet> for IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable> {
@@ -2831,14 +2621,11 @@ impl ::core::convert::TryFrom<&ValueSet> for IObservableMap<::windows::core::HST
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> for &ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        ::core::convert::TryInto::<IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IObservableMap<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<ValueSet> for IPropertySet {
@@ -2853,14 +2640,11 @@ impl ::core::convert::TryFrom<&ValueSet> for IPropertySet {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertySet> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPropertySet> for &ValueSet {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertySet> {
-        ::core::convert::TryInto::<IPropertySet>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IPropertySet> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ValueSet) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for ValueSet {}
@@ -2876,9 +2660,9 @@ impl<T: ::windows::core::RuntimeType + 'static> VectorChangedEventHandler<T> {
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IObservableVector<T>>, Param1: ::windows::core::IntoParam<'a, IVectorChangedEventArgs>>(&self, sender: Param0, event: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IObservableVector<T>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IVectorChangedEventArgs>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, sender: Param0, event: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into_param().abi(), event.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.try_into().map_err(|e| e.into())?.abi(), event.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[repr(C)]

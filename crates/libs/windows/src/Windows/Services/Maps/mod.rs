@@ -27,10 +27,10 @@ impl EnhancedWaypoint {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(point: Param0, kind: WaypointKind) -> ::windows::core::Result<EnhancedWaypoint> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<WaypointKind>>(point: Param0, kind: Param1) -> ::windows::core::Result<EnhancedWaypoint> {
         Self::IEnhancedWaypointFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), point.into_param().abi(), kind, result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), point.into().abi(), kind.into(), result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
         })
     }
     #[doc(hidden)]
@@ -79,14 +79,9 @@ impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for EnhancedWaypoint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a EnhancedWaypoint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IUnknown {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IInspectable {
@@ -99,14 +94,9 @@ impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for EnhancedWaypoint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a EnhancedWaypoint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IInspectable {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for EnhancedWaypoint {}
@@ -823,14 +813,9 @@ impl ::core::convert::From<&ManeuverWarning> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ManeuverWarning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ManeuverWarning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ManeuverWarning> for &::windows::core::IUnknown {
+    fn from(value: &ManeuverWarning) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ManeuverWarning> for ::windows::core::IInspectable {
@@ -843,14 +828,9 @@ impl ::core::convert::From<&ManeuverWarning> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ManeuverWarning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ManeuverWarning {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ManeuverWarning> for &::windows::core::IInspectable {
+    fn from(value: &ManeuverWarning) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ManeuverWarning {}
@@ -1133,14 +1113,9 @@ impl ::core::convert::From<&MapAddress> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapAddress> for &::windows::core::IUnknown {
+    fn from(value: &MapAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapAddress> for ::windows::core::IInspectable {
@@ -1153,14 +1128,9 @@ impl ::core::convert::From<&MapAddress> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapAddress {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapAddress> for &::windows::core::IInspectable {
+    fn from(value: &MapAddress) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapAddress {}
@@ -1243,14 +1213,9 @@ impl ::core::convert::From<&MapLocation> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapLocation> for &::windows::core::IUnknown {
+    fn from(value: &MapLocation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapLocation> for ::windows::core::IInspectable {
@@ -1263,14 +1228,9 @@ impl ::core::convert::From<&MapLocation> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapLocation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapLocation> for &::windows::core::IInspectable {
+    fn from(value: &MapLocation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapLocation {}
@@ -1314,34 +1274,34 @@ pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocationsAtAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
+    pub fn FindLocationsAtAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>>(querypoint: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocationsAtAsync)(::windows::core::Interface::as_raw(this), querypoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocationsAtAsync)(::windows::core::Interface::as_raw(this), querypoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocationsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(searchtext: Param0, referencepoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
+    pub fn FindLocationsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>>(searchtext: Param0, referencepoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocationsAsync)(::windows::core::Interface::as_raw(this), searchtext.into_param().abi(), referencepoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocationsAsync)(::windows::core::Interface::as_raw(this), searchtext.into().abi(), referencepoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocationsWithMaxCountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(searchtext: Param0, referencepoint: Param1, maxcount: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
+    pub fn FindLocationsWithMaxCountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>>(searchtext: Param0, referencepoint: Param1, maxcount: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocationsWithMaxCountAsync)(::windows::core::Interface::as_raw(this), searchtext.into_param().abi(), referencepoint.into_param().abi(), maxcount, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocationsWithMaxCountAsync)(::windows::core::Interface::as_raw(this), searchtext.into().abi(), referencepoint.into().abi(), maxcount, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn FindLocationsAtWithAccuracyAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0, accuracy: MapLocationDesiredAccuracy) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
+    pub fn FindLocationsAtWithAccuracyAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<MapLocationDesiredAccuracy>>(querypoint: Param0, accuracy: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>> {
         Self::IMapLocationFinderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(::windows::core::Interface::as_raw(this), querypoint.into_param().abi(), accuracy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(::windows::core::Interface::as_raw(this), querypoint.into().abi(), accuracy.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapLocationFinderResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1420,14 +1380,9 @@ impl ::core::convert::From<&MapLocationFinderResult> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapLocationFinderResult> for &::windows::core::IUnknown {
+    fn from(value: &MapLocationFinderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapLocationFinderResult> for ::windows::core::IInspectable {
@@ -1440,14 +1395,9 @@ impl ::core::convert::From<&MapLocationFinderResult> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapLocationFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapLocationFinderResult> for &::windows::core::IInspectable {
+    fn from(value: &MapLocationFinderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapLocationFinderResult {}
@@ -1712,14 +1662,9 @@ impl ::core::convert::From<&MapRoute> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapRoute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapRoute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRoute> for &::windows::core::IUnknown {
+    fn from(value: &MapRoute) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapRoute> for ::windows::core::IInspectable {
@@ -1732,14 +1677,9 @@ impl ::core::convert::From<&MapRoute> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapRoute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapRoute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRoute> for &::windows::core::IInspectable {
+    fn from(value: &MapRoute) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapRoute {}
@@ -1779,9 +1719,9 @@ impl MapRouteDrivingOptions {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetInitialHeading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetInitialHeading<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<f64>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInitialHeading)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInitialHeading)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn RouteOptimization(&self) -> ::windows::core::Result<MapRouteOptimization> {
@@ -1792,9 +1732,9 @@ impl MapRouteDrivingOptions {
         }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetRouteOptimization(&self, value: MapRouteOptimization) -> ::windows::core::Result<()> {
+    pub fn SetRouteOptimization<'a, Param0: ::std::convert::Into<MapRouteOptimization>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRouteOptimization)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRouteOptimization)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn RouteRestrictions(&self) -> ::windows::core::Result<MapRouteRestrictions> {
@@ -1805,9 +1745,9 @@ impl MapRouteDrivingOptions {
         }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> ::windows::core::Result<()> {
+    pub fn SetRouteRestrictions<'a, Param0: ::std::convert::Into<MapRouteRestrictions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRouteRestrictions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRouteRestrictions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1820,9 +1760,9 @@ impl MapRouteDrivingOptions {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetDepartureTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDepartureTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDepartureTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDepartureTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MapRouteDrivingOptions {
@@ -1865,14 +1805,9 @@ impl ::core::convert::From<&MapRouteDrivingOptions> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapRouteDrivingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapRouteDrivingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteDrivingOptions> for &::windows::core::IUnknown {
+    fn from(value: &MapRouteDrivingOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapRouteDrivingOptions> for ::windows::core::IInspectable {
@@ -1885,14 +1820,9 @@ impl ::core::convert::From<&MapRouteDrivingOptions> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapRouteDrivingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapRouteDrivingOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteDrivingOptions> for &::windows::core::IInspectable {
+    fn from(value: &MapRouteDrivingOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapRouteDrivingOptions {}
@@ -1902,106 +1832,106 @@ pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>>(startpoint: Param0, endpoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteAsync)(::windows::core::Interface::as_raw(this), startpoint.into_param().abi(), endpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptimizationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteWithOptimizationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param2: ::std::convert::Into<MapRouteOptimization>>(startpoint: Param0, endpoint: Param1, optimization: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAsync)(::windows::core::Interface::as_raw(this), startpoint.into_param().abi(), endpoint.into_param().abi(), optimization, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param2: ::std::convert::Into<MapRouteOptimization>, Param3: ::std::convert::Into<MapRouteRestrictions>>(startpoint: Param0, endpoint: Param1, optimization: Param2, restrictions: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), startpoint.into_param().abi(), endpoint.into_param().abi(), optimization, restrictions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization.into(), restrictions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param2: ::std::convert::Into<MapRouteOptimization>, Param3: ::std::convert::Into<MapRouteRestrictions>>(startpoint: Param0, endpoint: Param1, optimization: Param2, restrictions: Param3, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), startpoint.into_param().abi(), endpoint.into_param().abi(), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), optimization.into(), restrictions.into(), headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteFromWaypointsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<MapRouteOptimization>>(waypoints: Param0, optimization: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), optimization, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsAndOptimizationAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<MapRouteOptimization>, Param2: ::std::convert::Into<MapRouteRestrictions>>(waypoints: Param0, optimization: Param1, restrictions: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), optimization, restrictions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization.into(), restrictions.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<MapRouteOptimization>, Param2: ::std::convert::Into<MapRouteRestrictions>>(waypoints: Param0, optimization: Param1, restrictions: Param2, headingindegrees: f64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), optimization, restrictions, headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), optimization.into(), restrictions.into(), headingindegrees, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetWalkingRouteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(startpoint: Param0, endpoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetWalkingRouteAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>>(startpoint: Param0, endpoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWalkingRouteAsync)(::windows::core::Interface::as_raw(this), startpoint.into_param().abi(), endpoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetWalkingRouteAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
-    pub fn GetWalkingRouteFromWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetWalkingRouteFromWaypointsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::super::Devices::Geolocation::Geopoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetWalkingRouteFromWaypointsAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetWalkingRouteFromWaypointsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
-    pub fn GetDrivingRouteWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param2: ::windows::core::IntoParam<'a, MapRouteDrivingOptions>>(startpoint: Param0, endpoint: Param1, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, MapRouteDrivingOptions>>>(startpoint: Param0, endpoint: Param1, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(::windows::core::Interface::as_raw(this), startpoint.into_param().abi(), endpoint.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(::windows::core::Interface::as_raw(this), startpoint.into().abi(), endpoint.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDrivingRouteFromEnhancedWaypointsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteFromEnhancedWaypointsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(waypoints: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>, Param1: ::windows::core::IntoParam<'a, MapRouteDrivingOptions>>(waypoints: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
+    pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<EnhancedWaypoint>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::Into<::windows::core::InParam<'a, MapRouteDrivingOptions>>>(waypoints: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>> {
         Self::IMapRouteFinderStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(::windows::core::Interface::as_raw(this), waypoints.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(::windows::core::Interface::as_raw(this), waypoints.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MapRouteFinderResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -2093,14 +2023,9 @@ impl ::core::convert::From<&MapRouteFinderResult> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapRouteFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapRouteFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteFinderResult> for &::windows::core::IUnknown {
+    fn from(value: &MapRouteFinderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapRouteFinderResult> for ::windows::core::IInspectable {
@@ -2113,14 +2038,9 @@ impl ::core::convert::From<&MapRouteFinderResult> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapRouteFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapRouteFinderResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteFinderResult> for &::windows::core::IInspectable {
+    fn from(value: &MapRouteFinderResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapRouteFinderResult {}
@@ -2273,14 +2193,9 @@ impl ::core::convert::From<&MapRouteLeg> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapRouteLeg {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapRouteLeg {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteLeg> for &::windows::core::IUnknown {
+    fn from(value: &MapRouteLeg) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapRouteLeg> for ::windows::core::IInspectable {
@@ -2293,14 +2208,9 @@ impl ::core::convert::From<&MapRouteLeg> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapRouteLeg {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapRouteLeg {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteLeg> for &::windows::core::IInspectable {
+    fn from(value: &MapRouteLeg) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapRouteLeg {}
@@ -2432,14 +2342,9 @@ impl ::core::convert::From<&MapRouteManeuver> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MapRouteManeuver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MapRouteManeuver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteManeuver> for &::windows::core::IUnknown {
+    fn from(value: &MapRouteManeuver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MapRouteManeuver> for ::windows::core::IInspectable {
@@ -2452,14 +2357,9 @@ impl ::core::convert::From<&MapRouteManeuver> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MapRouteManeuver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MapRouteManeuver {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MapRouteManeuver> for &::windows::core::IInspectable {
+    fn from(value: &MapRouteManeuver) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MapRouteManeuver {}
@@ -2628,8 +2528,8 @@ unsafe impl ::windows::core::RuntimeType for MapRouteRestrictions {
 pub struct MapService;
 impl MapService {
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetServiceToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IMapServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetServiceToken)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SetServiceToken<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IMapServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetServiceToken)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn ServiceToken() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2653,8 +2553,8 @@ impl MapService {
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> ::windows::core::Result<()> {
-        Self::IMapServiceStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetDataUsagePreference)(::windows::core::Interface::as_raw(this), value).ok() })
+    pub fn SetDataUsagePreference<'a, Param0: ::std::convert::Into<MapServiceDataUsagePreference>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IMapServiceStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).SetDataUsagePreference)(::windows::core::Interface::as_raw(this), value.into()).ok() })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn DataUsagePreference() -> ::windows::core::Result<MapServiceDataUsagePreference> {
@@ -2727,15 +2627,15 @@ pub struct PlaceInfo(::windows::core::IUnknown);
 impl PlaceInfo {
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Show<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0) -> ::windows::core::Result<()> {
+    pub fn Show(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Show)(::windows::core::Interface::as_raw(this), selection.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Show)(::windows::core::Interface::as_raw(this), selection).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
-    pub fn ShowWithPreferredPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, selection: Param0, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()> {
+    pub fn ShowWithPreferredPlacement<'a, Param1: ::std::convert::Into<super::super::UI::Popups::Placement>>(&self, selection: super::super::Foundation::Rect, preferredplacement: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ShowWithPreferredPlacement)(::windows::core::Interface::as_raw(this), selection.into_param().abi(), preferredplacement).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ShowWithPreferredPlacement)(::windows::core::Interface::as_raw(this), selection, preferredplacement.into()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn Identifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2772,40 +2672,40 @@ impl PlaceInfo {
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(referencepoint: Param0) -> ::windows::core::Result<PlaceInfo> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>>(referencepoint: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), referencepoint.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), referencepoint.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateWithGeopointAndOptions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param1: ::windows::core::IntoParam<'a, PlaceInfoCreateOptions>>(referencepoint: Param0, options: Param1) -> ::windows::core::Result<PlaceInfo> {
+    pub fn CreateWithGeopointAndOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, PlaceInfoCreateOptions>>>(referencepoint: Param0, options: Param1) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithGeopointAndOptions)(::windows::core::Interface::as_raw(this), referencepoint.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithGeopointAndOptions)(::windows::core::Interface::as_raw(this), referencepoint.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn CreateFromIdentifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identifier: Param0) -> ::windows::core::Result<PlaceInfo> {
+    pub fn CreateFromIdentifier<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(identifier: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIdentifier)(::windows::core::Interface::as_raw(this), identifier.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIdentifier)(::windows::core::Interface::as_raw(this), identifier.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateFromIdentifierWithOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>, Param2: ::windows::core::IntoParam<'a, PlaceInfoCreateOptions>>(identifier: Param0, defaultpoint: Param1, options: Param2) -> ::windows::core::Result<PlaceInfo> {
+    pub fn CreateFromIdentifierWithOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, PlaceInfoCreateOptions>>>(identifier: Param0, defaultpoint: Param1, options: Param2) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromIdentifierWithOptions)(::windows::core::Interface::as_raw(this), identifier.into_param().abi(), defaultpoint.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromIdentifierWithOptions)(::windows::core::Interface::as_raw(this), identifier.into().abi(), defaultpoint.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn CreateFromMapLocation<'a, Param0: ::windows::core::IntoParam<'a, MapLocation>>(location: Param0) -> ::windows::core::Result<PlaceInfo> {
+    pub fn CreateFromMapLocation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MapLocation>>>(location: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromMapLocation)(::windows::core::Interface::as_raw(this), location.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromMapLocation)(::windows::core::Interface::as_raw(this), location.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
@@ -2816,17 +2716,17 @@ impl PlaceInfo {
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn CreateFromAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displayaddress: Param0) -> ::windows::core::Result<PlaceInfo> {
+    pub fn CreateFromAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(displayaddress: Param0) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAddress)(::windows::core::Interface::as_raw(this), displayaddress.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromAddress)(::windows::core::Interface::as_raw(this), displayaddress.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn CreateFromAddressWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displayaddress: Param0, displayname: Param1) -> ::windows::core::Result<PlaceInfo> {
+    pub fn CreateFromAddressWithName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(displayaddress: Param0, displayname: Param1) -> ::windows::core::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAddressWithName)(::windows::core::Interface::as_raw(this), displayaddress.into_param().abi(), displayname.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromAddressWithName)(::windows::core::Interface::as_raw(this), displayaddress.into().abi(), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<PlaceInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -2880,14 +2780,9 @@ impl ::core::convert::From<&PlaceInfo> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaceInfo> for &::windows::core::IUnknown {
+    fn from(value: &PlaceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaceInfo> for ::windows::core::IInspectable {
@@ -2900,14 +2795,9 @@ impl ::core::convert::From<&PlaceInfo> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaceInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaceInfo> for &::windows::core::IInspectable {
+    fn from(value: &PlaceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlaceInfo {}
@@ -2924,9 +2814,9 @@ impl PlaceInfoCreateOptions {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2937,9 +2827,9 @@ impl PlaceInfoCreateOptions {
         }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
-    pub fn SetDisplayAddress<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayAddress<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayAddress)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayAddress)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn DisplayAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2990,14 +2880,9 @@ impl ::core::convert::From<&PlaceInfoCreateOptions> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaceInfoCreateOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaceInfoCreateOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaceInfoCreateOptions> for &::windows::core::IUnknown {
+    fn from(value: &PlaceInfoCreateOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaceInfoCreateOptions> for ::windows::core::IInspectable {
@@ -3010,14 +2895,9 @@ impl ::core::convert::From<&PlaceInfoCreateOptions> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaceInfoCreateOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaceInfoCreateOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaceInfoCreateOptions> for &::windows::core::IInspectable {
+    fn from(value: &PlaceInfoCreateOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}

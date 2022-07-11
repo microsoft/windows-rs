@@ -62,33 +62,33 @@ impl Geofence {
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IGeoshape>>(id: Param0, geoshape: Param1) -> ::windows::core::Result<Geofence> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(id: Param0, geoshape: Param1) -> ::windows::core::Result<Geofence> {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into_param().abi(), geoshape.into_param().abi(), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
-    pub fn CreateWithMonitorStates<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IGeoshape>>(id: Param0, geoshape: Param1, monitoredstates: MonitoredGeofenceStates, singleuse: bool) -> ::windows::core::Result<Geofence> {
+    pub fn CreateWithMonitorStates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<MonitoredGeofenceStates>>(id: Param0, geoshape: Param1, monitoredstates: Param2, singleuse: bool) -> ::windows::core::Result<Geofence> {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithMonitorStates)(::windows::core::Interface::as_raw(this), id.into_param().abi(), geoshape.into_param().abi(), monitoredstates, singleuse, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMonitorStates)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates.into(), singleuse, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesAndDwellTime<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IGeoshape>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(id: Param0, geoshape: Param1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: Param4) -> ::windows::core::Result<Geofence> {
+    pub fn CreateWithMonitorStatesAndDwellTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<MonitoredGeofenceStates>>(id: Param0, geoshape: Param1, monitoredstates: Param2, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence> {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(::windows::core::Interface::as_raw(this), id.into_param().abi(), geoshape.into_param().abi(), monitoredstates, singleuse, dwelltime.into_param().abi(), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMonitorStatesAndDwellTime)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates.into(), singleuse, dwelltime, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::IGeoshape>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(id: Param0, geoshape: Param1, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: Param4, starttime: Param5, duration: Param6) -> ::windows::core::Result<Geofence> {
+    pub fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::IGeoshape>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<MonitoredGeofenceStates>>(id: Param0, geoshape: Param1, monitoredstates: Param2, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<Geofence> {
         Self::IGeofenceFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(::windows::core::Interface::as_raw(this), id.into_param().abi(), geoshape.into_param().abi(), monitoredstates, singleuse, dwelltime.into_param().abi(), starttime.into_param().abi(), duration.into_param().abi(), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithMonitorStatesDwellTimeStartTimeAndDuration)(::windows::core::Interface::as_raw(this), id.into().abi(), geoshape.try_into().map_err(|e| e.into())?.abi(), monitoredstates.into(), singleuse, dwelltime, starttime, duration, result__.as_mut_ptr()).from_abi::<Geofence>(result__)
         })
     }
     #[doc(hidden)]
@@ -137,14 +137,9 @@ impl ::core::convert::From<&Geofence> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Geofence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Geofence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Geofence> for &::windows::core::IUnknown {
+    fn from(value: &Geofence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Geofence> for ::windows::core::IInspectable {
@@ -157,14 +152,9 @@ impl ::core::convert::From<&Geofence> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Geofence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Geofence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Geofence> for &::windows::core::IInspectable {
+    fn from(value: &Geofence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for Geofence {}
@@ -200,18 +190,18 @@ impl GeofenceMonitor {
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GeofenceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn GeofenceStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).GeofenceStateChanged)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).GeofenceStateChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveGeofenceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveGeofenceStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveGeofenceStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveGeofenceStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -224,18 +214,18 @@ impl GeofenceMonitor {
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
+    pub fn StatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, ::windows::core::IInspectable>>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
     pub fn Current() -> ::windows::core::Result<GeofenceMonitor> {
@@ -290,14 +280,9 @@ impl ::core::convert::From<&GeofenceMonitor> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeofenceMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeofenceMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeofenceMonitor> for &::windows::core::IUnknown {
+    fn from(value: &GeofenceMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GeofenceMonitor> for ::windows::core::IInspectable {
@@ -310,14 +295,9 @@ impl ::core::convert::From<&GeofenceMonitor> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GeofenceMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeofenceMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeofenceMonitor> for &::windows::core::IInspectable {
+    fn from(value: &GeofenceMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GeofenceMonitor {}
@@ -535,14 +515,9 @@ impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for GeofenceStateChangeReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a GeofenceStateChangeReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IUnknown {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IInspectable {
@@ -555,14 +530,9 @@ impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for GeofenceStateChangeReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a GeofenceStateChangeReport {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IInspectable {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for GeofenceStateChangeReport {}

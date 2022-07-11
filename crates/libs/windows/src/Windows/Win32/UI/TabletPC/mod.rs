@@ -50,31 +50,31 @@ pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AddStroke<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()> {
+pub unsafe fn AddStroke<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> ::windows::core::HRESULT;
     }
-    AddStroke(hrc.into_param().abi(), ::core::mem::transmute(ppacketdesc), ::core::mem::transmute(cbpacket), ::core::mem::transmute(ppacket), ::core::mem::transmute(pxform)).ok()
+    AddStroke(hrc.into(), ::core::mem::transmute(ppacketdesc), ::core::mem::transmute(cbpacket), ::core::mem::transmute(ppacket), ::core::mem::transmute(pxform)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn AddWordsToWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOWORDLIST>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hwl: Param0, pwcwords: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn AddWordsToWordList<'a, Param0: ::std::convert::Into<HRECOWORDLIST>>(hwl: Param0, pwcwords: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    AddWordsToWordList(hwl.into_param().abi(), pwcwords.into_param().abi()).ok()
+    AddWordsToWordList(hwl.into(), ::core::mem::transmute(pwcwords)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AdviseInkChange<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hrc: Param0, bnewstroke: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn AdviseInkChange<'a, Param0: ::std::convert::Into<HRECOCONTEXT>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(hrc: Param0, bnewstroke: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    AdviseInkChange(hrc.into_param().abi(), bnewstroke.into_param().abi()).ok()
+    AdviseInkChange(hrc.into(), bnewstroke.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -260,12 +260,12 @@ impl ::core::fmt::Debug for CorrectionPosition {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn CreateContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, phrc: *mut HRECOCONTEXT) -> ::windows::core::Result<()> {
+pub unsafe fn CreateContext<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0, phrc: *mut HRECOCONTEXT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> ::windows::core::HRESULT;
     }
-    CreateContext(hrec.into_param().abi(), ::core::mem::transmute(phrc)).ok()
+    CreateContext(hrec.into(), ::core::mem::transmute(phrc)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
@@ -2152,30 +2152,30 @@ impl ::core::default::Default for DYNAMIC_RENDERER_CACHED_DATA {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn DestroyContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn DestroyContext<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DestroyContext(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
     }
-    DestroyContext(hrc.into_param().abi()).ok()
+    DestroyContext(hrc.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn DestroyRecognizer<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn DestroyRecognizer<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DestroyRecognizer(hrec: HRECOGNIZER) -> ::windows::core::HRESULT;
     }
-    DestroyRecognizer(hrec.into_param().abi()).ok()
+    DestroyRecognizer(hrec.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn DestroyWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOWORDLIST>>(hwl: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn DestroyWordList<'a, Param0: ::std::convert::Into<HRECOWORDLIST>>(hwl: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DestroyWordList(hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    DestroyWordList(hwl.into_param().abi()).ok()
+    DestroyWordList(hwl.into()).ok()
 }
 pub const DynamicRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -2232,12 +2232,12 @@ pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn EndInkInput<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn EndInkInput<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn EndInkInput(hrc: HRECOCONTEXT) -> ::windows::core::HRESULT;
     }
-    EndInkInput(hrc.into_param().abi()).ok()
+    EndInkInput(hrc.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -2862,66 +2862,66 @@ pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut ::windows::core::GUI
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetBestResultString<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn GetBestResultString<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    GetBestResultString(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcbestresult)).ok()
+    GetBestResultString(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcbestresult)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetLatticePtr<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::Result<()> {
+pub unsafe fn GetLatticePtr<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> ::windows::core::HRESULT;
     }
-    GetLatticePtr(hrc.into_param().abi(), ::core::mem::transmute(pplattice)).ok()
+    GetLatticePtr(hrc.into(), ::core::mem::transmute(pplattice)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetLeftSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn GetLeftSeparator<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    GetLeftSeparator(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcleftseparator)).ok()
+    GetLeftSeparator(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcleftseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetRecoAttributes<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, precoattrs: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
+pub unsafe fn GetRecoAttributes<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0, precoattrs: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
     }
-    GetRecoAttributes(hrec.into_param().abi(), ::core::mem::transmute(precoattrs)).ok()
+    GetRecoAttributes(hrec.into(), ::core::mem::transmute(precoattrs)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetResultPropertyList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn GetResultPropertyList<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    GetResultPropertyList(hrec.into_param().abi(), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(ppropertyguid)).ok()
+    GetResultPropertyList(hrec.into(), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(ppropertyguid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetRightSeparator<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
+pub unsafe fn GetRightSeparator<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
-    GetRightSeparator(hrc.into_param().abi(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcrightseparator)).ok()
+    GetRightSeparator(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcrightseparator)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn GetUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>>(hrec: Param0, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
+pub unsafe fn GetUnicodeRanges<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
     }
-    GetUnicodeRanges(hrec.into_param().abi(), ::core::mem::transmute(pcranges), ::core::mem::transmute(pcr)).ok()
+    GetUnicodeRanges(hrec.into(), ::core::mem::transmute(pcranges), ::core::mem::transmute(pcr)).ok()
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2945,6 +2945,11 @@ impl ::core::marker::Copy for HRECOALT {}
 impl ::core::fmt::Debug for HRECOALT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HRECOALT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HRECOALT>> for HRECOALT {
+    fn from(optional: ::core::option::Option<HRECOALT>) -> HRECOALT {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HRECOALT {
@@ -2974,6 +2979,11 @@ impl ::core::fmt::Debug for HRECOCONTEXT {
         f.debug_tuple("HRECOCONTEXT").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HRECOCONTEXT>> for HRECOCONTEXT {
+    fn from(optional: ::core::option::Option<HRECOCONTEXT>) -> HRECOCONTEXT {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HRECOCONTEXT {
     type Abi = Self;
 }
@@ -2999,6 +3009,11 @@ impl ::core::marker::Copy for HRECOGNIZER {}
 impl ::core::fmt::Debug for HRECOGNIZER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HRECOGNIZER").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HRECOGNIZER>> for HRECOGNIZER {
+    fn from(optional: ::core::option::Option<HRECOGNIZER>) -> HRECOGNIZER {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HRECOGNIZER {
@@ -3028,6 +3043,11 @@ impl ::core::fmt::Debug for HRECOLATTICE {
         f.debug_tuple("HRECOLATTICE").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HRECOLATTICE>> for HRECOLATTICE {
+    fn from(optional: ::core::option::Option<HRECOLATTICE>) -> HRECOLATTICE {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HRECOLATTICE {
     type Abi = Self;
 }
@@ -3055,6 +3075,11 @@ impl ::core::fmt::Debug for HRECOWORDLIST {
         f.debug_tuple("HRECOWORDLIST").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HRECOWORDLIST>> for HRECOWORDLIST {
+    fn from(optional: ::core::option::Option<HRECOWORDLIST>) -> HRECOWORDLIST {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HRECOWORDLIST {
     type Abi = Self;
 }
@@ -3071,8 +3096,8 @@ impl IDynamicRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benabled.into_param().abi()).ok()
+    pub unsafe fn SetEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benabled: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3082,8 +3107,8 @@ impl IDynamicRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHWND<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHWND)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    pub unsafe fn SetHWND<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHWND)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3104,8 +3129,8 @@ impl IDynamicRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClipRegion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, hcliprgn: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipRegion)(::windows::core::Interface::as_raw(self), hcliprgn.into_param().abi()).ok()
+    pub unsafe fn SetClipRegion<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>>(&self, hcliprgn: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetClipRegion)(::windows::core::Interface::as_raw(self), hcliprgn.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3115,8 +3140,8 @@ impl IDynamicRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, pida: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), pida.into_param().abi()).ok()
+    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, pida: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), pida.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3126,8 +3151,8 @@ impl IDynamicRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDataCacheEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fcachedata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataCacheEnabled)(::windows::core::Interface::as_raw(self), fcachedata.into_param().abi()).ok()
+    pub unsafe fn SetDataCacheEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fcachedata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDataCacheEnabled)(::windows::core::Interface::as_raw(self), fcachedata.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn ReleaseCachedData(&self, strokeid: u32) -> ::windows::core::Result<()> {
@@ -3139,8 +3164,8 @@ impl IDynamicRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Draw<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), hdc.into_param().abi()).ok()
+    pub unsafe fn Draw<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), hdc.into()).ok()
     }
 }
 impl ::core::convert::From<IDynamicRenderer> for ::windows::core::IUnknown {
@@ -3148,19 +3173,14 @@ impl ::core::convert::From<IDynamicRenderer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDynamicRenderer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDynamicRenderer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDynamicRenderer> for ::windows::core::IUnknown {
     fn from(value: &IDynamicRenderer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDynamicRenderer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDynamicRenderer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDynamicRenderer {
@@ -3372,8 +3392,8 @@ impl IGestureRecognizer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenabled: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenabled.into_param().abi()).ok()
+    pub unsafe fn SetEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fenabled: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenabled.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn MaxStrokeCount(&self) -> ::windows::core::Result<i32> {
@@ -3398,19 +3418,14 @@ impl ::core::convert::From<IGestureRecognizer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IGestureRecognizer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGestureRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IGestureRecognizer> for ::windows::core::IUnknown {
     fn from(value: &IGestureRecognizer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGestureRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IGestureRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IGestureRecognizer {
@@ -3456,13 +3471,13 @@ pub struct IHandwrittenTextInsertion(::windows::core::IUnknown);
 impl IHandwrittenTextInsertion {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertRecognitionResultsArray<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertRecognitionResultsArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psaalternates), ::core::mem::transmute(locale), falternatecontainsautospacinginformation.into_param().abi()).ok()
+    pub unsafe fn InsertRecognitionResultsArray<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InsertRecognitionResultsArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psaalternates), ::core::mem::transmute(locale), falternatecontainsautospacinginformation.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn InsertInkRecognitionResult<'a, Param0: ::windows::core::IntoParam<'a, IInkRecognitionResult>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, piinkrecoresult: Param0, locale: u32, falternatecontainsautospacinginformation: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InsertInkRecognitionResult)(::windows::core::Interface::as_raw(self), piinkrecoresult.into_param().abi(), ::core::mem::transmute(locale), falternatecontainsautospacinginformation.into_param().abi()).ok()
+    pub unsafe fn InsertInkRecognitionResult<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRecognitionResult>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, piinkrecoresult: Param0, locale: u32, falternatecontainsautospacinginformation: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InsertInkRecognitionResult)(::windows::core::Interface::as_raw(self), piinkrecoresult.into().abi(), ::core::mem::transmute(locale), falternatecontainsautospacinginformation.into()).ok()
     }
 }
 impl ::core::convert::From<IHandwrittenTextInsertion> for ::windows::core::IUnknown {
@@ -3470,19 +3485,14 @@ impl ::core::convert::From<IHandwrittenTextInsertion> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IHandwrittenTextInsertion> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IHandwrittenTextInsertion) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IHandwrittenTextInsertion> for ::windows::core::IUnknown {
     fn from(value: &IHandwrittenTextInsertion) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHandwrittenTextInsertion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IHandwrittenTextInsertion {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IHandwrittenTextInsertion {
@@ -3531,21 +3541,15 @@ impl ::core::convert::From<IInk> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInk> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInk) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInk> for ::windows::core::IUnknown {
     fn from(value: &IInk) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInk {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInk {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3555,21 +3559,15 @@ impl ::core::convert::From<IInk> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInk> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInk) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInk> for super::super::System::Com::IDispatch {
     fn from(value: &IInk) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInk {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInk {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3635,8 +3633,8 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DefaultDrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, newattributes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into_param().abi()).ok()
+    pub unsafe fn putref_DefaultDrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, newattributes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3646,8 +3644,8 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Renderer<'a, Param0: ::windows::core::IntoParam<'a, IInkRenderer>>(&self, newinkrenderer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into_param().abi()).ok()
+    pub unsafe fn putref_Renderer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRenderer>>>(&self, newinkrenderer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3657,8 +3655,8 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Ink<'a, Param0: ::windows::core::IntoParam<'a, IInkDisp>>(&self, newink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), newink.into_param().abi()).ok()
+    pub unsafe fn putref_Ink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDisp>>>(&self, newink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), newink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn AutoRedraw(&self) -> ::windows::core::Result<i16> {
@@ -3680,8 +3678,8 @@ impl IInkCollector {
         (::windows::core::Interface::vtable(self).CollectionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkCollectionMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCollectionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetCollectionMode<'a, Param0: ::std::convert::Into<InkCollectionMode>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCollectionMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DynamicRendering(&self) -> ::windows::core::Result<i16> {
@@ -3700,8 +3698,8 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDesiredPacketDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, packetguids: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into_param().abi()).ok()
+    pub unsafe fn SetDesiredPacketDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, packetguids: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -3711,13 +3709,13 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetMouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn SetMouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_MouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn putref_MouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn MousePointer(&self) -> ::windows::core::Result<InkMousePointer> {
@@ -3725,8 +3723,8 @@ impl IInkCollector {
         (::windows::core::Interface::vtable(self).MousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkMousePointer>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mousepointer)).ok()
+    pub unsafe fn SetMousePointer<'a, Param0: ::std::convert::Into<InkMousePointer>>(&self, mousepointer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), mousepointer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3768,13 +3766,13 @@ impl IInkCollector {
         (::windows::core::Interface::vtable(self).SetSupportHighContrastInk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(support)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(listen)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3783,8 +3781,8 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWindowInputRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, windowinputrectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), windowinputrectangle.into_param().abi()).ok()
+    pub unsafe fn SetWindowInputRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, windowinputrectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), windowinputrectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: i16) -> ::windows::core::Result<()> {
@@ -3792,22 +3790,28 @@ impl IInkCollector {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSingleTabletIntegratedMode<'a, Param0: ::windows::core::IntoParam<'a, IInkTablet>>(&self, tablet: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSingleTabletIntegratedMode)(::windows::core::Interface::as_raw(self), tablet.into_param().abi()).ok()
+    pub unsafe fn SetSingleTabletIntegratedMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, tablet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSingleTabletIntegratedMode)(::windows::core::Interface::as_raw(self), tablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetEventInterest<'a, Param0: ::std::convert::Into<InkCollectorEventInterest>>(&self, eventid: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), eventid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetEventInterest<'a, Param0: ::std::convert::Into<InkCollectorEventInterest>>(&self, eventid: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), eventid.into(), ::core::mem::transmute(listen)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkCollector> for ::windows::core::IUnknown {
     fn from(value: IInkCollector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCollector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkCollector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3818,20 +3822,14 @@ impl ::core::convert::From<&IInkCollector> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkCollector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkCollector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkCollector> for super::super::System::Com::IDispatch {
     fn from(value: IInkCollector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCollector> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkCollector) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3839,18 +3837,6 @@ impl ::core::convert::From<IInkCollector> for super::super::System::Com::IDispat
 impl ::core::convert::From<&IInkCollector> for super::super::System::Com::IDispatch {
     fn from(value: &IInkCollector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkCollector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkCollector {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4002,8 +3988,8 @@ impl IInkCursor {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, attributes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), attributes.into_param().abi()).ok()
+    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, attributes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), attributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4025,21 +4011,15 @@ impl ::core::convert::From<IInkCursor> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkCursor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCursor> for ::windows::core::IUnknown {
     fn from(value: &IInkCursor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4049,21 +4029,15 @@ impl ::core::convert::From<IInkCursor> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursor> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkCursor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCursor> for super::super::System::Com::IDispatch {
     fn from(value: &IInkCursor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkCursor {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4150,21 +4124,15 @@ impl ::core::convert::From<IInkCursorButton> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursorButton> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkCursorButton) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCursorButton> for ::windows::core::IUnknown {
     fn from(value: &IInkCursorButton) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkCursorButton {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkCursorButton {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4174,21 +4142,15 @@ impl ::core::convert::From<IInkCursorButton> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursorButton> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkCursorButton) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCursorButton> for super::super::System::Com::IDispatch {
     fn from(value: &IInkCursorButton) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkCursorButton {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkCursorButton {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4249,14 +4211,20 @@ impl IInkCursorButtons {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, identifier: Param0) -> ::windows::core::Result<IInkCursorButton> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, identifier: Param0) -> ::windows::core::Result<IInkCursorButton> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkCursorButton>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkCursorButton>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkCursorButtons> for ::windows::core::IUnknown {
     fn from(value: IInkCursorButtons) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursorButtons> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkCursorButtons) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4267,20 +4235,14 @@ impl ::core::convert::From<&IInkCursorButtons> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkCursorButtons {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkCursorButtons {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkCursorButtons> for super::super::System::Com::IDispatch {
     fn from(value: IInkCursorButtons) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursorButtons> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkCursorButtons) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4288,18 +4250,6 @@ impl ::core::convert::From<IInkCursorButtons> for super::super::System::Com::IDi
 impl ::core::convert::From<&IInkCursorButtons> for super::super::System::Com::IDispatch {
     fn from(value: &IInkCursorButtons) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkCursorButtons {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkCursorButtons {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4369,21 +4319,15 @@ impl ::core::convert::From<IInkCursors> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursors> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkCursors) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCursors> for ::windows::core::IUnknown {
     fn from(value: &IInkCursors) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkCursors {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkCursors {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4393,21 +4337,15 @@ impl ::core::convert::From<IInkCursors> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCursors> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkCursors) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCursors> for super::super::System::Com::IDispatch {
     fn from(value: &IInkCursors) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkCursors {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkCursors {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4465,19 +4403,19 @@ impl IInkCustomStrokes {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, identifier: Param0) -> ::windows::core::Result<IInkStrokes> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, identifier: Param0) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, name: Param0, strokes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), name.into_param().abi(), strokes.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, name: Param0, strokes: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), name.into().abi(), strokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, identifier: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), identifier.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, identifier: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), identifier.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -4491,21 +4429,15 @@ impl ::core::convert::From<IInkCustomStrokes> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCustomStrokes> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkCustomStrokes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCustomStrokes> for ::windows::core::IUnknown {
     fn from(value: &IInkCustomStrokes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkCustomStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkCustomStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4515,21 +4447,15 @@ impl ::core::convert::From<IInkCustomStrokes> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkCustomStrokes> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkCustomStrokes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkCustomStrokes> for super::super::System::Com::IDispatch {
     fn from(value: &IInkCustomStrokes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkCustomStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkCustomStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4613,36 +4539,36 @@ impl IInkDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle> {
+    pub unsafe fn GetBoundingBox<'a, Param0: ::std::convert::Into<InkBoundingBoxMode>>(&self, boundingboxmode: Param0) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(boundingboxmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
+        (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), boundingboxmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteStrokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteStrokes)(::windows::core::Interface::as_raw(self), strokes.into_param().abi()).ok()
+    pub unsafe fn DeleteStrokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteStrokes)(::windows::core::Interface::as_raw(self), strokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DeleteStroke<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokeDisp>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteStroke)(::windows::core::Interface::as_raw(self), stroke.into_param().abi()).ok()
+    pub unsafe fn DeleteStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokeDisp>>>(&self, stroke: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteStroke)(::windows::core::Interface::as_raw(self), stroke.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ExtractStrokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp> {
+    pub unsafe fn ExtractStrokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>, Param1: ::std::convert::Into<InkExtractFlags>>(&self, strokes: Param0, extractflags: Param1) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExtractStrokes)(::windows::core::Interface::as_raw(self), strokes.into_param().abi(), ::core::mem::transmute(extractflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
+        (::windows::core::Interface::vtable(self).ExtractStrokes)(::windows::core::Interface::as_raw(self), strokes.into().abi(), extractflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ExtractWithRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp> {
+    pub unsafe fn ExtractWithRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>, Param1: ::std::convert::Into<InkExtractFlags>>(&self, rectangle: Param0, extractflags: Param1) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ExtractWithRectangle)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi(), ::core::mem::transmute(extractflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
+        (::windows::core::Interface::vtable(self).ExtractWithRectangle)(::windows::core::Interface::as_raw(self), rectangle.into().abi(), extractflags.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Clip<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn Clip<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4658,14 +4584,14 @@ impl IInkDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HitTestWithRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, selectionrectangle: Param0, intersectpercent: f32) -> ::windows::core::Result<IInkStrokes> {
+    pub unsafe fn HitTestWithRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, selectionrectangle: Param0, intersectpercent: f32) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).HitTestWithRectangle)(::windows::core::Interface::as_raw(self), selectionrectangle.into_param().abi(), ::core::mem::transmute(intersectpercent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
+        (::windows::core::Interface::vtable(self).HitTestWithRectangle)(::windows::core::Interface::as_raw(self), selectionrectangle.into().abi(), ::core::mem::transmute(intersectpercent), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn HitTestWithLasso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, points: Param0, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HitTestWithLasso)(::windows::core::Interface::as_raw(self), points.into_param().abi(), ::core::mem::transmute(intersectpercent), ::core::mem::transmute(lassopoints), ::core::mem::transmute(strokes)).ok()
+    pub unsafe fn HitTestWithLasso<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, points: Param0, intersectpercent: f32, lassopoints: *mut super::super::System::Com::VARIANT, strokes: *mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HitTestWithLasso)(::windows::core::Interface::as_raw(self), points.into().abi(), ::core::mem::transmute(intersectpercent), ::core::mem::transmute(lassopoints), ::core::mem::transmute(strokes)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4674,60 +4600,66 @@ impl IInkDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateStrokes<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, strokeids: Param0) -> ::windows::core::Result<IInkStrokes> {
+    pub unsafe fn CreateStrokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, strokeids: Param0) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStrokes)(::windows::core::Interface::as_raw(self), strokeids.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
+        (::windows::core::Interface::vtable(self).CreateStrokes)(::windows::core::Interface::as_raw(self), strokeids.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddStrokesAtRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>, Param1: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, sourcestrokes: Param0, targetrectangle: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddStrokesAtRectangle)(::windows::core::Interface::as_raw(self), sourcestrokes.into_param().abi(), targetrectangle.into_param().abi()).ok()
+    pub unsafe fn AddStrokesAtRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, sourcestrokes: Param0, targetrectangle: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddStrokesAtRectangle)(::windows::core::Interface::as_raw(self), sourcestrokes.into().abi(), targetrectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn Save<'a, Param0: ::std::convert::Into<InkPersistenceFormat>, Param1: ::std::convert::Into<InkPersistenceCompressionMode>>(&self, persistenceformat: Param0, compressionmode: Param1) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(persistenceformat), ::core::mem::transmute(compressionmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), persistenceformat.into(), compressionmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), data.into_param().abi()).ok()
+    pub unsafe fn Load<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), data.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn CreateStroke<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, packetdata: Param0, packetdescription: Param1) -> ::windows::core::Result<IInkStrokeDisp> {
+    pub unsafe fn CreateStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, packetdata: Param0, packetdescription: Param1) -> ::windows::core::Result<IInkStrokeDisp> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStroke)(::windows::core::Interface::as_raw(self), packetdata.into_param().abi(), packetdescription.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokeDisp>(result__)
+        (::windows::core::Interface::vtable(self).CreateStroke)(::windows::core::Interface::as_raw(self), packetdata.into().abi(), packetdescription.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokeDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ClipboardCopyWithRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
+    pub unsafe fn ClipboardCopyWithRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>, Param1: ::std::convert::Into<InkClipboardFormats>, Param2: ::std::convert::Into<InkClipboardModes>>(&self, rectangle: Param0, clipboardformats: Param1, clipboardmodes: Param2) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ClipboardCopyWithRectangle)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi(), ::core::mem::transmute(clipboardformats), ::core::mem::transmute(clipboardmodes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).ClipboardCopyWithRectangle)(::windows::core::Interface::as_raw(self), rectangle.into().abi(), clipboardformats.into(), clipboardmodes.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ClipboardCopy<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
+    pub unsafe fn ClipboardCopy<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>, Param1: ::std::convert::Into<InkClipboardFormats>, Param2: ::std::convert::Into<InkClipboardModes>>(&self, strokes: Param0, clipboardformats: Param1, clipboardmodes: Param2) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ClipboardCopy)(::windows::core::Interface::as_raw(self), strokes.into_param().abi(), ::core::mem::transmute(clipboardformats), ::core::mem::transmute(clipboardmodes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).ClipboardCopy)(::windows::core::Interface::as_raw(self), strokes.into().abi(), clipboardformats.into(), clipboardmodes.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CanPaste<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, dataobject: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn CanPaste<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>>(&self, dataobject: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).CanPaste)(::windows::core::Interface::as_raw(self), dataobject.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).CanPaste)(::windows::core::Interface::as_raw(self), dataobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ClipboardPaste<'a, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, x: i32, y: i32, dataobject: Param2) -> ::windows::core::Result<IInkStrokes> {
+    pub unsafe fn ClipboardPaste<'a, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IDataObject>>>(&self, x: i32, y: i32, dataobject: Param2) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ClipboardPaste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), dataobject.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
+        (::windows::core::Interface::vtable(self).ClipboardPaste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), dataobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkDisp> for ::windows::core::IUnknown {
     fn from(value: IInkDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDisp> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkDisp) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4738,20 +4670,14 @@ impl ::core::convert::From<&IInkDisp> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkDisp> for super::super::System::Com::IDispatch {
     fn from(value: IInkDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDisp> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkDisp) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4759,18 +4685,6 @@ impl ::core::convert::From<IInkDisp> for super::super::System::Com::IDispatch {
 impl ::core::convert::From<&IInkDisp> for super::super::System::Com::IDispatch {
     fn from(value: &IInkDisp) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4912,8 +4826,8 @@ impl IInkDivider {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Strokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Strokes)(::windows::core::Interface::as_raw(self), strokes.into_param().abi()).ok()
+    pub unsafe fn putref_Strokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Strokes)(::windows::core::Interface::as_raw(self), strokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -4923,8 +4837,8 @@ impl IInkDivider {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_RecognizerContext<'a, Param0: ::windows::core::IntoParam<'a, IInkRecognizerContext>>(&self, recognizercontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_RecognizerContext)(::windows::core::Interface::as_raw(self), recognizercontext.into_param().abi()).ok()
+    pub unsafe fn putref_RecognizerContext<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRecognizerContext>>>(&self, recognizercontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_RecognizerContext)(::windows::core::Interface::as_raw(self), recognizercontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn LineHeight(&self) -> ::windows::core::Result<i32> {
@@ -4949,21 +4863,15 @@ impl ::core::convert::From<IInkDivider> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkDivider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDivider> for ::windows::core::IUnknown {
     fn from(value: &IInkDivider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkDivider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkDivider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4973,21 +4881,15 @@ impl ::core::convert::From<IInkDivider> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivider> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkDivider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDivider> for super::super::System::Com::IDispatch {
     fn from(value: &IInkDivider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkDivider {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkDivider {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5057,14 +4959,20 @@ impl IInkDivisionResult {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ResultByType(&self, divisiontype: InkDivisionType) -> ::windows::core::Result<IInkDivisionUnits> {
+    pub unsafe fn ResultByType<'a, Param0: ::std::convert::Into<InkDivisionType>>(&self, divisiontype: Param0) -> ::windows::core::Result<IInkDivisionUnits> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ResultByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(divisiontype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDivisionUnits>(result__)
+        (::windows::core::Interface::vtable(self).ResultByType)(::windows::core::Interface::as_raw(self), divisiontype.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDivisionUnits>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkDivisionResult> for ::windows::core::IUnknown {
     fn from(value: IInkDivisionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivisionResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkDivisionResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5075,20 +4983,14 @@ impl ::core::convert::From<&IInkDivisionResult> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkDivisionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkDivisionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkDivisionResult> for super::super::System::Com::IDispatch {
     fn from(value: IInkDivisionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivisionResult> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkDivisionResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5096,18 +4998,6 @@ impl ::core::convert::From<IInkDivisionResult> for super::super::System::Com::ID
 impl ::core::convert::From<&IInkDivisionResult> for super::super::System::Com::IDispatch {
     fn from(value: &IInkDivisionResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkDivisionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkDivisionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5186,21 +5076,15 @@ impl ::core::convert::From<IInkDivisionUnit> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivisionUnit> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkDivisionUnit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDivisionUnit> for ::windows::core::IUnknown {
     fn from(value: &IInkDivisionUnit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkDivisionUnit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkDivisionUnit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5210,21 +5094,15 @@ impl ::core::convert::From<IInkDivisionUnit> for super::super::System::Com::IDis
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivisionUnit> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkDivisionUnit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDivisionUnit> for super::super::System::Com::IDispatch {
     fn from(value: &IInkDivisionUnit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkDivisionUnit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkDivisionUnit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5301,21 +5179,15 @@ impl ::core::convert::From<IInkDivisionUnits> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivisionUnits> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkDivisionUnits) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDivisionUnits> for ::windows::core::IUnknown {
     fn from(value: &IInkDivisionUnits) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkDivisionUnits {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkDivisionUnits {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5325,21 +5197,15 @@ impl ::core::convert::From<IInkDivisionUnits> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDivisionUnits> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkDivisionUnits) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDivisionUnits> for super::super::System::Com::IDispatch {
     fn from(value: &IInkDivisionUnits) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkDivisionUnits {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkDivisionUnits {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5454,8 +5320,8 @@ impl IInkDrawingAttributes {
         (::windows::core::Interface::vtable(self).RasterOperation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRasterOperation>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRasterOperation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newrasteroperation)).ok()
+    pub unsafe fn SetRasterOperation<'a, Param0: ::std::convert::Into<InkRasterOperation>>(&self, newrasteroperation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRasterOperation)(::windows::core::Interface::as_raw(self), newrasteroperation.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn PenTip(&self) -> ::windows::core::Result<InkPenTip> {
@@ -5463,8 +5329,8 @@ impl IInkDrawingAttributes {
         (::windows::core::Interface::vtable(self).PenTip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkPenTip>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetPenTip(&self, newpentip: InkPenTip) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPenTip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newpentip)).ok()
+    pub unsafe fn SetPenTip<'a, Param0: ::std::convert::Into<InkPenTip>>(&self, newpentip: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPenTip)(::windows::core::Interface::as_raw(self), newpentip.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5486,21 +5352,15 @@ impl ::core::convert::From<IInkDrawingAttributes> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDrawingAttributes> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkDrawingAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDrawingAttributes> for ::windows::core::IUnknown {
     fn from(value: &IInkDrawingAttributes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkDrawingAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkDrawingAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5510,21 +5370,15 @@ impl ::core::convert::From<IInkDrawingAttributes> for super::super::System::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkDrawingAttributes> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkDrawingAttributes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkDrawingAttributes> for super::super::System::Com::IDispatch {
     fn from(value: &IInkDrawingAttributes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkDrawingAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkDrawingAttributes {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5610,8 +5464,8 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).InkMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetInkMode(&self, newval: InkMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInkMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetInkMode<'a, Param0: ::std::convert::Into<InkMode>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInkMode)(::windows::core::Interface::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn InkInsertMode(&self) -> ::windows::core::Result<InkInsertMode> {
@@ -5619,8 +5473,8 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).InkInsertMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkInsertMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetInkInsertMode(&self, newval: InkInsertMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInkInsertMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetInkInsertMode<'a, Param0: ::std::convert::Into<InkInsertMode>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInkInsertMode)(::windows::core::Interface::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -5630,8 +5484,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, newval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
+    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn RecognitionTimeout(&self) -> ::windows::core::Result<i32> {
@@ -5650,8 +5504,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Recognizer<'a, Param0: ::windows::core::IntoParam<'a, IInkRecognizer>>(&self, newval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Recognizer)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
+    pub unsafe fn putref_Recognizer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRecognizer>>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Recognizer)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5661,8 +5515,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newval: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), newval.into_param().abi()).ok()
+    pub unsafe fn SetFactoid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5672,8 +5526,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelInks<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, selink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelInks)(::windows::core::Interface::as_raw(self), selink.into_param().abi()).ok()
+    pub unsafe fn SetSelInks<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, selink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelInks)(::windows::core::Interface::as_raw(self), selink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SelInksDisplayMode(&self) -> ::windows::core::Result<InkDisplayMode> {
@@ -5681,21 +5535,21 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).SelInksDisplayMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkDisplayMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetSelInksDisplayMode(&self, inkdisplaymode: InkDisplayMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelInksDisplayMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inkdisplaymode)).ok()
+    pub unsafe fn SetSelInksDisplayMode<'a, Param0: ::std::convert::Into<InkDisplayMode>>(&self, inkdisplaymode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelInksDisplayMode)(::windows::core::Interface::as_raw(self), inkdisplaymode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Recognize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Recognize)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(listen)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetBackColor(&self, clr: u32) -> ::windows::core::Result<()> {
@@ -5712,8 +5566,8 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).Appearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<AppearanceConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetAppearance(&self, pappearance: AppearanceConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pappearance)).ok()
+    pub unsafe fn SetAppearance<'a, Param0: ::std::convert::Into<AppearanceConstants>>(&self, pappearance: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), pappearance.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<BorderStyleConstants> {
@@ -5721,8 +5575,8 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).BorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BorderStyleConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetBorderStyle(&self, pborderstyle: BorderStyleConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pborderstyle)).ok()
+    pub unsafe fn SetBorderStyle<'a, Param0: ::std::convert::Into<BorderStyleConstants>>(&self, pborderstyle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), pborderstyle.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Hwnd(&self) -> ::windows::core::Result<u32> {
@@ -5737,8 +5591,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_Font<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IFontDisp>>(&self, ppfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Font)(::windows::core::Interface::as_raw(self), ppfont.into_param().abi()).ok()
+    pub unsafe fn putref_Font<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IFontDisp>>>(&self, ppfont: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Font)(::windows::core::Interface::as_raw(self), ppfont.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5748,8 +5602,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrtext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), pbstrtext.into_param().abi()).ok()
+    pub unsafe fn SetText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, pbstrtext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), pbstrtext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5759,13 +5613,13 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetMouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn SetMouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_MouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn putref_MouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn MousePointer(&self) -> ::windows::core::Result<InkMousePointer> {
@@ -5773,8 +5627,8 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).MousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkMousePointer>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mousepointer)).ok()
+    pub unsafe fn SetMousePointer<'a, Param0: ::std::convert::Into<InkMousePointer>>(&self, mousepointer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), mousepointer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Locked(&self) -> ::windows::core::Result<i16> {
@@ -5818,8 +5672,8 @@ impl IInkEdit {
         (::windows::core::Interface::vtable(self).ScrollBars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ScrollBarsConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetScrollBars(&self, newval: ScrollBarsConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScrollBars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newval)).ok()
+    pub unsafe fn SetScrollBars<'a, Param0: ::std::convert::Into<ScrollBarsConstants>>(&self, newval: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetScrollBars)(::windows::core::Interface::as_raw(self), newval.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DisableNoScroll(&self) -> ::windows::core::Result<i16> {
@@ -5838,8 +5692,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelAlignment<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselalignment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelAlignment)(::windows::core::Interface::as_raw(self), pvarselalignment.into_param().abi()).ok()
+    pub unsafe fn SetSelAlignment<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselalignment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelAlignment)(::windows::core::Interface::as_raw(self), pvarselalignment.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5849,8 +5703,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelBold<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselbold: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelBold)(::windows::core::Interface::as_raw(self), pvarselbold.into_param().abi()).ok()
+    pub unsafe fn SetSelBold<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselbold: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelBold)(::windows::core::Interface::as_raw(self), pvarselbold.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5860,8 +5714,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelItalic<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselitalic: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelItalic)(::windows::core::Interface::as_raw(self), pvarselitalic.into_param().abi()).ok()
+    pub unsafe fn SetSelItalic<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselitalic: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelItalic)(::windows::core::Interface::as_raw(self), pvarselitalic.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5871,8 +5725,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelUnderline<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselunderline: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelUnderline)(::windows::core::Interface::as_raw(self), pvarselunderline.into_param().abi()).ok()
+    pub unsafe fn SetSelUnderline<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselunderline: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelUnderline)(::windows::core::Interface::as_raw(self), pvarselunderline.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5882,8 +5736,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselcolor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelColor)(::windows::core::Interface::as_raw(self), pvarselcolor.into_param().abi()).ok()
+    pub unsafe fn SetSelColor<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselcolor: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelColor)(::windows::core::Interface::as_raw(self), pvarselcolor.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5893,8 +5747,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelFontName<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselfontname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelFontName)(::windows::core::Interface::as_raw(self), pvarselfontname.into_param().abi()).ok()
+    pub unsafe fn SetSelFontName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselfontname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelFontName)(::windows::core::Interface::as_raw(self), pvarselfontname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5904,8 +5758,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelFontSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselfontsize: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelFontSize)(::windows::core::Interface::as_raw(self), pvarselfontsize.into_param().abi()).ok()
+    pub unsafe fn SetSelFontSize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselfontsize: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelFontSize)(::windows::core::Interface::as_raw(self), pvarselfontsize.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -5915,8 +5769,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetSelCharOffset<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvarselcharoffset: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelCharOffset)(::windows::core::Interface::as_raw(self), pvarselcharoffset.into_param().abi()).ok()
+    pub unsafe fn SetSelCharOffset<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, pvarselcharoffset: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelCharOffset)(::windows::core::Interface::as_raw(self), pvarselcharoffset.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5926,8 +5780,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTextRTF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrtextrtf: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTextRTF)(::windows::core::Interface::as_raw(self), pbstrtextrtf.into_param().abi()).ok()
+    pub unsafe fn SetTextRTF<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, pbstrtextrtf: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTextRTF)(::windows::core::Interface::as_raw(self), pbstrtextrtf.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SelStart(&self) -> ::windows::core::Result<i32> {
@@ -5955,8 +5809,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSelText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrseltext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelText)(::windows::core::Interface::as_raw(self), pbstrseltext.into_param().abi()).ok()
+    pub unsafe fn SetSelText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, pbstrseltext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelText)(::windows::core::Interface::as_raw(self), pbstrseltext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -5966,8 +5820,8 @@ impl IInkEdit {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSelRTF<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrselrtf: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelRTF)(::windows::core::Interface::as_raw(self), pbstrselrtf.into_param().abi()).ok()
+    pub unsafe fn SetSelRTF<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, pbstrselrtf: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelRTF)(::windows::core::Interface::as_raw(self), pbstrselrtf.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
@@ -5981,21 +5835,15 @@ impl ::core::convert::From<IInkEdit> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkEdit> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkEdit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkEdit> for ::windows::core::IUnknown {
     fn from(value: &IInkEdit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkEdit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkEdit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6005,21 +5853,15 @@ impl ::core::convert::From<IInkEdit> for super::super::System::Com::IDispatch {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkEdit> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkEdit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkEdit> for super::super::System::Com::IDispatch {
     fn from(value: &IInkEdit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkEdit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkEdit {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6259,20 +6101,20 @@ impl IInkExtendedProperties {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, identifier: Param0) -> ::windows::core::Result<IInkExtendedProperty> {
+    pub unsafe fn Item<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, identifier: Param0) -> ::windows::core::Result<IInkExtendedProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperty>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, guid: Param0, data: Param1) -> ::windows::core::Result<IInkExtendedProperty> {
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, guid: Param0, data: Param1) -> ::windows::core::Result<IInkExtendedProperty> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), guid.into_param().abi(), data.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperty>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), guid.into().abi(), data.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperty>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, identifier: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), identifier.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, identifier: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), identifier.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
@@ -6280,14 +6122,20 @@ impl IInkExtendedProperties {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesPropertyExist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, guid: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn DoesPropertyExist<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, guid: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).DoesPropertyExist)(::windows::core::Interface::as_raw(self), guid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).DoesPropertyExist)(::windows::core::Interface::as_raw(self), guid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkExtendedProperties> for ::windows::core::IUnknown {
     fn from(value: IInkExtendedProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkExtendedProperties> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkExtendedProperties) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6298,20 +6146,14 @@ impl ::core::convert::From<&IInkExtendedProperties> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkExtendedProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkExtendedProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkExtendedProperties> for super::super::System::Com::IDispatch {
     fn from(value: IInkExtendedProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkExtendedProperties> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkExtendedProperties) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6319,18 +6161,6 @@ impl ::core::convert::From<IInkExtendedProperties> for super::super::System::Com
 impl ::core::convert::From<&IInkExtendedProperties> for super::super::System::Com::IDispatch {
     fn from(value: &IInkExtendedProperties) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkExtendedProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkExtendedProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6403,13 +6233,19 @@ impl IInkExtendedProperty {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, data: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into_param().abi()).ok()
+    pub unsafe fn SetData<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, data: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkExtendedProperty> for ::windows::core::IUnknown {
     fn from(value: IInkExtendedProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkExtendedProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkExtendedProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6420,20 +6256,14 @@ impl ::core::convert::From<&IInkExtendedProperty> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkExtendedProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkExtendedProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkExtendedProperty> for super::super::System::Com::IDispatch {
     fn from(value: IInkExtendedProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkExtendedProperty> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkExtendedProperty) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6441,18 +6271,6 @@ impl ::core::convert::From<IInkExtendedProperty> for super::super::System::Com::
 impl ::core::convert::From<&IInkExtendedProperty> for super::super::System::Com::IDispatch {
     fn from(value: &IInkExtendedProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkExtendedProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkExtendedProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6526,21 +6344,15 @@ impl ::core::convert::From<IInkGesture> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkGesture> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkGesture) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkGesture> for ::windows::core::IUnknown {
     fn from(value: &IInkGesture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkGesture {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkGesture {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6550,21 +6362,15 @@ impl ::core::convert::From<IInkGesture> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkGesture> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkGesture) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkGesture> for super::super::System::Com::IDispatch {
     fn from(value: &IInkGesture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkGesture {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkGesture {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6618,12 +6424,12 @@ impl IInkLineInfo {
         (::windows::core::Interface::vtable(self).GetInkExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pim), ::core::mem::transmute(pnwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetCandidate<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, ncandidatenum: u32, pwcrecogword: Param1, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), pwcrecogword.into_param().abi(), ::core::mem::transmute(pcwcrecogword), ::core::mem::transmute(dwflags)).ok()
+    pub unsafe fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: ::windows::core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), ::core::mem::transmute(pwcrecogword), ::core::mem::transmute(pcwcrecogword), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCandidate<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, ncandidatenum: u32, strrecogword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), strrecogword.into_param().abi()).ok()
+    pub unsafe fn SetCandidate(&self, ncandidatenum: u32, strrecogword: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCandidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncandidatenum), ::core::mem::transmute(strrecogword)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Recognize(&self) -> ::windows::core::Result<()> {
@@ -6635,19 +6441,14 @@ impl ::core::convert::From<IInkLineInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInkLineInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkLineInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInkLineInfo> for ::windows::core::IUnknown {
     fn from(value: &IInkLineInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkLineInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkLineInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInkLineInfo {
@@ -6713,8 +6514,8 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DefaultDrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, newattributes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into_param().abi()).ok()
+    pub unsafe fn putref_DefaultDrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, newattributes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6724,8 +6525,8 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Renderer<'a, Param0: ::windows::core::IntoParam<'a, IInkRenderer>>(&self, newinkrenderer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into_param().abi()).ok()
+    pub unsafe fn putref_Renderer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRenderer>>>(&self, newinkrenderer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6735,8 +6536,8 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Ink<'a, Param0: ::windows::core::IntoParam<'a, IInkDisp>>(&self, newink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), newink.into_param().abi()).ok()
+    pub unsafe fn putref_Ink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDisp>>>(&self, newink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), newink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn AutoRedraw(&self) -> ::windows::core::Result<i16> {
@@ -6758,8 +6559,8 @@ impl IInkOverlay {
         (::windows::core::Interface::vtable(self).CollectionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkCollectionMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCollectionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetCollectionMode<'a, Param0: ::std::convert::Into<InkCollectionMode>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCollectionMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DynamicRendering(&self) -> ::windows::core::Result<i16> {
@@ -6778,8 +6579,8 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDesiredPacketDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, packetguids: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into_param().abi()).ok()
+    pub unsafe fn SetDesiredPacketDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, packetguids: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6789,13 +6590,13 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetMouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn SetMouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_MouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn putref_MouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn MousePointer(&self) -> ::windows::core::Result<InkMousePointer> {
@@ -6803,8 +6604,8 @@ impl IInkOverlay {
         (::windows::core::Interface::vtable(self).MousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkMousePointer>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mousepointer)).ok()
+    pub unsafe fn SetMousePointer<'a, Param0: ::std::convert::Into<InkMousePointer>>(&self, mousepointer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), mousepointer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn EditingMode(&self) -> ::windows::core::Result<InkOverlayEditingMode> {
@@ -6812,8 +6613,8 @@ impl IInkOverlay {
         (::windows::core::Interface::vtable(self).EditingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkOverlayEditingMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEditingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(editingmode)).ok()
+    pub unsafe fn SetEditingMode<'a, Param0: ::std::convert::Into<InkOverlayEditingMode>>(&self, editingmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEditingMode)(::windows::core::Interface::as_raw(self), editingmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6823,8 +6624,8 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSelection<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, selection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), selection.into_param().abi()).ok()
+    pub unsafe fn SetSelection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, selection: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), selection.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn EraserMode(&self) -> ::windows::core::Result<InkOverlayEraserMode> {
@@ -6832,8 +6633,8 @@ impl IInkOverlay {
         (::windows::core::Interface::vtable(self).EraserMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkOverlayEraserMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEraserMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(erasermode)).ok()
+    pub unsafe fn SetEraserMode<'a, Param0: ::std::convert::Into<InkOverlayEraserMode>>(&self, erasermode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEraserMode)(::windows::core::Interface::as_raw(self), erasermode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn EraserWidth(&self) -> ::windows::core::Result<i32> {
@@ -6850,8 +6651,8 @@ impl IInkOverlay {
         (::windows::core::Interface::vtable(self).AttachMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkOverlayAttachMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttachMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(attachmode)).ok()
+    pub unsafe fn SetAttachMode<'a, Param0: ::std::convert::Into<InkOverlayAttachMode>>(&self, attachmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAttachMode)(::windows::core::Interface::as_raw(self), attachmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6908,17 +6709,17 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Draw<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rect: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), rect.into_param().abi()).ok()
+    pub unsafe fn Draw<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rect: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), rect.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(listen)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -6927,8 +6728,8 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWindowInputRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, windowinputrectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), windowinputrectangle.into_param().abi()).ok()
+    pub unsafe fn SetWindowInputRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, windowinputrectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), windowinputrectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: i16) -> ::windows::core::Result<()> {
@@ -6936,22 +6737,28 @@ impl IInkOverlay {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSingleTabletIntegratedMode<'a, Param0: ::windows::core::IntoParam<'a, IInkTablet>>(&self, tablet: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSingleTabletIntegratedMode)(::windows::core::Interface::as_raw(self), tablet.into_param().abi()).ok()
+    pub unsafe fn SetSingleTabletIntegratedMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, tablet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSingleTabletIntegratedMode)(::windows::core::Interface::as_raw(self), tablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetEventInterest<'a, Param0: ::std::convert::Into<InkCollectorEventInterest>>(&self, eventid: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), eventid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetEventInterest<'a, Param0: ::std::convert::Into<InkCollectorEventInterest>>(&self, eventid: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), eventid.into(), ::core::mem::transmute(listen)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkOverlay> for ::windows::core::IUnknown {
     fn from(value: IInkOverlay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkOverlay> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkOverlay) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6962,20 +6769,14 @@ impl ::core::convert::From<&IInkOverlay> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkOverlay> for super::super::System::Com::IDispatch {
     fn from(value: IInkOverlay) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkOverlay> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkOverlay) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -6983,18 +6784,6 @@ impl ::core::convert::From<IInkOverlay> for super::super::System::Com::IDispatch
 impl ::core::convert::From<&IInkOverlay> for super::super::System::Com::IDispatch {
     fn from(value: &IInkOverlay) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkOverlay {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7158,8 +6947,8 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DefaultDrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, newattributes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into_param().abi()).ok()
+    pub unsafe fn putref_DefaultDrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, newattributes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7169,8 +6958,8 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Renderer<'a, Param0: ::windows::core::IntoParam<'a, IInkRenderer>>(&self, newinkrenderer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into_param().abi()).ok()
+    pub unsafe fn putref_Renderer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRenderer>>>(&self, newinkrenderer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7180,8 +6969,8 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Ink<'a, Param0: ::windows::core::IntoParam<'a, IInkDisp>>(&self, newink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), newink.into_param().abi()).ok()
+    pub unsafe fn putref_Ink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDisp>>>(&self, newink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), newink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn AutoRedraw(&self) -> ::windows::core::Result<i16> {
@@ -7203,8 +6992,8 @@ impl IInkPicture {
         (::windows::core::Interface::vtable(self).CollectionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkCollectionMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCollectionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetCollectionMode<'a, Param0: ::std::convert::Into<InkCollectionMode>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCollectionMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DynamicRendering(&self) -> ::windows::core::Result<i16> {
@@ -7223,8 +7012,8 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetDesiredPacketDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, packetguids: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into_param().abi()).ok()
+    pub unsafe fn SetDesiredPacketDescription<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, packetguids: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7234,13 +7023,13 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetMouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn SetMouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_MouseIcon<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into_param().abi()).ok()
+    pub unsafe fn putref_MouseIcon<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, mouseicon: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_MouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn MousePointer(&self) -> ::windows::core::Result<InkMousePointer> {
@@ -7248,8 +7037,8 @@ impl IInkPicture {
         (::windows::core::Interface::vtable(self).MousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkMousePointer>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mousepointer)).ok()
+    pub unsafe fn SetMousePointer<'a, Param0: ::std::convert::Into<InkMousePointer>>(&self, mousepointer: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), mousepointer.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn EditingMode(&self) -> ::windows::core::Result<InkOverlayEditingMode> {
@@ -7257,8 +7046,8 @@ impl IInkPicture {
         (::windows::core::Interface::vtable(self).EditingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkOverlayEditingMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEditingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(editingmode)).ok()
+    pub unsafe fn SetEditingMode<'a, Param0: ::std::convert::Into<InkOverlayEditingMode>>(&self, editingmode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEditingMode)(::windows::core::Interface::as_raw(self), editingmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7268,8 +7057,8 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSelection<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, selection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), selection.into_param().abi()).ok()
+    pub unsafe fn SetSelection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, selection: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), selection.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn EraserMode(&self) -> ::windows::core::Result<InkOverlayEraserMode> {
@@ -7277,8 +7066,8 @@ impl IInkPicture {
         (::windows::core::Interface::vtable(self).EraserMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkOverlayEraserMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEraserMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(erasermode)).ok()
+    pub unsafe fn SetEraserMode<'a, Param0: ::std::convert::Into<InkOverlayEraserMode>>(&self, erasermode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEraserMode)(::windows::core::Interface::as_raw(self), erasermode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn EraserWidth(&self) -> ::windows::core::Result<i32> {
@@ -7291,13 +7080,13 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_Picture<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, ppicture: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Picture)(::windows::core::Interface::as_raw(self), ppicture.into_param().abi()).ok()
+    pub unsafe fn putref_Picture<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, ppicture: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Picture)(::windows::core::Interface::as_raw(self), ppicture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPicture<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Ole::IPictureDisp>>(&self, ppicture: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPicture)(::windows::core::Interface::as_raw(self), ppicture.into_param().abi()).ok()
+    pub unsafe fn SetPicture<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Ole::IPictureDisp>>>(&self, ppicture: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPicture)(::windows::core::Interface::as_raw(self), ppicture.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -7306,8 +7095,8 @@ impl IInkPicture {
         (::windows::core::Interface::vtable(self).Picture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IPictureDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSizeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(smnewsizemode)).ok()
+    pub unsafe fn SetSizeMode<'a, Param0: ::std::convert::Into<InkPictureSizeMode>>(&self, smnewsizemode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSizeMode)(::windows::core::Interface::as_raw(self), smnewsizemode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SizeMode(&self) -> ::windows::core::Result<InkPictureSizeMode> {
@@ -7377,13 +7166,13 @@ impl IInkPicture {
         (::windows::core::Interface::vtable(self).HitTestSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SelectionHitResult>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(listen)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetGestureStatus<'a, Param0: ::std::convert::Into<InkApplicationGesture>>(&self, gesture: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(gesture), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7392,8 +7181,8 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWindowInputRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, windowinputrectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), windowinputrectangle.into_param().abi()).ok()
+    pub unsafe fn SetWindowInputRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, windowinputrectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), windowinputrectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: i16) -> ::windows::core::Result<()> {
@@ -7401,17 +7190,17 @@ impl IInkPicture {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSingleTabletIntegratedMode<'a, Param0: ::windows::core::IntoParam<'a, IInkTablet>>(&self, tablet: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSingleTabletIntegratedMode)(::windows::core::Interface::as_raw(self), tablet.into_param().abi()).ok()
+    pub unsafe fn SetSingleTabletIntegratedMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, tablet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSingleTabletIntegratedMode)(::windows::core::Interface::as_raw(self), tablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> ::windows::core::Result<i16> {
+    pub unsafe fn GetEventInterest<'a, Param0: ::std::convert::Into<InkCollectorEventInterest>>(&self, eventid: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GetEventInterest)(::windows::core::Interface::as_raw(self), eventid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventid), ::core::mem::transmute(listen)).ok()
+    pub unsafe fn SetEventInterest<'a, Param0: ::std::convert::Into<InkCollectorEventInterest>>(&self, eventid: Param0, listen: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventInterest)(::windows::core::Interface::as_raw(self), eventid.into(), ::core::mem::transmute(listen)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn InkEnabled(&self) -> ::windows::core::Result<i16> {
@@ -7439,21 +7228,15 @@ impl ::core::convert::From<IInkPicture> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkPicture> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkPicture) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkPicture> for ::windows::core::IUnknown {
     fn from(value: &IInkPicture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7463,21 +7246,15 @@ impl ::core::convert::From<IInkPicture> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkPicture> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkPicture) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkPicture> for super::super::System::Com::IDispatch {
     fn from(value: &IInkPicture) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkPicture {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7699,9 +7476,9 @@ impl IInkRecognitionAlternate {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStrokesFromStrokeRanges<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0) -> ::windows::core::Result<IInkStrokes> {
+    pub unsafe fn GetStrokesFromStrokeRanges<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStrokesFromStrokeRanges)(::windows::core::Interface::as_raw(self), strokes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
+        (::windows::core::Interface::vtable(self).GetStrokesFromStrokeRanges)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -7710,25 +7487,31 @@ impl IInkRecognitionAlternate {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTextRangeFromStrokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0, selectionstart: *mut i32, selectionlength: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTextRangeFromStrokes)(::windows::core::Interface::as_raw(self), strokes.into_param().abi(), ::core::mem::transmute(selectionstart), ::core::mem::transmute(selectionlength)).ok()
+    pub unsafe fn GetTextRangeFromStrokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0, selectionstart: *mut i32, selectionlength: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetTextRangeFromStrokes)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(selectionstart), ::core::mem::transmute(selectionlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn AlternatesWithConstantPropertyValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertytype: Param0) -> ::windows::core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn AlternatesWithConstantPropertyValues<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertytype: Param0) -> ::windows::core::Result<IInkRecognitionAlternates> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(::windows::core::Interface::as_raw(self), propertytype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionAlternates>(result__)
+        (::windows::core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(::windows::core::Interface::as_raw(self), propertytype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionAlternates>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPropertyValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertytype: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPropertyValue<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertytype: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyValue)(::windows::core::Interface::as_raw(self), propertytype.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyValue)(::windows::core::Interface::as_raw(self), propertytype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognitionAlternate> for ::windows::core::IUnknown {
     fn from(value: IInkRecognitionAlternate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognitionAlternate> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognitionAlternate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7739,20 +7522,14 @@ impl ::core::convert::From<&IInkRecognitionAlternate> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognitionAlternate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognitionAlternate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognitionAlternate> for super::super::System::Com::IDispatch {
     fn from(value: IInkRecognitionAlternate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognitionAlternate> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognitionAlternate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7760,18 +7537,6 @@ impl ::core::convert::From<IInkRecognitionAlternate> for super::super::System::C
 impl ::core::convert::From<&IInkRecognitionAlternate> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognitionAlternate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognitionAlternate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognitionAlternate {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7895,21 +7660,15 @@ impl ::core::convert::From<IInkRecognitionAlternates> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognitionAlternates> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognitionAlternates) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognitionAlternates> for ::windows::core::IUnknown {
     fn from(value: &IInkRecognitionAlternates) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognitionAlternates {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognitionAlternates {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7919,21 +7678,15 @@ impl ::core::convert::From<IInkRecognitionAlternates> for super::super::System::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognitionAlternates> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognitionAlternates) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognitionAlternates> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognitionAlternates) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognitionAlternates {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognitionAlternates {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8014,8 +7767,8 @@ impl IInkRecognitionResult {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ModifyTopAlternate<'a, Param0: ::windows::core::IntoParam<'a, IInkRecognitionAlternate>>(&self, alternate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyTopAlternate)(::windows::core::Interface::as_raw(self), alternate.into_param().abi()).ok()
+    pub unsafe fn ModifyTopAlternate<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRecognitionAlternate>>>(&self, alternate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ModifyTopAlternate)(::windows::core::Interface::as_raw(self), alternate.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetResultOnStrokes(&self) -> ::windows::core::Result<()> {
@@ -8029,21 +7782,15 @@ impl ::core::convert::From<IInkRecognitionResult> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognitionResult> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognitionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognitionResult> for ::windows::core::IUnknown {
     fn from(value: &IInkRecognitionResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8053,21 +7800,15 @@ impl ::core::convert::From<IInkRecognitionResult> for super::super::System::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognitionResult> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognitionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognitionResult> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognitionResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognitionResult {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8178,21 +7919,15 @@ impl ::core::convert::From<IInkRecognizer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognizer> for ::windows::core::IUnknown {
     fn from(value: &IInkRecognizer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8202,21 +7937,15 @@ impl ::core::convert::From<IInkRecognizer> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizer> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognizer> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognizer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8301,21 +8030,15 @@ impl ::core::convert::From<IInkRecognizer2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizer2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognizer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognizer2> for ::windows::core::IUnknown {
     fn from(value: &IInkRecognizer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognizer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognizer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8325,21 +8048,15 @@ impl ::core::convert::From<IInkRecognizer2> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizer2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognizer2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognizer2> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognizer2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognizer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognizer2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8395,8 +8112,8 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Strokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Strokes)(::windows::core::Interface::as_raw(self), strokes.into_param().abi()).ok()
+    pub unsafe fn putref_Strokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Strokes)(::windows::core::Interface::as_raw(self), strokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn CharacterAutoCompletionMode(&self) -> ::windows::core::Result<InkRecognizerCharacterAutoCompletionMode> {
@@ -8404,8 +8121,8 @@ impl IInkRecognizerContext {
         (::windows::core::Interface::vtable(self).CharacterAutoCompletionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRecognizerCharacterAutoCompletionMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCharacterAutoCompletionMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetCharacterAutoCompletionMode<'a, Param0: ::std::convert::Into<InkRecognizerCharacterAutoCompletionMode>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCharacterAutoCompletionMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8415,8 +8132,8 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, factoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into_param().abi()).ok()
+    pub unsafe fn SetFactoid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, factoid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8426,8 +8143,8 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Guide<'a, Param0: ::windows::core::IntoParam<'a, IInkRecognizerGuide>>(&self, recognizerguide: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Guide)(::windows::core::Interface::as_raw(self), recognizerguide.into_param().abi()).ok()
+    pub unsafe fn putref_Guide<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRecognizerGuide>>>(&self, recognizerguide: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Guide)(::windows::core::Interface::as_raw(self), recognizerguide.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8437,8 +8154,8 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPrefixText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, prefix: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrefixText)(::windows::core::Interface::as_raw(self), prefix.into_param().abi()).ok()
+    pub unsafe fn SetPrefixText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, prefix: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPrefixText)(::windows::core::Interface::as_raw(self), prefix.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -8448,8 +8165,8 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetSuffixText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, suffix: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSuffixText)(::windows::core::Interface::as_raw(self), suffix.into_param().abi()).ok()
+    pub unsafe fn SetSuffixText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, suffix: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSuffixText)(::windows::core::Interface::as_raw(self), suffix.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn RecognitionFlags(&self) -> ::windows::core::Result<InkRecognitionModes> {
@@ -8457,8 +8174,8 @@ impl IInkRecognizerContext {
         (::windows::core::Interface::vtable(self).RecognitionFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRecognitionModes>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRecognitionFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(modes)).ok()
+    pub unsafe fn SetRecognitionFlags<'a, Param0: ::std::convert::Into<InkRecognitionModes>>(&self, modes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRecognitionFlags)(::windows::core::Interface::as_raw(self), modes.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8468,8 +8185,8 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_WordList<'a, Param0: ::windows::core::IntoParam<'a, IInkWordList>>(&self, wordlist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_WordList)(::windows::core::Interface::as_raw(self), wordlist.into_param().abi()).ok()
+    pub unsafe fn putref_WordList<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkWordList>>>(&self, wordlist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_WordList)(::windows::core::Interface::as_raw(self), wordlist.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8492,13 +8209,13 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BackgroundRecognize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, customdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundRecognize)(::windows::core::Interface::as_raw(self), customdata.into_param().abi()).ok()
+    pub unsafe fn BackgroundRecognize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, customdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BackgroundRecognize)(::windows::core::Interface::as_raw(self), customdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn BackgroundRecognizeWithAlternates<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, customdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundRecognizeWithAlternates)(::windows::core::Interface::as_raw(self), customdata.into_param().abi()).ok()
+    pub unsafe fn BackgroundRecognizeWithAlternates<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, customdata: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).BackgroundRecognizeWithAlternates)(::windows::core::Interface::as_raw(self), customdata.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8508,14 +8225,20 @@ impl IInkRecognizerContext {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsStringSupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, string: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsStringSupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, string: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsStringSupported)(::windows::core::Interface::as_raw(self), string.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsStringSupported)(::windows::core::Interface::as_raw(self), string.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognizerContext> for ::windows::core::IUnknown {
     fn from(value: IInkRecognizerContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizerContext> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognizerContext) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8526,20 +8249,14 @@ impl ::core::convert::From<&IInkRecognizerContext> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognizerContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognizerContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognizerContext> for super::super::System::Com::IDispatch {
     fn from(value: IInkRecognizerContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizerContext> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognizerContext) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8547,18 +8264,6 @@ impl ::core::convert::From<IInkRecognizerContext> for super::super::System::Com:
 impl ::core::convert::From<&IInkRecognizerContext> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognizerContext) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognizerContext {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognizerContext {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8684,13 +8389,19 @@ impl IInkRecognizerContext2 {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, unicoderanges: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabledUnicodeRanges)(::windows::core::Interface::as_raw(self), unicoderanges.into_param().abi()).ok()
+    pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, unicoderanges: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnabledUnicodeRanges)(::windows::core::Interface::as_raw(self), unicoderanges.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognizerContext2> for ::windows::core::IUnknown {
     fn from(value: IInkRecognizerContext2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizerContext2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognizerContext2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8701,20 +8412,14 @@ impl ::core::convert::From<&IInkRecognizerContext2> for ::windows::core::IUnknow
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognizerContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognizerContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognizerContext2> for super::super::System::Com::IDispatch {
     fn from(value: IInkRecognizerContext2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizerContext2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognizerContext2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8722,18 +8427,6 @@ impl ::core::convert::From<IInkRecognizerContext2> for super::super::System::Com
 impl ::core::convert::From<&IInkRecognizerContext2> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognizerContext2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognizerContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognizerContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8789,8 +8482,8 @@ impl IInkRecognizerGuide {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetWritingBox<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWritingBox)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn SetWritingBox<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetWritingBox)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -8800,8 +8493,8 @@ impl IInkRecognizerGuide {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetDrawnBox<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDrawnBox)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn SetDrawnBox<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDrawnBox)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Rows(&self) -> ::windows::core::Result<i32> {
@@ -8838,13 +8531,19 @@ impl IInkRecognizerGuide {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetGuideData<'a, Param0: ::windows::core::IntoParam<'a, InkRecoGuide>>(&self, recoguide: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGuideData)(::windows::core::Interface::as_raw(self), recoguide.into_param().abi()).ok()
+    pub unsafe fn SetGuideData(&self, recoguide: InkRecoGuide) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGuideData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(recoguide)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognizerGuide> for ::windows::core::IUnknown {
     fn from(value: IInkRecognizerGuide) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizerGuide> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognizerGuide) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8855,20 +8554,14 @@ impl ::core::convert::From<&IInkRecognizerGuide> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognizerGuide {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognizerGuide {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkRecognizerGuide> for super::super::System::Com::IDispatch {
     fn from(value: IInkRecognizerGuide) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizerGuide> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognizerGuide) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8876,18 +8569,6 @@ impl ::core::convert::From<IInkRecognizerGuide> for super::super::System::Com::I
 impl ::core::convert::From<&IInkRecognizerGuide> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognizerGuide) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognizerGuide {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognizerGuide {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8987,21 +8668,15 @@ impl ::core::convert::From<IInkRecognizers> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizers> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRecognizers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognizers> for ::windows::core::IUnknown {
     fn from(value: &IInkRecognizers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecognizers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRecognizers {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9011,21 +8686,15 @@ impl ::core::convert::From<IInkRecognizers> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRecognizers> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRecognizers) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRecognizers> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRecognizers) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRecognizers {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRecognizers {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9119,8 +8788,8 @@ impl IInkRectangle {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>>(&self, rect: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), rect.into_param().abi()).ok()
+    pub unsafe fn SetData(&self, rect: super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rect)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> ::windows::core::Result<()> {
@@ -9138,21 +8807,15 @@ impl ::core::convert::From<IInkRectangle> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRectangle> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRectangle) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRectangle> for ::windows::core::IUnknown {
     fn from(value: &IInkRectangle) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRectangle {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRectangle {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9162,21 +8825,15 @@ impl ::core::convert::From<IInkRectangle> for super::super::System::Com::IDispat
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRectangle> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRectangle) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRectangle> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRectangle) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRectangle {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRectangle {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9236,33 +8893,33 @@ pub struct IInkRenderer(::windows::core::IUnknown);
 impl IInkRenderer {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetViewTransform<'a, Param0: ::windows::core::IntoParam<'a, IInkTransform>>(&self, viewtransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetViewTransform)(::windows::core::Interface::as_raw(self), viewtransform.into_param().abi()).ok()
+    pub unsafe fn GetViewTransform<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTransform>>>(&self, viewtransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetViewTransform)(::windows::core::Interface::as_raw(self), viewtransform.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetViewTransform<'a, Param0: ::windows::core::IntoParam<'a, IInkTransform>>(&self, viewtransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewTransform)(::windows::core::Interface::as_raw(self), viewtransform.into_param().abi()).ok()
+    pub unsafe fn SetViewTransform<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTransform>>>(&self, viewtransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetViewTransform)(::windows::core::Interface::as_raw(self), viewtransform.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetObjectTransform<'a, Param0: ::windows::core::IntoParam<'a, IInkTransform>>(&self, objecttransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectTransform)(::windows::core::Interface::as_raw(self), objecttransform.into_param().abi()).ok()
+    pub unsafe fn GetObjectTransform<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTransform>>>(&self, objecttransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjectTransform)(::windows::core::Interface::as_raw(self), objecttransform.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetObjectTransform<'a, Param0: ::windows::core::IntoParam<'a, IInkTransform>>(&self, objecttransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectTransform)(::windows::core::Interface::as_raw(self), objecttransform.into_param().abi()).ok()
+    pub unsafe fn SetObjectTransform<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTransform>>>(&self, objecttransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetObjectTransform)(::windows::core::Interface::as_raw(self), objecttransform.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Draw<'a, Param1: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, hdc: isize, strokes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hdc), strokes.into_param().abi()).ok()
+    pub unsafe fn Draw<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, hdc: isize, strokes: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hdc), strokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DrawStroke<'a, Param1: ::windows::core::IntoParam<'a, IInkStrokeDisp>, Param2: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, hdc: isize, stroke: Param1, drawingattributes: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DrawStroke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hdc), stroke.into_param().abi(), drawingattributes.into_param().abi()).ok()
+    pub unsafe fn DrawStroke<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokeDisp>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, hdc: isize, stroke: Param1, drawingattributes: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DrawStroke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hdc), stroke.into().abi(), drawingattributes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> ::windows::core::Result<()> {
@@ -9284,15 +8941,15 @@ impl IInkRenderer {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Measure<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0) -> ::windows::core::Result<IInkRectangle> {
+    pub unsafe fn Measure<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).Measure)(::windows::core::Interface::as_raw(self), strokes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
+        (::windows::core::Interface::vtable(self).Measure)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn MeasureStroke<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokeDisp>, Param1: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, stroke: Param0, drawingattributes: Param1) -> ::windows::core::Result<IInkRectangle> {
+    pub unsafe fn MeasureStroke<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokeDisp>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, stroke: Param0, drawingattributes: Param1) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).MeasureStroke)(::windows::core::Interface::as_raw(self), stroke.into_param().abi(), drawingattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
+        (::windows::core::Interface::vtable(self).MeasureStroke)(::windows::core::Interface::as_raw(self), stroke.into().abi(), drawingattributes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()> {
@@ -9314,21 +8971,15 @@ impl ::core::convert::From<IInkRenderer> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRenderer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkRenderer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRenderer> for ::windows::core::IUnknown {
     fn from(value: &IInkRenderer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRenderer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkRenderer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9338,21 +8989,15 @@ impl ::core::convert::From<IInkRenderer> for super::super::System::Com::IDispatc
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkRenderer> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkRenderer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkRenderer> for super::super::System::Com::IDispatch {
     fn from(value: &IInkRenderer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkRenderer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkRenderer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9456,8 +9101,8 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, drawattrs: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), drawattrs.into_param().abi()).ok()
+    pub unsafe fn putref_DrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, drawattrs: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), drawattrs.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -9512,26 +9157,26 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle> {
+    pub unsafe fn GetBoundingBox<'a, Param0: ::std::convert::Into<InkBoundingBoxMode>>(&self, boundingboxmode: Param0) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(boundingboxmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
+        (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), boundingboxmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn FindIntersections<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, strokes: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn FindIntersections<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, strokes: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).FindIntersections)(::windows::core::Interface::as_raw(self), strokes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).FindIntersections)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetRectangleIntersections<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetRectangleIntersections<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetRectangleIntersections)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetRectangleIntersections)(::windows::core::Interface::as_raw(self), rectangle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Clip<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn Clip<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> ::windows::core::Result<i16> {
@@ -9550,8 +9195,8 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPacketDescriptionPropertyMetrics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(minimum), ::core::mem::transmute(maximum), ::core::mem::transmute(units), ::core::mem::transmute(resolution)).ok()
+    pub unsafe fn GetPacketDescriptionPropertyMetrics<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertyname: Param0, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(minimum), ::core::mem::transmute(maximum), ::core::mem::transmute(units), ::core::mem::transmute(resolution)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9561,9 +9206,9 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPoints<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, points: Param0, index: i32, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn SetPoints<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, points: Param0, index: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).SetPoints)(::windows::core::Interface::as_raw(self), points.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SetPoints)(::windows::core::Interface::as_raw(self), points.into().abi(), ::core::mem::transmute(index), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9573,15 +9218,15 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetPacketValuesByProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+    pub unsafe fn GetPacketValuesByProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertyname: Param0, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>>::zeroed();
-        (::windows::core::Interface::vtable(self).GetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(index), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn SetPacketValuesByProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrpropertyname: Param0, packetvalues: Param1, index: i32, count: i32) -> ::windows::core::Result<i32> {
+    pub unsafe fn SetPacketValuesByProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>>(&self, bstrpropertyname: Param0, packetvalues: Param1, index: i32, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
-        (::windows::core::Interface::vtable(self).SetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into_param().abi(), packetvalues.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), packetvalues.into().abi(), ::core::mem::transmute(index), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -9591,13 +9236,13 @@ impl IInkStrokeDisp {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Transform<'a, Param0: ::windows::core::IntoParam<'a, IInkTransform>>(&self, transform: Param0, applyonpenwidth: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Transform)(::windows::core::Interface::as_raw(self), transform.into_param().abi(), ::core::mem::transmute(applyonpenwidth)).ok()
+    pub unsafe fn Transform<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTransform>>>(&self, transform: Param0, applyonpenwidth: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Transform)(::windows::core::Interface::as_raw(self), transform.into().abi(), ::core::mem::transmute(applyonpenwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ScaleToRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScaleToRectangle)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn ScaleToRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ScaleToRectangle)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()> {
@@ -9623,21 +9268,15 @@ impl ::core::convert::From<IInkStrokeDisp> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkStrokeDisp> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkStrokeDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkStrokeDisp> for ::windows::core::IUnknown {
     fn from(value: &IInkStrokeDisp) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkStrokeDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkStrokeDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9647,21 +9286,15 @@ impl ::core::convert::From<IInkStrokeDisp> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkStrokeDisp> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkStrokeDisp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkStrokeDisp> for super::super::System::Com::IDispatch {
     fn from(value: &IInkStrokeDisp) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkStrokeDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkStrokeDisp {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9839,44 +9472,44 @@ impl IInkStrokes {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokeDisp>>(&self, inkstroke: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), inkstroke.into_param().abi()).ok()
+    pub unsafe fn Add<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokeDisp>>>(&self, inkstroke: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), inkstroke.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn AddStrokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, inkstrokes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddStrokes)(::windows::core::Interface::as_raw(self), inkstrokes.into_param().abi()).ok()
+    pub unsafe fn AddStrokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, inkstrokes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddStrokes)(::windows::core::Interface::as_raw(self), inkstrokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokeDisp>>(&self, inkstroke: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), inkstroke.into_param().abi()).ok()
+    pub unsafe fn Remove<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokeDisp>>>(&self, inkstroke: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), inkstroke.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RemoveStrokes<'a, Param0: ::windows::core::IntoParam<'a, IInkStrokes>>(&self, inkstrokes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveStrokes)(::windows::core::Interface::as_raw(self), inkstrokes.into_param().abi()).ok()
+    pub unsafe fn RemoveStrokes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkStrokes>>>(&self, inkstrokes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveStrokes)(::windows::core::Interface::as_raw(self), inkstrokes.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ModifyDrawingAttributes<'a, Param0: ::windows::core::IntoParam<'a, IInkDrawingAttributes>>(&self, drawattrs: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ModifyDrawingAttributes)(::windows::core::Interface::as_raw(self), drawattrs.into_param().abi()).ok()
+    pub unsafe fn ModifyDrawingAttributes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDrawingAttributes>>>(&self, drawattrs: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ModifyDrawingAttributes)(::windows::core::Interface::as_raw(self), drawattrs.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle> {
+    pub unsafe fn GetBoundingBox<'a, Param0: ::std::convert::Into<InkBoundingBoxMode>>(&self, boundingboxmode: Param0) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(boundingboxmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
+        (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), boundingboxmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Transform<'a, Param0: ::windows::core::IntoParam<'a, IInkTransform>>(&self, transform: Param0, applyonpenwidth: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Transform)(::windows::core::Interface::as_raw(self), transform.into_param().abi(), ::core::mem::transmute(applyonpenwidth)).ok()
+    pub unsafe fn Transform<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTransform>>>(&self, transform: Param0, applyonpenwidth: i16) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Transform)(::windows::core::Interface::as_raw(self), transform.into().abi(), ::core::mem::transmute(applyonpenwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn ScaleToRectangle<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScaleToRectangle)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn ScaleToRectangle<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ScaleToRectangle)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> ::windows::core::Result<()> {
@@ -9896,8 +9529,8 @@ impl IInkStrokes {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Clip<'a, Param0: ::windows::core::IntoParam<'a, IInkRectangle>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into_param().abi()).ok()
+    pub unsafe fn Clip<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkRectangle>>>(&self, rectangle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn RemoveRecognitionResult(&self) -> ::windows::core::Result<()> {
@@ -9911,21 +9544,15 @@ impl ::core::convert::From<IInkStrokes> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkStrokes> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkStrokes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkStrokes> for ::windows::core::IUnknown {
     fn from(value: &IInkStrokes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9935,21 +9562,15 @@ impl ::core::convert::From<IInkStrokes> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkStrokes> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkStrokes) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkStrokes> for super::super::System::Com::IDispatch {
     fn from(value: &IInkStrokes) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkStrokes {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10073,19 +9694,25 @@ impl IInkTablet {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsPacketPropertySupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packetpropertyname: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsPacketPropertySupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, packetpropertyname: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetPropertyMetrics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, propertyname: Param0, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into_param().abi(), ::core::mem::transmute(minimum), ::core::mem::transmute(maximum), ::core::mem::transmute(units), ::core::mem::transmute(resolution)).ok()
+    pub unsafe fn GetPropertyMetrics<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, propertyname: Param0, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(minimum), ::core::mem::transmute(maximum), ::core::mem::transmute(units), ::core::mem::transmute(resolution)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkTablet> for ::windows::core::IUnknown {
     fn from(value: IInkTablet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablet> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkTablet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10096,20 +9723,14 @@ impl ::core::convert::From<&IInkTablet> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkTablet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkTablet {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkTablet> for super::super::System::Com::IDispatch {
     fn from(value: IInkTablet) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablet> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkTablet) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10117,18 +9738,6 @@ impl ::core::convert::From<IInkTablet> for super::super::System::Com::IDispatch 
 impl ::core::convert::From<&IInkTablet> for super::super::System::Com::IDispatch {
     fn from(value: &IInkTablet) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkTablet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkTablet {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10202,21 +9811,15 @@ impl ::core::convert::From<IInkTablet2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablet2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkTablet2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkTablet2> for ::windows::core::IUnknown {
     fn from(value: &IInkTablet2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkTablet2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkTablet2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10226,21 +9829,15 @@ impl ::core::convert::From<IInkTablet2> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablet2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkTablet2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkTablet2> for super::super::System::Com::IDispatch {
     fn from(value: &IInkTablet2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkTablet2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkTablet2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10299,21 +9896,15 @@ impl ::core::convert::From<IInkTablet3> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablet3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkTablet3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkTablet3> for ::windows::core::IUnknown {
     fn from(value: &IInkTablet3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkTablet3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkTablet3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10323,21 +9914,15 @@ impl ::core::convert::From<IInkTablet3> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablet3> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkTablet3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IInkTablet3> for super::super::System::Com::IDispatch {
     fn from(value: &IInkTablet3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkTablet3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkTablet3 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10403,14 +9988,20 @@ impl IInkTablets {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsPacketPropertySupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, packetpropertyname: Param0) -> ::windows::core::Result<i16> {
+    pub unsafe fn IsPacketPropertySupported<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, packetpropertyname: Param0) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
-        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkTablets> for ::windows::core::IUnknown {
     fn from(value: IInkTablets) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablets> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkTablets) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10421,20 +10012,14 @@ impl ::core::convert::From<&IInkTablets> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkTablets {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkTablets {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkTablets> for super::super::System::Com::IDispatch {
     fn from(value: IInkTablets) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTablets> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkTablets) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10442,18 +10027,6 @@ impl ::core::convert::From<IInkTablets> for super::super::System::Com::IDispatch
 impl ::core::convert::From<&IInkTablets> for super::super::System::Com::IDispatch {
     fn from(value: &IInkTablets) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkTablets {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkTablets {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10601,13 +10174,19 @@ impl IInkTransform {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::XFORM>>(&self, xform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), xform.into_param().abi()).ok()
+    pub unsafe fn SetData(&self, xform: super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xform)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkTransform> for ::windows::core::IUnknown {
     fn from(value: IInkTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTransform> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10618,20 +10197,14 @@ impl ::core::convert::From<&IInkTransform> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkTransform> for super::super::System::Com::IDispatch {
     fn from(value: IInkTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkTransform> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10639,18 +10212,6 @@ impl ::core::convert::From<IInkTransform> for super::super::System::Com::IDispat
 impl ::core::convert::From<&IInkTransform> for super::super::System::Com::IDispatch {
     fn from(value: &IInkTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10720,23 +10281,29 @@ pub struct IInkWordList(::windows::core::IUnknown);
 impl IInkWordList {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWord)(::windows::core::Interface::as_raw(self), newword.into_param().abi()).ok()
+    pub unsafe fn AddWord<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newword: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddWord)(::windows::core::Interface::as_raw(self), newword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, removeword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveWord)(::windows::core::Interface::as_raw(self), removeword.into_param().abi()).ok()
+    pub unsafe fn RemoveWord<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, removeword: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveWord)(::windows::core::Interface::as_raw(self), removeword.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, IInkWordList>>(&self, mergewordlist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), mergewordlist.into_param().abi()).ok()
+    pub unsafe fn Merge<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkWordList>>>(&self, mergewordlist: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), mergewordlist.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkWordList> for ::windows::core::IUnknown {
     fn from(value: IInkWordList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkWordList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkWordList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10747,20 +10314,14 @@ impl ::core::convert::From<&IInkWordList> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkWordList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkWordList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkWordList> for super::super::System::Com::IDispatch {
     fn from(value: IInkWordList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkWordList> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkWordList) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10768,18 +10329,6 @@ impl ::core::convert::From<IInkWordList> for super::super::System::Com::IDispatc
 impl ::core::convert::From<&IInkWordList> for super::super::System::Com::IDispatch {
     fn from(value: &IInkWordList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkWordList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkWordList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10833,13 +10382,19 @@ pub struct IInkWordList2(::windows::core::IUnknown);
 impl IInkWordList2 {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddWords<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newwords: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddWords)(::windows::core::Interface::as_raw(self), newwords.into_param().abi()).ok()
+    pub unsafe fn AddWords<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, newwords: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddWords)(::windows::core::Interface::as_raw(self), newwords.into().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkWordList2> for ::windows::core::IUnknown {
     fn from(value: IInkWordList2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkWordList2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInkWordList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10850,20 +10405,14 @@ impl ::core::convert::From<&IInkWordList2> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkWordList2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInkWordList2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IInkWordList2> for super::super::System::Com::IDispatch {
     fn from(value: IInkWordList2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IInkWordList2> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IInkWordList2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -10871,18 +10420,6 @@ impl ::core::convert::From<IInkWordList2> for super::super::System::Com::IDispat
 impl ::core::convert::From<&IInkWordList2> for super::super::System::Com::IDispatch {
     fn from(value: &IInkWordList2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IInkWordList2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IInkWordList2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10948,19 +10485,14 @@ impl ::core::convert::From<IInputPanelWindowHandle> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInputPanelWindowHandle> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInputPanelWindowHandle) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInputPanelWindowHandle> for ::windows::core::IUnknown {
     fn from(value: &IInputPanelWindowHandle) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInputPanelWindowHandle {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInputPanelWindowHandle {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInputPanelWindowHandle {
@@ -11029,13 +10561,13 @@ impl IMathInputControl {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCaptionText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, captiontext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaptionText)(::windows::core::Interface::as_raw(self), captiontext.into_param().abi()).ok()
+    pub unsafe fn SetCaptionText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, captiontext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCaptionText)(::windows::core::Interface::as_raw(self), captiontext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadInk<'a, Param0: ::windows::core::IntoParam<'a, IInkDisp>>(&self, ink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadInk)(::windows::core::Interface::as_raw(self), ink.into_param().abi()).ok()
+    pub unsafe fn LoadInk<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDisp>>>(&self, ink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LoadInk)(::windows::core::Interface::as_raw(self), ink.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetOwnerWindow(&self, ownerwindow: isize) -> ::windows::core::Result<()> {
@@ -11060,13 +10592,13 @@ impl IMathInputControl {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddFunctionName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, functionname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFunctionName)(::windows::core::Interface::as_raw(self), functionname.into_param().abi()).ok()
+    pub unsafe fn AddFunctionName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, functionname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddFunctionName)(::windows::core::Interface::as_raw(self), functionname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveFunctionName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, functionname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveFunctionName)(::windows::core::Interface::as_raw(self), functionname.into_param().abi()).ok()
+    pub unsafe fn RemoveFunctionName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, functionname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveFunctionName)(::windows::core::Interface::as_raw(self), functionname.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -11082,21 +10614,15 @@ impl ::core::convert::From<IMathInputControl> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMathInputControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMathInputControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMathInputControl> for ::windows::core::IUnknown {
     fn from(value: &IMathInputControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMathInputControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMathInputControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11106,21 +10632,15 @@ impl ::core::convert::From<IMathInputControl> for super::super::System::Com::IDi
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IMathInputControl> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IMathInputControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IMathInputControl> for super::super::System::Com::IDispatch {
     fn from(value: &IMathInputControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IMathInputControl {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IMathInputControl {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11267,8 +10787,8 @@ impl IPenInputPanel {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, factoid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into_param().abi()).ok()
+    pub unsafe fn SetFactoid<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, factoid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn AttachedEditWindow(&self) -> ::windows::core::Result<i32> {
@@ -11285,8 +10805,8 @@ impl IPenInputPanel {
         (::windows::core::Interface::vtable(self).CurrentPanel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PanelType>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetCurrentPanel(&self, currentpanel: PanelType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCurrentPanel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(currentpanel)).ok()
+    pub unsafe fn SetCurrentPanel<'a, Param0: ::std::convert::Into<PanelType>>(&self, currentpanel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCurrentPanel)(::windows::core::Interface::as_raw(self), currentpanel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DefaultPanel(&self) -> ::windows::core::Result<PanelType> {
@@ -11294,8 +10814,8 @@ impl IPenInputPanel {
         (::windows::core::Interface::vtable(self).DefaultPanel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PanelType>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetDefaultPanel(&self, defaultpanel: PanelType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultPanel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(defaultpanel)).ok()
+    pub unsafe fn SetDefaultPanel<'a, Param0: ::std::convert::Into<PanelType>>(&self, defaultpanel: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultPanel)(::windows::core::Interface::as_raw(self), defaultpanel.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn Visible(&self) -> ::windows::core::Result<i16> {
@@ -11377,21 +10897,15 @@ impl ::core::convert::From<IPenInputPanel> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPenInputPanel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPenInputPanel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPenInputPanel> for ::windows::core::IUnknown {
     fn from(value: &IPenInputPanel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPenInputPanel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPenInputPanel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11401,21 +10915,15 @@ impl ::core::convert::From<IPenInputPanel> for super::super::System::Com::IDispa
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a IPenInputPanel> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a IPenInputPanel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&IPenInputPanel> for super::super::System::Com::IDispatch {
     fn from(value: &IPenInputPanel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IPenInputPanel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a IPenInputPanel {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11492,8 +11000,8 @@ impl IRealTimeStylus {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn SetEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11503,8 +11011,8 @@ impl IRealTimeStylus {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHWND<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE_PTR>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHWND)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
+    pub unsafe fn SetHWND<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE_PTR>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHWND)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -11518,8 +11026,8 @@ impl IRealTimeStylus {
         (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcwndinputrect)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn AddStylusSyncPlugin<'a, Param1: ::windows::core::IntoParam<'a, IStylusSyncPlugin>>(&self, iindex: u32, piplugin: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddStylusSyncPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), piplugin.into_param().abi()).ok()
+    pub unsafe fn AddStylusSyncPlugin<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IStylusSyncPlugin>>>(&self, iindex: u32, piplugin: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddStylusSyncPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), piplugin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: *mut ::core::option::Option<IStylusSyncPlugin>) -> ::windows::core::Result<()> {
@@ -11540,8 +11048,8 @@ impl IRealTimeStylus {
         (::windows::core::Interface::vtable(self).GetStylusSyncPluginCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn AddStylusAsyncPlugin<'a, Param1: ::windows::core::IntoParam<'a, IStylusAsyncPlugin>>(&self, iindex: u32, piplugin: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddStylusAsyncPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), piplugin.into_param().abi()).ok()
+    pub unsafe fn AddStylusAsyncPlugin<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IStylusAsyncPlugin>>>(&self, iindex: u32, piplugin: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddStylusAsyncPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), piplugin.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: *mut ::core::option::Option<IStylusAsyncPlugin>) -> ::windows::core::Result<()> {
@@ -11567,12 +11075,12 @@ impl IRealTimeStylus {
         (::windows::core::Interface::vtable(self).ChildRealTimeStylusPlugin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRealTimeStylus>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn putref_ChildRealTimeStylusPlugin<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirts: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(::windows::core::Interface::as_raw(self), pirts.into_param().abi()).ok()
+    pub unsafe fn putref_ChildRealTimeStylusPlugin<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirts: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(::windows::core::Interface::as_raw(self), pirts.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddCustomStylusDataToQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sq), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
+    pub unsafe fn AddCustomStylusDataToQueue<'a, Param0: ::std::convert::Into<StylusQueue>>(&self, sq: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddCustomStylusDataToQueue)(::windows::core::Interface::as_raw(self), sq.into(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn ClearStylusQueues(&self) -> ::windows::core::Result<()> {
@@ -11580,13 +11088,13 @@ impl IRealTimeStylus {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllTabletsMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fusemouseforinput: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllTabletsMode)(::windows::core::Interface::as_raw(self), fusemouseforinput.into_param().abi()).ok()
+    pub unsafe fn SetAllTabletsMode<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fusemouseforinput: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAllTabletsMode)(::windows::core::Interface::as_raw(self), fusemouseforinput.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSingleTabletMode<'a, Param0: ::windows::core::IntoParam<'a, IInkTablet>>(&self, pitablet: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSingleTabletMode)(::windows::core::Interface::as_raw(self), pitablet.into_param().abi()).ok()
+    pub unsafe fn SetSingleTabletMode<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, pitablet: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetSingleTabletMode)(::windows::core::Interface::as_raw(self), pitablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11596,9 +11104,9 @@ impl IRealTimeStylus {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTabletContextIdFromTablet<'a, Param0: ::windows::core::IntoParam<'a, IInkTablet>>(&self, pitablet: Param0) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetTabletContextIdFromTablet<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, pitablet: Param0) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetTabletContextIdFromTablet)(::windows::core::Interface::as_raw(self), pitablet.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetTabletContextIdFromTablet)(::windows::core::Interface::as_raw(self), pitablet.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -11640,19 +11148,14 @@ impl ::core::convert::From<IRealTimeStylus> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRealTimeStylus> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRealTimeStylus) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRealTimeStylus> for ::windows::core::IUnknown {
     fn from(value: &IRealTimeStylus) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRealTimeStylus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRealTimeStylus {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRealTimeStylus {
@@ -11762,8 +11265,8 @@ impl IRealTimeStylus2 {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFlicksEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlicksEnabled)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn SetFlicksEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFlicksEnabled)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
 }
 impl ::core::convert::From<IRealTimeStylus2> for ::windows::core::IUnknown {
@@ -11771,19 +11274,14 @@ impl ::core::convert::From<IRealTimeStylus2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRealTimeStylus2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRealTimeStylus2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRealTimeStylus2> for ::windows::core::IUnknown {
     fn from(value: &IRealTimeStylus2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRealTimeStylus2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRealTimeStylus2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRealTimeStylus2 {
@@ -11831,8 +11329,8 @@ impl IRealTimeStylus3 {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMultiTouchEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultiTouchEnabled)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
+    pub unsafe fn SetMultiTouchEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMultiTouchEnabled)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
 }
 impl ::core::convert::From<IRealTimeStylus3> for ::windows::core::IUnknown {
@@ -11840,19 +11338,14 @@ impl ::core::convert::From<IRealTimeStylus3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRealTimeStylus3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRealTimeStylus3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRealTimeStylus3> for ::windows::core::IUnknown {
     fn from(value: &IRealTimeStylus3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRealTimeStylus3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRealTimeStylus3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRealTimeStylus3 {
@@ -11893,12 +11386,12 @@ pub struct IRealTimeStylus3_Vtbl {
 pub struct IRealTimeStylusSynchronization(::windows::core::IUnknown);
 impl IRealTimeStylusSynchronization {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn AcquireLock(&self, lock: RealTimeStylusLockType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lock)).ok()
+    pub unsafe fn AcquireLock<'a, Param0: ::std::convert::Into<RealTimeStylusLockType>>(&self, lock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AcquireLock)(::windows::core::Interface::as_raw(self), lock.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn ReleaseLock(&self, lock: RealTimeStylusLockType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lock)).ok()
+    pub unsafe fn ReleaseLock<'a, Param0: ::std::convert::Into<RealTimeStylusLockType>>(&self, lock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReleaseLock)(::windows::core::Interface::as_raw(self), lock.into()).ok()
     }
 }
 impl ::core::convert::From<IRealTimeStylusSynchronization> for ::windows::core::IUnknown {
@@ -11906,19 +11399,14 @@ impl ::core::convert::From<IRealTimeStylusSynchronization> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRealTimeStylusSynchronization> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRealTimeStylusSynchronization) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRealTimeStylusSynchronization> for ::windows::core::IUnknown {
     fn from(value: &IRealTimeStylusSynchronization) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRealTimeStylusSynchronization {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRealTimeStylusSynchronization {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRealTimeStylusSynchronization {
@@ -11961,21 +11449,15 @@ impl ::core::convert::From<ISketchInk> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISketchInk> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISketchInk) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISketchInk> for ::windows::core::IUnknown {
     fn from(value: &ISketchInk) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISketchInk {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISketchInk {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11985,21 +11467,15 @@ impl ::core::convert::From<ISketchInk> for super::super::System::Com::IDispatch 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a ISketchInk> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a ISketchInk) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&ISketchInk> for super::super::System::Com::IDispatch {
     fn from(value: &ISketchInk) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for ISketchInk {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a ISketchInk {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12064,8 +11540,8 @@ impl IStrokeBuilder {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Ink<'a, Param0: ::windows::core::IntoParam<'a, IInkDisp>>(&self, piinkobj: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), piinkobj.into_param().abi()).ok()
+    pub unsafe fn putref_Ink<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IInkDisp>>>(&self, piinkobj: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).putref_Ink)(::windows::core::Interface::as_raw(self), piinkobj.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IStrokeBuilder> for ::windows::core::IUnknown {
@@ -12073,19 +11549,14 @@ impl ::core::convert::From<IStrokeBuilder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStrokeBuilder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStrokeBuilder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStrokeBuilder> for ::windows::core::IUnknown {
     fn from(value: &IStrokeBuilder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStrokeBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStrokeBuilder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStrokeBuilder {
@@ -12139,75 +11610,75 @@ pub struct IStrokeBuilder_Vtbl {
 pub struct IStylusAsyncPlugin(::windows::core::IUnknown);
 impl IStylusAsyncPlugin {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
+    pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn RealTimeStylusDisabled<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
+    pub unsafe fn RealTimeStylusDisabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn StylusInRange<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusInRange)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
+    pub unsafe fn StylusInRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusInRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn StylusOutOfRange<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
+    pub unsafe fn StylusOutOfRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusDown<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
+    pub unsafe fn StylusDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusUp<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
+    pub unsafe fn StylusUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusButtonDown<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
+    pub unsafe fn StylusButtonDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusButtonUp<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
+    pub unsafe fn StylusButtonUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InAirPackets<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
+    pub unsafe fn InAirPackets<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Packets<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Packets)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
+    pub unsafe fn Packets<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Packets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn CustomStylusDataAdded<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
+    pub unsafe fn CustomStylusDataAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SystemEvent<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param4: ::windows::core::IntoParam<'a, SYSTEM_EVENT_DATA>>(&self, pirtssrc: Param0, tcid: u32, sid: u32, event: u16, eventdata: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid), ::core::mem::transmute(event), eventdata.into_param().abi()).ok()
+    pub unsafe fn SystemEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid), ::core::mem::transmute(event), ::core::mem::transmute(eventdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TabletAdded<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param1: ::windows::core::IntoParam<'a, IInkTablet>>(&self, pirtssrc: Param0, pitablet: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TabletAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), pitablet.into_param().abi()).ok()
+    pub unsafe fn TabletAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, pirtssrc: Param0, pitablet: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TabletAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), pitablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn TabletRemoved<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, itabletindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TabletRemoved)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(itabletindex)).ok()
+    pub unsafe fn TabletRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, itabletindex: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TabletRemoved)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(itabletindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn Error<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param1: ::windows::core::IntoParam<'a, IStylusPlugin>>(&self, pirtssrc: Param0, piplugin: Param1, datainterest: RealTimeStylusDataInterest, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Error)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), piplugin.into_param().abi(), ::core::mem::transmute(datainterest), ::core::mem::transmute(hrerrorcode), ::core::mem::transmute(lptrkey)).ok()
+    pub unsafe fn Error<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IStylusPlugin>>, Param2: ::std::convert::Into<RealTimeStylusDataInterest>>(&self, pirtssrc: Param0, piplugin: Param1, datainterest: Param2, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Error)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), piplugin.into().abi(), datainterest.into(), ::core::mem::transmute(hrerrorcode), ::core::mem::transmute(lptrkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn UpdateMapping<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UpdateMapping)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi()).ok()
+    pub unsafe fn UpdateMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UpdateMapping)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DataInterest(&self) -> ::windows::core::Result<RealTimeStylusDataInterest> {
@@ -12220,19 +11691,14 @@ impl ::core::convert::From<IStylusAsyncPlugin> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStylusAsyncPlugin> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStylusAsyncPlugin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStylusAsyncPlugin> for ::windows::core::IUnknown {
     fn from(value: &IStylusAsyncPlugin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStylusAsyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStylusAsyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IStylusAsyncPlugin> for IStylusPlugin {
@@ -12240,19 +11706,14 @@ impl ::core::convert::From<IStylusAsyncPlugin> for IStylusPlugin {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStylusAsyncPlugin> for &'a IStylusPlugin {
+    fn from(value: &'a IStylusAsyncPlugin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStylusAsyncPlugin> for IStylusPlugin {
     fn from(value: &IStylusAsyncPlugin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IStylusPlugin> for IStylusAsyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, IStylusPlugin> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IStylusPlugin> for &'a IStylusAsyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, IStylusPlugin> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStylusAsyncPlugin {
@@ -12285,75 +11746,75 @@ pub struct IStylusAsyncPlugin_Vtbl {
 pub struct IStylusPlugin(::windows::core::IUnknown);
 impl IStylusPlugin {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RealTimeStylusEnabled)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
+    pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RealTimeStylusEnabled)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn RealTimeStylusDisabled<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RealTimeStylusDisabled)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
+    pub unsafe fn RealTimeStylusDisabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RealTimeStylusDisabled)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn StylusInRange<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StylusInRange)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
+    pub unsafe fn StylusInRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StylusInRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn StylusOutOfRange<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
+    pub unsafe fn StylusOutOfRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusDown<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
+    pub unsafe fn StylusDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusUp<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
+    pub unsafe fn StylusUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusButtonDown<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
+    pub unsafe fn StylusButtonDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusButtonUp<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
+    pub unsafe fn StylusButtonUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InAirPackets<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
+    pub unsafe fn InAirPackets<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Packets<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Packets)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
+    pub unsafe fn Packets<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Packets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn CustomStylusDataAdded<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CustomStylusDataAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
+    pub unsafe fn CustomStylusDataAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CustomStylusDataAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SystemEvent<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param4: ::windows::core::IntoParam<'a, SYSTEM_EVENT_DATA>>(&self, pirtssrc: Param0, tcid: u32, sid: u32, event: u16, eventdata: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid), ::core::mem::transmute(event), eventdata.into_param().abi()).ok()
+    pub unsafe fn SystemEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid), ::core::mem::transmute(event), ::core::mem::transmute(eventdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TabletAdded<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param1: ::windows::core::IntoParam<'a, IInkTablet>>(&self, pirtssrc: Param0, pitablet: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TabletAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), pitablet.into_param().abi()).ok()
+    pub unsafe fn TabletAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, pirtssrc: Param0, pitablet: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TabletAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), pitablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn TabletRemoved<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, itabletindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TabletRemoved)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(itabletindex)).ok()
+    pub unsafe fn TabletRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, itabletindex: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).TabletRemoved)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(itabletindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn Error<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param1: ::windows::core::IntoParam<'a, IStylusPlugin>>(&self, pirtssrc: Param0, piplugin: Param1, datainterest: RealTimeStylusDataInterest, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), piplugin.into_param().abi(), ::core::mem::transmute(datainterest), ::core::mem::transmute(hrerrorcode), ::core::mem::transmute(lptrkey)).ok()
+    pub unsafe fn Error<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IStylusPlugin>>, Param2: ::std::convert::Into<RealTimeStylusDataInterest>>(&self, pirtssrc: Param0, piplugin: Param1, datainterest: Param2, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), piplugin.into().abi(), datainterest.into(), ::core::mem::transmute(hrerrorcode), ::core::mem::transmute(lptrkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn UpdateMapping<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateMapping)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi()).ok()
+    pub unsafe fn UpdateMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateMapping)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DataInterest(&self) -> ::windows::core::Result<RealTimeStylusDataInterest> {
@@ -12366,19 +11827,14 @@ impl ::core::convert::From<IStylusPlugin> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStylusPlugin> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStylusPlugin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStylusPlugin> for ::windows::core::IUnknown {
     fn from(value: &IStylusPlugin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStylusPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStylusPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStylusPlugin {
@@ -12449,75 +11905,75 @@ pub struct IStylusPlugin_Vtbl {
 pub struct IStylusSyncPlugin(::windows::core::IUnknown);
 impl IStylusSyncPlugin {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
+    pub unsafe fn RealTimeStylusEnabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RealTimeStylusEnabled)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn RealTimeStylusDisabled<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
+    pub unsafe fn RealTimeStylusDisabled<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, ptcids: &[u32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RealTimeStylusDisabled)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ptcids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ptcids))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn StylusInRange<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusInRange)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
+    pub unsafe fn StylusInRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusInRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn StylusOutOfRange<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
+    pub unsafe fn StylusOutOfRange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusDown<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
+    pub unsafe fn StylusDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusUp<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
+    pub unsafe fn StylusUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppacket)), ::core::mem::transmute(ppinoutpkt)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusButtonDown<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
+    pub unsafe fn StylusButtonDown<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StylusButtonUp<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
+    pub unsafe fn StylusButtonUp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, sid: u32, pguidstylusbutton: *const ::windows::core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(sid), ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InAirPackets<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
+    pub unsafe fn InAirPackets<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Packets<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Packets)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
+    pub unsafe fn Packets<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Packets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ::core::mem::transmute(cpktcount), ppackets.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(ppackets)), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn CustomStylusDataAdded<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
+    pub unsafe fn CustomStylusDataAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, pguidid: *const ::windows::core::GUID, pbdata: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.CustomStylusDataAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pguidid), pbdata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbdata))).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SystemEvent<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param4: ::windows::core::IntoParam<'a, SYSTEM_EVENT_DATA>>(&self, pirtssrc: Param0, tcid: u32, sid: u32, event: u16, eventdata: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid), ::core::mem::transmute(event), eventdata.into_param().abi()).ok()
+    pub unsafe fn SystemEvent<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(tcid), ::core::mem::transmute(sid), ::core::mem::transmute(event), ::core::mem::transmute(eventdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TabletAdded<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param1: ::windows::core::IntoParam<'a, IInkTablet>>(&self, pirtssrc: Param0, pitablet: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TabletAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), pitablet.into_param().abi()).ok()
+    pub unsafe fn TabletAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IInkTablet>>>(&self, pirtssrc: Param0, pitablet: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TabletAdded)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), pitablet.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn TabletRemoved<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0, itabletindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.TabletRemoved)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), ::core::mem::transmute(itabletindex)).ok()
+    pub unsafe fn TabletRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0, itabletindex: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.TabletRemoved)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(itabletindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn Error<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>, Param1: ::windows::core::IntoParam<'a, IStylusPlugin>>(&self, pirtssrc: Param0, piplugin: Param1, datainterest: RealTimeStylusDataInterest, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Error)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi(), piplugin.into_param().abi(), ::core::mem::transmute(datainterest), ::core::mem::transmute(hrerrorcode), ::core::mem::transmute(lptrkey)).ok()
+    pub unsafe fn Error<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IStylusPlugin>>, Param2: ::std::convert::Into<RealTimeStylusDataInterest>>(&self, pirtssrc: Param0, piplugin: Param1, datainterest: Param2, hrerrorcode: ::windows::core::HRESULT, lptrkey: *mut isize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Error)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), piplugin.into().abi(), datainterest.into(), ::core::mem::transmute(hrerrorcode), ::core::mem::transmute(lptrkey)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn UpdateMapping<'a, Param0: ::windows::core::IntoParam<'a, IRealTimeStylus>>(&self, pirtssrc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UpdateMapping)(::windows::core::Interface::as_raw(self), pirtssrc.into_param().abi()).ok()
+    pub unsafe fn UpdateMapping<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IRealTimeStylus>>>(&self, pirtssrc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UpdateMapping)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn DataInterest(&self) -> ::windows::core::Result<RealTimeStylusDataInterest> {
@@ -12530,19 +11986,14 @@ impl ::core::convert::From<IStylusSyncPlugin> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStylusSyncPlugin> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStylusSyncPlugin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStylusSyncPlugin> for ::windows::core::IUnknown {
     fn from(value: &IStylusSyncPlugin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStylusSyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IStylusSyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IStylusSyncPlugin> for IStylusPlugin {
@@ -12550,19 +12001,14 @@ impl ::core::convert::From<IStylusSyncPlugin> for IStylusPlugin {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IStylusSyncPlugin> for &'a IStylusPlugin {
+    fn from(value: &'a IStylusSyncPlugin) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IStylusSyncPlugin> for IStylusPlugin {
     fn from(value: &IStylusSyncPlugin) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IStylusPlugin> for IStylusSyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, IStylusPlugin> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IStylusPlugin> for &'a IStylusSyncPlugin {
-    fn into_param(self) -> ::windows::core::Param<'a, IStylusPlugin> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IStylusSyncPlugin {
@@ -12602,8 +12048,8 @@ impl ITextInputPanel {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttachedEditWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, attachededitwindow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttachedEditWindow)(::windows::core::Interface::as_raw(self), attachededitwindow.into_param().abi()).ok()
+    pub unsafe fn SetAttachedEditWindow<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, attachededitwindow: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAttachedEditWindow)(::windows::core::Interface::as_raw(self), attachededitwindow.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn CurrentInteractionMode(&self) -> ::windows::core::Result<InteractionMode> {
@@ -12616,8 +12062,8 @@ impl ITextInputPanel {
         (::windows::core::Interface::vtable(self).DefaultInPlaceState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InPlaceState>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetDefaultInPlaceState(&self, state: InPlaceState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultInPlaceState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(state)).ok()
+    pub unsafe fn SetDefaultInPlaceState<'a, Param0: ::std::convert::Into<InPlaceState>>(&self, state: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultInPlaceState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn CurrentInPlaceState(&self) -> ::windows::core::Result<InPlaceState> {
@@ -12630,8 +12076,8 @@ impl ITextInputPanel {
         (::windows::core::Interface::vtable(self).DefaultInputArea)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PanelInputArea>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetDefaultInputArea(&self, area: PanelInputArea) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultInputArea)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(area)).ok()
+    pub unsafe fn SetDefaultInputArea<'a, Param0: ::std::convert::Into<PanelInputArea>>(&self, area: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDefaultInputArea)(::windows::core::Interface::as_raw(self), area.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn CurrentInputArea(&self) -> ::windows::core::Result<PanelInputArea> {
@@ -12649,8 +12095,8 @@ impl ITextInputPanel {
         (::windows::core::Interface::vtable(self).PreferredInPlaceDirection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InPlaceDirection>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetPreferredInPlaceDirection(&self, direction: InPlaceDirection) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreferredInPlaceDirection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(direction)).ok()
+    pub unsafe fn SetPreferredInPlaceDirection<'a, Param0: ::std::convert::Into<InPlaceDirection>>(&self, direction: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetPreferredInPlaceDirection)(::windows::core::Interface::as_raw(self), direction.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12660,8 +12106,8 @@ impl ITextInputPanel {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetExpandPostInsertionCorrection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, expand: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExpandPostInsertionCorrection)(::windows::core::Interface::as_raw(self), expand.into_param().abi()).ok()
+    pub unsafe fn SetExpandPostInsertionCorrection<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, expand: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetExpandPostInsertionCorrection)(::windows::core::Interface::as_raw(self), expand.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12671,8 +12117,8 @@ impl ITextInputPanel {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInPlaceVisibleOnFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, visible: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(::windows::core::Interface::as_raw(self), visible.into_param().abi()).ok()
+    pub unsafe fn SetInPlaceVisibleOnFocus<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, visible: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(::windows::core::Interface::as_raw(self), visible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -12696,24 +12142,24 @@ impl ITextInputPanel {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetInPlaceVisibility<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, visible: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInPlaceVisibility)(::windows::core::Interface::as_raw(self), visible.into_param().abi()).ok()
+    pub unsafe fn SetInPlaceVisibility<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, visible: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInPlaceVisibility)(::windows::core::Interface::as_raw(self), visible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInPlacePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xposition), ::core::mem::transmute(yposition), ::core::mem::transmute(position)).ok()
+    pub unsafe fn SetInPlacePosition<'a, Param2: ::std::convert::Into<CorrectionPosition>>(&self, xposition: i32, yposition: i32, position: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInPlacePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xposition), ::core::mem::transmute(yposition), position.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn SetInPlaceHoverTargetPosition(&self, xposition: i32, yposition: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInPlaceHoverTargetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xposition), ::core::mem::transmute(yposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn Advise<'a, Param0: ::windows::core::IntoParam<'a, ITextInputPanelEventSink>>(&self, eventsink: Param0, eventmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), eventsink.into_param().abi(), ::core::mem::transmute(eventmask)).ok()
+    pub unsafe fn Advise<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextInputPanelEventSink>>>(&self, eventsink: Param0, eventmask: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Advise)(::windows::core::Interface::as_raw(self), eventsink.into().abi(), ::core::mem::transmute(eventmask)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn Unadvise<'a, Param0: ::windows::core::IntoParam<'a, ITextInputPanelEventSink>>(&self, eventsink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self), eventsink.into_param().abi()).ok()
+    pub unsafe fn Unadvise<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ITextInputPanelEventSink>>>(&self, eventsink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unadvise)(::windows::core::Interface::as_raw(self), eventsink.into().abi()).ok()
     }
 }
 impl ::core::convert::From<ITextInputPanel> for ::windows::core::IUnknown {
@@ -12721,19 +12167,14 @@ impl ::core::convert::From<ITextInputPanel> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextInputPanel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextInputPanel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextInputPanel> for ::windows::core::IUnknown {
     fn from(value: &ITextInputPanel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextInputPanel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextInputPanel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextInputPanel {
@@ -12815,48 +12256,48 @@ pub struct ITextInputPanel_Vtbl {
 pub struct ITextInputPanelEventSink(::windows::core::IUnknown);
 impl ITextInputPanelEventSink {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InPlaceStateChanging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldinplacestate), ::core::mem::transmute(newinplacestate)).ok()
+    pub unsafe fn InPlaceStateChanging<'a, Param0: ::std::convert::Into<InPlaceState>, Param1: ::std::convert::Into<InPlaceState>>(&self, oldinplacestate: Param0, newinplacestate: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InPlaceStateChanging)(::windows::core::Interface::as_raw(self), oldinplacestate.into(), newinplacestate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InPlaceStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldinplacestate), ::core::mem::transmute(newinplacestate)).ok()
+    pub unsafe fn InPlaceStateChanged<'a, Param0: ::std::convert::Into<InPlaceState>, Param1: ::std::convert::Into<InPlaceState>>(&self, oldinplacestate: Param0, newinplacestate: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InPlaceStateChanged)(::windows::core::Interface::as_raw(self), oldinplacestate.into(), newinplacestate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InPlaceSizeChanging<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>>(&self, oldboundingrectangle: Param0, newboundingrectangle: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InPlaceSizeChanging)(::windows::core::Interface::as_raw(self), oldboundingrectangle.into_param().abi(), newboundingrectangle.into_param().abi()).ok()
+    pub unsafe fn InPlaceSizeChanging(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InPlaceSizeChanging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldboundingrectangle), ::core::mem::transmute(newboundingrectangle)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InPlaceSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::RECT>>(&self, oldboundingrectangle: Param0, newboundingrectangle: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InPlaceSizeChanged)(::windows::core::Interface::as_raw(self), oldboundingrectangle.into_param().abi(), newboundingrectangle.into_param().abi()).ok()
+    pub unsafe fn InPlaceSizeChanged(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InPlaceSizeChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldboundingrectangle), ::core::mem::transmute(newboundingrectangle)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn InputAreaChanging(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InputAreaChanging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldinputarea), ::core::mem::transmute(newinputarea)).ok()
+    pub unsafe fn InputAreaChanging<'a, Param0: ::std::convert::Into<PanelInputArea>, Param1: ::std::convert::Into<PanelInputArea>>(&self, oldinputarea: Param0, newinputarea: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InputAreaChanging)(::windows::core::Interface::as_raw(self), oldinputarea.into(), newinputarea.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn InputAreaChanged(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InputAreaChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldinputarea), ::core::mem::transmute(newinputarea)).ok()
+    pub unsafe fn InputAreaChanged<'a, Param0: ::std::convert::Into<PanelInputArea>, Param1: ::std::convert::Into<PanelInputArea>>(&self, oldinputarea: Param0, newinputarea: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InputAreaChanged)(::windows::core::Interface::as_raw(self), oldinputarea.into(), newinputarea.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn CorrectionModeChanging(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CorrectionModeChanging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldcorrectionmode), ::core::mem::transmute(newcorrectionmode)).ok()
+    pub unsafe fn CorrectionModeChanging<'a, Param0: ::std::convert::Into<CorrectionMode>, Param1: ::std::convert::Into<CorrectionMode>>(&self, oldcorrectionmode: Param0, newcorrectionmode: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CorrectionModeChanging)(::windows::core::Interface::as_raw(self), oldcorrectionmode.into(), newcorrectionmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
-    pub unsafe fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CorrectionModeChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldcorrectionmode), ::core::mem::transmute(newcorrectionmode)).ok()
+    pub unsafe fn CorrectionModeChanged<'a, Param0: ::std::convert::Into<CorrectionMode>, Param1: ::std::convert::Into<CorrectionMode>>(&self, oldcorrectionmode: Param0, newcorrectionmode: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CorrectionModeChanged)(::windows::core::Interface::as_raw(self), oldcorrectionmode.into(), newcorrectionmode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InPlaceVisibilityChanging<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, oldvisible: Param0, newvisible: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InPlaceVisibilityChanging)(::windows::core::Interface::as_raw(self), oldvisible.into_param().abi(), newvisible.into_param().abi()).ok()
+    pub unsafe fn InPlaceVisibilityChanging<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, oldvisible: Param0, newvisible: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InPlaceVisibilityChanging)(::windows::core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn InPlaceVisibilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, oldvisible: Param0, newvisible: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InPlaceVisibilityChanged)(::windows::core::Interface::as_raw(self), oldvisible.into_param().abi(), newvisible.into_param().abi()).ok()
+    pub unsafe fn InPlaceVisibilityChanged<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, oldvisible: Param0, newvisible: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InPlaceVisibilityChanged)(::windows::core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -12874,19 +12315,14 @@ impl ::core::convert::From<ITextInputPanelEventSink> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextInputPanelEventSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextInputPanelEventSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextInputPanelEventSink> for ::windows::core::IUnknown {
     fn from(value: &ITextInputPanelEventSink) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextInputPanelEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextInputPanelEventSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextInputPanelEventSink {
@@ -12960,19 +12396,14 @@ impl ::core::convert::From<ITextInputPanelRunInfo> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITextInputPanelRunInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITextInputPanelRunInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITextInputPanelRunInfo> for ::windows::core::IUnknown {
     fn from(value: &ITextInputPanelRunInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextInputPanelRunInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITextInputPanelRunInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITextInputPanelRunInfo {
@@ -13010,13 +12441,13 @@ pub struct ITipAutoCompleteClient(::windows::core::IUnknown);
 impl ITipAutoCompleteClient {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AdviseProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ITipAutoCompleteProvider>>(&self, hwndfield: Param0, piprovider: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AdviseProvider)(::windows::core::Interface::as_raw(self), hwndfield.into_param().abi(), piprovider.into_param().abi()).ok()
+    pub unsafe fn AdviseProvider<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITipAutoCompleteProvider>>>(&self, hwndfield: Param0, piprovider: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AdviseProvider)(::windows::core::Interface::as_raw(self), hwndfield.into(), piprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnadviseProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, ITipAutoCompleteProvider>>(&self, hwndfield: Param0, piprovider: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnadviseProvider)(::windows::core::Interface::as_raw(self), hwndfield.into_param().abi(), piprovider.into_param().abi()).ok()
+    pub unsafe fn UnadviseProvider<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ITipAutoCompleteProvider>>>(&self, hwndfield: Param0, piprovider: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnadviseProvider)(::windows::core::Interface::as_raw(self), hwndfield.into(), piprovider.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
     pub unsafe fn UserSelection(&self) -> ::windows::core::Result<()> {
@@ -13029,9 +12460,9 @@ impl ITipAutoCompleteClient {
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RequestShowUI<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndlist: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn RequestShowUI<'a, Param0: ::std::convert::Into<super::super::Foundation::HWND>>(&self, hwndlist: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).RequestShowUI)(::windows::core::Interface::as_raw(self), hwndlist.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).RequestShowUI)(::windows::core::Interface::as_raw(self), hwndlist.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<ITipAutoCompleteClient> for ::windows::core::IUnknown {
@@ -13039,19 +12470,14 @@ impl ::core::convert::From<ITipAutoCompleteClient> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITipAutoCompleteClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITipAutoCompleteClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITipAutoCompleteClient> for ::windows::core::IUnknown {
     fn from(value: &ITipAutoCompleteClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITipAutoCompleteClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITipAutoCompleteClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITipAutoCompleteClient {
@@ -13102,13 +12528,13 @@ pub struct ITipAutoCompleteProvider(::windows::core::IUnknown);
 impl ITipAutoCompleteProvider {
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdatePendingText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpendingtext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdatePendingText)(::windows::core::Interface::as_raw(self), bstrpendingtext.into_param().abi()).ok()
+    pub unsafe fn UpdatePendingText<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>>(&self, bstrpendingtext: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdatePendingText)(::windows::core::Interface::as_raw(self), bstrpendingtext.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Show<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), fshow.into_param().abi()).ok()
+    pub unsafe fn Show<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
 }
 impl ::core::convert::From<ITipAutoCompleteProvider> for ::windows::core::IUnknown {
@@ -13116,19 +12542,14 @@ impl ::core::convert::From<ITipAutoCompleteProvider> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ITipAutoCompleteProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ITipAutoCompleteProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ITipAutoCompleteProvider> for ::windows::core::IUnknown {
     fn from(value: &ITipAutoCompleteProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITipAutoCompleteProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ITipAutoCompleteProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ITipAutoCompleteProvider {
@@ -14510,12 +13931,12 @@ impl ::core::fmt::Debug for InteractionMode {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn IsStringSupported<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hrc: Param0, wcstring: u32, pwcstring: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn IsStringSupported<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, wcstring: u32, pwcstring: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn IsStringSupported(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    IsStringSupported(hrc.into_param().abi(), ::core::mem::transmute(wcstring), pwcstring.into_param().abi()).ok()
+    IsStringSupported(hrc.into(), ::core::mem::transmute(wcstring), ::core::mem::transmute(pwcstring)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
@@ -14663,12 +14084,12 @@ impl ::core::default::Default for LINE_SEGMENT {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn LoadCachedAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(clsid: Param0, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
+pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: *mut RECO_ATTRS) -> ::windows::core::HRESULT;
     }
-    LoadCachedAttributes(clsid.into_param().abi(), ::core::mem::transmute(precoattributes)).ok()
+    LoadCachedAttributes(::core::mem::transmute(clsid), ::core::mem::transmute(precoattributes)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_FRIENDLYNAME: u32 = 64u32;
@@ -14766,12 +14187,12 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn MakeWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOGNIZER>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hrec: Param0, pbuffer: Param1, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()> {
+pub unsafe fn MakeWordList<'a, Param0: ::std::convert::Into<HRECOGNIZER>>(hrec: Param0, pbuffer: ::windows::core::PCWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn MakeWordList(hrec: HRECOGNIZER, pbuffer: ::windows::core::PCWSTR, phwl: *mut HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    MakeWordList(hrec.into_param().abi(), pbuffer.into_param().abi(), ::core::mem::transmute(phwl)).ok()
+    MakeWordList(hrec.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(phwl)).ok()
 }
 pub const MathInputControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
@@ -15031,12 +14452,12 @@ pub type PfnRecoCallback = ::core::option::Option<unsafe extern "system" fn(para
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+pub unsafe fn Process<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
     }
-    Process(hrc.into_param().abi(), ::core::mem::transmute(pbpartialprocessing)).ok()
+    Process(hrc.into(), ::core::mem::transmute(pbpartialprocessing)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
@@ -15706,57 +15127,57 @@ impl ::core::fmt::Debug for SelectionHitResult {
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
+pub unsafe fn SetEnabledUnicodeRanges<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> ::windows::core::HRESULT;
     }
-    SetEnabledUnicodeRanges(hrc.into_param().abi(), ::core::mem::transmute(cranges), ::core::mem::transmute(pcr)).ok()
+    SetEnabledUnicodeRanges(hrc.into(), ::core::mem::transmute(cranges), ::core::mem::transmute(pcr)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetFactoid<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: Param2) -> ::windows::core::Result<()> {
+pub unsafe fn SetFactoid<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, cwcfactoid: u32, pwcfactoid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    SetFactoid(hrc.into_param().abi(), ::core::mem::transmute(cwcfactoid), pwcfactoid.into_param().abi()).ok()
+    SetFactoid(hrc.into(), ::core::mem::transmute(cwcfactoid), ::core::mem::transmute(pwcfactoid)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetFlags<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, dwflags: u32) -> ::windows::core::Result<()> {
+pub unsafe fn SetFlags<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> ::windows::core::HRESULT;
     }
-    SetFlags(hrc.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    SetFlags(hrc.into(), ::core::mem::transmute(dwflags)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetGuide<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::Result<()> {
+pub unsafe fn SetGuide<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> ::windows::core::HRESULT;
     }
-    SetGuide(hrc.into_param().abi(), ::core::mem::transmute(pguide), ::core::mem::transmute(iindex)).ok()
+    SetGuide(hrc.into(), ::core::mem::transmute(pguide), ::core::mem::transmute(iindex)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetTextContext<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>>(hrc: Param0, pwcbefore: &[u16], pwcafter: &[u16]) -> ::windows::core::Result<()> {
+pub unsafe fn SetTextContext<'a, Param0: ::std::convert::Into<HRECOCONTEXT>>(hrc: Param0, pwcbefore: &[u16], pwcafter: &[u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetTextContext(hrc: HRECOCONTEXT, cwcbefore: u32, pwcbefore: ::windows::core::PCWSTR, cwcafter: u32, pwcafter: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
-    SetTextContext(hrc.into_param().abi(), pwcbefore.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcbefore)), pwcafter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcafter))).ok()
+    SetTextContext(hrc.into(), pwcbefore.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcbefore)), pwcafter.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwcafter))).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
-pub unsafe fn SetWordList<'a, Param0: ::windows::core::IntoParam<'a, HRECOCONTEXT>, Param1: ::windows::core::IntoParam<'a, HRECOWORDLIST>>(hrc: Param0, hwl: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn SetWordList<'a, Param0: ::std::convert::Into<HRECOCONTEXT>, Param1: ::std::convert::Into<HRECOWORDLIST>>(hrc: Param0, hwl: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> ::windows::core::HRESULT;
     }
-    SetWordList(hrc.into_param().abi(), hwl.into_param().abi()).ok()
+    SetWordList(hrc.into(), hwl.into()).ok()
 }
 pub const SketchInk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
@@ -16012,21 +15433,15 @@ impl ::core::convert::From<_IInkCollectorEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkCollectorEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkCollectorEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkCollectorEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkCollectorEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkCollectorEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkCollectorEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16036,21 +15451,15 @@ impl ::core::convert::From<_IInkCollectorEvents> for super::super::System::Com::
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkCollectorEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkCollectorEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkCollectorEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkCollectorEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkCollectorEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkCollectorEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16097,21 +15506,15 @@ impl ::core::convert::From<_IInkEditEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkEditEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkEditEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkEditEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkEditEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkEditEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkEditEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16121,21 +15524,15 @@ impl ::core::convert::From<_IInkEditEvents> for super::super::System::Com::IDisp
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkEditEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkEditEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkEditEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkEditEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkEditEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkEditEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16182,21 +15579,15 @@ impl ::core::convert::From<_IInkEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16206,21 +15597,15 @@ impl ::core::convert::From<_IInkEvents> for super::super::System::Com::IDispatch
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16267,21 +15652,15 @@ impl ::core::convert::From<_IInkOverlayEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkOverlayEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkOverlayEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkOverlayEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkOverlayEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkOverlayEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkOverlayEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16291,21 +15670,15 @@ impl ::core::convert::From<_IInkOverlayEvents> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkOverlayEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkOverlayEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkOverlayEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkOverlayEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkOverlayEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkOverlayEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16352,21 +15725,15 @@ impl ::core::convert::From<_IInkPictureEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkPictureEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkPictureEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkPictureEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkPictureEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkPictureEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkPictureEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16376,21 +15743,15 @@ impl ::core::convert::From<_IInkPictureEvents> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkPictureEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkPictureEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkPictureEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkPictureEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkPictureEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkPictureEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16437,21 +15798,15 @@ impl ::core::convert::From<_IInkRecognitionEvents> for ::windows::core::IUnknown
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkRecognitionEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkRecognitionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkRecognitionEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkRecognitionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkRecognitionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkRecognitionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16461,21 +15816,15 @@ impl ::core::convert::From<_IInkRecognitionEvents> for super::super::System::Com
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkRecognitionEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkRecognitionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkRecognitionEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkRecognitionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkRecognitionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkRecognitionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16522,21 +15871,15 @@ impl ::core::convert::From<_IInkStrokesEvents> for ::windows::core::IUnknown {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkStrokesEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IInkStrokesEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkStrokesEvents> for ::windows::core::IUnknown {
     fn from(value: &_IInkStrokesEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IInkStrokesEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IInkStrokesEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16546,21 +15889,15 @@ impl ::core::convert::From<_IInkStrokesEvents> for super::super::System::Com::ID
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IInkStrokesEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IInkStrokesEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IInkStrokesEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IInkStrokesEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IInkStrokesEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IInkStrokesEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16607,21 +15944,15 @@ impl ::core::convert::From<_IMathInputControlEvents> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IMathInputControlEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IMathInputControlEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IMathInputControlEvents> for ::windows::core::IUnknown {
     fn from(value: &_IMathInputControlEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IMathInputControlEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IMathInputControlEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16631,21 +15962,15 @@ impl ::core::convert::From<_IMathInputControlEvents> for super::super::System::C
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IMathInputControlEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IMathInputControlEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IMathInputControlEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IMathInputControlEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IMathInputControlEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IMathInputControlEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16692,21 +16017,15 @@ impl ::core::convert::From<_IPenInputPanelEvents> for ::windows::core::IUnknown 
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IPenInputPanelEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _IPenInputPanelEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IPenInputPanelEvents> for ::windows::core::IUnknown {
     fn from(value: &_IPenInputPanelEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for _IPenInputPanelEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a _IPenInputPanelEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16716,21 +16035,15 @@ impl ::core::convert::From<_IPenInputPanelEvents> for super::super::System::Com:
     }
 }
 #[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _IPenInputPanelEvents> for &'a super::super::System::Com::IDispatch {
+    fn from(value: &'a _IPenInputPanelEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<&_IPenInputPanelEvents> for super::super::System::Com::IDispatch {
     fn from(value: &_IPenInputPanelEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for _IPenInputPanelEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &'a _IPenInputPanelEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]

@@ -127,19 +127,14 @@ impl ::core::convert::From<IMidiMessage> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMidiMessage> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMidiMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMidiMessage> for ::windows::core::IUnknown {
     fn from(value: &IMidiMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMidiMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMidiMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMidiMessage> for ::windows::core::IInspectable {
@@ -147,19 +142,14 @@ impl ::core::convert::From<IMidiMessage> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMidiMessage> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMidiMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMidiMessage> for ::windows::core::IInspectable {
     fn from(value: &IMidiMessage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMidiMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMidiMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMidiMessage {
@@ -277,15 +267,15 @@ pub struct IMidiNoteOnMessageFactory_Vtbl {
 pub struct IMidiOutPort(::windows::core::IUnknown);
 impl IMidiOutPort {
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
-    pub fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
+    pub fn SendBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -307,19 +297,14 @@ impl ::core::convert::From<IMidiOutPort> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMidiOutPort> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMidiOutPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMidiOutPort> for ::windows::core::IUnknown {
     fn from(value: &IMidiOutPort) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMidiOutPort> for ::windows::core::IInspectable {
@@ -327,19 +312,14 @@ impl ::core::convert::From<IMidiOutPort> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMidiOutPort> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMidiOutPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMidiOutPort> for ::windows::core::IInspectable {
     fn from(value: &IMidiOutPort) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -357,15 +337,11 @@ impl ::core::convert::TryFrom<&IMidiOutPort> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IMidiOutPort> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IMidiOutPort) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IMidiOutPort {
@@ -720,14 +696,9 @@ impl ::core::convert::From<&MidiActiveSensingMessage> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiActiveSensingMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiActiveSensingMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiActiveSensingMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiActiveSensingMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiActiveSensingMessage> for ::windows::core::IInspectable {
@@ -740,14 +711,9 @@ impl ::core::convert::From<&MidiActiveSensingMessage> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiActiveSensingMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiActiveSensingMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiActiveSensingMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiActiveSensingMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiActiveSensingMessage> for IMidiMessage {
@@ -762,14 +728,11 @@ impl ::core::convert::TryFrom<&MidiActiveSensingMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiActiveSensingMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiActiveSensingMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiActiveSensingMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiActiveSensingMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiActiveSensingMessage {}
@@ -873,14 +836,9 @@ impl ::core::convert::From<&MidiChannelPressureMessage> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiChannelPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiChannelPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiChannelPressureMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiChannelPressureMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiChannelPressureMessage> for ::windows::core::IInspectable {
@@ -893,14 +851,9 @@ impl ::core::convert::From<&MidiChannelPressureMessage> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiChannelPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiChannelPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiChannelPressureMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiChannelPressureMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiChannelPressureMessage> for IMidiMessage {
@@ -915,14 +868,11 @@ impl ::core::convert::TryFrom<&MidiChannelPressureMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiChannelPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiChannelPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiChannelPressureMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiChannelPressureMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiChannelPressureMessage {}
@@ -1005,14 +955,9 @@ impl ::core::convert::From<&MidiContinueMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiContinueMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiContinueMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiContinueMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiContinueMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiContinueMessage> for ::windows::core::IInspectable {
@@ -1025,14 +970,9 @@ impl ::core::convert::From<&MidiContinueMessage> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiContinueMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiContinueMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiContinueMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiContinueMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiContinueMessage> for IMidiMessage {
@@ -1047,14 +987,11 @@ impl ::core::convert::TryFrom<&MidiContinueMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiContinueMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiContinueMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiContinueMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiContinueMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiContinueMessage {}
@@ -1166,14 +1103,9 @@ impl ::core::convert::From<&MidiControlChangeMessage> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiControlChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiControlChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiControlChangeMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiControlChangeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiControlChangeMessage> for ::windows::core::IInspectable {
@@ -1186,14 +1118,9 @@ impl ::core::convert::From<&MidiControlChangeMessage> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiControlChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiControlChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiControlChangeMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiControlChangeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiControlChangeMessage> for IMidiMessage {
@@ -1208,14 +1135,11 @@ impl ::core::convert::TryFrom<&MidiControlChangeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiControlChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiControlChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiControlChangeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiControlChangeMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiControlChangeMessage {}
@@ -1232,18 +1156,18 @@ impl MidiInPort {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1255,10 +1179,10 @@ impl MidiInPort {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MidiInPort>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MidiInPort>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1314,14 +1238,9 @@ impl ::core::convert::From<&MidiInPort> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiInPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiInPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiInPort> for &::windows::core::IUnknown {
+    fn from(value: &MidiInPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiInPort> for ::windows::core::IInspectable {
@@ -1334,14 +1253,9 @@ impl ::core::convert::From<&MidiInPort> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiInPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiInPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiInPort> for &::windows::core::IInspectable {
+    fn from(value: &MidiInPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1359,15 +1273,11 @@ impl ::core::convert::TryFrom<&MidiInPort> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for MidiInPort {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &MidiInPort {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiInPort> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiInPort) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiInPort {}
@@ -1425,14 +1335,9 @@ impl ::core::convert::From<&MidiMessageReceivedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiMessageReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MidiMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiMessageReceivedEventArgs> for ::windows::core::IInspectable {
@@ -1445,14 +1350,9 @@ impl ::core::convert::From<&MidiMessageReceivedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiMessageReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiMessageReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MidiMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MidiMessageReceivedEventArgs {}
@@ -1616,14 +1516,9 @@ impl ::core::convert::From<&MidiNoteOffMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiNoteOffMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiNoteOffMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiNoteOffMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiNoteOffMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiNoteOffMessage> for ::windows::core::IInspectable {
@@ -1636,14 +1531,9 @@ impl ::core::convert::From<&MidiNoteOffMessage> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiNoteOffMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiNoteOffMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiNoteOffMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiNoteOffMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiNoteOffMessage> for IMidiMessage {
@@ -1658,14 +1548,11 @@ impl ::core::convert::TryFrom<&MidiNoteOffMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiNoteOffMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiNoteOffMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiNoteOffMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiNoteOffMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiNoteOffMessage {}
@@ -1777,14 +1664,9 @@ impl ::core::convert::From<&MidiNoteOnMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiNoteOnMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiNoteOnMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiNoteOnMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiNoteOnMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiNoteOnMessage> for ::windows::core::IInspectable {
@@ -1797,14 +1679,9 @@ impl ::core::convert::From<&MidiNoteOnMessage> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiNoteOnMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiNoteOnMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiNoteOnMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiNoteOnMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiNoteOnMessage> for IMidiMessage {
@@ -1819,14 +1696,11 @@ impl ::core::convert::TryFrom<&MidiNoteOnMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiNoteOnMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiNoteOnMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiNoteOnMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiNoteOnMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiNoteOnMessage {}
@@ -1842,15 +1716,15 @@ impl MidiOutPort {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
-    pub fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
+    pub fn SendBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1862,10 +1736,10 @@ impl MidiOutPort {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
+    pub fn FromIdAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IMidiOutPort>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IMidiOutPort>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1921,14 +1795,9 @@ impl ::core::convert::From<&MidiOutPort> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiOutPort> for &::windows::core::IUnknown {
+    fn from(value: &MidiOutPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiOutPort> for ::windows::core::IInspectable {
@@ -1941,14 +1810,9 @@ impl ::core::convert::From<&MidiOutPort> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiOutPort> for &::windows::core::IInspectable {
+    fn from(value: &MidiOutPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1966,15 +1830,11 @@ impl ::core::convert::TryFrom<&MidiOutPort> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiOutPort> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiOutPort) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<MidiOutPort> for IMidiOutPort {
@@ -1989,14 +1849,11 @@ impl ::core::convert::TryFrom<&MidiOutPort> for IMidiOutPort {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiOutPort> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for &MidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiOutPort> {
-        ::core::convert::TryInto::<IMidiOutPort>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiOutPort> for ::windows::core::InParam<'a, IMidiOutPort> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiOutPort) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiOutPort {}
@@ -2100,14 +1957,9 @@ impl ::core::convert::From<&MidiPitchBendChangeMessage> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiPitchBendChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiPitchBendChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiPitchBendChangeMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiPitchBendChangeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiPitchBendChangeMessage> for ::windows::core::IInspectable {
@@ -2120,14 +1972,9 @@ impl ::core::convert::From<&MidiPitchBendChangeMessage> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiPitchBendChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiPitchBendChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiPitchBendChangeMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiPitchBendChangeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiPitchBendChangeMessage> for IMidiMessage {
@@ -2142,14 +1989,11 @@ impl ::core::convert::TryFrom<&MidiPitchBendChangeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiPitchBendChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiPitchBendChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiPitchBendChangeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiPitchBendChangeMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiPitchBendChangeMessage {}
@@ -2261,14 +2105,9 @@ impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiPolyphonicKeyPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiPolyphonicKeyPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiPolyphonicKeyPressureMessage> for ::windows::core::IInspectable {
@@ -2281,14 +2120,9 @@ impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiPolyphonicKeyPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiPolyphonicKeyPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiPolyphonicKeyPressureMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiPolyphonicKeyPressureMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiPolyphonicKeyPressureMessage> for IMidiMessage {
@@ -2303,14 +2137,11 @@ impl ::core::convert::TryFrom<&MidiPolyphonicKeyPressureMessage> for IMidiMessag
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiPolyphonicKeyPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiPolyphonicKeyPressureMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiPolyphonicKeyPressureMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiPolyphonicKeyPressureMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiPolyphonicKeyPressureMessage {}
@@ -2414,14 +2245,9 @@ impl ::core::convert::From<&MidiProgramChangeMessage> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiProgramChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiProgramChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiProgramChangeMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiProgramChangeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiProgramChangeMessage> for ::windows::core::IInspectable {
@@ -2434,14 +2260,9 @@ impl ::core::convert::From<&MidiProgramChangeMessage> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiProgramChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiProgramChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiProgramChangeMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiProgramChangeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiProgramChangeMessage> for IMidiMessage {
@@ -2456,14 +2277,11 @@ impl ::core::convert::TryFrom<&MidiProgramChangeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiProgramChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiProgramChangeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiProgramChangeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiProgramChangeMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiProgramChangeMessage {}
@@ -2559,14 +2377,9 @@ impl ::core::convert::From<&MidiSongPositionPointerMessage> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiSongPositionPointerMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiSongPositionPointerMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSongPositionPointerMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiSongPositionPointerMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiSongPositionPointerMessage> for ::windows::core::IInspectable {
@@ -2579,14 +2392,9 @@ impl ::core::convert::From<&MidiSongPositionPointerMessage> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiSongPositionPointerMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiSongPositionPointerMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSongPositionPointerMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiSongPositionPointerMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiSongPositionPointerMessage> for IMidiMessage {
@@ -2601,14 +2409,11 @@ impl ::core::convert::TryFrom<&MidiSongPositionPointerMessage> for IMidiMessage 
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiSongPositionPointerMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSongPositionPointerMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiSongPositionPointerMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiSongPositionPointerMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiSongPositionPointerMessage {}
@@ -2704,14 +2509,9 @@ impl ::core::convert::From<&MidiSongSelectMessage> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiSongSelectMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiSongSelectMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSongSelectMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiSongSelectMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiSongSelectMessage> for ::windows::core::IInspectable {
@@ -2724,14 +2524,9 @@ impl ::core::convert::From<&MidiSongSelectMessage> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiSongSelectMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiSongSelectMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSongSelectMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiSongSelectMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiSongSelectMessage> for IMidiMessage {
@@ -2746,14 +2541,11 @@ impl ::core::convert::TryFrom<&MidiSongSelectMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiSongSelectMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSongSelectMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiSongSelectMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiSongSelectMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiSongSelectMessage {}
@@ -2836,14 +2628,9 @@ impl ::core::convert::From<&MidiStartMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiStartMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiStartMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiStartMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiStartMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiStartMessage> for ::windows::core::IInspectable {
@@ -2856,14 +2643,9 @@ impl ::core::convert::From<&MidiStartMessage> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiStartMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiStartMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiStartMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiStartMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiStartMessage> for IMidiMessage {
@@ -2878,14 +2660,11 @@ impl ::core::convert::TryFrom<&MidiStartMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiStartMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiStartMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiStartMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiStartMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiStartMessage {}
@@ -2968,14 +2747,9 @@ impl ::core::convert::From<&MidiStopMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiStopMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiStopMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiStopMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiStopMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiStopMessage> for ::windows::core::IInspectable {
@@ -2988,14 +2762,9 @@ impl ::core::convert::From<&MidiStopMessage> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiStopMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiStopMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiStopMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiStopMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiStopMessage> for IMidiMessage {
@@ -3010,14 +2779,11 @@ impl ::core::convert::TryFrom<&MidiStopMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiStopMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiStopMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiStopMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiStopMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiStopMessage {}
@@ -3033,15 +2799,15 @@ impl MidiSynthesizer {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
-    pub fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
+    pub fn SendMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMidiMessage>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
+    pub fn SendBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3083,18 +2849,18 @@ impl MidiSynthesizer {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
-    pub fn CreateFromAudioDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Enumeration::DeviceInformation>>(audiodevice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
+    pub fn CreateFromAudioDeviceAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Enumeration::DeviceInformation>>>(audiodevice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::windows::core::Interface::as_raw(this), audiodevice.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::windows::core::Interface::as_raw(this), audiodevice.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn IsSynthesizer<'a, Param0: ::windows::core::IntoParam<'a, super::Enumeration::DeviceInformation>>(mididevice: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsSynthesizer<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Enumeration::DeviceInformation>>>(mididevice: Param0) -> ::windows::core::Result<bool> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsSynthesizer)(::windows::core::Interface::as_raw(this), mididevice.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSynthesizer)(::windows::core::Interface::as_raw(this), mididevice.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -3143,14 +2909,9 @@ impl ::core::convert::From<&MidiSynthesizer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSynthesizer> for &::windows::core::IUnknown {
+    fn from(value: &MidiSynthesizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiSynthesizer> for ::windows::core::IInspectable {
@@ -3163,14 +2924,9 @@ impl ::core::convert::From<&MidiSynthesizer> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSynthesizer> for &::windows::core::IInspectable {
+    fn from(value: &MidiSynthesizer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3188,15 +2944,11 @@ impl ::core::convert::TryFrom<&MidiSynthesizer> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiSynthesizer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiSynthesizer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<MidiSynthesizer> for IMidiOutPort {
@@ -3211,14 +2963,11 @@ impl ::core::convert::TryFrom<&MidiSynthesizer> for IMidiOutPort {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiOutPort> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiOutPort> for &MidiSynthesizer {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiOutPort> {
-        ::core::convert::TryInto::<IMidiOutPort>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiSynthesizer> for ::windows::core::InParam<'a, IMidiOutPort> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiSynthesizer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiSynthesizer {}
@@ -3255,10 +3004,10 @@ impl MidiSystemExclusiveMessage {
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMidiSystemExclusiveMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(rawdata: Param0) -> ::windows::core::Result<MidiSystemExclusiveMessage> {
+    pub fn CreateMidiSystemExclusiveMessage<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(rawdata: Param0) -> ::windows::core::Result<MidiSystemExclusiveMessage> {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(::windows::core::Interface::as_raw(this), rawdata.into_param().abi(), result__.as_mut_ptr()).from_abi::<MidiSystemExclusiveMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(::windows::core::Interface::as_raw(this), rawdata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<MidiSystemExclusiveMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -3307,14 +3056,9 @@ impl ::core::convert::From<&MidiSystemExclusiveMessage> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiSystemExclusiveMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiSystemExclusiveMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSystemExclusiveMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiSystemExclusiveMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiSystemExclusiveMessage> for ::windows::core::IInspectable {
@@ -3327,14 +3071,9 @@ impl ::core::convert::From<&MidiSystemExclusiveMessage> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiSystemExclusiveMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiSystemExclusiveMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSystemExclusiveMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiSystemExclusiveMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiSystemExclusiveMessage> for IMidiMessage {
@@ -3349,14 +3088,11 @@ impl ::core::convert::TryFrom<&MidiSystemExclusiveMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiSystemExclusiveMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSystemExclusiveMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiSystemExclusiveMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiSystemExclusiveMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiSystemExclusiveMessage {}
@@ -3439,14 +3175,9 @@ impl ::core::convert::From<&MidiSystemResetMessage> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiSystemResetMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiSystemResetMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSystemResetMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiSystemResetMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiSystemResetMessage> for ::windows::core::IInspectable {
@@ -3459,14 +3190,9 @@ impl ::core::convert::From<&MidiSystemResetMessage> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiSystemResetMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiSystemResetMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiSystemResetMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiSystemResetMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiSystemResetMessage> for IMidiMessage {
@@ -3481,14 +3207,11 @@ impl ::core::convert::TryFrom<&MidiSystemResetMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiSystemResetMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiSystemResetMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiSystemResetMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiSystemResetMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiSystemResetMessage {}
@@ -3592,14 +3315,9 @@ impl ::core::convert::From<&MidiTimeCodeMessage> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiTimeCodeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiTimeCodeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiTimeCodeMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiTimeCodeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiTimeCodeMessage> for ::windows::core::IInspectable {
@@ -3612,14 +3330,9 @@ impl ::core::convert::From<&MidiTimeCodeMessage> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiTimeCodeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiTimeCodeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiTimeCodeMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiTimeCodeMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiTimeCodeMessage> for IMidiMessage {
@@ -3634,14 +3347,11 @@ impl ::core::convert::TryFrom<&MidiTimeCodeMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiTimeCodeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTimeCodeMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiTimeCodeMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiTimeCodeMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiTimeCodeMessage {}
@@ -3724,14 +3434,9 @@ impl ::core::convert::From<&MidiTimingClockMessage> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiTimingClockMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiTimingClockMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiTimingClockMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiTimingClockMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiTimingClockMessage> for ::windows::core::IInspectable {
@@ -3744,14 +3449,9 @@ impl ::core::convert::From<&MidiTimingClockMessage> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiTimingClockMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiTimingClockMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiTimingClockMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiTimingClockMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiTimingClockMessage> for IMidiMessage {
@@ -3766,14 +3466,11 @@ impl ::core::convert::TryFrom<&MidiTimingClockMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiTimingClockMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTimingClockMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiTimingClockMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiTimingClockMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiTimingClockMessage {}
@@ -3856,14 +3553,9 @@ impl ::core::convert::From<&MidiTuneRequestMessage> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MidiTuneRequestMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MidiTuneRequestMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiTuneRequestMessage> for &::windows::core::IUnknown {
+    fn from(value: &MidiTuneRequestMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MidiTuneRequestMessage> for ::windows::core::IInspectable {
@@ -3876,14 +3568,9 @@ impl ::core::convert::From<&MidiTuneRequestMessage> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MidiTuneRequestMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MidiTuneRequestMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MidiTuneRequestMessage> for &::windows::core::IInspectable {
+    fn from(value: &MidiTuneRequestMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MidiTuneRequestMessage> for IMidiMessage {
@@ -3898,14 +3585,11 @@ impl ::core::convert::TryFrom<&MidiTuneRequestMessage> for IMidiMessage {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for MidiTuneRequestMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMidiMessage> for &MidiTuneRequestMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, IMidiMessage> {
-        ::core::convert::TryInto::<IMidiMessage>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MidiTuneRequestMessage> for ::windows::core::InParam<'a, IMidiMessage> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MidiTuneRequestMessage) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MidiTuneRequestMessage {}

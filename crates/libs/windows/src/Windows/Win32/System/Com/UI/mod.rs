@@ -4,8 +4,8 @@ pub struct IDummyHICONIncluder(::windows::core::IUnknown);
 impl IDummyHICONIncluder {
     #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn Dummy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::UI::WindowsAndMessaging::HICON>, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Gdi::HDC>>(&self, h1: Param0, h2: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Dummy)(::windows::core::Interface::as_raw(self), h1.into_param().abi(), h2.into_param().abi()).ok()
+    pub unsafe fn Dummy<'a, Param0: ::std::convert::Into<super::super::super::UI::WindowsAndMessaging::HICON>, Param1: ::std::convert::Into<super::super::super::Graphics::Gdi::HDC>>(&self, h1: Param0, h2: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Dummy)(::windows::core::Interface::as_raw(self), h1.into(), h2.into()).ok()
     }
 }
 impl ::core::convert::From<IDummyHICONIncluder> for ::windows::core::IUnknown {
@@ -13,19 +13,14 @@ impl ::core::convert::From<IDummyHICONIncluder> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDummyHICONIncluder> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDummyHICONIncluder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDummyHICONIncluder> for ::windows::core::IUnknown {
     fn from(value: &IDummyHICONIncluder) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDummyHICONIncluder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDummyHICONIncluder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDummyHICONIncluder {
@@ -63,13 +58,13 @@ pub struct IThumbnailExtractor(::windows::core::IUnknown);
 impl IThumbnailExtractor {
     #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn ExtractThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::IStorage>>(&self, pstg: Param0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExtractThumbnail)(::windows::core::Interface::as_raw(self), pstg.into_param().abi(), ::core::mem::transmute(ullength), ::core::mem::transmute(ulheight), ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
+    pub unsafe fn ExtractThumbnail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::StructuredStorage::IStorage>>>(&self, pstg: Param0, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ExtractThumbnail)(::windows::core::Interface::as_raw(self), pstg.into().abi(), ::core::mem::transmute(ullength), ::core::mem::transmute(ulheight), ::core::mem::transmute(puloutputlength), ::core::mem::transmute(puloutputheight), ::core::mem::transmute(phoutputbitmap)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Com_UI\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
-    pub unsafe fn OnFileUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::StructuredStorage::IStorage>>(&self, pstg: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnFileUpdated)(::windows::core::Interface::as_raw(self), pstg.into_param().abi()).ok()
+    pub unsafe fn OnFileUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::StructuredStorage::IStorage>>>(&self, pstg: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnFileUpdated)(::windows::core::Interface::as_raw(self), pstg.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IThumbnailExtractor> for ::windows::core::IUnknown {
@@ -77,19 +72,14 @@ impl ::core::convert::From<IThumbnailExtractor> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IThumbnailExtractor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IThumbnailExtractor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IThumbnailExtractor> for ::windows::core::IUnknown {
     fn from(value: &IThumbnailExtractor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IThumbnailExtractor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IThumbnailExtractor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IThumbnailExtractor {

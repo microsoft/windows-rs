@@ -1883,13 +1883,13 @@ pub const AUXCAPS_VOLUME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn ActivateAudioInterfaceAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IActivateAudioInterfaceCompletionHandler>>(deviceinterfacepath: Param0, riid: *const ::windows::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: Param3) -> ::windows::core::Result<IActivateAudioInterfaceAsyncOperation> {
+pub unsafe fn ActivateAudioInterfaceAsync<'a, Param3: ::std::convert::Into<::windows::core::InParam<'a, IActivateAudioInterfaceCompletionHandler>>>(deviceinterfacepath: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: Param3) -> ::windows::core::Result<IActivateAudioInterfaceAsyncOperation> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ActivateAudioInterfaceAsync(deviceinterfacepath: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, completionhandler: *mut ::core::ffi::c_void, activationoperation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    ActivateAudioInterfaceAsync(deviceinterfacepath.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(activationparams), completionhandler.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IActivateAudioInterfaceAsyncOperation>(result__)
+    ActivateAudioInterfaceAsync(::core::mem::transmute(deviceinterfacepath), ::core::mem::transmute(riid), ::core::mem::transmute(activationparams), completionhandler.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IActivateAudioInterfaceAsyncOperation>(result__)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -2190,13 +2190,13 @@ impl ::core::fmt::Debug for AudioStateMonitorSoundLevel {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CoRegisterMessageFilter<'a, Param0: ::windows::core::IntoParam<'a, IMessageFilter>>(lpmessagefilter: Param0) -> ::windows::core::Result<IMessageFilter> {
+pub unsafe fn CoRegisterMessageFilter<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMessageFilter>>>(lpmessagefilter: Param0) -> ::windows::core::Result<IMessageFilter> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CoRegisterMessageFilter(lpmessagefilter: *mut ::core::ffi::c_void, lplpmessagefilter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CoRegisterMessageFilter(lpmessagefilter.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMessageFilter>(result__)
+    CoRegisterMessageFilter(lpmessagefilter.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMessageFilter>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[repr(transparent)]
@@ -2241,33 +2241,33 @@ pub unsafe fn CreateCaptureAudioStateMonitor() -> ::windows::core::Result<IAudio
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
+pub unsafe fn CreateCaptureAudioStateMonitorForCategory<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(category: Param0) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateCaptureAudioStateMonitorForCategory(::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateCaptureAudioStateMonitorForCategory(category.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::core::Result<IAudioStateMonitor> {
+pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(category: Param0, deviceid: ::windows::core::PCWSTR) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: ::windows::core::PCWSTR, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateCaptureAudioStateMonitorForCategoryAndDeviceId(::core::mem::transmute(category), deviceid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category.into(), ::core::mem::transmute(deviceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
+pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>, Param1: ::std::convert::Into<ERole>>(category: Param0, role: Param1) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(::core::mem::transmute(category), ::core::mem::transmute(role), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category.into(), role.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -2281,33 +2281,33 @@ pub unsafe fn CreateRenderAudioStateMonitor() -> ::windows::core::Result<IAudioS
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<IAudioStateMonitor> {
+pub unsafe fn CreateRenderAudioStateMonitorForCategory<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(category: Param0) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateRenderAudioStateMonitorForCategory(::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateRenderAudioStateMonitorForCategory(category.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(category: AUDIO_STREAM_CATEGORY, deviceid: Param1) -> ::windows::core::Result<IAudioStateMonitor> {
+pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(category: Param0, deviceid: ::windows::core::PCWSTR) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: ::windows::core::PCWSTR, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateRenderAudioStateMonitorForCategoryAndDeviceId(::core::mem::transmute(category), deviceid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateRenderAudioStateMonitorForCategoryAndDeviceId(category.into(), ::core::mem::transmute(deviceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> ::windows::core::Result<IAudioStateMonitor> {
+pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>, Param1: ::std::convert::Into<ERole>>(category: Param0, role: Param1) -> ::windows::core::Result<IAudioStateMonitor> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-    CreateRenderAudioStateMonitorForCategoryAndDeviceRole(::core::mem::transmute(category), ::core::mem::transmute(role), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
+    CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category.into(), role.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioStateMonitor>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const DEVICE_STATEMASK_ALL: u32 = 15u32;
@@ -2580,6 +2580,11 @@ impl ::core::fmt::Debug for HACMDRIVER {
         f.debug_tuple("HACMDRIVER").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HACMDRIVER>> for HACMDRIVER {
+    fn from(optional: ::core::option::Option<HACMDRIVER>) -> HACMDRIVER {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HACMDRIVER {
     type Abi = Self;
 }
@@ -2605,6 +2610,11 @@ impl ::core::marker::Copy for HACMDRIVERID {}
 impl ::core::fmt::Debug for HACMDRIVERID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HACMDRIVERID").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HACMDRIVERID>> for HACMDRIVERID {
+    fn from(optional: ::core::option::Option<HACMDRIVERID>) -> HACMDRIVERID {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HACMDRIVERID {
@@ -2634,6 +2644,11 @@ impl ::core::fmt::Debug for HACMOBJ {
         f.debug_tuple("HACMOBJ").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HACMOBJ>> for HACMOBJ {
+    fn from(optional: ::core::option::Option<HACMOBJ>) -> HACMOBJ {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HACMOBJ {
     type Abi = Self;
 }
@@ -2659,6 +2674,11 @@ impl ::core::marker::Copy for HACMSTREAM {}
 impl ::core::fmt::Debug for HACMSTREAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HACMSTREAM").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HACMSTREAM>> for HACMSTREAM {
+    fn from(optional: ::core::option::Option<HACMSTREAM>) -> HACMSTREAM {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HACMSTREAM {
@@ -2688,6 +2708,11 @@ impl ::core::fmt::Debug for HMIDI {
         f.debug_tuple("HMIDI").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HMIDI>> for HMIDI {
+    fn from(optional: ::core::option::Option<HMIDI>) -> HMIDI {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HMIDI {
     type Abi = Self;
 }
@@ -2713,6 +2738,11 @@ impl ::core::marker::Copy for HMIDIIN {}
 impl ::core::fmt::Debug for HMIDIIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HMIDIIN").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HMIDIIN>> for HMIDIIN {
+    fn from(optional: ::core::option::Option<HMIDIIN>) -> HMIDIIN {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HMIDIIN {
@@ -2742,6 +2772,11 @@ impl ::core::fmt::Debug for HMIDIOUT {
         f.debug_tuple("HMIDIOUT").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HMIDIOUT>> for HMIDIOUT {
+    fn from(optional: ::core::option::Option<HMIDIOUT>) -> HMIDIOUT {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HMIDIOUT {
     type Abi = Self;
 }
@@ -2767,6 +2802,11 @@ impl ::core::marker::Copy for HMIDISTRM {}
 impl ::core::fmt::Debug for HMIDISTRM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HMIDISTRM").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HMIDISTRM>> for HMIDISTRM {
+    fn from(optional: ::core::option::Option<HMIDISTRM>) -> HMIDISTRM {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HMIDISTRM {
@@ -2796,6 +2836,11 @@ impl ::core::fmt::Debug for HMIXER {
         f.debug_tuple("HMIXER").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HMIXER>> for HMIXER {
+    fn from(optional: ::core::option::Option<HMIXER>) -> HMIXER {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HMIXER {
     type Abi = Self;
 }
@@ -2821,6 +2866,11 @@ impl ::core::marker::Copy for HMIXEROBJ {}
 impl ::core::fmt::Debug for HMIXEROBJ {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HMIXEROBJ").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HMIXEROBJ>> for HMIXEROBJ {
+    fn from(optional: ::core::option::Option<HMIXEROBJ>) -> HMIXEROBJ {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HMIXEROBJ {
@@ -2850,6 +2900,11 @@ impl ::core::fmt::Debug for HWAVE {
         f.debug_tuple("HWAVE").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HWAVE>> for HWAVE {
+    fn from(optional: ::core::option::Option<HWAVE>) -> HWAVE {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HWAVE {
     type Abi = Self;
 }
@@ -2875,6 +2930,11 @@ impl ::core::marker::Copy for HWAVEIN {}
 impl ::core::fmt::Debug for HWAVEIN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HWAVEIN").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HWAVEIN>> for HWAVEIN {
+    fn from(optional: ::core::option::Option<HWAVEIN>) -> HWAVEIN {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HWAVEIN {
@@ -2904,6 +2964,11 @@ impl ::core::fmt::Debug for HWAVEOUT {
         f.debug_tuple("HWAVEOUT").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HWAVEOUT>> for HWAVEOUT {
+    fn from(optional: ::core::option::Option<HWAVEOUT>) -> HWAVEOUT {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HWAVEOUT {
     type Abi = Self;
 }
@@ -2921,19 +2986,14 @@ impl ::core::convert::From<IActivateAudioInterfaceAsyncOperation> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActivateAudioInterfaceAsyncOperation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IActivateAudioInterfaceAsyncOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActivateAudioInterfaceAsyncOperation> for ::windows::core::IUnknown {
     fn from(value: &IActivateAudioInterfaceAsyncOperation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActivateAudioInterfaceAsyncOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActivateAudioInterfaceAsyncOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IActivateAudioInterfaceAsyncOperation {
@@ -2967,8 +3027,8 @@ pub struct IActivateAudioInterfaceAsyncOperation_Vtbl {
 pub struct IActivateAudioInterfaceCompletionHandler(::windows::core::IUnknown);
 impl IActivateAudioInterfaceCompletionHandler {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ActivateCompleted<'a, Param0: ::windows::core::IntoParam<'a, IActivateAudioInterfaceAsyncOperation>>(&self, activateoperation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ActivateCompleted)(::windows::core::Interface::as_raw(self), activateoperation.into_param().abi()).ok()
+    pub unsafe fn ActivateCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IActivateAudioInterfaceAsyncOperation>>>(&self, activateoperation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ActivateCompleted)(::windows::core::Interface::as_raw(self), activateoperation.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IActivateAudioInterfaceCompletionHandler> for ::windows::core::IUnknown {
@@ -2976,19 +3036,14 @@ impl ::core::convert::From<IActivateAudioInterfaceCompletionHandler> for ::windo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IActivateAudioInterfaceCompletionHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IActivateAudioInterfaceCompletionHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IActivateAudioInterfaceCompletionHandler> for ::windows::core::IUnknown {
     fn from(value: &IActivateAudioInterfaceCompletionHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActivateAudioInterfaceCompletionHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IActivateAudioInterfaceCompletionHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IActivateAudioInterfaceCompletionHandler {
@@ -3027,8 +3082,8 @@ impl IAudioAmbisonicsControl {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHeadTracking<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benableheadtracking: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHeadTracking)(::windows::core::Interface::as_raw(self), benableheadtracking.into_param().abi()).ok()
+    pub unsafe fn SetHeadTracking<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benableheadtracking: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHeadTracking)(::windows::core::Interface::as_raw(self), benableheadtracking.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3046,19 +3101,14 @@ impl ::core::convert::From<IAudioAmbisonicsControl> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioAmbisonicsControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioAmbisonicsControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioAmbisonicsControl> for ::windows::core::IUnknown {
     fn from(value: &IAudioAmbisonicsControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioAmbisonicsControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioAmbisonicsControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioAmbisonicsControl {
@@ -3108,8 +3158,8 @@ impl IAudioAutoGainControl {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benable: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benable.into_param().abi(), ::core::mem::transmute(pguideventcontext)).ok()
+    pub unsafe fn SetEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benable: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benable.into(), ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioAutoGainControl> for ::windows::core::IUnknown {
@@ -3117,19 +3167,14 @@ impl ::core::convert::From<IAudioAutoGainControl> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioAutoGainControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioAutoGainControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioAutoGainControl> for ::windows::core::IUnknown {
     fn from(value: &IAudioAutoGainControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioAutoGainControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioAutoGainControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioAutoGainControl {
@@ -3201,19 +3246,14 @@ impl ::core::convert::From<IAudioBass> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioBass> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioBass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioBass> for ::windows::core::IUnknown {
     fn from(value: &IAudioBass) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioBass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioBass {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAudioBass> for IPerChannelDbLevel {
@@ -3221,19 +3261,14 @@ impl ::core::convert::From<IAudioBass> for IPerChannelDbLevel {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioBass> for &'a IPerChannelDbLevel {
+    fn from(value: &'a IAudioBass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioBass> for IPerChannelDbLevel {
     fn from(value: &IAudioBass) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for IAudioBass {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for &'a IAudioBass {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioBass {
@@ -3284,19 +3319,14 @@ impl ::core::convert::From<IAudioCaptureClient> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioCaptureClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioCaptureClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioCaptureClient> for ::windows::core::IUnknown {
     fn from(value: &IAudioCaptureClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioCaptureClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioCaptureClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioCaptureClient {
@@ -3346,19 +3376,14 @@ impl ::core::convert::From<IAudioChannelConfig> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioChannelConfig> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioChannelConfig) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioChannelConfig> for ::windows::core::IUnknown {
     fn from(value: &IAudioChannelConfig) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioChannelConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioChannelConfig {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioChannelConfig {
@@ -3393,8 +3418,8 @@ pub struct IAudioChannelConfig_Vtbl {
 pub struct IAudioClient(::windows::core::IUnknown);
 impl IAudioClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<AUDCLNT_SHAREMODE>>(&self, sharemode: Param0, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), sharemode.into(), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBufferSize(&self) -> ::windows::core::Result<u32> {
@@ -3412,8 +3437,8 @@ impl IAudioClient {
         (::windows::core::Interface::vtable(self).GetCurrentPadding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
+    pub unsafe fn IsFormatSupported<'a, Param0: ::std::convert::Into<AUDCLNT_SHAREMODE>>(&self, sharemode: Param0, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsFormatSupported)(::windows::core::Interface::as_raw(self), sharemode.into(), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX> {
@@ -3438,8 +3463,8 @@ impl IAudioClient {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventHandle)(::windows::core::Interface::as_raw(self), eventhandle.into_param().abi()).ok()
+    pub unsafe fn SetEventHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventHandle)(::windows::core::Interface::as_raw(self), eventhandle.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetService<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -3452,19 +3477,14 @@ impl ::core::convert::From<IAudioClient> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioClient> for ::windows::core::IUnknown {
     fn from(value: &IAudioClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClient {
@@ -3512,8 +3532,8 @@ pub struct IAudioClient_Vtbl {
 pub struct IAudioClient2(::windows::core::IUnknown);
 impl IAudioClient2 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<AUDCLNT_SHAREMODE>>(&self, sharemode: Param0, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), sharemode.into(), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBufferSize(&self) -> ::windows::core::Result<u32> {
@@ -3531,8 +3551,8 @@ impl IAudioClient2 {
         (::windows::core::Interface::vtable(self).base__.GetCurrentPadding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
+    pub unsafe fn IsFormatSupported<'a, Param0: ::std::convert::Into<AUDCLNT_SHAREMODE>>(&self, sharemode: Param0, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), sharemode.into(), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX> {
@@ -3557,8 +3577,8 @@ impl IAudioClient2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetEventHandle)(::windows::core::Interface::as_raw(self), eventhandle.into_param().abi()).ok()
+    pub unsafe fn SetEventHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetEventHandle)(::windows::core::Interface::as_raw(self), eventhandle.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetService<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -3567,9 +3587,9 @@ impl IAudioClient2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsOffloadCapable<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(&self, category: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), category.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3578,12 +3598,17 @@ impl IAudioClient2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBufferSizeLimits<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pformat: *const WAVEFORMATEX, beventdriven: Param1, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBufferSizeLimits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformat), beventdriven.into_param().abi(), ::core::mem::transmute(phnsminbufferduration), ::core::mem::transmute(phnsmaxbufferduration)).ok()
+    pub unsafe fn GetBufferSizeLimits<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pformat: *const WAVEFORMATEX, beventdriven: Param1, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetBufferSizeLimits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformat), beventdriven.into(), ::core::mem::transmute(phnsminbufferduration), ::core::mem::transmute(phnsmaxbufferduration)).ok()
     }
 }
 impl ::core::convert::From<IAudioClient2> for ::windows::core::IUnknown {
     fn from(value: IAudioClient2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioClient2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClient2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3592,34 +3617,19 @@ impl ::core::convert::From<&IAudioClient2> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioClient2> for IAudioClient {
     fn from(value: IAudioClient2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioClient2> for &'a IAudioClient {
+    fn from(value: &'a IAudioClient2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IAudioClient2> for IAudioClient {
     fn from(value: &IAudioClient2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioClient> for IAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioClient> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioClient> for &'a IAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioClient> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClient2 {
@@ -3664,8 +3674,8 @@ pub struct IAudioClient2_Vtbl {
 pub struct IAudioClient3(::windows::core::IUnknown);
 impl IAudioClient3 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn Initialize(&self, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
+    pub unsafe fn Initialize<'a, Param0: ::std::convert::Into<AUDCLNT_SHAREMODE>>(&self, sharemode: Param0, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.Initialize)(::windows::core::Interface::as_raw(self), sharemode.into(), ::core::mem::transmute(streamflags), ::core::mem::transmute(hnsbufferduration), ::core::mem::transmute(hnsperiodicity), ::core::mem::transmute(pformat), ::core::mem::transmute(audiosessionguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetBufferSize(&self) -> ::windows::core::Result<u32> {
@@ -3683,8 +3693,8 @@ impl IAudioClient3 {
         (::windows::core::Interface::vtable(self).base__.base__.GetCurrentPadding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn IsFormatSupported(&self, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sharemode), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
+    pub unsafe fn IsFormatSupported<'a, Param0: ::std::convert::Into<AUDCLNT_SHAREMODE>>(&self, sharemode: Param0, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base__.base__.IsFormatSupported)(::windows::core::Interface::as_raw(self), sharemode.into(), ::core::mem::transmute(pformat), ::core::mem::transmute(ppclosestmatch)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetMixFormat(&self) -> ::windows::core::Result<*mut WAVEFORMATEX> {
@@ -3709,8 +3719,8 @@ impl IAudioClient3 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetEventHandle)(::windows::core::Interface::as_raw(self), eventhandle.into_param().abi()).ok()
+    pub unsafe fn SetEventHandle<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(&self, eventhandle: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.base__.SetEventHandle)(::windows::core::Interface::as_raw(self), eventhandle.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetService<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
@@ -3719,9 +3729,9 @@ impl IAudioClient3 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsOffloadCapable<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(&self, category: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsOffloadCapable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsOffloadCapable)(::windows::core::Interface::as_raw(self), category.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -3730,8 +3740,8 @@ impl IAudioClient3 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetBufferSizeLimits<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pformat: *const WAVEFORMATEX, beventdriven: Param1, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetBufferSizeLimits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformat), beventdriven.into_param().abi(), ::core::mem::transmute(phnsminbufferduration), ::core::mem::transmute(phnsmaxbufferduration)).ok()
+    pub unsafe fn GetBufferSizeLimits<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pformat: *const WAVEFORMATEX, beventdriven: Param1, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetBufferSizeLimits)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformat), beventdriven.into(), ::core::mem::transmute(phnsminbufferduration), ::core::mem::transmute(phnsmaxbufferduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSharedModeEnginePeriod(&self, pformat: *const WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> ::windows::core::Result<()> {
@@ -3751,23 +3761,23 @@ impl ::core::convert::From<IAudioClient3> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioClient3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClient3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioClient3> for ::windows::core::IUnknown {
     fn from(value: &IAudioClient3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClient3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClient3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioClient3> for IAudioClient {
     fn from(value: IAudioClient3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioClient3> for &'a IAudioClient {
+    fn from(value: &'a IAudioClient3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3776,34 +3786,19 @@ impl ::core::convert::From<&IAudioClient3> for IAudioClient {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAudioClient> for IAudioClient3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioClient> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioClient> for &'a IAudioClient3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioClient> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioClient3> for IAudioClient2 {
     fn from(value: IAudioClient3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioClient3> for &'a IAudioClient2 {
+    fn from(value: &'a IAudioClient3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IAudioClient3> for IAudioClient2 {
     fn from(value: &IAudioClient3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioClient2> for IAudioClient3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioClient2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioClient2> for &'a IAudioClient3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioClient2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClient3 {
@@ -3839,8 +3834,8 @@ pub struct IAudioClient3_Vtbl {
 pub struct IAudioClientDuckingControl(::windows::core::IUnknown);
 impl IAudioClientDuckingControl {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetDuckingOptionsForCurrentStream(&self, options: AUDIO_DUCKING_OPTIONS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuckingOptionsForCurrentStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(options)).ok()
+    pub unsafe fn SetDuckingOptionsForCurrentStream<'a, Param0: ::std::convert::Into<AUDIO_DUCKING_OPTIONS>>(&self, options: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuckingOptionsForCurrentStream)(::windows::core::Interface::as_raw(self), options.into()).ok()
     }
 }
 impl ::core::convert::From<IAudioClientDuckingControl> for ::windows::core::IUnknown {
@@ -3848,19 +3843,14 @@ impl ::core::convert::From<IAudioClientDuckingControl> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioClientDuckingControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClientDuckingControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioClientDuckingControl> for ::windows::core::IUnknown {
     fn from(value: &IAudioClientDuckingControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClientDuckingControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClientDuckingControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClientDuckingControl {
@@ -3913,19 +3903,14 @@ impl ::core::convert::From<IAudioClock> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioClock> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClock) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioClock> for ::windows::core::IUnknown {
     fn from(value: &IAudioClock) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClock {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClock {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClock {
@@ -3970,19 +3955,14 @@ impl ::core::convert::From<IAudioClock2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioClock2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClock2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioClock2> for ::windows::core::IUnknown {
     fn from(value: &IAudioClock2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClock2 {
@@ -4025,19 +4005,14 @@ impl ::core::convert::From<IAudioClockAdjustment> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioClockAdjustment> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioClockAdjustment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioClockAdjustment> for ::windows::core::IUnknown {
     fn from(value: &IAudioClockAdjustment) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioClockAdjustment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioClockAdjustment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioClockAdjustment {
@@ -4080,19 +4055,14 @@ impl ::core::convert::From<IAudioEffectsChangedNotificationClient> for ::windows
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioEffectsChangedNotificationClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioEffectsChangedNotificationClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioEffectsChangedNotificationClient> for ::windows::core::IUnknown {
     fn from(value: &IAudioEffectsChangedNotificationClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioEffectsChangedNotificationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioEffectsChangedNotificationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioEffectsChangedNotificationClient {
@@ -4126,12 +4096,12 @@ pub struct IAudioEffectsChangedNotificationClient_Vtbl {
 pub struct IAudioEffectsManager(::windows::core::IUnknown);
 impl IAudioEffectsManager {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterAudioEffectsChangedNotificationCallback<'a, Param0: ::windows::core::IntoParam<'a, IAudioEffectsChangedNotificationClient>>(&self, client: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterAudioEffectsChangedNotificationCallback)(::windows::core::Interface::as_raw(self), client.into_param().abi()).ok()
+    pub unsafe fn RegisterAudioEffectsChangedNotificationCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEffectsChangedNotificationClient>>>(&self, client: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterAudioEffectsChangedNotificationCallback)(::windows::core::Interface::as_raw(self), client.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterAudioEffectsChangedNotificationCallback<'a, Param0: ::windows::core::IntoParam<'a, IAudioEffectsChangedNotificationClient>>(&self, client: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterAudioEffectsChangedNotificationCallback)(::windows::core::Interface::as_raw(self), client.into_param().abi()).ok()
+    pub unsafe fn UnregisterAudioEffectsChangedNotificationCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioEffectsChangedNotificationClient>>>(&self, client: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterAudioEffectsChangedNotificationCallback)(::windows::core::Interface::as_raw(self), client.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4139,8 +4109,8 @@ impl IAudioEffectsManager {
         (::windows::core::Interface::vtable(self).GetAudioEffects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effects), ::core::mem::transmute(numeffects)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetAudioEffectState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, effectid: Param0, state: AUDIO_EFFECT_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAudioEffectState)(::windows::core::Interface::as_raw(self), effectid.into_param().abi(), ::core::mem::transmute(state)).ok()
+    pub unsafe fn SetAudioEffectState<'a, Param1: ::std::convert::Into<AUDIO_EFFECT_STATE>>(&self, effectid: ::windows::core::GUID, state: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAudioEffectState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effectid), state.into()).ok()
     }
 }
 impl ::core::convert::From<IAudioEffectsManager> for ::windows::core::IUnknown {
@@ -4148,19 +4118,14 @@ impl ::core::convert::From<IAudioEffectsManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioEffectsManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioEffectsManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioEffectsManager> for ::windows::core::IUnknown {
     fn from(value: &IAudioEffectsManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioEffectsManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioEffectsManager {
@@ -4215,19 +4180,14 @@ impl ::core::convert::From<IAudioFormatEnumerator> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioFormatEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioFormatEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioFormatEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAudioFormatEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioFormatEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioFormatEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioFormatEnumerator {
@@ -4276,19 +4236,14 @@ impl ::core::convert::From<IAudioInputSelector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioInputSelector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioInputSelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioInputSelector> for ::windows::core::IUnknown {
     fn from(value: &IAudioInputSelector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioInputSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioInputSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioInputSelector {
@@ -4330,8 +4285,8 @@ impl IAudioLoudness {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, benable: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benable.into_param().abi(), ::core::mem::transmute(pguideventcontext)).ok()
+    pub unsafe fn SetEnabled<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, benable: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benable.into(), ::core::mem::transmute(pguideventcontext)).ok()
     }
 }
 impl ::core::convert::From<IAudioLoudness> for ::windows::core::IUnknown {
@@ -4339,19 +4294,14 @@ impl ::core::convert::From<IAudioLoudness> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioLoudness> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioLoudness) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioLoudness> for ::windows::core::IUnknown {
     fn from(value: &IAudioLoudness) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioLoudness {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioLoudness {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioLoudness {
@@ -4423,19 +4373,14 @@ impl ::core::convert::From<IAudioMidrange> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioMidrange> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioMidrange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioMidrange> for ::windows::core::IUnknown {
     fn from(value: &IAudioMidrange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioMidrange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioMidrange {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAudioMidrange> for IPerChannelDbLevel {
@@ -4443,19 +4388,14 @@ impl ::core::convert::From<IAudioMidrange> for IPerChannelDbLevel {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioMidrange> for &'a IPerChannelDbLevel {
+    fn from(value: &'a IAudioMidrange) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioMidrange> for IPerChannelDbLevel {
     fn from(value: &IAudioMidrange) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for IAudioMidrange {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for &'a IAudioMidrange {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioMidrange {
@@ -4489,8 +4429,8 @@ pub struct IAudioMute(::windows::core::IUnknown);
 impl IAudioMute {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmuted: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMute)(::windows::core::Interface::as_raw(self), bmuted.into_param().abi(), ::core::mem::transmute(pguideventcontext)).ok()
+    pub unsafe fn SetMute<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bmuted: Param0, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMute)(::windows::core::Interface::as_raw(self), bmuted.into(), ::core::mem::transmute(pguideventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -4504,19 +4444,14 @@ impl ::core::convert::From<IAudioMute> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioMute> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioMute) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioMute> for ::windows::core::IUnknown {
     fn from(value: &IAudioMute) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioMute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioMute {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioMute {
@@ -4571,19 +4506,14 @@ impl ::core::convert::From<IAudioOutputSelector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioOutputSelector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioOutputSelector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioOutputSelector> for ::windows::core::IUnknown {
     fn from(value: &IAudioOutputSelector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioOutputSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioOutputSelector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioOutputSelector {
@@ -4633,19 +4563,14 @@ impl ::core::convert::From<IAudioPeakMeter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioPeakMeter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioPeakMeter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioPeakMeter> for ::windows::core::IUnknown {
     fn from(value: &IAudioPeakMeter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioPeakMeter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioPeakMeter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioPeakMeter {
@@ -4694,19 +4619,14 @@ impl ::core::convert::From<IAudioRenderClient> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioRenderClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioRenderClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioRenderClient> for ::windows::core::IUnknown {
     fn from(value: &IAudioRenderClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioRenderClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioRenderClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioRenderClient {
@@ -4751,8 +4671,8 @@ impl IAudioSessionControl {
         (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, value: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn SetDisplayName(&self, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetIconPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4760,8 +4680,8 @@ impl IAudioSessionControl {
         (::windows::core::Interface::vtable(self).GetIconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetIconPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, value: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIconPath)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn SetIconPath(&self, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetIconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetGroupingParam(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -4773,12 +4693,12 @@ impl IAudioSessionControl {
         (::windows::core::Interface::vtable(self).SetGroupingParam)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#override), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterAudioSessionNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionEvents>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into_param().abi()).ok()
+    pub unsafe fn RegisterAudioSessionNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionEvents>>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterAudioSessionNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionEvents>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into_param().abi()).ok()
+    pub unsafe fn UnregisterAudioSessionNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionEvents>>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IAudioSessionControl> for ::windows::core::IUnknown {
@@ -4786,19 +4706,14 @@ impl ::core::convert::From<IAudioSessionControl> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSessionControl> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSessionControl> for ::windows::core::IUnknown {
     fn from(value: &IAudioSessionControl) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionControl {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionControl {
@@ -4850,8 +4765,8 @@ impl IAudioSessionControl2 {
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, value: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn SetDisplayName(&self, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetIconPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4859,8 +4774,8 @@ impl IAudioSessionControl2 {
         (::windows::core::Interface::vtable(self).base__.GetIconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetIconPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, value: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIconPath)(::windows::core::Interface::as_raw(self), value.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn SetIconPath(&self, value: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.SetIconPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetGroupingParam(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -4872,12 +4787,12 @@ impl IAudioSessionControl2 {
         (::windows::core::Interface::vtable(self).base__.SetGroupingParam)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#override), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterAudioSessionNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionEvents>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into_param().abi()).ok()
+    pub unsafe fn RegisterAudioSessionNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionEvents>>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.RegisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterAudioSessionNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionEvents>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnregisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into_param().abi()).ok()
+    pub unsafe fn UnregisterAudioSessionNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionEvents>>>(&self, newnotifications: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.UnregisterAudioSessionNotification)(::windows::core::Interface::as_raw(self), newnotifications.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetSessionIdentifier(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4900,12 +4815,17 @@ impl IAudioSessionControl2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDuckingPreference<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, optout: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuckingPreference)(::windows::core::Interface::as_raw(self), optout.into_param().abi()).ok()
+    pub unsafe fn SetDuckingPreference<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, optout: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDuckingPreference)(::windows::core::Interface::as_raw(self), optout.into()).ok()
     }
 }
 impl ::core::convert::From<IAudioSessionControl2> for ::windows::core::IUnknown {
     fn from(value: IAudioSessionControl2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioSessionControl2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionControl2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -4914,34 +4834,19 @@ impl ::core::convert::From<&IAudioSessionControl2> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioSessionControl2> for IAudioSessionControl {
     fn from(value: IAudioSessionControl2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioSessionControl2> for &'a IAudioSessionControl {
+    fn from(value: &'a IAudioSessionControl2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IAudioSessionControl2> for IAudioSessionControl {
     fn from(value: &IAudioSessionControl2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioSessionControl> for IAudioSessionControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSessionControl> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioSessionControl> for &'a IAudioSessionControl2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSessionControl> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionControl2 {
@@ -4997,19 +4902,14 @@ impl ::core::convert::From<IAudioSessionEnumerator> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSessionEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSessionEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IAudioSessionEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionEnumerator {
@@ -5044,17 +4944,17 @@ pub struct IAudioSessionEnumerator_Vtbl {
 pub struct IAudioSessionEvents(::windows::core::IUnknown);
 impl IAudioSessionEvents {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnDisplayNameChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, newdisplayname: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDisplayNameChanged)(::windows::core::Interface::as_raw(self), newdisplayname.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn OnDisplayNameChanged(&self, newdisplayname: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnDisplayNameChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newdisplayname), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnIconPathChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, newiconpath: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIconPathChanged)(::windows::core::Interface::as_raw(self), newiconpath.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn OnIconPathChanged(&self, newiconpath: ::windows::core::PCWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnIconPathChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newiconpath), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnSimpleVolumeChanged<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, newvolume: f32, newmute: Param1, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSimpleVolumeChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newvolume), newmute.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn OnSimpleVolumeChanged<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, newvolume: f32, newmute: Param1, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnSimpleVolumeChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newvolume), newmute.into(), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn OnChannelVolumeChanged(&self, newchannelvolumearray: &[f32], changedchannel: u32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
@@ -5065,12 +4965,12 @@ impl IAudioSessionEvents {
         (::windows::core::Interface::vtable(self).OnGroupingParamChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newgroupingparam), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnStateChanged(&self, newstate: AudioSessionState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate)).ok()
+    pub unsafe fn OnStateChanged<'a, Param0: ::std::convert::Into<AudioSessionState>>(&self, newstate: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStateChanged)(::windows::core::Interface::as_raw(self), newstate.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnSessionDisconnected(&self, disconnectreason: AudioSessionDisconnectReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSessionDisconnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(disconnectreason)).ok()
+    pub unsafe fn OnSessionDisconnected<'a, Param0: ::std::convert::Into<AudioSessionDisconnectReason>>(&self, disconnectreason: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnSessionDisconnected)(::windows::core::Interface::as_raw(self), disconnectreason.into()).ok()
     }
 }
 impl ::core::convert::From<IAudioSessionEvents> for ::windows::core::IUnknown {
@@ -5078,19 +4978,14 @@ impl ::core::convert::From<IAudioSessionEvents> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSessionEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSessionEvents> for ::windows::core::IUnknown {
     fn from(value: &IAudioSessionEvents) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionEvents {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionEvents {
@@ -5148,19 +5043,14 @@ impl ::core::convert::From<IAudioSessionManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSessionManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSessionManager> for ::windows::core::IUnknown {
     fn from(value: &IAudioSessionManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionManager {
@@ -5210,24 +5100,29 @@ impl IAudioSessionManager2 {
         (::windows::core::Interface::vtable(self).GetSessionEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAudioSessionEnumerator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterSessionNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionNotification>>(&self, sessionnotification: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterSessionNotification)(::windows::core::Interface::as_raw(self), sessionnotification.into_param().abi()).ok()
+    pub unsafe fn RegisterSessionNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionNotification>>>(&self, sessionnotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterSessionNotification)(::windows::core::Interface::as_raw(self), sessionnotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterSessionNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionNotification>>(&self, sessionnotification: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterSessionNotification)(::windows::core::Interface::as_raw(self), sessionnotification.into_param().abi()).ok()
+    pub unsafe fn UnregisterSessionNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionNotification>>>(&self, sessionnotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterSessionNotification)(::windows::core::Interface::as_raw(self), sessionnotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterDuckNotification<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, IAudioVolumeDuckNotification>>(&self, sessionid: Param0, ducknotification: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterDuckNotification)(::windows::core::Interface::as_raw(self), sessionid.into_param().abi(), ducknotification.into_param().abi()).ok()
+    pub unsafe fn RegisterDuckNotification<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IAudioVolumeDuckNotification>>>(&self, sessionid: ::windows::core::PCWSTR, ducknotification: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterDuckNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sessionid), ducknotification.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterDuckNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioVolumeDuckNotification>>(&self, ducknotification: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterDuckNotification)(::windows::core::Interface::as_raw(self), ducknotification.into_param().abi()).ok()
+    pub unsafe fn UnregisterDuckNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioVolumeDuckNotification>>>(&self, ducknotification: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterDuckNotification)(::windows::core::Interface::as_raw(self), ducknotification.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IAudioSessionManager2> for ::windows::core::IUnknown {
     fn from(value: IAudioSessionManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioSessionManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -5236,34 +5131,19 @@ impl ::core::convert::From<&IAudioSessionManager2> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioSessionManager2> for IAudioSessionManager {
     fn from(value: IAudioSessionManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IAudioSessionManager2> for &'a IAudioSessionManager {
+    fn from(value: &'a IAudioSessionManager2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IAudioSessionManager2> for IAudioSessionManager {
     fn from(value: &IAudioSessionManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioSessionManager> for IAudioSessionManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSessionManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioSessionManager> for &'a IAudioSessionManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSessionManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionManager2 {
@@ -5301,8 +5181,8 @@ pub struct IAudioSessionManager2_Vtbl {
 pub struct IAudioSessionNotification(::windows::core::IUnknown);
 impl IAudioSessionNotification {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnSessionCreated<'a, Param0: ::windows::core::IntoParam<'a, IAudioSessionControl>>(&self, newsession: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSessionCreated)(::windows::core::Interface::as_raw(self), newsession.into_param().abi()).ok()
+    pub unsafe fn OnSessionCreated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSessionControl>>>(&self, newsession: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnSessionCreated)(::windows::core::Interface::as_raw(self), newsession.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IAudioSessionNotification> for ::windows::core::IUnknown {
@@ -5310,19 +5190,14 @@ impl ::core::convert::From<IAudioSessionNotification> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSessionNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSessionNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSessionNotification> for ::windows::core::IUnknown {
     fn from(value: &IAudioSessionNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSessionNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSessionNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSessionNotification {
@@ -5374,19 +5249,14 @@ impl ::core::convert::From<IAudioStateMonitor> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioStateMonitor> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioStateMonitor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioStateMonitor> for ::windows::core::IUnknown {
     fn from(value: &IAudioStateMonitor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioStateMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioStateMonitor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioStateMonitor {
@@ -5449,19 +5319,14 @@ impl ::core::convert::From<IAudioStreamVolume> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioStreamVolume> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioStreamVolume) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioStreamVolume> for ::windows::core::IUnknown {
     fn from(value: &IAudioStreamVolume) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioStreamVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioStreamVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioStreamVolume {
@@ -5500,8 +5365,8 @@ pub struct IAudioSystemEffectsPropertyChangeNotificationClient(::windows::core::
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn OnPropertyChanged<'a, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>>(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnPropertyChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), key.into_param().abi()).ok()
+    pub unsafe fn OnPropertyChanged<'a, Param0: ::std::convert::Into<AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE>>(&self, r#type: Param0, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnPropertyChanged)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(key)).ok()
     }
 }
 impl ::core::convert::From<IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::core::IUnknown {
@@ -5509,19 +5374,14 @@ impl ::core::convert::From<IAudioSystemEffectsPropertyChangeNotificationClient> 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSystemEffectsPropertyChangeNotificationClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSystemEffectsPropertyChangeNotificationClient> for ::windows::core::IUnknown {
     fn from(value: &IAudioSystemEffectsPropertyChangeNotificationClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSystemEffectsPropertyChangeNotificationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSystemEffectsPropertyChangeNotificationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSystemEffectsPropertyChangeNotificationClient {
@@ -5584,12 +5444,12 @@ impl IAudioSystemEffectsPropertyStore {
         (::windows::core::Interface::vtable(self).ResetVolatilePropertyStore)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterPropertyChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSystemEffectsPropertyChangeNotificationClient>>(&self, callback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterPropertyChangeNotification)(::windows::core::Interface::as_raw(self), callback.into_param().abi()).ok()
+    pub unsafe fn RegisterPropertyChangeNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSystemEffectsPropertyChangeNotificationClient>>>(&self, callback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterPropertyChangeNotification)(::windows::core::Interface::as_raw(self), callback.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterPropertyChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, IAudioSystemEffectsPropertyChangeNotificationClient>>(&self, callback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterPropertyChangeNotification)(::windows::core::Interface::as_raw(self), callback.into_param().abi()).ok()
+    pub unsafe fn UnregisterPropertyChangeNotification<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IAudioSystemEffectsPropertyChangeNotificationClient>>>(&self, callback: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterPropertyChangeNotification)(::windows::core::Interface::as_raw(self), callback.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IAudioSystemEffectsPropertyStore> for ::windows::core::IUnknown {
@@ -5597,19 +5457,14 @@ impl ::core::convert::From<IAudioSystemEffectsPropertyStore> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioSystemEffectsPropertyStore> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioSystemEffectsPropertyStore) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioSystemEffectsPropertyStore> for ::windows::core::IUnknown {
     fn from(value: &IAudioSystemEffectsPropertyStore) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSystemEffectsPropertyStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioSystemEffectsPropertyStore {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioSystemEffectsPropertyStore {
@@ -5689,19 +5544,14 @@ impl ::core::convert::From<IAudioTreble> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioTreble> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioTreble) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioTreble> for ::windows::core::IUnknown {
     fn from(value: &IAudioTreble) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioTreble {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioTreble {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAudioTreble> for IPerChannelDbLevel {
@@ -5709,19 +5559,14 @@ impl ::core::convert::From<IAudioTreble> for IPerChannelDbLevel {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioTreble> for &'a IPerChannelDbLevel {
+    fn from(value: &'a IAudioTreble) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioTreble> for IPerChannelDbLevel {
     fn from(value: &IAudioTreble) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for IAudioTreble {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for &'a IAudioTreble {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioTreble {
@@ -5754,12 +5599,12 @@ pub struct IAudioTreble_Vtbl {
 pub struct IAudioVolumeDuckNotification(::windows::core::IUnknown);
 impl IAudioVolumeDuckNotification {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnVolumeDuckNotification<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, sessionid: Param0, countcommunicationsessions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnVolumeDuckNotification)(::windows::core::Interface::as_raw(self), sessionid.into_param().abi(), ::core::mem::transmute(countcommunicationsessions)).ok()
+    pub unsafe fn OnVolumeDuckNotification(&self, sessionid: ::windows::core::PCWSTR, countcommunicationsessions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnVolumeDuckNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sessionid), ::core::mem::transmute(countcommunicationsessions)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnVolumeUnduckNotification<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, sessionid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnVolumeUnduckNotification)(::windows::core::Interface::as_raw(self), sessionid.into_param().abi()).ok()
+    pub unsafe fn OnVolumeUnduckNotification(&self, sessionid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnVolumeUnduckNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(sessionid)).ok()
     }
 }
 impl ::core::convert::From<IAudioVolumeDuckNotification> for ::windows::core::IUnknown {
@@ -5767,19 +5612,14 @@ impl ::core::convert::From<IAudioVolumeDuckNotification> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioVolumeDuckNotification> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioVolumeDuckNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioVolumeDuckNotification> for ::windows::core::IUnknown {
     fn from(value: &IAudioVolumeDuckNotification) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioVolumeDuckNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioVolumeDuckNotification {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioVolumeDuckNotification {
@@ -5845,19 +5685,14 @@ impl ::core::convert::From<IAudioVolumeLevel> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioVolumeLevel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAudioVolumeLevel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioVolumeLevel> for ::windows::core::IUnknown {
     fn from(value: &IAudioVolumeLevel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioVolumeLevel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAudioVolumeLevel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAudioVolumeLevel> for IPerChannelDbLevel {
@@ -5865,19 +5700,14 @@ impl ::core::convert::From<IAudioVolumeLevel> for IPerChannelDbLevel {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAudioVolumeLevel> for &'a IPerChannelDbLevel {
+    fn from(value: &'a IAudioVolumeLevel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAudioVolumeLevel> for IPerChannelDbLevel {
     fn from(value: &IAudioVolumeLevel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for IAudioVolumeLevel {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPerChannelDbLevel> for &'a IAudioVolumeLevel {
-    fn into_param(self) -> ::windows::core::Param<'a, IPerChannelDbLevel> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAudioVolumeLevel {
@@ -5937,19 +5767,14 @@ impl ::core::convert::From<IChannelAudioVolume> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IChannelAudioVolume> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IChannelAudioVolume) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IChannelAudioVolume> for ::windows::core::IUnknown {
     fn from(value: &IChannelAudioVolume) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IChannelAudioVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IChannelAudioVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IChannelAudioVolume {
@@ -5997,8 +5822,8 @@ impl IConnector {
         (::windows::core::Interface::vtable(self).GetDataFlow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DataFlow>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ConnectTo<'a, Param0: ::windows::core::IntoParam<'a, IConnector>>(&self, pconnectto: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectTo)(::windows::core::Interface::as_raw(self), pconnectto.into_param().abi()).ok()
+    pub unsafe fn ConnectTo<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IConnector>>>(&self, pconnectto: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ConnectTo)(::windows::core::Interface::as_raw(self), pconnectto.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
@@ -6031,19 +5856,14 @@ impl ::core::convert::From<IConnector> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IConnector> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IConnector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IConnector> for ::windows::core::IUnknown {
     fn from(value: &IConnector) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IConnector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IConnector {
@@ -6096,19 +5916,14 @@ impl ::core::convert::From<IControlChangeNotify> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IControlChangeNotify> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IControlChangeNotify) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IControlChangeNotify> for ::windows::core::IUnknown {
     fn from(value: &IControlChangeNotify) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IControlChangeNotify {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IControlChangeNotify {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IControlChangeNotify {
@@ -6157,19 +5972,14 @@ impl ::core::convert::From<IControlInterface> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IControlInterface> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IControlInterface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IControlInterface> for ::windows::core::IUnknown {
     fn from(value: &IControlInterface) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IControlInterface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IControlInterface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IControlInterface {
@@ -6226,19 +6036,14 @@ impl ::core::convert::From<IDeviceSpecificProperty> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDeviceSpecificProperty> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDeviceSpecificProperty) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDeviceSpecificProperty> for ::windows::core::IUnknown {
     fn from(value: &IDeviceSpecificProperty) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceSpecificProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceSpecificProperty {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDeviceSpecificProperty {
@@ -6306,9 +6111,9 @@ impl IDeviceTopology {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSignalPath<'a, Param0: ::windows::core::IntoParam<'a, IPart>, Param1: ::windows::core::IntoParam<'a, IPart>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pipartfrom: Param0, pipartto: Param1, brejectmixedpaths: Param2) -> ::windows::core::Result<IPartsList> {
+    pub unsafe fn GetSignalPath<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IPart>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IPart>>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, pipartfrom: Param0, pipartto: Param1, brejectmixedpaths: Param2) -> ::windows::core::Result<IPartsList> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetSignalPath)(::windows::core::Interface::as_raw(self), pipartfrom.into_param().abi(), pipartto.into_param().abi(), brejectmixedpaths.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPartsList>(result__)
+        (::windows::core::Interface::vtable(self).GetSignalPath)(::windows::core::Interface::as_raw(self), pipartfrom.into().abi(), pipartto.into().abi(), brejectmixedpaths.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPartsList>(result__)
     }
 }
 impl ::core::convert::From<IDeviceTopology> for ::windows::core::IUnknown {
@@ -6316,19 +6121,14 @@ impl ::core::convert::From<IDeviceTopology> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDeviceTopology> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDeviceTopology) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDeviceTopology> for ::windows::core::IUnknown {
     fn from(value: &IDeviceTopology) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDeviceTopology {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDeviceTopology {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDeviceTopology {
@@ -6372,15 +6172,15 @@ pub struct IMMDevice(::windows::core::IUnknown);
 impl IMMDevice {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Activate<T: ::windows::core::Interface>(&self, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<T> {
+    pub unsafe fn Activate<'a, Param1: ::std::convert::Into<super::super::System::Com::CLSCTX>, T: ::windows::core::Interface>(&self, dwclsctx: Param1, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, ::core::mem::transmute(dwclsctx), ::core::mem::transmute(pactivationparams), &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, dwclsctx.into(), ::core::mem::transmute(pactivationparams), &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
-    pub unsafe fn OpenPropertyStore(&self, stgmaccess: super::super::System::Com::StructuredStorage::STGM) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
+    pub unsafe fn OpenPropertyStore<'a, Param0: ::std::convert::Into<super::super::System::Com::StructuredStorage::STGM>>(&self, stgmaccess: Param0) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).OpenPropertyStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stgmaccess), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
+        (::windows::core::Interface::vtable(self).OpenPropertyStore)(::windows::core::Interface::as_raw(self), stgmaccess.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -6398,19 +6198,14 @@ impl ::core::convert::From<IMMDevice> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMMDevice> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMMDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMMDevice> for ::windows::core::IUnknown {
     fn from(value: &IMMDevice) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMMDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMMDevice {
@@ -6454,8 +6249,8 @@ pub struct IMMDeviceActivator(::windows::core::IUnknown);
 impl IMMDeviceActivator {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Activate<'a, Param1: ::windows::core::IntoParam<'a, IMMDevice>>(&self, iid: *const ::windows::core::GUID, pdevice: Param1, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid), pdevice.into_param().abi(), ::core::mem::transmute(pactivationparams), ::core::mem::transmute(ppinterface)).ok()
+    pub unsafe fn Activate<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IMMDevice>>>(&self, iid: *const ::windows::core::GUID, pdevice: Param1, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iid), pdevice.into().abi(), ::core::mem::transmute(pactivationparams), ::core::mem::transmute(ppinterface)).ok()
     }
 }
 impl ::core::convert::From<IMMDeviceActivator> for ::windows::core::IUnknown {
@@ -6463,19 +6258,14 @@ impl ::core::convert::From<IMMDeviceActivator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMMDeviceActivator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMMDeviceActivator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMMDeviceActivator> for ::windows::core::IUnknown {
     fn from(value: &IMMDeviceActivator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMMDeviceActivator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMDeviceActivator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMMDeviceActivator {
@@ -6527,19 +6317,14 @@ impl ::core::convert::From<IMMDeviceCollection> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMMDeviceCollection> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMMDeviceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMMDeviceCollection> for ::windows::core::IUnknown {
     fn from(value: &IMMDeviceCollection) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMMDeviceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMDeviceCollection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMMDeviceCollection {
@@ -6574,27 +6359,27 @@ pub struct IMMDeviceCollection_Vtbl {
 pub struct IMMDeviceEnumerator(::windows::core::IUnknown);
 impl IMMDeviceEnumerator {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn EnumAudioEndpoints(&self, dataflow: EDataFlow, dwstatemask: u32) -> ::windows::core::Result<IMMDeviceCollection> {
+    pub unsafe fn EnumAudioEndpoints<'a, Param0: ::std::convert::Into<EDataFlow>>(&self, dataflow: Param0, dwstatemask: u32) -> ::windows::core::Result<IMMDeviceCollection> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAudioEndpoints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dataflow), ::core::mem::transmute(dwstatemask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDeviceCollection>(result__)
+        (::windows::core::Interface::vtable(self).EnumAudioEndpoints)(::windows::core::Interface::as_raw(self), dataflow.into(), ::core::mem::transmute(dwstatemask), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDeviceCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetDefaultAudioEndpoint(&self, dataflow: EDataFlow, role: ERole) -> ::windows::core::Result<IMMDevice> {
+    pub unsafe fn GetDefaultAudioEndpoint<'a, Param0: ::std::convert::Into<EDataFlow>, Param1: ::std::convert::Into<ERole>>(&self, dataflow: Param0, role: Param1) -> ::windows::core::Result<IMMDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDefaultAudioEndpoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dataflow), ::core::mem::transmute(role), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
+        (::windows::core::Interface::vtable(self).GetDefaultAudioEndpoint)(::windows::core::Interface::as_raw(self), dataflow.into(), role.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwstrid: Param0) -> ::windows::core::Result<IMMDevice> {
+    pub unsafe fn GetDevice(&self, pwstrid: ::windows::core::PCWSTR) -> ::windows::core::Result<IMMDevice> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), pwstrid.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
+        (::windows::core::Interface::vtable(self).GetDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwstrid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMMDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterEndpointNotificationCallback<'a, Param0: ::windows::core::IntoParam<'a, IMMNotificationClient>>(&self, pclient: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterEndpointNotificationCallback)(::windows::core::Interface::as_raw(self), pclient.into_param().abi()).ok()
+    pub unsafe fn RegisterEndpointNotificationCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMMNotificationClient>>>(&self, pclient: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterEndpointNotificationCallback)(::windows::core::Interface::as_raw(self), pclient.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterEndpointNotificationCallback<'a, Param0: ::windows::core::IntoParam<'a, IMMNotificationClient>>(&self, pclient: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterEndpointNotificationCallback)(::windows::core::Interface::as_raw(self), pclient.into_param().abi()).ok()
+    pub unsafe fn UnregisterEndpointNotificationCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IMMNotificationClient>>>(&self, pclient: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterEndpointNotificationCallback)(::windows::core::Interface::as_raw(self), pclient.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IMMDeviceEnumerator> for ::windows::core::IUnknown {
@@ -6602,19 +6387,14 @@ impl ::core::convert::From<IMMDeviceEnumerator> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMMDeviceEnumerator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMMDeviceEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMMDeviceEnumerator> for ::windows::core::IUnknown {
     fn from(value: &IMMDeviceEnumerator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMMDeviceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMDeviceEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMMDeviceEnumerator {
@@ -6662,19 +6442,14 @@ impl ::core::convert::From<IMMEndpoint> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMMEndpoint> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMMEndpoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMMEndpoint> for ::windows::core::IUnknown {
     fn from(value: &IMMEndpoint) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMMEndpoint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMEndpoint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMMEndpoint {
@@ -6708,25 +6483,25 @@ pub struct IMMEndpoint_Vtbl {
 pub struct IMMNotificationClient(::windows::core::IUnknown);
 impl IMMNotificationClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnDeviceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwstrdeviceid: Param0, dwnewstate: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDeviceStateChanged)(::windows::core::Interface::as_raw(self), pwstrdeviceid.into_param().abi(), ::core::mem::transmute(dwnewstate)).ok()
+    pub unsafe fn OnDeviceStateChanged(&self, pwstrdeviceid: ::windows::core::PCWSTR, dwnewstate: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnDeviceStateChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwstrdeviceid), ::core::mem::transmute(dwnewstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnDeviceAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwstrdeviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDeviceAdded)(::windows::core::Interface::as_raw(self), pwstrdeviceid.into_param().abi()).ok()
+    pub unsafe fn OnDeviceAdded(&self, pwstrdeviceid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnDeviceAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwstrdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnDeviceRemoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwstrdeviceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDeviceRemoved)(::windows::core::Interface::as_raw(self), pwstrdeviceid.into_param().abi()).ok()
+    pub unsafe fn OnDeviceRemoved(&self, pwstrdeviceid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnDeviceRemoved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwstrdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnDefaultDeviceChanged<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDefaultDeviceChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flow), ::core::mem::transmute(role), pwstrdefaultdeviceid.into_param().abi()).ok()
+    pub unsafe fn OnDefaultDeviceChanged<'a, Param0: ::std::convert::Into<EDataFlow>, Param1: ::std::convert::Into<ERole>>(&self, flow: Param0, role: Param1, pwstrdefaultdeviceid: ::windows::core::PCWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnDefaultDeviceChanged)(::windows::core::Interface::as_raw(self), flow.into(), role.into(), ::core::mem::transmute(pwstrdefaultdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-    pub unsafe fn OnPropertyValueChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>>(&self, pwstrdeviceid: Param0, key: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnPropertyValueChanged)(::windows::core::Interface::as_raw(self), pwstrdeviceid.into_param().abi(), key.into_param().abi()).ok()
+    pub unsafe fn OnPropertyValueChanged(&self, pwstrdeviceid: ::windows::core::PCWSTR, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnPropertyValueChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwstrdeviceid), ::core::mem::transmute(key)).ok()
     }
 }
 impl ::core::convert::From<IMMNotificationClient> for ::windows::core::IUnknown {
@@ -6734,19 +6509,14 @@ impl ::core::convert::From<IMMNotificationClient> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMMNotificationClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMMNotificationClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMMNotificationClient> for ::windows::core::IUnknown {
     fn from(value: &IMMNotificationClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMMNotificationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMMNotificationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMMNotificationClient {
@@ -6788,16 +6558,16 @@ pub struct IMessageFilter(::windows::core::IUnknown);
 impl IMessageFilter {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn HandleInComingCall<'a, Param1: ::windows::core::IntoParam<'a, super::HTASK>>(&self, dwcalltype: u32, htaskcaller: Param1, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).HandleInComingCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcalltype), htaskcaller.into_param().abi(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(lpinterfaceinfo)))
+    pub unsafe fn HandleInComingCall<'a, Param1: ::std::convert::Into<super::HTASK>>(&self, dwcalltype: u32, htaskcaller: Param1, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).HandleInComingCall)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcalltype), htaskcaller.into(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(lpinterfaceinfo)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RetryRejectedCall<'a, Param0: ::windows::core::IntoParam<'a, super::HTASK>>(&self, htaskcallee: Param0, dwtickcount: u32, dwrejecttype: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).RetryRejectedCall)(::windows::core::Interface::as_raw(self), htaskcallee.into_param().abi(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(dwrejecttype)))
+    pub unsafe fn RetryRejectedCall<'a, Param0: ::std::convert::Into<super::HTASK>>(&self, htaskcallee: Param0, dwtickcount: u32, dwrejecttype: u32) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).RetryRejectedCall)(::windows::core::Interface::as_raw(self), htaskcallee.into(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(dwrejecttype)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn MessagePending<'a, Param0: ::windows::core::IntoParam<'a, super::HTASK>>(&self, htaskcallee: Param0, dwtickcount: u32, dwpendingtype: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).MessagePending)(::windows::core::Interface::as_raw(self), htaskcallee.into_param().abi(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(dwpendingtype)))
+    pub unsafe fn MessagePending<'a, Param0: ::std::convert::Into<super::HTASK>>(&self, htaskcallee: Param0, dwtickcount: u32, dwpendingtype: u32) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).MessagePending)(::windows::core::Interface::as_raw(self), htaskcallee.into(), ::core::mem::transmute(dwtickcount), ::core::mem::transmute(dwpendingtype)))
     }
 }
 impl ::core::convert::From<IMessageFilter> for ::windows::core::IUnknown {
@@ -6805,19 +6575,14 @@ impl ::core::convert::From<IMessageFilter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMessageFilter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMessageFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMessageFilter> for ::windows::core::IUnknown {
     fn from(value: &IMessageFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMessageFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMessageFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMessageFilter {
@@ -6910,12 +6675,12 @@ impl IPart {
         (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwclscontext), ::core::mem::transmute(refiid), ::core::mem::transmute(ppvobject)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn RegisterControlChangeCallback<'a, Param1: ::windows::core::IntoParam<'a, IControlChangeNotify>>(&self, riid: *const ::windows::core::GUID, pnotify: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterControlChangeCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), pnotify.into_param().abi()).ok()
+    pub unsafe fn RegisterControlChangeCallback<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, IControlChangeNotify>>>(&self, riid: *const ::windows::core::GUID, pnotify: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RegisterControlChangeCallback)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), pnotify.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn UnregisterControlChangeCallback<'a, Param0: ::windows::core::IntoParam<'a, IControlChangeNotify>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterControlChangeCallback)(::windows::core::Interface::as_raw(self), pnotify.into_param().abi()).ok()
+    pub unsafe fn UnregisterControlChangeCallback<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IControlChangeNotify>>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnregisterControlChangeCallback)(::windows::core::Interface::as_raw(self), pnotify.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IPart> for ::windows::core::IUnknown {
@@ -6923,19 +6688,14 @@ impl ::core::convert::From<IPart> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPart> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPart) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPart> for ::windows::core::IUnknown {
     fn from(value: &IPart) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPart {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPart {
@@ -6996,19 +6756,14 @@ impl ::core::convert::From<IPartsList> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPartsList> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPartsList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPartsList> for ::windows::core::IUnknown {
     fn from(value: &IPartsList) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPartsList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPartsList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPartsList {
@@ -7074,19 +6829,14 @@ impl ::core::convert::From<IPerChannelDbLevel> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IPerChannelDbLevel> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPerChannelDbLevel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IPerChannelDbLevel> for ::windows::core::IUnknown {
     fn from(value: &IPerChannelDbLevel) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPerChannelDbLevel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPerChannelDbLevel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPerChannelDbLevel {
@@ -7135,8 +6885,8 @@ impl ISimpleAudioVolume {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bmute: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMute)(::windows::core::Interface::as_raw(self), bmute.into_param().abi(), ::core::mem::transmute(eventcontext)).ok()
+    pub unsafe fn SetMute<'a, Param0: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, bmute: Param0, eventcontext: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMute)(::windows::core::Interface::as_raw(self), bmute.into(), ::core::mem::transmute(eventcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -7150,19 +6900,14 @@ impl ::core::convert::From<ISimpleAudioVolume> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISimpleAudioVolume> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISimpleAudioVolume) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISimpleAudioVolume> for ::windows::core::IUnknown {
     fn from(value: &ISimpleAudioVolume) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISimpleAudioVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISimpleAudioVolume {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISimpleAudioVolume {
@@ -7205,8 +6950,8 @@ pub struct ISimpleAudioVolume_Vtbl {
 pub struct ISpatialAudioClient(::windows::core::IUnknown);
 impl ISpatialAudioClient {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
+    pub unsafe fn GetStaticObjectPosition<'a, Param0: ::std::convert::Into<AudioObjectType>>(&self, r#type: Param0, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetNativeStaticObjectTypeMask(&self) -> ::windows::core::Result<AudioObjectType> {
@@ -7249,19 +6994,14 @@ impl ::core::convert::From<ISpatialAudioClient> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioClient> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioClient {
@@ -7308,8 +7048,8 @@ pub struct ISpatialAudioClient_Vtbl {
 pub struct ISpatialAudioClient2(::windows::core::IUnknown);
 impl ISpatialAudioClient2 {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn GetStaticObjectPosition(&self, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
+    pub unsafe fn GetStaticObjectPosition<'a, Param0: ::std::convert::Into<AudioObjectType>>(&self, r#type: Param0, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base__.GetStaticObjectPosition)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(z)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn GetNativeStaticObjectTypeMask(&self) -> ::windows::core::Result<AudioObjectType> {
@@ -7348,19 +7088,24 @@ impl ISpatialAudioClient2 {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsOffloadCapable(&self, category: AUDIO_STREAM_CATEGORY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    pub unsafe fn IsOffloadCapable<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>>(&self, category: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
-        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsOffloadCapable)(::windows::core::Interface::as_raw(self), category.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMaxFrameCountForCategory<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, category: AUDIO_STREAM_CATEGORY, offloadenabled: Param1, objectformat: *const WAVEFORMATEX) -> ::windows::core::Result<u32> {
+    pub unsafe fn GetMaxFrameCountForCategory<'a, Param0: ::std::convert::Into<AUDIO_STREAM_CATEGORY>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, category: Param0, offloadenabled: Param1, objectformat: *const WAVEFORMATEX) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaxFrameCountForCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(category), offloadenabled.into_param().abi(), ::core::mem::transmute(objectformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetMaxFrameCountForCategory)(::windows::core::Interface::as_raw(self), category.into(), offloadenabled.into(), ::core::mem::transmute(objectformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioClient2> for ::windows::core::IUnknown {
     fn from(value: ISpatialAudioClient2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioClient2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioClient2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -7369,34 +7114,19 @@ impl ::core::convert::From<&ISpatialAudioClient2> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISpatialAudioClient2> for ISpatialAudioClient {
     fn from(value: ISpatialAudioClient2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioClient2> for &'a ISpatialAudioClient {
+    fn from(value: &'a ISpatialAudioClient2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISpatialAudioClient2> for ISpatialAudioClient {
     fn from(value: &ISpatialAudioClient2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioClient> for ISpatialAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioClient> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioClient> for &'a ISpatialAudioClient2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioClient> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioClient2 {
@@ -7446,9 +7176,9 @@ impl ISpatialAudioMetadataClient {
         (::windows::core::Interface::vtable(self).GetSpatialAudioMetadataItemsBufferLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(maxitemcount), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ActivateSpatialAudioMetadataWriter(&self, overflowmode: SpatialAudioMetadataWriterOverflowMode) -> ::windows::core::Result<ISpatialAudioMetadataWriter> {
+    pub unsafe fn ActivateSpatialAudioMetadataWriter<'a, Param0: ::std::convert::Into<SpatialAudioMetadataWriterOverflowMode>>(&self, overflowmode: Param0) -> ::windows::core::Result<ISpatialAudioMetadataWriter> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioMetadataWriter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overflowmode), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioMetadataWriter>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioMetadataWriter)(::windows::core::Interface::as_raw(self), overflowmode.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioMetadataWriter>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ActivateSpatialAudioMetadataCopier(&self) -> ::windows::core::Result<ISpatialAudioMetadataCopier> {
@@ -7466,19 +7196,14 @@ impl ::core::convert::From<ISpatialAudioMetadataClient> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataClient> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioMetadataClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioMetadataClient> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioMetadataClient) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioMetadataClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioMetadataClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioMetadataClient {
@@ -7516,13 +7241,13 @@ pub struct ISpatialAudioMetadataClient_Vtbl {
 pub struct ISpatialAudioMetadataCopier(::windows::core::IUnknown);
 impl ISpatialAudioMetadataCopier {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, metadataitems: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), metadataitems.into_param().abi()).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioMetadataItems>>>(&self, metadataitems: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), metadataitems.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn CopyMetadataForFrames<'a, Param2: ::windows::core::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: Param2) -> ::windows::core::Result<u16> {
+    pub unsafe fn CopyMetadataForFrames<'a, Param1: ::std::convert::Into<SpatialAudioMetadataCopyMode>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioMetadataItems>>>(&self, copyframecount: u16, copymode: Param1, dstmetadataitems: Param2) -> ::windows::core::Result<u16> {
         let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
-        (::windows::core::Interface::vtable(self).CopyMetadataForFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copyframecount), ::core::mem::transmute(copymode), dstmetadataitems.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
+        (::windows::core::Interface::vtable(self).CopyMetadataForFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(copyframecount), copymode.into(), dstmetadataitems.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
@@ -7534,19 +7259,14 @@ impl ::core::convert::From<ISpatialAudioMetadataCopier> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataCopier> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioMetadataCopier) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioMetadataCopier> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioMetadataCopier) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioMetadataCopier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioMetadataCopier {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioMetadataCopier {
@@ -7612,19 +7332,14 @@ impl ::core::convert::From<ISpatialAudioMetadataItems> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataItems> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioMetadataItems) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioMetadataItems> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioMetadataItems) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioMetadataItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioMetadataItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioMetadataItems {
@@ -7679,19 +7394,14 @@ impl ::core::convert::From<ISpatialAudioMetadataItemsBuffer> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataItemsBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioMetadataItemsBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioMetadataItemsBuffer> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioMetadataItemsBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioMetadataItemsBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioMetadataItemsBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioMetadataItemsBuffer {
@@ -7727,8 +7437,8 @@ pub struct ISpatialAudioMetadataItemsBuffer_Vtbl {
 pub struct ISpatialAudioMetadataReader(::windows::core::IUnknown);
 impl ISpatialAudioMetadataReader {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, metadataitems: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), metadataitems.into_param().abi()).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioMetadataItems>>>(&self, metadataitems: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), metadataitems.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn ReadNextItem(&self, commandcount: *mut u8, frameoffset: *mut u16) -> ::windows::core::Result<()> {
@@ -7748,19 +7458,14 @@ impl ::core::convert::From<ISpatialAudioMetadataReader> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioMetadataReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioMetadataReader> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioMetadataReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioMetadataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioMetadataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioMetadataReader {
@@ -7797,8 +7502,8 @@ pub struct ISpatialAudioMetadataReader_Vtbl {
 pub struct ISpatialAudioMetadataWriter(::windows::core::IUnknown);
 impl ISpatialAudioMetadataWriter {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn Open<'a, Param0: ::windows::core::IntoParam<'a, ISpatialAudioMetadataItems>>(&self, metadataitems: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), metadataitems.into_param().abi()).ok()
+    pub unsafe fn Open<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioMetadataItems>>>(&self, metadataitems: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), metadataitems.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn WriteNextItem(&self, frameoffset: u16) -> ::windows::core::Result<()> {
@@ -7818,19 +7523,14 @@ impl ::core::convert::From<ISpatialAudioMetadataWriter> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioMetadataWriter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioMetadataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioMetadataWriter> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioMetadataWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioMetadataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioMetadataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioMetadataWriter {
@@ -7899,19 +7599,14 @@ impl ::core::convert::From<ISpatialAudioObject> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObject> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObject> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISpatialAudioObject> for ISpatialAudioObjectBase {
@@ -7919,19 +7614,14 @@ impl ::core::convert::From<ISpatialAudioObject> for ISpatialAudioObjectBase {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObject> for &'a ISpatialAudioObjectBase {
+    fn from(value: &'a ISpatialAudioObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObject> for ISpatialAudioObjectBase {
     fn from(value: &ISpatialAudioObject) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for &'a ISpatialAudioObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObject {
@@ -7990,19 +7680,14 @@ impl ::core::convert::From<ISpatialAudioObjectBase> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectBase> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectBase> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObjectBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectBase {
@@ -8073,8 +7758,8 @@ impl ISpatialAudioObjectForHrtf {
         (::windows::core::Interface::vtable(self).SetOrientation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(orientation)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn SetEnvironment(&self, environment: SpatialAudioHrtfEnvironmentType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(environment)).ok()
+    pub unsafe fn SetEnvironment<'a, Param0: ::std::convert::Into<SpatialAudioHrtfEnvironmentType>>(&self, environment: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEnvironment)(::windows::core::Interface::as_raw(self), environment.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
     pub unsafe fn SetDistanceDecay(&self, distancedecay: *const SpatialAudioHrtfDistanceDecay) -> ::windows::core::Result<()> {
@@ -8090,19 +7775,14 @@ impl ::core::convert::From<ISpatialAudioObjectForHrtf> for ::windows::core::IUnk
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForHrtf> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectForHrtf) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectForHrtf> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObjectForHrtf) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBase {
@@ -8110,19 +7790,14 @@ impl ::core::convert::From<ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBa
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForHrtf> for &'a ISpatialAudioObjectBase {
+    fn from(value: &'a ISpatialAudioObjectForHrtf) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectForHrtf> for ISpatialAudioObjectBase {
     fn from(value: &ISpatialAudioObjectForHrtf) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObjectForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for &'a ISpatialAudioObjectForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectForHrtf {
@@ -8189,19 +7864,14 @@ impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ::windows
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataCommands> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectForMetadataCommands) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectForMetadataCommands> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObjectForMetadataCommands) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectForMetadataCommands {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectForMetadataCommands {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ISpatialAudioObjectBase {
@@ -8209,19 +7879,14 @@ impl ::core::convert::From<ISpatialAudioObjectForMetadataCommands> for ISpatialA
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataCommands> for &'a ISpatialAudioObjectBase {
+    fn from(value: &'a ISpatialAudioObjectForMetadataCommands) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectForMetadataCommands> for ISpatialAudioObjectBase {
     fn from(value: &ISpatialAudioObjectForMetadataCommands) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObjectForMetadataCommands {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for &'a ISpatialAudioObjectForMetadataCommands {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectForMetadataCommands {
@@ -8284,19 +7949,14 @@ impl ::core::convert::From<ISpatialAudioObjectForMetadataItems> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataItems> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectForMetadataItems) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectForMetadataItems> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObjectForMetadataItems) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectForMetadataItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectForMetadataItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectForMetadataItems> for ISpatialAudioObjectBase {
@@ -8304,19 +7964,14 @@ impl ::core::convert::From<ISpatialAudioObjectForMetadataItems> for ISpatialAudi
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectForMetadataItems> for &'a ISpatialAudioObjectBase {
+    fn from(value: &'a ISpatialAudioObjectForMetadataItems) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectForMetadataItems> for ISpatialAudioObjectBase {
     fn from(value: &ISpatialAudioObjectForMetadataItems) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for ISpatialAudioObjectForMetadataItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectBase> for &'a ISpatialAudioObjectForMetadataItems {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectForMetadataItems {
@@ -8380,13 +8035,18 @@ impl ISpatialAudioObjectRenderStream {
         (::windows::core::Interface::vtable(self).base__.EndUpdatingAudioObjects)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ActivateSpatialAudioObject(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObject> {
+    pub unsafe fn ActivateSpatialAudioObject<'a, Param0: ::std::convert::Into<AudioObjectType>>(&self, r#type: Param0) -> ::windows::core::Result<ISpatialAudioObject> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObject>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObject)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObject>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStream> for ::windows::core::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectRenderStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8395,34 +8055,19 @@ impl ::core::convert::From<&ISpatialAudioObjectRenderStream> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectRenderStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectRenderStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISpatialAudioObjectRenderStream> for ISpatialAudioObjectRenderStreamBase {
     fn from(value: ISpatialAudioObjectRenderStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStream> for &'a ISpatialAudioObjectRenderStreamBase {
+    fn from(value: &'a ISpatialAudioObjectRenderStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISpatialAudioObjectRenderStream> for ISpatialAudioObjectRenderStreamBase {
     fn from(value: &ISpatialAudioObjectRenderStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for ISpatialAudioObjectRenderStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for &'a ISpatialAudioObjectRenderStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStream {
@@ -8491,19 +8136,14 @@ impl ::core::convert::From<ISpatialAudioObjectRenderStreamBase> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamBase> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectRenderStreamBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectRenderStreamBase> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStreamBase) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectRenderStreamBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectRenderStreamBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamBase {
@@ -8573,13 +8213,18 @@ impl ISpatialAudioObjectRenderStreamForHrtf {
         (::windows::core::Interface::vtable(self).base__.EndUpdatingAudioObjects)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ActivateSpatialAudioObjectForHrtf(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObjectForHrtf> {
+    pub unsafe fn ActivateSpatialAudioObjectForHrtf<'a, Param0: ::std::convert::Into<AudioObjectType>>(&self, r#type: Param0) -> ::windows::core::Result<ISpatialAudioObjectForHrtf> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForHrtf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForHrtf>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForHrtf)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForHrtf>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ::windows::core::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamForHrtf) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForHrtf> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectRenderStreamForHrtf) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8588,34 +8233,19 @@ impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForHrtf> for ::window
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectRenderStreamForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectRenderStreamForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForHrtf> for ISpatialAudioObjectRenderStreamBase {
     fn from(value: ISpatialAudioObjectRenderStreamForHrtf) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForHrtf> for &'a ISpatialAudioObjectRenderStreamBase {
+    fn from(value: &'a ISpatialAudioObjectRenderStreamForHrtf) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForHrtf> for ISpatialAudioObjectRenderStreamBase {
     fn from(value: &ISpatialAudioObjectRenderStreamForHrtf) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for ISpatialAudioObjectRenderStreamForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for &'a ISpatialAudioObjectRenderStreamForHrtf {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForHrtf {
@@ -8679,18 +8309,23 @@ impl ISpatialAudioObjectRenderStreamForMetadata {
         (::windows::core::Interface::vtable(self).base__.EndUpdatingAudioObjects)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ActivateSpatialAudioObjectForMetadataCommands(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObjectForMetadataCommands> {
+    pub unsafe fn ActivateSpatialAudioObjectForMetadataCommands<'a, Param0: ::std::convert::Into<AudioObjectType>>(&self, r#type: Param0) -> ::windows::core::Result<ISpatialAudioObjectForMetadataCommands> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataCommands)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataCommands>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataCommands)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataCommands>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn ActivateSpatialAudioObjectForMetadataItems(&self, r#type: AudioObjectType) -> ::windows::core::Result<ISpatialAudioObjectForMetadataItems> {
+    pub unsafe fn ActivateSpatialAudioObjectForMetadataItems<'a, Param0: ::std::convert::Into<AudioObjectType>>(&self, r#type: Param0) -> ::windows::core::Result<ISpatialAudioObjectForMetadataItems> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataItems)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataItems>(result__)
+        (::windows::core::Interface::vtable(self).ActivateSpatialAudioObjectForMetadataItems)(::windows::core::Interface::as_raw(self), r#type.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISpatialAudioObjectForMetadataItems>(result__)
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ::windows::core::IUnknown {
     fn from(value: ISpatialAudioObjectRenderStreamForMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForMetadata> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectRenderStreamForMetadata) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -8699,34 +8334,19 @@ impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForMetadata> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectRenderStreamForMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectRenderStreamForMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamForMetadata> for ISpatialAudioObjectRenderStreamBase {
     fn from(value: ISpatialAudioObjectRenderStreamForMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamForMetadata> for &'a ISpatialAudioObjectRenderStreamBase {
+    fn from(value: &'a ISpatialAudioObjectRenderStreamForMetadata) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&ISpatialAudioObjectRenderStreamForMetadata> for ISpatialAudioObjectRenderStreamBase {
     fn from(value: &ISpatialAudioObjectRenderStreamForMetadata) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for ISpatialAudioObjectRenderStreamForMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase> for &'a ISpatialAudioObjectRenderStreamForMetadata {
-    fn into_param(self) -> ::windows::core::Param<'a, ISpatialAudioObjectRenderStreamBase> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamForMetadata {
@@ -8761,8 +8381,8 @@ pub struct ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
 pub struct ISpatialAudioObjectRenderStreamNotify(::windows::core::IUnknown);
 impl ISpatialAudioObjectRenderStreamNotify {
     #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
-    pub unsafe fn OnAvailableDynamicObjectCountChange<'a, Param0: ::windows::core::IntoParam<'a, ISpatialAudioObjectRenderStreamBase>>(&self, sender: Param0, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnAvailableDynamicObjectCountChange)(::windows::core::Interface::as_raw(self), sender.into_param().abi(), ::core::mem::transmute(hnscompliancedeadlinetime), ::core::mem::transmute(availabledynamicobjectcountchange)).ok()
+    pub unsafe fn OnAvailableDynamicObjectCountChange<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ISpatialAudioObjectRenderStreamBase>>>(&self, sender: Param0, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnAvailableDynamicObjectCountChange)(::windows::core::Interface::as_raw(self), sender.into().abi(), ::core::mem::transmute(hnscompliancedeadlinetime), ::core::mem::transmute(availabledynamicobjectcountchange)).ok()
     }
 }
 impl ::core::convert::From<ISpatialAudioObjectRenderStreamNotify> for ::windows::core::IUnknown {
@@ -8770,19 +8390,14 @@ impl ::core::convert::From<ISpatialAudioObjectRenderStreamNotify> for ::windows:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISpatialAudioObjectRenderStreamNotify> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISpatialAudioObjectRenderStreamNotify) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISpatialAudioObjectRenderStreamNotify> for ::windows::core::IUnknown {
     fn from(value: &ISpatialAudioObjectRenderStreamNotify) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpatialAudioObjectRenderStreamNotify {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISpatialAudioObjectRenderStreamNotify {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISpatialAudioObjectRenderStreamNotify {
@@ -8820,19 +8435,14 @@ impl ::core::convert::From<ISubunit> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a ISubunit> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ISubunit) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&ISubunit> for ::windows::core::IUnknown {
     fn from(value: &ISubunit) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISubunit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ISubunit {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for ISubunit {
@@ -10784,22 +10394,22 @@ impl ::core::fmt::Debug for PartType {
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlaySoundA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn PlaySoundA<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(pszsound: ::windows::core::PCSTR, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PlaySoundA(pszsound: ::windows::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PlaySoundA(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
+    ::core::mem::transmute(PlaySoundA(::core::mem::transmute(pszsound), hmod.into(), ::core::mem::transmute(fdwsound)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlaySoundW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(pszsound: Param0, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn PlaySoundW<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>>(pszsound: ::windows::core::PCWSTR, hmod: Param1, fdwsound: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn PlaySoundW(pszsound: ::windows::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(PlaySoundW(pszsound.into_param().abi(), hmod.into_param().abi(), ::core::mem::transmute(fdwsound)))
+    ::core::mem::transmute(PlaySoundW(::core::mem::transmute(pszsound), hmod.into(), ::core::mem::transmute(fdwsound)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_ALIAS_START: u32 = 0u32;
@@ -12115,51 +11725,51 @@ impl ::core::fmt::Debug for _AUDCLNT_BUFFERFLAGS {
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverAddA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
+pub unsafe fn acmDriverAddA<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
+    ::core::mem::transmute(acmDriverAddA(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverAddW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
+pub unsafe fn acmDriverAddW<'a, Param1: ::std::convert::Into<super::super::Foundation::HINSTANCE>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>>(phadid: *mut isize, hinstmodule: Param1, lparam: Param2, dwpriority: u32, fdwadd: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverAddW(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
+    ::core::mem::transmute(acmDriverAddW(::core::mem::transmute(phadid), hinstmodule.into(), lparam.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwadd)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverClose<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, fdwclose: u32) -> u32 {
+pub unsafe fn acmDriverClose<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, fdwclose: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverClose(had.into_param().abi(), ::core::mem::transmute(fdwclose)))
+    ::core::mem::transmute(acmDriverClose(had.into(), ::core::mem::transmute(fdwclose)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
+pub unsafe fn acmDriverDetailsA<'a, Param0: ::std::convert::Into<HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverDetailsA(hadid.into_param().abi(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmDriverDetailsA(hadid.into(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
-pub unsafe fn acmDriverDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
+pub unsafe fn acmDriverDetailsW<'a, Param0: ::std::convert::Into<HACMDRIVERID>>(hadid: Param0, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverDetailsW(hadid.into_param().abi(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmDriverDetailsW(hadid.into(), ::core::mem::transmute(padd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12173,49 +11783,49 @@ pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwe
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverID<'a, Param0: ::windows::core::IntoParam<'a, HACMOBJ>>(hao: Param0, phadid: *mut isize, fdwdriverid: u32) -> u32 {
+pub unsafe fn acmDriverID<'a, Param0: ::std::convert::Into<HACMOBJ>>(hao: Param0, phadid: *mut isize, fdwdriverid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverID(hao: HACMOBJ, phadid: *mut isize, fdwdriverid: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverID(hao.into_param().abi(), ::core::mem::transmute(phadid), ::core::mem::transmute(fdwdriverid)))
+    ::core::mem::transmute(acmDriverID(hao.into(), ::core::mem::transmute(phadid), ::core::mem::transmute(fdwdriverid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmDriverMessage<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(had: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
+pub unsafe fn acmDriverMessage<'a, Param0: ::std::convert::Into<HACMDRIVER>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>, Param3: ::std::convert::Into<super::super::Foundation::LPARAM>>(had: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> super::super::Foundation::LRESULT {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
     }
-    ::core::mem::transmute(acmDriverMessage(had.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+    ::core::mem::transmute(acmDriverMessage(had.into(), ::core::mem::transmute(umsg), lparam1.into(), lparam2.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverOpen<'a, Param1: ::windows::core::IntoParam<'a, HACMDRIVERID>>(phad: *mut isize, hadid: Param1, fdwopen: u32) -> u32 {
+pub unsafe fn acmDriverOpen<'a, Param1: ::std::convert::Into<HACMDRIVERID>>(phad: *mut isize, hadid: Param1, fdwopen: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverOpen(phad: *mut isize, hadid: HACMDRIVERID, fdwopen: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverOpen(::core::mem::transmute(phad), hadid.into_param().abi(), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(acmDriverOpen(::core::mem::transmute(phad), hadid.into(), ::core::mem::transmute(fdwopen)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverPriority<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, dwpriority: u32, fdwpriority: u32) -> u32 {
+pub unsafe fn acmDriverPriority<'a, Param0: ::std::convert::Into<HACMDRIVERID>>(hadid: Param0, dwpriority: u32, fdwpriority: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverPriority(hadid.into_param().abi(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwpriority)))
+    ::core::mem::transmute(acmDriverPriority(hadid.into(), ::core::mem::transmute(dwpriority), ::core::mem::transmute(fdwpriority)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmDriverRemove<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVERID>>(hadid: Param0, fdwremove: u32) -> u32 {
+pub unsafe fn acmDriverRemove<'a, Param0: ::std::convert::Into<HACMDRIVERID>>(hadid: Param0, fdwremove: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32;
     }
-    ::core::mem::transmute(acmDriverRemove(hadid.into_param().abi(), ::core::mem::transmute(fdwremove)))
+    ::core::mem::transmute(acmDriverRemove(hadid.into(), ::core::mem::transmute(fdwremove)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12240,80 +11850,80 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFilterDetailsA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterDetailsA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterDetailsA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFilterDetailsW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterDetailsW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterDetailsW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterEnumA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterEnumW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterEnumW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagDetailsA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterTagDetailsA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagDetailsW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFilterTagDetailsW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagEnumA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFilterTagEnumW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFilterTagEnumW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFilterTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12338,89 +11948,89 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFormatDetailsA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatDetailsA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatDetailsA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFormatDetailsW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatDetailsW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatDetailsW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatEnumA(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatEnumA(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatEnumW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatEnumW(had.into_param().abi(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatEnumW(had.into(), ::core::mem::transmute(pafd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
+pub unsafe fn acmFormatSuggest<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatSuggest(had.into_param().abi(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(cbwfxdst), ::core::mem::transmute(fdwsuggest)))
+    ::core::mem::transmute(acmFormatSuggest(had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(cbwfxdst), ::core::mem::transmute(fdwsuggest)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagDetailsA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatTagDetailsA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
+pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagDetailsW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(acmFormatTagDetailsW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumA<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagEnumA(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatTagEnumA(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmFormatTagEnumW<'a, Param0: ::windows::core::IntoParam<'a, HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
+pub unsafe fn acmFormatTagEnumW<'a, Param0: ::std::convert::Into<HACMDRIVER>>(had: Param0, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: *mut ::core::ffi::c_void, dwinstance: usize, fdwenum: u32) -> u32;
     }
-    ::core::mem::transmute(acmFormatTagEnumW(had.into_param().abi(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
+    ::core::mem::transmute(acmFormatTagEnumW(had.into(), ::core::mem::transmute(paftd), ::core::mem::transmute(fncallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwenum)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12433,85 +12043,85 @@ pub unsafe fn acmGetVersion() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmMetrics<'a, Param0: ::windows::core::IntoParam<'a, HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32 {
+pub unsafe fn acmMetrics<'a, Param0: ::std::convert::Into<HACMOBJ>>(hao: Param0, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(acmMetrics(hao.into_param().abi(), ::core::mem::transmute(umetric), ::core::mem::transmute(pmetric)))
+    ::core::mem::transmute(acmMetrics(hao.into(), ::core::mem::transmute(umetric), ::core::mem::transmute(pmetric)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamClose<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwclose: u32) -> u32 {
+pub unsafe fn acmStreamClose<'a, Param0: ::std::convert::Into<HACMSTREAM>>(has: Param0, fdwclose: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamClose(has.into_param().abi(), ::core::mem::transmute(fdwclose)))
+    ::core::mem::transmute(acmStreamClose(has.into(), ::core::mem::transmute(fdwclose)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamConvert<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
+pub unsafe fn acmStreamConvert<'a, Param0: ::std::convert::Into<HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamConvert(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwconvert)))
+    ::core::mem::transmute(acmStreamConvert(has.into(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwconvert)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn acmStreamMessage<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(has: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> u32 {
+pub unsafe fn acmStreamMessage<'a, Param0: ::std::convert::Into<HACMSTREAM>, Param2: ::std::convert::Into<super::super::Foundation::LPARAM>, Param3: ::std::convert::Into<super::super::Foundation::LPARAM>>(has: Param0, umsg: u32, lparam1: Param2, lparam2: Param3) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32;
     }
-    ::core::mem::transmute(acmStreamMessage(has.into_param().abi(), ::core::mem::transmute(umsg), lparam1.into_param().abi(), lparam2.into_param().abi()))
+    ::core::mem::transmute(acmStreamMessage(has.into(), ::core::mem::transmute(umsg), lparam1.into(), lparam2.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamOpen<'a, Param1: ::windows::core::IntoParam<'a, HACMDRIVER>>(phas: *mut isize, had: Param1, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
+pub unsafe fn acmStreamOpen<'a, Param1: ::std::convert::Into<HACMDRIVER>>(phas: *mut isize, had: Param1, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamOpen(phas: *mut isize, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamOpen(::core::mem::transmute(phas), had.into_param().abi(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(acmStreamOpen(::core::mem::transmute(phas), had.into(), ::core::mem::transmute(pwfxsrc), ::core::mem::transmute(pwfxdst), ::core::mem::transmute(pwfltr), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
+pub unsafe fn acmStreamPrepareHeader<'a, Param0: ::std::convert::Into<HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamPrepareHeader(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwprepare)))
+    ::core::mem::transmute(acmStreamPrepareHeader(has.into(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwprepare)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamReset<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, fdwreset: u32) -> u32 {
+pub unsafe fn acmStreamReset<'a, Param0: ::std::convert::Into<HACMSTREAM>>(has: Param0, fdwreset: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamReset(has.into_param().abi(), ::core::mem::transmute(fdwreset)))
+    ::core::mem::transmute(acmStreamReset(has.into(), ::core::mem::transmute(fdwreset)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamSize<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
+pub unsafe fn acmStreamSize<'a, Param0: ::std::convert::Into<HACMSTREAM>>(has: Param0, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamSize(has.into_param().abi(), ::core::mem::transmute(cbinput), ::core::mem::transmute(pdwoutputbytes), ::core::mem::transmute(fdwsize)))
+    ::core::mem::transmute(acmStreamSize(has.into(), ::core::mem::transmute(cbinput), ::core::mem::transmute(pdwoutputbytes), ::core::mem::transmute(fdwsize)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
+pub unsafe fn acmStreamUnprepareHeader<'a, Param0: ::std::convert::Into<HACMSTREAM>>(has: Param0, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32;
     }
-    ::core::mem::transmute(acmStreamUnprepareHeader(has.into_param().abi(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwunprepare)))
+    ::core::mem::transmute(acmStreamUnprepareHeader(has.into(), ::core::mem::transmute(pash), ::core::mem::transmute(fdwunprepare)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12570,39 +12180,39 @@ pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiConnect<'a, Param0: ::windows::core::IntoParam<'a, HMIDI>, Param1: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn midiConnect<'a, Param0: ::std::convert::Into<HMIDI>, Param1: ::std::convert::Into<HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(midiConnect(hmi.into_param().abi(), hmo.into_param().abi(), ::core::mem::transmute(preserved)))
+    ::core::mem::transmute(midiConnect(hmi.into(), hmo.into(), ::core::mem::transmute(preserved)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiDisconnect<'a, Param0: ::windows::core::IntoParam<'a, HMIDI>, Param1: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
+pub unsafe fn midiDisconnect<'a, Param0: ::std::convert::Into<HMIDI>, Param1: ::std::convert::Into<HMIDIOUT>>(hmi: Param0, hmo: Param1, preserved: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: *const ::core::ffi::c_void) -> u32;
     }
-    ::core::mem::transmute(midiDisconnect(hmi.into_param().abi(), hmo.into_param().abi(), ::core::mem::transmute(preserved)))
+    ::core::mem::transmute(midiDisconnect(hmi.into(), hmo.into(), ::core::mem::transmute(preserved)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInAddBuffer<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiInAddBuffer<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiInAddBuffer(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiInAddBuffer(hmi.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
+pub unsafe fn midiInClose<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInClose(hmi: HMIDIIN) -> u32;
     }
-    ::core::mem::transmute(midiInClose(hmi.into_param().abi()))
+    ::core::mem::transmute(midiInClose(hmi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12643,12 +12253,12 @@ pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pudeviceid: *mut u32) -> u32 {
+pub unsafe fn midiInGetID<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(midiInGetID(hmi.into_param().abi(), ::core::mem::transmute(pudeviceid)))
+    ::core::mem::transmute(midiInGetID(hmi.into(), ::core::mem::transmute(pudeviceid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12661,93 +12271,93 @@ pub unsafe fn midiInGetNumDevs() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
+pub unsafe fn midiInMessage<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInMessage(hmi: HMIDIIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(midiInMessage(hmi.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(midiInMessage(hmi.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn midiInOpen<'a, Param4: ::std::convert::Into<MIDI_WAVE_OPEN_TYPE>>(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(midiInOpen(::core::mem::transmute(phmi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(midiInOpen(::core::mem::transmute(phmi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), fdwopen.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiInPrepareHeader<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiInPrepareHeader(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiInPrepareHeader(hmi.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInReset<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
+pub unsafe fn midiInReset<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInReset(hmi: HMIDIIN) -> u32;
     }
-    ::core::mem::transmute(midiInReset(hmi.into_param().abi()))
+    ::core::mem::transmute(midiInReset(hmi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInStart<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
+pub unsafe fn midiInStart<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInStart(hmi: HMIDIIN) -> u32;
     }
-    ::core::mem::transmute(midiInStart(hmi.into_param().abi()))
+    ::core::mem::transmute(midiInStart(hmi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInStop<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0) -> u32 {
+pub unsafe fn midiInStop<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInStop(hmi: HMIDIIN) -> u32;
     }
-    ::core::mem::transmute(midiInStop(hmi.into_param().abi()))
+    ::core::mem::transmute(midiInStop(hmi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiInUnprepareHeader<'a, Param0: ::std::convert::Into<HMIDIIN>>(hmi: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiInUnprepareHeader(hmi.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiInUnprepareHeader(hmi.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: &[u16; 128], fucache: u32) -> u32 {
+pub unsafe fn midiOutCacheDrumPatches<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, upatch: u32, pwkya: &[u16; 128], fucache: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: *const u16, fucache: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into_param().abi(), ::core::mem::transmute(upatch), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwkya)), ::core::mem::transmute(fucache)))
+    ::core::mem::transmute(midiOutCacheDrumPatches(hmo.into(), ::core::mem::transmute(upatch), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwkya)), ::core::mem::transmute(fucache)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutCachePatches<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: &[u16; 128], fucache: u32) -> u32 {
+pub unsafe fn midiOutCachePatches<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, ubank: u32, pwpa: &[u16; 128], fucache: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: *const u16, fucache: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutCachePatches(hmo.into_param().abi(), ::core::mem::transmute(ubank), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwpa)), ::core::mem::transmute(fucache)))
+    ::core::mem::transmute(midiOutCachePatches(hmo.into(), ::core::mem::transmute(ubank), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwpa)), ::core::mem::transmute(fucache)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
+pub unsafe fn midiOutClose<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutClose(hmo: HMIDIOUT) -> u32;
     }
-    ::core::mem::transmute(midiOutClose(hmo.into_param().abi()))
+    ::core::mem::transmute(midiOutClose(hmo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12788,12 +12398,12 @@ pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pudeviceid: *mut u32) -> u32 {
+pub unsafe fn midiOutGetID<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(midiOutGetID(hmo.into_param().abi(), ::core::mem::transmute(pudeviceid)))
+    ::core::mem::transmute(midiOutGetID(hmo.into(), ::core::mem::transmute(pudeviceid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12806,93 +12416,93 @@ pub unsafe fn midiOutGetNumDevs() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutGetVolume<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pdwvolume: *mut u32) -> u32 {
+pub unsafe fn midiOutGetVolume<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, pdwvolume: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: *mut u32) -> u32;
     }
-    ::core::mem::transmute(midiOutGetVolume(hmo.into_param().abi(), ::core::mem::transmute(pdwvolume)))
+    ::core::mem::transmute(midiOutGetVolume(hmo.into(), ::core::mem::transmute(pdwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutLongMsg<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiOutLongMsg<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutLongMsg(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiOutLongMsg(hmo.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
+pub unsafe fn midiOutMessage<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutMessage(hmo: HMIDIOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(midiOutMessage(hmo.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(midiOutMessage(hmo.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn midiOutOpen<'a, Param4: ::std::convert::Into<MIDI_WAVE_OPEN_TYPE>>(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: Param4) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(midiOutOpen(::core::mem::transmute(phmo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(midiOutOpen(::core::mem::transmute(phmo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), fdwopen.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiOutPrepareHeader<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutPrepareHeader(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiOutPrepareHeader(hmo.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutReset<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0) -> u32 {
+pub unsafe fn midiOutReset<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutReset(hmo: HMIDIOUT) -> u32;
     }
-    ::core::mem::transmute(midiOutReset(hmo.into_param().abi()))
+    ::core::mem::transmute(midiOutReset(hmo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutSetVolume<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwvolume: u32) -> u32 {
+pub unsafe fn midiOutSetVolume<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, dwvolume: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutSetVolume(hmo: HMIDIOUT, dwvolume: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutSetVolume(hmo.into_param().abi(), ::core::mem::transmute(dwvolume)))
+    ::core::mem::transmute(midiOutSetVolume(hmo.into(), ::core::mem::transmute(dwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutShortMsg<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, dwmsg: u32) -> u32 {
+pub unsafe fn midiOutShortMsg<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, dwmsg: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutShortMsg(hmo.into_param().abi(), ::core::mem::transmute(dwmsg)))
+    ::core::mem::transmute(midiOutShortMsg(hmo.into(), ::core::mem::transmute(dwmsg)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiOutUnprepareHeader<'a, Param0: ::std::convert::Into<HMIDIOUT>>(hmo: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiOutUnprepareHeader(hmo.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiOutUnprepareHeader(hmo.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamClose<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
+pub unsafe fn midiStreamClose<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamClose(hms: HMIDISTRM) -> u32;
     }
-    ::core::mem::transmute(midiStreamClose(hms.into_param().abi()))
+    ::core::mem::transmute(midiStreamClose(hms.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -12905,86 +12515,86 @@ pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcal
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamOut<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
+pub unsafe fn midiStreamOut<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamOut(hms.into_param().abi(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
+    ::core::mem::transmute(midiStreamOut(hms.into(), ::core::mem::transmute(pmh), ::core::mem::transmute(cbmh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamPause<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
+pub unsafe fn midiStreamPause<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamPause(hms: HMIDISTRM) -> u32;
     }
-    ::core::mem::transmute(midiStreamPause(hms.into_param().abi()))
+    ::core::mem::transmute(midiStreamPause(hms.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamPosition<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
+pub unsafe fn midiStreamPosition<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamPosition(hms.into_param().abi(), ::core::mem::transmute(lpmmt), ::core::mem::transmute(cbmmt)))
+    ::core::mem::transmute(midiStreamPosition(hms.into(), ::core::mem::transmute(lpmmt), ::core::mem::transmute(cbmmt)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamProperty<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0, lppropdata: *mut u8, dwproperty: u32) -> u32 {
+pub unsafe fn midiStreamProperty<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0, lppropdata: *mut u8, dwproperty: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32;
     }
-    ::core::mem::transmute(midiStreamProperty(hms.into_param().abi(), ::core::mem::transmute(lppropdata), ::core::mem::transmute(dwproperty)))
+    ::core::mem::transmute(midiStreamProperty(hms.into(), ::core::mem::transmute(lppropdata), ::core::mem::transmute(dwproperty)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamRestart<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
+pub unsafe fn midiStreamRestart<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamRestart(hms: HMIDISTRM) -> u32;
     }
-    ::core::mem::transmute(midiStreamRestart(hms.into_param().abi()))
+    ::core::mem::transmute(midiStreamRestart(hms.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn midiStreamStop<'a, Param0: ::windows::core::IntoParam<'a, HMIDISTRM>>(hms: Param0) -> u32 {
+pub unsafe fn midiStreamStop<'a, Param0: ::std::convert::Into<HMIDISTRM>>(hms: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn midiStreamStop(hms: HMIDISTRM) -> u32;
     }
-    ::core::mem::transmute(midiStreamStop(hms.into_param().abi()))
+    ::core::mem::transmute(midiStreamStop(hms.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn mixerClose<'a, Param0: ::windows::core::IntoParam<'a, HMIXER>>(hmx: Param0) -> u32 {
+pub unsafe fn mixerClose<'a, Param0: ::std::convert::Into<HMIXER>>(hmx: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerClose(hmx: HMIXER) -> u32;
     }
-    ::core::mem::transmute(mixerClose(hmx.into_param().abi()))
+    ::core::mem::transmute(mixerClose(hmx.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
+pub unsafe fn mixerGetControlDetailsA<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetControlDetailsA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(mixerGetControlDetailsA(hmxobj.into(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
+pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetControlDetailsW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(mixerGetControlDetailsW(hmxobj.into(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13007,50 +12617,50 @@ pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps:
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn mixerGetID<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pumxid: *mut u32, fdwid: u32) -> u32 {
+pub unsafe fn mixerGetID<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pumxid: *mut u32, fdwid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetID(hmxobj: HMIXEROBJ, pumxid: *mut u32, fdwid: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetID(hmxobj.into_param().abi(), ::core::mem::transmute(pumxid), ::core::mem::transmute(fdwid)))
+    ::core::mem::transmute(mixerGetID(hmxobj.into(), ::core::mem::transmute(pumxid), ::core::mem::transmute(fdwid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
+pub unsafe fn mixerGetLineControlsA<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineControlsA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
+    ::core::mem::transmute(mixerGetLineControlsA(hmxobj.into(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
+pub unsafe fn mixerGetLineControlsW<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineControlsW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
+    ::core::mem::transmute(mixerGetLineControlsW(hmxobj.into(), ::core::mem::transmute(pmxlc), ::core::mem::transmute(fdwcontrols)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
+pub unsafe fn mixerGetLineInfoA<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineInfoA(hmxobj.into_param().abi(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
+    ::core::mem::transmute(mixerGetLineInfoA(hmxobj.into(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn mixerGetLineInfoW<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
+pub unsafe fn mixerGetLineInfoW<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32;
     }
-    ::core::mem::transmute(mixerGetLineInfoW(hmxobj.into_param().abi(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
+    ::core::mem::transmute(mixerGetLineInfoW(hmxobj.into(), ::core::mem::transmute(pmxl), ::core::mem::transmute(fdwinfo)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13063,12 +12673,12 @@ pub unsafe fn mixerGetNumDevs() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn mixerMessage<'a, Param0: ::windows::core::IntoParam<'a, HMIXER>>(hmx: Param0, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
+pub unsafe fn mixerMessage<'a, Param0: ::std::convert::Into<HMIXER>>(hmx: Param0, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerMessage(hmx: HMIXER, umsg: u32, dwparam1: usize, dwparam2: usize) -> u32;
     }
-    ::core::mem::transmute(mixerMessage(hmx.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
+    ::core::mem::transmute(mixerMessage(hmx.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dwparam1), ::core::mem::transmute(dwparam2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13082,32 +12692,32 @@ pub unsafe fn mixerOpen(phmx: *mut isize, umxid: u32, dwcallback: usize, dwinsta
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn mixerSetControlDetails<'a, Param0: ::windows::core::IntoParam<'a, HMIXEROBJ>>(hmxobj: Param0, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
+pub unsafe fn mixerSetControlDetails<'a, Param0: ::std::convert::Into<HMIXEROBJ>>(hmxobj: Param0, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32;
     }
-    ::core::mem::transmute(mixerSetControlDetails(hmxobj.into_param().abi(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
+    ::core::mem::transmute(mixerSetControlDetails(hmxobj.into(), ::core::mem::transmute(pmxcd), ::core::mem::transmute(fdwdetails)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sndPlaySoundA<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn sndPlaySoundA(pszsound: ::windows::core::PCSTR, fusound: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn sndPlaySoundA(pszsound: ::windows::core::PCSTR, fusound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(sndPlaySoundA(pszsound.into_param().abi(), ::core::mem::transmute(fusound)))
+    ::core::mem::transmute(sndPlaySoundA(::core::mem::transmute(pszsound), ::core::mem::transmute(fusound)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn sndPlaySoundW<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pszsound: Param0, fusound: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn sndPlaySoundW(pszsound: ::windows::core::PCWSTR, fusound: u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn sndPlaySoundW(pszsound: ::windows::core::PCWSTR, fusound: u32) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(sndPlaySoundW(pszsound.into_param().abi(), ::core::mem::transmute(fusound)))
+    ::core::mem::transmute(sndPlaySoundW(::core::mem::transmute(pszsound), ::core::mem::transmute(fusound)))
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
@@ -13208,21 +12818,21 @@ impl ::core::default::Default for tACMFORMATDETAILSW {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInAddBuffer<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
+pub unsafe fn waveInAddBuffer<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveInAddBuffer(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveInAddBuffer(hwi.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInClose<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
+pub unsafe fn waveInClose<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInClose(hwi: HWAVEIN) -> u32;
     }
-    ::core::mem::transmute(waveInClose(hwi.into_param().abi()))
+    ::core::mem::transmute(waveInClose(hwi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13263,12 +12873,12 @@ pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInGetID<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pudeviceid: *const u32) -> u32 {
+pub unsafe fn waveInGetID<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0, pudeviceid: *const u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetID(hwi.into_param().abi(), ::core::mem::transmute(pudeviceid)))
+    ::core::mem::transmute(waveInGetID(hwi.into(), ::core::mem::transmute(pudeviceid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13281,93 +12891,93 @@ pub unsafe fn waveInGetNumDevs() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
+pub unsafe fn waveInGetPosition<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
     }
-    ::core::mem::transmute(waveInGetPosition(hwi.into_param().abi(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
+    ::core::mem::transmute(waveInGetPosition(hwi.into(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInMessage<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
+pub unsafe fn waveInMessage<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInMessage(hwi: HWAVEIN, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(waveInMessage(hwi.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(waveInMessage(hwi.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn waveInOpen<'a, Param5: ::std::convert::Into<MIDI_WAVE_OPEN_TYPE>>(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: Param5) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInOpen(phwi: *mut HWAVEIN, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(waveInOpen(::core::mem::transmute(phwi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(waveInOpen(::core::mem::transmute(phwi), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), fdwopen.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
+pub unsafe fn waveInPrepareHeader<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveInPrepareHeader(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveInPrepareHeader(hwi.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInReset<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
+pub unsafe fn waveInReset<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInReset(hwi: HWAVEIN) -> u32;
     }
-    ::core::mem::transmute(waveInReset(hwi.into_param().abi()))
+    ::core::mem::transmute(waveInReset(hwi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInStart<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
+pub unsafe fn waveInStart<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInStart(hwi: HWAVEIN) -> u32;
     }
-    ::core::mem::transmute(waveInStart(hwi.into_param().abi()))
+    ::core::mem::transmute(waveInStart(hwi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInStop<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0) -> u32 {
+pub unsafe fn waveInStop<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInStop(hwi: HWAVEIN) -> u32;
     }
-    ::core::mem::transmute(waveInStop(hwi.into_param().abi()))
+    ::core::mem::transmute(waveInStop(hwi.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveInUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
+pub unsafe fn waveInUnprepareHeader<'a, Param0: ::std::convert::Into<HWAVEIN>>(hwi: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveInUnprepareHeader(hwi.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveInUnprepareHeader(hwi.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutBreakLoop<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
+pub unsafe fn waveOutBreakLoop<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32;
     }
-    ::core::mem::transmute(waveOutBreakLoop(hwo.into_param().abi()))
+    ::core::mem::transmute(waveOutBreakLoop(hwo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutClose<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
+pub unsafe fn waveOutClose<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutClose(hwo: HWAVEOUT) -> u32;
     }
-    ::core::mem::transmute(waveOutClose(hwo.into_param().abi()))
+    ::core::mem::transmute(waveOutClose(hwo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13408,12 +13018,12 @@ pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutGetID<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pudeviceid: *mut u32) -> u32 {
+pub unsafe fn waveOutGetID<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pudeviceid: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetID(hwo.into_param().abi(), ::core::mem::transmute(pudeviceid)))
+    ::core::mem::transmute(waveOutGetID(hwo.into(), ::core::mem::transmute(pudeviceid)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
@@ -13426,138 +13036,138 @@ pub unsafe fn waveOutGetNumDevs() -> u32 {
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutGetPitch<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwpitch: *mut u32) -> u32 {
+pub unsafe fn waveOutGetPitch<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pdwpitch: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetPitch(hwo.into_param().abi(), ::core::mem::transmute(pdwpitch)))
+    ::core::mem::transmute(waveOutGetPitch(hwo.into(), ::core::mem::transmute(pdwpitch)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwrate: *mut u32) -> u32 {
+pub unsafe fn waveOutGetPlaybackRate<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pdwrate: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetPlaybackRate(hwo.into_param().abi(), ::core::mem::transmute(pdwrate)))
+    ::core::mem::transmute(waveOutGetPlaybackRate(hwo.into(), ::core::mem::transmute(pdwrate)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutGetPosition<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
+pub unsafe fn waveOutGetPosition<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetPosition(hwo.into_param().abi(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
+    ::core::mem::transmute(waveOutGetPosition(hwo.into(), ::core::mem::transmute(pmmt), ::core::mem::transmute(cbmmt)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutGetVolume<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pdwvolume: *mut u32) -> u32 {
+pub unsafe fn waveOutGetVolume<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pdwvolume: *mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: *mut u32) -> u32;
     }
-    ::core::mem::transmute(waveOutGetVolume(hwo.into_param().abi(), ::core::mem::transmute(pdwvolume)))
+    ::core::mem::transmute(waveOutGetVolume(hwo.into(), ::core::mem::transmute(pdwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutMessage<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
+pub unsafe fn waveOutMessage<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, umsg: u32, dw1: usize, dw2: usize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutMessage(hwo: HWAVEOUT, umsg: u32, dw1: usize, dw2: usize) -> u32;
     }
-    ::core::mem::transmute(waveOutMessage(hwo.into_param().abi(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
+    ::core::mem::transmute(waveOutMessage(hwo.into(), ::core::mem::transmute(umsg), ::core::mem::transmute(dw1), ::core::mem::transmute(dw2)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
+pub unsafe fn waveOutOpen<'a, Param5: ::std::convert::Into<MIDI_WAVE_OPEN_TYPE>>(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: Param5) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutOpen(phwo: *mut HWAVEOUT, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: usize, dwinstance: usize, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32;
     }
-    ::core::mem::transmute(waveOutOpen(::core::mem::transmute(phwo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), ::core::mem::transmute(fdwopen)))
+    ::core::mem::transmute(waveOutOpen(::core::mem::transmute(phwo), ::core::mem::transmute(udeviceid), ::core::mem::transmute(pwfx), ::core::mem::transmute(dwcallback), ::core::mem::transmute(dwinstance), fdwopen.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutPause<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
+pub unsafe fn waveOutPause<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutPause(hwo: HWAVEOUT) -> u32;
     }
-    ::core::mem::transmute(waveOutPause(hwo.into_param().abi()))
+    ::core::mem::transmute(waveOutPause(hwo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutPrepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
+pub unsafe fn waveOutPrepareHeader<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutPrepareHeader(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveOutPrepareHeader(hwo.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutReset<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
+pub unsafe fn waveOutReset<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutReset(hwo: HWAVEOUT) -> u32;
     }
-    ::core::mem::transmute(waveOutReset(hwo.into_param().abi()))
+    ::core::mem::transmute(waveOutReset(hwo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutRestart<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0) -> u32 {
+pub unsafe fn waveOutRestart<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutRestart(hwo: HWAVEOUT) -> u32;
     }
-    ::core::mem::transmute(waveOutRestart(hwo.into_param().abi()))
+    ::core::mem::transmute(waveOutRestart(hwo.into()))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutSetPitch<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwpitch: u32) -> u32 {
+pub unsafe fn waveOutSetPitch<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, dwpitch: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutSetPitch(hwo.into_param().abi(), ::core::mem::transmute(dwpitch)))
+    ::core::mem::transmute(waveOutSetPitch(hwo.into(), ::core::mem::transmute(dwpitch)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwrate: u32) -> u32 {
+pub unsafe fn waveOutSetPlaybackRate<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, dwrate: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutSetPlaybackRate(hwo.into_param().abi(), ::core::mem::transmute(dwrate)))
+    ::core::mem::transmute(waveOutSetPlaybackRate(hwo.into(), ::core::mem::transmute(dwrate)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutSetVolume<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, dwvolume: u32) -> u32 {
+pub unsafe fn waveOutSetVolume<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, dwvolume: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutSetVolume(hwo: HWAVEOUT, dwvolume: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutSetVolume(hwo.into_param().abi(), ::core::mem::transmute(dwvolume)))
+    ::core::mem::transmute(waveOutSetVolume(hwo.into(), ::core::mem::transmute(dwvolume)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
+pub unsafe fn waveOutUnprepareHeader<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutUnprepareHeader(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveOutUnprepareHeader(hwo.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 #[inline]
-pub unsafe fn waveOutWrite<'a, Param0: ::windows::core::IntoParam<'a, HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
+pub unsafe fn waveOutWrite<'a, Param0: ::std::convert::Into<HWAVEOUT>>(hwo: Param0, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32;
     }
-    ::core::mem::transmute(waveOutWrite(hwo.into_param().abi(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
+    ::core::mem::transmute(waveOutWrite(hwo.into(), ::core::mem::transmute(pwh), ::core::mem::transmute(cbwh)))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

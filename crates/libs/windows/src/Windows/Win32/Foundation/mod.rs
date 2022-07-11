@@ -191,11 +191,6 @@ impl ::core::ops::Not for BOOL {
 unsafe impl ::windows::core::Abi for BOOL {
     type Abi = Self;
 }
-impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
-    fn into_param(self) -> ::windows::core::Param<'a, BOOL> {
-        ::windows::core::Param::Owned(self.into())
-    }
-}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOOLEAN(pub u8);
@@ -213,6 +208,11 @@ impl ::core::marker::Copy for BOOLEAN {}
 impl ::core::fmt::Debug for BOOLEAN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BOOLEAN").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
+    fn from(optional: ::core::option::Option<BOOLEAN>) -> BOOLEAN {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for BOOLEAN {
@@ -340,18 +340,6 @@ impl ::core::ops::Drop for BSTR {
 }
 unsafe impl ::windows::core::Abi for BSTR {
     type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, BSTR> for &str {
-    fn into_param(self) -> ::windows::core::Param<'a, BSTR> {
-        ::windows::core::Param::Owned(self.into())
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, BSTR> for ::windows::core::alloc::string::String {
-    fn into_param(self) -> ::windows::core::Param<'a, BSTR> {
-        ::windows::core::Param::Owned(self.into())
-    }
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const BT_E_SPURIOUS_ACTIVATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146958592i32);
@@ -546,6 +534,11 @@ impl ::core::marker::Copy for CHAR {}
 impl ::core::fmt::Debug for CHAR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CHAR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<CHAR>> for CHAR {
+    fn from(optional: ::core::option::Option<CHAR>) -> CHAR {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for CHAR {
@@ -1367,21 +1360,21 @@ pub const CS_E_PACKAGE_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRE
 pub const CS_E_SCHEMA_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221138i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
+pub unsafe fn CloseHandle<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Param0) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CloseHandle(hobject: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
+    ::core::mem::transmute(CloseHandle(hobject.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn CompareObjectHandles<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>, Param1: ::windows::core::IntoParam<'a, HANDLE>>(hfirstobjecthandle: Param0, hsecondobjecthandle: Param1) -> BOOL {
+pub unsafe fn CompareObjectHandles<'a, Param0: ::std::convert::Into<HANDLE>, Param1: ::std::convert::Into<HANDLE>>(hfirstobjecthandle: Param0, hsecondobjecthandle: Param1) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
     }
-    ::core::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into_param().abi(), hsecondobjecthandle.into_param().abi()))
+    ::core::mem::transmute(CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const D2DERR_BAD_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003238895i32);
@@ -1936,12 +1929,12 @@ pub const DXGI_STATUS_PRESENT_REQUIRED: ::windows::core::HRESULT = ::windows::co
 pub const DXGI_STATUS_UNOCCLUDED: ::windows::core::HRESULT = ::windows::core::HRESULT(142213129i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn DuplicateHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>, Param1: ::windows::core::IntoParam<'a, HANDLE>, Param2: ::windows::core::IntoParam<'a, HANDLE>, Param5: ::windows::core::IntoParam<'a, BOOL>>(hsourceprocesshandle: Param0, hsourcehandle: Param1, htargetprocesshandle: Param2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: Param5, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL {
+pub unsafe fn DuplicateHandle<'a, Param0: ::std::convert::Into<HANDLE>, Param1: ::std::convert::Into<HANDLE>, Param2: ::std::convert::Into<HANDLE>, Param5: ::std::convert::Into<BOOL>, Param6: ::std::convert::Into<DUPLICATE_HANDLE_OPTIONS>>(hsourceprocesshandle: Param0, hsourcehandle: Param1, htargetprocesshandle: Param2, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: Param5, dwoptions: Param6) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
     }
-    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into_param().abi(), hsourcehandle.into_param().abi(), htargetprocesshandle.into_param().abi(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into_param().abi(), ::core::mem::transmute(dwoptions)))
+    ::core::mem::transmute(DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), ::core::mem::transmute(dwdesiredaccess), binherithandle.into(), dwoptions.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141913080i32);
@@ -3845,12 +3838,12 @@ pub const GCN_E_REQUEST_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core:
 pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143616988i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn GetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0, lpdwflags: *mut u32) -> BOOL {
+pub unsafe fn GetHandleInformation<'a, Param0: ::std::convert::Into<HANDLE>>(hobject: Param0, lpdwflags: *mut u32) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
     }
-    ::core::mem::transmute(GetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(lpdwflags)))
+    ::core::mem::transmute(GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -3883,6 +3876,11 @@ impl ::core::marker::Copy for HANDLE {}
 impl ::core::fmt::Debug for HANDLE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HANDLE>> for HANDLE {
+    fn from(optional: ::core::option::Option<HANDLE>) -> HANDLE {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HANDLE {
@@ -3960,6 +3958,11 @@ impl ::core::marker::Copy for HANDLE_PTR {}
 impl ::core::fmt::Debug for HANDLE_PTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HANDLE_PTR>> for HANDLE_PTR {
+    fn from(optional: ::core::option::Option<HANDLE_PTR>) -> HANDLE_PTR {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HANDLE_PTR {
@@ -4143,6 +4146,11 @@ impl ::core::fmt::Debug for HINSTANCE {
         f.debug_tuple("HINSTANCE").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HINSTANCE>> for HINSTANCE {
+    fn from(optional: ::core::option::Option<HINSTANCE>) -> HINSTANCE {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HINSTANCE {
     type Abi = Self;
 }
@@ -4198,6 +4206,11 @@ impl ::core::marker::Copy for HRSRC {}
 impl ::core::fmt::Debug for HRSRC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HRSRC").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HRSRC>> for HRSRC {
+    fn from(optional: ::core::option::Option<HRSRC>) -> HRSRC {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for HRSRC {
@@ -4438,6 +4451,11 @@ impl ::core::fmt::Debug for HWND {
         f.debug_tuple("HWND").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<HWND>> for HWND {
+    fn from(optional: ::core::option::Option<HWND>) -> HWND {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for HWND {
     type Abi = Self;
 }
@@ -4514,6 +4532,11 @@ impl ::core::fmt::Debug for LPARAM {
         f.debug_tuple("LPARAM").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<LPARAM>> for LPARAM {
+    fn from(optional: ::core::option::Option<LPARAM>) -> LPARAM {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for LPARAM {
     type Abi = Self;
 }
@@ -4534,6 +4557,11 @@ impl ::core::marker::Copy for LRESULT {}
 impl ::core::fmt::Debug for LRESULT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LRESULT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<LRESULT>> for LRESULT {
+    fn from(optional: ::core::option::Option<LRESULT>) -> LRESULT {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for LRESULT {
@@ -5752,6 +5780,11 @@ impl ::core::fmt::Debug for PSID {
         f.debug_tuple("PSID").field(&self.0).finish()
     }
 }
+impl ::core::convert::From<::core::option::Option<PSID>> for PSID {
+    fn from(optional: ::core::option::Option<PSID>) -> PSID {
+        optional.unwrap_or_default()
+    }
+}
 unsafe impl ::windows::core::Abi for PSID {
     type Abi = Self;
 }
@@ -6357,12 +6390,12 @@ pub const RPC_X_WRONG_PIPE_VERSION: i32 = 1832i32;
 pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::windows::core::IntoParam<'a, NTSTATUS>>(status: Param0) -> u32 {
+pub unsafe fn RtlNtStatusToDosError<'a, Param0: ::std::convert::Into<NTSTATUS>>(status: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
     }
-    ::core::mem::transmute(RtlNtStatusToDosError(status.into_param().abi()))
+    ::core::mem::transmute(RtlNtStatusToDosError(status.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SCARD_E_BAD_SEEK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146435031i32);
@@ -6825,6 +6858,11 @@ impl ::core::marker::Copy for SHANDLE_PTR {}
 impl ::core::fmt::Debug for SHANDLE_PTR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<SHANDLE_PTR>> for SHANDLE_PTR {
+    fn from(optional: ::core::option::Option<SHANDLE_PTR>) -> SHANDLE_PTR {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for SHANDLE_PTR {
@@ -12754,57 +12792,57 @@ pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::core::HRESULT = ::windows::core::HRESULT(2556504i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetHandleInformation<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL {
+pub unsafe fn SetHandleInformation<'a, Param0: ::std::convert::Into<HANDLE>, Param2: ::std::convert::Into<HANDLE_FLAGS>>(hobject: Param0, dwmask: u32, dwflags: Param2) -> BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
     }
-    ::core::mem::transmute(SetHandleInformation(hobject.into_param().abi(), ::core::mem::transmute(dwmask), ::core::mem::transmute(dwflags)))
+    ::core::mem::transmute(SetHandleInformation(hobject.into(), ::core::mem::transmute(dwmask), dwflags.into()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
+pub unsafe fn SetLastError<'a, Param0: ::std::convert::Into<WIN32_ERROR>>(dwerrcode: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLastError(dwerrcode: WIN32_ERROR);
     }
-    SetLastError(::core::mem::transmute(dwerrcode))
+    SetLastError(dwerrcode.into())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
+pub unsafe fn SetLastErrorEx<'a, Param0: ::std::convert::Into<WIN32_ERROR>>(dwerrcode: Param0, dwtype: u32) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
     }
-    SetLastErrorEx(::core::mem::transmute(dwerrcode), ::core::mem::transmute(dwtype))
+    SetLastErrorEx(dwerrcode.into(), ::core::mem::transmute(dwtype))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAddRefString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) -> ::windows::core::Result<()> {
+pub unsafe fn SysAddRefString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
     }
-    SysAddRefString(bstrstring.into_param().abi()).ok()
+    SysAddRefString(bstrstring.into().abi()).ok()
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(psz: Param0) -> BSTR {
+pub unsafe fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocString(psz.into_param().abi()))
+    ::core::mem::transmute(SysAllocString(::core::mem::transmute(psz)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCSTR>>(psz: Param0, len: u32) -> BSTR {
+pub unsafe fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    ::core::mem::transmute(SysAllocStringByteLen(psz.into_param().abi(), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysAllocStringByteLen(::core::mem::transmute(psz), ::core::mem::transmute(len)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -12817,57 +12855,57 @@ pub unsafe fn SysAllocStringLen(strin: &[u16]) -> BSTR {
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
+pub unsafe fn SysFreeString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
     }
-    SysFreeString(bstrstring.into_param().abi())
+    SysFreeString(bstrstring.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocString<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1) -> i32 {
+pub unsafe fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
     }
-    ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), psz.into_param().abi()))
+    ::core::mem::transmute(SysReAllocString(::core::mem::transmute(pbstr), ::core::mem::transmute(psz)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReAllocStringLen<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(pbstr: *mut BSTR, psz: Param1, len: u32) -> i32 {
+pub unsafe fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
     }
-    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into_param().abi(), ::core::mem::transmute(len)))
+    ::core::mem::transmute(SysReAllocStringLen(::core::mem::transmute(pbstr), ::core::mem::transmute(psz), ::core::mem::transmute(len)))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysReleaseString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
+pub unsafe fn SysReleaseString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstrstring: Param0) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
     }
-    SysReleaseString(bstrstring.into_param().abi())
+    SysReleaseString(bstrstring.into().abi())
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstr: Param0) -> u32 {
+pub unsafe fn SysStringByteLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(bstr: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    ::core::mem::transmute(SysStringByteLen(bstr.into_param().abi()))
+    ::core::mem::transmute(SysStringByteLen(bstr.into().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbstr: Param0) -> u32 {
+pub unsafe fn SysStringLen<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>>(pbstr: Param0) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
     }
-    ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
+    ::core::mem::transmute(SysStringLen(pbstr.into().abi()))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TBSIMP_E_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144796160i32);
@@ -20842,6 +20880,11 @@ impl ::core::marker::Copy for WPARAM {}
 impl ::core::fmt::Debug for WPARAM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WPARAM").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<WPARAM>> for WPARAM {
+    fn from(optional: ::core::option::Option<WPARAM>) -> WPARAM {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for WPARAM {

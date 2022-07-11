@@ -367,19 +367,14 @@ impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRemoteSystemFilter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRemoteSystemFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRemoteSystemFilter> for ::windows::core::IUnknown {
     fn from(value: &IRemoteSystemFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteSystemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRemoteSystemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IInspectable {
@@ -387,19 +382,14 @@ impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRemoteSystemFilter> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRemoteSystemFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRemoteSystemFilter> for ::windows::core::IInspectable {
     fn from(value: &IRemoteSystemFilter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRemoteSystemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRemoteSystemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRemoteSystemFilter {
@@ -1281,11 +1271,11 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn GetCapabilitySupportedAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, capabilityname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn GetCapabilitySupportedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, capabilityname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCapabilitySupportedAsync)(::windows::core::Interface::as_raw(this), capabilityname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).GetCapabilitySupportedAsync)(::windows::core::Interface::as_raw(this), capabilityname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1331,10 +1321,10 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`, `\"Networking\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
-    pub fn FindByHostNameAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Networking::HostName>>(hostname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>> {
+    pub fn FindByHostNameAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Networking::HostName>>>(hostname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindByHostNameAsync)(::windows::core::Interface::as_raw(this), hostname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RemoteSystem>>(result__)
+            (::windows::core::Interface::vtable(this).FindByHostNameAsync)(::windows::core::Interface::as_raw(this), hostname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<RemoteSystem>>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -1346,10 +1336,10 @@ impl RemoteSystem {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithFilters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>>(filters: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
+    pub fn CreateWatcherWithFilters<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(filters: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherWithFilters)(::windows::core::Interface::as_raw(this), filters.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherWithFilters)(::windows::core::Interface::as_raw(this), filters.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
@@ -1361,25 +1351,25 @@ impl RemoteSystem {
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn IsAuthorizationKindEnabled(kind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<bool> {
+    pub fn IsAuthorizationKindEnabled<'a, Param0: ::std::convert::Into<RemoteSystemAuthorizationKind>>(kind: Param0) -> ::windows::core::Result<bool> {
         Self::IRemoteSystemStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsAuthorizationKindEnabled)(::windows::core::Interface::as_raw(this), kind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsAuthorizationKindEnabled)(::windows::core::Interface::as_raw(this), kind.into(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateWatcherForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
+    pub fn CreateWatcherForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWatcherWithFiltersForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>>(user: Param0, filters: Param1) -> ::windows::core::Result<RemoteSystemWatcher> {
+    pub fn CreateWatcherWithFiltersForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(user: Param0, filters: Param1) -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWatcherWithFiltersForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), filters.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
+            (::windows::core::Interface::vtable(this).CreateWatcherWithFiltersForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), filters.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWatcher>(result__)
         })
     }
     #[doc(hidden)]
@@ -1438,14 +1428,9 @@ impl ::core::convert::From<&RemoteSystem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystem> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystem> for ::windows::core::IInspectable {
@@ -1458,14 +1443,9 @@ impl ::core::convert::From<&RemoteSystem> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystem> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystem {}
@@ -1559,14 +1539,9 @@ impl ::core::convert::From<&RemoteSystemAddedEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemAddedEventArgs> for ::windows::core::IInspectable {
@@ -1579,14 +1554,9 @@ impl ::core::convert::From<&RemoteSystemAddedEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemAddedEventArgs {}
@@ -1693,14 +1663,9 @@ impl ::core::convert::From<&RemoteSystemApp> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemApp> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemApp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemApp> for ::windows::core::IInspectable {
@@ -1713,14 +1678,9 @@ impl ::core::convert::From<&RemoteSystemApp> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemApp {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemApp> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemApp) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemApp {}
@@ -1763,10 +1723,10 @@ impl RemoteSystemAppRegistration {
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<RemoteSystemAppRegistration> {
+    pub fn GetForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>>(user: Param0) -> ::windows::core::Result<RemoteSystemAppRegistration> {
         Self::IRemoteSystemAppRegistrationStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemAppRegistration>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemAppRegistration>(result__)
         })
     }
     #[doc(hidden)]
@@ -1815,14 +1775,9 @@ impl ::core::convert::From<&RemoteSystemAppRegistration> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemAppRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemAppRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemAppRegistration> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemAppRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemAppRegistration> for ::windows::core::IInspectable {
@@ -1835,14 +1790,9 @@ impl ::core::convert::From<&RemoteSystemAppRegistration> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemAppRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemAppRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemAppRegistration> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemAppRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
@@ -1894,10 +1844,10 @@ impl RemoteSystemAuthorizationKindFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create(remotesystemauthorizationkind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter> {
+    pub fn Create<'a, Param0: ::std::convert::Into<RemoteSystemAuthorizationKind>>(remotesystemauthorizationkind: Param0) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter> {
         Self::IRemoteSystemAuthorizationKindFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemauthorizationkind, result__.as_mut_ptr()).from_abi::<RemoteSystemAuthorizationKindFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemauthorizationkind.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemAuthorizationKindFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -1946,14 +1896,9 @@ impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemAuthorizationKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemAuthorizationKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemAuthorizationKindFilter> for ::windows::core::IInspectable {
@@ -1966,14 +1911,9 @@ impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemAuthorizationKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemAuthorizationKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemAuthorizationKindFilter> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemAuthorizationKindFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RemoteSystemAuthorizationKindFilter> for IRemoteSystemFilter {
@@ -1988,14 +1928,11 @@ impl ::core::convert::TryFrom<&RemoteSystemAuthorizationKindFilter> for IRemoteS
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for RemoteSystemAuthorizationKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemAuthorizationKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteSystemAuthorizationKindFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteSystemAuthorizationKindFilter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemAuthorizationKindFilter {}
@@ -2014,10 +1951,10 @@ impl RemoteSystemConnectionInfo {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"ApplicationModel_AppService\"`*"]
     #[cfg(feature = "ApplicationModel_AppService")]
-    pub fn TryCreateFromAppServiceConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>(connection: Param0) -> ::windows::core::Result<RemoteSystemConnectionInfo> {
+    pub fn TryCreateFromAppServiceConnection<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>>(connection: Param0) -> ::windows::core::Result<RemoteSystemConnectionInfo> {
         Self::IRemoteSystemConnectionInfoStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromAppServiceConnection)(::windows::core::Interface::as_raw(this), connection.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionInfo>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromAppServiceConnection)(::windows::core::Interface::as_raw(this), connection.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -2066,14 +2003,9 @@ impl ::core::convert::From<&RemoteSystemConnectionInfo> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemConnectionInfo> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemConnectionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemConnectionInfo> for ::windows::core::IInspectable {
@@ -2086,14 +2018,9 @@ impl ::core::convert::From<&RemoteSystemConnectionInfo> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemConnectionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemConnectionInfo> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemConnectionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemConnectionInfo {}
@@ -2127,31 +2054,31 @@ impl RemoteSystemConnectionRequest {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystem>>(remotesystem: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystem>>>(remotesystem: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystem.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystem.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateForApp<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemApp>>(remotesystemapp: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn CreateForApp<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemApp>>>(remotesystemapp: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForApp)(::windows::core::Interface::as_raw(this), remotesystemapp.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateForApp)(::windows::core::Interface::as_raw(this), remotesystemapp.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateFromConnectionToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(connectiontoken: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn CreateFromConnectionToken<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(connectiontoken: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromConnectionToken)(::windows::core::Interface::as_raw(this), connectiontoken.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromConnectionToken)(::windows::core::Interface::as_raw(this), connectiontoken.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateFromConnectionTokenForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, connectiontoken: Param1) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
+    pub fn CreateFromConnectionTokenForUser<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, connectiontoken: Param1) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromConnectionTokenForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), connectiontoken.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromConnectionTokenForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), connectiontoken.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
     #[doc(hidden)]
@@ -2210,14 +2137,9 @@ impl ::core::convert::From<&RemoteSystemConnectionRequest> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemConnectionRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemConnectionRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemConnectionRequest> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemConnectionRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemConnectionRequest> for ::windows::core::IInspectable {
@@ -2230,14 +2152,9 @@ impl ::core::convert::From<&RemoteSystemConnectionRequest> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemConnectionRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemConnectionRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemConnectionRequest> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemConnectionRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
@@ -2291,10 +2208,10 @@ impl RemoteSystemDiscoveryTypeFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create(discoverytype: RemoteSystemDiscoveryType) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter> {
+    pub fn Create<'a, Param0: ::std::convert::Into<RemoteSystemDiscoveryType>>(discoverytype: Param0) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter> {
         Self::IRemoteSystemDiscoveryTypeFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), discoverytype, result__.as_mut_ptr()).from_abi::<RemoteSystemDiscoveryTypeFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), discoverytype.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemDiscoveryTypeFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -2343,14 +2260,9 @@ impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemDiscoveryTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemDiscoveryTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemDiscoveryTypeFilter> for ::windows::core::IInspectable {
@@ -2363,14 +2275,9 @@ impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemDiscoveryTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemDiscoveryTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemDiscoveryTypeFilter> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemDiscoveryTypeFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RemoteSystemDiscoveryTypeFilter> for IRemoteSystemFilter {
@@ -2385,14 +2292,11 @@ impl ::core::convert::TryFrom<&RemoteSystemDiscoveryTypeFilter> for IRemoteSyste
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for RemoteSystemDiscoveryTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemDiscoveryTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteSystemDiscoveryTypeFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteSystemDiscoveryTypeFilter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemDiscoveryTypeFilter {}
@@ -2441,14 +2345,9 @@ impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemEnumerationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemEnumerationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemEnumerationCompletedEventArgs> for ::windows::core::IInspectable {
@@ -2461,14 +2360,9 @@ impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemEnumerationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemEnumerationCompletedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemEnumerationCompletedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemEnumerationCompletedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemEnumerationCompletedEventArgs {}
@@ -2488,10 +2382,10 @@ impl RemoteSystemKindFilter {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(remotesystemkinds: Param0) -> ::windows::core::Result<RemoteSystemKindFilter> {
+    pub fn Create<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(remotesystemkinds: Param0) -> ::windows::core::Result<RemoteSystemKindFilter> {
         Self::IRemoteSystemKindFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemkinds.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemKindFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemkinds.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemKindFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -2540,14 +2434,9 @@ impl ::core::convert::From<&RemoteSystemKindFilter> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemKindFilter> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemKindFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemKindFilter> for ::windows::core::IInspectable {
@@ -2560,14 +2449,9 @@ impl ::core::convert::From<&RemoteSystemKindFilter> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemKindFilter> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemKindFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RemoteSystemKindFilter> for IRemoteSystemFilter {
@@ -2582,14 +2466,11 @@ impl ::core::convert::TryFrom<&RemoteSystemKindFilter> for IRemoteSystemFilter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for RemoteSystemKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemKindFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteSystemKindFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteSystemKindFilter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemKindFilter {}
@@ -2757,14 +2638,9 @@ impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemRemovedEventArgs> for ::windows::core::IInspectable {
@@ -2777,14 +2653,9 @@ impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemRemovedEventArgs {}
@@ -2825,18 +2696,18 @@ impl RemoteSystemSession {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Disconnected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Disconnected<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Disconnected)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Disconnected)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDisconnected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDisconnected(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDisconnected)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDisconnected)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
     pub fn CreateParticipantWatcher(&self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcher> {
@@ -2848,11 +2719,11 @@ impl RemoteSystemSession {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SendInvitationAsync<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystem>>(&self, invitee: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SendInvitationAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystem>>>(&self, invitee: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendInvitationAsync)(::windows::core::Interface::as_raw(this), invitee.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).SendInvitationAsync)(::windows::core::Interface::as_raw(this), invitee.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
@@ -2908,14 +2779,9 @@ impl ::core::convert::From<&RemoteSystemSession> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSession> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSession> for ::windows::core::IInspectable {
@@ -2928,14 +2794,9 @@ impl ::core::convert::From<&RemoteSystemSession> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSession> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2953,15 +2814,11 @@ impl ::core::convert::TryFrom<&RemoteSystemSession> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for RemoteSystemSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &RemoteSystemSession {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteSystemSession> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteSystemSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSession {}
@@ -3019,14 +2876,9 @@ impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionAddedEventArgs> for ::windows::core::IInspectable {
@@ -3039,14 +2891,9 @@ impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionAddedEventArgs {}
@@ -3057,26 +2904,26 @@ pub struct RemoteSystemSessionController(::windows::core::IUnknown);
 impl RemoteSystemSessionController {
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn JoinRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn JoinRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).JoinRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).JoinRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveJoinRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveJoinRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveJoinRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveJoinRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveParticipantAsync<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemSessionParticipant>>(&self, pparticipant: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RemoveParticipantAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionParticipant>>>(&self, pparticipant: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveParticipantAsync)(::windows::core::Interface::as_raw(this), pparticipant.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RemoveParticipantAsync)(::windows::core::Interface::as_raw(this), pparticipant.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
@@ -3089,17 +2936,17 @@ impl RemoteSystemSessionController {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displayname: Param0) -> ::windows::core::Result<RemoteSystemSessionController> {
+    pub fn CreateController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(displayname: Param0) -> ::windows::core::Result<RemoteSystemSessionController> {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateController)(::windows::core::Interface::as_raw(this), displayname.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionController>(result__)
+            (::windows::core::Interface::vtable(this).CreateController)(::windows::core::Interface::as_raw(this), displayname.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionController>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateControllerWithSessionOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, RemoteSystemSessionOptions>>(displayname: Param0, options: Param1) -> ::windows::core::Result<RemoteSystemSessionController> {
+    pub fn CreateControllerWithSessionOptions<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionOptions>>>(displayname: Param0, options: Param1) -> ::windows::core::Result<RemoteSystemSessionController> {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateControllerWithSessionOptions)(::windows::core::Interface::as_raw(this), displayname.into_param().abi(), options.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionController>(result__)
+            (::windows::core::Interface::vtable(this).CreateControllerWithSessionOptions)(::windows::core::Interface::as_raw(this), displayname.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionController>(result__)
         })
     }
     #[doc(hidden)]
@@ -3148,14 +2995,9 @@ impl ::core::convert::From<&RemoteSystemSessionController> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionController> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionController> for ::windows::core::IInspectable {
@@ -3168,14 +3010,9 @@ impl ::core::convert::From<&RemoteSystemSessionController> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionController {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionController> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionController {}
@@ -3241,14 +3078,9 @@ impl ::core::convert::From<&RemoteSystemSessionCreationResult> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionCreationResult> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionCreationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionCreationResult> for ::windows::core::IInspectable {
@@ -3261,14 +3093,9 @@ impl ::core::convert::From<&RemoteSystemSessionCreationResult> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionCreationResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionCreationResult> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionCreationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
@@ -3361,14 +3188,9 @@ impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionDisconnectedEventArgs> for ::windows::core::IInspectable {
@@ -3381,14 +3203,9 @@ impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionDisconnectedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionDisconnectedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
@@ -3498,14 +3315,9 @@ impl ::core::convert::From<&RemoteSystemSessionInfo> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInfo> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionInfo> for ::windows::core::IInspectable {
@@ -3518,14 +3330,9 @@ impl ::core::convert::From<&RemoteSystemSessionInfo> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInfo> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInfo {}
@@ -3591,14 +3398,9 @@ impl ::core::convert::From<&RemoteSystemSessionInvitation> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInvitation> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionInvitation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionInvitation> for ::windows::core::IInspectable {
@@ -3611,14 +3413,9 @@ impl ::core::convert::From<&RemoteSystemSessionInvitation> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInvitation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInvitation> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionInvitation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitation {}
@@ -3636,18 +3433,18 @@ impl RemoteSystemSessionInvitationListener {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn InvitationReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn InvitationReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).InvitationReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).InvitationReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveInvitationReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveInvitationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveInvitationReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveInvitationReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for RemoteSystemSessionInvitationListener {
@@ -3690,14 +3487,9 @@ impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionInvitationListener {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInvitationListener {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionInvitationListener> for ::windows::core::IInspectable {
@@ -3710,14 +3502,9 @@ impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionInvitationListener {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInvitationListener {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInvitationListener> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionInvitationListener) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationListener {}
@@ -3775,14 +3562,9 @@ impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionInvitationReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionInvitationReceivedEventArgs> for ::windows::core::IInspectable {
@@ -3795,14 +3577,9 @@ impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionInvitationReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionInvitationReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionInvitationReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionInvitationReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionInvitationReceivedEventArgs {}
@@ -3865,14 +3642,9 @@ impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionJoinRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionJoinRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionJoinRequest> for ::windows::core::IInspectable {
@@ -3885,14 +3657,9 @@ impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionJoinRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionJoinRequest {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionJoinRequest> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionJoinRequest) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequest {}
@@ -3959,14 +3726,9 @@ impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionJoinRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionJoinRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionJoinRequestedEventArgs> for ::windows::core::IInspectable {
@@ -3979,14 +3741,9 @@ impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionJoinRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionJoinRequestedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionJoinRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionJoinRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinRequestedEventArgs {}
@@ -4052,14 +3809,9 @@ impl ::core::convert::From<&RemoteSystemSessionJoinResult> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionJoinResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionJoinResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionJoinResult> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionJoinResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionJoinResult> for ::windows::core::IInspectable {
@@ -4072,14 +3824,9 @@ impl ::core::convert::From<&RemoteSystemSessionJoinResult> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionJoinResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionJoinResult {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionJoinResult> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionJoinResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
@@ -4135,58 +3882,58 @@ impl RemoteSystemSessionMessageChannel {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BroadcastValueSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, messagedata: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn BroadcastValueSetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(&self, messagedata: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).BroadcastValueSetAsync)(::windows::core::Interface::as_raw(this), messagedata.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).BroadcastValueSetAsync)(::windows::core::Interface::as_raw(this), messagedata.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>, Param1: ::windows::core::IntoParam<'a, RemoteSystemSessionParticipant>>(&self, messagedata: Param0, participant: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SendValueSetAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSessionParticipant>>>(&self, messagedata: Param0, participant: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendValueSetAsync)(::windows::core::Interface::as_raw(this), messagedata.into_param().abi(), participant.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).SendValueSetAsync)(::windows::core::Interface::as_raw(this), messagedata.into().abi(), participant.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SendValueSetToParticipantsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>>(&self, messagedata: Param0, participants: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn SendValueSetToParticipantsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, messagedata: Param0, participants: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).SendValueSetToParticipantsAsync)(::windows::core::Interface::as_raw(this), messagedata.into_param().abi(), participants.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).SendValueSetToParticipantsAsync)(::windows::core::Interface::as_raw(this), messagedata.into().abi(), participants.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ValueSetReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ValueSetReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ValueSetReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ValueSetReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveValueSetReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveValueSetReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveValueSetReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveValueSetReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemSession>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(session: Param0, channelname: Param1) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(session: Param0, channelname: Param1) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), session.into_param().abi(), channelname.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), session.into().abi(), channelname.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
         })
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn CreateWithReliability<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemSession>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(session: Param0, channelname: Param1, reliability: RemoteSystemSessionMessageChannelReliability) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
+    pub fn CreateWithReliability<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, RemoteSystemSession>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<RemoteSystemSessionMessageChannelReliability>>(session: Param0, channelname: Param1, reliability: Param2) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithReliability)(::windows::core::Interface::as_raw(this), session.into_param().abi(), channelname.into_param().abi(), reliability, result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithReliability)(::windows::core::Interface::as_raw(this), session.into().abi(), channelname.into().abi(), reliability.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemSessionMessageChannel>(result__)
         })
     }
     #[doc(hidden)]
@@ -4235,14 +3982,9 @@ impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionMessageChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionMessageChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionMessageChannel> for ::windows::core::IInspectable {
@@ -4255,14 +3997,9 @@ impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for ::windows::co
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionMessageChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionMessageChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionMessageChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
@@ -4366,14 +4103,9 @@ impl ::core::convert::From<&RemoteSystemSessionOptions> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionOptions> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionOptions> for ::windows::core::IInspectable {
@@ -4386,14 +4118,9 @@ impl ::core::convert::From<&RemoteSystemSessionOptions> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionOptions> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionOptions {}
@@ -4460,14 +4187,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipant> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionParticipant {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipant {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipant> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionParticipant) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionParticipant> for ::windows::core::IInspectable {
@@ -4480,14 +4202,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipant> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionParticipant {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipant {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipant> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionParticipant) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipant {}
@@ -4545,14 +4262,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionParticipantAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipantAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionParticipantAddedEventArgs> for ::windows::core::IInspectable {
@@ -4565,14 +4277,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionParticipantAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipantAddedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipantAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionParticipantAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantAddedEventArgs {}
@@ -4630,14 +4337,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipantRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionParticipantRemovedEventArgs> for ::windows::core::IInspectable {
@@ -4650,14 +4352,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionParticipantRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipantRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipantRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionParticipantRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantRemovedEventArgs {}
@@ -4686,48 +4383,48 @@ impl RemoteSystemSessionParticipantWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcher {
@@ -4770,14 +4467,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionParticipantWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionParticipantWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionParticipantWatcher> for ::windows::core::IInspectable {
@@ -4790,14 +4482,9 @@ impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionParticipantWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionParticipantWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionParticipantWatcher> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionParticipantWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
@@ -4893,14 +4580,9 @@ impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionRemovedEventArgs> for ::windows::core::IInspectable {
@@ -4913,14 +4595,9 @@ impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionRemovedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionRemovedEventArgs {}
@@ -4978,14 +4655,9 @@ impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -4998,14 +4670,9 @@ impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionUpdatedEventArgs {}
@@ -5072,14 +4739,9 @@ impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionValueSetReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionValueSetReceivedEventArgs> for ::windows::core::IInspectable {
@@ -5092,14 +4754,9 @@ impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for ::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionValueSetReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionValueSetReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionValueSetReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionValueSetReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionValueSetReceivedEventArgs {}
@@ -5128,48 +4785,48 @@ impl RemoteSystemSessionWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Added<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Updated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn Removed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for RemoteSystemSessionWatcher {
@@ -5212,14 +4869,9 @@ impl ::core::convert::From<&RemoteSystemSessionWatcher> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemSessionWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemSessionWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionWatcher> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemSessionWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemSessionWatcher> for ::windows::core::IInspectable {
@@ -5232,14 +4884,9 @@ impl ::core::convert::From<&RemoteSystemSessionWatcher> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemSessionWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemSessionWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemSessionWatcher> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemSessionWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
@@ -5365,10 +5012,10 @@ impl RemoteSystemStatusTypeFilter {
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-    pub fn Create(remotesystemstatustype: RemoteSystemStatusType) -> ::windows::core::Result<RemoteSystemStatusTypeFilter> {
+    pub fn Create<'a, Param0: ::std::convert::Into<RemoteSystemStatusType>>(remotesystemstatustype: Param0) -> ::windows::core::Result<RemoteSystemStatusTypeFilter> {
         Self::IRemoteSystemStatusTypeFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemstatustype, result__.as_mut_ptr()).from_abi::<RemoteSystemStatusTypeFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), remotesystemstatustype.into(), result__.as_mut_ptr()).from_abi::<RemoteSystemStatusTypeFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -5417,14 +5064,9 @@ impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemStatusTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemStatusTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemStatusTypeFilter> for ::windows::core::IInspectable {
@@ -5437,14 +5079,9 @@ impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemStatusTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemStatusTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemStatusTypeFilter> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemStatusTypeFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RemoteSystemStatusTypeFilter> for IRemoteSystemFilter {
@@ -5459,14 +5096,11 @@ impl ::core::convert::TryFrom<&RemoteSystemStatusTypeFilter> for IRemoteSystemFi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for RemoteSystemStatusTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemStatusTypeFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteSystemStatusTypeFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteSystemStatusTypeFilter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemStatusTypeFilter {}
@@ -5524,14 +5158,9 @@ impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemUpdatedEventArgs> for ::windows::core::IInspectable {
@@ -5544,14 +5173,9 @@ impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemUpdatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemUpdatedEventArgs {}
@@ -5572,78 +5196,78 @@ impl RemoteSystemWatcher {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteSystemAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteSystemAdded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteSystemAdded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RemoteSystemAdded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoteSystemAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoteSystemAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteSystemAdded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteSystemAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteSystemUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteSystemUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteSystemUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RemoteSystemUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoteSystemUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoteSystemUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteSystemUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteSystemUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoteSystemRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RemoteSystemRemoved<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteSystemRemoved)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RemoteSystemRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoteSystemRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRemoteSystemRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteSystemRemoved)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoteSystemRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn EnumerationCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ErrorOccurred<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
     pub fn User(&self) -> ::windows::core::Result<super::User> {
@@ -5694,14 +5318,9 @@ impl ::core::convert::From<&RemoteSystemWatcher> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemWatcher> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemWatcher> for ::windows::core::IInspectable {
@@ -5714,14 +5333,9 @@ impl ::core::convert::From<&RemoteSystemWatcher> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemWatcher {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemWatcher> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
@@ -5814,14 +5428,9 @@ impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemWatcherErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemWatcherErrorOccurredEventArgs> for ::windows::core::IInspectable {
@@ -5834,14 +5443,9 @@ impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for ::win
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemWatcherErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemWatcherErrorOccurredEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemWatcherErrorOccurredEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemWatcherErrorOccurredEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemWatcherErrorOccurredEventArgs {}
@@ -5861,10 +5465,10 @@ impl RemoteSystemWebAccountFilter {
     }
     #[doc = "*Required features: `\"System_RemoteSystems\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(account: Param0) -> ::windows::core::Result<RemoteSystemWebAccountFilter> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Security::Credentials::WebAccount>>>(account: Param0) -> ::windows::core::Result<RemoteSystemWebAccountFilter> {
         Self::IRemoteSystemWebAccountFilterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), account.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWebAccountFilter>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<RemoteSystemWebAccountFilter>(result__)
         })
     }
     #[doc(hidden)]
@@ -5913,14 +5517,9 @@ impl ::core::convert::From<&RemoteSystemWebAccountFilter> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoteSystemWebAccountFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoteSystemWebAccountFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemWebAccountFilter> for &::windows::core::IUnknown {
+    fn from(value: &RemoteSystemWebAccountFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoteSystemWebAccountFilter> for ::windows::core::IInspectable {
@@ -5933,14 +5532,9 @@ impl ::core::convert::From<&RemoteSystemWebAccountFilter> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoteSystemWebAccountFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoteSystemWebAccountFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoteSystemWebAccountFilter> for &::windows::core::IInspectable {
+    fn from(value: &RemoteSystemWebAccountFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RemoteSystemWebAccountFilter> for IRemoteSystemFilter {
@@ -5955,14 +5549,11 @@ impl ::core::convert::TryFrom<&RemoteSystemWebAccountFilter> for IRemoteSystemFi
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for RemoteSystemWebAccountFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemWebAccountFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRemoteSystemFilter> {
-        ::core::convert::TryInto::<IRemoteSystemFilter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RemoteSystemWebAccountFilter> for ::windows::core::InParam<'a, IRemoteSystemFilter> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RemoteSystemWebAccountFilter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RemoteSystemWebAccountFilter {}

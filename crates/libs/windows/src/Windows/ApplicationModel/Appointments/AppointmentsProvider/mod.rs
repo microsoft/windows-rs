@@ -19,9 +19,9 @@ impl AddAppointmentOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), itemid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), itemid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
@@ -29,9 +29,9 @@ impl AddAppointmentOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
@@ -79,14 +79,9 @@ impl ::core::convert::From<&AddAppointmentOperation> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AddAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AddAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AddAppointmentOperation> for &::windows::core::IUnknown {
+    fn from(value: &AddAppointmentOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AddAppointmentOperation> for ::windows::core::IInspectable {
@@ -99,14 +94,9 @@ impl ::core::convert::From<&AddAppointmentOperation> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AddAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AddAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AddAppointmentOperation> for &::windows::core::IInspectable {
+    fn from(value: &AddAppointmentOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AddAppointmentOperation {}
@@ -295,9 +285,9 @@ impl RemoveAppointmentOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
@@ -345,14 +335,9 @@ impl ::core::convert::From<&RemoveAppointmentOperation> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoveAppointmentOperation> for &::windows::core::IUnknown {
+    fn from(value: &RemoveAppointmentOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RemoveAppointmentOperation> for ::windows::core::IInspectable {
@@ -365,14 +350,9 @@ impl ::core::convert::From<&RemoveAppointmentOperation> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RemoveAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RemoveAppointmentOperation> for &::windows::core::IInspectable {
+    fn from(value: &RemoveAppointmentOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for RemoveAppointmentOperation {}
@@ -415,9 +395,9 @@ impl ReplaceAppointmentOperation {
         }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), itemid.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCompleted)(::windows::core::Interface::as_raw(this), itemid.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
@@ -425,9 +405,9 @@ impl ReplaceAppointmentOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportCanceled)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ReportError<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportError)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
@@ -475,14 +455,9 @@ impl ::core::convert::From<&ReplaceAppointmentOperation> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReplaceAppointmentOperation> for &::windows::core::IUnknown {
+    fn from(value: &ReplaceAppointmentOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ReplaceAppointmentOperation> for ::windows::core::IInspectable {
@@ -495,14 +470,9 @@ impl ::core::convert::From<&ReplaceAppointmentOperation> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ReplaceAppointmentOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ReplaceAppointmentOperation> for &::windows::core::IInspectable {
+    fn from(value: &ReplaceAppointmentOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ReplaceAppointmentOperation {}

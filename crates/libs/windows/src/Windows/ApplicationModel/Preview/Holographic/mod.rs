@@ -10,10 +10,10 @@ impl HolographicApplicationPreview {
     }
     #[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`, `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn IsHolographicActivation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Activation::IActivatedEventArgs>>(activatedeventargs: Param0) -> ::windows::core::Result<bool> {
+    pub fn IsHolographicActivation<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Activation::IActivatedEventArgs>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(activatedeventargs: Param0) -> ::windows::core::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IsHolographicActivation)(::windows::core::Interface::as_raw(this), activatedeventargs.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHolographicActivation)(::windows::core::Interface::as_raw(this), activatedeventargs.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -33,15 +33,15 @@ pub struct HolographicKeyboardPlacementOverridePreview(::windows::core::IUnknown
 impl HolographicKeyboardPlacementOverridePreview {
     #[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
-    pub fn SetPlacementOverride<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, coordinatesystem: Param0, topcenterposition: Param1, normal: Param2) -> ::windows::core::Result<()> {
+    pub fn SetPlacementOverride<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverride)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), normal.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverride)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), topcenterposition, normal).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`, `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
-    pub fn SetPlacementOverrideWithMaxSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector2>>(&self, coordinatesystem: Param0, topcenterposition: Param1, normal: Param2, maxsize: Param3) -> ::windows::core::Result<()> {
+    pub fn SetPlacementOverrideWithMaxSize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>>(&self, coordinatesystem: Param0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), topcenterposition.into_param().abi(), normal.into_param().abi(), maxsize.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), topcenterposition, normal, maxsize).ok() }
     }
     #[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -114,15 +114,9 @@ impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::w
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HolographicKeyboardPlacementOverridePreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a HolographicKeyboardPlacementOverridePreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for &::windows::core::IUnknown {
+    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]
@@ -138,15 +132,9 @@ impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for ::w
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HolographicKeyboardPlacementOverridePreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a HolographicKeyboardPlacementOverridePreview {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&HolographicKeyboardPlacementOverridePreview> for &::windows::core::IInspectable {
+    fn from(value: &HolographicKeyboardPlacementOverridePreview) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "deprecated")]

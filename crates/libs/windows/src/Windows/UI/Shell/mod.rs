@@ -2,10 +2,10 @@
 pub struct AdaptiveCardBuilder;
 impl AdaptiveCardBuilder {
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
+    pub fn CreateAdaptiveCardFromJson<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
         })
     }
     #[doc(hidden)]
@@ -35,19 +35,14 @@ impl ::core::convert::From<IAdaptiveCard> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAdaptiveCard> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAdaptiveCard) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAdaptiveCard> for ::windows::core::IUnknown {
     fn from(value: &IAdaptiveCard) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdaptiveCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdaptiveCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAdaptiveCard> for ::windows::core::IInspectable {
@@ -55,19 +50,14 @@ impl ::core::convert::From<IAdaptiveCard> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAdaptiveCard> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAdaptiveCard) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAdaptiveCard> for ::windows::core::IInspectable {
     fn from(value: &IAdaptiveCard) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAdaptiveCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAdaptiveCard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAdaptiveCard {
@@ -108,11 +98,11 @@ pub struct IAdaptiveCard_Vtbl {
 pub struct IAdaptiveCardBuilderStatics(::windows::core::IUnknown);
 impl IAdaptiveCardBuilderStatics {
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
+    pub fn CreateAdaptiveCardFromJson<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<IAdaptiveCard> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
         }
     }
 }
@@ -121,19 +111,14 @@ impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::core::IUn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAdaptiveCardBuilderStatics> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IAdaptiveCardBuilderStatics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::core::IUnknown {
     fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::core::IInspectable {
@@ -141,19 +126,14 @@ impl ::core::convert::From<IAdaptiveCardBuilderStatics> for ::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IAdaptiveCardBuilderStatics> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IAdaptiveCardBuilderStatics) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IAdaptiveCardBuilderStatics> for ::windows::core::IInspectable {
     fn from(value: &IAdaptiveCardBuilderStatics) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IAdaptiveCardBuilderStatics {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IAdaptiveCardBuilderStatics {
@@ -382,23 +362,23 @@ impl SecurityAppManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Register<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, displayname: Param1, detailsuri: Param2, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID> {
+    pub fn Register<'a, Param0: ::std::convert::Into<SecurityAppKind>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, kind: Param0, displayname: Param1, detailsuri: Param2, registerperuser: bool) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
-            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), kind, displayname.into_param().abi(), detailsuri.into_param().abi(), registerperuser, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Register)(::windows::core::Interface::as_raw(this), kind.into(), displayname.into().abi(), detailsuri.into().abi(), registerperuser, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn Unregister<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, kind: SecurityAppKind, guidregistration: Param1) -> ::windows::core::Result<()> {
+    pub fn Unregister<'a, Param0: ::std::convert::Into<SecurityAppKind>>(&self, kind: Param0, guidregistration: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind, guidregistration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Unregister)(::windows::core::Interface::as_raw(this), kind.into(), guidregistration).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateState<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, kind: SecurityAppKind, guidregistration: Param1, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: Param4) -> ::windows::core::Result<()> {
+    pub fn UpdateState<'a, Param0: ::std::convert::Into<SecurityAppKind>, Param2: ::std::convert::Into<SecurityAppState>, Param3: ::std::convert::Into<SecurityAppSubstatus>, Param4: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, kind: Param0, guidregistration: ::windows::core::GUID, state: Param2, substatus: Param3, detailsuri: Param4) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind, guidregistration.into_param().abi(), state, substatus, detailsuri.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UpdateState)(::windows::core::Interface::as_raw(this), kind.into(), guidregistration, state.into(), substatus.into(), detailsuri.into().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for SecurityAppManager {
@@ -441,14 +421,9 @@ impl ::core::convert::From<&SecurityAppManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecurityAppManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SecurityAppManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecurityAppManager> for &::windows::core::IUnknown {
+    fn from(value: &SecurityAppManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SecurityAppManager> for ::windows::core::IInspectable {
@@ -461,14 +436,9 @@ impl ::core::convert::From<&SecurityAppManager> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SecurityAppManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SecurityAppManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SecurityAppManager> for &::windows::core::IInspectable {
+    fn from(value: &SecurityAppManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SecurityAppManager {}
@@ -599,9 +569,9 @@ impl ShareWindowCommandEventArgs {
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
-    pub fn SetCommand(&self, value: ShareWindowCommand) -> ::windows::core::Result<()> {
+    pub fn SetCommand<'a, Param0: ::std::convert::Into<ShareWindowCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCommand)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for ShareWindowCommandEventArgs {
@@ -644,14 +614,9 @@ impl ::core::convert::From<&ShareWindowCommandEventArgs> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ShareWindowCommandEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ShareWindowCommandEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShareWindowCommandEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ShareWindowCommandEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ShareWindowCommandEventArgs> for ::windows::core::IInspectable {
@@ -664,14 +629,9 @@ impl ::core::convert::From<&ShareWindowCommandEventArgs> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ShareWindowCommandEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ShareWindowCommandEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShareWindowCommandEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ShareWindowCommandEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ShareWindowCommandEventArgs {}
@@ -697,33 +657,33 @@ impl ShareWindowCommandSource {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CommandRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CommandRequested<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CommandRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CommandRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCommandRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCommandRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CommandInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CommandInvoked<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CommandInvoked)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CommandInvoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCommandInvoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCommandInvoked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandInvoked)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCommandInvoked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<ShareWindowCommandSource> {
@@ -778,14 +738,9 @@ impl ::core::convert::From<&ShareWindowCommandSource> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ShareWindowCommandSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a ShareWindowCommandSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShareWindowCommandSource> for &::windows::core::IUnknown {
+    fn from(value: &ShareWindowCommandSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<ShareWindowCommandSource> for ::windows::core::IInspectable {
@@ -798,14 +753,9 @@ impl ::core::convert::From<&ShareWindowCommandSource> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ShareWindowCommandSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a ShareWindowCommandSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&ShareWindowCommandSource> for &::windows::core::IInspectable {
+    fn from(value: &ShareWindowCommandSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for ShareWindowCommandSource {}
@@ -841,11 +791,11 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn IsAppListEntryPinnedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsAppListEntryPinnedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).IsAppListEntryPinnedAsync)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsAppListEntryPinnedAsync)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
@@ -859,38 +809,38 @@ impl TaskbarManager {
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"ApplicationModel_Core\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))]
-    pub fn RequestPinAppListEntryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::Core::AppListEntry>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinAppListEntryAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::ApplicationModel::Core::AppListEntry>>>(&self, applistentry: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPinAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPinAppListEntryAsync)(::windows::core::Interface::as_raw(this), applistentry.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsSecondaryTilePinnedAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn IsSecondaryTilePinnedAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).IsSecondaryTilePinnedAsync)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`, `\"UI_StartScreen\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_StartScreen"))]
-    pub fn RequestPinSecondaryTileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::StartScreen::SecondaryTile>>(&self, secondarytile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn RequestPinSecondaryTileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::StartScreen::SecondaryTile>>>(&self, secondarytile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), secondarytile.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), secondarytile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn TryUnpinSecondaryTileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn TryUnpinSecondaryTileAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Shell\"`*"]
@@ -946,14 +896,9 @@ impl ::core::convert::From<&TaskbarManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TaskbarManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TaskbarManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TaskbarManager> for &::windows::core::IUnknown {
+    fn from(value: &TaskbarManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TaskbarManager> for ::windows::core::IInspectable {
@@ -966,14 +911,9 @@ impl ::core::convert::From<&TaskbarManager> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TaskbarManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TaskbarManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TaskbarManager> for &::windows::core::IInspectable {
+    fn from(value: &TaskbarManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TaskbarManager {}

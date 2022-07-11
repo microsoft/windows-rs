@@ -49,39 +49,39 @@ impl BackgroundMediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MessageReceivedFromBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceivedFromBackground<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveMessageReceivedFromBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveMessageReceivedFromBackground(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromBackground)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MessageReceivedFromForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MessageReceivedFromForeground<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<MediaPlayerDataReceivedEventArgs>>>>(value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IBackgroundMediaPlayerStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveMessageReceivedFromForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
+    pub fn RemoveMessageReceivedFromForeground(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceivedFromForeground)(::windows::core::Interface::as_raw(this), token).ok() })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn SendMessageToBackground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToBackground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SendMessageToBackground<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToBackground)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub fn SendMessageToForeground<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(value: Param0) -> ::windows::core::Result<()> {
-        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToForeground)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() })
+    pub fn SendMessageToForeground<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Collections::ValueSet>>>(value: Param0) -> ::windows::core::Result<()> {
+        Self::IBackgroundMediaPlayerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SendMessageToForeground)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -176,14 +176,9 @@ impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for CurrentMediaPlaybackItemChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a CurrentMediaPlaybackItemChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<CurrentMediaPlaybackItemChangedEventArgs> for ::windows::core::IInspectable {
@@ -196,14 +191,9 @@ impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for ::wind
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for CurrentMediaPlaybackItemChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a CurrentMediaPlaybackItemChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&CurrentMediaPlaybackItemChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CurrentMediaPlaybackItemChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for CurrentMediaPlaybackItemChangedEventArgs {}
@@ -521,14 +511,20 @@ impl IMediaEnginePlaybackSource {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
-    pub fn SetPlaybackSource<'a, Param0: ::windows::core::IntoParam<'a, IMediaPlaybackSource>>(&self, source: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPlaybackSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaPlaybackSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackSource)(::windows::core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackSource)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "deprecated")]
 impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IUnknown {
     fn from(value: IMediaEnginePlaybackSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IMediaEnginePlaybackSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaEnginePlaybackSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -539,20 +535,14 @@ impl ::core::convert::From<&IMediaEnginePlaybackSource> for ::windows::core::IUn
     }
 }
 #[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaEnginePlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaEnginePlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
     fn from(value: IMediaEnginePlaybackSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::From<&'a IMediaEnginePlaybackSource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaEnginePlaybackSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -560,18 +550,6 @@ impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IIns
 impl ::core::convert::From<&IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
     fn from(value: &IMediaEnginePlaybackSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaEnginePlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaEnginePlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "deprecated")]
@@ -1495,19 +1473,14 @@ impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaPlaybackSource> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IMediaPlaybackSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaPlaybackSource> for ::windows::core::IUnknown {
     fn from(value: &IMediaPlaybackSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaPlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMediaPlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IInspectable {
@@ -1515,19 +1488,14 @@ impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IMediaPlaybackSource> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IMediaPlaybackSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IMediaPlaybackSource> for ::windows::core::IInspectable {
     fn from(value: &IMediaPlaybackSource) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaPlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IMediaPlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IMediaPlaybackSource {
@@ -2224,18 +2192,18 @@ impl MediaBreak {
         unsafe { (::windows::core::Interface::vtable(this).SetCanStart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn Create(insertionmethod: MediaBreakInsertionMethod) -> ::windows::core::Result<MediaBreak> {
+    pub fn Create<'a, Param0: ::std::convert::Into<MediaBreakInsertionMethod>>(insertionmethod: Param0) -> ::windows::core::Result<MediaBreak> {
         Self::IMediaBreakFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), insertionmethod, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), insertionmethod.into(), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateWithPresentationPosition<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(insertionmethod: MediaBreakInsertionMethod, presentationposition: Param1) -> ::windows::core::Result<MediaBreak> {
+    pub fn CreateWithPresentationPosition<'a, Param0: ::std::convert::Into<MediaBreakInsertionMethod>>(insertionmethod: Param0, presentationposition: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaBreak> {
         Self::IMediaBreakFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithPresentationPosition)(::windows::core::Interface::as_raw(this), insertionmethod, presentationposition.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithPresentationPosition)(::windows::core::Interface::as_raw(this), insertionmethod.into(), presentationposition, result__.as_mut_ptr()).from_abi::<MediaBreak>(result__)
         })
     }
     #[doc(hidden)]
@@ -2284,14 +2252,9 @@ impl ::core::convert::From<&MediaBreak> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreak {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreak {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreak> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreak) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreak> for ::windows::core::IInspectable {
@@ -2304,14 +2267,9 @@ impl ::core::convert::From<&MediaBreak> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreak {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreak {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreak> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreak) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreak {}
@@ -2369,14 +2327,9 @@ impl ::core::convert::From<&MediaBreakEndedEventArgs> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreakEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreakEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakEndedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreakEndedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreakEndedEventArgs> for ::windows::core::IInspectable {
@@ -2389,14 +2342,9 @@ impl ::core::convert::From<&MediaBreakEndedEventArgs> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreakEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreakEndedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakEndedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreakEndedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreakEndedEventArgs {}
@@ -2441,63 +2389,63 @@ pub struct MediaBreakManager(::windows::core::IUnknown);
 impl MediaBreakManager {
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BreaksSeekedOver<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSeekedOverEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BreaksSeekedOver<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSeekedOverEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BreaksSeekedOver)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BreaksSeekedOver)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBreaksSeekedOver<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBreaksSeekedOver(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBreaksSeekedOver)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBreaksSeekedOver)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BreakStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakStartedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BreakStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakStartedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BreakStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BreakStarted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBreakStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBreakStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBreakStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBreakStarted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BreakEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakEndedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BreakEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakEndedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BreakEnded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BreakEnded)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBreakEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBreakEnded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBreakEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBreakEnded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BreakSkipped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSkippedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BreakSkipped<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakManager, MediaBreakSkippedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BreakSkipped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BreakSkipped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBreakSkipped<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBreakSkipped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBreakSkipped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBreakSkipped)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn CurrentBreak(&self) -> ::windows::core::Result<MediaBreak> {
@@ -2516,9 +2464,9 @@ impl MediaBreakManager {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn PlayBreak<'a, Param0: ::windows::core::IntoParam<'a, MediaBreak>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn PlayBreak<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaBreak>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PlayBreak)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PlayBreak)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn SkipCurrentBreak(&self) -> ::windows::core::Result<()> {
@@ -2566,14 +2514,9 @@ impl ::core::convert::From<&MediaBreakManager> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreakManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreakManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakManager> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreakManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreakManager> for ::windows::core::IInspectable {
@@ -2586,14 +2529,9 @@ impl ::core::convert::From<&MediaBreakManager> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreakManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreakManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakManager> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreakManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreakManager {}
@@ -2604,28 +2542,28 @@ pub struct MediaBreakSchedule(::windows::core::IUnknown);
 impl MediaBreakSchedule {
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ScheduleChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakSchedule, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ScheduleChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaBreakSchedule, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ScheduleChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ScheduleChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveScheduleChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveScheduleChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveScheduleChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveScheduleChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn InsertMidrollBreak<'a, Param0: ::windows::core::IntoParam<'a, MediaBreak>>(&self, mediabreak: Param0) -> ::windows::core::Result<()> {
+    pub fn InsertMidrollBreak<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaBreak>>>(&self, mediabreak: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InsertMidrollBreak)(::windows::core::Interface::as_raw(this), mediabreak.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InsertMidrollBreak)(::windows::core::Interface::as_raw(this), mediabreak.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn RemoveMidrollBreak<'a, Param0: ::windows::core::IntoParam<'a, MediaBreak>>(&self, mediabreak: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMidrollBreak<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaBreak>>>(&self, mediabreak: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMidrollBreak)(::windows::core::Interface::as_raw(this), mediabreak.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMidrollBreak)(::windows::core::Interface::as_raw(this), mediabreak.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2637,9 +2575,9 @@ impl MediaBreakSchedule {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetPrerollBreak<'a, Param0: ::windows::core::IntoParam<'a, MediaBreak>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPrerollBreak<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaBreak>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPrerollBreak)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPrerollBreak)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn PrerollBreak(&self) -> ::windows::core::Result<MediaBreak> {
@@ -2650,9 +2588,9 @@ impl MediaBreakSchedule {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetPostrollBreak<'a, Param0: ::windows::core::IntoParam<'a, MediaBreak>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPostrollBreak<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaBreak>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPostrollBreak)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPostrollBreak)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn PostrollBreak(&self) -> ::windows::core::Result<MediaBreak> {
@@ -2711,14 +2649,9 @@ impl ::core::convert::From<&MediaBreakSchedule> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreakSchedule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreakSchedule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakSchedule> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreakSchedule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreakSchedule> for ::windows::core::IInspectable {
@@ -2731,14 +2664,9 @@ impl ::core::convert::From<&MediaBreakSchedule> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreakSchedule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreakSchedule {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakSchedule> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreakSchedule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreakSchedule {}
@@ -2815,14 +2743,9 @@ impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreakSeekedOverEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreakSeekedOverEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreakSeekedOverEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreakSeekedOverEventArgs> for ::windows::core::IInspectable {
@@ -2835,14 +2758,9 @@ impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for ::windows::core::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreakSeekedOverEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreakSeekedOverEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakSeekedOverEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreakSeekedOverEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreakSeekedOverEventArgs {}
@@ -2900,14 +2818,9 @@ impl ::core::convert::From<&MediaBreakSkippedEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreakSkippedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreakSkippedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakSkippedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreakSkippedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreakSkippedEventArgs> for ::windows::core::IInspectable {
@@ -2920,14 +2833,9 @@ impl ::core::convert::From<&MediaBreakSkippedEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreakSkippedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreakSkippedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakSkippedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreakSkippedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreakSkippedEventArgs {}
@@ -2985,14 +2893,9 @@ impl ::core::convert::From<&MediaBreakStartedEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaBreakStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaBreakStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakStartedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaBreakStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaBreakStartedEventArgs> for ::windows::core::IInspectable {
@@ -3005,14 +2908,9 @@ impl ::core::convert::From<&MediaBreakStartedEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaBreakStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaBreakStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaBreakStartedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaBreakStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaBreakStartedEventArgs {}
@@ -3065,9 +2963,9 @@ impl MediaItemDisplayProperties {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetType(&self, value: super::MediaPlaybackType) -> ::windows::core::Result<()> {
+    pub fn SetType<'a, Param0: ::std::convert::Into<super::MediaPlaybackType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn MusicProperties(&self) -> ::windows::core::Result<super::MusicDisplayProperties> {
@@ -3096,9 +2994,9 @@ impl MediaItemDisplayProperties {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetThumbnail<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Storage::Streams::RandomAccessStreamReference>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn ClearAll(&self) -> ::windows::core::Result<()> {
@@ -3146,14 +3044,9 @@ impl ::core::convert::From<&MediaItemDisplayProperties> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaItemDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaItemDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaItemDisplayProperties> for &::windows::core::IUnknown {
+    fn from(value: &MediaItemDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaItemDisplayProperties> for ::windows::core::IInspectable {
@@ -3166,14 +3059,9 @@ impl ::core::convert::From<&MediaItemDisplayProperties> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaItemDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaItemDisplayProperties {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaItemDisplayProperties> for &::windows::core::IInspectable {
+    fn from(value: &MediaItemDisplayProperties) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaItemDisplayProperties {}
@@ -3195,18 +3083,18 @@ impl MediaPlaybackAudioTrackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn SelectedIndexChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SelectedIndexChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedIndexChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SelectedIndexChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn RemoveSelectedIndexChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectedIndexChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectedIndexChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
@@ -3243,11 +3131,11 @@ impl MediaPlaybackAudioTrackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::Core::AudioTrack>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::AudioTrack>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -3326,15 +3214,9 @@ impl ::core::convert::From<&MediaPlaybackAudioTrackList> for ::windows::core::IU
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackAudioTrackList> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackAudioTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3350,15 +3232,9 @@ impl ::core::convert::From<&MediaPlaybackAudioTrackList> for ::windows::core::II
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackAudioTrackList> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackAudioTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3376,15 +3252,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> for MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> for &MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::AudioTrack>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackAudioTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3402,15 +3274,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for super::Core::ISi
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::Core::ISingleSelectMediaTrackList> for MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Core::ISingleSelectMediaTrackList> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::Core::ISingleSelectMediaTrackList> for &MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Core::ISingleSelectMediaTrackList> {
-        ::core::convert::TryInto::<super::Core::ISingleSelectMediaTrackList>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<'a, super::Core::ISingleSelectMediaTrackList> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackAudioTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3428,15 +3296,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> for MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> for &MediaPlaybackAudioTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackAudioTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackAudioTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -3550,153 +3414,153 @@ impl MediaPlaybackCommandManager {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PlayReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPlayReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PlayReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPlayReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlayReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlayReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePlayReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlayReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlayReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlayReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PauseReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPauseReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PauseReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPauseReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PauseReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PauseReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePauseReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePauseReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePauseReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePauseReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NextReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerNextReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn NextReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerNextReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NextReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NextReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNextReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNextReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNextReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNextReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PreviousReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPreviousReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PreviousReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPreviousReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PreviousReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePreviousReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePreviousReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePreviousReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePreviousReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn FastForwardReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerFastForwardReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn FastForwardReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerFastForwardReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).FastForwardReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).FastForwardReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveFastForwardReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveFastForwardReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveFastForwardReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveFastForwardReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RewindReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRewindReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RewindReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRewindReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RewindReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RewindReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRewindReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRewindReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRewindReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRewindReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ShuffleReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerShuffleReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ShuffleReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerShuffleReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ShuffleReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ShuffleReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveShuffleReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveShuffleReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveShuffleReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveShuffleReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn AutoRepeatModeReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AutoRepeatModeReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AutoRepeatModeReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AutoRepeatModeReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAutoRepeatModeReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAutoRepeatModeReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAutoRepeatModeReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAutoRepeatModeReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PositionReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPositionReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PositionReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerPositionReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PositionReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PositionReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePositionReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePositionReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePositionReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePositionReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RateReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRateReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn RateReceived<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManager, MediaPlaybackCommandManagerRateReceivedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).RateReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RateReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveRateReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveRateReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRateReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRateReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManager {
@@ -3739,14 +3603,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManager> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManager> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManager> for ::windows::core::IInspectable {
@@ -3759,14 +3618,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManager> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManager> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManager {}
@@ -3846,14 +3700,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEve
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for ::windows::core::IInspectable {
@@ -3866,14 +3715,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEve
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
@@ -3907,24 +3751,24 @@ impl MediaPlaybackCommandManagerCommandBehavior {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetEnablingRule(&self, value: MediaCommandEnablingRule) -> ::windows::core::Result<()> {
+    pub fn SetEnablingRule<'a, Param0: ::std::convert::Into<MediaCommandEnablingRule>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnablingRule)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetEnablingRule)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsEnabledChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn IsEnabledChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackCommandManagerCommandBehavior, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveIsEnabledChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveIsEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveIsEnabledChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsEnabledChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
 }
 impl ::core::clone::Clone for MediaPlaybackCommandManagerCommandBehavior {
@@ -3967,14 +3811,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerCommandBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerCommandBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerCommandBehavior) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerCommandBehavior> for ::windows::core::IInspectable {
@@ -3987,14 +3826,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for ::wi
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerCommandBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerCommandBehavior {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerCommandBehavior> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerCommandBehavior) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerCommandBehavior {}
@@ -4066,14 +3900,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventA
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4086,14 +3915,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventA
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerFastForwardReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerFastForwardReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
@@ -4165,14 +3989,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerNextReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4185,14 +4004,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerNextReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerNextReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerNextReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerNextReceivedEventArgs {}
@@ -4264,14 +4078,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerPauseReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4284,14 +4093,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> f
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerPauseReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPauseReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerPauseReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
@@ -4363,14 +4167,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerPlayReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4383,14 +4182,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerPlayReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPlayReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerPlayReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
@@ -4471,14 +4265,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerPositionReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4491,14 +4280,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerPositionReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPositionReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerPositionReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
@@ -4570,14 +4354,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerPreviousReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4590,14 +4369,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerPreviousReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerPreviousReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerPreviousReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
@@ -4677,14 +4451,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerRateReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4697,14 +4466,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerRateReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerRateReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerRateReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRateReceivedEventArgs {}
@@ -4776,14 +4540,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerRewindReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4796,14 +4555,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerRewindReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerRewindReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerRewindReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
@@ -4883,14 +4637,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackCommandManagerShuffleReceivedEventArgs> for ::windows::core::IInspectable {
@@ -4903,14 +4652,9 @@ impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs>
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackCommandManagerShuffleReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackCommandManagerShuffleReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackCommandManagerShuffleReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
@@ -4921,48 +4665,48 @@ pub struct MediaPlaybackItem(::windows::core::IUnknown);
 impl MediaPlaybackItem {
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AudioTracksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn AudioTracksChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).AudioTracksChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AudioTracksChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioTracksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveAudioTracksChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioTracksChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioTracksChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn VideoTracksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VideoTracksChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).VideoTracksChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VideoTracksChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveVideoTracksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveVideoTracksChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoTracksChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoTracksChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn TimedMetadataTracksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn TimedMetadataTracksChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackItem, super::super::Foundation::Collections::IVectorChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).TimedMetadataTracksChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TimedMetadataTracksChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveTimedMetadataTracksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveTimedMetadataTracksChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTimedMetadataTracksChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTimedMetadataTracksChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
@@ -5048,9 +4792,9 @@ impl MediaPlaybackItem {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn ApplyDisplayProperties<'a, Param0: ::windows::core::IntoParam<'a, MediaItemDisplayProperties>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn ApplyDisplayProperties<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaItemDisplayProperties>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ApplyDisplayProperties)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ApplyDisplayProperties)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn IsDisabledInPlaybackList(&self) -> ::windows::core::Result<bool> {
@@ -5082,40 +4826,40 @@ impl MediaPlaybackItem {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetAutoLoadedDisplayProperties(&self, value: AutoLoadedDisplayPropertyKind) -> ::windows::core::Result<()> {
+    pub fn SetAutoLoadedDisplayProperties<'a, Param0: ::std::convert::Into<AutoLoadedDisplayPropertyKind>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackItem3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoLoadedDisplayProperties)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoLoadedDisplayProperties)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::Core::MediaSource>>(source: Param0) -> ::windows::core::Result<MediaPlaybackItem> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>>(source: Param0) -> ::windows::core::Result<MediaPlaybackItem> {
         Self::IMediaPlaybackItemFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn CreateWithStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::Core::MediaSource>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(source: Param0, starttime: Param1) -> ::windows::core::Result<MediaPlaybackItem> {
+    pub fn CreateWithStartTime<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>>(source: Param0, starttime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaPlaybackItem> {
         Self::IMediaPlaybackItemFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithStartTime)(::windows::core::Interface::as_raw(this), source.into_param().abi(), starttime.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithStartTime)(::windows::core::Interface::as_raw(this), source.into().abi(), starttime, result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn CreateWithStartTimeAndDurationLimit<'a, Param0: ::windows::core::IntoParam<'a, super::Core::MediaSource>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(source: Param0, starttime: Param1, durationlimit: Param2) -> ::windows::core::Result<MediaPlaybackItem> {
+    pub fn CreateWithStartTimeAndDurationLimit<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>>(source: Param0, starttime: super::super::Foundation::TimeSpan, durationlimit: super::super::Foundation::TimeSpan) -> ::windows::core::Result<MediaPlaybackItem> {
         Self::IMediaPlaybackItemFactory2(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithStartTimeAndDurationLimit)(::windows::core::Interface::as_raw(this), source.into_param().abi(), starttime.into_param().abi(), durationlimit.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithStartTimeAndDurationLimit)(::windows::core::Interface::as_raw(this), source.into().abi(), starttime, durationlimit, result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
-    pub fn FindFromMediaSource<'a, Param0: ::windows::core::IntoParam<'a, super::Core::MediaSource>>(source: Param0) -> ::windows::core::Result<MediaPlaybackItem> {
+    pub fn FindFromMediaSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::MediaSource>>>(source: Param0) -> ::windows::core::Result<MediaPlaybackItem> {
         Self::IMediaPlaybackItemStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindFromMediaSource)(::windows::core::Interface::as_raw(this), source.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
+            (::windows::core::Interface::vtable(this).FindFromMediaSource)(::windows::core::Interface::as_raw(this), source.into().abi(), result__.as_mut_ptr()).from_abi::<MediaPlaybackItem>(result__)
         })
     }
     #[doc(hidden)]
@@ -5174,14 +4918,9 @@ impl ::core::convert::From<&MediaPlaybackItem> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItem> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackItem> for ::windows::core::IInspectable {
@@ -5194,14 +4933,9 @@ impl ::core::convert::From<&MediaPlaybackItem> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackItem {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItem> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackItem) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MediaPlaybackItem> for IMediaPlaybackSource {
@@ -5216,14 +4950,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackItem> for IMediaPlaybackSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for MediaPlaybackItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaPlaybackSource> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for &MediaPlaybackItem {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaPlaybackSource> {
-        ::core::convert::TryInto::<IMediaPlaybackSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackItem> for ::windows::core::InParam<'a, IMediaPlaybackSource> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackItem) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItem {}
@@ -5325,14 +5056,9 @@ impl ::core::convert::From<&MediaPlaybackItemError> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackItemError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackItemError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItemError> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackItemError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackItemError> for ::windows::core::IInspectable {
@@ -5345,14 +5071,9 @@ impl ::core::convert::From<&MediaPlaybackItemError> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackItemError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackItemError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItemError> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackItemError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemError {}
@@ -5456,14 +5177,9 @@ impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackItemFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackItemFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackItemFailedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackItemFailedEventArgs> for ::windows::core::IInspectable {
@@ -5476,14 +5192,9 @@ impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackItemFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackItemFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItemFailedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackItemFailedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemFailedEventArgs {}
@@ -5541,14 +5252,9 @@ impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackItemOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackItemOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackItemOpenedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackItemOpenedEventArgs> for ::windows::core::IInspectable {
@@ -5561,14 +5267,9 @@ impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackItemOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackItemOpenedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackItemOpenedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackItemOpenedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackItemOpenedEventArgs {}
@@ -5586,48 +5287,48 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ItemFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemFailedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ItemFailed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemFailedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ItemFailed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ItemFailed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveItemFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveItemFailed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveItemFailed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveItemFailed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CurrentItemChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackList, CurrentMediaPlaybackItemChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CurrentItemChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackList, CurrentMediaPlaybackItemChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentItemChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CurrentItemChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveCurrentItemChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCurrentItemChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentItemChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentItemChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ItemOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemOpenedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn ItemOpened<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackList, MediaPlaybackItemOpenedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).ItemOpened)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ItemOpened)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveItemOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveItemOpened(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveItemOpened)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveItemOpened)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5715,9 +5416,9 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxPrefetchTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMaxPrefetchTime<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxPrefetchTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxPrefetchTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn StartingItem(&self) -> ::windows::core::Result<MediaPlaybackItem> {
@@ -5728,9 +5429,9 @@ impl MediaPlaybackList {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetStartingItem<'a, Param0: ::windows::core::IntoParam<'a, MediaPlaybackItem>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStartingItem<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, MediaPlaybackItem>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStartingItem)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStartingItem)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -5743,9 +5444,9 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetShuffledItems<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<MediaPlaybackItem>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetShuffledItems<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<MediaPlaybackItem>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetShuffledItems)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetShuffledItems)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5758,9 +5459,9 @@ impl MediaPlaybackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetMaxPlayedItemsToKeepOpen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMaxPlayedItemsToKeepOpen<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackList3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxPlayedItemsToKeepOpen)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MediaPlaybackList {
@@ -5803,14 +5504,9 @@ impl ::core::convert::From<&MediaPlaybackList> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackList> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackList> for ::windows::core::IInspectable {
@@ -5823,14 +5519,9 @@ impl ::core::convert::From<&MediaPlaybackList> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackList> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<MediaPlaybackList> for IMediaPlaybackSource {
@@ -5845,14 +5536,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackList> for IMediaPlaybackSource {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for MediaPlaybackList {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaPlaybackSource> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMediaPlaybackSource> for &MediaPlaybackList {
-    fn into_param(self) -> ::windows::core::Param<'a, IMediaPlaybackSource> {
-        ::core::convert::TryInto::<IMediaPlaybackSource>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackList> for ::windows::core::InParam<'a, IMediaPlaybackSource> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackList {}
@@ -5863,153 +5551,153 @@ pub struct MediaPlaybackSession(::windows::core::IUnknown);
 impl MediaPlaybackSession {
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PlaybackStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PlaybackStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlaybackStateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlaybackStateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePlaybackStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlaybackStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PlaybackRateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PlaybackRateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlaybackRateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlaybackRateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePlaybackRateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlaybackRateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackRateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackRateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SeekCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SeekCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SeekCompleted)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SeekCompleted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSeekCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSeekCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSeekCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSeekCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BufferingStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BufferingStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingStarted)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BufferingStarted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBufferingStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBufferingStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingStarted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BufferingEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BufferingEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingEnded)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BufferingEnded)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBufferingEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBufferingEnded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingEnded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BufferingProgressChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BufferingProgressChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingProgressChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BufferingProgressChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBufferingProgressChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBufferingProgressChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingProgressChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingProgressChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn DownloadProgressChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn DownloadProgressChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadProgressChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DownloadProgressChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveDownloadProgressChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveDownloadProgressChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadProgressChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadProgressChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NaturalDurationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn NaturalDurationChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NaturalDurationChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NaturalDurationChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNaturalDurationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNaturalDurationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNaturalDurationChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNaturalDurationChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PositionChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PositionChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PositionChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePositionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePositionChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePositionChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn NaturalVideoSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn NaturalVideoSizeChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).NaturalVideoSizeChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NaturalVideoSizeChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveNaturalVideoSizeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveNaturalVideoSizeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNaturalVideoSizeChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNaturalVideoSizeChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn MediaPlayer(&self) -> ::windows::core::Result<MediaPlayer> {
@@ -6039,9 +5727,9 @@ impl MediaPlaybackSession {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPosition(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn PlaybackState(&self) -> ::windows::core::Result<MediaPlaybackState> {
@@ -6131,9 +5819,9 @@ impl MediaPlaybackSession {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetNormalizedSourceRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetNormalizedSourceRect(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedSourceRect)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedSourceRect)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
@@ -6146,69 +5834,69 @@ impl MediaPlaybackSession {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetStereoscopicVideoPackingMode(&self, value: super::MediaProperties::StereoscopicVideoPackingMode) -> ::windows::core::Result<()> {
+    pub fn SetStereoscopicVideoPackingMode<'a, Param0: ::std::convert::Into<super::MediaProperties::StereoscopicVideoPackingMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoPackingMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoPackingMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn BufferedRangesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn BufferedRangesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BufferedRangesChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BufferedRangesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveBufferedRangesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveBufferedRangesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferedRangesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferedRangesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn PlayedRangesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PlayedRangesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlayedRangesChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlayedRangesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePlayedRangesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlayedRangesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlayedRangesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlayedRangesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SeekableRangesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SeekableRangesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SeekableRangesChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SeekableRangesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSeekableRangesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSeekableRangesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSeekableRangesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSeekableRangesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SupportedPlaybackRatesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SupportedPlaybackRatesChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackSession, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPlaybackRatesChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SupportedPlaybackRatesChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSupportedPlaybackRatesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSupportedPlaybackRatesChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSupportedPlaybackRatesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSupportedPlaybackRatesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn SphericalVideoProjection(&self) -> ::windows::core::Result<MediaPlaybackSphericalVideoProjection> {
@@ -6277,9 +5965,9 @@ impl MediaPlaybackSession {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetPlaybackRotation(&self, value: super::MediaProperties::MediaRotation) -> ::windows::core::Result<()> {
+    pub fn SetPlaybackRotation<'a, Param0: ::std::convert::Into<super::MediaProperties::MediaRotation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackSession3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackRotation)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPlaybackRotation)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn GetOutputDegradationPolicyState(&self) -> ::windows::core::Result<MediaPlaybackSessionOutputDegradationPolicyState> {
@@ -6330,14 +6018,9 @@ impl ::core::convert::From<&MediaPlaybackSession> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSession> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackSession> for ::windows::core::IInspectable {
@@ -6350,14 +6033,9 @@ impl ::core::convert::From<&MediaPlaybackSession> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSession> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSession {}
@@ -6415,14 +6093,9 @@ impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackSessionBufferingStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackSessionBufferingStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackSessionBufferingStartedEventArgs> for ::windows::core::IInspectable {
@@ -6435,14 +6108,9 @@ impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackSessionBufferingStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackSessionBufferingStartedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSessionBufferingStartedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackSessionBufferingStartedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSessionBufferingStartedEventArgs {}
@@ -6500,14 +6168,9 @@ impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackSessionOutputDegradationPolicyState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackSessionOutputDegradationPolicyState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackSessionOutputDegradationPolicyState> for ::windows::core::IInspectable {
@@ -6520,14 +6183,9 @@ impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> fo
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackSessionOutputDegradationPolicyState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackSessionOutputDegradationPolicyState {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSessionOutputDegradationPolicyState> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackSessionOutputDegradationPolicyState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSessionOutputDegradationPolicyState {}
@@ -6599,9 +6257,9 @@ impl MediaPlaybackSphericalVideoProjection {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_MediaProperties\"`*"]
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> ::windows::core::Result<()> {
+    pub fn SetFrameFormat<'a, Param0: ::std::convert::Into<super::MediaProperties::SphericalVideoFrameFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameFormat)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn HorizontalFieldOfViewInDegrees(&self) -> ::windows::core::Result<f64> {
@@ -6627,9 +6285,9 @@ impl MediaPlaybackSphericalVideoProjection {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetViewOrientation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Numerics::Quaternion>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetViewOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewOrientation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewOrientation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn ProjectionMode(&self) -> ::windows::core::Result<SphericalVideoProjectionMode> {
@@ -6640,9 +6298,9 @@ impl MediaPlaybackSphericalVideoProjection {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetProjectionMode(&self, value: SphericalVideoProjectionMode) -> ::windows::core::Result<()> {
+    pub fn SetProjectionMode<'a, Param0: ::std::convert::Into<SphericalVideoProjectionMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProjectionMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for MediaPlaybackSphericalVideoProjection {
@@ -6685,14 +6343,9 @@ impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackSphericalVideoProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackSphericalVideoProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackSphericalVideoProjection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlaybackSphericalVideoProjection> for ::windows::core::IInspectable {
@@ -6705,14 +6358,9 @@ impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for ::windows
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackSphericalVideoProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackSphericalVideoProjection {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackSphericalVideoProjection> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackSphericalVideoProjection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlaybackSphericalVideoProjection {}
@@ -6771,18 +6419,18 @@ impl MediaPlaybackTimedMetadataTrackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn PresentationModeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PresentationModeChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlaybackTimedMetadataTrackList, TimedMetadataPresentationModeChangedEventArgs>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PresentationModeChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PresentationModeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemovePresentationModeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePresentationModeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePresentationModeChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePresentationModeChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn GetPresentationMode(&self, index: u32) -> ::windows::core::Result<TimedMetadataTrackPresentationMode> {
@@ -6793,9 +6441,9 @@ impl MediaPlaybackTimedMetadataTrackList {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetPresentationMode(&self, index: u32, value: TimedMetadataTrackPresentationMode) -> ::windows::core::Result<()> {
+    pub fn SetPresentationMode<'a, Param1: ::std::convert::Into<TimedMetadataTrackPresentationMode>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlaybackTimedMetadataTrackList>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPresentationMode)(::windows::core::Interface::as_raw(this), index, value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPresentationMode)(::windows::core::Interface::as_raw(this), index, value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -6817,11 +6465,11 @@ impl MediaPlaybackTimedMetadataTrackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::Core::TimedMetadataTrack>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::TimedMetadataTrack>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -6900,15 +6548,9 @@ impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for ::windows::
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackTimedMetadataTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -6924,15 +6566,9 @@ impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for ::windows::
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackTimedMetadataTrackList> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackTimedMetadataTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -6950,15 +6586,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for super::s
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> for MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> for &MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::TimedMetadataTrack>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackTimedMetadataTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -6976,15 +6608,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for super::s
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> for MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> for &MediaPlaybackTimedMetadataTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackTimedMetadataTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackTimedMetadataTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7008,18 +6636,18 @@ impl MediaPlaybackVideoTrackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn SelectedIndexChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SelectedIndexChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<super::Core::ISingleSelectMediaTrackList, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SelectedIndexChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SelectedIndexChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))]
-    pub fn RemoveSelectedIndexChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSelectedIndexChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Core::ISingleSelectMediaTrackList>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectedIndexChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSelectedIndexChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`*"]
     #[cfg(feature = "Media_Core")]
@@ -7056,11 +6684,11 @@ impl MediaPlaybackVideoTrackList {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-    pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, super::Core::VideoTrack>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
+    pub fn IndexOf<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Core::VideoTrack>>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -7139,15 +6767,9 @@ impl ::core::convert::From<&MediaPlaybackVideoTrackList> for ::windows::core::IU
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackVideoTrackList> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlaybackVideoTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7163,15 +6785,9 @@ impl ::core::convert::From<&MediaPlaybackVideoTrackList> for ::windows::core::II
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlaybackVideoTrackList> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlaybackVideoTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7189,15 +6805,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> for MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> for &MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<super::Core::VideoTrack>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackVideoTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7215,15 +6827,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for super::Core::ISi
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::Core::ISingleSelectMediaTrackList> for MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Core::ISingleSelectMediaTrackList> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::Core::ISingleSelectMediaTrackList> for &MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::Core::ISingleSelectMediaTrackList> {
-        ::core::convert::TryInto::<super::Core::ISingleSelectMediaTrackList>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<'a, super::Core::ISingleSelectMediaTrackList> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackVideoTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7241,15 +6849,11 @@ impl ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for super::super::Fo
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> for MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> for &MediaPlaybackVideoTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlaybackVideoTrackList> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlaybackVideoTrackList) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_Core"))]
@@ -7306,9 +6910,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPosition(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPosition)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
@@ -7420,153 +7024,153 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MediaOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MediaOpened<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MediaOpened)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MediaOpened)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMediaOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMediaOpened(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaOpened)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaOpened)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn MediaEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MediaEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MediaEnded)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveMediaEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn MediaFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerFailedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MediaFailed)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MediaEnded)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveMediaFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMediaEnded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaFailed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn CurrentStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentStateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveCurrentStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentStateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn PlaybackMediaMarkerReached<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, PlaybackMediaMarkerReachedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).PlaybackMediaMarkerReached)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemovePlaybackMediaMarkerReached<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackMediaMarkerReached)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn MediaPlayerRateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerRateChangedEventArgs>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).MediaPlayerRateChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveMediaPlayerRateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaPlayerRateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaEnded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VolumeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MediaFailed<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerFailedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).VolumeChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MediaFailed)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveVolumeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMediaFailed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVolumeChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaFailed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SeekCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn CurrentStateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SeekCompleted)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CurrentStateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveSeekCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveCurrentStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSeekCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCurrentStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn BufferingStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn PlaybackMediaMarkerReached<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, PlaybackMediaMarkerReachedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingStarted)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlaybackMediaMarkerReached)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveBufferingStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemovePlaybackMediaMarkerReached(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackMediaMarkerReached)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn BufferingEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn MediaPlayerRateChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, MediaPlayerRateChangedEventArgs>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).BufferingEnded)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MediaPlayerRateChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn RemoveBufferingEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveMediaPlayerRateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMediaPlayerRateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn VolumeChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            (::windows::core::Interface::vtable(this).VolumeChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveVolumeChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVolumeChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn SeekCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            (::windows::core::Interface::vtable(this).SeekCompleted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn RemoveSeekCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSeekCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn BufferingStarted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            (::windows::core::Interface::vtable(this).BufferingStarted)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn RemoveBufferingStarted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingStarted)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn BufferingEnded<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
+            (::windows::core::Interface::vtable(this).BufferingEnded)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub fn RemoveBufferingEnded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBufferingEnded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn Play(&self) -> ::windows::core::Result<()> {
@@ -7580,9 +7184,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub fn SetUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetUriSource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUriSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUriSource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn SystemMediaTransportControls(&self) -> ::windows::core::Result<super::SystemMediaTransportControls> {
@@ -7601,9 +7205,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetAudioCategory(&self, value: MediaPlayerAudioCategory) -> ::windows::core::Result<()> {
+    pub fn SetAudioCategory<'a, Param0: ::std::convert::Into<MediaPlayerAudioCategory>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioCategory)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioCategory)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn AudioDeviceType(&self) -> ::windows::core::Result<MediaPlayerAudioDeviceType> {
@@ -7614,39 +7218,39 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetAudioDeviceType(&self, value: MediaPlayerAudioDeviceType) -> ::windows::core::Result<()> {
+    pub fn SetAudioDeviceType<'a, Param0: ::std::convert::Into<MediaPlayerAudioDeviceType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceType)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioDeviceType)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn IsMutedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn IsMutedChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).IsMutedChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).IsMutedChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveIsMutedChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveIsMutedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveIsMutedChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveIsMutedChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SourceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SourceChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SourceChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSourceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSourceChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn AudioBalance(&self) -> ::windows::core::Result<f64> {
@@ -7683,9 +7287,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetStereoscopicVideoRenderMode(&self, value: StereoscopicVideoRenderMode) -> ::windows::core::Result<()> {
+    pub fn SetStereoscopicVideoRenderMode<'a, Param0: ::std::convert::Into<StereoscopicVideoRenderMode>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoRenderMode)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStereoscopicVideoRenderMode)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn BreakManager(&self) -> ::windows::core::Result<MediaBreakManager> {
@@ -7714,9 +7318,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn SetAudioDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Devices::Enumeration::DeviceInformation>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetAudioDevice<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Enumeration::DeviceInformation>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioDevice)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioDevice)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn TimelineController(&self) -> ::windows::core::Result<super::MediaTimelineController> {
@@ -7727,9 +7331,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetTimelineController<'a, Param0: ::windows::core::IntoParam<'a, super::MediaTimelineController>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTimelineController<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::MediaTimelineController>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimelineController)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTimelineController)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7742,9 +7346,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetTimelineControllerPositionOffset<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetTimelineControllerPositionOffset(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTimelineControllerPositionOffset)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTimelineControllerPositionOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn PlaybackSession(&self) -> ::windows::core::Result<MediaPlaybackSession> {
@@ -7775,33 +7379,33 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetSurfaceSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, size: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSurfaceSize(&self, size: super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSurfaceSize)(::windows::core::Interface::as_raw(this), size.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSurfaceSize)(::windows::core::Interface::as_raw(this), size).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"UI_Composition\"`*"]
     #[cfg(feature = "UI_Composition")]
-    pub fn GetSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Composition::Compositor>>(&self, compositor: Param0) -> ::windows::core::Result<MediaPlayerSurface> {
+    pub fn GetSurface<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::UI::Composition::Compositor>>>(&self, compositor: Param0) -> ::windows::core::Result<MediaPlayerSurface> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer4>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetSurface)(::windows::core::Interface::as_raw(this), compositor.into_param().abi(), result__.as_mut_ptr()).from_abi::<MediaPlayerSurface>(result__)
+            (::windows::core::Interface::vtable(this).GetSurface)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<MediaPlayerSurface>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn VideoFrameAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn VideoFrameAvailable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, value: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).VideoFrameAvailable)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).VideoFrameAvailable)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveVideoFrameAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveVideoFrameAvailable(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoFrameAvailable)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveVideoFrameAvailable)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn IsVideoFrameServerEnabled(&self) -> ::windows::core::Result<bool> {
@@ -7818,53 +7422,53 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CopyFrameToVideoSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(&self, destination: Param0) -> ::windows::core::Result<()> {
+    pub fn CopyFrameToVideoSurface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, destination: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).CopyFrameToVideoSurface)(::windows::core::Interface::as_raw(this), destination.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CopyFrameToVideoSurface)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn CopyFrameToVideoSurfaceWithTargetRectangle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, destination: Param0, targetrectangle: Param1) -> ::windows::core::Result<()> {
+    pub fn CopyFrameToVideoSurfaceWithTargetRectangle<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, destination: Param0, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).CopyFrameToVideoSurfaceWithTargetRectangle)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), targetrectangle.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CopyFrameToVideoSurfaceWithTargetRectangle)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), targetrectangle).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CopyFrameToStereoscopicVideoSurfaces<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(&self, destinationlefteye: Param0, destinationrighteye: Param1) -> ::windows::core::Result<()> {
+    pub fn CopyFrameToStereoscopicVideoSurfaces<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, destinationlefteye: Param0, destinationrighteye: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).CopyFrameToStereoscopicVideoSurfaces)(::windows::core::Interface::as_raw(this), destinationlefteye.into_param().abi(), destinationrighteye.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CopyFrameToStereoscopicVideoSurfaces)(::windows::core::Interface::as_raw(this), destinationlefteye.try_into().map_err(|e| e.into())?.abi(), destinationrighteye.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SubtitleFrameChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
+    pub fn SubtitleFrameChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<MediaPlayer, ::windows::core::IInspectable>>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::EventRegistrationToken>::zeroed();
-            (::windows::core::Interface::vtable(this).SubtitleFrameChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SubtitleFrameChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn RemoveSubtitleFrameChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
+    pub fn RemoveSubtitleFrameChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSubtitleFrameChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSubtitleFrameChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn RenderSubtitlesToSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>>(&self, destination: Param0) -> ::windows::core::Result<bool> {
+    pub fn RenderSubtitlesToSurface<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, destination: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderSubtitlesToSurface)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RenderSubtitlesToSurface)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))]
-    pub fn RenderSubtitlesToSurfaceWithTargetRectangle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, destination: Param0, targetrectangle: Param1) -> ::windows::core::Result<bool> {
+    pub fn RenderSubtitlesToSurfaceWithTargetRectangle<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, destination: Param0, targetrectangle: super::super::Foundation::Rect) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMediaPlayer6>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
-            (::windows::core::Interface::vtable(this).RenderSubtitlesToSurfaceWithTargetRectangle)(::windows::core::Interface::as_raw(this), destination.into_param().abi(), targetrectangle.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RenderSubtitlesToSurfaceWithTargetRectangle)(::windows::core::Interface::as_raw(this), destination.try_into().map_err(|e| e.into())?.abi(), targetrectangle, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Audio\"`*"]
@@ -7878,9 +7482,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAudioEffect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, effectoptional: bool, configuration: Param2) -> ::windows::core::Result<()> {
+    pub fn AddAudioEffect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, effectoptional: bool, configuration: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), effectoptional, configuration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), effectoptional, configuration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn RemoveAllEffects(&self) -> ::windows::core::Result<()> {
@@ -7889,9 +7493,9 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddVideoEffect<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, activatableclassid: Param0, effectoptional: bool, effectconfiguration: Param2) -> ::windows::core::Result<()> {
+    pub fn AddVideoEffect<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E2>, E2: ::std::convert::Into<::windows::core::Error>>(&self, activatableclassid: Param0, effectoptional: bool, effectconfiguration: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerEffects2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), effectoptional, effectconfiguration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), activatableclassid.into().abi(), effectoptional, effectconfiguration.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Protection\"`*"]
     #[cfg(feature = "Media_Protection")]
@@ -7904,27 +7508,27 @@ impl MediaPlayer {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Protection\"`*"]
     #[cfg(feature = "Media_Protection")]
-    pub fn SetProtectionManager<'a, Param0: ::windows::core::IntoParam<'a, super::Protection::MediaProtectionManager>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetProtectionManager<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Protection::MediaProtectionManager>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtectionManager)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtectionManager)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Storage\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub fn SetFileSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<()> {
+    pub fn SetFileSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, file: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFileSource)(::windows::core::Interface::as_raw(this), file.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFileSource)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "deprecated"))]
-    pub fn SetStreamSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, stream: Param0) -> ::windows::core::Result<()> {
+    pub fn SetStreamSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, stream: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStreamSource)(::windows::core::Interface::as_raw(this), stream.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStreamSource)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Media_Core\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Media_Core", feature = "deprecated"))]
-    pub fn SetMediaSource<'a, Param0: ::windows::core::IntoParam<'a, super::Core::IMediaSource>>(&self, source: Param0) -> ::windows::core::Result<()> {
+    pub fn SetMediaSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::Core::IMediaSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMediaSource)(::windows::core::Interface::as_raw(this), source.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMediaSource)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<IMediaPlaybackSource> {
@@ -7935,9 +7539,9 @@ impl MediaPlayer {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, IMediaPlaybackSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetSource<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IMediaPlaybackSource>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMediaPlayerSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::clone::Clone for MediaPlayer {
@@ -7980,14 +7584,9 @@ impl ::core::convert::From<&MediaPlayer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayer> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlayer> for ::windows::core::IInspectable {
@@ -8000,14 +7599,9 @@ impl ::core::convert::From<&MediaPlayer> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayer> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlayer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -8025,15 +7619,11 @@ impl ::core::convert::TryFrom<&MediaPlayer> for super::super::Foundation::IClosa
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for MediaPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &MediaPlayer {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlayer> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlayer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MediaPlayer {}
@@ -8169,14 +7759,9 @@ impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlayerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlayerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlayerDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlayerDataReceivedEventArgs> for ::windows::core::IInspectable {
@@ -8189,14 +7774,9 @@ impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for ::windows::cor
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlayerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlayerDataReceivedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerDataReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlayerDataReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlayerDataReceivedEventArgs {}
@@ -8307,14 +7887,9 @@ impl ::core::convert::From<&MediaPlayerFailedEventArgs> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlayerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlayerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerFailedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlayerFailedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlayerFailedEventArgs> for ::windows::core::IInspectable {
@@ -8327,14 +7902,9 @@ impl ::core::convert::From<&MediaPlayerFailedEventArgs> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlayerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlayerFailedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerFailedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlayerFailedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlayerFailedEventArgs {}
@@ -8392,14 +7962,9 @@ impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlayerRateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlayerRateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlayerRateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlayerRateChangedEventArgs> for ::windows::core::IInspectable {
@@ -8412,14 +7977,9 @@ impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for ::windows::core
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlayerRateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlayerRateChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerRateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlayerRateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for MediaPlayerRateChangedEventArgs {}
@@ -8547,14 +8107,9 @@ impl ::core::convert::From<&MediaPlayerSurface> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for MediaPlayerSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a MediaPlayerSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerSurface> for &::windows::core::IUnknown {
+    fn from(value: &MediaPlayerSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<MediaPlayerSurface> for ::windows::core::IInspectable {
@@ -8567,14 +8122,9 @@ impl ::core::convert::From<&MediaPlayerSurface> for ::windows::core::IInspectabl
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for MediaPlayerSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a MediaPlayerSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&MediaPlayerSurface> for &::windows::core::IInspectable {
+    fn from(value: &MediaPlayerSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -8592,15 +8142,11 @@ impl ::core::convert::TryFrom<&MediaPlayerSurface> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for MediaPlayerSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &MediaPlayerSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&MediaPlayerSurface> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &MediaPlayerSurface) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for MediaPlayerSurface {}
@@ -8636,18 +8182,18 @@ impl PlaybackMediaMarker {
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(value: Param0) -> ::windows::core::Result<PlaybackMediaMarker> {
+    pub fn CreateFromTime(value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<PlaybackMediaMarker> {
         Self::IPlaybackMediaMarkerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromTime)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromTime)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Playback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0, mediamarkettype: Param1, text: Param2) -> ::windows::core::Result<PlaybackMediaMarker> {
+    pub fn Create<'a, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(value: super::super::Foundation::TimeSpan, mediamarkettype: Param1, text: Param2) -> ::windows::core::Result<PlaybackMediaMarker> {
         Self::IPlaybackMediaMarkerFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value.into_param().abi(), mediamarkettype.into_param().abi(), text.into_param().abi(), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), value, mediamarkettype.into().abi(), text.into().abi(), result__.as_mut_ptr()).from_abi::<PlaybackMediaMarker>(result__)
         })
     }
     #[doc(hidden)]
@@ -8696,14 +8242,9 @@ impl ::core::convert::From<&PlaybackMediaMarker> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaybackMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaybackMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackMediaMarker> for &::windows::core::IUnknown {
+    fn from(value: &PlaybackMediaMarker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaybackMediaMarker> for ::windows::core::IInspectable {
@@ -8716,14 +8257,9 @@ impl ::core::convert::From<&PlaybackMediaMarker> for ::windows::core::IInspectab
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaybackMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaybackMediaMarker {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackMediaMarker> for &::windows::core::IInspectable {
+    fn from(value: &PlaybackMediaMarker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlaybackMediaMarker {}
@@ -8781,14 +8317,9 @@ impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaybackMediaMarkerReachedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaybackMediaMarkerReachedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &PlaybackMediaMarkerReachedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaybackMediaMarkerReachedEventArgs> for ::windows::core::IInspectable {
@@ -8801,14 +8332,9 @@ impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for ::windows::
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaybackMediaMarkerReachedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaybackMediaMarkerReachedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackMediaMarkerReachedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &PlaybackMediaMarkerReachedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for PlaybackMediaMarkerReachedEventArgs {}
@@ -8835,9 +8361,9 @@ impl PlaybackMediaMarkerSequence {
         }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
-    pub fn Insert<'a, Param0: ::windows::core::IntoParam<'a, PlaybackMediaMarker>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn Insert<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, PlaybackMediaMarker>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Playback\"`*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
@@ -8901,14 +8427,9 @@ impl ::core::convert::From<&PlaybackMediaMarkerSequence> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for PlaybackMediaMarkerSequence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a PlaybackMediaMarkerSequence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackMediaMarkerSequence> for &::windows::core::IUnknown {
+    fn from(value: &PlaybackMediaMarkerSequence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<PlaybackMediaMarkerSequence> for ::windows::core::IInspectable {
@@ -8921,14 +8442,9 @@ impl ::core::convert::From<&PlaybackMediaMarkerSequence> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for PlaybackMediaMarkerSequence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a PlaybackMediaMarkerSequence {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&PlaybackMediaMarkerSequence> for &::windows::core::IInspectable {
+    fn from(value: &PlaybackMediaMarkerSequence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -8946,15 +8462,11 @@ impl ::core::convert::TryFrom<&PlaybackMediaMarkerSequence> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> for PlaybackMediaMarkerSequence {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> for &PlaybackMediaMarkerSequence {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> {
-        ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&PlaybackMediaMarkerSequence> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<PlaybackMediaMarker>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &PlaybackMediaMarkerSequence) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for PlaybackMediaMarkerSequence {}
@@ -9097,14 +8609,9 @@ impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TimedMetadataPresentationModeChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TimedMetadataPresentationModeChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &TimedMetadataPresentationModeChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TimedMetadataPresentationModeChangedEventArgs> for ::windows::core::IInspectable {
@@ -9117,14 +8624,9 @@ impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for :
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TimedMetadataPresentationModeChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TimedMetadataPresentationModeChangedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TimedMetadataPresentationModeChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &TimedMetadataPresentationModeChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TimedMetadataPresentationModeChangedEventArgs {}

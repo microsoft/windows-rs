@@ -40,19 +40,14 @@ impl ::core::convert::From<IUIAnimationInterpolator> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationInterpolator> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationInterpolator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationInterpolator> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationInterpolator) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationInterpolator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationInterpolator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationInterpolator {
@@ -122,8 +117,8 @@ impl IUIAnimationInterpolator2 {
         (::windows::core::Interface::vtable(self).InterpolateVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(offset), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(velocity)), velocity.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn GetPrimitiveInterpolation<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPrimitiveInterpolation>>(&self, interpolation: Param0, cdimension: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrimitiveInterpolation)(::windows::core::Interface::as_raw(self), interpolation.into_param().abi(), ::core::mem::transmute(cdimension)).ok()
+    pub unsafe fn GetPrimitiveInterpolation<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPrimitiveInterpolation>>>(&self, interpolation: Param0, cdimension: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPrimitiveInterpolation)(::windows::core::Interface::as_raw(self), interpolation.into().abi(), ::core::mem::transmute(cdimension)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetDependencies(&self, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::Result<()> {
@@ -135,19 +130,14 @@ impl ::core::convert::From<IUIAnimationInterpolator2> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationInterpolator2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationInterpolator2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationInterpolator2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationInterpolator2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationInterpolator2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationInterpolator2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationInterpolator2 {
@@ -189,8 +179,8 @@ pub struct IUIAnimationInterpolator2_Vtbl {
 pub struct IUIAnimationLoopIterationChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationLoopIterationChangeHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnLoopIterationChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>>(&self, storyboard: Param0, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnLoopIterationChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(newiterationcount), ::core::mem::transmute(olditerationcount)).ok()
+    pub unsafe fn OnLoopIterationChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>>(&self, storyboard: Param0, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnLoopIterationChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(newiterationcount), ::core::mem::transmute(olditerationcount)).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationLoopIterationChangeHandler2> for ::windows::core::IUnknown {
@@ -198,19 +188,14 @@ impl ::core::convert::From<IUIAnimationLoopIterationChangeHandler2> for ::window
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationLoopIterationChangeHandler2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationLoopIterationChangeHandler2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationLoopIterationChangeHandler2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationLoopIterationChangeHandler2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationLoopIterationChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationLoopIterationChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationLoopIterationChangeHandler2 {
@@ -249,8 +234,8 @@ impl IUIAnimationManager {
         (::windows::core::Interface::vtable(self).CreateAnimationVariable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn ScheduleTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition>>(&self, variable: Param0, transition: Param1, timenow: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), ::core::mem::transmute(timenow)).ok()
+    pub unsafe fn ScheduleTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition>>>(&self, variable: Param0, transition: Param1, timenow: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), ::core::mem::transmute(timenow)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard> {
@@ -271,14 +256,14 @@ impl IUIAnimationManager {
         (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn GetVariableFromTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationVariable> {
+    pub unsafe fn GetVariableFromTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationVariable> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
+        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn GetStoryboardFromTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard> {
+    pub unsafe fn GetStoryboardFromTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard>(result__)
+        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<UI_ANIMATION_MANAGER_STATUS> {
@@ -286,8 +271,8 @@ impl IUIAnimationManager {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_MANAGER_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetAnimationMode<'a, Param0: ::std::convert::Into<UI_ANIMATION_MODE>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
@@ -298,24 +283,24 @@ impl IUIAnimationManager {
         (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetManagerEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationManagerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManagerEventHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetManagerEventHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationManagerEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetManagerEventHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetCancelPriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCancelPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetCancelPriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCancelPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTrimPriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrimPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetTrimPriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTrimPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetCompressPriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompressPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetCompressPriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCompressPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetConcludePriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConcludePriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetConcludePriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConcludePriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
@@ -331,19 +316,14 @@ impl ::core::convert::From<IUIAnimationManager> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationManager> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationManager> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationManager {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationManager {
@@ -405,8 +385,8 @@ impl IUIAnimationManager2 {
         (::windows::core::Interface::vtable(self).CreateAnimationVariable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn ScheduleTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition2>>(&self, variable: Param0, transition: Param1, timenow: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), ::core::mem::transmute(timenow)).ok()
+    pub unsafe fn ScheduleTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition2>>>(&self, variable: Param0, transition: Param1, timenow: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ScheduleTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), ::core::mem::transmute(timenow)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateStoryboard(&self) -> ::windows::core::Result<IUIAnimationStoryboard2> {
@@ -427,14 +407,14 @@ impl IUIAnimationManager2 {
         (::windows::core::Interface::vtable(self).Update)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn GetVariableFromTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationVariable2> {
+    pub unsafe fn GetVariableFromTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationVariable2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
+        (::windows::core::Interface::vtable(self).GetVariableFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationVariable2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn GetStoryboardFromTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2> {
+    pub unsafe fn GetStoryboardFromTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<IUIAnimationStoryboard2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard2>(result__)
+        (::windows::core::Interface::vtable(self).GetStoryboardFromTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationStoryboard2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn EstimateNextEventTime(&self) -> ::windows::core::Result<f64> {
@@ -447,8 +427,8 @@ impl IUIAnimationManager2 {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_MANAGER_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetAnimationMode(&self, mode: UI_ANIMATION_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetAnimationMode<'a, Param0: ::std::convert::Into<UI_ANIMATION_MODE>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAnimationMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
@@ -460,24 +440,24 @@ impl IUIAnimationManager2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetManagerEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationManagerEventHandler2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterfornextanimationevent: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManagerEventHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi(), fregisterfornextanimationevent.into_param().abi()).ok()
+    pub unsafe fn SetManagerEventHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationManagerEventHandler2>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterfornextanimationevent: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetManagerEventHandler)(::windows::core::Interface::as_raw(self), handler.into().abi(), fregisterfornextanimationevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetCancelPriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison2>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCancelPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetCancelPriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison2>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCancelPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTrimPriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison2>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrimPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetTrimPriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison2>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTrimPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetCompressPriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison2>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompressPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetCompressPriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison2>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCompressPriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetConcludePriorityComparison<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationPriorityComparison2>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConcludePriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into_param().abi()).ok()
+    pub unsafe fn SetConcludePriorityComparison<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationPriorityComparison2>>>(&self, comparison: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConcludePriorityComparison)(::windows::core::Interface::as_raw(self), comparison.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetDefaultLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
@@ -493,19 +473,14 @@ impl ::core::convert::From<IUIAnimationManager2> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationManager2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationManager2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationManager2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationManager2 {
@@ -562,8 +537,8 @@ pub struct IUIAnimationManager2_Vtbl {
 pub struct IUIAnimationManagerEventHandler(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+    pub unsafe fn OnManagerStatusChanged<'a, Param0: ::std::convert::Into<UI_ANIMATION_MANAGER_STATUS>, Param1: ::std::convert::Into<UI_ANIMATION_MANAGER_STATUS>>(&self, newstatus: Param0, previousstatus: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), newstatus.into(), previousstatus.into()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationManagerEventHandler> for ::windows::core::IUnknown {
@@ -571,19 +546,14 @@ impl ::core::convert::From<IUIAnimationManagerEventHandler> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationManagerEventHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationManagerEventHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationManagerEventHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationManagerEventHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationManagerEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationManagerEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationManagerEventHandler {
@@ -617,8 +587,8 @@ pub struct IUIAnimationManagerEventHandler_Vtbl {
 pub struct IUIAnimationManagerEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnManagerStatusChanged(&self, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+    pub unsafe fn OnManagerStatusChanged<'a, Param0: ::std::convert::Into<UI_ANIMATION_MANAGER_STATUS>, Param1: ::std::convert::Into<UI_ANIMATION_MANAGER_STATUS>>(&self, newstatus: Param0, previousstatus: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnManagerStatusChanged)(::windows::core::Interface::as_raw(self), newstatus.into(), previousstatus.into()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationManagerEventHandler2> for ::windows::core::IUnknown {
@@ -626,19 +596,14 @@ impl ::core::convert::From<IUIAnimationManagerEventHandler2> for ::windows::core
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationManagerEventHandler2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationManagerEventHandler2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationManagerEventHandler2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationManagerEventHandler2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationManagerEventHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationManagerEventHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationManagerEventHandler2 {
@@ -685,19 +650,14 @@ impl ::core::convert::From<IUIAnimationPrimitiveInterpolation> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationPrimitiveInterpolation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationPrimitiveInterpolation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationPrimitiveInterpolation> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationPrimitiveInterpolation) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationPrimitiveInterpolation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationPrimitiveInterpolation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationPrimitiveInterpolation {
@@ -732,8 +692,8 @@ pub struct IUIAnimationPrimitiveInterpolation_Vtbl {
 pub struct IUIAnimationPriorityComparison(::windows::core::IUnknown);
 impl IUIAnimationPriorityComparison {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn HasPriority<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard>, Param1: ::windows::core::IntoParam<'a, IUIAnimationStoryboard>>(&self, scheduledstoryboard: Param0, newstoryboard: Param1, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into_param().abi(), newstoryboard.into_param().abi(), ::core::mem::transmute(priorityeffect)).ok()
+    pub unsafe fn HasPriority<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>, Param2: ::std::convert::Into<UI_ANIMATION_PRIORITY_EFFECT>>(&self, scheduledstoryboard: Param0, newstoryboard: Param1, priorityeffect: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect.into()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationPriorityComparison> for ::windows::core::IUnknown {
@@ -741,19 +701,14 @@ impl ::core::convert::From<IUIAnimationPriorityComparison> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationPriorityComparison> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationPriorityComparison) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationPriorityComparison> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationPriorityComparison) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationPriorityComparison {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationPriorityComparison {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationPriorityComparison {
@@ -787,8 +742,8 @@ pub struct IUIAnimationPriorityComparison_Vtbl {
 pub struct IUIAnimationPriorityComparison2(::windows::core::IUnknown);
 impl IUIAnimationPriorityComparison2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn HasPriority<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>>(&self, scheduledstoryboard: Param0, newstoryboard: Param1, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into_param().abi(), newstoryboard.into_param().abi(), ::core::mem::transmute(priorityeffect)).ok()
+    pub unsafe fn HasPriority<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>, Param2: ::std::convert::Into<UI_ANIMATION_PRIORITY_EFFECT>>(&self, scheduledstoryboard: Param0, newstoryboard: Param1, priorityeffect: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HasPriority)(::windows::core::Interface::as_raw(self), scheduledstoryboard.into().abi(), newstoryboard.into().abi(), priorityeffect.into()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationPriorityComparison2> for ::windows::core::IUnknown {
@@ -796,19 +751,14 @@ impl ::core::convert::From<IUIAnimationPriorityComparison2> for ::windows::core:
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationPriorityComparison2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationPriorityComparison2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationPriorityComparison2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationPriorityComparison2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationPriorityComparison2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationPriorityComparison2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationPriorityComparison2 {
@@ -842,34 +792,34 @@ pub struct IUIAnimationPriorityComparison2_Vtbl {
 pub struct IUIAnimationStoryboard(::windows::core::IUnknown);
 impl IUIAnimationStoryboard {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition>>(&self, variable: Param0, transition: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTransition)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi()).ok()
+    pub unsafe fn AddTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition>>>(&self, variable: Param0, transition: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddKeyframeAtOffset<'a, Param0: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, existingkeyframe: Param0, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
+    pub unsafe fn AddKeyframeAtOffset<'a, Param0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, existingkeyframe: Param0, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_KEYFRAME>::zeroed();
-        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
+        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into(), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddKeyframeAfterTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationTransition>>(&self, transition: Param0) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
+    pub unsafe fn AddKeyframeAfterTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition>>>(&self, transition: Param0) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_KEYFRAME>::zeroed();
-        (::windows::core::Interface::vtable(self).AddKeyframeAfterTransition)(::windows::core::Interface::as_raw(self), transition.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
+        (::windows::core::Interface::vtable(self).AddKeyframeAfterTransition)(::windows::core::Interface::as_raw(self), transition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddTransitionAtKeyframe<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition>, Param2: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTransitionAtKeyframe)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), startkeyframe.into_param().abi()).ok()
+    pub unsafe fn AddTransitionAtKeyframe<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition>>, Param2: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTransitionAtKeyframe)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), startkeyframe.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddTransitionBetweenKeyframes<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition>, Param2: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>, Param3: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2, endkeyframe: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTransitionBetweenKeyframes)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), startkeyframe.into_param().abi(), endkeyframe.into_param().abi()).ok()
+    pub unsafe fn AddTransitionBetweenKeyframes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition>>, Param2: ::std::convert::Into<UI_ANIMATION_KEYFRAME>, Param3: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2, endkeyframe: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTransitionBetweenKeyframes)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), startkeyframe.into(), endkeyframe.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn RepeatBetweenKeyframes<'a, Param0: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>, Param1: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, startkeyframe: Param0, endkeyframe: Param1, repetitioncount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into_param().abi(), endkeyframe.into_param().abi(), ::core::mem::transmute(repetitioncount)).ok()
+    pub unsafe fn RepeatBetweenKeyframes<'a, Param0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>, Param1: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, startkeyframe: Param0, endkeyframe: Param1, repetitioncount: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into(), endkeyframe.into(), ::core::mem::transmute(repetitioncount)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn HoldVariable<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable>>(&self, variable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HoldVariable)(::windows::core::Interface::as_raw(self), variable.into_param().abi()).ok()
+    pub unsafe fn HoldVariable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>>(&self, variable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HoldVariable)(::windows::core::Interface::as_raw(self), variable.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
@@ -893,8 +843,8 @@ impl IUIAnimationStoryboard {
         (::windows::core::Interface::vtable(self).Abandon)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id)).ok()
+    pub unsafe fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -911,8 +861,8 @@ impl IUIAnimationStoryboard {
         (::windows::core::Interface::vtable(self).GetElapsedTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetStoryboardEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboardEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStoryboardEventHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetStoryboardEventHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboardEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStoryboardEventHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationStoryboard> for ::windows::core::IUnknown {
@@ -920,19 +870,14 @@ impl ::core::convert::From<IUIAnimationStoryboard> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationStoryboard> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationStoryboard) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationStoryboard> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationStoryboard) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationStoryboard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationStoryboard {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationStoryboard {
@@ -982,35 +927,35 @@ pub struct IUIAnimationStoryboard_Vtbl {
 pub struct IUIAnimationStoryboard2(::windows::core::IUnknown);
 impl IUIAnimationStoryboard2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition2>>(&self, variable: Param0, transition: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTransition)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi()).ok()
+    pub unsafe fn AddTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition2>>>(&self, variable: Param0, transition: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTransition)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddKeyframeAtOffset<'a, Param0: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, existingkeyframe: Param0, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
+    pub unsafe fn AddKeyframeAtOffset<'a, Param0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, existingkeyframe: Param0, offset: f64) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_KEYFRAME>::zeroed();
-        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
+        (::windows::core::Interface::vtable(self).AddKeyframeAtOffset)(::windows::core::Interface::as_raw(self), existingkeyframe.into(), ::core::mem::transmute(offset), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddKeyframeAfterTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationTransition2>>(&self, transition: Param0) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
+    pub unsafe fn AddKeyframeAfterTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition2>>>(&self, transition: Param0) -> ::windows::core::Result<UI_ANIMATION_KEYFRAME> {
         let mut result__ = ::core::mem::MaybeUninit::<UI_ANIMATION_KEYFRAME>::zeroed();
-        (::windows::core::Interface::vtable(self).AddKeyframeAfterTransition)(::windows::core::Interface::as_raw(self), transition.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
+        (::windows::core::Interface::vtable(self).AddKeyframeAfterTransition)(::windows::core::Interface::as_raw(self), transition.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_KEYFRAME>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddTransitionAtKeyframe<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition2>, Param2: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTransitionAtKeyframe)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), startkeyframe.into_param().abi()).ok()
+    pub unsafe fn AddTransitionAtKeyframe<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition2>>, Param2: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTransitionAtKeyframe)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), startkeyframe.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn AddTransitionBetweenKeyframes<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationTransition2>, Param2: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>, Param3: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2, endkeyframe: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTransitionBetweenKeyframes)(::windows::core::Interface::as_raw(self), variable.into_param().abi(), transition.into_param().abi(), startkeyframe.into_param().abi(), endkeyframe.into_param().abi()).ok()
+    pub unsafe fn AddTransitionBetweenKeyframes<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTransition2>>, Param2: ::std::convert::Into<UI_ANIMATION_KEYFRAME>, Param3: ::std::convert::Into<UI_ANIMATION_KEYFRAME>>(&self, variable: Param0, transition: Param1, startkeyframe: Param2, endkeyframe: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTransitionBetweenKeyframes)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), startkeyframe.into(), endkeyframe.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RepeatBetweenKeyframes<'a, Param0: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>, Param1: ::windows::core::IntoParam<'a, UI_ANIMATION_KEYFRAME>, Param4: ::windows::core::IntoParam<'a, IUIAnimationLoopIterationChangeHandler2>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, startkeyframe: Param0, endkeyframe: Param1, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: Param4, id: usize, fregisterfornextanimationevent: Param6) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into_param().abi(), endkeyframe.into_param().abi(), ::core::mem::transmute(crepetition), ::core::mem::transmute(repeatmode), piterationchangehandler.into_param().abi(), ::core::mem::transmute(id), fregisterfornextanimationevent.into_param().abi()).ok()
+    pub unsafe fn RepeatBetweenKeyframes<'a, Param0: ::std::convert::Into<UI_ANIMATION_KEYFRAME>, Param1: ::std::convert::Into<UI_ANIMATION_KEYFRAME>, Param3: ::std::convert::Into<UI_ANIMATION_REPEAT_MODE>, Param4: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationLoopIterationChangeHandler2>>, Param6: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, startkeyframe: Param0, endkeyframe: Param1, crepetition: f64, repeatmode: Param3, piterationchangehandler: Param4, id: usize, fregisterfornextanimationevent: Param6) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RepeatBetweenKeyframes)(::windows::core::Interface::as_raw(self), startkeyframe.into(), endkeyframe.into(), ::core::mem::transmute(crepetition), repeatmode.into(), piterationchangehandler.into().abi(), ::core::mem::transmute(id), fregisterfornextanimationevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn HoldVariable<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable2>>(&self, variable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HoldVariable)(::windows::core::Interface::as_raw(self), variable.into_param().abi()).ok()
+    pub unsafe fn HoldVariable<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>>(&self, variable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HoldVariable)(::windows::core::Interface::as_raw(self), variable.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn SetLongestAcceptableDelay(&self, delay: f64) -> ::windows::core::Result<()> {
@@ -1038,8 +983,8 @@ impl IUIAnimationStoryboard2 {
         (::windows::core::Interface::vtable(self).Abandon)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id)).ok()
+    pub unsafe fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -1057,8 +1002,8 @@ impl IUIAnimationStoryboard2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetStoryboardEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboardEventHandler2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterstatuschangefornextanimationevent: Param1, fregisterupdatefornextanimationevent: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStoryboardEventHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi(), fregisterstatuschangefornextanimationevent.into_param().abi(), fregisterupdatefornextanimationevent.into_param().abi()).ok()
+    pub unsafe fn SetStoryboardEventHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboardEventHandler2>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterstatuschangefornextanimationevent: Param1, fregisterupdatefornextanimationevent: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetStoryboardEventHandler)(::windows::core::Interface::as_raw(self), handler.into().abi(), fregisterstatuschangefornextanimationevent.into(), fregisterupdatefornextanimationevent.into()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationStoryboard2> for ::windows::core::IUnknown {
@@ -1066,19 +1011,14 @@ impl ::core::convert::From<IUIAnimationStoryboard2> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationStoryboard2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationStoryboard2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationStoryboard2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationStoryboard2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationStoryboard2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationStoryboard2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationStoryboard2 {
@@ -1135,12 +1075,12 @@ pub struct IUIAnimationStoryboard2_Vtbl {
 pub struct IUIAnimationStoryboardEventHandler(::windows::core::IUnknown);
 impl IUIAnimationStoryboardEventHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnStoryboardStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard>>(&self, storyboard: Param0, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+    pub unsafe fn OnStoryboardStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>, Param1: ::std::convert::Into<UI_ANIMATION_STORYBOARD_STATUS>, Param2: ::std::convert::Into<UI_ANIMATION_STORYBOARD_STATUS>>(&self, storyboard: Param0, newstatus: Param1, previousstatus: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), newstatus.into(), previousstatus.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnStoryboardUpdated<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard>>(&self, storyboard: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStoryboardUpdated)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi()).ok()
+    pub unsafe fn OnStoryboardUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>>(&self, storyboard: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStoryboardUpdated)(::windows::core::Interface::as_raw(self), storyboard.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationStoryboardEventHandler> for ::windows::core::IUnknown {
@@ -1148,19 +1088,14 @@ impl ::core::convert::From<IUIAnimationStoryboardEventHandler> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationStoryboardEventHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationStoryboardEventHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationStoryboardEventHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationStoryboardEventHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationStoryboardEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationStoryboardEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationStoryboardEventHandler {
@@ -1195,12 +1130,12 @@ pub struct IUIAnimationStoryboardEventHandler_Vtbl {
 pub struct IUIAnimationStoryboardEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationStoryboardEventHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnStoryboardStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>>(&self, storyboard: Param0, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+    pub unsafe fn OnStoryboardStatusChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>, Param1: ::std::convert::Into<UI_ANIMATION_STORYBOARD_STATUS>, Param2: ::std::convert::Into<UI_ANIMATION_STORYBOARD_STATUS>>(&self, storyboard: Param0, newstatus: Param1, previousstatus: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStoryboardStatusChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), newstatus.into(), previousstatus.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnStoryboardUpdated<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>>(&self, storyboard: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnStoryboardUpdated)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi()).ok()
+    pub unsafe fn OnStoryboardUpdated<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>>(&self, storyboard: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnStoryboardUpdated)(::windows::core::Interface::as_raw(self), storyboard.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationStoryboardEventHandler2> for ::windows::core::IUnknown {
@@ -1208,19 +1143,14 @@ impl ::core::convert::From<IUIAnimationStoryboardEventHandler2> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationStoryboardEventHandler2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationStoryboardEventHandler2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationStoryboardEventHandler2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationStoryboardEventHandler2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationStoryboardEventHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationStoryboardEventHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationStoryboardEventHandler2 {
@@ -1255,12 +1185,12 @@ pub struct IUIAnimationStoryboardEventHandler2_Vtbl {
 pub struct IUIAnimationTimer(::windows::core::IUnknown);
 impl IUIAnimationTimer {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTimerUpdateHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationTimerUpdateHandler>>(&self, updatehandler: Param0, idlebehavior: UI_ANIMATION_IDLE_BEHAVIOR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimerUpdateHandler)(::windows::core::Interface::as_raw(self), updatehandler.into_param().abi(), ::core::mem::transmute(idlebehavior)).ok()
+    pub unsafe fn SetTimerUpdateHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTimerUpdateHandler>>, Param1: ::std::convert::Into<UI_ANIMATION_IDLE_BEHAVIOR>>(&self, updatehandler: Param0, idlebehavior: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTimerUpdateHandler)(::windows::core::Interface::as_raw(self), updatehandler.into().abi(), idlebehavior.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTimerEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationTimerEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimerEventHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetTimerEventHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTimerEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTimerEventHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn Enable(&self) -> ::windows::core::Result<()> {
@@ -1289,19 +1219,14 @@ impl ::core::convert::From<IUIAnimationTimer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTimer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTimer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTimer> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTimer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTimer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTimer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTimer {
@@ -1341,8 +1266,8 @@ pub struct IUIAnimationTimer_Vtbl {
 pub struct IUIAnimationTimerClientEventHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerClientEventHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnTimerClientStatusChanged(&self, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnTimerClientStatusChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstatus), ::core::mem::transmute(previousstatus)).ok()
+    pub unsafe fn OnTimerClientStatusChanged<'a, Param0: ::std::convert::Into<UI_ANIMATION_TIMER_CLIENT_STATUS>, Param1: ::std::convert::Into<UI_ANIMATION_TIMER_CLIENT_STATUS>>(&self, newstatus: Param0, previousstatus: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnTimerClientStatusChanged)(::windows::core::Interface::as_raw(self), newstatus.into(), previousstatus.into()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationTimerClientEventHandler> for ::windows::core::IUnknown {
@@ -1350,19 +1275,14 @@ impl ::core::convert::From<IUIAnimationTimerClientEventHandler> for ::windows::c
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTimerClientEventHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTimerClientEventHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTimerClientEventHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTimerClientEventHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTimerClientEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTimerClientEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTimerClientEventHandler {
@@ -1413,19 +1333,14 @@ impl ::core::convert::From<IUIAnimationTimerEventHandler> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTimerEventHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTimerEventHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTimerEventHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTimerEventHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTimerEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTimerEventHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTimerEventHandler {
@@ -1466,8 +1381,8 @@ impl IUIAnimationTimerUpdateHandler {
         (::windows::core::Interface::vtable(self).OnUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(timenow), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<UI_ANIMATION_UPDATE_RESULT>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTimerClientEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationTimerClientEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimerClientEventHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetTimerClientEventHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationTimerClientEventHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTimerClientEventHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn ClearTimerClientEventHandler(&self) -> ::windows::core::Result<()> {
@@ -1479,19 +1394,14 @@ impl ::core::convert::From<IUIAnimationTimerUpdateHandler> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTimerUpdateHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTimerUpdateHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTimerUpdateHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTimerUpdateHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTimerUpdateHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTimerUpdateHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTimerUpdateHandler {
@@ -1549,19 +1459,14 @@ impl ::core::convert::From<IUIAnimationTransition> for ::windows::core::IUnknown
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTransition> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTransition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTransition> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTransition) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTransition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTransition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTransition {
@@ -1633,19 +1538,14 @@ impl ::core::convert::From<IUIAnimationTransition2> for ::windows::core::IUnknow
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTransition2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTransition2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTransition2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTransition2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTransition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTransition2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTransition2 {
@@ -1685,9 +1585,9 @@ pub struct IUIAnimationTransition2_Vtbl {
 pub struct IUIAnimationTransitionFactory(::windows::core::IUnknown);
 impl IUIAnimationTransitionFactory {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn CreateTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationInterpolator>>(&self, interpolator: Param0) -> ::windows::core::Result<IUIAnimationTransition> {
+    pub unsafe fn CreateTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationInterpolator>>>(&self, interpolator: Param0) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransition)(::windows::core::Interface::as_raw(self), interpolator.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransition)(::windows::core::Interface::as_raw(self), interpolator.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
 }
 impl ::core::convert::From<IUIAnimationTransitionFactory> for ::windows::core::IUnknown {
@@ -1695,19 +1595,14 @@ impl ::core::convert::From<IUIAnimationTransitionFactory> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTransitionFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTransitionFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTransitionFactory> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTransitionFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTransitionFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTransitionFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTransitionFactory {
@@ -1741,9 +1636,9 @@ pub struct IUIAnimationTransitionFactory_Vtbl {
 pub struct IUIAnimationTransitionFactory2(::windows::core::IUnknown);
 impl IUIAnimationTransitionFactory2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn CreateTransition<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationInterpolator2>>(&self, interpolator: Param0) -> ::windows::core::Result<IUIAnimationTransition2> {
+    pub unsafe fn CreateTransition<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationInterpolator2>>>(&self, interpolator: Param0) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransition)(::windows::core::Interface::as_raw(self), interpolator.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransition)(::windows::core::Interface::as_raw(self), interpolator.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
 }
 impl ::core::convert::From<IUIAnimationTransitionFactory2> for ::windows::core::IUnknown {
@@ -1751,19 +1646,14 @@ impl ::core::convert::From<IUIAnimationTransitionFactory2> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTransitionFactory2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTransitionFactory2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTransitionFactory2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTransitionFactory2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTransitionFactory2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTransitionFactory2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTransitionFactory2 {
@@ -1827,9 +1717,9 @@ impl IUIAnimationTransitionLibrary {
         (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(period), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition> {
+    pub unsafe fn CreateSinusoidalTransitionFromRange<'a, Param4: ::std::convert::Into<UI_ANIMATION_SLOPE>>(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: Param4) -> ::windows::core::Result<IUIAnimationTransition> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(minimumvalue), ::core::mem::transmute(maximumvalue), ::core::mem::transmute(period), ::core::mem::transmute(slope), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(minimumvalue), ::core::mem::transmute(maximumvalue), ::core::mem::transmute(period), slope.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition> {
@@ -1862,19 +1752,14 @@ impl ::core::convert::From<IUIAnimationTransitionLibrary> for ::windows::core::I
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTransitionLibrary> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTransitionLibrary) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTransitionLibrary> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTransitionLibrary) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTransitionLibrary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTransitionLibrary {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTransitionLibrary {
@@ -1969,9 +1854,9 @@ impl IUIAnimationTransitionLibrary2 {
         (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromVelocity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(period), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn CreateSinusoidalTransitionFromRange(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: UI_ANIMATION_SLOPE) -> ::windows::core::Result<IUIAnimationTransition2> {
+    pub unsafe fn CreateSinusoidalTransitionFromRange<'a, Param4: ::std::convert::Into<UI_ANIMATION_SLOPE>>(&self, duration: f64, minimumvalue: f64, maximumvalue: f64, period: f64, slope: Param4) -> ::windows::core::Result<IUIAnimationTransition2> {
         let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(minimumvalue), ::core::mem::transmute(maximumvalue), ::core::mem::transmute(period), ::core::mem::transmute(slope), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
+        (::windows::core::Interface::vtable(self).CreateSinusoidalTransitionFromRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(duration), ::core::mem::transmute(minimumvalue), ::core::mem::transmute(maximumvalue), ::core::mem::transmute(period), slope.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUIAnimationTransition2>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn CreateAccelerateDecelerateTransition(&self, duration: f64, finalvalue: f64, accelerationratio: f64, decelerationratio: f64) -> ::windows::core::Result<IUIAnimationTransition2> {
@@ -2019,19 +1904,14 @@ impl ::core::convert::From<IUIAnimationTransitionLibrary2> for ::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationTransitionLibrary2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationTransitionLibrary2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationTransitionLibrary2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationTransitionLibrary2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationTransitionLibrary2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationTransitionLibrary2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationTransitionLibrary2 {
@@ -2126,24 +2006,24 @@ impl IUIAnimationVariable {
         (::windows::core::Interface::vtable(self).SetUpperBound)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bound)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetRoundingMode<'a, Param0: ::std::convert::Into<UI_ANIMATION_ROUNDING_MODE>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id)).ok()
+    pub unsafe fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetVariableChangeHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariableChangeHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVariableChangeHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetVariableChangeHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariableChangeHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVariableChangeHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetVariableIntegerChangeHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariableIntegerChangeHandler>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVariableIntegerChangeHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetVariableIntegerChangeHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariableIntegerChangeHandler>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVariableIntegerChangeHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariable> for ::windows::core::IUnknown {
@@ -2151,19 +2031,14 @@ impl ::core::convert::From<IUIAnimationVariable> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariable> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariable> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariable {
@@ -2225,8 +2100,8 @@ impl IUIAnimationVariable2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Graphics_DirectComposition\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
-    pub unsafe fn GetCurve<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::DirectComposition::IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCurve)(::windows::core::Interface::as_raw(self), animation.into_param().abi()).ok()
+    pub unsafe fn GetCurve<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::DirectComposition::IDCompositionAnimation>>>(&self, animation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCurve)(::windows::core::Interface::as_raw(self), animation.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Graphics_DirectComposition\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
@@ -2300,12 +2175,12 @@ impl IUIAnimationVariable2 {
         (::windows::core::Interface::vtable(self).SetUpperBoundVector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(bound)), bound.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetRoundingMode(&self, mode: UI_ANIMATION_ROUNDING_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
+    pub unsafe fn SetRoundingMode<'a, Param0: ::std::convert::Into<UI_ANIMATION_ROUNDING_MODE>>(&self, mode: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetRoundingMode)(::windows::core::Interface::as_raw(self), mode.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into_param().abi(), ::core::mem::transmute(id)).ok()
+    pub unsafe fn SetTag<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>>(&self, object: Param0, id: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
     pub unsafe fn GetTag(&self, object: *mut ::core::option::Option<::windows::core::IUnknown>, id: *mut u32) -> ::windows::core::Result<()> {
@@ -2313,17 +2188,17 @@ impl IUIAnimationVariable2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVariableChangeHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariableChangeHandler2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterfornextanimationevent: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVariableChangeHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi(), fregisterfornextanimationevent.into_param().abi()).ok()
+    pub unsafe fn SetVariableChangeHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariableChangeHandler2>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterfornextanimationevent: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVariableChangeHandler)(::windows::core::Interface::as_raw(self), handler.into().abi(), fregisterfornextanimationevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVariableIntegerChangeHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariableIntegerChangeHandler2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterfornextanimationevent: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVariableIntegerChangeHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi(), fregisterfornextanimationevent.into_param().abi()).ok()
+    pub unsafe fn SetVariableIntegerChangeHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariableIntegerChangeHandler2>>, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(&self, handler: Param0, fregisterfornextanimationevent: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVariableIntegerChangeHandler)(::windows::core::Interface::as_raw(self), handler.into().abi(), fregisterfornextanimationevent.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn SetVariableCurveChangeHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariableCurveChangeHandler2>>(&self, handler: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVariableCurveChangeHandler)(::windows::core::Interface::as_raw(self), handler.into_param().abi()).ok()
+    pub unsafe fn SetVariableCurveChangeHandler<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariableCurveChangeHandler2>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVariableCurveChangeHandler)(::windows::core::Interface::as_raw(self), handler.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariable2> for ::windows::core::IUnknown {
@@ -2331,19 +2206,14 @@ impl ::core::convert::From<IUIAnimationVariable2> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariable2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariable2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariable2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariable2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariable2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariable2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariable2 {
@@ -2414,8 +2284,8 @@ pub struct IUIAnimationVariable2_Vtbl {
 pub struct IUIAnimationVariableChangeHandler(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable>>(&self, storyboard: Param0, variable: Param1, newvalue: f64, previousvalue: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue)).ok()
+    pub unsafe fn OnValueChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>>(&self, storyboard: Param0, variable: Param1, newvalue: f64, previousvalue: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue)).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler> for ::windows::core::IUnknown {
@@ -2423,19 +2293,14 @@ impl ::core::convert::From<IUIAnimationVariableChangeHandler> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariableChangeHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariableChangeHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariableChangeHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariableChangeHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariableChangeHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariableChangeHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariableChangeHandler {
@@ -2469,8 +2334,8 @@ pub struct IUIAnimationVariableChangeHandler_Vtbl {
 pub struct IUIAnimationVariableChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable2>>(&self, storyboard: Param0, variable: Param1, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), ::core::mem::transmute(cdimension)).ok()
+    pub unsafe fn OnValueChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>>(&self, storyboard: Param0, variable: Param1, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), ::core::mem::transmute(cdimension)).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::core::IUnknown {
@@ -2478,19 +2343,14 @@ impl ::core::convert::From<IUIAnimationVariableChangeHandler2> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariableChangeHandler2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariableChangeHandler2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariableChangeHandler2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariableChangeHandler2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariableChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariableChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariableChangeHandler2 {
@@ -2524,8 +2384,8 @@ pub struct IUIAnimationVariableChangeHandler2_Vtbl {
 pub struct IUIAnimationVariableCurveChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableCurveChangeHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnCurveChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationVariable2>>(&self, variable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnCurveChanged)(::windows::core::Interface::as_raw(self), variable.into_param().abi()).ok()
+    pub unsafe fn OnCurveChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>>(&self, variable: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnCurveChanged)(::windows::core::Interface::as_raw(self), variable.into().abi()).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableCurveChangeHandler2> for ::windows::core::IUnknown {
@@ -2533,19 +2393,14 @@ impl ::core::convert::From<IUIAnimationVariableCurveChangeHandler2> for ::window
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariableCurveChangeHandler2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariableCurveChangeHandler2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariableCurveChangeHandler2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariableCurveChangeHandler2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariableCurveChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariableCurveChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariableCurveChangeHandler2 {
@@ -2579,8 +2434,8 @@ pub struct IUIAnimationVariableCurveChangeHandler2_Vtbl {
 pub struct IUIAnimationVariableIntegerChangeHandler(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnIntegerValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable>>(&self, storyboard: Param0, variable: Param1, newvalue: i32, previousvalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue)).ok()
+    pub unsafe fn OnIntegerValueChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable>>>(&self, storyboard: Param0, variable: Param1, newvalue: i32, previousvalue: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue)).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler> for ::windows::core::IUnknown {
@@ -2588,19 +2443,14 @@ impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler> for ::windo
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariableIntegerChangeHandler> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariableIntegerChangeHandler) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariableIntegerChangeHandler> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariableIntegerChangeHandler) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariableIntegerChangeHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariableIntegerChangeHandler {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariableIntegerChangeHandler {
@@ -2634,8 +2484,8 @@ pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
 pub struct IUIAnimationVariableIntegerChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler2 {
     #[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
-    pub unsafe fn OnIntegerValueChanged<'a, Param0: ::windows::core::IntoParam<'a, IUIAnimationStoryboard2>, Param1: ::windows::core::IntoParam<'a, IUIAnimationVariable2>>(&self, storyboard: Param0, variable: Param1, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into_param().abi(), variable.into_param().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), ::core::mem::transmute(cdimension)).ok()
+    pub unsafe fn OnIntegerValueChanged<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationStoryboard2>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, IUIAnimationVariable2>>>(&self, storyboard: Param0, variable: Param1, newvalue: *const i32, previousvalue: *const i32, cdimension: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnIntegerValueChanged)(::windows::core::Interface::as_raw(self), storyboard.into().abi(), variable.into().abi(), ::core::mem::transmute(newvalue), ::core::mem::transmute(previousvalue), ::core::mem::transmute(cdimension)).ok()
     }
 }
 impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::windows::core::IUnknown {
@@ -2643,19 +2493,14 @@ impl ::core::convert::From<IUIAnimationVariableIntegerChangeHandler2> for ::wind
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IUIAnimationVariableIntegerChangeHandler2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IUIAnimationVariableIntegerChangeHandler2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IUIAnimationVariableIntegerChangeHandler2> for ::windows::core::IUnknown {
     fn from(value: &IUIAnimationVariableIntegerChangeHandler2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAnimationVariableIntegerChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IUIAnimationVariableIntegerChangeHandler2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IUIAnimationVariableIntegerChangeHandler2 {
@@ -2796,6 +2641,11 @@ impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
 impl ::core::fmt::Debug for UI_ANIMATION_KEYFRAME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UI_ANIMATION_KEYFRAME").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<UI_ANIMATION_KEYFRAME>> for UI_ANIMATION_KEYFRAME {
+    fn from(optional: ::core::option::Option<UI_ANIMATION_KEYFRAME>) -> UI_ANIMATION_KEYFRAME {
+        optional.unwrap_or_default()
     }
 }
 unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {

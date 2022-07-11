@@ -104,14 +104,9 @@ impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for AlternateWordForm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a AlternateWordForm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IUnknown {
+    fn from(value: &AlternateWordForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<AlternateWordForm> for ::windows::core::IInspectable {
@@ -124,14 +119,9 @@ impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for AlternateWordForm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a AlternateWordForm {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IInspectable {
+    fn from(value: &AlternateWordForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for AlternateWordForm {}
@@ -536,14 +526,9 @@ impl ::core::convert::From<&SelectableWordSegment> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SelectableWordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectableWordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SelectableWordSegment> for &::windows::core::IUnknown {
+    fn from(value: &SelectableWordSegment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SelectableWordSegment> for ::windows::core::IInspectable {
@@ -556,14 +541,9 @@ impl ::core::convert::From<&SelectableWordSegment> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SelectableWordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectableWordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SelectableWordSegment> for &::windows::core::IInspectable {
+    fn from(value: &SelectableWordSegment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SelectableWordSegment {}
@@ -580,9 +560,9 @@ impl SelectableWordSegmentsTokenizingHandler {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>>(&self, precedingwords: Param0, words: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, precedingwords: Param0, words: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -681,33 +661,33 @@ impl SelectableWordsSegmenter {
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn GetTokenAt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0, startindex: u32) -> ::windows::core::Result<SelectableWordSegment> {
+    pub fn GetTokenAt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0, startindex: u32) -> ::windows::core::Result<SelectableWordSegment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, result__.as_mut_ptr()).from_abi::<SelectableWordSegment>(result__)
+            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), text.into().abi(), startindex, result__.as_mut_ptr()).from_abi::<SelectableWordSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetTokens<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>> {
+    pub fn GetTokens<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), text.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>(result__)
+            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), text.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<SelectableWordSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Tokenize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, SelectableWordSegmentsTokenizingHandler>>(&self, text: Param0, startindex: u32, handler: Param2) -> ::windows::core::Result<()> {
+    pub fn Tokenize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, SelectableWordSegmentsTokenizingHandler>>>(&self, text: Param0, startindex: u32, handler: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), text.into().abi(), startindex, handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn CreateWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(language: Param0) -> ::windows::core::Result<SelectableWordsSegmenter> {
+    pub fn CreateWithLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(language: Param0) -> ::windows::core::Result<SelectableWordsSegmenter> {
         Self::ISelectableWordsSegmenterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), language.into_param().abi(), result__.as_mut_ptr()).from_abi::<SelectableWordsSegmenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), language.into().abi(), result__.as_mut_ptr()).from_abi::<SelectableWordsSegmenter>(result__)
         })
     }
     #[doc(hidden)]
@@ -756,14 +736,9 @@ impl ::core::convert::From<&SelectableWordsSegmenter> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SelectableWordsSegmenter> for &::windows::core::IUnknown {
+    fn from(value: &SelectableWordsSegmenter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SelectableWordsSegmenter> for ::windows::core::IInspectable {
@@ -776,14 +751,9 @@ impl ::core::convert::From<&SelectableWordsSegmenter> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SelectableWordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SelectableWordsSegmenter> for &::windows::core::IInspectable {
+    fn from(value: &SelectableWordsSegmenter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SelectableWordsSegmenter {}
@@ -794,34 +764,34 @@ pub struct SemanticTextQuery(::windows::core::IUnknown);
 impl SemanticTextQuery {
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Find<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, content: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
+    pub fn Find<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, content: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Find)(::windows::core::Interface::as_raw(this), content.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
+            (::windows::core::Interface::vtable(this).Find)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn FindInProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertycontent: Param0, propertyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
+    pub fn FindInProperty<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, propertycontent: Param0, propertyname: Param1) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<TextSegment>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FindInProperty)(::windows::core::Interface::as_raw(this), propertycontent.into_param().abi(), propertyname.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
+            (::windows::core::Interface::vtable(this).FindInProperty)(::windows::core::Interface::as_raw(this), propertycontent.into().abi(), propertyname.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<TextSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(aqsfilter: Param0) -> ::windows::core::Result<SemanticTextQuery> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(aqsfilter: Param0) -> ::windows::core::Result<SemanticTextQuery> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), aqsfilter.into_param().abi(), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), aqsfilter.into().abi(), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
         })
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn CreateWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(aqsfilter: Param0, filterlanguage: Param1) -> ::windows::core::Result<SemanticTextQuery> {
+    pub fn CreateWithLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(aqsfilter: Param0, filterlanguage: Param1) -> ::windows::core::Result<SemanticTextQuery> {
         Self::ISemanticTextQueryFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), aqsfilter.into_param().abi(), filterlanguage.into_param().abi(), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), aqsfilter.into().abi(), filterlanguage.into().abi(), result__.as_mut_ptr()).from_abi::<SemanticTextQuery>(result__)
         })
     }
     #[doc(hidden)]
@@ -870,14 +840,9 @@ impl ::core::convert::From<&SemanticTextQuery> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SemanticTextQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a SemanticTextQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SemanticTextQuery> for &::windows::core::IUnknown {
+    fn from(value: &SemanticTextQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<SemanticTextQuery> for ::windows::core::IInspectable {
@@ -890,14 +855,9 @@ impl ::core::convert::From<&SemanticTextQuery> for ::windows::core::IInspectable
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SemanticTextQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a SemanticTextQuery {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&SemanticTextQuery> for &::windows::core::IInspectable {
+    fn from(value: &SemanticTextQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for SemanticTextQuery {}
@@ -924,27 +884,27 @@ impl TextConversionGenerator {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCandidatesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn GetCandidatesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCandidatesWithMaxCountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, input: Param0, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn GetCandidatesWithMaxCountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, input: Param0, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<TextConversionGenerator> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<TextConversionGenerator> {
         Self::ITextConversionGeneratorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<TextConversionGenerator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<TextConversionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -993,14 +953,9 @@ impl ::core::convert::From<&TextConversionGenerator> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextConversionGenerator> for &::windows::core::IUnknown {
+    fn from(value: &TextConversionGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TextConversionGenerator> for ::windows::core::IInspectable {
@@ -1013,14 +968,9 @@ impl ::core::convert::From<&TextConversionGenerator> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextConversionGenerator> for &::windows::core::IInspectable {
+    fn from(value: &TextConversionGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TextConversionGenerator {}
@@ -1086,14 +1036,9 @@ impl ::core::convert::From<&TextPhoneme> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextPhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextPhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextPhoneme> for &::windows::core::IUnknown {
+    fn from(value: &TextPhoneme) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TextPhoneme> for ::windows::core::IInspectable {
@@ -1106,14 +1051,9 @@ impl ::core::convert::From<&TextPhoneme> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextPhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextPhoneme {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextPhoneme> for &::windows::core::IInspectable {
+    fn from(value: &TextPhoneme) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TextPhoneme {}
@@ -1140,38 +1080,38 @@ impl TextPredictionGenerator {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCandidatesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn GetCandidatesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCandidatesWithMaxCountAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, input: Param0, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn GetCandidatesWithMaxCountAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, input: Param0, maxcandidates: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithMaxCountAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), maxcandidates, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetCandidatesWithParametersAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, input: Param0, maxcandidates: u32, predictionoptions: TextPredictionOptions, previousstrings: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn GetCandidatesWithParametersAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<TextPredictionOptions>, Param3: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E3>, E3: ::std::convert::Into<::windows::core::Error>>(&self, input: Param0, maxcandidates: u32, predictionoptions: Param2, previousstrings: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), maxcandidates, predictionoptions, previousstrings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetCandidatesWithParametersAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), maxcandidates, predictionoptions.into(), previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetNextWordCandidatesAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, maxcandidates: u32, previousstrings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
+    pub fn GetNextWordCandidatesAsync<'a, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, maxcandidates: u32, previousstrings: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetNextWordCandidatesAsync)(::windows::core::Interface::as_raw(this), maxcandidates, previousstrings.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
+            (::windows::core::Interface::vtable(this).GetNextWordCandidatesAsync)(::windows::core::Interface::as_raw(this), maxcandidates, previousstrings.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"UI_Text_Core\"`*"]
@@ -1185,15 +1125,15 @@ impl TextPredictionGenerator {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"UI_Text_Core\"`*"]
     #[cfg(feature = "UI_Text_Core")]
-    pub fn SetInputScope(&self, value: super::super::UI::Text::Core::CoreTextInputScope) -> ::windows::core::Result<()> {
+    pub fn SetInputScope<'a, Param0: ::std::convert::Into<super::super::UI::Text::Core::CoreTextInputScope>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextPredictionGenerator2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputScope)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<TextPredictionGenerator> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<TextPredictionGenerator> {
         Self::ITextPredictionGeneratorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<TextPredictionGenerator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<TextPredictionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1242,14 +1182,9 @@ impl ::core::convert::From<&TextPredictionGenerator> for ::windows::core::IUnkno
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextPredictionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextPredictionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextPredictionGenerator> for &::windows::core::IUnknown {
+    fn from(value: &TextPredictionGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TextPredictionGenerator> for ::windows::core::IInspectable {
@@ -1262,14 +1197,9 @@ impl ::core::convert::From<&TextPredictionGenerator> for ::windows::core::IInspe
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextPredictionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextPredictionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextPredictionGenerator> for &::windows::core::IInspectable {
+    fn from(value: &TextPredictionGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TextPredictionGenerator {}
@@ -1359,27 +1289,27 @@ impl TextReverseConversionGenerator {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ConvertBackAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
+    pub fn ConvertBackAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ConvertBackAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ConvertBackAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPhonemesAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>> {
+    pub fn GetPhonemesAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, input: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>> {
         let this = &::windows::core::Interface::cast::<ITextReverseConversionGenerator2>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetPhonemesAsync)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>(result__)
+            (::windows::core::Interface::vtable(this).GetPhonemesAsync)(::windows::core::Interface::as_raw(this), input.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<TextReverseConversionGenerator> {
+    pub fn Create<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(languagetag: Param0) -> ::windows::core::Result<TextReverseConversionGenerator> {
         Self::ITextReverseConversionGeneratorFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into_param().abi(), result__.as_mut_ptr()).from_abi::<TextReverseConversionGenerator>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), languagetag.into().abi(), result__.as_mut_ptr()).from_abi::<TextReverseConversionGenerator>(result__)
         })
     }
     #[doc(hidden)]
@@ -1428,14 +1358,9 @@ impl ::core::convert::From<&TextReverseConversionGenerator> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextReverseConversionGenerator> for &::windows::core::IUnknown {
+    fn from(value: &TextReverseConversionGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<TextReverseConversionGenerator> for ::windows::core::IInspectable {
@@ -1448,14 +1373,9 @@ impl ::core::convert::From<&TextReverseConversionGenerator> for ::windows::core:
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a TextReverseConversionGenerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&TextReverseConversionGenerator> for &::windows::core::IInspectable {
+    fn from(value: &TextReverseConversionGenerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
@@ -1794,14 +1714,9 @@ impl ::core::convert::From<&WordSegment> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WordSegment> for &::windows::core::IUnknown {
+    fn from(value: &WordSegment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WordSegment> for ::windows::core::IInspectable {
@@ -1814,14 +1729,9 @@ impl ::core::convert::From<&WordSegment> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WordSegment {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WordSegment> for &::windows::core::IInspectable {
+    fn from(value: &WordSegment) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WordSegment {}
@@ -1838,9 +1748,9 @@ impl WordSegmentsTokenizingHandler {
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>>(&self, precedingwords: Param0, words: Param1) -> ::windows::core::Result<()> {
+    pub fn Invoke<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, precedingwords: Param0, words: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.into_param().abi(), words.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 #[cfg(feature = "Foundation_Collections")]
@@ -1939,33 +1849,33 @@ impl WordsSegmenter {
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn GetTokenAt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0, startindex: u32) -> ::windows::core::Result<WordSegment> {
+    pub fn GetTokenAt<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0, startindex: u32) -> ::windows::core::Result<WordSegment> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, result__.as_mut_ptr()).from_abi::<WordSegment>(result__)
+            (::windows::core::Interface::vtable(this).GetTokenAt)(::windows::core::Interface::as_raw(this), text.into().abi(), startindex, result__.as_mut_ptr()).from_abi::<WordSegment>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GetTokens<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>> {
+    pub fn GetTokens<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WordSegment>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), text.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WordSegment>>(result__)
+            (::windows::core::Interface::vtable(this).GetTokens)(::windows::core::Interface::as_raw(this), text.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<WordSegment>>(result__)
         }
     }
     #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Tokenize<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, WordSegmentsTokenizingHandler>>(&self, text: Param0, startindex: u32, handler: Param2) -> ::windows::core::Result<()> {
+    pub fn Tokenize<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<::windows::core::InParam<'a, WordSegmentsTokenizingHandler>>>(&self, text: Param0, startindex: u32, handler: Param2) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), text.into_param().abi(), startindex, handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Tokenize)(::windows::core::Interface::as_raw(this), text.into().abi(), startindex, handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Data_Text\"`*"]
-    pub fn CreateWithLanguage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(language: Param0) -> ::windows::core::Result<WordsSegmenter> {
+    pub fn CreateWithLanguage<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(language: Param0) -> ::windows::core::Result<WordsSegmenter> {
         Self::IWordsSegmenterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), language.into_param().abi(), result__.as_mut_ptr()).from_abi::<WordsSegmenter>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithLanguage)(::windows::core::Interface::as_raw(this), language.into().abi(), result__.as_mut_ptr()).from_abi::<WordsSegmenter>(result__)
         })
     }
     #[doc(hidden)]
@@ -2014,14 +1924,9 @@ impl ::core::convert::From<&WordsSegmenter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for WordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a WordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WordsSegmenter> for &::windows::core::IUnknown {
+    fn from(value: &WordsSegmenter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<WordsSegmenter> for ::windows::core::IInspectable {
@@ -2034,14 +1939,9 @@ impl ::core::convert::From<&WordsSegmenter> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for WordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a WordsSegmenter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&WordsSegmenter> for &::windows::core::IInspectable {
+    fn from(value: &WordsSegmenter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for WordsSegmenter {}

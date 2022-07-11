@@ -154,7 +154,7 @@ fn GetAt() -> Result<()> {
     assert_eq!(v.GetAt(0)?, 123);
     assert_eq!(v.GetAt(1).unwrap_err().code(), E_BOUNDS);
 
-    let v: IVector<IStringable> = Vector::new(vec![Some(Uri::CreateUri("http://test/")?.cast()?), None]).into();
+    let v: IVector<IStringable> = Vector::new(vec![Some(Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?), None]).into();
     assert_eq!(v.GetAt(0)?.ToString()?, "http://test/");
     assert_eq!(v.GetAt(1).unwrap_err().code(), S_OK);
 
@@ -180,13 +180,13 @@ fn IndexOf() -> Result<()> {
     assert_eq!(index, 1);
     assert_eq!(v.IndexOf(789, &mut index)?, false);
 
-    let uri = Uri::CreateUri("http://test/")?;
+    let uri = Uri::CreateUri(&HSTRING::from("http://test/"))?;
     let v: IVector<IStringable> = Vector::new(vec![Some(uri.cast()?), None]).into();
-    assert_eq!(v.IndexOf(uri, &mut index)?, true);
+    assert_eq!(v.IndexOf(&uri.cast()?, &mut index)?, true);
     assert_eq!(index, 0);
     assert_eq!(v.IndexOf(None, &mut index)?, true);
     assert_eq!(index, 1);
-    assert_eq!(v.IndexOf(Uri::CreateUri("http://test/")?, &mut index)?, false);
+    assert_eq!(v.IndexOf(&Uri::CreateUri(&HSTRING::from("http://test/"))?.cast()?, &mut index)?, false);
 
     Ok(())
 }
@@ -211,11 +211,11 @@ fn test() -> Result<()> {
     assert_eq!(c.GetRuntimeClassName()?, "Windows.Foundation.Collections.IVector"); // TODO: needs to have `1<Int32>
 
     let mut index = 0;
-    assert_eq!(true, v.IndexOf(20, &mut index)?);
+    assert_eq!(true, v.IndexOf(&20, &mut index)?);
     assert_eq!(1, index);
-    assert_eq!(true, v.IndexOf(30, &mut index)?);
+    assert_eq!(true, v.IndexOf(&30, &mut index)?);
     assert_eq!(2, index);
-    assert_eq!(false, v.IndexOf(123, &mut index)?);
+    assert_eq!(false, v.IndexOf(&123, &mut index)?);
 
     let v: IVectorView<HSTRING> = Vector::new(vec!["10".into(), "20".into(), "30".into()]).into();
     assert_eq!("10", v.GetAt(0)?);
@@ -224,13 +224,13 @@ fn test() -> Result<()> {
     assert_eq!(3, v.Size()?);
 
     let mut index = 0;
-    assert_eq!(true, v.IndexOf("20", &mut index)?);
+    assert_eq!(true, v.IndexOf(&HSTRING::from("20"), &mut index)?);
     assert_eq!(1, index);
-    assert_eq!(true, v.IndexOf("30", &mut index)?);
+    assert_eq!(true, v.IndexOf(&HSTRING::from("30"), &mut index)?);
     assert_eq!(2, index);
-    assert_eq!(false, v.IndexOf("123", &mut index)?);
+    assert_eq!(false, v.IndexOf(&HSTRING::from("123"), &mut index)?);
 
-    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri("http://one/")?.try_into().unwrap()), Some(Uri::CreateUri("http://two/")?.try_into().unwrap()), Some(Uri::CreateUri("http://three/")?.try_into().unwrap())]).into();
+    let v: IVectorView<IStringable> = Vector::new(vec![Some(Uri::CreateUri(&HSTRING::from("http://one/"))?.try_into().unwrap()), Some(Uri::CreateUri(&HSTRING::from("http://two/"))?.try_into().unwrap()), Some(Uri::CreateUri(&HSTRING::from("http://three/"))?.try_into().unwrap())]).into();
 
     assert_eq!("http://one/", v.GetAt(0)?.ToString()?);
     assert_eq!("http://two/", v.GetAt(1)?.ToString()?);

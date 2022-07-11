@@ -132,21 +132,15 @@ fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[In
                 }
             }
             #cfg
+            impl<'a, #constraints> ::core::convert::From<&'a #name> for &'a #into {
+                fn from(value: &'a #name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
+            #cfg
             impl<#constraints> ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
-                }
-            }
-            #cfg
-            impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-                }
-            }
-            #cfg
-            impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &'a #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                 }
             }
         });
@@ -172,17 +166,11 @@ fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[In
                     }
                 }
                 #cfg
-                impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #name {
-                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                        ::windows::core::IntoParam::into_param(&self)
-                    }
-                }
-                #cfg
-                impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &#name {
-                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                        ::core::convert::TryInto::<#into>::try_into(self)
-                            .map(::windows::core::Param::Owned)
-                            .unwrap_or(::windows::core::Param::None)
+                impl<'a, #constraints> ::core::convert::TryFrom<&#name> for ::windows::core::InParam<'a, #into> {
+                    type Error = ::windows::core::Error;
+                    fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                        let item = ::std::convert::TryInto::try_into(value)?;
+                        Ok(::windows::core::InParam::owned(item))
                     }
                 }
             });

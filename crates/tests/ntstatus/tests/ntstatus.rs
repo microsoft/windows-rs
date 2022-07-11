@@ -19,7 +19,8 @@ fn test() -> Result<()> {
 
     unsafe {
         let mut provider = BCRYPT_ALG_HANDLE::default();
-        BCryptOpenAlgorithmProvider(&mut provider, "RNG", None, Default::default())?;
+        let rng = HSTRING::from("RNG");
+        BCryptOpenAlgorithmProvider(&mut provider, PCWSTR(rng.as_wide().as_ptr()), PCWSTR::default(), BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS::default())?;
 
         let mut random = GUID::zeroed();
 

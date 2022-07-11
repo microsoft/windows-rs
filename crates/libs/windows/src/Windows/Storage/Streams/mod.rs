@@ -32,18 +32,18 @@ impl Buffer {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateCopyFromMemoryBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IMemoryBuffer>>(input: Param0) -> ::windows::core::Result<Buffer> {
+    pub fn CreateCopyFromMemoryBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IMemoryBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(input: Param0) -> ::windows::core::Result<Buffer> {
         Self::IBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<Buffer>(result__)
+            (::windows::core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Buffer>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateMemoryBufferOverIBuffer<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(input: Param0) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer> {
+    pub fn CreateMemoryBufferOverIBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(input: Param0) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer> {
         Self::IBufferStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(::windows::core::Interface::as_raw(this), input.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::MemoryBuffer>(result__)
+            (::windows::core::Interface::vtable(this).CreateMemoryBufferOverIBuffer)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::MemoryBuffer>(result__)
         })
     }
     #[doc(hidden)]
@@ -97,14 +97,9 @@ impl ::core::convert::From<&Buffer> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Buffer> for &::windows::core::IUnknown {
+    fn from(value: &Buffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<Buffer> for ::windows::core::IInspectable {
@@ -117,14 +112,9 @@ impl ::core::convert::From<&Buffer> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&Buffer> for &::windows::core::IInspectable {
+    fn from(value: &Buffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<Buffer> for IBuffer {
@@ -139,14 +129,11 @@ impl ::core::convert::TryFrom<&Buffer> for IBuffer {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IBuffer> for Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, IBuffer> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IBuffer> for &Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, IBuffer> {
-        ::core::convert::TryInto::<IBuffer>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&Buffer> for ::windows::core::InParam<'a, IBuffer> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &Buffer) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for Buffer {}
@@ -212,9 +199,9 @@ impl DataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> ::windows::core::Result<()> {
+    pub fn SetUnicodeEncoding<'a, Param0: ::std::convert::Into<UnicodeEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn ByteOrder(&self) -> ::windows::core::Result<ByteOrder> {
@@ -225,9 +212,9 @@ impl DataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()> {
+    pub fn SetByteOrder<'a, Param0: ::std::convert::Into<ByteOrder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn InputStreamOptions(&self) -> ::windows::core::Result<InputStreamOptions> {
@@ -238,9 +225,9 @@ impl DataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetInputStreamOptions(&self, value: InputStreamOptions) -> ::windows::core::Result<()> {
+    pub fn SetInputStreamOptions<'a, Param0: ::std::convert::Into<InputStreamOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputStreamOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputStreamOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn ReadByte(&self) -> ::windows::core::Result<u8> {
@@ -395,17 +382,17 @@ impl DataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn CreateDataReader<'a, Param0: ::windows::core::IntoParam<'a, IInputStream>>(inputstream: Param0) -> ::windows::core::Result<DataReader> {
+    pub fn CreateDataReader<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(inputstream: Param0) -> ::windows::core::Result<DataReader> {
         Self::IDataReaderFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDataReader)(::windows::core::Interface::as_raw(this), inputstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<DataReader>(result__)
+            (::windows::core::Interface::vtable(this).CreateDataReader)(::windows::core::Interface::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DataReader>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn FromBuffer<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(buffer: Param0) -> ::windows::core::Result<DataReader> {
+    pub fn FromBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(buffer: Param0) -> ::windows::core::Result<DataReader> {
         Self::IDataReaderStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).FromBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<DataReader>(result__)
+            (::windows::core::Interface::vtable(this).FromBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DataReader>(result__)
         })
     }
     #[doc(hidden)]
@@ -459,14 +446,9 @@ impl ::core::convert::From<&DataReader> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataReader> for &::windows::core::IUnknown {
+    fn from(value: &DataReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DataReader> for ::windows::core::IInspectable {
@@ -479,14 +461,9 @@ impl ::core::convert::From<&DataReader> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataReader> for &::windows::core::IInspectable {
+    fn from(value: &DataReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -504,15 +481,11 @@ impl ::core::convert::TryFrom<&DataReader> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataReader) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DataReader> for IDataReader {
@@ -527,14 +500,11 @@ impl ::core::convert::TryFrom<&DataReader> for IDataReader {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDataReader> for DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, IDataReader> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDataReader> for &DataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, IDataReader> {
-        ::core::convert::TryInto::<IDataReader>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<'a, IDataReader> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataReader) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DataReader {}
@@ -586,9 +556,9 @@ impl DataReaderLoadOperation {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<u32>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<u32>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -651,7 +621,7 @@ impl DataReaderLoadOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -667,7 +637,7 @@ impl ::std::future::Future for DataReaderLoadOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -690,15 +660,9 @@ impl ::core::convert::From<&DataReaderLoadOperation> for ::windows::core::IUnkno
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataReaderLoadOperation> for &::windows::core::IUnknown {
+    fn from(value: &DataReaderLoadOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -714,15 +678,9 @@ impl ::core::convert::From<&DataReaderLoadOperation> for ::windows::core::IInspe
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataReaderLoadOperation> for &::windows::core::IInspectable {
+    fn from(value: &DataReaderLoadOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -740,15 +698,11 @@ impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataReaderLoadOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -766,15 +720,11 @@ impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for &DataReaderLoadOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<u32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<u32>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataReaderLoadOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -815,9 +765,9 @@ impl DataWriter {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> ::windows::core::Result<()> {
+    pub fn SetUnicodeEncoding<'a, Param0: ::std::convert::Into<UnicodeEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn ByteOrder(&self) -> ::windows::core::Result<ByteOrder> {
@@ -828,9 +778,9 @@ impl DataWriter {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()> {
+    pub fn SetByteOrder<'a, Param0: ::std::convert::Into<ByteOrder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn WriteByte(&self, value: u8) -> ::windows::core::Result<()> {
@@ -843,14 +793,14 @@ impl DataWriter {
         unsafe { (::windows::core::Interface::vtable(this).WriteBytes)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteBuffer<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteBufferRange<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, start: u32, count: u32) -> ::windows::core::Result<()> {
+    pub fn WriteBufferRange<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0, start: u32, count: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteBufferRange)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), start, count).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteBufferRange)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), start, count).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn WriteBoolean(&self, value: bool) -> ::windows::core::Result<()> {
@@ -858,9 +808,9 @@ impl DataWriter {
         unsafe { (::windows::core::Interface::vtable(this).WriteBoolean)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteGuid(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteGuid)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteGuid)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn WriteInt16(&self, value: i16) -> ::windows::core::Result<()> {
@@ -904,30 +854,30 @@ impl DataWriter {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteDateTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteDateTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteDateTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteDateTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteTimeSpan)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteTimeSpan)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<u32> {
+    pub fn WriteString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).WriteString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn MeasureString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<u32> {
+    pub fn MeasureString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).MeasureString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MeasureString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -965,10 +915,10 @@ impl DataWriter {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn CreateDataWriter<'a, Param0: ::windows::core::IntoParam<'a, IOutputStream>>(outputstream: Param0) -> ::windows::core::Result<DataWriter> {
+    pub fn CreateDataWriter<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(outputstream: Param0) -> ::windows::core::Result<DataWriter> {
         Self::IDataWriterFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDataWriter)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), result__.as_mut_ptr()).from_abi::<DataWriter>(result__)
+            (::windows::core::Interface::vtable(this).CreateDataWriter)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DataWriter>(result__)
         })
     }
     #[doc(hidden)]
@@ -1017,14 +967,9 @@ impl ::core::convert::From<&DataWriter> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataWriter> for &::windows::core::IUnknown {
+    fn from(value: &DataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DataWriter> for ::windows::core::IInspectable {
@@ -1037,14 +982,9 @@ impl ::core::convert::From<&DataWriter> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataWriter> for &::windows::core::IInspectable {
+    fn from(value: &DataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1062,15 +1002,11 @@ impl ::core::convert::TryFrom<&DataWriter> for super::super::Foundation::IClosab
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataWriter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<DataWriter> for IDataWriter {
@@ -1085,14 +1021,11 @@ impl ::core::convert::TryFrom<&DataWriter> for IDataWriter {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDataWriter> for DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IDataWriter> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDataWriter> for &DataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IDataWriter> {
-        ::core::convert::TryInto::<IDataWriter>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<'a, IDataWriter> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataWriter) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for DataWriter {}
@@ -1144,9 +1077,9 @@ impl DataWriterStoreOperation {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn SetCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<u32>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
+    pub fn SetCompleted<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::AsyncOperationCompletedHandler<u32>>>>(&self, handler: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1209,7 +1142,7 @@ impl DataWriterStoreOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let (_waiter, signaler) = ::windows::core::Waiter::new()?;
-            self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 unsafe {
                     signaler.signal();
                 }
@@ -1225,7 +1158,7 @@ impl ::std::future::Future for DataWriterStoreOperation {
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
             let waker = context.waker().clone();
-            let _ = self.SetCompleted(super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
+            let _ = self.SetCompleted(&super::super::Foundation::AsyncOperationCompletedHandler::new(move |_sender, _args| {
                 waker.wake_by_ref();
                 Ok(())
             }));
@@ -1248,15 +1181,9 @@ impl ::core::convert::From<&DataWriterStoreOperation> for ::windows::core::IUnkn
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataWriterStoreOperation> for &::windows::core::IUnknown {
+    fn from(value: &DataWriterStoreOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1272,15 +1199,9 @@ impl ::core::convert::From<&DataWriterStoreOperation> for ::windows::core::IInsp
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DataWriterStoreOperation> for &::windows::core::IInspectable {
+    fn from(value: &DataWriterStoreOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1298,15 +1219,11 @@ impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncInfo> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataWriterStoreOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1324,15 +1241,11 @@ impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for &DataWriterStoreOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
-        ::core::convert::TryInto::<super::super::Foundation::IAsyncOperation<u32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core::InParam<'a, super::super::Foundation::IAsyncOperation<u32>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DataWriterStoreOperation) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1351,11 +1264,11 @@ impl FileInputStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
 }
@@ -1399,14 +1312,9 @@ impl ::core::convert::From<&FileInputStream> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileInputStream> for &::windows::core::IUnknown {
+    fn from(value: &FileInputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileInputStream> for ::windows::core::IInspectable {
@@ -1419,14 +1327,9 @@ impl ::core::convert::From<&FileInputStream> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileInputStream> for &::windows::core::IInspectable {
+    fn from(value: &FileInputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1444,15 +1347,11 @@ impl ::core::convert::TryFrom<&FileInputStream> for super::super::Foundation::IC
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileInputStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileInputStream> for IInputStream {
@@ -1467,14 +1366,11 @@ impl ::core::convert::TryFrom<&FileInputStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &FileInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileInputStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileInputStream {}
@@ -1528,11 +1424,11 @@ impl FileOutputStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -1585,14 +1481,9 @@ impl ::core::convert::From<&FileOutputStream> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOutputStream> for &::windows::core::IUnknown {
+    fn from(value: &FileOutputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileOutputStream> for ::windows::core::IInspectable {
@@ -1605,14 +1496,9 @@ impl ::core::convert::From<&FileOutputStream> for ::windows::core::IInspectable 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileOutputStream> for &::windows::core::IInspectable {
+    fn from(value: &FileOutputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1630,15 +1516,11 @@ impl ::core::convert::TryFrom<&FileOutputStream> for super::super::Foundation::I
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOutputStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileOutputStream> for IOutputStream {
@@ -1653,14 +1535,11 @@ impl ::core::convert::TryFrom<&FileOutputStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &FileOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOutputStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileOutputStream {}
@@ -1677,84 +1556,84 @@ impl FileRandomAccessStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
+    pub fn OpenAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::FileAccessMode>>(filepath: Param0, accessmode: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), accessmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
+    pub fn OpenWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::FileAccessMode>, Param2: ::std::convert::Into<super::StorageOpenOptions>, Param3: ::std::convert::Into<FileOpenDisposition>>(filepath: Param0, accessmode: Param1, sharingoptions: Param2, opendisposition: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), accessmode, sharingoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), accessmode.into(), sharingoptions.into(), opendisposition.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenTransactedWriteAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
+    pub fn OpenTransactedWriteAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(filepath: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenTransactedWriteAsync)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn OpenTransactedWriteWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(filepath: Param0, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
+    pub fn OpenTransactedWriteWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param1: ::std::convert::Into<super::StorageOpenOptions>, Param2: ::std::convert::Into<FileOpenDisposition>>(filepath: Param0, openoptions: Param1, opendisposition: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), filepath.into_param().abi(), openoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), filepath.into().abi(), openoptions.into(), opendisposition.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn OpenForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, filepath: Param1, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
+    pub fn OpenForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<super::FileAccessMode>>(user: Param0, filepath: Param1, accessmode: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenForUserAsync)(::windows::core::Interface::as_raw(this), user.into_param().abi(), filepath.into_param().abi(), accessmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), filepath.into().abi(), accessmode.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn OpenForUserWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, filepath: Param1, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
+    pub fn OpenForUserWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<super::FileAccessMode>, Param3: ::std::convert::Into<super::StorageOpenOptions>, Param4: ::std::convert::Into<FileOpenDisposition>>(user: Param0, filepath: Param1, accessmode: Param2, sharingoptions: Param3, opendisposition: Param4) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenForUserWithOptionsAsync)(::windows::core::Interface::as_raw(this), user.into_param().abi(), filepath.into_param().abi(), accessmode, sharingoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
+            (::windows::core::Interface::vtable(this).OpenForUserWithOptionsAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), filepath.into().abi(), accessmode.into(), sharingoptions.into(), opendisposition.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn OpenTransactedWriteForUserAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, filepath: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
+    pub fn OpenTransactedWriteForUserAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(user: Param0, filepath: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenTransactedWriteForUserAsync)(::windows::core::Interface::as_raw(this), user.into_param().abi(), filepath.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), filepath.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
-    pub fn OpenTransactedWriteForUserWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, filepath: Param1, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
+    pub fn OpenTransactedWriteForUserWithOptionsAsync<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>, Param2: ::std::convert::Into<super::StorageOpenOptions>, Param3: ::std::convert::Into<FileOpenDisposition>>(user: Param0, filepath: Param1, openoptions: Param2, opendisposition: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).OpenTransactedWriteForUserWithOptionsAsync)(::windows::core::Interface::as_raw(this), user.into_param().abi(), filepath.into_param().abi(), openoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
+            (::windows::core::Interface::vtable(this).OpenTransactedWriteForUserWithOptionsAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), filepath.into().abi(), openoptions.into(), opendisposition.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -1878,14 +1757,9 @@ impl ::core::convert::From<&FileRandomAccessStream> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileRandomAccessStream> for &::windows::core::IUnknown {
+    fn from(value: &FileRandomAccessStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<FileRandomAccessStream> for ::windows::core::IInspectable {
@@ -1898,14 +1772,9 @@ impl ::core::convert::From<&FileRandomAccessStream> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&FileRandomAccessStream> for &::windows::core::IInspectable {
+    fn from(value: &FileRandomAccessStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -1923,15 +1792,11 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileRandomAccessStream> for IInputStream {
@@ -1946,14 +1811,11 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileRandomAccessStream> for IOutputStream {
@@ -1968,14 +1830,11 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<FileRandomAccessStream> for IRandomAccessStream {
@@ -1990,14 +1849,11 @@ impl ::core::convert::TryFrom<&FileRandomAccessStream> for IRandomAccessStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &FileRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::InParam<'a, IRandomAccessStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for FileRandomAccessStream {}
@@ -2033,19 +1889,14 @@ impl ::core::convert::From<IBuffer> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBuffer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBuffer> for ::windows::core::IUnknown {
     fn from(value: &IBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IBuffer> for ::windows::core::IInspectable {
@@ -2053,19 +1904,14 @@ impl ::core::convert::From<IBuffer> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IBuffer> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IBuffer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IBuffer> for ::windows::core::IInspectable {
     fn from(value: &IBuffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IBuffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IBuffer {
@@ -2154,19 +2000,14 @@ impl ::core::convert::From<IContentTypeProvider> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContentTypeProvider> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IContentTypeProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContentTypeProvider> for ::windows::core::IUnknown {
     fn from(value: &IContentTypeProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContentTypeProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IContentTypeProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IContentTypeProvider> for ::windows::core::IInspectable {
@@ -2174,19 +2015,14 @@ impl ::core::convert::From<IContentTypeProvider> for ::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IContentTypeProvider> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IContentTypeProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IContentTypeProvider> for ::windows::core::IInspectable {
     fn from(value: &IContentTypeProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContentTypeProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IContentTypeProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IContentTypeProvider {
@@ -2243,9 +2079,9 @@ impl IDataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> ::windows::core::Result<()> {
+    pub fn SetUnicodeEncoding<'a, Param0: ::std::convert::Into<UnicodeEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn ByteOrder(&self) -> ::windows::core::Result<ByteOrder> {
@@ -2256,9 +2092,9 @@ impl IDataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()> {
+    pub fn SetByteOrder<'a, Param0: ::std::convert::Into<ByteOrder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn InputStreamOptions(&self) -> ::windows::core::Result<InputStreamOptions> {
@@ -2269,9 +2105,9 @@ impl IDataReader {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetInputStreamOptions(&self, value: InputStreamOptions) -> ::windows::core::Result<()> {
+    pub fn SetInputStreamOptions<'a, Param0: ::std::convert::Into<InputStreamOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputStreamOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputStreamOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn ReadByte(&self) -> ::windows::core::Result<u8> {
@@ -2431,19 +2267,14 @@ impl ::core::convert::From<IDataReader> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDataReader> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDataReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDataReader> for ::windows::core::IUnknown {
     fn from(value: &IDataReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDataReader> for ::windows::core::IInspectable {
@@ -2451,19 +2282,14 @@ impl ::core::convert::From<IDataReader> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDataReader> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDataReader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDataReader> for ::windows::core::IInspectable {
     fn from(value: &IDataReader) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDataReader {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDataReader {
@@ -2580,9 +2406,9 @@ impl IDataWriter {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetUnicodeEncoding(&self, value: UnicodeEncoding) -> ::windows::core::Result<()> {
+    pub fn SetUnicodeEncoding<'a, Param0: ::std::convert::Into<UnicodeEncoding>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUnicodeEncoding)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn ByteOrder(&self) -> ::windows::core::Result<ByteOrder> {
@@ -2593,9 +2419,9 @@ impl IDataWriter {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn SetByteOrder(&self, value: ByteOrder) -> ::windows::core::Result<()> {
+    pub fn SetByteOrder<'a, Param0: ::std::convert::Into<ByteOrder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetByteOrder)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn WriteByte(&self, value: u8) -> ::windows::core::Result<()> {
@@ -2608,14 +2434,14 @@ impl IDataWriter {
         unsafe { (::windows::core::Interface::vtable(this).WriteBytes)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteBuffer<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteBuffer<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteBuffer)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteBufferRange<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, start: u32, count: u32) -> ::windows::core::Result<()> {
+    pub fn WriteBufferRange<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0, start: u32, count: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteBufferRange)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), start, count).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteBufferRange)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), start, count).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn WriteBoolean(&self, value: bool) -> ::windows::core::Result<()> {
@@ -2623,9 +2449,9 @@ impl IDataWriter {
         unsafe { (::windows::core::Interface::vtable(this).WriteBoolean)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteGuid(&self, value: ::windows::core::GUID) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteGuid)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteGuid)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
     pub fn WriteInt16(&self, value: i16) -> ::windows::core::Result<()> {
@@ -2669,30 +2495,30 @@ impl IDataWriter {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteDateTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteDateTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteDateTime)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteDateTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).WriteTimeSpan)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).WriteTimeSpan)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn WriteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<u32> {
+    pub fn WriteString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).WriteString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn MeasureString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<u32> {
+    pub fn MeasureString<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
-            (::windows::core::Interface::vtable(this).MeasureString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MeasureString)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -2735,19 +2561,14 @@ impl ::core::convert::From<IDataWriter> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDataWriter> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDataWriter> for ::windows::core::IUnknown {
     fn from(value: &IDataWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDataWriter> for ::windows::core::IInspectable {
@@ -2755,19 +2576,14 @@ impl ::core::convert::From<IDataWriter> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDataWriter> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IDataWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDataWriter> for ::windows::core::IInspectable {
     fn from(value: &IDataWriter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IDataWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDataWriter {
@@ -2904,11 +2720,11 @@ pub struct IInputStream(::windows::core::IUnknown);
 impl IInputStream {
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -2923,19 +2739,14 @@ impl ::core::convert::From<IInputStream> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInputStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInputStream> for ::windows::core::IUnknown {
     fn from(value: &IInputStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInputStream> for ::windows::core::IInspectable {
@@ -2943,19 +2754,14 @@ impl ::core::convert::From<IInputStream> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInputStream> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IInputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInputStream> for ::windows::core::IInspectable {
     fn from(value: &IInputStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -2973,15 +2779,11 @@ impl ::core::convert::TryFrom<&IInputStream> for super::super::Foundation::IClos
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for IInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IInputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IInputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IInputStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IInputStream {
@@ -3039,19 +2841,14 @@ impl ::core::convert::From<IInputStreamReference> for ::windows::core::IUnknown 
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInputStreamReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IInputStreamReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInputStreamReference> for ::windows::core::IUnknown {
     fn from(value: &IInputStreamReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInputStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IInputStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IInputStreamReference> for ::windows::core::IInspectable {
@@ -3059,19 +2856,14 @@ impl ::core::convert::From<IInputStreamReference> for ::windows::core::IInspecta
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IInputStreamReference> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IInputStreamReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IInputStreamReference> for ::windows::core::IInspectable {
     fn from(value: &IInputStreamReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInputStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IInputStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IInputStreamReference {
@@ -3116,11 +2908,11 @@ pub struct IOutputStream(::windows::core::IUnknown);
 impl IOutputStream {
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -3144,19 +2936,14 @@ impl ::core::convert::From<IOutputStream> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOutputStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IOutputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOutputStream> for ::windows::core::IUnknown {
     fn from(value: &IOutputStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IOutputStream> for ::windows::core::IInspectable {
@@ -3164,19 +2951,14 @@ impl ::core::convert::From<IOutputStream> for ::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IOutputStream> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IOutputStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IOutputStream> for ::windows::core::IInspectable {
     fn from(value: &IOutputStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3194,15 +2976,11 @@ impl ::core::convert::TryFrom<&IOutputStream> for super::super::Foundation::IClo
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for IOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IOutputStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IOutputStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IOutputStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IOutputStream {
@@ -3251,22 +3029,27 @@ pub struct IPropertySetSerializer(::windows::core::IUnknown);
 impl IPropertySetSerializer {
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Serialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>>(&self, propertyset: Param0) -> ::windows::core::Result<IBuffer> {
+    pub fn Serialize<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, propertyset: Param0) -> ::windows::core::Result<IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).Serialize)(::windows::core::Interface::as_raw(this), propertyset.into_param().abi(), result__.as_mut_ptr()).from_abi::<IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Serialize)(::windows::core::Interface::as_raw(this), propertyset.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Deserialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IPropertySet>, Param1: ::windows::core::IntoParam<'a, IBuffer>>(&self, propertyset: Param0, buffer: Param1) -> ::windows::core::Result<()> {
+    pub fn Deserialize<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IPropertySet>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(&self, propertyset: Param0, buffer: Param1) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Deserialize)(::windows::core::Interface::as_raw(this), propertyset.into_param().abi(), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Deserialize)(::windows::core::Interface::as_raw(this), propertyset.try_into().map_err(|e| e.into())?.abi(), buffer.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
 }
 impl ::core::convert::From<IPropertySetSerializer> for ::windows::core::IUnknown {
     fn from(value: IPropertySetSerializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPropertySetSerializer> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPropertySetSerializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
@@ -3275,34 +3058,19 @@ impl ::core::convert::From<&IPropertySetSerializer> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPropertySetSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IPropertySetSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPropertySetSerializer> for ::windows::core::IInspectable {
     fn from(value: IPropertySetSerializer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPropertySetSerializer> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IPropertySetSerializer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&IPropertySetSerializer> for ::windows::core::IInspectable {
     fn from(value: &IPropertySetSerializer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPropertySetSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IPropertySetSerializer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IPropertySetSerializer {
@@ -3423,20 +3191,20 @@ impl IRandomAccessStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -3454,19 +3222,14 @@ impl ::core::convert::From<IRandomAccessStream> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStream> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRandomAccessStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStream> for ::windows::core::IUnknown {
     fn from(value: &IRandomAccessStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRandomAccessStream> for ::windows::core::IInspectable {
@@ -3474,19 +3237,14 @@ impl ::core::convert::From<IRandomAccessStream> for ::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStream> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRandomAccessStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStream> for ::windows::core::IInspectable {
     fn from(value: &IRandomAccessStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3504,15 +3262,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStream> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStream> for IInputStream {
@@ -3527,14 +3281,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStream> for IOutputStream {
@@ -3549,14 +3300,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &IRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStream> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IRandomAccessStream {
@@ -3619,19 +3367,14 @@ impl ::core::convert::From<IRandomAccessStreamReference> for ::windows::core::IU
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStreamReference> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRandomAccessStreamReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStreamReference> for ::windows::core::IUnknown {
     fn from(value: &IRandomAccessStreamReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRandomAccessStreamReference> for ::windows::core::IInspectable {
@@ -3639,19 +3382,14 @@ impl ::core::convert::From<IRandomAccessStreamReference> for ::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStreamReference> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRandomAccessStreamReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStreamReference> for ::windows::core::IInspectable {
     fn from(value: &IRandomAccessStreamReference) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IRandomAccessStreamReference {
@@ -3752,20 +3490,20 @@ impl IRandomAccessStreamWithContentType {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -3849,19 +3587,14 @@ impl ::core::convert::From<IRandomAccessStreamWithContentType> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStreamWithContentType> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IRandomAccessStreamWithContentType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStreamWithContentType> for ::windows::core::IUnknown {
     fn from(value: &IRandomAccessStreamWithContentType) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IRandomAccessStreamWithContentType> for ::windows::core::IInspectable {
@@ -3869,19 +3602,14 @@ impl ::core::convert::From<IRandomAccessStreamWithContentType> for ::windows::co
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IRandomAccessStreamWithContentType> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IRandomAccessStreamWithContentType) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IRandomAccessStreamWithContentType> for ::windows::core::IInspectable {
     fn from(value: &IRandomAccessStreamWithContentType) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Foundation")]
@@ -3899,15 +3627,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for super::su
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IContentTypeProvider {
@@ -3922,14 +3646,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IContentT
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IContentTypeProvider> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IContentTypeProvider> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IContentTypeProvider> for &IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IContentTypeProvider> {
-        ::core::convert::TryInto::<IContentTypeProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IContentTypeProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IInputStream {
@@ -3944,14 +3665,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IInputStr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IOutputStream {
@@ -3966,14 +3684,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IOutputSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<IRandomAccessStreamWithContentType> for IRandomAccessStream {
@@ -3988,14 +3703,11 @@ impl ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for IRandomAc
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &IRandomAccessStreamWithContentType {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&IRandomAccessStreamWithContentType> for ::windows::core::InParam<'a, IRandomAccessStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IRandomAccessStreamWithContentType) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::clone::Clone for IRandomAccessStreamWithContentType {
@@ -4049,20 +3761,20 @@ impl InMemoryRandomAccessStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -4181,14 +3893,9 @@ impl ::core::convert::From<&InMemoryRandomAccessStream> for ::windows::core::IUn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InMemoryRandomAccessStream> for &::windows::core::IUnknown {
+    fn from(value: &InMemoryRandomAccessStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InMemoryRandomAccessStream> for ::windows::core::IInspectable {
@@ -4201,14 +3908,9 @@ impl ::core::convert::From<&InMemoryRandomAccessStream> for ::windows::core::IIn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InMemoryRandomAccessStream> for &::windows::core::IInspectable {
+    fn from(value: &InMemoryRandomAccessStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4226,15 +3928,11 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<InMemoryRandomAccessStream> for IInputStream {
@@ -4249,14 +3947,11 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<InMemoryRandomAccessStream> for IOutputStream {
@@ -4271,14 +3966,11 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<InMemoryRandomAccessStream> for IRandomAccessStream {
@@ -4293,14 +3985,11 @@ impl ::core::convert::TryFrom<&InMemoryRandomAccessStream> for IRandomAccessStre
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &InMemoryRandomAccessStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::core::InParam<'a, IRandomAccessStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InMemoryRandomAccessStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
@@ -4380,11 +4069,11 @@ impl InputStreamOverStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
 }
@@ -4428,14 +4117,9 @@ impl ::core::convert::From<&InputStreamOverStream> for ::windows::core::IUnknown
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InputStreamOverStream> for &::windows::core::IUnknown {
+    fn from(value: &InputStreamOverStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InputStreamOverStream> for ::windows::core::IInspectable {
@@ -4448,14 +4132,9 @@ impl ::core::convert::From<&InputStreamOverStream> for ::windows::core::IInspect
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InputStreamOverStream> for &::windows::core::IInspectable {
+    fn from(value: &InputStreamOverStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4473,15 +4152,11 @@ impl ::core::convert::TryFrom<&InputStreamOverStream> for super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InputStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<InputStreamOverStream> for IInputStream {
@@ -4496,14 +4171,11 @@ impl ::core::convert::TryFrom<&InputStreamOverStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &InputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &InputStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for InputStreamOverStream {}
@@ -4520,11 +4192,11 @@ impl OutputStreamOverStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -4577,14 +4249,9 @@ impl ::core::convert::From<&OutputStreamOverStream> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OutputStreamOverStream> for &::windows::core::IUnknown {
+    fn from(value: &OutputStreamOverStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<OutputStreamOverStream> for ::windows::core::IInspectable {
@@ -4597,14 +4264,9 @@ impl ::core::convert::From<&OutputStreamOverStream> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&OutputStreamOverStream> for &::windows::core::IInspectable {
+    fn from(value: &OutputStreamOverStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4622,15 +4284,11 @@ impl ::core::convert::TryFrom<&OutputStreamOverStream> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &OutputStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<OutputStreamOverStream> for IOutputStream {
@@ -4645,14 +4303,11 @@ impl ::core::convert::TryFrom<&OutputStreamOverStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &OutputStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &OutputStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for OutputStreamOverStream {}
@@ -4662,26 +4317,26 @@ pub struct RandomAccessStream;
 impl RandomAccessStream {
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAsync<'a, Param0: ::windows::core::IntoParam<'a, IInputStream>, Param1: ::windows::core::IntoParam<'a, IOutputStream>>(source: Param0, destination: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn CopyAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(source: Param0, destination: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).CopyAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopySizeAsync<'a, Param0: ::windows::core::IntoParam<'a, IInputStream>, Param1: ::windows::core::IntoParam<'a, IOutputStream>>(source: Param0, destination: Param1, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn CopySizeAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(source: Param0, destination: Param1, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopySizeAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), bytestocopy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).CopySizeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), bytestocopy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CopyAndCloseAsync<'a, Param0: ::windows::core::IntoParam<'a, IInputStream>, Param1: ::windows::core::IntoParam<'a, IOutputStream>>(source: Param0, destination: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
+    pub fn CopyAndCloseAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IInputStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param1: ::std::convert::TryInto<::windows::core::InParam<'a, IOutputStream>, Error = E1>, E1: ::std::convert::Into<::windows::core::Error>>(source: Param0, destination: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>> {
         Self::IRandomAccessStreamStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CopyAndCloseAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), destination.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).CopyAndCloseAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4705,20 +4360,20 @@ impl RandomAccessStreamOverStream {
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
+    pub fn ReadAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>, Param2: ::std::convert::Into<InputStreamOptions>>(&self, buffer: Param0, count: u32, options: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<IInputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options.into(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
+    pub fn WriteAsync<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IBuffer>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
@@ -4837,14 +4492,9 @@ impl ::core::convert::From<&RandomAccessStreamOverStream> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RandomAccessStreamOverStream> for &::windows::core::IUnknown {
+    fn from(value: &RandomAccessStreamOverStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RandomAccessStreamOverStream> for ::windows::core::IInspectable {
@@ -4857,14 +4507,9 @@ impl ::core::convert::From<&RandomAccessStreamOverStream> for ::windows::core::I
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RandomAccessStreamOverStream> for &::windows::core::IInspectable {
+    fn from(value: &RandomAccessStreamOverStream) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Foundation")]
@@ -4882,15 +4527,11 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for super::super::F
     }
 }
 #[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
-        ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<RandomAccessStreamOverStream> for IInputStream {
@@ -4905,14 +4546,11 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for IInputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IInputStream> for &RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IInputStream> {
-        ::core::convert::TryInto::<IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, IInputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<RandomAccessStreamOverStream> for IOutputStream {
@@ -4927,14 +4565,11 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for IOutputStream {
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IOutputStream> {
-        ::core::convert::TryInto::<IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, IOutputStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 impl ::core::convert::TryFrom<RandomAccessStreamOverStream> for IRandomAccessStream {
@@ -4949,14 +4584,11 @@ impl ::core::convert::TryFrom<&RandomAccessStreamOverStream> for IRandomAccessSt
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStream> for &RandomAccessStreamOverStream {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStream> {
-        ::core::convert::TryInto::<IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::core::InParam<'a, IRandomAccessStream> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RandomAccessStreamOverStream) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RandomAccessStreamOverStream {}
@@ -4975,25 +4607,25 @@ impl RandomAccessStreamReference {
         }
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn CreateFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>>(file: Param0) -> ::windows::core::Result<RandomAccessStreamReference> {
+    pub fn CreateFromFile<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::IStorageFile>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(file: Param0) -> ::windows::core::Result<RandomAccessStreamReference> {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromFile)(::windows::core::Interface::as_raw(this), file.into_param().abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromFile)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateFromUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<RandomAccessStreamReference> {
+    pub fn CreateFromUri<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>>(uri: Param0) -> ::windows::core::Result<RandomAccessStreamReference> {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromUri)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromUri)(::windows::core::Interface::as_raw(this), uri.into().abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
         })
     }
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    pub fn CreateFromStream<'a, Param0: ::windows::core::IntoParam<'a, IRandomAccessStream>>(stream: Param0) -> ::windows::core::Result<RandomAccessStreamReference> {
+    pub fn CreateFromStream<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, IRandomAccessStream>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(stream: Param0) -> ::windows::core::Result<RandomAccessStreamReference> {
         Self::IRandomAccessStreamReferenceStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStream)(::windows::core::Interface::as_raw(this), stream.into_param().abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStream)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
         })
     }
     #[doc(hidden)]
@@ -5042,14 +4674,9 @@ impl ::core::convert::From<&RandomAccessStreamReference> for ::windows::core::IU
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for RandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a RandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RandomAccessStreamReference> for &::windows::core::IUnknown {
+    fn from(value: &RandomAccessStreamReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<RandomAccessStreamReference> for ::windows::core::IInspectable {
@@ -5062,14 +4689,9 @@ impl ::core::convert::From<&RandomAccessStreamReference> for ::windows::core::II
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for RandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a RandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&RandomAccessStreamReference> for &::windows::core::IInspectable {
+    fn from(value: &RandomAccessStreamReference) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::TryFrom<RandomAccessStreamReference> for IRandomAccessStreamReference {
@@ -5084,14 +4706,11 @@ impl ::core::convert::TryFrom<&RandomAccessStreamReference> for IRandomAccessStr
         ::windows::core::Interface::cast(value)
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStreamReference> for RandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStreamReference> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRandomAccessStreamReference> for &RandomAccessStreamReference {
-    fn into_param(self) -> ::windows::core::Param<'a, IRandomAccessStreamReference> {
-        ::core::convert::TryInto::<IRandomAccessStreamReference>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+impl<'a> ::core::convert::TryFrom<&RandomAccessStreamReference> for ::windows::core::InParam<'a, IRandomAccessStreamReference> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &RandomAccessStreamReference) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
     }
 }
 unsafe impl ::core::marker::Send for RandomAccessStreamReference {}

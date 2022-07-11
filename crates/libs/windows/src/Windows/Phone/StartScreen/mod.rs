@@ -10,9 +10,9 @@ impl DualSimTile {
         SHARED.call(callback)
     }
     #[doc = "*Required features: `\"Phone_StartScreen\"`*"]
-    pub fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetDisplayName<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"Phone_StartScreen\"`*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -66,10 +66,10 @@ impl DualSimTile {
     }
     #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn UpdateDisplayNameForSim1Async<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+    pub fn UpdateDisplayNameForSim1Async<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(name: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IDualSimTileStatics(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateDisplayNameForSim1Async)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).UpdateDisplayNameForSim1Async)(::windows::core::Interface::as_raw(this), name.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
@@ -166,14 +166,9 @@ impl ::core::convert::From<&DualSimTile> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DualSimTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a DualSimTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DualSimTile> for &::windows::core::IUnknown {
+    fn from(value: &DualSimTile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<DualSimTile> for ::windows::core::IInspectable {
@@ -186,14 +181,9 @@ impl ::core::convert::From<&DualSimTile> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DualSimTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a DualSimTile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&DualSimTile> for &::windows::core::IInspectable {
+    fn from(value: &DualSimTile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc(hidden)]
@@ -270,11 +260,11 @@ pub struct IToastNotificationManagerStatics3(::windows::core::IUnknown);
 impl IToastNotificationManagerStatics3 {
     #[doc = "*Required features: `\"Phone_StartScreen\"`, `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
-    pub fn CreateToastNotifierForSecondaryTile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
+    pub fn CreateToastNotifierForSecondaryTile<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::HSTRING>>>(&self, tileid: Param0) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotifier> {
         let this = self;
         unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateToastNotifierForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotifier>(result__)
+            (::windows::core::Interface::vtable(this).CreateToastNotifierForSecondaryTile)(::windows::core::Interface::as_raw(this), tileid.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotifier>(result__)
         }
     }
 }
@@ -283,19 +273,14 @@ impl ::core::convert::From<IToastNotificationManagerStatics3> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IToastNotificationManagerStatics3> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IToastNotificationManagerStatics3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IToastNotificationManagerStatics3> for ::windows::core::IUnknown {
     fn from(value: &IToastNotificationManagerStatics3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IToastNotificationManagerStatics3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IToastNotificationManagerStatics3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IToastNotificationManagerStatics3> for ::windows::core::IInspectable {
@@ -303,19 +288,14 @@ impl ::core::convert::From<IToastNotificationManagerStatics3> for ::windows::cor
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IToastNotificationManagerStatics3> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IToastNotificationManagerStatics3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IToastNotificationManagerStatics3> for ::windows::core::IInspectable {
     fn from(value: &IToastNotificationManagerStatics3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IToastNotificationManagerStatics3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a IToastNotificationManagerStatics3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IToastNotificationManagerStatics3 {

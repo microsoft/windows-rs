@@ -34,9 +34,9 @@ pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {
     #[doc = "*Required features: `\"Phone_Devices_Notification\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
-    pub fn Vibrate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, duration: Param0) -> ::windows::core::Result<()> {
+    pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Vibrate)(::windows::core::Interface::as_raw(this), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Vibrate)(::windows::core::Interface::as_raw(this), duration).ok() }
     }
     #[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
@@ -96,14 +96,9 @@ impl ::core::convert::From<&VibrationDevice> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VibrationDevice> for &::windows::core::IUnknown {
+    fn from(value: &VibrationDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<VibrationDevice> for ::windows::core::IInspectable {
@@ -116,14 +111,9 @@ impl ::core::convert::From<&VibrationDevice> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a VibrationDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&VibrationDevice> for &::windows::core::IInspectable {
+    fn from(value: &VibrationDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 unsafe impl ::core::marker::Send for VibrationDevice {}

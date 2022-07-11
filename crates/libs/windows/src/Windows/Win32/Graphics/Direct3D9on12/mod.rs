@@ -74,13 +74,13 @@ impl IDirect3DDevice9On12 {
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
-    pub unsafe fn UnwrapUnderlyingResource<'a, Param0: ::windows::core::IntoParam<'a, super::Direct3D9::IDirect3DResource9>, Param1: ::windows::core::IntoParam<'a, super::Direct3D12::ID3D12CommandQueue>>(&self, presource: Param0, pcommandqueue: Param1, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnwrapUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into_param().abi(), pcommandqueue.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvresource12)).ok()
+    pub unsafe fn UnwrapUnderlyingResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>, Param1: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D12::ID3D12CommandQueue>>>(&self, presource: Param0, pcommandqueue: Param1, riid: *const ::windows::core::GUID, ppvresource12: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnwrapUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into().abi(), pcommandqueue.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvresource12)).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9on12\"`, `\"Win32_Graphics_Direct3D12\"`, `\"Win32_Graphics_Direct3D9\"`*"]
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
-    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::windows::core::IntoParam<'a, super::Direct3D9::IDirect3DResource9>>(&self, presource: Param0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into_param().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
+    pub unsafe fn ReturnUnderlyingResource<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, super::Direct3D9::IDirect3DResource9>>>(&self, presource: Param0, numsync: u32, psignalvalues: *mut u64, ppfences: *mut ::core::option::Option<super::Direct3D12::ID3D12Fence>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReturnUnderlyingResource)(::windows::core::Interface::as_raw(self), presource.into().abi(), ::core::mem::transmute(numsync), ::core::mem::transmute(psignalvalues), ::core::mem::transmute(ppfences)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::core::IUnknown {
@@ -88,19 +88,14 @@ impl ::core::convert::From<IDirect3DDevice9On12> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a IDirect3DDevice9On12> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IDirect3DDevice9On12) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&IDirect3DDevice9On12> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DDevice9On12) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DDevice9On12 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IDirect3DDevice9On12 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for IDirect3DDevice9On12 {

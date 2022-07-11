@@ -270,9 +270,9 @@ impl InjectedInputGamepadInfo {
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
-    pub fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::Result<()> {
+    pub fn SetButtons<'a, Param0: ::std::convert::Into<super::super::super::super::Gaming::Input::GamepadButtons>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetButtons)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetButtons)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn LeftThumbstickX(&self) -> ::windows::core::Result<f64> {
@@ -354,10 +354,10 @@ impl InjectedInputGamepadInfo {
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
-    pub fn CreateInstanceFromGamepadReading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Gaming::Input::GamepadReading>>(reading: Param0) -> ::windows::core::Result<InjectedInputGamepadInfo> {
+    pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> ::windows::core::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
             let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromGamepadReading)(::windows::core::Interface::as_raw(this), reading.into_param().abi(), result__.as_mut_ptr()).from_abi::<InjectedInputGamepadInfo>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromGamepadReading)(::windows::core::Interface::as_raw(this), reading, result__.as_mut_ptr()).from_abi::<InjectedInputGamepadInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -406,14 +406,9 @@ impl ::core::convert::From<&InjectedInputGamepadInfo> for ::windows::core::IUnkn
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InjectedInputGamepadInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InjectedInputGamepadInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputGamepadInfo> for &::windows::core::IUnknown {
+    fn from(value: &InjectedInputGamepadInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InjectedInputGamepadInfo> for ::windows::core::IInspectable {
@@ -426,14 +421,9 @@ impl ::core::convert::From<&InjectedInputGamepadInfo> for ::windows::core::IInsp
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InjectedInputGamepadInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InjectedInputGamepadInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputGamepadInfo> for &::windows::core::IInspectable {
+    fn from(value: &InjectedInputGamepadInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -521,9 +511,9 @@ impl InjectedInputKeyboardInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetKeyOptions(&self, value: InjectedInputKeyOptions) -> ::windows::core::Result<()> {
+    pub fn SetKeyOptions<'a, Param0: ::std::convert::Into<InjectedInputKeyOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetKeyOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetKeyOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn ScanCode(&self) -> ::windows::core::Result<u16> {
@@ -592,14 +582,9 @@ impl ::core::convert::From<&InjectedInputKeyboardInfo> for ::windows::core::IUnk
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InjectedInputKeyboardInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InjectedInputKeyboardInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputKeyboardInfo> for &::windows::core::IUnknown {
+    fn from(value: &InjectedInputKeyboardInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InjectedInputKeyboardInfo> for ::windows::core::IInspectable {
@@ -612,14 +597,9 @@ impl ::core::convert::From<&InjectedInputKeyboardInfo> for ::windows::core::IIns
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InjectedInputKeyboardInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InjectedInputKeyboardInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputKeyboardInfo> for &::windows::core::IInspectable {
+    fn from(value: &InjectedInputKeyboardInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -642,9 +622,9 @@ impl InjectedInputMouseInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetMouseOptions(&self, value: InjectedInputMouseOptions) -> ::windows::core::Result<()> {
+    pub fn SetMouseOptions<'a, Param0: ::std::convert::Into<InjectedInputMouseOptions>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMouseOptions)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMouseOptions)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn MouseData(&self) -> ::windows::core::Result<u32> {
@@ -739,14 +719,9 @@ impl ::core::convert::From<&InjectedInputMouseInfo> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InjectedInputMouseInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InjectedInputMouseInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputMouseInfo> for &::windows::core::IUnknown {
+    fn from(value: &InjectedInputMouseInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InjectedInputMouseInfo> for ::windows::core::IInspectable {
@@ -759,14 +734,9 @@ impl ::core::convert::From<&InjectedInputMouseInfo> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InjectedInputMouseInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InjectedInputMouseInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputMouseInfo> for &::windows::core::IInspectable {
+    fn from(value: &InjectedInputMouseInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -928,9 +898,9 @@ impl InjectedInputPenInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetPointerInfo<'a, Param0: ::windows::core::IntoParam<'a, InjectedInputPointerInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPointerInfo(&self, value: InjectedInputPointerInfo) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerInfo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn PenButtons(&self) -> ::windows::core::Result<InjectedInputPenButtons> {
@@ -941,9 +911,9 @@ impl InjectedInputPenInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetPenButtons(&self, value: InjectedInputPenButtons) -> ::windows::core::Result<()> {
+    pub fn SetPenButtons<'a, Param0: ::std::convert::Into<InjectedInputPenButtons>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenButtons)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenButtons)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn PenParameters(&self) -> ::windows::core::Result<InjectedInputPenParameters> {
@@ -954,9 +924,9 @@ impl InjectedInputPenInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetPenParameters(&self, value: InjectedInputPenParameters) -> ::windows::core::Result<()> {
+    pub fn SetPenParameters<'a, Param0: ::std::convert::Into<InjectedInputPenParameters>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPenParameters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPenParameters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
@@ -1051,14 +1021,9 @@ impl ::core::convert::From<&InjectedInputPenInfo> for ::windows::core::IUnknown 
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InjectedInputPenInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InjectedInputPenInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputPenInfo> for &::windows::core::IUnknown {
+    fn from(value: &InjectedInputPenInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InjectedInputPenInfo> for ::windows::core::IInspectable {
@@ -1071,14 +1036,9 @@ impl ::core::convert::From<&InjectedInputPenInfo> for ::windows::core::IInspecta
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InjectedInputPenInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InjectedInputPenInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputPenInfo> for &::windows::core::IInspectable {
+    fn from(value: &InjectedInputPenInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1393,9 +1353,9 @@ impl InjectedInputTouchInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetContact<'a, Param0: ::windows::core::IntoParam<'a, InjectedInputRectangle>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetContact(&self, value: InjectedInputRectangle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContact)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContact)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn Orientation(&self) -> ::windows::core::Result<i32> {
@@ -1419,9 +1379,9 @@ impl InjectedInputTouchInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetPointerInfo<'a, Param0: ::windows::core::IntoParam<'a, InjectedInputPointerInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
+    pub fn SetPointerInfo(&self, value: InjectedInputPointerInfo) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPointerInfo)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPointerInfo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
@@ -1445,9 +1405,9 @@ impl InjectedInputTouchInfo {
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn SetTouchParameters(&self, value: InjectedInputTouchParameters) -> ::windows::core::Result<()> {
+    pub fn SetTouchParameters<'a, Param0: ::std::convert::Into<InjectedInputTouchParameters>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTouchParameters)(::windows::core::Interface::as_raw(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTouchParameters)(::windows::core::Interface::as_raw(this), value.into()).ok() }
     }
 }
 impl ::core::clone::Clone for InjectedInputTouchInfo {
@@ -1490,14 +1450,9 @@ impl ::core::convert::From<&InjectedInputTouchInfo> for ::windows::core::IUnknow
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InjectedInputTouchInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InjectedInputTouchInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputTouchInfo> for &::windows::core::IUnknown {
+    fn from(value: &InjectedInputTouchInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InjectedInputTouchInfo> for ::windows::core::IInspectable {
@@ -1510,14 +1465,9 @@ impl ::core::convert::From<&InjectedInputTouchInfo> for ::windows::core::IInspec
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InjectedInputTouchInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InjectedInputTouchInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InjectedInputTouchInfo> for &::windows::core::IInspectable {
+    fn from(value: &InjectedInputTouchInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1625,26 +1575,26 @@ pub struct InputInjector(::windows::core::IUnknown);
 impl InputInjector {
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InjectKeyboardInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>>(&self, input: Param0) -> ::windows::core::Result<()> {
+    pub fn InjectKeyboardInput<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputKeyboardInfo>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, input: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectKeyboardInput)(::windows::core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectKeyboardInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InjectMouseInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>>(&self, input: Param0) -> ::windows::core::Result<()> {
+    pub fn InjectMouseInput<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputMouseInfo>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, input: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectMouseInput)(::windows::core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectMouseInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InitializeTouchInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()> {
+    pub fn InitializeTouchInjection<'a, Param0: ::std::convert::Into<InjectedInputVisualizationMode>>(&self, visualmode: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InitializeTouchInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InitializeTouchInjection)(::windows::core::Interface::as_raw(this), visualmode.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn InjectTouchInput<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>>(&self, input: Param0) -> ::windows::core::Result<()> {
+    pub fn InjectTouchInput<'a, Param0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::super::Foundation::Collections::IIterable<InjectedInputTouchInfo>>, Error = E0>, E0: ::std::convert::Into<::windows::core::Error>>(&self, input: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectTouchInput)(::windows::core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectTouchInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn UninitializeTouchInjection(&self) -> ::windows::core::Result<()> {
@@ -1652,14 +1602,14 @@ impl InputInjector {
         unsafe { (::windows::core::Interface::vtable(this).UninitializeTouchInjection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InitializePenInjection(&self, visualmode: InjectedInputVisualizationMode) -> ::windows::core::Result<()> {
+    pub fn InitializePenInjection<'a, Param0: ::std::convert::Into<InjectedInputVisualizationMode>>(&self, visualmode: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InitializePenInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InitializePenInjection)(::windows::core::Interface::as_raw(this), visualmode.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InjectPenInput<'a, Param0: ::windows::core::IntoParam<'a, InjectedInputPenInfo>>(&self, input: Param0) -> ::windows::core::Result<()> {
+    pub fn InjectPenInput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InjectedInputPenInfo>>>(&self, input: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectPenInput)(::windows::core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectPenInput)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn UninitializePenInjection(&self) -> ::windows::core::Result<()> {
@@ -1667,9 +1617,9 @@ impl InputInjector {
         unsafe { (::windows::core::Interface::vtable(this).UninitializePenInjection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InjectShortcut(&self, shortcut: InjectedInputShortcut) -> ::windows::core::Result<()> {
+    pub fn InjectShortcut<'a, Param0: ::std::convert::Into<InjectedInputShortcut>>(&self, shortcut: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).InjectShortcut)(::windows::core::Interface::as_raw(this), shortcut).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectShortcut)(::windows::core::Interface::as_raw(this), shortcut.into()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn InitializeGamepadInjection(&self) -> ::windows::core::Result<()> {
@@ -1677,9 +1627,9 @@ impl InputInjector {
         unsafe { (::windows::core::Interface::vtable(this).InitializeGamepadInjection)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-    pub fn InjectGamepadInput<'a, Param0: ::windows::core::IntoParam<'a, InjectedInputGamepadInfo>>(&self, input: Param0) -> ::windows::core::Result<()> {
+    pub fn InjectGamepadInput<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, InjectedInputGamepadInfo>>>(&self, input: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInputInjector2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).InjectGamepadInput)(::windows::core::Interface::as_raw(this), input.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).InjectGamepadInput)(::windows::core::Interface::as_raw(this), input.into().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn UninitializeGamepadInjection(&self) -> ::windows::core::Result<()> {
@@ -1751,14 +1701,9 @@ impl ::core::convert::From<&InputInjector> for ::windows::core::IUnknown {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for InputInjector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a InputInjector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InputInjector> for &::windows::core::IUnknown {
+    fn from(value: &InputInjector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<InputInjector> for ::windows::core::IInspectable {
@@ -1771,14 +1716,9 @@ impl ::core::convert::From<&InputInjector> for ::windows::core::IInspectable {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for InputInjector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a InputInjector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+impl ::core::convert::From<&InputInjector> for &::windows::core::IInspectable {
+    fn from(value: &InputInjector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "implement")]

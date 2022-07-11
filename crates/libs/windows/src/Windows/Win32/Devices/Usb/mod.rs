@@ -6224,12 +6224,12 @@ pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::core::ffi::c_void, pipe
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::core::IntoParam<'a, WINUSB_SETUP_PACKET>>(interfacehandle: *const ::core::ffi::c_void, setuppacket: Param1, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ControlTransfer(interfacehandle: *const ::core::ffi::c_void, setuppacket: WINUSB_SETUP_PACKET, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_ControlTransfer(interfacehandle: *const ::core::ffi::c_void, setuppacket: WINUSB_SETUP_PACKET, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinUsb_ControlTransfer(::core::mem::transmute(interfacehandle), setuppacket.into_param().abi(), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(lengthtransferred), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(WinUsb_ControlTransfer(::core::mem::transmute(interfacehandle), ::core::mem::transmute(setuppacket), ::core::mem::transmute(buffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(lengthtransferred), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6314,12 +6314,12 @@ pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::core::ffi::c_void, 
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_GetOverlappedResult(interfacehandle: *const ::core::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinUsb_GetOverlappedResult(::core::mem::transmute(interfacehandle), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into_param().abi()))
+    ::core::mem::transmute(WinUsb_GetOverlappedResult(::core::mem::transmute(interfacehandle), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpnumberofbytestransferred), bwait.into()))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6344,12 +6344,12 @@ pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::core::ffi::c_void,
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_Initialize<'a, Param0: ::std::convert::Into<super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_Initialize(devicehandle: super::super::Foundation::HANDLE, interfacehandle: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinUsb_Initialize(devicehandle.into_param().abi(), ::core::mem::transmute(interfacehandle)))
+    ::core::mem::transmute(WinUsb_Initialize(devicehandle.into(), ::core::mem::transmute(interfacehandle)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`*"]
 #[inline]
@@ -6422,12 +6422,12 @@ pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::core::ffi::c_void, off
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, isopacketdescriptors: &mut [USBD_ISO_PACKET_DESCRIPTOR], overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_ReadIsochPipeAsap(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: super::super::Foundation::BOOL, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinUsb_ReadIsochPipeAsap(::core::mem::transmute(bufferhandle), ::core::mem::transmute(offset), ::core::mem::transmute(length), continuestream.into_param().abi(), isopacketdescriptors.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(isopacketdescriptors)), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(WinUsb_ReadIsochPipeAsap(::core::mem::transmute(bufferhandle), ::core::mem::transmute(offset), ::core::mem::transmute(length), continuestream.into(), isopacketdescriptors.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(isopacketdescriptors)), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
@@ -6532,12 +6532,12 @@ pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::core::ffi::c_void, of
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::std::convert::Into<super::super::Foundation::BOOL>>(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn WinUsb_WriteIsochPipeAsap(bufferhandle: *const ::core::ffi::c_void, offset: u32, length: u32, continuestream: super::super::Foundation::BOOL, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
     }
-    ::core::mem::transmute(WinUsb_WriteIsochPipeAsap(::core::mem::transmute(bufferhandle), ::core::mem::transmute(offset), ::core::mem::transmute(length), continuestream.into_param().abi(), ::core::mem::transmute(overlapped)))
+    ::core::mem::transmute(WinUsb_WriteIsochPipeAsap(::core::mem::transmute(bufferhandle), ::core::mem::transmute(offset), ::core::mem::transmute(length), continuestream.into(), ::core::mem::transmute(overlapped)))
 }
 #[doc = "*Required features: `\"Win32_Devices_Usb\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]

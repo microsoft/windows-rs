@@ -80,10 +80,6 @@ impl HSTRING {
 
 unsafe impl Abi for HSTRING {
     type Abi = core::mem::ManuallyDrop<Self>;
-
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(core::mem::ManuallyDrop::into_inner(abi))
-    }
 }
 
 unsafe impl RuntimeType for HSTRING {
@@ -379,34 +375,6 @@ impl<'a> core::convert::From<&'a HSTRING> for std::ffi::OsString {
 impl core::convert::From<HSTRING> for std::ffi::OsString {
     fn from(hstring: HSTRING) -> Self {
         Self::from(&hstring)
-    }
-}
-
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, HSTRING> for &str {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
-    }
-}
-
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, HSTRING> for alloc::string::String {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
-    }
-}
-
-#[cfg(all(windows, feature = "alloc"))]
-impl<'a> IntoParam<'a, HSTRING> for &std::ffi::OsStr {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
-    }
-}
-
-#[cfg(all(windows, feature = "alloc"))]
-impl<'a> IntoParam<'a, HSTRING> for std::ffi::OsString {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
     }
 }
 

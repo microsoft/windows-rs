@@ -365,19 +365,14 @@ impl ::core::convert::From<INetDiagExtensibleHelper> for ::windows::core::IUnkno
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetDiagExtensibleHelper> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetDiagExtensibleHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetDiagExtensibleHelper> for ::windows::core::IUnknown {
     fn from(value: &INetDiagExtensibleHelper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetDiagExtensibleHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetDiagExtensibleHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetDiagExtensibleHelper {
@@ -429,12 +424,12 @@ impl INetDiagHelper {
         (::windows::core::Interface::vtable(self).GetKeyAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcelt), ::core::mem::transmute(pprgattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn LowHealth<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszinstancedescription: Param0, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LowHealth)(::windows::core::Interface::as_raw(self), pwszinstancedescription.into_param().abi(), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+    pub unsafe fn LowHealth(&self, pwszinstancedescription: ::windows::core::PCWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LowHealth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszinstancedescription), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn HighUtilization<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszinstancedescription: Param0, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HighUtilization)(::windows::core::Interface::as_raw(self), pwszinstancedescription.into_param().abi(), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+    pub unsafe fn HighUtilization(&self, pwszinstancedescription: ::windows::core::PCWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).HighUtilization)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwszinstancedescription), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -461,12 +456,12 @@ impl INetDiagHelper {
         (::windows::core::Interface::vtable(self).Repair)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(problem), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
+    pub unsafe fn Validate<'a, Param0: ::std::convert::Into<PROBLEM_TYPE>>(&self, problem: Param0, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Validate)(::windows::core::Interface::as_raw(self), problem.into(), ::core::mem::transmute(pdeferredtime), ::core::mem::transmute(pstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRepairInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(problem), ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
+    pub unsafe fn GetRepairInfo<'a, Param0: ::std::convert::Into<PROBLEM_TYPE>>(&self, problem: Param0, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRepairInfo)(::windows::core::Interface::as_raw(self), problem.into(), ::core::mem::transmute(pcelt), ::core::mem::transmute(ppinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -476,8 +471,8 @@ impl INetDiagHelper {
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLifeTime<'a, Param0: ::windows::core::IntoParam<'a, LIFE_TIME>>(&self, lifetime: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLifeTime)(::windows::core::Interface::as_raw(self), lifetime.into_param().abi()).ok()
+    pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLifeTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lifetime)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -504,19 +499,14 @@ impl ::core::convert::From<INetDiagHelper> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetDiagHelper> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetDiagHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetDiagHelper> for ::windows::core::IUnknown {
     fn from(value: &INetDiagHelper) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetDiagHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetDiagHelper {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetDiagHelper {
@@ -602,8 +592,8 @@ impl INetDiagHelperEx {
         (::windows::core::Interface::vtable(self).ReconfirmLowHealth)(::windows::core::Interface::as_raw(self), presults.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(presults)), ::core::mem::transmute(ppwszupdateddescription), ::core::mem::transmute(pupdatedstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-    pub unsafe fn SetUtilities<'a, Param0: ::windows::core::IntoParam<'a, INetDiagHelperUtilFactory>>(&self, putilities: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUtilities)(::windows::core::Interface::as_raw(self), putilities.into_param().abi()).ok()
+    pub unsafe fn SetUtilities<'a, Param0: ::std::convert::Into<::windows::core::InParam<'a, INetDiagHelperUtilFactory>>>(&self, putilities: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetUtilities)(::windows::core::Interface::as_raw(self), putilities.into().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
     pub unsafe fn ReproduceFailure(&self) -> ::windows::core::Result<()> {
@@ -615,19 +605,14 @@ impl ::core::convert::From<INetDiagHelperEx> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetDiagHelperEx> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetDiagHelperEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetDiagHelperEx> for ::windows::core::IUnknown {
     fn from(value: &INetDiagHelperEx) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetDiagHelperEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetDiagHelperEx {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetDiagHelperEx {
@@ -675,19 +660,14 @@ impl ::core::convert::From<INetDiagHelperInfo> for ::windows::core::IUnknown {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetDiagHelperInfo> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetDiagHelperInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetDiagHelperInfo> for ::windows::core::IUnknown {
     fn from(value: &INetDiagHelperInfo) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetDiagHelperInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetDiagHelperInfo {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetDiagHelperInfo {
@@ -731,19 +711,14 @@ impl ::core::convert::From<INetDiagHelperUtilFactory> for ::windows::core::IUnkn
         unsafe { ::core::mem::transmute(value) }
     }
 }
+impl<'a> ::core::convert::From<&'a INetDiagHelperUtilFactory> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a INetDiagHelperUtilFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
 impl ::core::convert::From<&INetDiagHelperUtilFactory> for ::windows::core::IUnknown {
     fn from(value: &INetDiagHelperUtilFactory) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetDiagHelperUtilFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetDiagHelperUtilFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::clone::Clone for INetDiagHelperUtilFactory {
@@ -866,89 +841,89 @@ pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_voi
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
-pub unsafe fn NdfCreateDNSIncident<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(hostname: Param0, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateDNSIncident(hostname: ::windows::core::PCWSTR, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateDNSIncident(hostname: ::windows::core::PCWSTR, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateDNSIncident(hostname.into_param().abi(), ::core::mem::transmute(querytype), ::core::mem::transmute(handle)).ok()
+    NdfCreateDNSIncident(::core::mem::transmute(hostname), ::core::mem::transmute(querytype), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
-pub unsafe fn NdfCreateGroupingIncident<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(cloudname: Param0, groupname: Param1, identity: Param2, invitation: Param3, addresses: *const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, appid: Param5, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateGroupingIncident(cloudname: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, identity: ::windows::core::PCWSTR, invitation: ::windows::core::PCWSTR, addresses: *const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateGroupingIncident(cloudname: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, identity: ::windows::core::PCWSTR, invitation: ::windows::core::PCWSTR, addresses: *const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateGroupingIncident(cloudname.into_param().abi(), groupname.into_param().abi(), identity.into_param().abi(), invitation.into_param().abi(), ::core::mem::transmute(addresses), appid.into_param().abi(), ::core::mem::transmute(handle)).ok()
+    NdfCreateGroupingIncident(::core::mem::transmute(cloudname), ::core::mem::transmute(groupname), ::core::mem::transmute(identity), ::core::mem::transmute(invitation), ::core::mem::transmute(addresses), ::core::mem::transmute(appid), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NdfCreateIncident<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(helperclassname: Param0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateIncident(helperclassname: ::windows::core::PCWSTR, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateIncident(helperclassname: ::windows::core::PCWSTR, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateIncident(helperclassname.into_param().abi(), attributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(attributes)), ::core::mem::transmute(handle)).ok()
+    NdfCreateIncident(::core::mem::transmute(helperclassname), attributes.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(attributes)), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
-pub unsafe fn NdfCreateNetConnectionIncident<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(handle: *mut *mut ::core::ffi::c_void, id: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
-    NdfCreateNetConnectionIncident(::core::mem::transmute(handle), id.into_param().abi()).ok()
+    NdfCreateNetConnectionIncident(::core::mem::transmute(handle), ::core::mem::transmute(id)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NdfCreatePnrpIncident<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(cloudname: Param0, peername: Param1, diagnosepublish: Param2, appid: Param3, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreatePnrpIncident<'a, Param2: ::std::convert::Into<super::super::Foundation::BOOL>>(cloudname: ::windows::core::PCWSTR, peername: ::windows::core::PCWSTR, diagnosepublish: Param2, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreatePnrpIncident(cloudname: ::windows::core::PCWSTR, peername: ::windows::core::PCWSTR, diagnosepublish: super::super::Foundation::BOOL, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreatePnrpIncident(cloudname.into_param().abi(), peername.into_param().abi(), diagnosepublish.into_param().abi(), appid.into_param().abi(), ::core::mem::transmute(handle)).ok()
+    NdfCreatePnrpIncident(::core::mem::transmute(cloudname), ::core::mem::transmute(peername), diagnosepublish.into(), ::core::mem::transmute(appid), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
-pub unsafe fn NdfCreateSharingIncident<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(uncpath: Param0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateSharingIncident(uncpath: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateSharingIncident(uncpath: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateSharingIncident(uncpath.into_param().abi(), ::core::mem::transmute(handle)).ok()
+    NdfCreateSharingIncident(::core::mem::transmute(uncpath), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
-pub unsafe fn NdfCreateWebIncident<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(url: Param0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateWebIncident(url: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateWebIncident(url: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateWebIncident(url.into_param().abi(), ::core::mem::transmute(handle)).ok()
+    NdfCreateWebIncident(::core::mem::transmute(url), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NdfCreateWebIncidentEx<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(url: Param0, usewinhttp: Param1, modulename: Param2, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateWebIncidentEx<'a, Param1: ::std::convert::Into<super::super::Foundation::BOOL>>(url: ::windows::core::PCWSTR, usewinhttp: Param1, modulename: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateWebIncidentEx(url: ::windows::core::PCWSTR, usewinhttp: super::super::Foundation::BOOL, modulename: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateWebIncidentEx(url.into_param().abi(), usewinhttp.into_param().abi(), modulename.into_param().abi(), ::core::mem::transmute(handle)).ok()
+    NdfCreateWebIncidentEx(::core::mem::transmute(url), usewinhttp.into(), ::core::mem::transmute(modulename), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NdfCreateWinSockIncident<'a, Param0: ::windows::core::IntoParam<'a, super::super::Networking::WinSock::SOCKET>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(sock: Param0, host: Param1, port: u16, appid: Param3, userid: *const super::super::Security::SID, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn NdfCreateWinSockIncident<'a, Param0: ::std::convert::Into<super::super::Networking::WinSock::SOCKET>>(sock: Param0, host: ::windows::core::PCWSTR, port: u16, appid: ::windows::core::PCWSTR, userid: *const super::super::Security::SID, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfCreateWinSockIncident(sock: super::super::Networking::WinSock::SOCKET, host: ::windows::core::PCWSTR, port: u16, appid: ::windows::core::PCWSTR, userid: *const super::super::Security::SID, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-    NdfCreateWinSockIncident(sock.into_param().abi(), host.into_param().abi(), ::core::mem::transmute(port), appid.into_param().abi(), ::core::mem::transmute(userid), ::core::mem::transmute(handle)).ok()
+    NdfCreateWinSockIncident(sock.into(), ::core::mem::transmute(host), ::core::mem::transmute(port), ::core::mem::transmute(appid), ::core::mem::transmute(userid), ::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
@@ -962,12 +937,12 @@ pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausec
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NdfExecuteDiagnosis<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(handle: *const ::core::ffi::c_void, hwnd: Param1) -> ::windows::core::Result<()> {
+pub unsafe fn NdfExecuteDiagnosis<'a, Param1: ::std::convert::Into<super::super::Foundation::HWND>>(handle: *const ::core::ffi::c_void, hwnd: Param1) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn NdfExecuteDiagnosis(handle: *const ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
-    NdfExecuteDiagnosis(::core::mem::transmute(handle), hwnd.into_param().abi()).ok()
+    NdfExecuteDiagnosis(::core::mem::transmute(handle), hwnd.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[inline]
